@@ -1,0 +1,22 @@
+<div class="dinamycText" id="quote">SplitText makes it easy to break apart the text in an HTML element so that each character, word, and/or line is wrapped in its own div tag.</div>
+<div>
+  <img class="napFace" src="images/nap.svg"/>
+  <div class="boxGroup">
+    <div class="boxAnim"></div>
+    <div class="boxAnim"></div>
+    <div class="boxAnim"></div>
+    <div class="boxAnim"></div>
+    <div class="boxAnim"></div>
+  </div>
+</div>
+<div id="id-{{ result.id }}"
+     ng-repeat="result in results track by result.id"
+     class="result"
+     ng-animate="{leave:'list-out', enter:'list-in', move:'list-move'}">
+  <a href="" app-focus="result" class="inner">
+    <h5>{{ result.name }}</h5>
+    <img ng-src="http://builtwith.angularjs.org/projects/{{ result.thumb }}" />
+  </a>
+</div>
+
+<!--<script src="bower_components/greensock/src/uncompressed/SplitTextPlugin.js"></script>-->
