@@ -10,39 +10,88 @@
 
 body {
   padding: 0;
-  background-color: #101010;
+  background-color: #212121;
   overflow: hidden;
 }
-.dinamycText {
-  color: white;
-  font-size: 30px;
+.footer{
+  height: 40px;
+  width: 100%;
+  background-color: #2e2e2e;
+  border-top: solid 2px white;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+}
+.videoClass{
+  position: absolute;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  height: 100%;
+}
+.scrollIcon{
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  bottom: 60px;
+  width: 2%;
+}
+.ageTitle {
+  font-family: 'Alice',serif;
+  text-align: justify;
+  color: #ffd85f;
+  font-size: 120px;
   font-weight: bold;
-  width: 50%;
+  margin-right: 10%;
   float: right;
+  display: inline-block;
+}
+.dinamycText {
+  font-family: 'Alice',serif;
+  text-align: justify;
+  color: white;
+  font-size: 15px;
+  width: 30%;
+  margin-right: 5%;
+  float: right;
+  opacity: 0;
 }
 .napFace{
+  opacity: 0;
   position: absolute;
-  top: 130px;
+  top: 20px;
+  width: 7%;
+  fill: #ffd85f;
+  color: #ffd85f;
+}
+path{
+  fill: #500;
 }
 .boxGroup {
   display: block;
-  position: absolute;
-  top: 20px;
-  left: 20px;
+  float: right;
   /* bottom: 0; */
   /* right: 0; */
   margin: auto;
   height: 50px;
-  width: 300px;
 }
 .boxAnim{
-  width: 50px;
-  height: 50px;
-  border-radius: 6px;
-  background-color: grey;
+  /* width: 95px; */
+  /* height: 50px; */
+  opacity: 0;
+  scale: 0;
+  font-family: 'Alice',serif;
+  border-radius: 2px;
+  background-color: rgb(86, 77, 48);
   margin-right: 10px;
   float: left;
   cursor: pointer;
+  font-size: 12px;
+  padding: 10px;
+  color: rgb(255, 216, 95);
 }
 .wordStyle{
   display: inline-block;
