@@ -13,14 +13,15 @@ angular.module('smcApp')
 
     var soundEpilogo = new Howl({
       urls: ['audio/ValsViudaAlegre.mp3'],
-      loop: true,
+      loop: false,
       volume: 0.3,
       onend: function() {
         console.log('Finished!');
       }
     })
 
-    TweenMax.from(".videoClass", 30, {opacity:0, volume: 0, ease: Power2.easeOut})
+    TweenMax.from(".videoClass", 15, {opacity:0, volume: 0, ease: Power2.easeOut});
+    var tl = new TimelineMax();
 
     $(".videoClass").bind("ended", function() {
       console.log('video finalizado');
@@ -30,7 +31,6 @@ angular.module('smcApp')
 
     TweenMax.set(".napFace, .boxAnim, .word-measure .videoClass", {visibility:"visible"})
 
-    var tl = new TimelineMax();
     $(window).bind('mousewheel DOMMouseScroll mousedown', function(event){
       event.preventDefault();
       if(event.type != 'mousedown'){
@@ -60,7 +60,7 @@ angular.module('smcApp')
       var mySplitText = $("#quote").splitText({'type':'words','animation':'glowOnHover','useLite':true});
       var wordsElement = $(".word-measure");
 
-      tl.staggerTo(".boxAnim", 1, {opacity: 1, scale: 1, delay: 1, ease: Elastic.easeOut}, 0.3)
+      tl.staggerTo(".boxAnim", 1, {opacity: 1, scale: 1, ease: Elastic.easeOut}, 0.3)
       tl.to(".dinamycText", 0.2, {opacity: 1, ease: Power2.easeOut}, 0.3)
       tl.to(".napFace", 2, {opacity: 1, repeat:10, onRepeat:onRepeat, repeatDelay:2, ease: RoughEase.ease.config({ template: Power0.easeNone, strength: 1.5, points: 20, taper: "none", randomize: true, clamp: false})}, "-=0.5");
 
