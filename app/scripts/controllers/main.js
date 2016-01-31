@@ -11,21 +11,38 @@ angular.module('smcApp')
 
   .controller('MainCtrl', function ($scope) {
 
+    var soundEpilogo = new Howl({
+      urls: ['audio/ValsViudaAlegre.mp3'],
+      loop: true,
+      volume: 0.3,
+      onend: function() {
+        console.log('Finished!');
+      }
+    }).play();
+
     TweenMax.set(".napFace, .boxAnim, .word-measure", {visibility:"visible"})
 
     var tl = new TimelineMax();
 
-    $(window).bind('mousewheel DOMMouseScroll', function(event){
+    $(window).bind('mousewheel DOMMouseScroll click', function(event){
       event.preventDefault();
-      if (event.originalEvent.wheelDelta > 0 || event.originalEvent.detail < 0) {
-        tl.play();
-        setTimeout(pauseAnim, 500)
+      console.log(event.originalEvent);
+      console.log(sound._volume)
+      if(event.type != 'click'){
+        if (event.originalEvent.wheelDelta > 0 || event.originalEvent.detail < 0) {
+          tl.play();
+          soundEpilogo.volume(sound._volume - 0.005);
+          setTimeout(pauseAnim, 300)
+        }
+        else {
+          tl.reverse();
+          soundEpilogo.volume(sound._volume + 0.005);
+          setTimeout(pauseAnim, 300)
+        }
       }
-      else if(event.originalEvent.wheelDelta < 0 || event.originalEvent.detail < 0){
-        tl.reverse();
-        setTimeout(pauseAnim, 500)
+      else {
+        tl.paused(!tl.paused())
       }
-      else tl.pause();
     });
 
     function pauseAnim(){
@@ -48,7 +65,7 @@ angular.module('smcApp')
       tl.to(".napFace", 0.4, {opacity: 1, delay: 0.1, ease: Elastic.easeOut});}
 
     function rotateFace(value){
-      tl.to(".napFace", 0.5, {rotation: value, ease: Elastic.easeOut});
+      TweenMax.to(".napFace", 0.5, {rotation: value, ease: Elastic.easeOut});
     }
 
     function onRepeat() {
