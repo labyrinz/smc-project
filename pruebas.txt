@@ -1,0 +1,113 @@
+
+    var soundEpilogo = new Howl({
+      urls: ['audio/ValsViudaAlegre.mp3'],
+      loop: false,
+      volume: 0.3,
+      onend: function() {
+        console.log('Finished!');
+      }
+    })
+
+    TweenMax.from(".videoClass", 15, {opacity:0, volume: 0, ease: Power2.easeOut});
+    var tl = new TimelineMax();
+
+    $(".videoClass").bind("ended", function() {
+      TweenMax.to(".videoClass", 5, {opacity:0, volume: 0, ease: Power2.easeOut, onComplete:eraseVideo});
+      setTimeout(animateText, 7000);
+    });
+
+    TweenMax.set(".napFace, .boxAnim, .word-measure .videoClass", {visibility:"visible"})
+
+    $(window).bind('mousewheel DOMMouseScroll mousedown', function(event){
+      event.preventDefault();
+      if(event.type != 'mousedown'){
+        if (event.originalEvent.wheelDelta > 0 || event.originalEvent.detail < 0) {
+          tl.play();
+          soundEpilogo.volume(soundEpilogo._volume - 0.005);
+          setTimeout(pauseAnim, 300)
+        }
+        else {
+          tl.reverse();
+          soundEpilogo.volume(soundEpilogo._volume + 0.005);
+          setTimeout(pauseAnim, 300)
+        }
+      }
+      else if(event.type == 'mousedown' && event.button == 1) {
+       if (tl.paused()) tl.play();
+       else tl.pause()
+      }
+    });
+
+    function pauseAnim(){
+      tl.pause();
+    }
+
+    function animateText(){
+      soundEpilogo.play();
+      var mySplitText = $("#quote").splitText({'type':'words','animation':'glowOnHover','useLite':true});
+      var wordsElement = $(".word-measure");
+
+      tl.staggerTo(".boxAnim", 1, {opacity: 1, scale: 1, ease: Elastic.easeOut}, 0.3)
+      tl.to(".dinamycText", 0.2, {opacity: 1, ease: Power2.easeOut}, 0.3)
+      tl.to(".napFace", 2, {opacity: 1, repeat:10, onRepeat:onRepeat, repeatDelay:2, ease: RoughEase.ease.config({ template: Power0.easeNone, strength: 1.5, points: 20, taper: "none", randomize: true, clamp: false})}, "-=0.5");
+
+      _.each(wordsElement, function(element){
+        TweenMax.from(element, 3, {
+          opacity:0,
+          scale:Math.floor((Math.random() * 5) + 0),
+          y: Math.floor((Math.random() * 200) + 0),
+          x: Math.floor((Math.random() * 200) + 0),
+          transformOrigin:"0% 50% -50",
+          delay: Math.floor((Math.random() * 3) + 0),
+          ease: Power2.easeOut},
+          Math.random());
+      })
+    }
+    function rotateFace(value){
+      TweenMax.to(".napFace", 0.5, {rotation: value, ease: Elastic.easeOut});
+    }
+    function onRepeat() {
+    }
+    function eraseVideo(){
+      $(".videoClass").css("display", "none");
+    }
+
+    var items = $('.boxAnim');
+
+    function over(){
+      TweenMax.to(this, 0.2, {y:-10,opacity:1}, 0.1)
+      rotateFace(40);
+    }
+    function out(){
+      TweenMax.to(this, 0.2, {y:0,  opacity:1}, 0.1)
+      rotateFace(0);
+    }
+    items.hover(over, out);
+//--------------HTML-------------
+
+<div class="dinamycText" id="quote">
+  Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos electrónicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la creación de las hojas "Letraset", las cuales contenian pasajes de Lorem Ipsum, y más recientemente con software de autoedición, como por ejemplo Aldus PageMaker, el cual incluye versiones de Lorem Ipsum.
+</div>
+<div class="ageTitle">1900</div>
+<div>
+  <img class="napFace" src="images/nap.svg"/>
+</div>
+<video class="videoClass" autoplay onloadstart="this.volume=0.5">
+  <source src="images/Walking.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<img class="scrollIcon" src="images/scroll.png"/>
+
+
+//-------variante ---------
+
+/*var tl = new TimelineLite(); Secuencia de eventos
+
+tl.from("h1", 0.5, {left: 100, autoAlpha: 0})
+  .from("h2", 0.5, {left: -100, autoAlpha: 0}, "-0.25")
+  .from(".feature", 0.5,{scale: 0.5, autoAlpha:0})
+  .from("#description", 0.5, {left: 100, autoAlpha:0})
+  .staggerFRom("# nav img", 0.5, {scale: 0, autoAlpha: 0}, 0.2, "stagger");
+
+  tl.seek("stagger");
+  */
