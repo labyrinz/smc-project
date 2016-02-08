@@ -18,6 +18,9 @@ angular.module('smcApp')
         }
       })
 
+      var mySplitText = $("#quote").splitText({'type':'words','animation':'glowOnHover','useLite':true});
+      var wordsElement = $(".word-measure");
+
       var step = 0;
       TweenMax.set(".videoClass, .scrollIcon, .hiddenCanvas", {visibility:"visible"})
       var tl = new TimelineMax({repeat:0});
@@ -27,11 +30,11 @@ angular.module('smcApp')
         .to(soundEpilogo, 3,{volume: 0.05, ease: Power0.easeNone},"miniVideo")
         .to(".footer", 0.5,{bottom: 0, ease: Back.easeOut}, "0.2+=miniVideo")
         .to(".BackVideo", 3, {opacity:0, volume: 0, ease: Power2.easeOut})
-        //.to(".napFace", 3, {right:'0%', ease: Power2.easeOut}, "-=3")
-        .to(".fase3", 3.04, {right:'0%', ease: Back.easeOut})
-        .to(".fase2", 3.02, {right:'0%', ease: Back.easeOut}, "-=3")
-        .to(".fase1", 3, {right:'0%', ease: Back.easeOut}, "-=3")
-        .staggerTo(".boxAnim", 0.2, {opacity: 1, scale: 1, ease: Elastic.easeOut, onComplete: animeButtons}, 0.1, "-=3");
+        .staggerTo(".boxAnim", 0.2, {opacity: 1, scale: 1, ease: Elastic.easeOut, onComplete: animeButtons}, 0.1, "-=3")
+        //.to(".fase3", 3.06, {right:'0%', ease: Back.easeOut})
+        //.to(".fase2", 3.03, {right:'0%', ease: Back.easeOut}, "-=3")
+        //.to(".fase1", 3, {right:'0%', ease: Back.easeOut}, "-=3")
+        .to(".napFace", 3, {right:'0%', ease: Power2.easeOut, onComplete: animateText}, "-=3");
       tl.pause();
 
     $(window).bind('mousewheel DOMMouseScroll mousedown', function(event){
@@ -55,6 +58,21 @@ angular.module('smcApp')
       tl.play();
     });
 
+    function animateText(){
+      console.log('entra')
+      _.each(wordsElement, function(element){
+        TweenMax.from(element, 3, {
+            opacity:0,
+            scale:Math.floor((Math.random() * 5) + 0),
+            y: Math.floor((Math.random() * 200) + 0),
+            x: Math.floor((Math.random() * 200) + 0),
+            transformOrigin:"0% 50% -50",
+            delay: Math.floor((Math.random() * 3) + 0),
+            ease: Power2.easeOut},
+          Math.random());
+      })
+    }
+
     function playMusic(){
       console.log(soundEpilogo);
       //soundEpilogo.play();
@@ -68,11 +86,9 @@ angular.module('smcApp')
       var items = $('.boxAnim');
       function over(){
         TweenMax.to(this, 0.2, {y:-5,opacity:1}, 0.1)
-        rotateFace(40);
       }
       function out(){
         TweenMax.to(this, 0.2, {y:0,  opacity:1}, 0.1)
-        rotateFace(0);
       }
       items.hover(over, out);
     }
