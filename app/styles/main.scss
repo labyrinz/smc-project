@@ -72,12 +72,16 @@ body {
   opacity: 0;
 }
 .napFace{
-  opacity: 0;
   position: absolute;
-  top: 20px;
-  width: 7%;
-  fill: #ffd85f;
-  color: #ffd85f;
+  bottom: -5px;
+  right: 100%;
+  width: 25%;
+}
+.orchestra{
+  width: 100%;
+  position: absolute;
+  bottom: 0%;
+  right: 100%;
 }
 path{
   fill: #500;
