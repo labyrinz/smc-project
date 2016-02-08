@@ -60,6 +60,7 @@ angular.module('smcApp')
 
     function animateText(){
       console.log('entra')
+      $(".dinamycText").css("opacity", "1");
       _.each(wordsElement, function(element){
         TweenMax.from(element, 3, {
             opacity:0,
