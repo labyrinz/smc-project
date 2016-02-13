@@ -22,12 +22,19 @@ body {
   bottom: -60px;
   left: 0px;
 }
-.pentagram{
+.pentagramaCompleto{
   position: absolute;
-  bottom: 20%;
-  left: 0%;
-  height: 5%;
-  width: 400%;
+  bottom: 15%;
+  left: 0px;
+  width: 2500%;
+}
+.pentagram{
+  /* position: absolute; */
+  /* bottom: 15%; */
+  /* left: 0px; */
+  /* height: 50%; */
+  float: left;
+  width: 20%;
 }
 .videoClass{
   position: absolute;
