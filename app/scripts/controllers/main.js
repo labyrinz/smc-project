@@ -111,11 +111,9 @@ angular.module('smcApp')
     }
     /////----------WEBGL-----------------
 
-      var camera, scene, renderer,controls,
+      var camera, scene, renderer,
         width = window.innerWidth,
         height = window.innerHeight;
-
-      var mouse = new THREE.Vector2();
 
       init();
       animate();
@@ -126,29 +124,19 @@ angular.module('smcApp')
 
         renderer = new THREE.WebGLRenderer( { antialias: true, preserveDrawingBuffer: true, alpha: true } );
         renderer.setSize( width, height );
-        renderer.shadowMapEnabled = true;
-        renderer.shadowMapType = THREE.PCFSoftShadowMap;
         renderer.setViewport( 0,0,width, height );
         renderer.getMaxAnisotropy();
 
-        var container = document.getElementById('container');
+        var container = document.getElementById('car');
         container.appendChild(renderer.domElement);
 
-        camera = new THREE.PerspectiveCamera( 50, (width/height), 0.1, 10000000 );
-        camera.position.set( 25, 0, 25 );
-
-        mouse = new THREE.Vector2();
-
-        controls = new THREE.OrbitControls( camera, renderer.domElement );
-        controls.enableDamping = true;
-        controls.dampingFactor = 0.25;
-        controls.enableZoom = true;
-        controls.target.set( 0,0,0 );
+        camera = new THREE.PerspectiveCamera( 50, (width/height), 0.1, 1000 );
+        camera.position.set( 0, 0, 150 );
 
         buildShape();
 
         var directionalLight = new THREE.SpotLight(0xeeeeee, 1.5);
-        directionalLight.position.set(2000, 3500,2500);
+        directionalLight.position.set(20,35,25);
         directionalLight.name = 'luzDireccional'
 
         scene.add( directionalLight );
@@ -162,6 +150,9 @@ angular.module('smcApp')
             if ( child instanceof THREE.Mesh ) {
             }
           } );
+          object.rotation.x = 1.5;
+          object.rotation.y = 1.5;
+          object.position.set(0,-35,0);
           scene.add( object );
         });
       }
