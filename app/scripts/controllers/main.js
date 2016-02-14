@@ -38,13 +38,13 @@ angular.module('smcApp')
         //.to(".fase2", 3.03, {right:'0%', ease: Power0.easeNone}, "-=3")
         //.to(".fase1", 3, {right:'0%', ease: Power0.easeNone}, "-=3")
         //.to(".napFace", 3, {right:'0%', ease: Power0.easeNone, onComplete: animateText}, "-=3")
-        .to(body, 2, { backgroundColor:backColorArray[0], ease: Power0.easeNone }, "bgColor")
-        .to(body, 2, { backgroundColor:backColorArray[1], ease: Power0.easeNone })
-        .to(body, 2, { backgroundColor:backColorArray[2], ease: Power0.easeNone })
-        .to(body, 2, { backgroundColor:backColorArray[3], ease: Power0.easeNone })
-        .to(body, 2, { backgroundColor:backColorArray[4], ease: Power0.easeNone })
-        .to(body, 2,  {backgroundColor:backColorArray[5], ease: Power0.easeNone })
-        .to(".pentagramaCompleto", 14, {left:'-2490%', ease: Power0.easeNone}, "bgColor");
+        .to(body, 0.1, { backgroundColor:backColorArray[0], ease: Power0.easeNone }, "bgColor")
+        .to(body, 0.1, { backgroundColor:backColorArray[1], ease: Power0.easeNone },"+=2.5")
+        .to(body, 0.1, { backgroundColor:backColorArray[2], ease: Power0.easeNone },"+=2.5")
+        .to(body, 0.1, { backgroundColor:backColorArray[3], ease: Power0.easeNone },"+=2.5")
+        .to(body, 0.1, { backgroundColor:backColorArray[4], ease: Power0.easeNone },"+=2.5")
+        .to(body, 0.1,  {backgroundColor:backColorArray[5], ease: Power0.easeNone },"+=2.5")
+        .to(".pentagramaCompleto", 14, {left:'-1490%', ease: Power0.easeNone}, "bgColor");
         //.to(".pentagram2", 3, {left:'-9090px', ease: Power0.easeNone}, "penta")
       tl.pause();
 
