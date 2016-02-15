@@ -9,6 +9,11 @@
  */
 angular.module('smcApp')
   .controller('MainCtrl', function ($scope) {
+
+      var camera, scene, renderer, car,
+        width = window.innerWidth,
+        height = window.innerHeight;
+
       var soundEpilogo = new Howl({
         urls: ['audio/ValsViudaAlegre.mp3'],
         loop: true,
@@ -55,12 +60,14 @@ angular.module('smcApp')
             if(step>0){
               if(step>0.001)step -= 0.001;
               else if(step<=0.001 )step = 0;
+              car.rotation.y += 0.001;
               TweenLite.to(tl, 0.5, {progress:step, ease:Power2.easeOut, onComplete: pauseAnim});
             }
           }
           else {
             if(step<1){
               TweenLite.to(tl, 0.5, {progress:step, ease:Power2.easeOut, onComplete: pauseAnim});
+              car.rotation.y -= 0.001;
               step += 0.001;
             }
           }
@@ -111,10 +118,6 @@ angular.module('smcApp')
     }
     /////----------WEBGL-----------------
 
-      var camera, scene, renderer,
-        width = window.innerWidth,
-        height = window.innerHeight;
-
       init();
       animate();
 
@@ -130,8 +133,10 @@ angular.module('smcApp')
         var container = document.getElementById('car');
         container.appendChild(renderer.domElement);
 
+        //camera = new THREE.PerspectiveCamera( 50, (width/height), 0.1, 1000 );
+        //camera.position.set( 0, 0, 150 );
         camera = new THREE.PerspectiveCamera( 50, (width/height), 0.1, 1000 );
-        camera.position.set( 0, 0, 150 );
+        camera.position.set( 0, 0, 10 );
 
         buildShape();
 
@@ -146,14 +151,18 @@ angular.module('smcApp')
       function buildShape(){
         var loader = new THREE.OBJLoader(  );
         loader.load( 'images/models/cit.obj', function ( object ) {
-          object.traverse( function ( child ) {
+          car = object;
+          car.traverse( function ( child ) {
             if ( child instanceof THREE.Mesh ) {
             }
           } );
-          object.rotation.x = 1.5;
-          object.rotation.y = 1.5;
-          object.position.set(0,-35,0);
-          scene.add( object );
+          //object.rotation.x = 1.5;
+          //object.rotation.y = 1.5;
+          car.rotation.y = 0.9;
+          //object.position.set(0,-35,0);
+          car.position.set(-7,0.5,0);
+          car.name="classicCar";
+          scene.add( car );
         });
       }
       function onWindowResize() {
