@@ -11,7 +11,7 @@
 body {
   padding: 0;
   margin: 0;
-  background-color: #212121;
+  background-color: #cfa256;
   overflow: hidden;
 }
 .footer{
@@ -23,10 +23,37 @@ body {
   bottom: -60px;
   left: 0px;
 }
+.back{
+  position: absolute;
+  top: 0;
+  left: 10%;
+  height: 100%;
+  width: 1500%;
+}
+.backGroundColor{
+  float: left;
+  height: 100%;
+  width: 20%;
+}
+.color0{
+  background-color: #cfa256;
+}
+.color1{
+  background-color: #F7B862;
+}
+.color2{
+  background-color: #6B4B30;
+}
+.color3{
+  background-color: #63431D;
+}
+.color4{
+  background-color: #C48332;
+}
 .pentagramaCompleto{
   position: absolute;
   bottom: 15%;
-  left: 0px;
+  left: 10%;
   width: 1500%;
 }
 .pentagram{
