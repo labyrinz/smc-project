@@ -60,14 +60,14 @@ angular.module('smcApp')
             if(step>0){
               if(step>0.001)step -= 0.001;
               else if(step<=0.001 )step = 0;
-              car.rotation.y += 0.001;
+              car.rotation.y += 0.0015;
               TweenLite.to(tl, 0.5, {progress:step, ease:Power2.easeOut, onComplete: pauseAnim});
             }
           }
           else {
             if(step<1){
               TweenLite.to(tl, 0.5, {progress:step, ease:Power2.easeOut, onComplete: pauseAnim});
-              car.rotation.y -= 0.001;
+              car.rotation.y -= 0.0015;
               step += 0.001;
             }
           }
@@ -158,7 +158,7 @@ angular.module('smcApp')
           } );
           //object.rotation.x = 1.5;
           //object.rotation.y = 1.5;
-          car.rotation.y = 0.9;
+          car.rotation.y = 1;
           //object.position.set(0,-35,0);
           car.position.set(-7,0.5,0);
           car.name="classicCar";
