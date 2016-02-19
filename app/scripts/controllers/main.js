@@ -140,7 +140,8 @@ angular.module('smcApp')
 
         buildShape();
 
-        var directionalLight = new THREE.HemisphereLight(0x999999, 0x444444, 1.0);
+        //var directionalLight = new THREE.HemisphereLight(0x999999, 0x444444, 1.0);
+        var directionalLight = new THREE.DirectionalLight( 0xffffff, 0.5 );
         directionalLight.position.set(20,35,25);
         directionalLight.name = 'luzDireccional'
 
