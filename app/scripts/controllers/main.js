@@ -76,7 +76,7 @@ angular.module('smcApp')
 
     $("#slider").on("input", function(){
       tl.pause();
-      if(car)car.position.x = -120 + (this.value*24.5);
+      if(car)car.position.x = -120 + (this.value*24);
       tl.progress( this.value/10 );
     });
 

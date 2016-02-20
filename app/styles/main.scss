@@ -45,7 +45,7 @@ body {
 .backGroundColor{
   float: left;
   height: 100%;
-  width: 15%;
+  width: 14.3%;
 }
 .color0{
   background-image: url("/images/cuba2.jpg");
@@ -97,7 +97,6 @@ body {
   height: 100%;
   background-color: #111111;
   z-index: 998;
-
 }
 .ageTitle {
   font-family: 'Alice',serif;
@@ -125,12 +124,6 @@ body {
   bottom: -5px;
   right: 100%;
   width: 25%;
-}
-.orchestra{
-  width: 100%;
-  position: absolute;
-  bottom: 0%;
-  right: 100%;
 }
 path{
   fill: #500;
@@ -180,7 +173,7 @@ input[type=range] {
   -webkit-appearance: none;
   /*fix for FF unable to apply focus style bug */
   border: 1px solid white;
-  opacity: 0.2;
+  opacity: 0;
   cursor: pointer;
 }
 input[type=range]::-webkit-slider-runnable-track {
@@ -265,10 +258,10 @@ input[type=range]:focus::-ms-fill-upper {
 .timeSlider{
   position: absolute;
   bottom: 5%;
-  left: 2%;
   margin: auto;
   z-index: 999;
-  width: 100%;
+  width: 97%;
+  left: 2%;
 }
 .slideInput{
   width: 100%;
