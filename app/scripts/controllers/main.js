@@ -29,12 +29,10 @@ angular.module('smcApp')
       var wordsElement = $(".word-measure");
 
       var step = 0;
-      TweenMax.set(".videoClass, .scrollIcon, .hiddenCanvas, .dinamycText", {visibility:"visible"})
+      TweenMax.set(".scrollIcon, .hiddenCanvas, .dinamycText", {visibility:"visible"})
       var tl = new TimelineMax({repeat:0});
 
       tl
-        //.to(".BackVideo", 1, {opacity: 0.6, scale: 0.1, transformOrigin:"0.5% 2%", ease: Back.easeIn, onComplete: playMusic}, "miniVideo")
-        //.to(".videoClass", 1.5, {volume: 0.005, ease: Power2.easeOut},"-=0.7")
         //.to(soundEpilogo, 3,{volume: 0.05, ease: Power0.easeNone},"miniVideo")
         //.to(".footer", 0.5,{bottom: 0, ease: Back.easeOut}, "0.2+=miniVideo")
         //.to(".BackVideo", 3, {opacity:0, volume: 0, ease: Power2.easeOut})
@@ -43,8 +41,7 @@ angular.module('smcApp')
         //.to(".fase2", 3.03, {right:'0%', ease: Power0.easeNone}, "-=3")
         //.to(".fase1", 3, {right:'0%', ease: Power0.easeNone}, "-=3")
         //.to(".napFace", 3, {right:'0%', ease: Power0.easeNone, onComplete: animateText}, "-=3")
-        .to(".pentagramaCompleto", 14, {left:'-1490%', ease: Power0.easeNone}, "penta")
-        .to(".back", 14, {left:'-1490%', ease: Power0.easeNone}, "penta");
+        .to(".back", 14, {left:'-690%', ease: Power0.easeNone}, "penta");
         //.to(".pentagram2", 3, {left:'-9090px', ease: Power0.easeNone}, "penta")
       //tl.timeScale(4);
       tl.pause();
@@ -54,30 +51,32 @@ angular.module('smcApp')
         if(event.type != 'mousedown'){
           if (event.originalEvent.wheelDelta > 0 || event.originalEvent.detail < 0) {
             if(step>0){
-              if(step>0.001)step -= 0.001;
-              else if(step<=0.001 )step = 0;
-              //car.rotation.y += 0.0015;
+              if(step>0.005)step -= 0.005;
+              else if(step<=0.005 )step = 0;
+              car.position.x -= (0.05*25);
               TweenLite.to(tl, 0.5, {progress:step, ease:Power2.easeOut, onComplete: pauseAnim});
+              $("input[type=range]").val((step/2.5)*26.5);
             }
           }
           else {
             if(step<1){
               TweenLite.to(tl, 0.5, {progress:step, ease:Power2.easeOut, onComplete: pauseAnim});
-              //car.rotation.y -= 0.0015;
-              step += 0.001;
+              car.position.x += (0.05*26);
+              step += 0.005;
+              $("input[type=range]").val((step/2.5)*26.5);
             }
           }
         }
       });
 
     $(".videoClass").bind("ended", function() {
-      tl.play();
+      TweenMax.to(".BackVideo", 4, {opacity: 0, ease: Back.easeIn, onComplete: playMusic}, "miniVideo")
+      TweenMax.to(".videoClass", 1.5, {volume: 0, ease: Power2.easeOut})
     });
 
     $("#slider").on("input", function(){
       tl.pause();
-      if(car)car.position.x = -130 + (this.value*26.5);
-      if(car2)car2.rotation.y = 1 + (this.value/1.7);
+      if(car)car.position.x = -120 + (this.value*24.5);
       tl.progress( this.value/10 );
     });
 
@@ -97,6 +96,7 @@ angular.module('smcApp')
     }
     function playMusic(){
       console.log(soundEpilogo);
+      $(".BackVideo").css("display","none");
       //soundEpilogo.play();
     }
 
@@ -124,7 +124,7 @@ angular.module('smcApp')
         scene = new THREE.Scene();
 
         renderer = new THREE.WebGLRenderer( { antialias: true, preserveDrawingBuffer: true, alpha: true } );
-        renderer.setSize( width, height );
+        renderer.setSize( width, height*0.1 );
         renderer.setViewport( 0,0,width, height );
         renderer.getMaxAnisotropy();
 
@@ -152,37 +152,34 @@ angular.module('smcApp')
         loader.load( 'images/models/corvega.obj', function ( object ) {
           car = object;
           car.traverse( function ( child ) {
+            console.log(child);
             if ( child instanceof THREE.Mesh ) {
+              if(child.name == "CorvegaConvBody") {
+                child.material.ambient.setHex(0xFFFFFF);
+                child.material.color.setHex(0xFFCC33);
+              }
+              if(child.name == "CorvegaConvGlass") {
+                child.material.ambient.setHex(0xFFFFFF);
+                child.material.color.setHex(0x5555CC);
+              }
+              if(child.name == "CorvegaConvSeat") {
+                child.material.ambient.setHex(0xFFFFFF);
+                child.material.color.setHex(0xCC3333);
+              }
             }
           } );
           car.rotation.x = 1.35;
           car.rotation.y = 1.57;
-          //car.rotation.y = 1;
-          car.scale.set(1.2,1.2,1.2);
-          car.position.set(-130,-60,0);
-          //car.position.set(-7,0.5,0);
+          car.scale.set(0.8,1,0.7);
+          car.position.set(-120,-60,0);
           car.name="classicCar";
           scene.add( car );
-        });
-        var loader2 = new THREE.OBJLoader(  );
-        loader2.load( 'images/models/corvega.obj', function ( object ) {
-          car2 = object;
-          car2.traverse( function ( child ) {
-            if ( child instanceof THREE.Mesh ) {
-            }
-          } );
-          car2.rotation.y = 1;
-          //object.position.set(-130,-60,0);
-          car2.position.set(-100,-20,0);
-          car2.scale.set(11,11,11);
-          car2.name="classicCar";
-          scene.add( car2 );
         });
       }
       function onWindowResize() {
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
-        renderer.setSize( window.innerWidth, window.innerHeight );
+        renderer.setSize( window.innerWidth, window.innerHeight*0.1 );
       }
      function animate() {
         setTimeout( function() {
