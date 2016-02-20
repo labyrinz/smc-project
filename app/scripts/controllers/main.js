@@ -75,15 +75,13 @@ angular.module('smcApp')
     });
 
     $("#slider").on("input", function(){
-      console.log(this.value)
       tl.pause();
-      if(car)car.position.x = -130 + (this.value*24);
+      if(car)car.position.x = -130 + (this.value*26.5);
       if(car2)car2.rotation.y = 1 + (this.value/1.7);
       tl.progress( this.value/10 );
     });
 
     function animateText(){
-      console.log('entra')
       $(".dinamycText").css("opacity", "1");
       _.each(wordsElement, function(element){
         TweenMax.from(element, 3, {
@@ -151,7 +149,7 @@ angular.module('smcApp')
       }
       function buildShape(){
         var loader = new THREE.OBJLoader(  );
-        loader.load( 'images/models/cit.obj', function ( object ) {
+        loader.load( 'images/models/corvega.obj', function ( object ) {
           car = object;
           car.traverse( function ( child ) {
             if ( child instanceof THREE.Mesh ) {
@@ -160,13 +158,14 @@ angular.module('smcApp')
           car.rotation.x = 1.35;
           car.rotation.y = 1.57;
           //car.rotation.y = 1;
+          car.scale.set(1.2,1.2,1.2);
           car.position.set(-130,-60,0);
           //car.position.set(-7,0.5,0);
           car.name="classicCar";
           scene.add( car );
         });
         var loader2 = new THREE.OBJLoader(  );
-        loader2.load( 'images/models/cit.obj', function ( object ) {
+        loader2.load( 'images/models/corvega.obj', function ( object ) {
           car2 = object;
           car2.traverse( function ( child ) {
             if ( child instanceof THREE.Mesh ) {
@@ -174,8 +173,8 @@ angular.module('smcApp')
           } );
           car2.rotation.y = 1;
           //object.position.set(-130,-60,0);
-          car2.position.set(-100,20,0);
-          car2.scale.set(15,15,15);
+          car2.position.set(-100,-20,0);
+          car2.scale.set(11,11,11);
           car2.name="classicCar";
           scene.add( car2 );
         });

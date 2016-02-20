@@ -56,6 +56,10 @@ body {
   left: 10%;
   width: 1500%;
 }
+.pentagramRect{
+  position: absolute;
+  bottom: 3%;
+}
 .pentagram{
   /* position: absolute; */
   /* bottom: 15%; */
@@ -254,7 +258,7 @@ input[type=range]:focus::-ms-fill-upper {
   width: 100%;
 }
 .slideInput{
-  width: 90%;
+  width: 100%;
 }
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
