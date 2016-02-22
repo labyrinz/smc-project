@@ -156,7 +156,7 @@ angular.module('smcApp')
             if ( child instanceof THREE.Mesh ) {
               if(child.name == "CorvegaConvBody") {
                 child.material.ambient.setHex(0xFFFFFF);
-                child.material.color.setHex(0xFFCC33);
+                child.material.color.setHex(0xCCCCCC);
               }
               if(child.name == "CorvegaConvGlass") {
                 child.material.ambient.setHex(0xFFFFFF);
