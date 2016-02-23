@@ -22,6 +22,8 @@ angular.module('smcApp')
           console.log('Finished!');
         }
       })
+      var aspectRatio = (width/1920);
+      console.log(aspectRatio);
       var body = $('body');
       var backColorArray = ['#635957','#F7B862','#6B4B30','#63431D','#C48332','#F7B862','#6B4B30'];
 
@@ -34,16 +36,8 @@ angular.module('smcApp')
 
       tl
         //.to(soundEpilogo, 3,{volume: 0.05, ease: Power0.easeNone},"miniVideo")
-        //.to(".footer", 0.5,{bottom: 0, ease: Back.easeOut}, "0.2+=miniVideo")
-        //.to(".BackVideo", 3, {opacity:0, volume: 0, ease: Power2.easeOut})
-        //.staggerTo(".boxAnim", 0.2, {opacity: 1, scale: 1, ease: Elastic.easeOut, onComplete: animeButtons}, 0.1, "-=3")
-        //.to(".fase3", 3.06, {right:'0%', ease: Power0.easeNone})
-        //.to(".fase2", 3.03, {right:'0%', ease: Power0.easeNone}, "-=3")
-        //.to(".fase1", 3, {right:'0%', ease: Power0.easeNone}, "-=3")
-        //.to(".napFace", 3, {right:'0%', ease: Power0.easeNone, onComplete: animateText}, "-=3")
         .to(".back", 14, {left:'-690%', ease: Power0.easeNone}, "penta");
         //.to(".pentagram2", 3, {left:'-9090px', ease: Power0.easeNone}, "penta")
-      //tl.timeScale(4);
       tl.pause();
 
     $(window).bind('mousewheel DOMMouseScroll', function(event){
@@ -53,17 +47,14 @@ angular.module('smcApp')
             if(step>0){
               if(step>0.005)step -= 0.005;
               else if(step<=0.005 )step = 0;
-              car.position.x -= (0.05*25);
               TweenLite.to(tl, 0.5, {progress:step, ease:Power2.easeOut, onComplete: pauseAnim});
-              $("input[type=range]").val((step/2.5)*26.5);
             }
           }
           else {
             if(step<1){
               TweenLite.to(tl, 0.5, {progress:step, ease:Power2.easeOut, onComplete: pauseAnim});
-              car.position.x += (0.05*26);
               step += 0.005;
-              $("input[type=range]").val((step/2.5)*26.5);
+              //$("input[type=range]").val((step/2.5)*26.5);
             }
           }
         }
@@ -74,10 +65,13 @@ angular.module('smcApp')
       TweenMax.to(".videoClass", 1.5, {volume: 0, ease: Power2.easeOut})
     });
 
-    $("#slider").on("input", function(){
-      tl.pause();
-      if(car)car.position.x = -120 + (this.value*24);
-      tl.progress( this.value/10 );
+    $("#slider").on("change", function(){
+      tl.timeScale(this.value/5);
+      tl.play();
+      //console.log(this.value);
+      //if(car)car.position.x = -30 + (this.value*2);
+      //console.log(car.position.x);
+      //tl.progress( this.value/10 );
     });
 
     function animateText(){
@@ -171,7 +165,7 @@ angular.module('smcApp')
           car.rotation.x = 1.35;
           car.rotation.y = 1.57;
           car.scale.set(0.8,1,0.7);
-          car.position.set(-120,-60,0);
+          car.position.set(-30,-61,0);
           car.name="classicCar";
           scene.add( car );
         });

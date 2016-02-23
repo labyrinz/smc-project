@@ -68,7 +68,7 @@ body {
 .pentagramRect{
   position: absolute;
   bottom: 3%;
-  width: 100%;
+  width: 14.3%;
 }
 .videoClass{
   position: absolute;
@@ -173,7 +173,7 @@ input[type=range] {
   -webkit-appearance: none;
   /*fix for FF unable to apply focus style bug */
   border: 1px solid white;
-  opacity: 0;
+  opacity: 0.3;
   cursor: pointer;
 }
 input[type=range]::-webkit-slider-runnable-track {
@@ -257,11 +257,12 @@ input[type=range]:focus::-ms-fill-upper {
 }
 .timeSlider{
   position: absolute;
-  bottom: 5%;
+  bottom: 6%;
+  right: 0;
   margin: auto;
   z-index: 999;
-  width: 97%;
-  left: 2%;
+  width: 20%;
+  left: -25%;
 }
 .slideInput{
   width: 100%;
