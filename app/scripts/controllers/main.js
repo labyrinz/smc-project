@@ -67,8 +67,8 @@ angular.module('smcApp')
 
     $("#slider").on("input", function(){
       var velocity = Math.abs(this.value)
-      tl.timeScale(velocity/4);
-      car.position.x = car.position.x + (this.value/5);
+      tl.timeScale(velocity/2);
+      car.position.x = -35 + (this.value*3);
       console.log(car.position.x);
       if(this.value>=0)tl.play();
       else tl.reverse();

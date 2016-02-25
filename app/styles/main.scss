@@ -19,14 +19,14 @@ body {
   width: 70%;
 }
 .mainBottons{
-  /* width: 95px; */
-  /* height: 50px; */
+  width: 95px;
+  height: 95px;
   //opacity: 0;
   //-ms-transform: scale(0,0); /* IE 9 */
   //-webkit-transform: scale(0,0); /* Chrome, Safari, Opera */
   //transform: scale(0,0);
   font-family: 'Alice',serif;
-  border-radius: 2px;
+  border-radius: 50%;
   background-color: rgb(86, 77, 48);
   margin-right: 10px;
   float: left;
@@ -34,6 +34,7 @@ body {
   font-size: 35px;
   padding: 10px;
   color: rgb(255, 216, 95);
+  border: solid 5px yellow;
 }
 .back{
   position: absolute;
@@ -51,7 +52,7 @@ body {
   background-image: url("/images/cuba2.jpg");
   background-size: cover;
   background-color: rgba(54, 41, 26, 1);
-  opacity: 0.2;
+//  opacity: 0.2;
 }
 .color1{
   background-color: #F7B862;
