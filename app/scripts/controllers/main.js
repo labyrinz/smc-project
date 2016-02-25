@@ -65,13 +65,19 @@ angular.module('smcApp')
       TweenMax.to(".videoClass", 1.5, {volume: 0, ease: Power2.easeOut})
     });
 
-    $("#slider").on("change", function(){
-      tl.timeScale(this.value/5);
-      tl.play();
-      //console.log(this.value);
-      //if(car)car.position.x = -30 + (this.value*2);
-      //console.log(car.position.x);
-      //tl.progress( this.value/10 );
+    $("#slider").on("input", function(){
+      var velocity = Math.abs(this.value)
+      tl.timeScale(velocity/4);
+      car.position.x = car.position.x + (this.value/5);
+      console.log(car.position.x);
+      if(this.value>=0)tl.play();
+      else tl.reverse();
+    });
+    $("#slider").on("mouseup", function(){
+      this.value = 0;
+      car.position.x = -35;
+      tl.timeScale(0);
+      tl.pause();
     });
 
     function animateText(){
@@ -127,12 +133,9 @@ angular.module('smcApp')
 
         camera = new THREE.PerspectiveCamera( 50, (width/height), 0.1, 1000 );
         camera.position.set( 0, 0, 150 );
-        //camera = new THREE.PerspectiveCamera( 50, (width/height), 0.1, 1000 );
-        //camera.position.set( 0, 0, 10 );
 
         buildShape();
 
-        //var directionalLight = new THREE.HemisphereLight(0x999999, 0x444444, 1.0);
         var directionalLight = new THREE.DirectionalLight( 0xffffff, 0.5 );
         directionalLight.position.set(20,35,25);
         directionalLight.name = 'luzDireccional'
@@ -165,7 +168,7 @@ angular.module('smcApp')
           car.rotation.x = 1.35;
           car.rotation.y = 1.57;
           car.scale.set(0.8,1,0.7);
-          car.position.set(-30,-61,0);
+          car.position.set(-35,-61,0);
           car.name="classicCar";
           scene.add( car );
         });

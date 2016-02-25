@@ -169,15 +169,13 @@ path{
 //----RAGE SLIDER STYLE---//
 
 input[type=range] {
-  /*removes default webkit styles*/
   -webkit-appearance: none;
-  /*fix for FF unable to apply focus style bug */
   border: 1px solid white;
-  opacity: 0.3;
+  opacity: 0;
   cursor: pointer;
 }
 input[type=range]::-webkit-slider-runnable-track {
-  width: 300px;
+  width: 3000px;
   height: 5px;
   background: #ddd;
   border: none;
@@ -188,7 +186,7 @@ input[type=range]::-webkit-slider-thumb {
   background: #000000;
   border: none;
   height: 30px;
-  width: 6%;
+  width: 20%;
   margin-top: -1.5%;
   margin-left: -1.5%;
 }
@@ -200,7 +198,7 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 }
 
 input[type=range]::-moz-range-track {
-  width: 300px;
+  width: 3000px;
   height: 5px;
   background: #ddd;
   border: none;
