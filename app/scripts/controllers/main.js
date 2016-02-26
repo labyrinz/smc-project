@@ -102,10 +102,17 @@ angular.module('smcApp')
             tl.pause();
           });
 
-      //--------------------------------------
-      //------TEXTS --------------------------
+      //-------------------------------------
+      //-------FUNCTIONS --------------------
 
-      function animateText(){
+        function playMusic(){
+            $(".BackVideo").css("display","none");
+            soundEpilogo.play();
+            TweenMax.to(soundEpilogo, 20,{volume: 0.5, ease: Power0.easeNone})
+            animateText();
+        }
+
+        function animateText(){
           $(".dinamycText").css("opacity", "1");
           _.each(wordsElement, function(element){
             TweenMax.from(element, 3, {
@@ -119,15 +126,6 @@ angular.module('smcApp')
               Math.random());
           })
         }
-
-      //-------------------------------------
-      //-------FUNCTIONS --------------------
-
-        function playMusic(){
-            $(".BackVideo").css("display","none");
-            soundEpilogo.play();
-            TweenMax.to(soundEpilogo, 20,{volume: 0.5, ease: Power0.easeNone})
-          }
 
         function pauseAnim(){
             tl.pause();
@@ -180,7 +178,6 @@ angular.module('smcApp')
         loader.load( 'images/models/corvega.obj', function ( object ) {
           car = object;
           car.traverse( function ( child ) {
-            console.log(child);
             if ( child instanceof THREE.Mesh ) {
               if(child.name == "CorvegaConvBody") {
                 child.material.ambient.setHex(0xFFFFFF);
@@ -234,21 +231,21 @@ angular.module('smcApp')
 
     //---------D3 CONTROLLER -----------
 
-      var width = 960,
-        height = 500;
+      var width = window.innerWidth/1.5,
+          height = window.innerHeight/2;
 
       var projection = d3.geo.mercator()
-        .center([0, 5 ])
-        .scale(200)
-        .rotate([-180,0]);
+        .center([-80, 40])
+        .scale(600)
+        .rotate([0,0]);
 
-      var svg = d3.select("body").append("svg")
+      var svg = d3.select("#mapContainer").append("svg")
         .attr("width", width)
         .attr("height", height)
-        .attr("position", 'absolute')
-        .attr("top", '5%')
-        .attr("left", '10%')
-        .attr("z-index", '999');
+        .style("position", 'absolute')
+        .style("top", '5%')
+        //.style("transform", 'rotateX(60deg)')
+        .style("z-index", '998');
 
       var path = d3.geo.path()
         .projection(projection);
@@ -257,27 +254,47 @@ angular.module('smcApp')
 
       // load and display the World
       d3.json("images/models/world-110m2.json", function(error, topology) {
-
         // load and display the cities
         d3.csv("images/models/cities.csv", function(error, data) {
-          g.selectAll("circle")
+        var elementy1 = g.selectAll("circle")
             .data(data)
             .enter()
-            .append("a")
-            .attr("xlink:href", function(d) {
-              return "https://www.google.com/search?q="+d.city;}
-          )
-            .append("circle")
-            .attr("cx", function(d) {
-              return projection([d.lon, d.lat])[0];
-            })
-            .attr("cy", function(d) {
-              return projection([d.lon, d.lat])[1];
-            })
-            .attr("r", 5)
-            .style("fill", "red");
+            //.append("a")
+            //  .attr("xlink:href", function(d) {
+            //    return "https://www.google.com/search?q="+d.city;}
+            //  )
+          elementy1.append("rect")
+              .attr("x", function(d) {
+                return projection([d.lon, d.lat])[0];
+              })
+              .attr("y", function(d) {
+                return projection([d.lon, d.lat])[1];
+              })
+              .attr("width", 80)
+              .attr("height", 50)
+              .attr("rx", 10)
+              .attr("ry", 10)
+              .style("opacity", "0.5")
+              .style("fill", "white")
+              .style("stroke", "#ffd85f")
+              .style("stroke-width", "6")
+              .style("cursor", "pointer");
+          elementy1.append('text')
+              .text(function(d) {
+                return d.name;
+              })
+              .attr('x', function(d) {
+                return (projection([d.lon, d.lat])[0])+10;
+              })
+              .attr('y', function(d) {
+                return (projection([d.lon, d.lat])[1])+30;
+              })
+              .attr('fill', 'black')
+              .style("font-size", "18px")
+              .style("font-family", "'Alice',serif")
+              .style("cursor", "pointer")
+              .style("font-weight", "bold");
         });
-
         g.selectAll("path")
           .data(
           topojson
@@ -286,22 +303,10 @@ angular.module('smcApp')
           .enter()
           .append("path")
           .attr("d", path)
+          .on('mouseover', function(d) {
+            console.log(d);
+          })
       });
-
-      // zoom and pan
-      var zoom = d3.behavior.zoom()
-        .on("zoom",function() {
-          g.attr("transform","translate("+
-          d3.event.translate.join(",")+")scale("+d3.event.scale+")");
-          g.selectAll("circle")
-            .attr("d", path.projection(projection));
-          g.selectAll("path")
-            .attr("d", path.projection(projection));
-
-        });
-
-      svg.call(zoom)
-
   });
 
 

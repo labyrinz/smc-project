@@ -6,6 +6,11 @@ body {
   background-color: #100C05;
   overflow: hidden;
 }
+path {
+  stroke: #ffd85f;
+  stroke-width: 0.5px;
+  fill: #56481e;
+}
 .tittleOptionsMain{
   /* position: absolute; */
   /* left: 0; */
@@ -51,7 +56,7 @@ body {
 .color0{
 //  background-image: url("/images/cuba3.jpg");
 //  background-size: cover;
-  background-color: rgba(54, 41, 26, 1);
+  background-color: rgb(14, 9, 7);
 //  opacity: 0.2;
 }
 .color1{
@@ -99,7 +104,7 @@ body {
   width: 100%;
   height: 100%;
   background-color: #111111;
-  z-index: 998;
+  z-index: 999;
 }
 .ageTitle {
   font-family: 'Alice',serif;
@@ -130,16 +135,17 @@ body {
 .yearsGroup {
   position: absolute;
   left: 1%;
-  bottom: 10%;
+  bottom: 12%;
   width: 100%;
 }
 .dinamycText {
   font-family: 'Alice',serif;
   text-align: justify;
-  color: white;
-  font-size: 15px;
-  width: 30%;
+  color: #ffd85f;
+  font-size: 30px;
+  width: 50%;
   margin-right: 5%;
+  margin-top: 25%;
   float: right;
   opacity: 0;
   z-index: 999;
@@ -149,9 +155,6 @@ body {
   bottom: -5px;
   right: 100%;
   width: 25%;
-}
-path{
-  fill: #500;
 }
 .boxGroup {
   display: block;
