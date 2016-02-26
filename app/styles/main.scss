@@ -49,8 +49,8 @@ body {
   width: 14.3%;
 }
 .color0{
-  background-image: url("/images/cuba3.jpg");
-  background-size: cover;
+//  background-image: url("/images/cuba3.jpg");
+//  background-size: cover;
   background-color: rgba(54, 41, 26, 1);
 //  opacity: 0.2;
 }
@@ -103,13 +103,35 @@ body {
 }
 .ageTitle {
   font-family: 'Alice',serif;
-  text-align: justify;
-  color: #ffd85f;
-  font-size: 120px;
+  text-align: center;
+//  color: #ffd85f;
+  color: #180f0c;
+  opacity: 0.5;
+  height: 30px;
+  width: 14%;
+  font-size: 20px;
   font-weight: bold;
-  margin-right: 10%;
-  float: right;
+  float: left;
   display: inline-block;
+}
+.ageTitleFirst {
+  font-family: 'Alice',serif;
+  text-align: center;
+  color: #ffd85f;
+//  color: #180f0c;
+  opacity: 1;
+  height: 30px;
+  width: 14%;
+  font-size: 40px;
+  font-weight: bold;
+  float: left;
+  display: inline-block;
+}
+.yearsGroup {
+  position: absolute;
+  left: 1%;
+  bottom: 10%;
+  width: 100%;
 }
 .dinamycText {
   font-family: 'Alice',serif;

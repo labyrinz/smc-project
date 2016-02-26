@@ -47,11 +47,13 @@ angular.module('smcApp')
       //-----------------------
       //-----TIMELINE ---------
 
-        TweenMax.set(".scrollIcon, .hiddenCanvas, .dinamycText", {visibility:"visible"})
+        TweenMax.set(".scrollIcon, .hiddenCanvas, .dinamycText, .ageTitle", {visibility:"visible"})
 
         var tl = new TimelineMax({repeat:0});
 
-        tl.to(".back", 14, {left:'-690%', ease: Power0.easeNone}, "penta");
+        tl
+          .to(".back", 14, {left:'-690%', ease: Power0.easeNone}, "penta")
+          .staggerTo(".ageTitle", 1, {color:'#ffd85f', fontSize: '40px', opacity: 1, repeat:1,repeatDelay:2, yoyo:true, ease:Power2.easeOut}, 2, "penta");
         tl.pause();
 
       //---------------------------------
@@ -71,7 +73,6 @@ angular.module('smcApp')
                 if(step<1){
                   TweenLite.to(tl, 0.5, {progress:step, ease:Power2.easeOut, onComplete: pauseAnim});
                   step += 0.005;
-                  //$("input[type=range]").val((step/2.5)*26.5);
                 }
               }
             }
@@ -197,8 +198,8 @@ angular.module('smcApp')
           } );
           car.rotation.x = 1.35;
           car.rotation.y = 1.57;
-          car.scale.set(0.8,1,0.7);
-          car.position.set(-35,-61,0);
+          car.scale.set(1,1,1);
+          car.position.set(-35,-60,0);
           car.name="classicCar";
           scene.add( car );
         });
@@ -222,13 +223,85 @@ angular.module('smcApp')
          directionalLight.position.x = 5;
        }
 
-
-        setTimeout( function() {
-          requestAnimationFrame( animate );
-        }, 1000/30 );
-        render();
+       setTimeout( function() {
+         requestAnimationFrame( animate );
+       }, 1000/30 );
+       render();
      }
      function render(){
         renderer.render(scene,camera);
      }
+
+    //---------D3 CONTROLLER -----------
+
+      var width = 960,
+        height = 500;
+
+      var projection = d3.geo.mercator()
+        .center([0, 5 ])
+        .scale(200)
+        .rotate([-180,0]);
+
+      var svg = d3.select("body").append("svg")
+        .attr("width", width)
+        .attr("height", height)
+        .attr("position", 'absolute')
+        .attr("top", '5%')
+        .attr("left", '10%')
+        .attr("z-index", '999');
+
+      var path = d3.geo.path()
+        .projection(projection);
+
+      var g = svg.append("g");
+
+      // load and display the World
+      d3.json("images/models/world-110m2.json", function(error, topology) {
+
+        // load and display the cities
+        d3.csv("images/models/cities.csv", function(error, data) {
+          g.selectAll("circle")
+            .data(data)
+            .enter()
+            .append("a")
+            .attr("xlink:href", function(d) {
+              return "https://www.google.com/search?q="+d.city;}
+          )
+            .append("circle")
+            .attr("cx", function(d) {
+              return projection([d.lon, d.lat])[0];
+            })
+            .attr("cy", function(d) {
+              return projection([d.lon, d.lat])[1];
+            })
+            .attr("r", 5)
+            .style("fill", "red");
+        });
+
+        g.selectAll("path")
+          .data(
+          topojson
+            .object(topology, topology.objects.countries)
+            .geometries)
+          .enter()
+          .append("path")
+          .attr("d", path)
+      });
+
+      // zoom and pan
+      var zoom = d3.behavior.zoom()
+        .on("zoom",function() {
+          g.attr("transform","translate("+
+          d3.event.translate.join(",")+")scale("+d3.event.scale+")");
+          g.selectAll("circle")
+            .attr("d", path.projection(projection));
+          g.selectAll("path")
+            .attr("d", path.projection(projection));
+
+        });
+
+      svg.call(zoom)
+
   });
+
+
