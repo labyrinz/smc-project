@@ -11,6 +11,112 @@ path {
   stroke-width: 0.5px;
   fill: #56481e;
 }
+.menuMainBox {
+  height: 150px;
+  width: 150px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-color: transparent;
+  border-radius: 0px 0px 300px 0px;
+  overflow: hidden;
+  border-right: solid 6px #ffd85f;
+  z-index: 998;
+  transition: all 0.5s ease-in-out;
+}
+.itemGroupBox {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  transition: all 0.5s ease-in-out;
+}
+.menuItemBox {
+  width: 120%;
+  color: #ffd85f;
+  padding: 0px 20px;
+  cursor: pointer;
+  opacity: 1;
+  height: 100%;
+  border-left: 6px solid rgba(255, 255, 0, 0);
+  transition: all 0.4s ease-in-out;
+}
+.menu1 {font-size: 26px; padding: 0px 6px}
+.menu2 {font-size: 22px; padding: 0px 20px}
+.menu3 {font-size: 38px; padding: 0px 8px}
+.menu4 {font-size: 20px; padding: 0px 20px}
+.menu5 {font-size: 14px; padding: 0px 10px}
+.menuItemBox:hover {
+  border-left: 6px solid rgb(255, 216, 95);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.mapIcon {
+  width: 51px;
+  height: 51px;
+  position: absolute;
+  top: 15%;
+  left: 1%;
+  z-index: 998;
+  border: 5px solid rgb(255, 216, 95);
+  padding: 16px;
+  border-radius: 50px;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-transition-property: height, width, padding, left;
+  -webkit-transition-duration: 0.5s;
+  -webkit-transition-delay: 0.5s, 1s, 1s, 0s;
+  transition-property: height, width, padding, left;
+  transition-duration: 0.5s;
+  transition-delay: 0.5s, 1s, 1s, 0s;
+}
+.mapItem {
+  width: 100%;
+  opacity: 1;
+}
+.mapItemMini {
+  opacity: 0;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.mapIconMini{
+  height: 380px;
+  width: 0px;
+  padding: 0px;
+  left: 50%;
+  -webkit-transition-property: height, width, padding, left;
+  -webkit-transition-duration: 0.5s;
+  -webkit-transition-delay: 0.5s, 0s, 0s, 1s;
+  transition-property: height, width, padding, left;
+  transition-duration: 0.5s;
+  transition-delay: 0.8s, 0.3s, 0.3s, 1s;
+}
+
+.mapaDMini {
+  position: absolute;
+  top: 15%;
+  left: -61%;
+  z-index: 997;
+  width: 50%;
+  overflow: hidden;
+  height: 35%;
+  background-color: rgba(255, 255, 255, 0.13);
+  -webkit-transition-property: left;
+  -webkit-transition-duration: 0.5s;
+  -webkit-transition-delay: 0s;
+  transition-property: left;
+  transition-duration: 0.5s;
+  transition-delay: 0s;
+}
+.mapaD{
+  left: 0%;
+  -webkit-transition-property: left;
+  -webkit-transition-duration: 0.5s;
+  -webkit-transition-delay: 1s;
+  transition-property: left;
+  transition-duration: 0.5s;
+  transition-delay: 1s;
+}
+
 .tittleOptionsMain{
   /* position: absolute; */
   /* left: 0; */
@@ -51,7 +157,7 @@ path {
 .backGroundColor{
   float: left;
   height: 100%;
-  width: 14.3%;
+  width: 14.28%;
 }
 .color0{
 //  background-image: url("/images/cuba3.jpg");
@@ -135,7 +241,7 @@ path {
 .yearsGroup {
   position: absolute;
   left: 1%;
-  bottom: 12%;
+  bottom: 3%;
   width: 100%;
 }
 .dinamycText {
@@ -145,7 +251,7 @@ path {
   font-size: 30px;
   width: 50%;
   margin-right: 5%;
-  margin-top: 25%;
+  margin-top: 30%;
   float: right;
   opacity: 0;
   z-index: 999;
@@ -153,12 +259,12 @@ path {
 .instructions {
   position: absolute;
   top: 3%;
-  left: 10.5%;
+  left: 9.5%;
   font-family: 'Alice',serif;
   text-align: justify;
   color: white;
   font-size: 16px;
-  z-index: 999;
+  z-index: 998;
 }
 .napFace{
   position: absolute;
@@ -304,6 +410,61 @@ input[type=range]:focus::-ms-fill-upper {
   width: 100%;
 }
 /* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-
+@media only screen and (max-width: 1600px) {
+  .mapIcon{
+    width: 33px;
+    height: 33px;
+    position: absolute;
+    top: 21%;
+    left: 1%;
+    -webkit-transition-property: height, width, padding, left;
+    -webkit-transition-duration: 0.5s;
+    -webkit-transition-delay: 0.5s, 1.2s, 1.2s, 0s;
+    transition-property: height, width, padding, left;
+    transition-duration: 0.5s;
+    transition-delay: 0.5s, 1s, 1s, 0s;
+  }
+  .mapIconMini {
+    height: 380px;
+    width: 0px;
+    padding: 0px;
+    left: 61%;
+    -webkit-transition-property: height, width, padding, left;
+    -webkit-transition-duration: 0.5s;
+    -webkit-transition-delay: 0.5s, 0s, 0s, 1s;
+    transition-property: height, width, padding, left;
+    transition-duration: 0.5s;
+    transition-delay: 0.8s, 0.3s, 0.3s, 1s;
+  }
+  .mapaDMini{
+    position: absolute;
+    top: 20%;
+    left: -61%;
+    z-index: 997;
+    width: 61%;
+    height: 51%;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.13);
+    -webkit-transition-property: left;
+    -webkit-transition-duration: 0.5s;
+    -webkit-transition-delay: 0s;
+    transition-property: left;
+    transition-duration: 0.5s;
+    transition-delay: 0s;
+  }
+  .mapaD {
+    left: 0%;
+    -webkit-transition-property: left;
+    -webkit-transition-duration: 0.5s;
+    -webkit-transition-delay: 1s;
+    transition-property: left;
+    transition-duration: 0.5s;
+    transition-delay: 1s;
+  }
+  .ageTitleFirst {
+    font-size: 25px;
+  }
+  .ageTitle {
+    font-size: 25px;
+  }
 }

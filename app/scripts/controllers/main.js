@@ -16,6 +16,7 @@ angular.module('smcApp')
         width = window.innerWidth,
         height = window.innerHeight;
       var carMovOrient = 0;
+      var mapStatus = false;
 
       var body = $('body');
 
@@ -52,8 +53,8 @@ angular.module('smcApp')
         var tl = new TimelineMax({repeat:0});
 
         tl
-          .to(".back", 14, {left:'-690%', ease: Power0.easeNone}, "penta")
-          .staggerTo(".ageTitle", 1, {color:'#ffd85f', fontSize: '40px', opacity: 1, repeat:1,repeatDelay:2, yoyo:true, ease:Power2.easeOut}, 2, "penta");
+          .to(".back", 14, {left:'-660%', ease: Power0.easeNone}, "penta")
+          .staggerTo(".ageTitle", 1, {color:'#ffd85f', fontSize: '1.5em', opacity: 1, repeat:1,repeatDelay:2, yoyo:true, ease:Power2.easeOut}, 2, "penta");
         tl.pause();
 
       //---------------------------------
@@ -103,46 +104,6 @@ angular.module('smcApp')
           });
 
       //-------------------------------------
-      //-------FUNCTIONS --------------------
-
-        function playMusic(){
-            $(".BackVideo").css("display","none");
-            soundEpilogo.play();
-            TweenMax.to(soundEpilogo, 20,{volume: 0.5, ease: Power0.easeNone})
-            animateText();
-        }
-
-        function animateText(){
-          $(".dinamycText").css("opacity", "1");
-          _.each(wordsElement, function(element){
-            TweenMax.from(element, 3, {
-                opacity:0,
-                scale:Math.floor((Math.random() * 5) + 0),
-                y: Math.floor((Math.random() * 200) + 0),
-                x: Math.floor((Math.random() * 200) + 0),
-                transformOrigin:"0% 50% -50",
-                delay: Math.floor((Math.random() * 3) + 0),
-                ease: Power2.easeOut},
-              Math.random());
-          })
-        }
-
-        function pauseAnim(){
-            tl.pause();
-          }
-
-        function animeButtons() {
-            var items = $('.boxAnim');
-            function over(){
-              TweenMax.to(this, 0.2, {y:-5,opacity:1}, 0.1)
-            }
-          function out(){
-              TweenMax.to(this, 0.2, {y:0,  opacity:1}, 0.1)
-            }
-            items.hover(over, out);
-        }
-
-      //-----------------------------------
       //----------WEBGL--------------------
 
       init();
@@ -195,7 +156,7 @@ angular.module('smcApp')
           } );
           car.rotation.x = 1.35;
           car.rotation.y = 1.57;
-          car.scale.set(1,1,1);
+          car.scale.set(0.6,0.6,0.5);
           car.position.set(-35,-60,0);
           car.name="classicCar";
           scene.add( car );
@@ -231,21 +192,20 @@ angular.module('smcApp')
 
     //---------D3 CONTROLLER -----------
 
-      var width = window.innerWidth/1.2,
+      var width = window.innerWidth/1.5,
           height = window.innerHeight/2;
 
+      if(width<1500) var dimensions = {leftCenter:-50,scaleX:300, font: "16px"};
+      else var dimensions = {leftCenter:-80,scaleX:400, font: "22px"};
+
       var projection = d3.geo.mercator()
-        .center([-80, 40])
-        .scale(600)
+        .center([dimensions.leftCenter, 30])
+        .scale(dimensions.scaleX)
         .rotate([0,0]);
 
       var svg = d3.select("#mapContainer").append("svg")
         .attr("width", width)
-        .attr("height", height)
-        .style("position", 'absolute')
-        .style("top", '5%')
-        //.style("transform", 'rotateX(60deg)')
-        .style("z-index", '998');
+        .attr("height", height);
 
       var path = d3.geo.path()
         .projection(projection);
@@ -275,17 +235,15 @@ angular.module('smcApp')
                 return d.name;
               })
               .attr('x', function(d) {
-                console.log(d);
                 return (projection([d.lon, d.lat])[0])+ (d.precisionX*1);
               })
               .attr('y', function(d) {
                 return (projection([d.lon, d.lat])[1])+ (d.precisionY*1);
               })
               .attr('fill', '#ffd85f')
-              .style("font-size", "22px")
+              .style("font-size", dimensions.font)
               .style("font-family", "'Alice',serif")
-              .style("cursor", "pointer")
-              .style("font-weight", "bold");
+              .style("cursor", "pointer");
         });
         g.selectAll("path")
           .data(
@@ -299,6 +257,61 @@ angular.module('smcApp')
             console.log(d);
           })
       });
+      //--------------------------------------
+      //-------FUNCTIONS --------------------
+
+        $(document).on('click','.mapIcon',function(){
+          if(!mapStatus){
+            $(this).addClass('mapIconMini');
+            $(".mapItem").addClass('mapItemMini');
+            $("#mapContainer").addClass('mapaD');
+            mapStatus = true;
+          }
+          else {
+            $(this).removeClass('mapIconMini');
+            $(".mapItem").removeClass('mapItemMini');
+            $("#mapContainer").removeClass('mapaD');
+            mapStatus = false;
+          }
+        });
+
+        function playMusic(){
+          $(".BackVideo").css("display","none");
+          soundEpilogo.play();
+          TweenMax.to(soundEpilogo, 20,{volume: 0.5, ease: Power0.easeNone})
+          animateText();
+        }
+
+        function animateText(){
+          $(".dinamycText").css("opacity", "1");
+          _.each(wordsElement, function(element){
+            TweenMax.from(element, 3, {
+                opacity:0,
+                scale:Math.floor((Math.random() * 5) + 0),
+                y: Math.floor((Math.random() * 200) + 0),
+                x: Math.floor((Math.random() * 200) + 0),
+                transformOrigin:"0% 50% -50",
+                delay: Math.floor((Math.random() * 3) + 0),
+                ease: Power2.easeOut},
+              Math.random());
+          })
+        }
+
+        function pauseAnim(){
+          tl.pause();
+        }
+
+        function animeButtons() {
+          var items = $('.boxAnim');
+          function over(){
+            TweenMax.to(this, 0.2, {y:-5,opacity:1}, 0.1)
+          }
+          function out(){
+            TweenMax.to(this, 0.2, {y:0,  opacity:1}, 0.1)
+          }
+          items.hover(over, out);
+        }
+
+      //-----------------------------------
+
   });
-
-
