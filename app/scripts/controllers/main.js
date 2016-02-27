@@ -16,8 +16,8 @@ angular.module('smcApp')
         width = window.innerWidth,
         height = window.innerHeight;
       var carMovOrient = 0;
-      var mapStatus = false;
-
+      var mapStatus = true;
+      var videoDisplay = true;
       var body = $('body');
 
       var mySplitText = $("#quote").splitText({'type':'words','animation':'glowOnHover','useLite':true});
@@ -41,20 +41,34 @@ angular.module('smcApp')
       //---------VIDEOS--------
 
         $(".videoClass").bind("ended", function() {
-          TweenMax.to(".BackVideo", 4, {opacity: 0, ease: Back.easeIn, onComplete: playMusic}, "miniVideo")
-          TweenMax.to(".videoClass", 1.5, {volume: 0, ease: Power2.easeOut})
+            quitVideo(4);
         });
 
+        $("#skip").on("click", function(){
+            quitVideo(1);
+        });
+
+        function quitVideo(time){
+          if(videoDisplay){
+              TweenMax.to(".BackVideo", time, {opacity: 0, ease: Power0.easeNone, onComplete: playMusic}, "miniVideo");
+              TweenMax.to(".napFace", 8, {opacity: 0.5, ease: Power0.easeNone});
+              TweenMax.to(".videoClass", 1.5, {volume: 0, ease: Power0.easeNone});
+              TweenMax.staggerFrom(wordsElement, 2, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,1]}, ease: Back.easeOut.config(0.5)}, 0.5)
+              videoDisplay = false;
+            }
+          }
       //-----------------------
       //-----TIMELINE ---------
 
-        TweenMax.set(".scrollIcon, .hiddenCanvas, .dinamycText, .ageTitle", {visibility:"visible"})
+        TweenMax.set(".scrollIcon, .hiddenCanvas, .dinamycText, .ageTitle, .napFace", {visibility:"visible"});
 
         var tl = new TimelineMax({repeat:0});
 
         tl
           .to(".back", 14, {left:'-660%', ease: Power0.easeNone}, "penta")
-          .staggerTo(".ageTitle", 1, {color:'#ffd85f', fontSize: '1.5em', opacity: 1, repeat:1,repeatDelay:2, yoyo:true, ease:Power2.easeOut}, 2, "penta");
+          .to(".napFace", 1.8, {left:'9%', ease: Power0.easeNone}, "penta")
+          .staggerTo(wordsElement, 1, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.5], ease: Power2.easeOut}}, 0.1, "penta")
+          .staggerTo(".ageTitle", 1, {color:'#ffd85f', fontSize: '1.5em', opacity: 1, repeat:1,repeatDelay:0.2, yoyo:true, ease:Power2.easeOut}, 2, "penta");
         tl.pause();
 
       //---------------------------------
@@ -65,13 +79,15 @@ angular.module('smcApp')
             if(event.type != 'mousedown'){
               if (event.originalEvent.wheelDelta > 0 || event.originalEvent.detail < 0) {
                 if(step>0){
+                  if(!mapStatus && step < 0.1){openCloseMap();}
                   if(step>0.005)step -= 0.005;
-                  else if(step<=0.005 )step = 0;
+                  else if(step<=0.005 ) step = 0;
                   TweenLite.to(tl, 0.5, {progress:step, ease:Power2.easeOut, onComplete: pauseAnim});
                 }
               }
               else {
                 if(step<1){
+                  if(mapStatus) openCloseMap();
                   TweenLite.to(tl, 0.5, {progress:step, ease:Power2.easeOut, onComplete: pauseAnim});
                   step += 0.005;
                 }
@@ -83,16 +99,12 @@ angular.module('smcApp')
       //------SLIDE CONTROL ---------------
 
         $("#slider").on("input", function(){
-
+          if(mapStatus) openCloseMap();
           velocity = Math.abs(this.value);
-
           tl.timeScale(velocity/2);
-
           car.position.x = -35 + (this.value*3);
-
           if(this.value>=0){ tl.play(); carMovOrient = 1; }
           else { tl.reverse(); carMovOrient = -1; }
-
         });
 
         $("#slider").on("mouseup", function(){
@@ -271,41 +283,30 @@ angular.module('smcApp')
       //--------------------------------------
       //-------FUNCTIONS --------------------
 
-        $(document).on('click','.mapIcon',function(){
+        $(document).on('click','#mapIcon',function(){
+          openCloseMap();
+        });
+
+        function openCloseMap() {
           if(!mapStatus){
-            $(this).addClass('mapIconMini');
+            $("#mapIcon").addClass('mapIconMini');
             $(".mapItem").addClass('mapItemMini');
             $("#mapContainer").addClass('mapaD');
             mapStatus = true;
           }
           else {
-            $(this).removeClass('mapIconMini');
+            $("#mapIcon").removeClass('mapIconMini');
             $(".mapItem").removeClass('mapItemMini');
             $("#mapContainer").removeClass('mapaD');
             mapStatus = false;
           }
-        });
+        }
 
         function playMusic(){
           $(".BackVideo").css("display","none");
           soundEpilogo.play();
           TweenMax.to(soundEpilogo, 20,{volume: 0.5, ease: Power0.easeNone})
-          animateText();
-        }
-
-        function animateText(){
-          $(".dinamycText").css("opacity", "1");
-          _.each(wordsElement, function(element){
-            TweenMax.from(element, 3, {
-                opacity:0,
-                scale:Math.floor((Math.random() * 5) + 0),
-                y: Math.floor((Math.random() * 200) + 0),
-                x: Math.floor((Math.random() * 200) + 0),
-                transformOrigin:"0% 50% -50",
-                delay: Math.floor((Math.random() * 3) + 0),
-                ease: Power2.easeOut},
-              Math.random());
-          })
+          //animateText();
         }
 
         function pauseAnim(){
