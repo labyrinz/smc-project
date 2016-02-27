@@ -194,6 +194,7 @@ angular.module('smcApp')
 
       var width = window.innerWidth/1.5,
           height = window.innerHeight/2;
+      var circulitos;
 
       if(width<1500) var dimensions = {leftCenter:-50,scaleX:300, font: "16px"};
       else var dimensions = {leftCenter:-80,scaleX:400, font: "22px"};
@@ -217,7 +218,7 @@ angular.module('smcApp')
         var elementy1 = g.selectAll("circle")
             .data(data)
             .enter()
-          elementy1.append("circle")
+          circulitos = elementy1.append("circle")
               .attr("cx", function(d) {
                 return projection([d.lon, d.lat])[0];
               })
@@ -225,10 +226,11 @@ angular.module('smcApp')
                 return projection([d.lon, d.lat])[1];
               })
               .attr("r", 7)
+              .attr("id", 'circulos')
               .style("opacity", "0.7")
-              .style("fill", "white")
+              .style("fill", "rgba(255,255,255,0.2)")
               .style("stroke", "#ffd85f")
-              .style("stroke-width", "3")
+              .style("stroke-width", "2")
               .style("cursor", "pointer");
           elementy1.append('text')
               .text(function(d) {
@@ -257,6 +259,15 @@ angular.module('smcApp')
             console.log(d);
           })
       });
+
+      setInterval(function(){
+          circulitos.attr("r",10);
+          circulitos
+            .transition()
+            .duration(800)
+            .attr("r",1);
+        }, 1000);
+
       //--------------------------------------
       //-------FUNCTIONS --------------------
 

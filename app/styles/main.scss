@@ -57,7 +57,7 @@ path {
   top: 15%;
   left: 1%;
   z-index: 998;
-  border: 5px solid rgb(255, 216, 95);
+  border: 3px solid rgb(255, 216, 95);
   padding: 16px;
   border-radius: 50px;
   cursor: pointer;
@@ -72,14 +72,16 @@ path {
 .mapItem {
   width: 100%;
   opacity: 1;
+  -webkit-transition: all 0.2s ease-in-out 1s;
+  transition: all 0.2s ease-in-out 1s;
 }
 .mapItemMini {
   opacity: 0;
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out 1s;
+  transition: all 0.2s ease-in-out 1s;
 }
 .mapIconMini{
-  height: 380px;
+  height: 390px;
   width: 0px;
   padding: 0px;
   left: 50%;
