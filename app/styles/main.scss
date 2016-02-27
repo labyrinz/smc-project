@@ -81,7 +81,7 @@ path {
   transition: all 0.2s ease-in-out 1s;
 }
 .mapIconMini{
-  height: 390px;
+  height: 34.5%;
   width: 0px;
   padding: 0px;
   left: 50%;
@@ -425,6 +425,9 @@ input[type=range]:focus::-ms-fill-upper {
 }
 /* Responsive: Portrait tablets and up */
 @media only screen and (max-width: 1600px) {
+  .dinamycText {
+    font-size: 22px;
+  }
   .mapIcon{
     width: 33px;
     height: 33px;
@@ -439,8 +442,8 @@ input[type=range]:focus::-ms-fill-upper {
     transition-delay: 0.5s, 1s, 1s, 0s;
   }
   .mapIconMini {
-    height: 380px;
     width: 0px;
+    height: 50%;
     padding: 0px;
     left: 61%;
     -webkit-transition-property: height, width, padding, left;
