@@ -231,7 +231,7 @@ angular.module('smcApp')
 
     //---------D3 CONTROLLER -----------
 
-      var width = window.innerWidth/1.5,
+      var width = window.innerWidth/1.2,
           height = window.innerHeight/2;
 
       var projection = d3.geo.mercator()
@@ -252,45 +252,37 @@ angular.module('smcApp')
 
       var g = svg.append("g");
 
-      // load and display the World
       d3.json("images/models/world-110m2.json", function(error, topology) {
-        // load and display the cities
         d3.csv("images/models/cities.csv", function(error, data) {
         var elementy1 = g.selectAll("circle")
             .data(data)
             .enter()
-            //.append("a")
-            //  .attr("xlink:href", function(d) {
-            //    return "https://www.google.com/search?q="+d.city;}
-            //  )
-          elementy1.append("rect")
-              .attr("x", function(d) {
+          elementy1.append("circle")
+              .attr("cx", function(d) {
                 return projection([d.lon, d.lat])[0];
               })
-              .attr("y", function(d) {
+              .attr("cy", function(d) {
                 return projection([d.lon, d.lat])[1];
               })
-              .attr("width", 80)
-              .attr("height", 50)
-              .attr("rx", 10)
-              .attr("ry", 10)
-              .style("opacity", "0.5")
+              .attr("r", 7)
+              .style("opacity", "0.7")
               .style("fill", "white")
               .style("stroke", "#ffd85f")
-              .style("stroke-width", "6")
+              .style("stroke-width", "3")
               .style("cursor", "pointer");
           elementy1.append('text')
               .text(function(d) {
                 return d.name;
               })
               .attr('x', function(d) {
-                return (projection([d.lon, d.lat])[0])+10;
+                console.log(d);
+                return (projection([d.lon, d.lat])[0])+ (d.precisionX*1);
               })
               .attr('y', function(d) {
-                return (projection([d.lon, d.lat])[1])+30;
+                return (projection([d.lon, d.lat])[1])+ (d.precisionY*1);
               })
-              .attr('fill', 'black')
-              .style("font-size", "18px")
+              .attr('fill', '#ffd85f')
+              .style("font-size", "22px")
               .style("font-family", "'Alice',serif")
               .style("cursor", "pointer")
               .style("font-weight", "bold");

@@ -96,7 +96,7 @@ path {
   z-index: 997;
 }
 .BackVideo{
-  background-image: url("/images/cuba31.jpg");
+  background-image: url("/images/tropi2.png");
   background-size: cover;
   position: absolute;
   left: 0px;
@@ -148,6 +148,16 @@ path {
   margin-top: 25%;
   float: right;
   opacity: 0;
+  z-index: 999;
+}
+.instructions {
+  position: absolute;
+  top: 3%;
+  left: 10.5%;
+  font-family: 'Alice',serif;
+  text-align: justify;
+  color: white;
+  font-size: 16px;
   z-index: 999;
 }
 .napFace{
