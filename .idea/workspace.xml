@@ -2,8 +2,47 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c0c10360-322a-4b52-bf6b-bfcfd7784980" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images/Pentagrma-recto.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images/girona-map.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images/penta-recto.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images/penta-recto2.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images/pentagrama-curvas.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images/prel_0.tif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images/yeoman.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/404.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/favicon.ico" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/images/nap.4f12d995.4f12d995.4f12d995.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/images/orchestra.b6f98f2f.b6f98f2f.b6f98f2f.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/images/orchestra.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/images/orchestra2.0a68b494.0a68b494.0a68b494.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/images/orchestra2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/images/orchestra3.d4b3385c.d4b3385c.d4b3385c.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/images/orchestra3.d4b3385c.d4b3385c.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/images/scroll.2f69dad4.2f69dad4.2f69dad4.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/images/scroll.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/images/xavi.02adbe82.02adbe82.02adbe82.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/images/xavi.713ff782.713ff782.713ff782.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/images/xavi.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/images/yeoman.8cb970fb.8cb970fb.8cb970fb.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/robots.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/scripts/scripts.32edc1c0.32edc1c0.32edc1c0.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/scripts/scripts.32edc1c0.32edc1c0.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/scripts/scripts.32edc1c0.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/scripts/vendor.ca87a62b.ca87a62b.ca87a62b.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/scripts/vendor.ca87a62b.ca87a62b.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/scripts/vendor.ca87a62b.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/styles/main.7442405f.7442405f.7442405f.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/styles/main.7442405f.7442405f.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/styles/vendor.d41d8cd9.d41d8cd9.d41d8cd9.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/views/about.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/views/main.html" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/images/arrow-left.svg" afterPath="$PROJECT_DIR$/app/images/arrow-left.svg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/images/models/CADILLAC.obj" afterPath="$PROJECT_DIR$/app/images/models/CADILLAC.obj" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/controllers/main.js" afterPath="$PROJECT_DIR$/app/scripts/controllers/main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/styles/main.scss" afterPath="$PROJECT_DIR$/app/styles/main.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/main.html" afterPath="$PROJECT_DIR$/app/views/main.html" />
     </list>
     <ignored path="smc.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,7 +66,7 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.807693">
+            <state vertical-scroll-proportion="-11.884615">
               <caret line="59" column="62" selection-start-line="59" selection-start-column="62" selection-end-line="59" selection-end-column="62" />
               <folding />
             </state>
@@ -37,38 +76,28 @@
       <file leaf-file-name="main.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/main.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="13" column="6" selection-start-line="8" selection-start-column="0" selection-end-line="13" selection-end-column="6" />
+            <state vertical-scroll-proportion="-1.3076923">
+              <caret line="11" column="47" selection-start-line="11" selection-start-column="47" selection-end-line="11" selection-end-column="47" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="penta-recto.svg" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/images/penta-recto.svg">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="15" column="31" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/scripts/controllers/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="55" column="184" selection-start-line="55" selection-start-column="184" selection-end-line="55" selection-end-column="184" />
+            <state vertical-scroll-proportion="0.2724359">
+              <caret line="145" column="57" selection-start-line="145" selection-start-column="57" selection-end-line="145" selection-end-column="57" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.scss" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.scss" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/styles/main.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.31323284">
-              <caret line="83" column="14" selection-start-line="83" selection-start-column="14" selection-end-line="83" selection-end-column="14" />
+            <state vertical-scroll-proportion="-15.038462">
+              <caret line="296" column="51" selection-start-line="296" selection-start-column="51" selection-end-line="296" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -107,10 +136,11 @@
         <option value="$PROJECT_DIR$/app/images/penta-recto.svg" />
         <option value="$PROJECT_DIR$/app/images/map.svg" />
         <option value="$PROJECT_DIR$/app/images/models/cities.csv" />
-        <option value="$PROJECT_DIR$/app/views/main.html" />
-        <option value="$PROJECT_DIR$/app/scripts/controllers/main.js" />
         <option value="$PROJECT_DIR$/app/index.html" />
+        <option value="$PROJECT_DIR$/app/images/arrow-left.svg" />
+        <option value="$PROJECT_DIR$/app/views/main.html" />
         <option value="$PROJECT_DIR$/app/styles/main.scss" />
+        <option value="$PROJECT_DIR$/app/scripts/controllers/main.js" />
       </list>
     </option>
   </component>
@@ -424,8 +454,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -478,6 +506,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -567,7 +597,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32789317" sideWeight="0.50292826" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25297618" sideWeight="0.5081585" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33333334" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33282208" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32104453" sideWeight="0.49707174" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -603,6 +633,14 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/app/images/models/cities.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1" column="30" selection-start-line="1" selection-start-column="30" selection-end-line="1" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -915,44 +953,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/images/penta-recto2.svg">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.263158">
-          <caret line="21" column="50" selection-start-line="21" selection-start-column="50" selection-end-line="21" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/images/map.svg">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.68218297">
-          <caret line="25" column="26" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/main.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="6" selection-start-line="8" selection-start-column="0" selection-end-line="13" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/images/penta-recto.svg">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="31" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="55" column="184" selection-start-line="55" selection-start-column="184" selection-end-line="55" selection-end-column="184" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/images/models/cities.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -963,16 +963,48 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.807693">
+        <state vertical-scroll-proportion="-11.884615">
           <caret line="59" column="62" selection-start-line="59" selection-start-column="62" selection-end-line="59" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/images/map.svg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2996795">
+          <caret line="11" column="22" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/images/arrow-left.svg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.16346154">
+          <caret line="6" column="22" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/main.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.3076923">
+          <caret line="11" column="47" selection-start-line="11" selection-start-column="47" selection-end-line="11" selection-end-column="47" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/styles/main.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.31323284">
-          <caret line="83" column="14" selection-start-line="83" selection-start-column="14" selection-end-line="83" selection-end-column="14" />
+        <state vertical-scroll-proportion="-15.038462">
+          <caret line="296" column="51" selection-start-line="296" selection-start-column="51" selection-end-line="296" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2724359">
+          <caret line="145" column="57" selection-start-line="145" selection-start-column="57" selection-end-line="145" selection-end-column="57" />
           <folding />
         </state>
       </provider>

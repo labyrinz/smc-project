@@ -53,6 +53,7 @@ path {
 .mapIcon {
   width: 51px;
   height: 51px;
+  background-color: rgba(0, 0, 0, 0.40);
   position: absolute;
   top: 2%;
   left: 1%;
@@ -101,7 +102,7 @@ path {
   width: 50%;
   overflow: hidden;
   height: 35%;
-  background-color: rgba(255, 255, 255, 0.13);
+  background-color: rgba(0, 0, 0, 0.40);
   -webkit-transition-property: left;
   -webkit-transition-duration: 0.5s;
   -webkit-transition-delay: 0s;
@@ -118,37 +119,15 @@ path {
   transition-duration: 0.5s;
   transition-delay: 1s;
 }
-
-.tittleOptionsMain{
-  /* position: absolute; */
-  /* left: 0; */
-  /* right: 0; */
-  margin-top: 20%;
-  /* bottom: 0; */
-  margin-left: 6%;
-  /* margin: auto; */
-  height: 20%;
-  background-color: rgba(0, 0, 0, 0.55);
-  width: 70%;
-}
-.mainBottons{
-  width: 95px;
-  height: 95px;
-  //opacity: 0;
-  //-ms-transform: scale(0,0); /* IE 9 */
-  //-webkit-transform: scale(0,0); /* Chrome, Safari, Opera */
-  //transform: scale(0,0);
-  font-family: 'Alice',serif;
-  border-radius: 50%;
-  background-color: rgb(86, 77, 48);
-  margin-right: 10px;
-  float: left;
+.arrowLeft{
+  position: absolute;
+  top: 2%;
+  height: 12%;
+  right: 2%;
   cursor: pointer;
-  font-size: 35px;
-  padding: 10px;
-  color: rgb(255, 216, 95);
-  border: solid 5px yellow;
+  opacity: 0.4;
 }
+
 .back{
   position: absolute;
   top: 0;
@@ -162,10 +141,7 @@ path {
   width: 14.28%;
 }
 .color0{
-//  background-image: url("/images/cuba3.jpg");
-//  background-size: cover;
   background-color: rgb(14, 9, 7);
-//  opacity: 0.2;
 }
 .color1{
   background-color: #F7B862;
@@ -204,7 +180,7 @@ path {
   z-index: 997;
 }
 .BackVideo{
-  background-image: url("/images/tropi2.png");
+  background-image: url("/images/cubaWide.jpg");
   background-size: cover;
   position: absolute;
   right: 0px;
@@ -228,25 +204,11 @@ path {
 .ageTitle {
   font-family: 'Alice',serif;
   text-align: center;
-//  color: #ffd85f;
-  color: #180f0c;
+  color: #434242;
   opacity: 0.5;
   height: 30px;
   width: 14%;
   font-size: 20px;
-  font-weight: bold;
-  float: left;
-  display: inline-block;
-}
-.ageTitleFirst {
-  font-family: 'Alice',serif;
-  text-align: center;
-  color: #ffd85f;
-//  color: #180f0c;
-  opacity: 1;
-  height: 30px;
-  width: 14%;
-  font-size: 40px;
   font-weight: bold;
   float: left;
   display: inline-block;
@@ -289,18 +251,10 @@ path {
 .boxGroup {
   display: block;
   float: right;
-  /* bottom: 0; */
-  /* right: 0; */
   margin: auto;
   height: 50px;
 }
 .boxAnim{
-  /* width: 95px; */
-  /* height: 50px; */
-  //opacity: 0;
-  //-ms-transform: scale(0,0); /* IE 9 */
-  //-webkit-transform: scale(0,0); /* Chrome, Safari, Opera */
-  //transform: scale(0,0);
   font-family: 'Alice',serif;
   border-radius: 2px;
   background-color: rgb(86, 77, 48);
@@ -323,6 +277,33 @@ path {
   position: absolute;
   bottom: -60px;
   left: 0px;
+}
+.gironaMap{
+  position: absolute;
+  bottom: 10%;
+  width: 2.5%;
+  z-index: 997;
+  margin-left: 10%;
+  transform: rotateZ(90deg);
+  opacity: 0.7;
+}
+.fotoFamily {
+  width: 5%;
+  position: absolute;
+  top: 2%;
+  margin-left: -3%;
+  -webkit-box-shadow: 21px 21px 26px -2px rgba(0,0,0,0.55);
+  -moz-box-shadow: 21px 21px 26px -2px rgba(0,0,0,0.55);
+  box-shadow: 21px 21px 26px -2px rgba(0,0,0,0.55);
+}
+.textIntro{
+  font-family: 'Alice',serif;
+  position: absolute;
+  top: 3%;
+  margin-left: 9%;
+  z-index: 997;
+  color: #1B1B1B;
+  font-size: 15px;
 }
 //----RAGE SLIDER STYLE---//
 
@@ -431,52 +412,18 @@ input[type=range]:focus::-ms-fill-upper {
   .mapIcon{
     width: 33px;
     height: 33px;
-    position: absolute;
-    top: 2%;
-    left: 1%;
-    -webkit-transition-property: height, width, padding, left;
-    -webkit-transition-duration: 0.5s;
-    -webkit-transition-delay: 0.5s, 1.2s, 1.2s, 0s;
-    transition-property: height, width, padding, left;
-    transition-duration: 0.5s;
-    transition-delay: 0.5s, 1s, 1s, 0s;
   }
   .mapIconMini {
     width: 0px;
     height: 50%;
-    padding: 0px;
     left: 61%;
-    -webkit-transition-property: height, width, padding, left;
-    -webkit-transition-duration: 0.5s;
-    -webkit-transition-delay: 0.5s, 0s, 0s, 1s;
-    transition-property: height, width, padding, left;
-    transition-duration: 0.5s;
-    transition-delay: 0.8s, 0.3s, 0.3s, 1s;
   }
   .mapaDMini{
-    position: absolute;
-    top: 2%;
-    left: -61%;
-    z-index: 997;
     width: 61%;
     height: 51%;
-    overflow: hidden;
-    background-color: rgba(255, 255, 255, 0.13);
-    -webkit-transition-property: left;
-    -webkit-transition-duration: 0.5s;
-    -webkit-transition-delay: 0s;
-    transition-property: left;
-    transition-duration: 0.5s;
-    transition-delay: 0s;
   }
   .mapaD {
     left: 0%;
-    -webkit-transition-property: left;
-    -webkit-transition-duration: 0.5s;
-    -webkit-transition-delay: 1s;
-    transition-property: left;
-    transition-duration: 0.5s;
-    transition-delay: 1s;
   }
   .ageTitleFirst {
     font-size: 25px;

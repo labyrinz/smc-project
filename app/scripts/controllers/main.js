@@ -12,7 +12,7 @@ angular.module('smcApp')
 
       //--- GLOBAL VARIABLES ----
 
-      var camera, scene, renderer, car, directionalLight, velocity,
+      var camera, scene, renderer, car, directionalLight, fixedLight, velocity,
         width = window.innerWidth,
         height = window.innerHeight;
       var carMovOrient = 0;
@@ -68,7 +68,8 @@ angular.module('smcApp')
           .to(".back", 14, {left:'-660%', ease: Power0.easeNone}, "penta")
           .to(".napFace", 1.8, {left:'9%', ease: Power0.easeNone}, "penta")
           .staggerTo(wordsElement, 1, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.5], ease: Power2.easeOut}}, 0.1, "penta")
-          .staggerTo(".ageTitle", 1, {color:'#ffd85f', fontSize: '1.5em', opacity: 1, repeat:1,repeatDelay:0.2, yoyo:true, ease:Power2.easeOut}, 2, "penta");
+          .staggerTo(".ageTitle", 1, {color:'#ffd85f', fontSize: '2em', opacity: 1, repeat:1,repeatDelay:2.5, yoyo:true, ease:Power2.easeOut}, 2.02, "penta")
+          .from(".fotoFamily", 1.7, {marginLeft: '8%', ease: Power0.easeNone},"penta+=1");
         tl.pause();
 
       //---------------------------------
@@ -79,6 +80,8 @@ angular.module('smcApp')
             if(event.type != 'mousedown'){
               if (event.originalEvent.wheelDelta > 0 || event.originalEvent.detail < 0) {
                 if(step>0){
+                  velocity = 3;
+                  carMovOrient = -1;
                   if(!mapStatus && step < 0.1){openCloseMap();}
                   if(step>0.005)step -= 0.005;
                   else if(step<=0.005 ) step = 0;
@@ -88,6 +91,8 @@ angular.module('smcApp')
               else {
                 if(step<1){
                   if(mapStatus) openCloseMap();
+                  velocity = 3;
+                  carMovOrient = 1;
                   TweenLite.to(tl, 0.5, {progress:step, ease:Power2.easeOut, onComplete: pauseAnim});
                   step += 0.005;
                 }
@@ -138,11 +143,16 @@ angular.module('smcApp')
 
         buildShape();
 
-        directionalLight = new THREE.PointLight( 0xffffff, 1, 300 );
+        directionalLight = new THREE.PointLight( 0xffff99, 1, 300 );
         directionalLight.position.set(0,5,60);
         directionalLight.name = 'luzDireccional';
 
+        fixedLight = new THREE.PointLight( 0xffffff, 1, 110 );
+        fixedLight.position.set(0,5,60);
+        fixedLight.name = 'luzFija';
+
         scene.add( directionalLight );
+        scene.add( fixedLight );
 
         window.addEventListener( 'resize', onWindowResize, false );
       }
@@ -190,7 +200,7 @@ angular.module('smcApp')
          else directionalLight.position.x = directionalLight.position.x + velocity*10;
        }
        else if(carMovOrient == 0) {
-         directionalLight.position.x = 5;
+         //directionalLight.position.x = 5;
        }
 
        setTimeout( function() {
@@ -283,7 +293,7 @@ angular.module('smcApp')
       //--------------------------------------
       //-------FUNCTIONS --------------------
 
-        $(document).on('click','#mapIcon',function(){
+        $(document).on('click','#mapIcon, #arrowClose',function(){
           openCloseMap();
         });
 
@@ -303,13 +313,14 @@ angular.module('smcApp')
         }
 
         function playMusic(){
-          $(".BackVideo").css("display","none");
           soundEpilogo.play();
-          TweenMax.to(soundEpilogo, 20,{volume: 0.5, ease: Power0.easeNone})
-          //animateText();
+          $(".BackVideo").css("display","none");
+          TweenMax.to(soundEpilogo, 1,{volume: 0.5, ease: Power0.easeNone});
         }
 
         function pauseAnim(){
+          velocity = 0;
+          carMovOrient = 0;
           tl.pause();
         }
 
