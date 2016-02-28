@@ -23,7 +23,8 @@
 			'scale'		: true,
 			'useLite'	: false,
 			'colorize'	: null,
-			'useCSS'	: false
+			'useCSS'	: false,
+      'addClass' : 'default'
 		};
 
 		if(options == null || options == undefined || options == '' || (options.type !== 'words' && options.type !== 'lines' && options.type !== 'letters' && options.type !== 'sentences')){
@@ -98,7 +99,7 @@
 
 			$.each(obj,function(index,value){
 
-				var item = "<div class='split-lines'>"+value.text+"</div>";
+				var item = "<div class='split-lines "+options.addClass+"'>"+value.text+"</div>";
 
 				element.append(item);
 
@@ -170,7 +171,7 @@
    			   }
 
 			   $.each(a, function(i, val) {
-			      if(!val.match(/\n/) && val!="") a[i] = '<div class="word-measure wordStyle">' + val + '</div>';
+			      if(!val.match(/\n/) && val!="") a[i] = '<div class="word-measure wordStyle '+options.addClass+'">' + val + '</div>';
 			   });
 
 			   var arr = a.join(" ");

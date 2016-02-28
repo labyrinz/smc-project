@@ -19,9 +19,16 @@ angular.module('smcApp')
       var mapStatus = true;
       var videoDisplay = true;
       var body = $('body');
+      var stepIncrement = 0.01;
 
-      var mySplitText = $("#quote").splitText({'type':'words','animation':'glowOnHover','useLite':true});
-      var wordsElement = $(".word-measure");
+      var introLetters = $("#quote").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"introLetters"});
+      var introWords = $(".introLetters");
+
+      var cita1Letters = $("#cita1").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"cita1Letters"});
+      var cita1Words = $(".cita1Letters");
+
+      var texto1Letters = $("#texto1").splitText({'type':'lines','animation':'glowOnHover','useLite':true,'addClass':"texto1Letters"});
+      var texto1lines = $(".texto1Letters");
 
       var step = 0;
 
@@ -53,24 +60,44 @@ angular.module('smcApp')
               TweenMax.to(".BackVideo", time, {opacity: 0, ease: Power0.easeNone, onComplete: playMusic}, "miniVideo");
               TweenMax.to(".napFace", 8, {opacity: 0.5, ease: Power0.easeNone});
               TweenMax.to(".videoClass", 1.5, {volume: 0, ease: Power0.easeNone});
-              TweenMax.staggerFrom(wordsElement, 2, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,1]}, ease: Back.easeOut.config(0.5)}, 0.5)
+              TweenMax.staggerFrom(introWords, 2, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,1]}, ease: Back.easeOut.config(0.8)}, 0.5)
               videoDisplay = false;
             }
           }
       //-----------------------
       //-----TIMELINE ---------
 
-        TweenMax.set(".scrollIcon, .hiddenCanvas, .dinamycText, .ageTitle, .napFace", {visibility:"visible"});
+        TweenMax.set(".scrollIcon, .hiddenCanvas, .dinamycText, .ageTitle, .napFace, .addon1", {visibility:"visible"});
 
         var tl = new TimelineMax({repeat:0});
 
         tl
-          .to(".back", 14, {left:'-660%', ease: Power0.easeNone}, "penta")
+          //EPISODE 1
+          //.to(".back", 14, {left:'-690%', ease: Power0.easeNone}, "penta")
+          .to(".back", 2, {left:'-100%', ease: Power0.easeNone}, "penta")
           .to(".napFace", 1.8, {left:'9%', ease: Power0.easeNone}, "penta")
-          .staggerTo(wordsElement, 1, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.5], ease: Power2.easeOut}}, 0.1, "penta")
-          .staggerTo(".ageTitle", 1, {color:'#ffd85f', fontSize: '2em', opacity: 1, repeat:1,repeatDelay:2.5, yoyo:true, ease:Power2.easeOut}, 2.02, "penta")
-          .from(".fotoFamily", 1.7, {marginLeft: '8%', ease: Power0.easeNone},"penta+=1");
-        tl.pause();
+          .staggerTo(introWords, 0.5, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.5], ease: Power2.easeOut}}, 0.1, "penta")
+          //.staggerTo(".ageTitle", 1, {color:'#ffd85f', fontSize: '2em', opacity: 1, repeat:1,repeatDelay:2.5, yoyo:true, ease:Power2.easeOut}, 2.02, "penta")
+          .to(".age1", 2, {color:'#ffd85f', fontSize: '2em', opacity: 1, ease:Power0.easeNone}, "penta")
+          .from(".fotoFamily", 1.2, {marginLeft: '6%', ease: Power0.easeNone},"penta+=1")
+          .to(".fotoFamily", 0.8, {top: '-70%', ease: Power0.easeNone},"+=1")
+          .to(".textIntro", 2, {top: '-6%', ease: Power0.easeNone},"-=1")
+          //EPISODE 2
+          .to(".prel01", 2, {bottom: '24%', ease: Power2.easeOut},"step2-=1.5")
+          .to(".prel02", 1.8, {bottom: '62%', ease: Power2.easeOut},"step2-=1.5")
+          .to(".prel03", 1.6, {bottom: '40%', ease: Power2.easeOut},"step2-=1.5")
+          .staggerFrom(cita1Words, 0.5, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.5], ease: Power2.easeOut}}, 0.1)
+          .staggerFrom(texto1lines, 0.5, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.5], ease: Power2.easeOut}}, 0.1)
+          .staggerTo(".addon1", 0.5, {opacity: 1, scale: 1, ease: Back.easeOut}, 0.5)
+          .to(".prel01", 2, {bottom: '110%', ease: Power2.easeIn},"step3")
+          .to(".prel02", 1.8, {bottom: '110%', ease: Power2.easeIn},"step3")
+          .to(".prel03", 1.6, {bottom: '110%', ease: Power2.easeIn},"step3")
+          .staggerTo(".addon1", 0.5, {opacity: 0, scale: 0, ease: Power2.easeOut}, 0.5)
+          .staggerTo(cita1Words, 0.5, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.5], ease: Power2.easeOut}}, 0.1, "-=1")
+          .staggerTo(texto1lines, 0.5, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.5], ease: Power2.easeOut}}, 0.1, "-=1")
+          //EPISODE 3
+
+    tl.pause();
 
       //---------------------------------
       //----------MOUSE CONTROLS --------
@@ -79,22 +106,22 @@ angular.module('smcApp')
             event.preventDefault();
             if(event.type != 'mousedown'){
               if (event.originalEvent.wheelDelta > 0 || event.originalEvent.detail < 0) {
-                if(step>0){
+                if(step > 0){
                   velocity = 3;
                   carMovOrient = -1;
                   if(!mapStatus && step < 0.1){openCloseMap();}
-                  if(step>0.005)step -= 0.005;
-                  else if(step<=0.005 ) step = 0;
+                  if(step > stepIncrement)step -= stepIncrement;
+                  else if(step <= stepIncrement ) step = 0;
                   TweenLite.to(tl, 0.5, {progress:step, ease:Power2.easeOut, onComplete: pauseAnim});
                 }
               }
               else {
-                if(step<1){
+                if(step < 1){
                   if(mapStatus) openCloseMap();
                   velocity = 3;
                   carMovOrient = 1;
                   TweenLite.to(tl, 0.5, {progress:step, ease:Power2.easeOut, onComplete: pauseAnim});
-                  step += 0.005;
+                  step += stepIncrement;
                 }
               }
             }
@@ -106,7 +133,7 @@ angular.module('smcApp')
         $("#slider").on("input", function(){
           if(mapStatus) openCloseMap();
           velocity = Math.abs(this.value);
-          tl.timeScale(velocity/2);
+          tl.timeScale(velocity*2);
           car.position.x = -35 + (this.value*3);
           if(this.value>=0){ tl.play(); carMovOrient = 1; }
           else { tl.reverse(); carMovOrient = -1; }
@@ -147,7 +174,7 @@ angular.module('smcApp')
         directionalLight.position.set(0,5,60);
         directionalLight.name = 'luzDireccional';
 
-        fixedLight = new THREE.PointLight( 0xffffff, 1, 110 );
+        fixedLight = new THREE.PointLight( 0xffffff, 1, 150 );
         fixedLight.position.set(0,5,60);
         fixedLight.name = 'luzFija';
 
