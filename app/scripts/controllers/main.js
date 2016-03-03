@@ -27,7 +27,7 @@ angular.module('smcApp')
       var cita1Letters = $("#cita1").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"cita1Letters"});
       var cita1Words = $(".cita1Letters");
 
-      var texto1Letters = $("#texto1").splitText({'type':'lines','animation':'glowOnHover','useLite':true,'addClass':"texto1Letters"});
+      var texto1Letters = $("#texto1").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"texto1Letters"});
       var texto1lines = $(".texto1Letters");
 
       var step = 0;
@@ -81,7 +81,7 @@ angular.module('smcApp')
           .to(".age1", 2, {color:'#ffd85f', fontSize: '2em', opacity: 1, ease:Power0.easeNone}, "penta")
           .from(".fotoFamily", 1.2, {marginLeft: '6%', ease: Power0.easeNone},"penta+=1")
           .to(".fotoFamily", 0.8, {top: '-70%', ease: Power0.easeNone},"+=1")
-          .to(".textIntro", 2, {top: '-6%', ease: Power0.easeNone},"-=1")
+          .to(".textIntro", 2, {top: '-20%', ease: Power0.easeNone},"-=1")
           //EPISODE 2
           .to(".prel01", 2, {bottom: '24%', ease: Power2.easeOut},"step2-=1.5")
           .to(".prel02", 1.8, {bottom: '62%', ease: Power2.easeOut},"step2-=1.5")
@@ -245,11 +245,13 @@ angular.module('smcApp')
           height = window.innerHeight/2;
       var circulitos;
 
-      if(width<1500) var dimensions = {leftCenter:-50,scaleX:300, font: "16px"};
+      console.log(width);
+
+      if(width<1500) var dimensions = {leftCenter:-40,upCenter: 20,scaleX:300, font: "14px"};
       else var dimensions = {leftCenter:-80,scaleX:400, font: "22px"};
 
       var projection = d3.geo.mercator()
-        .center([dimensions.leftCenter, 30])
+        .center([dimensions.leftCenter, dimensions.upCenter])
         .scale(dimensions.scaleX)
         .rotate([0,0]);
 
