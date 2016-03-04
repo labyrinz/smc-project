@@ -27,11 +27,10 @@ angular.module('smcApp')
       var cita1Letters = $("#cita1").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"cita1Letters"});
       var cita1Words = $(".cita1Letters");
 
-      var texto1Letters = $("#texto1").splitText({'type':'lines','animation':'glowOnHover','useLite':true,'addClass':"texto1Letters"});
+      var texto1Letters = $("#texto1").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"texto1Letters"});
       var texto1lines = $(".texto1Letters");
 
       var step = 0;
-
       //-----------------------
       //----SOUND TRACKS -----
 
@@ -77,7 +76,7 @@ angular.module('smcApp')
           .to(".back", 2, {left:'-100%', ease: Power0.easeNone}, "penta")
           .to(".napFace", 1.8, {left:'9%', ease: Power0.easeNone}, "penta")
           .staggerTo(introWords, 0.5, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.5], ease: Power2.easeOut}}, 0.1, "penta")
-          //.staggerTo(".ageTitle", 1, {color:'#ffd85f', fontSize: '2em', opacity: 1, repeat:1,repeatDelay:2.5, yoyo:true, ease:Power2.easeOut}, 2.02, "penta")
+          .staggerTo(".ageTitle", 1, {color:'#ffd85f', fontSize: '2em', opacity: 1, repeat:1,repeatDelay:2.5, yoyo:true, ease:Power2.easeOut}, 2.02, "penta")
           .to(".age1", 2, {color:'#ffd85f', fontSize: '2em', opacity: 1, ease:Power0.easeNone}, "penta")
           .from(".fotoFamily", 1.2, {marginLeft: '6%', ease: Power0.easeNone},"penta+=1")
           .to(".fotoFamily", 0.8, {top: '-70%', ease: Power0.easeNone},"+=1")
@@ -86,15 +85,15 @@ angular.module('smcApp')
           .to(".prel01", 2, {bottom: '24%', ease: Power2.easeOut},"step2-=1.5")
           .to(".prel02", 1.8, {bottom: '62%', ease: Power2.easeOut},"step2-=1.5")
           .to(".prel03", 1.6, {bottom: '40%', ease: Power2.easeOut},"step2-=1.5")
-          .staggerFrom(cita1Words, 0.5, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.5], ease: Power2.easeOut}}, 0.1)
-          .staggerFrom(texto1lines, 0.5, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.5], ease: Power2.easeOut}}, 0.1)
+          .staggerFrom(cita1Words, 0.5, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.5],  ease: Power2.easeOut}}, 0.1)
+          //.staggerFrom(texto1lines, 0.5, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.5], ease: Power2.easeOut}}, 0.1)
           .staggerTo(".addon1", 0.5, {opacity: 1, scale: 1, ease: Back.easeOut}, 0.5)
           .to(".prel01", 2, {bottom: '110%', ease: Power2.easeIn},"step3")
           .to(".prel02", 1.8, {bottom: '110%', ease: Power2.easeIn},"step3")
           .to(".prel03", 1.6, {bottom: '110%', ease: Power2.easeIn},"step3")
           .staggerTo(".addon1", 0.5, {opacity: 0, scale: 0, ease: Power2.easeOut}, 0.5)
           .staggerTo(cita1Words, 0.5, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.5], ease: Power2.easeOut}}, 0.1, "-=1")
-          .staggerTo(texto1lines, 0.5, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.5], ease: Power2.easeOut}}, 0.1, "-=1")
+          //.staggerTo(texto1lines, 0.5, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.5], ease: Power2.easeOut}}, 0.1, "-=1")
           //EPISODE 3
 
     tl.pause();
@@ -324,6 +323,14 @@ angular.module('smcApp')
           openCloseMap();
         });
 
+        $(document).on('click','#texto2', function(){
+            $('.plusInfoCita').text('');
+            _.each(texto1lines, function(val,i){
+              setTimeout(function(){insertWords(val)}, 10*i);
+            });
+            $('.minusInfo').css('opacity', '1');
+        });
+
         function openCloseMap() {
           if(!mapStatus){
             $("#mapIcon").addClass('mapIconMini');
@@ -349,6 +356,12 @@ angular.module('smcApp')
           velocity = 0;
           carMovOrient = 0;
           tl.pause();
+        }
+
+        function insertWords(variable){
+          $('#texto2').append(variable);
+          TweenMax.from(variable, 0.3, {opacity: 0, y:40, transformOrigin:"0% 50% -50", ease: Power2.easeOut});
+          //TweenMax.from(variable, 0.5, {opacity: 0, ease: Power2.easeOut});
         }
 
         function animeButtons() {

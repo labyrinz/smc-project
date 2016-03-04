@@ -51,8 +51,8 @@ path {
 }
 
 .mapIcon {
-  width: 51px;
-  height: 51px;
+  width: 34px;
+  height: 34px;
   background-color: rgba(0, 0, 0, 0.40);
   position: absolute;
   top: 2%;
@@ -63,23 +63,12 @@ path {
   border-radius: 22px;
   cursor: pointer;
   overflow: hidden;
-  -webkit-transition-property: height, width, padding, left;
-  -webkit-transition-duration: 0.5s;
-  -webkit-transition-delay: 0.5s, 1s, 1s, 0s;
-  transition-property: height, width, padding, left;
-  transition-duration: 0.5s;
-  transition-delay: 0.5s, 1s, 1s, 0s;
-}
-.mapItem {
-  width: 100%;
-  opacity: 1;
-  -webkit-transition: all 0.2s ease-in-out 1s;
-  transition: all 0.2s ease-in-out 1s;
-}
-.mapItemMini {
-  opacity: 0;
-  -webkit-transition: all 0.2s ease-in-out 1s;
-  transition: all 0.2s ease-in-out 1s;
+  -webkit-transition-property: left, height, width, padding;
+  -webkit-transition-duration: 0.2s;
+  -webkit-transition-delay: 0s, 0.2s, 0.5s, 0.5s;
+  transition-property: left, height, width, padding;
+  transition-duration: 0.2s;
+  transition-delay: 0s, 0.2s, 0.5s, 0.5s;
 }
 .mapIconMini{
   height: 34.5%;
@@ -87,11 +76,22 @@ path {
   padding: 0px;
   left: 50%;
   -webkit-transition-property: height, width, padding, left;
-  -webkit-transition-duration: 0.5s;
-  -webkit-transition-delay: 0.5s, 0s, 0s, 1s;
+  -webkit-transition-duration: 0.2s;
+  -webkit-transition-delay: 0.2s, 0s, 0s, 0.5s;
   transition-property: height, width, padding, left;
-  transition-duration: 0.5s;
-  transition-delay: 0.8s, 0.3s, 0.3s, 1s;
+  transition-duration: 0.2s;
+  transition-delay: 0.2s, 0s, 0s, 0.5s;
+}
+.mapItem {
+  width: 100%;
+  opacity: 1;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.mapItemMini {
+  opacity: 0;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .mapaDMini {
@@ -103,21 +103,13 @@ path {
   overflow: hidden;
   height: 35%;
   background-color: rgba(0, 0, 0, 0.40);
-  -webkit-transition-property: left;
-  -webkit-transition-duration: 0.5s;
-  -webkit-transition-delay: 0s;
-  transition-property: left;
-  transition-duration: 0.5s;
-  transition-delay: 0s;
+  -webkit-transition: left 0.2s ease-in-out;
+  transition: left 0.2s ease-in-out;
 }
 .mapaD{
   left: 0%;
-  -webkit-transition-property: left;
-  -webkit-transition-duration: 0.5s;
-  -webkit-transition-delay: 1s;
-  transition-property: left;
-  transition-duration: 0.5s;
-  transition-delay: 1s;
+  -webkit-transition: left 0.2s ease-in-out 0.5s;
+  transition: left 0.2s ease-in-out 0.5s;
 }
 .arrowLeft{
   position: absolute;
@@ -267,6 +259,7 @@ path {
 }
 .wordStyle{
   display: inline-block;
+  margin-right: 9px;
 }
 
 .footer{
@@ -354,6 +347,13 @@ path {
   z-index: 997;
   color: #150f08;
   font-size: 25px;
+}
+.plusInfoCita{
+  cursor: pointer;
+}
+.minusInfo{
+  cursor: pointer;
+  opacity: 0;
 }
 .addons1{
   position: absolute;
