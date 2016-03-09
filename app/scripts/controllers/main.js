@@ -92,10 +92,10 @@ angular.module('smcApp')
             }
           }
 
-          setInterval(function(){
+        setInterval(function(){
             var vid = document.getElementById("video2");
             vid.play();
-          }, 5000);
+          }, 500);
 
       //-----------------------
       //-----TIMELINE ---------
@@ -124,7 +124,7 @@ angular.module('smcApp')
           //EPISODE 2
           .staggerFrom(totalWords[0], 0.5, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.5],  ease: Power2.easeOut}}, 0.1)
           .staggerFrom(texto2lines, 0.5, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.5],  ease: Power2.easeOut}}, 0.1)
-          .staggerTo(".addon1", 0.5, {opacity: 0.4, scale: 1, ease: Back.easeOut}, 0.5)
+          .staggerTo(".addon1", 0.5, {opacity: 0.6, scale: 1, ease: Back.easeOut}, 0.5)
           .to(arr1,7, arr2,"step3")
           .to(arr3,7, arr2,"step3")
           //.to(".prel02", 4, {marginRight: '-20%', ease: Power2.easeIn},"step3")
