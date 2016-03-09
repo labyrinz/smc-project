@@ -27,7 +27,6 @@ module.exports = function(config) {
       'bower_components/angular-sanitize/angular-sanitize.js',
       'bower_components/angular-touch/angular-touch.js',
       'bower_components/greensock/src/uncompressed/TweenMax.js',
-      'bower_components/pixi/bin/pixi.js',
       'bower_components/underscore/underscore.js',
       'bower_components/howler/howler.js',
       'bower_components/threejs/build/three.js',

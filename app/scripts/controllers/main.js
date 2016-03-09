@@ -20,18 +20,45 @@ angular.module('smcApp')
       var videoDisplay = true;
       var body = $('body');
       var stepIncrement = 0.01;
+      var totalWords = [];
 
       var introLetters = $("#quote").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"introLetters"});
       var introWords = $(".introLetters");
 
       var cita1Letters = $("#cita1").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"cita1Letters"});
-      var cita1Words = $(".cita1Letters");
+      totalWords[0] = $(".cita1Letters");
+      var cita2Letters = $("#cita2").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"cita2Letters"});
+      totalWords[1] = $(".cita2Letters");
+      var cita3Letters = $("#cita3").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"cita3Letters"});
+      totalWords[2] = $(".cita3Letters");
+      var cita4Letters = $("#cita4").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"cita4Letters"});
+      totalWords[3] = $(".cita4Letters");
 
       var texto1Letters = $("#texto1").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"texto1Letters"});
       var texto1lines = $(".texto1Letters");
+      var texto2Letters = $("#texto2").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"texto2Letters"});
+      var texto2lines = $(".texto2Letters");
 
       var step = 0;
-      //-----------------------
+      //---------------------------
+      //---- PAGE TRANSITIONS ------
+
+      $("#bookPages").turn({
+        duration: 1000,
+        display: 'double',
+        //width: (width*4)/5,
+        //height: (height*4)/5,
+        width: width,
+        height: height,
+        autoCenter: true,
+        elevation: 100
+      });
+      $("#bookPages").bind("turning", function(event, page, view) {
+        if(page==1) openCloseMap(true);
+        else openCloseMap(false);
+      });
+
+      //---------------------
       //----SOUND TRACKS -----
 
         var soundEpilogo = new Howl({
@@ -56,6 +83,7 @@ angular.module('smcApp')
 
         function quitVideo(time){
           if(videoDisplay){
+              TweenMax.to(".videoClass", time, {scale:0, ease: Power0.easeNone});
               TweenMax.to(".BackVideo", time, {opacity: 0, ease: Power0.easeNone, onComplete: playMusic}, "miniVideo");
               TweenMax.to(".napFace", 8, {opacity: 0.5, ease: Power0.easeNone});
               TweenMax.to(".videoClass", 1.5, {volume: 0, ease: Power0.easeNone});
@@ -63,40 +91,53 @@ angular.module('smcApp')
               videoDisplay = false;
             }
           }
+
+          setInterval(function(){
+            var vid = document.getElementById("video2");
+            vid.play();
+          }, 5000);
+
       //-----------------------
       //-----TIMELINE ---------
 
-        TweenMax.set(".scrollIcon, .hiddenCanvas, .dinamycText, .ageTitle, .napFace, .addon1", {visibility:"visible"});
+        var arr1 = [0, 0, 60, 0, 35, 100, 0, 100];
+        var arr2 = [90, 0, 90, 0, 90, 100, 90, 100];
+        var arr3 = [56, 0, 90, 0, 90, 100, 43, 100];
+
+        arr2.onUpdate = function() {
+          TweenMax.set('.prel01', {webkitClipPath:'polygon('+arr1[0]+'%'+arr1[1]+'%,'+arr1[2]+'%'+arr1[3]+'%,'+arr1[4]+'%'+arr1[5]+'%,'+arr1[6]+'%'+arr1[7]+'%)'});
+          TweenMax.set('.prelGroup', {webkitClipPath:'polygon('+arr3[0]+'%'+arr3[1]+'%,'+arr3[2]+'%'+arr3[3]+'%,'+arr3[4]+'%'+arr3[5]+'%,'+arr3[6]+'%'+arr3[7]+'%)'});
+        };
+
+        //TweenMax.to(arr1,30, arr2);
+
+        TweenMax.set(".scrollIcon, .hiddenCanvas, .dinamycText, .ageTitle, .napFace, .addon1, .prel01", {visibility:"visible"});
 
         var tl = new TimelineMax({repeat:0});
 
         tl
           //EPISODE 1
-          //.to(".back", 14, {left:'-690%', ease: Power0.easeNone}, "penta")
-          .to(".back", 2, {left:'-100%', ease: Power0.easeNone}, "penta")
-          .to(".napFace", 1.8, {left:'9%', ease: Power0.easeNone}, "penta")
-          .staggerTo(introWords, 0.5, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.5], ease: Power2.easeOut}}, 0.1, "penta")
-          .staggerTo(".ageTitle", 1, {color:'#ffd85f', fontSize: '2em', opacity: 1, repeat:1,repeatDelay:2.5, yoyo:true, ease:Power2.easeOut}, 2.02, "penta")
-          .to(".age1", 2, {color:'#ffd85f', fontSize: '2em', opacity: 1, ease:Power0.easeNone}, "penta")
-          .from(".fotoFamily", 1.2, {marginLeft: '6%', ease: Power0.easeNone},"penta+=1")
-          .to(".fotoFamily", 0.8, {top: '-70%', ease: Power0.easeNone},"+=1")
-          .to(".textIntro", 2, {top: '-20%', ease: Power0.easeNone},"-=1")
+          //.staggerTo(introWords, 0.5, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.5], ease: Power2.easeOut}}, 0.1, "penta")
+          //.staggerTo(".ageTitle", 1, {color:'#ffd85f', fontSize: '2em', opacity: 1, repeat:1,repeatDelay:2.5, yoyo:true, ease:Power2.easeOut}, 2.02, "penta")
+          .staggerFrom(texto1lines, 0.5, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.5],  ease: Power2.easeOut}}, 0.1)
+          .to(".age1", 2, {color:'#ffd85f', fontSize: '2em', opacity: 1, onComplete: turnPage, onReverseComplete: returnPage, ease:Power0.easeNone}, "penta")
           //EPISODE 2
-          .to(".prel01", 2, {bottom: '24%', ease: Power2.easeOut},"step2-=1.5")
-          .to(".prel02", 1.8, {bottom: '62%', ease: Power2.easeOut},"step2-=1.5")
-          .to(".prel03", 1.6, {bottom: '40%', ease: Power2.easeOut},"step2-=1.5")
-          .staggerFrom(cita1Words, 0.5, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.5],  ease: Power2.easeOut}}, 0.1)
-          //.staggerFrom(texto1lines, 0.5, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.5], ease: Power2.easeOut}}, 0.1)
-          .staggerTo(".addon1", 0.5, {opacity: 1, scale: 1, ease: Back.easeOut}, 0.5)
-          .to(".prel01", 2, {bottom: '110%', ease: Power2.easeIn},"step3")
-          .to(".prel02", 1.8, {bottom: '110%', ease: Power2.easeIn},"step3")
-          .to(".prel03", 1.6, {bottom: '110%', ease: Power2.easeIn},"step3")
+          .staggerFrom(totalWords[0], 0.5, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.5],  ease: Power2.easeOut}}, 0.1)
+          .staggerFrom(texto2lines, 0.5, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.5],  ease: Power2.easeOut}}, 0.1)
+          .staggerTo(".addon1", 0.5, {opacity: 0.4, scale: 1, ease: Back.easeOut}, 0.5)
+          .to(arr1,7, arr2,"step3")
+          .to(arr3,7, arr2,"step3")
+          //.to(".prel02", 4, {marginRight: '-20%', ease: Power2.easeIn},"step3")
+          //.to(".prel03", 4, {marginRight: '-20%', ease: Power2.easeIn},"step3")
           .staggerTo(".addon1", 0.5, {opacity: 0, scale: 0, ease: Power2.easeOut}, 0.5)
-          .staggerTo(cita1Words, 0.5, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.5], ease: Power2.easeOut}}, 0.1, "-=1")
-          //.staggerTo(texto1lines, 0.5, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.5], ease: Power2.easeOut}}, 0.1, "-=1")
+          .staggerTo(totalWords[0], 0.5, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.5], ease: Power2.easeOut}}, 0.1, "-=1")
+          .staggerTo(texto2lines, 0.5, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.5],  ease: Power2.easeOut}}, 0.1)
+          .to(".cita", 2, {opacity: 0, onComplete: turnPage, onReverseComplete: returnPage, ease: Power2.easeOut})
+          .to(".cita", 5, {opacity: 1, ease: Power2.easeOut})
+          .to(".cita", 5, {opacity: 0, ease: Power2.easeOut});
           //EPISODE 3
 
-    tl.pause();
+       tl.pause();
 
       //---------------------------------
       //----------MOUSE CONTROLS --------
@@ -108,19 +149,21 @@ angular.module('smcApp')
                 if(step > 0){
                   velocity = 3;
                   carMovOrient = -1;
-                  if(!mapStatus && step < 0.1){openCloseMap();}
+                  //if(!mapStatus && step < 0.1){openCloseMap();}
                   if(step > stepIncrement)step -= stepIncrement;
                   else if(step <= stepIncrement ) step = 0;
                   TweenLite.to(tl, 0.5, {progress:step, ease:Power2.easeOut, onComplete: pauseAnim});
+                  //$("#bookPages").turn("previous");
                 }
               }
               else {
                 if(step < 1){
-                  if(mapStatus) openCloseMap();
+                  //if(mapStatus) openCloseMap();
                   velocity = 3;
                   carMovOrient = 1;
                   TweenLite.to(tl, 0.5, {progress:step, ease:Power2.easeOut, onComplete: pauseAnim});
                   step += stepIncrement;
+                  //$("#bookPages").turn("next");
                 }
               }
             }
@@ -244,8 +287,6 @@ angular.module('smcApp')
           height = window.innerHeight/2;
       var circulitos;
 
-      console.log(width);
-
       if(width<1500) var dimensions = {leftCenter:-40,upCenter: 20,scaleX:300, font: "14px"};
       else var dimensions = {leftCenter:-80,scaleX:400, font: "22px"};
 
@@ -325,22 +366,44 @@ angular.module('smcApp')
           openCloseMap();
         });
 
-        $(document).on('click','#texto2', function(){
-            $('.plusInfoCita').text('');
-            _.each(texto1lines, function(val,i){
-              setTimeout(function(){insertWords(val)}, 10*i);
+        $(document).on('click','.plusInfoCita', function(){
+          var numTexto = $(this).attr('value');
+          if($(this).text()=='[+]'){
+            $(this).text('[-]');
+            _.each(totalWords[parseInt(numTexto)], function(val,i){
+              setTimeout(function(){insertWords(val,numTexto)}, 40*i);
             });
-            $('.minusInfo').css('opacity', '1');
+          }
+          else {
+            $(this).text('[+]');
+            _.each($('#cita'+numTexto+'suma').children(), function(val,i){
+              setTimeout(function(){deleteWords(val)}, 5*i);
+            });
+          }
         });
 
-        function openCloseMap() {
-          if(!mapStatus){
+        function openCloseMap(val) {
+          if(val==undefined){
+            if(!mapStatus){
+              $("#mapIcon").addClass('mapIconMini');
+              $(".mapItem").addClass('mapItemMini');
+              $("#mapContainer").addClass('mapaD');
+              mapStatus = true;
+            }
+            else {
+              $("#mapIcon").removeClass('mapIconMini');
+              $(".mapItem").removeClass('mapItemMini');
+              $("#mapContainer").removeClass('mapaD');
+              mapStatus = false;
+            }
+          }
+          else if(val){
             $("#mapIcon").addClass('mapIconMini');
             $(".mapItem").addClass('mapItemMini');
             $("#mapContainer").addClass('mapaD');
             mapStatus = true;
           }
-          else {
+          else if (!val){
             $("#mapIcon").removeClass('mapIconMini');
             $(".mapItem").removeClass('mapItemMini');
             $("#mapContainer").removeClass('mapaD');
@@ -349,7 +412,7 @@ angular.module('smcApp')
         }
 
         function playMusic(){
-          soundEpilogo.play();
+          //soundEpilogo.play();
           $(".BackVideo").css("display","none");
           TweenMax.to(soundEpilogo, 1,{volume: 0.5, ease: Power0.easeNone});
         }
@@ -360,10 +423,12 @@ angular.module('smcApp')
           tl.pause();
         }
 
-        function insertWords(variable){
-          $('#texto2').append(variable);
-          TweenMax.from(variable, 0.3, {opacity: 0, y:40, transformOrigin:"0% 50% -50", ease: Power2.easeOut});
-          //TweenMax.from(variable, 0.5, {opacity: 0, ease: Power2.easeOut});
+        function insertWords(variable,num){
+          $('#cita'+num+'suma').append(variable);
+          TweenMax.from(variable, 0.5, {opacity: 0, y:-40, transformOrigin:"0% 50% -50", ease: Power2.easeOut});
+        }
+        function deleteWords(variable){
+            $(variable).remove();
         }
 
         function animeButtons() {
@@ -375,6 +440,13 @@ angular.module('smcApp')
             TweenMax.to(this, 0.2, {y:0,  opacity:1}, 0.1)
           }
           items.hover(over, out);
+        }
+
+        function turnPage(){
+          $("#bookPages").turn("next");
+        }
+        function returnPage(){
+          $("#bookPages").turn("previous");
         }
 
       //-----------------------------------
