@@ -1,0 +1,8 @@
+code,city,country,lat,lon,name,precisionX,precisionY
+BCN,BARCELONA,ESPAÑA,41.30,0,Cap. 0: Preludio,20,10
+NY,NEW YORK,EE.UU,41.30,-75,Cap. 1: Rita Montaner,20,10
+CB,CUBA1,CUBA,19,-78, Cap. 2: Carmen Castillo,20,10
+CB,CUBA2,CUBA,23,-83, Cap. 3: Lorraine Allen,20,10
+FL,FLORIDA,EEUU,27,-81, Cap. 4: Abbey Lane,20,10
+LA,LOS ANGELES,EEUU,33,-115, Cap. 5: Charo Baeza,20,10
+BCN,BARCELONA,ESPAÑA,38.30,-2, Cap. 6: Epilogo,20,10
