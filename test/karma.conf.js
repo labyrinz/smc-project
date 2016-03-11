@@ -31,6 +31,8 @@ module.exports = function(config) {
       'bower_components/howler/howler.js',
       'bower_components/threejs/build/three.js',
       'bower_components/d3/d3.js',
+      'bower_components/jquery-drawsvg/public/jquery.drawsvg.js',
+      'bower_components/topojson/topojson.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'app/scripts/**/*.js',

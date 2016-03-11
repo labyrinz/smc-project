@@ -19,10 +19,45 @@ body {
   background-color: #100C05;
   overflow: hidden;
 }
-path {
+.faceSvgClass path{
+  fill: none;
   stroke: #ffd85f;
-  stroke-width: 0.5px;
-  fill: #56481e;
+  stroke-width: 4px;
+}
+.mapSvgContainer{
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 90%;
+  height: 100%;
+  overflow: hidden;
+}
+.mapSvgClassTop{
+  position: absolute;
+  width: 700%;
+  top: -100%;
+  left: -275%;
+}
+.mapSvgClass path{
+  fill: rgba(83, 78, 80, 0.46);
+  stroke: #3a383a;
+  stroke-width: 1px;
+}
+.viaje1Class path{
+  fill: 'none';
+  stroke: #ffd85f;
+  stroke-width: 2px;
+}
+.svgFace{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 30%;
+  height: 30%;
+  opacity: 0.7;
 }
 #bookPages .hard{
   -webkit-box-shadow:inset 0 0 5px #666;
@@ -139,6 +174,19 @@ path {
   cursor: pointer;
   opacity: 0.4;
 }
+.openBook{
+  position: absolute;
+  bottom: 25%;
+  width: 7%;
+  right: 2%;
+  cursor: pointer;
+  opacity: 0.4;
+}
+
+.openBookImage{
+  width: 60%;
+  float: right;
+}
 
 .back{
   position: absolute;
@@ -149,6 +197,13 @@ path {
   width: 80%;
   bottom: 0;
   margin: auto;
+}
+.leatherCover{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 .color0{
   background-color: rgb(14, 9, 7);
@@ -231,7 +286,7 @@ path {
   z-index: 997;
 }
 .BackVideo{
-  background-image: url("/images/cubaWide.jpg");
+  background-image: url("../images/cubaWide.jpg");
   background-size: cover;
   position: absolute;
   right: 0px;
@@ -286,13 +341,22 @@ path {
 }
 .instructions {
   position: absolute;
-  bottom: 5%;
-  right: 4.5%;
+  top: 5%;
+  right: 20%;
   font-family: 'Alice',serif;
   text-align: justify;
-  color: white;
-  font-size: $fontSizeSmall;
+  width: 60%;
+  color: #ffd85f;
+  font-size: $fontSizeMedium;
   z-index: 998;
+}
+.instructionsText{
+  padding-top: 7px;
+}
+.infoIcon{
+  width:15px;
+  float: left;
+  margin-right: 4%;
 }
 .napFace{
   position: absolute;
