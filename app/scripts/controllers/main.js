@@ -16,7 +16,7 @@ angular.module('smcApp')
         width = window.innerWidth,
         height = window.innerHeight;
       var carMovOrient = 0;
-      var mapStatus = true;
+      var mapStatus = false;
       var videoDisplay = true;
       var body = $('body');
       var stepIncrement = 0.01;

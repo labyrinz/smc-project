@@ -16,7 +16,7 @@ $color0_4: #ffd85f;
 body {
   padding: 0;
   margin: 0;
-  background-color: #100C05;
+  background-color: #131213;
   overflow: hidden;
 }
 .faceSvgClass path{
@@ -55,8 +55,8 @@ body {
   left: 0;
   right: 0;
   margin: auto;
-  width: 30%;
-  height: 30%;
+  width: 50%;
+  height: 50%;
   opacity: 0.7;
 }
 #bookPages .hard{
@@ -126,7 +126,7 @@ body {
   transition-delay: 0s, 0.2s, 0.5s, 0.5s;
 }
 .mapIconMini{
-  height: 340px;
+  height: 335px;
   width: 0px;
   padding: 0px;
   left: 900px;
