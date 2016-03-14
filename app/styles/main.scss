@@ -28,15 +28,16 @@ body {
   position: absolute;
   top: 0%;
   left: 0%;
-  width: 90%;
+  width: 100%;
   height: 100%;
   overflow: hidden;
+  opacity: 0.6;
 }
 .mapSvgClassTop{
   position: absolute;
   width: 700%;
-  top: -100%;
   left: -275%;
+  top: -250%;
 }
 .mapSvgClass path{
   fill: rgba(83, 78, 80, 0.46);
@@ -53,7 +54,7 @@ body {
   top: 0;
   bottom: 0;
   left: 0;
-  right: 0;
+  right: 25%;
   margin: auto;
   width: 50%;
   height: 50%;
@@ -191,19 +192,12 @@ body {
 .back{
   position: absolute;
   top: 0;
-  left: 0;
   right: 0;
-  height: 80%;
-  width: 80%;
-  bottom: 0;
-  margin: auto;
-}
-.leatherCover{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
   height: 100%;
+  width: 100%;
+}
+.page0, .page1, .page2, .page3, .page4, .page5, .page6, .page7, .page8{
+  right: -110%;
 }
 .color0{
   background-color: rgb(14, 9, 7);
@@ -215,51 +209,13 @@ body {
   background-color: #6B4B30;
 }
 .color3{
-  background: #473b34;
-  -webkit-box-shadow:inset 0 0 5px #666!important;
-  -moz-box-shadow:inset 0 0 5px #666!important;
-  -o-box-shadow:inset 0 0 5px #666!important;
-  -ms-box-shadow:inset 0 0 5px #666!important;
-  box-shadow:inset 0 0 5px #666!important;
-}
-.color31{
-  background: #473b34;
-  background: -webkit-linear-gradient(left, #473b34 90% , #231a16); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(right, #473b34 90% , #231a16); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(right, #473b34 90% , #231a16); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(to right, #473b34 90% , #231a16); /* Standard syntax */
-  -webkit-box-shadow:inset 0 0 5px #666!important;
-  -moz-box-shadow:inset 0 0 5px #666!important;
-  -o-box-shadow:inset 0 0 5px #666!important;
-  -ms-box-shadow:inset 0 0 5px #666!important;
-  box-shadow:inset 0 0 5px #666!important;
+  background-color: #473b34;
 }
 .color4{
   background-color: #C48332;
 }
 .color5{
-  background:#ccc;
-  background: -webkit-linear-gradient(left, #ccc 90% , #6a6a6a); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(right, #ccc 90% , #6a6a6a); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(right, #ccc 90% , #6a6a6a); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(to right, #ccc 90% , #6a6a6a); /* Standard syntax */
-  -webkit-box-shadow:inset 0 0 5px #666!important;
-  -moz-box-shadow:inset 0 0 5px #666!important;
-  -o-box-shadow:inset 0 0 5px #666!important;
-  -ms-box-shadow:inset 0 0 5px #666!important;
-  box-shadow:inset 0 0 5px #666!important;
-}
-.color6{
-  background:#ccc;
-  background: -webkit-linear-gradient(right, #ccc 90% , #6a6a6a); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(left, #ccc 90% , #6a6a6a); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(left, #ccc 90% , #6a6a6a); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(to left, #ccc 90% , #6a6a6a); /* Standard syntax */
-  -webkit-box-shadow:inset 0 0 5px #666!important;
-  -moz-box-shadow:inset 0 0 5px #666!important;
-  -o-box-shadow:inset 0 0 5px #666!important;
-  -ms-box-shadow:inset 0 0 5px #666!important;
-  box-shadow:inset 0 0 5px #666!important;
+  background-color:#ccc;
 }
 .pentagramRect{
   position: absolute;
@@ -334,20 +290,20 @@ body {
   color: #ffd85f;
   font-size: 20px;
   width: 55%;
-  left: 30%;
-  margin-top: 55%;
-  /* float: right; */
+  left: 40%;
+  top: 55%;
   z-index: 999;
 }
 .instructions {
   position: absolute;
-  top: 5%;
-  right: 20%;
+  bottom: 15%;
+  left: 3%;
   font-family: 'Alice',serif;
   text-align: justify;
   width: 60%;
   color: #ffd85f;
-  font-size: $fontSizeMedium;
+  font-size: 16px;
+  opacity: 0;
   z-index: 998;
 }
 .instructionsText{
@@ -356,7 +312,7 @@ body {
 .infoIcon{
   width:15px;
   float: left;
-  margin-right: 4%;
+  margin-right: 2%;
 }
 .napFace{
   position: absolute;
@@ -399,7 +355,7 @@ body {
   opacity: 0.7;
 }
 .fotoFamily {
-  width: 75%;
+  width: 40%;
   position: absolute;
   top: 2%;
   right: 5%;
@@ -409,9 +365,9 @@ body {
 }
 .prel01 {
   position: absolute;
-  width: 100%;
+  height: 100%;
   bottom: 0%;
-  right: 0%;
+  left: 0%;
   opacity: 0.9;
   -webkit-clip-path: polygon(0% 0%, 60% 0%, 35% 100%, 0% 100%);
   clip-path:         polygon(0% 0%, 60% 0%, 35% 100%, 0% 100%);
@@ -429,59 +385,117 @@ body {
   width: 60%;
   z-index: 997;
 }
+.prel04{
+  position: absolute;
+  width: 20%;
+  top: 25%;
+  left: 5%;
+  z-index: 997;
+}
+.prel05{
+  position: absolute;
+  width: 20%;
+  bottom: 15%;
+  right: 5%;
+  z-index: 997;
+}
 .prelGroup{
   position: absolute;
   top: 0%;
   left: 0%;
+  width: 45%;
   -webkit-clip-path: polygon(56% 0%, 90% 0%, 90% 100%, 43% 100%);
   clip-path:         polygon(56% 0%, 90% 0%, 90% 100%, 43% 100%);
 }
-.cita{
+.cita01{
   position: absolute;
   font-family: 'Alice',serif;
   font-style: italic;
   z-index: 997;
   color: #2f220f;
+  //transform: scale(0);
   font-size: $fontSizeMedium;
 }
 .cita1{
-  bottom: 20%;
+  bottom: 25%;
   width: 30%;
-  right: 10%;
+  left: 25%;
 }
 .cita2{
-  top: 65%;
-  width: 40%;
-  left: 10%;
+  top: 20%;
+  width: 30%;
+  right: 5%;
 }
 .cita3{
-  top: 47%;
-  width: 40%;
-  left: 10%;
+  top: 6%;
+  width: 30%;
+  right: 5%;
 }
 .cita4{
   top: 35%;
-  width: 40%;
-  left: 10%;
+  width: 30%;
+  right: 5%;
+}
+.cita02{
+  position: absolute;
+  font-family: 'Alice',serif;
+  font-style: italic;
+  z-index: 997;
+  color: #2f220f;
+  //transform: scale(0);
+  font-size: $fontSizeMedium;
+}
+.cita5{
+  top: 5%;
+  width: 30%;
+  right: 5%;
+}
+.cita6{
+  top: 35%;
+  width: 30%;
+  right: 5%;
+}
+.cita7{
+  top: 65%;
+  width: 30%;
+  right: 5%;
 }
 .texto{
   font-family: 'Alice',serif;
   z-index: 997;
-  color: #0e0907;
+  color: #ffd85f;
   font-size: $fontSizeBig;
   text-align: justify;
 }
 .texto1{
   position: absolute;
-  top: 60%;
-  width: 75%;
-  left: 10%;
+  top: 10%;
+  width: 50%;
+  left: 5%;
 }
 
 .texto2{
   position: absolute;
   top: 8%;
-  width: 70%;
+  width: 30%;
+  left: 10%;
+}
+.texto3{
+  position: absolute;
+  top: 8%;
+  width: 30%;
+  left: 10%;
+}
+.texto4{
+  position: absolute;
+  top: 8%;
+  width: 30%;
+  left: 10%;
+}
+.texto5{
+  position: absolute;
+  bottom: 15%;
+  width: 30%;
   left: 10%;
 }
 //FIN DIAPOSITIVA 1
@@ -495,9 +509,19 @@ body {
   z-index: 998;
 }
 .videoAddon1{
-  width: 25%;
-  right: 20%;
-  top: 35%;
+  width: 15%;
+  right: 40%;
+  top: 5%;
+  opacity: 0;
+  -ms-transform: scale(0.3);
+  -webkit-transform: scale(0.3);
+  -moz-transform: scale(0.3);
+  transform: scale(0.3);
+}
+.videoAddon2{
+  width: 15%;
+  right: 40%;
+  top: 30%;
   opacity: 0;
   -ms-transform: scale(0.3);
   -webkit-transform: scale(0.3);
@@ -505,15 +529,25 @@ body {
   transform: scale(0.3);
 }
 
-.videoAddon2{
-  width: 25%;
-  right: 20%;
-  top: 60%;
-  opacity: 0;
-  -ms-transform: scale(0.3);
-  -webkit-transform: scale(0.3);
-  -moz-transform: scale(0.3);
-  transform: scale(0.3);
+.videoAddon3{
+  width: 15%;
+  right: 40%;
+  top: 5%;
+  //opacity: 0;
+  //-ms-transform: scale(0.3);
+  //-webkit-transform: scale(0.3);
+  //-moz-transform: scale(0.3);
+  //transform: scale(0.3);
+}
+.videoAddon4{
+  width: 15%;
+  right: 40%;
+  top: 30%;
+  //opacity: 0;
+  //-ms-transform: scale(0.3);
+  //-webkit-transform: scale(0.3);
+  //-moz-transform: scale(0.3);
+  //transform: scale(0.3);
 }
 //----RAGE SLIDER STYLE---//
 
