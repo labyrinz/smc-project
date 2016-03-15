@@ -29,7 +29,6 @@ module.exports = function(config) {
       'bower_components/greensock/src/uncompressed/TweenMax.js',
       'bower_components/underscore/underscore.js',
       'bower_components/howler/howler.js',
-      'bower_components/threejs/build/three.js',
       'bower_components/d3/d3.js',
       'bower_components/jquery-drawsvg/public/jquery.drawsvg.js',
       'bower_components/topojson/topojson.js',

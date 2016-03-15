@@ -40,6 +40,18 @@ angular.module('smcApp')
         totalWords[5] = $(".cita6Letters");
       var cita7Letters = $("#cita7").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"cita7Letters"});
         totalWords[6] = $(".cita7Letters");
+      var cita8Letters = $("#cita8").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"cita8Letters"});
+        totalWords[7] = $(".cita8Letters");
+      var cita9Letters = $("#cita9").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"cita9Letters"});
+        totalWords[8] = $(".cita9Letters");
+      var cita10Letters = $("#cita10").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"cita10Letters"});
+        totalWords[9] = $(".cita10Letters");
+      var cita11Letters = $("#cita11").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"cita11Letters"});
+        totalWords[10] = $(".cita11Letters");
+      var cita13Letters = $("#cita13").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"cita13Letters"});
+        totalWords[11] = $(".cita13Letters");
+      var cita14Letters = $("#cita14").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"cita14Letters"});
+        totalWords[12] = $(".cita14Letters");
 
       var texto1Letters = $("#texto1").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"texto1Letters"});
       var texto1lines = $(".texto1Letters");
@@ -149,7 +161,35 @@ angular.module('smcApp')
           .staggerTo(totalWords[0], 0.5, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.5], ease: Power2.easeOut}}, 0.1, "-=1")
           .to("#page2",0.4,{ right: '110%', ease: Power0.easeNone})
           .to("#page3",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.5")
-          .staggerTo(".addon2", 0.5, {opacity: 0.6, scale: 1, ease: Power2.easeOut}, 0.5);
+          .staggerTo(".addon2", 0.5, {opacity: 0.6, scale: 1, ease: Power2.easeOut}, 0.5)
+          .to("#page3",3.4,{ right: '110%', ease: Power0.easeNone})
+          .to("#page4",3.4,{ right: '0%', ease: Power0.easeNone},"-=3.5")
+          .to("#page4",3.4,{ right: '110%', ease: Power0.easeNone})
+          .to("#page5",3.4,{ right: '0%', ease: Power0.easeNone},"-=3.5")
+          .to("#page5",3.4,{ right: '110%', ease: Power0.easeNone})
+          .to("#page6",3.4,{ right: '0%', ease: Power0.easeNone},"-=3.5")
+          .to("#page6",3.4,{ right: '110%', ease: Power0.easeNone})
+          .to("#page7",3.4,{ right: '0%', ease: Power0.easeNone},"-=3.5")
+          .to("#page7",3.4,{ right: '110%', ease: Power0.easeNone})
+          .to("#page8",3.4,{ right: '0%', ease: Power0.easeNone},"-=3.5")
+          .to("#page8",3.4,{ right: '110%', ease: Power0.easeNone})
+          .to("#page9",3.4,{ right: '0%', ease: Power0.easeNone},"-=3.5")
+          .to("#page9",3.4,{ right: '110%', ease: Power0.easeNone})
+          .to("#page10",3.4,{ right: '0%', ease: Power0.easeNone},"-=3.5")
+          .to("#page10",3.4,{ right: '110%', ease: Power0.easeNone})
+          .to("#page11",3.4,{ right: '0%', ease: Power0.easeNone},"-=3.5")
+          .to("#page11",3.4,{ right: '110%', ease: Power0.easeNone})
+          .to("#page12",3.4,{ right: '0%', ease: Power0.easeNone},"-=3.5")
+          .to("#page12",3.4,{ right: '110%', ease: Power0.easeNone})
+          .to("#page13",3.4,{ right: '0%', ease: Power0.easeNone},"-=3.5")
+          .to("#page13",3.4,{ right: '110%', ease: Power0.easeNone})
+          .to("#page14",3.4,{ right: '0%', ease: Power0.easeNone},"-=3.5")
+          .to("#page14",3.4,{ right: '110%', ease: Power0.easeNone})
+          .to("#page15",3.4,{ right: '0%', ease: Power0.easeNone},"-=3.5")
+          .to("#page15",3.4,{ right: '110%', ease: Power0.easeNone})
+          .to("#page16",3.4,{ right: '0%', ease: Power0.easeNone},"-=3.5")
+          .to("#page16",3.4,{ right: '110%', ease: Power0.easeNone})
+          .to("#page17",3.4,{ right: '0%', ease: Power0.easeNone},"-=3.5");
 
           //EPISODE 3
 
@@ -185,118 +225,7 @@ angular.module('smcApp')
             }
           });
 
-      //------------------------------------
-      //------SLIDE CONTROL ---------------
-
-        $("#slider").on("input", function(){
-          if(mapStatus) openCloseMap();
-          velocity = Math.abs(this.value);
-          tl.timeScale(velocity*2);
-          car.position.x = -35 + (this.value*3);
-          if(this.value>=0){ tl.play(); carMovOrient = 1; }
-          else { tl.reverse(); carMovOrient = -1; }
-        });
-
-        $("#slider").on("mouseup", function(){
-            this.value = 0;
-            carMovOrient = 0;
-            car.position.x = -35;
-            tl.timeScale(0);
-            tl.pause();
-          });
-
-      //-------------------------------------
-      //----------WEBGL--------------------
-
-      init();
-      animate();
-
-      function init() {
-
-        scene = new THREE.Scene();
-
-        renderer = new THREE.WebGLRenderer( { antialias: true, preserveDrawingBuffer: true, alpha: true } );
-        renderer.setSize( width, height*0.1 );
-        renderer.setViewport( 0,0,width, height );
-        renderer.getMaxAnisotropy();
-
-        var container = document.getElementById('car');
-        container.appendChild(renderer.domElement);
-
-        camera = new THREE.PerspectiveCamera( 50, (width/height), 0.1, 1000 );
-        camera.position.set( 0, 0, 150 );
-
-        buildShape();
-
-        directionalLight = new THREE.PointLight( 0xffff99, 1, 300 );
-        directionalLight.position.set(0,5,60);
-        directionalLight.name = 'luzDireccional';
-
-        fixedLight = new THREE.PointLight( 0xffffff, 1, 150 );
-        fixedLight.position.set(0,5,60);
-        fixedLight.name = 'luzFija';
-
-        scene.add( directionalLight );
-        scene.add( fixedLight );
-
-        window.addEventListener( 'resize', onWindowResize, false );
-      }
-      function buildShape(){
-        var loader = new THREE.OBJLoader(  );
-        loader.load( 'images/models/corvega.obj', function ( object ) {
-          car = object;
-          car.traverse( function ( child ) {
-            if ( child instanceof THREE.Mesh ) {
-              if(child.name == "CorvegaConvBody") {
-                child.material.ambient.setHex(0xFFFFFF);
-                child.material.color.setHex(0xFFFFFF);
-              }
-              if(child.name == "CorvegaConvGlass") {
-                child.material.ambient.setHex(0xFFFFFF);
-                child.material.color.setHex(0x5555CC);
-              }
-              if(child.name == "CorvegaConvSeat") {
-                child.material.ambient.setHex(0xFFFFFF);
-                child.material.color.setHex(0xCC3333);
-              }
-            }
-          } );
-          car.rotation.x = 1.35;
-          car.rotation.y = 1.57;
-          car.scale.set(0.6,0.6,0.5);
-          car.position.set(-35,-60,0);
-          car.name="classicCar";
-          scene.add( car );
-        });
-      }
-      function onWindowResize() {
-        camera.aspect = window.innerWidth / window.innerHeight;
-        camera.updateProjectionMatrix();
-        renderer.setSize( window.innerWidth, window.innerHeight*0.1 );
-      }
-     function animate() {
-
-       if(carMovOrient > 0){
-         if(directionalLight.position.x < -300) directionalLight.position.x = 300;
-         else directionalLight.position.x = directionalLight.position.x - velocity*10;
-       }
-       else if(carMovOrient < 0) {
-         if(directionalLight.position.x > 300) directionalLight.position.x = -300;
-         else directionalLight.position.x = directionalLight.position.x + velocity*10;
-       }
-       else if(carMovOrient == 0) {
-         //directionalLight.position.x = 5;
-       }
-
-       setTimeout( function() {
-         requestAnimationFrame( animate );
-       }, 1000/30 );
-       render();
-     }
-     function render(){
-        renderer.render(scene,camera);
-     }
-
+    //------------------------------------
     //---------D3 CONTROLLER -----------
 
       var width = window.innerWidth/1.5,
