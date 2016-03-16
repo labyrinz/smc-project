@@ -12,55 +12,20 @@ angular.module('smcApp')
 
       //--- GLOBAL VARIABLES ----
 
-      var camera, scene, renderer, car, directionalLight, fixedLight, velocity,
-        width = window.innerWidth,
-        height = window.innerHeight;
-      var carMovOrient = 0;
+      var velocity, width = window.innerWidth, height = window.innerHeight;
       var mapStatus = false;
       var videoDisplay = true;
       var body = $('body');
-      var stepIncrement = 0.01;
+      var stepIncrement = 0.005;
       var totalWords = [];
-      var mapaSVG, mapaSvgAnimado;
+      var step = 0;
 
       var introLetters = $("#quote").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"introLetters"});
       var introWords = $(".introLetters");
 
-      var cita1Letters = $("#cita1").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"cita1Letters"});
-        totalWords[0] = $(".cita1Letters");
-      var cita2Letters = $("#cita2").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"cita2Letters"});
-        totalWords[1] = $(".cita2Letters");
-      var cita3Letters = $("#cita3").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"cita3Letters"});
-        totalWords[2] = $(".cita3Letters");
-      var cita4Letters = $("#cita4").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"cita4Letters"});
-        totalWords[3] = $(".cita4Letters");
-      var cita5Letters = $("#cita5").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"cita5Letters"});
-        totalWords[4] = $(".cita5Letters");
-      var cita6Letters = $("#cita6").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"cita6Letters"});
-        totalWords[5] = $(".cita6Letters");
-      var cita7Letters = $("#cita7").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"cita7Letters"});
-        totalWords[6] = $(".cita7Letters");
-      var cita8Letters = $("#cita8").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"cita8Letters"});
-        totalWords[7] = $(".cita8Letters");
-      var cita9Letters = $("#cita9").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"cita9Letters"});
-        totalWords[8] = $(".cita9Letters");
-      var cita10Letters = $("#cita10").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"cita10Letters"});
-        totalWords[9] = $(".cita10Letters");
-      var cita11Letters = $("#cita11").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"cita11Letters"});
-        totalWords[10] = $(".cita11Letters");
-      var cita13Letters = $("#cita13").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"cita13Letters"});
-        totalWords[11] = $(".cita13Letters");
-      var cita14Letters = $("#cita14").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"cita14Letters"});
-        totalWords[12] = $(".cita14Letters");
+      //var cita1Letters = $("#cita1").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"cita1Letters"});
+      //  totalWords[0] = $(".cita1Letters");
 
-      var texto1Letters = $("#texto1").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"texto1Letters"});
-      var texto1lines = $(".texto1Letters");
-      var texto2Letters = $("#texto2").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"texto2Letters"});
-      var texto2lines = $(".texto2Letters");
-      var texto3Letters = $("#texto3").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"texto3Letters"});
-      var texto3lines = $(".texto3Letters");
-
-      var step = 0;
       //---------------------------
       //----SOUND TRACKS -----
 
@@ -104,7 +69,7 @@ angular.module('smcApp')
           if(videoDisplay){
               facePortada.drawsvg('animate');
               soundEpilogo.play();
-              tl.play();
+              //tl.play();
               videoDisplay = false;
             }
           }
@@ -128,8 +93,6 @@ angular.module('smcApp')
 
         tl
           //EPISODE 1
-          //.staggerTo(introWords, 0.5, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.5], ease: Power2.easeOut}}, 0.1, "penta")
-          //.staggerTo(".ageTitle", 1, {color:'#ffd85f', fontSize: '2em', opacity: 1, repeat:1,repeatDelay:2.5, yoyo:true, ease:Power2.easeOut}, 2.02, "penta")
           .to(".videoClass", 0.2, {scale:0, ease: Power0.easeNone})
           .to(".BackVideo", 0.2, {opacity: 0, onComplete: hideVideo, ease: Power0.easeNone},"-=0.1")
           .to(".videoClass", 0.5, {volume: 0, ease: Power0.easeNone})
@@ -137,59 +100,48 @@ angular.module('smcApp')
           .staggerFrom(introWords, 0.1, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.2]}, ease: Back.easeOut.config(0.8)}, 0.1)
           .to(".instructions", 0.2, {opacity:1, repeat: 6,repeatDelay: 0.1, yoyo:true, ease: Power0.easeNone})
           //EPISODE 2
-          .to("#page0",0.4,{ right: '110%', ease: Power0.easeNone})
-          .to("#page1",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.5")
-          .staggerFrom(texto1lines, 0.1, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.2],  ease: Back.easeOut.config(0.8)}}, 0.1)
-          .to(".age1", 2, {color:'#ffd85f', fontSize: '2em', opacity: 1, ease:Power0.easeNone}, "penta")
-          //EPISODE 2
-          .to("#page1",0.4,{ right: '110%', ease: Power0.easeNone})
-          .to("#page2",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.5")
-          .staggerTo(".cita", 0.3, {scale: 1, ease: Back.easeOut},0.1)
-          .staggerFrom(totalWords[0], 0.5, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.5],  ease: Power2.easeOut}}, 0.1)
-          .staggerTo(".addon1", 0.3, {opacity: 0.6, scale: 1, ease: Back.easeOut}, 0.2)
-          .to(arr1,1, arr2,"step3")
-          .to(arr3,1, arr2,"step3")
-          .staggerFrom(texto2lines, 0.1, {opacity: 0,scale:5, y:200, x:200, transformOrigin:"0% 50% -50", delay:0.01,  ease: Power2.easeOut}, 0.01)
-          .to(".cita01", 0.5, {scale: 0, ease: Back.easeOut})
-          .staggerTo(".addon1", 0.5, {opacity: 0, scale: 0, ease: Power2.easeOut}, 0.5)
-          .staggerTo(".texto2", 0.3, {opacity: 0,  ease: Power2.easeOut})
-          .staggerFrom(texto3lines, 1, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.5],  ease: Back.easeOut.config(1.7)}}, 0.1)
-          .from(".mapSvgClassTop", 1, {scale: 0,onComplete:initViaje, ease: Back.easeOut },"-=6")
-          .to(".mapSvgClassTop", 4, {width: '250%', top: '-50%', left: '-25%' , ease: Power2.easeIn},"-=3")
-          .to(".mapSvgClassTop", 2, {width: '800%', top: '-370%', left: '-140%', ease: Power2.easeIn})
-          .to(".gironaMap",2,{opacity: 0, ease: Power2.easeOut},"-=7")
-          .staggerTo(totalWords[0], 0.5, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.5], ease: Power2.easeOut}}, 0.1, "-=1")
-          .to("#page2",0.4,{ right: '110%', ease: Power0.easeNone})
-          .to("#page3",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.5")
-          .staggerTo(".addon2", 0.5, {opacity: 0.6, scale: 1, ease: Power2.easeOut}, 0.5)
-          .to("#page3",3.4,{ right: '110%', ease: Power0.easeNone})
-          .to("#page4",3.4,{ right: '0%', ease: Power0.easeNone},"-=3.5")
-          .to("#page4",3.4,{ right: '110%', ease: Power0.easeNone})
-          .to("#page5",3.4,{ right: '0%', ease: Power0.easeNone},"-=3.5")
-          .to("#page5",3.4,{ right: '110%', ease: Power0.easeNone})
-          .to("#page6",3.4,{ right: '0%', ease: Power0.easeNone},"-=3.5")
-          .to("#page6",3.4,{ right: '110%', ease: Power0.easeNone})
-          .to("#page7",3.4,{ right: '0%', ease: Power0.easeNone},"-=3.5")
-          .to("#page7",3.4,{ right: '110%', ease: Power0.easeNone})
-          .to("#page8",3.4,{ right: '0%', ease: Power0.easeNone},"-=3.5")
-          .to("#page8",3.4,{ right: '110%', ease: Power0.easeNone})
-          .to("#page9",3.4,{ right: '0%', ease: Power0.easeNone},"-=3.5")
-          .to("#page9",3.4,{ right: '110%', ease: Power0.easeNone})
-          .to("#page10",3.4,{ right: '0%', ease: Power0.easeNone},"-=3.5")
-          .to("#page10",3.4,{ right: '110%', ease: Power0.easeNone})
-          .to("#page11",3.4,{ right: '0%', ease: Power0.easeNone},"-=3.5")
-          .to("#page11",3.4,{ right: '110%', ease: Power0.easeNone})
-          .to("#page12",3.4,{ right: '0%', ease: Power0.easeNone},"-=3.5")
-          .to("#page12",3.4,{ right: '110%', ease: Power0.easeNone})
-          .to("#page13",3.4,{ right: '0%', ease: Power0.easeNone},"-=3.5")
-          .to("#page13",3.4,{ right: '110%', ease: Power0.easeNone})
-          .to("#page14",3.4,{ right: '0%', ease: Power0.easeNone},"-=3.5")
-          .to("#page14",3.4,{ right: '110%', ease: Power0.easeNone})
-          .to("#page15",3.4,{ right: '0%', ease: Power0.easeNone},"-=3.5")
-          .to("#page15",3.4,{ right: '110%', ease: Power0.easeNone})
-          .to("#page16",3.4,{ right: '0%', ease: Power0.easeNone},"-=3.5")
-          .to("#page16",3.4,{ right: '110%', ease: Power0.easeNone})
-          .to("#page17",3.4,{ right: '0%', ease: Power0.easeNone},"-=3.5");
+          .to(".age1", 0.5, {color:'#ffd85f', fontSize: '2em', opacity: 1, ease:Power0.easeNone})
+          .to("#page0",0.5,{ right: '100%', delay:1, ease: Power0.easeNone})
+          .to("#page1",0.5,{ right: '0%', ease: Power0.easeNone},"-=0.5")
+          //.to(arr1,1, arr2,"step3")
+          //.to(arr3,1, arr2,"step3")
+          .to("#page1",0.4,{ right: '100%', delay:1, ease: Power0.easeNone})
+          .to("#page2",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
+          .from(".mapSvgClassTop", 1, {scale: 0,onComplete:initViaje, ease: Back.easeOut })
+          .to(".mapSvgClassTop", 4, {width: '250%', top: '-60%', left: '-25%' , ease: Power2.easeIn},"+=1")
+          .to(".mapSvgClassTop", 2, {width: '800%', top: '-385%', left: '-140%', ease: Power2.easeIn},"+=1")
+          .to(".gironaMap",2,{opacity: 0, ease: Power2.easeOut},"-=2")
+          .to("#page2",0.4,{ right: '100%', delay:1, ease: Power0.easeNone})
+          .to("#page3",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
+          //.staggerTo(".addon2", 0.5, {opacity: 0.6, scale: 1, ease: Power2.easeOut}, 0.5)
+          .to("#page3",0.4,{ right: '100%', delay:1, ease: Power0.easeNone})
+          .to("#page4",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
+          .to("#page4",0.4,{ right: '100%', delay:1, ease: Power0.easeNone})
+          .to("#page5",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
+          .to("#page5",0.4,{ right: '100%', delay:1, ease: Power0.easeNone})
+          .to("#page6",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
+          .to("#page6",0.4,{ right: '100%', delay:1, ease: Power0.easeNone})
+          .to("#page7",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
+          .to("#page7",0.4,{ right: '100%', delay:1, ease: Power0.easeNone})
+          .to("#page8",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
+          .to("#page8",0.4,{ right: '100%', delay:1, ease: Power0.easeNone})
+          .to("#page9",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
+          .to("#page9",0.4,{ right: '100%', delay:1, ease: Power0.easeNone})
+          .to("#page10",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
+          .to("#page10",0.4,{ right: '100%', delay:1, ease: Power0.easeNone})
+          .to("#page11",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
+          .to("#page11",0.4,{ right: '100%', delay:1, ease: Power0.easeNone})
+          .to("#page12",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
+          .to("#page12",0.4,{ right: '100%', delay:1, ease: Power0.easeNone})
+          .to("#page13",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
+          .to("#page13",0.4,{ right: '100%', delay:1, ease: Power0.easeNone})
+          .to("#page14",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
+          .to("#page14",0.4,{ right: '100%', delay:1, ease: Power0.easeNone})
+          .to("#page15",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
+          .to("#page15",0.4,{ right: '100%', delay:1, ease: Power0.easeNone})
+          .to("#page16",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
+          .to("#page16",0.4,{ right: '100%', delay:1, ease: Power0.easeNone})
+          .to("#page17",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4");
 
           //EPISODE 3
 
@@ -200,11 +152,11 @@ angular.module('smcApp')
 
         $(window).bind('mousewheel DOMMouseScroll', function(event){
             event.preventDefault();
+            TweenMax.to('.additional', 0.2, {opacity: 0, scale:0, ease:Back.easeOut});
             if(event.type != 'mousedown'){
               if (event.originalEvent.wheelDelta > 0 || event.originalEvent.detail < 0) {
                 if(step > 0){
-                  velocity = 3;
-                  carMovOrient = -1;
+                  velocity = 1;
                   //if(!mapStatus && step < 0.1){openCloseMap();}
                   if(step > stepIncrement)step -= stepIncrement;
                   else if(step <= stepIncrement ) step = 0;
@@ -215,8 +167,7 @@ angular.module('smcApp')
               else {
                 if(step < 1){
                   //if(mapStatus) openCloseMap();
-                  velocity = 3;
-                  carMovOrient = 1;
+                  velocity = 1;
                   TweenLite.to(tl, 0.5, {progress:step, ease:Power2.easeOut, onComplete: pauseAnim});
                   step += stepIncrement;
                   //$("#bookPages").turn("next");
@@ -314,6 +265,14 @@ angular.module('smcApp')
           openCloseMap();
         });
 
+        $(document).on('click','.plusInfo',function(){
+          var value = $(this).attr('value');
+          var target = '.ad'+value;
+          var opacityValue = $(target).css('opacity');
+          if(opacityValue == 0) TweenMax.to(target, 0.3, {opacity: 1, scale:1, ease:Back.easeOut});
+          else  TweenMax.to(target, 0.3, {opacity: 0, scale:0, ease:Back.easeOut});
+        });
+
         $(document).on('click','.plusInfoCita', function(){
           var numTexto = $(this).attr('value');
           if($(this).text()=='[+]'){
@@ -365,7 +324,6 @@ angular.module('smcApp')
 
         function pauseAnim(){
           velocity = 0;
-          carMovOrient = 0;
           tl.pause();
         }
 
