@@ -139,6 +139,7 @@ angular.module('smcApp')
           .to("#page9",0.4,{ right: '100%', delay:1, ease: Power0.easeNone})
           .to("#page10",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
           //EPISODE 12
+          .to(".age4", 0.5, {color:'#ffd85f', fontSize: '2em', opacity: 1, ease:Power0.easeNone})
           .to("#page10",0.4,{ right: '100%', delay:1, ease: Power0.easeNone})
           .to("#page11",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
           //EPISODE 13
