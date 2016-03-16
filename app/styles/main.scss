@@ -3,7 +3,7 @@
 
 $fontSizeBig: 20px;
 $fontSizeMedium: 16px;
-$fontSizeSmall: 12px;
+$fontSizeSmall: 10.5px;
 
 $colorWhite: #FFFFFF;
 $colorBlack: #000000;
@@ -328,7 +328,7 @@ body {
   z-index: 997;
   right: 10%;
   transform: rotateZ(90deg);
-  opacity: 0.7;
+  opacity: 0.3;
 }
 .prel01 {
   position: absolute;
@@ -377,7 +377,7 @@ body {
   font-size: $fontSizeMedium;
 }
 .cita11{
-  bottom: 17%;
+  bottom: 15%;
   width: 30%;
   left: 20%;
 }
@@ -399,7 +399,7 @@ body {
   right: 5%;
 }
 .texto13{
-  top: 50%;
+  top: 55%;
   right: 5%;
 }
 //FIN DIAPOSITIVA 1
