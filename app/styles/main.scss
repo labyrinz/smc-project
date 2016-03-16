@@ -306,8 +306,35 @@ body {
   top: 70%;
 }
 .textAddon5{
+  top: 10%;
+  left: 10%;
+}
+
+.textAddon6{
+  top: 30%;
+  left: 10%;
+}
+
+.textAddon7{
   top: 50%;
   left: 10%;
+}
+
+.textAddon8{
+  top: 75%;
+  left: 10%;
+}
+.imageAddon{
+  position: absolute;
+  width: 20%;
+  left: 10%;
+}
+.imageAddon1{
+  top:5%;
+}
+.imageAddon2{
+  top:15%;
+  left: 30%;
 }
 .plusInfo{
   width: 4%;
@@ -373,7 +400,6 @@ body {
   font-style: italic;
   z-index: 997;
   color: #2f220f;
-  //transform: scale(0);
   font-size: $fontSizeMedium;
 }
 .cita11{
@@ -454,6 +480,115 @@ body {
   right: 20%;
 }
 //FIN DIAPOSITIVA 3
+///////////////RITA MONTANER///////////////////
+//DIAPOSITIVA 4
+.texto2{
+  font-family: 'Alice',serif;
+  z-index: 997;
+  color: #2f220f;
+  font-size: $fontSizeBig;
+  text-align: justify;
+  position: absolute;
+  width: 35%;
+}
+.texto21{
+  width: 30%;
+  right: 10%;
+  top: 15%;
+}
+.cita13{
+  width: 20%;
+  top: 55%;
+  left: 5%;
+}
+.rm11{
+  position: absolute;
+  top:10%;
+  left: 20%;
+  height:35%;
+}
+.rm12{
+  position: absolute;
+  top:30%;
+  left: 29%;
+  height:35%;
+}
+.rm13{
+  position: absolute;
+  top: 10%;
+  left: 35%;
+  height: 25%;
+}
+//FIN DIAPOSITIVA 4
+//DIAPOSITIVA 5
+.texto23{
+  width: 30%;
+  left: 10%;
+  top: 70%;
+}
+.texto24{
+  width: 30%;
+  right: 10%;
+  top: 70%;
+}
+.cita14{
+  width: 20%;
+  top: 45%;
+  right: 5%;
+}
+.rm14{
+  height: 30%;
+  position: absolute;
+  top: 5%;
+  left: 10%;
+}
+//FIN DIAPOSITIVA 5
+//DIAPOSITIVA 7
+.rm7Group{
+  position: absolute;
+  top:10%;
+  left:5%;
+  width: 50%;
+  height:45%;
+  background-color: rgba(245, 245, 245, 0.8);
+}
+.texto25{
+  width: 30%;
+  right: 10%;
+  top: 10%;
+}
+.texto26{
+   width: 30%;
+   right: 10%;
+   top: 25%;
+ }
+.rm15{
+  height: 100%;
+  position: absolute;
+  opacity: 0.7;
+}
+.rm16{
+  height: 75%;
+  position: absolute;
+  bottom: 0%;
+  right: 20%;
+  opacity: 0.7;
+}
+.rm17{
+  height: 90%;
+  position: absolute;
+  top: 5%;
+  left: 28%;
+  opacity: 0.7;
+}
+.rm18{
+  height: 70%;
+  position: absolute;
+  top: 0%;
+  right: 0%;
+  opacity: 0.7;
+}
+//FIN DIAPOSITIVA 7
 
 .plusInfoCita{
   cursor: pointer;

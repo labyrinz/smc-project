@@ -105,41 +105,57 @@ angular.module('smcApp')
           .to("#page1",0.5,{ right: '0%', ease: Power0.easeNone},"-=0.5")
           //.to(arr1,1, arr2,"step3")
           //.to(arr3,1, arr2,"step3")
+          //EPISODE 3
           .to("#page1",0.4,{ right: '100%', delay:1, ease: Power0.easeNone})
           .to("#page2",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
           .from(".mapSvgClassTop", 1, {scale: 0,onComplete:initViaje, ease: Back.easeOut })
           .to(".mapSvgClassTop", 4, {width: '250%', top: '-60%', left: '-25%' , ease: Power2.easeIn},"+=1")
           .to(".mapSvgClassTop", 2, {width: '800%', top: '-385%', left: '-140%', ease: Power2.easeIn},"+=1")
           .to(".gironaMap",2,{opacity: 0, ease: Power2.easeOut},"-=2")
+          //EPISODE 4
           .to("#page2",0.4,{ right: '100%', delay:1, ease: Power0.easeNone})
           .to("#page3",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
-          //.staggerTo(".addon2", 0.5, {opacity: 0.6, scale: 1, ease: Power2.easeOut}, 0.5)
+          //EPISODE 5
           .to("#page3",0.4,{ right: '100%', delay:1, ease: Power0.easeNone})
           .to("#page4",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
+          //EPISODE 6
+          .to(".age2", 0.5, {color:'#ffd85f', fontSize: '2em', opacity: 1, ease:Power0.easeNone})
           .to("#page4",0.4,{ right: '100%', delay:1, ease: Power0.easeNone})
           .to("#page5",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
+          //EPISODE 7
           .to("#page5",0.4,{ right: '100%', delay:1, ease: Power0.easeNone})
           .to("#page6",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
+          //EPISODE 8
           .to("#page6",0.4,{ right: '100%', delay:1, ease: Power0.easeNone})
           .to("#page7",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
+          //EPISODE 9
           .to("#page7",0.4,{ right: '100%', delay:1, ease: Power0.easeNone})
           .to("#page8",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
+          //EPISODE 10
           .to("#page8",0.4,{ right: '100%', delay:1, ease: Power0.easeNone})
           .to("#page9",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
+          //EPISODE 11
           .to("#page9",0.4,{ right: '100%', delay:1, ease: Power0.easeNone})
           .to("#page10",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
+          //EPISODE 12
           .to("#page10",0.4,{ right: '100%', delay:1, ease: Power0.easeNone})
           .to("#page11",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
+          //EPISODE 13
           .to("#page11",0.4,{ right: '100%', delay:1, ease: Power0.easeNone})
           .to("#page12",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
+          //EPISODE 14
           .to("#page12",0.4,{ right: '100%', delay:1, ease: Power0.easeNone})
           .to("#page13",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
+          //EPISODE 15
           .to("#page13",0.4,{ right: '100%', delay:1, ease: Power0.easeNone})
           .to("#page14",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
+          //EPISODE 16
           .to("#page14",0.4,{ right: '100%', delay:1, ease: Power0.easeNone})
           .to("#page15",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
+          //EPISODE 17
           .to("#page15",0.4,{ right: '100%', delay:1, ease: Power0.easeNone})
           .to("#page16",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
+          //EPISODE 18
           .to("#page16",0.4,{ right: '100%', delay:1, ease: Power0.easeNone})
           .to("#page17",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4");
 
