@@ -144,19 +144,25 @@ body {
   background-color: rgb(14, 9, 7);
 }
 .color1{
-  background-color: #F7B862;
+  background-color:#ccc;
 }
 .color2{
-  background-color: #6B4B30;
-}
-.color3{
-  background-color: #473b34;
-}
-.color4{
   background-color: #C48332;
 }
+.color3{
+  background-color: #2f6c8b;
+}
+.color4{
+  background-color: #956483;
+}
 .color5{
-  background-color:#ccc;
+  background-color: #6f9850;
+}
+.color6{
+  background-color: #19a1cc;
+}
+.color7{
+  background-color: #cc124e;
 }
 .pentagramRect{
   position: absolute;
@@ -538,10 +544,10 @@ body {
   right: 5%;
 }
 .rm14{
-  height: 30%;
+  height: 15%;
   position: absolute;
   top: 5%;
-  left: 10%;
+  left: 25%;
 }
 //FIN DIAPOSITIVA 5
 //DIAPOSITIVA 7
@@ -590,6 +596,239 @@ body {
   opacity: 0.7;
 }
 //FIN DIAPOSITIVA 7
+// DIAPOSITIVA 8
+
+.texto3{
+  font-family: 'Alice',serif;
+  z-index: 997;
+  color: #2f220f;
+  font-size: $fontSizeBig;
+  text-align: justify;
+  position: absolute;
+  width: 35%;
+}
+.texto31{
+  right: 10%;
+  top:20%;
+}
+.texto32{
+  right: 10%;
+  top:40%;
+}
+.texto33{
+  right: 10%;
+  top:10%;
+}
+.texto34{
+  right: 10%;
+  top:20%;
+}
+.texto35{
+  right: 10%;
+  top:30%;
+}
+.texto36{
+  right: 10%;
+  top:40%;
+}
+.texto37{
+  right: 10%;
+  top:20%;
+}
+.texto38{
+  right: 10%;
+  top:40%;
+}
+.cita3{
+  position: absolute;
+  font-family: 'Alice',serif;
+  font-style: italic;
+  z-index: 997;
+  width: 30%;
+  color: #2f220f;
+  font-size: $fontSizeMedium;
+}
+.cita31{
+  bottom:20%;
+  left: 10%;
+}
+.cc31{
+  position: absolute;
+  top:10%;
+  left:20%;
+  height: 20%;
+  opacity: 0.7;
+}
+.cc32{
+  position: absolute;
+  top:20%;
+  left:10%;
+  height: 20%;
+  opacity: 0.7;
+}
+.cc33{
+  position: absolute;
+  top:22%;
+  left:5%;
+  height: 15%;
+  opacity: 0.7;
+}
+.cc34{
+  position: absolute;
+  top:18%;
+  left:13%;
+  height: 15%;
+  opacity: 0.7;
+}
+.cc35{
+  position: absolute;
+  top:19%;
+  left:20%;
+  height: 15%;
+  opacity: 0.7;
+}
+.cc36{
+  position: absolute;
+  top:23%;
+  left:30%;
+  height: 15%;
+  opacity: 0.7;
+}
+.cc37{
+  position: absolute;
+  top:27%;
+  left:35%;
+  height: 15%;
+  opacity: 0.7;
+}
+.cc38{
+  position: absolute;
+  top:20%;
+  left:42%;
+  height: 15%;
+  opacity: 0.7;
+}
+.cc39{
+  position: absolute;
+  top:40%;
+  left:10%;
+  height: 40%;
+}
+.cc391{
+  position: absolute;
+  top:20%;
+  left:30%;
+  height: 40%;
+}
+.cc392{
+  position: absolute;
+  top:50%;
+  left:50%;
+  height: 30%;
+}
+//FIN DIAPOSITIVA 8
+// DIAPOSITIVA 11
+
+.texto4{
+  font-family: 'Alice',serif;
+  z-index: 997;
+  color: #2f220f;
+  font-size: $fontSizeBig;
+  text-align: justify;
+  position: absolute;
+  width: 35%;
+}
+.texto41{
+  right: 10%;
+  top:10%;
+}
+.texto42{
+  right: 10%;
+  top:10%;
+}
+.cita4{
+  position: absolute;
+  font-family: 'Alice',serif;
+  font-style: italic;
+  z-index: 997;
+  width: 20%;
+  color: #2f220f;
+  font-size: $fontSizeMedium;
+}
+.cita41{
+  top:30%;
+  right: 5%;
+}
+.cita42{
+  bottom:25%;
+  right: 7%;
+  color: #fff;
+}
+.la1{
+  position: absolute;
+  height: 60%;
+  bottom:15%;
+  right: 30%;
+}
+.la2{
+  position: absolute;
+  height: 30%;
+  bottom:18%;
+  right: 12%;
+}
+.la3{
+  position: absolute;
+  height: 20%;
+  bottom:15%;
+  right: 5%;
+}
+.la4{
+  position: absolute;
+  width: 25%;
+  bottom:15%;
+  right: 5%;
+  opacity:0.3;
+}
+.la5{
+  position: absolute;
+  height: 100%;
+  top:0%;
+  left: 0%;
+  opacity: 0.6;
+}
+//FIN DIAPOSITIVA 11
+// DIAPOSITIVA 12
+.texto43{
+  right:10%;
+  top:10%;
+}
+.texto44{
+  right:10%;
+  top:20%;
+}
+.texto45{
+  right:10%;
+  top:30%;
+}
+.la6{
+  position: absolute;
+  height: 20%;
+  right:8%;
+  bottom:15%;
+}
+.la7{
+  position: absolute;
+  height: 30%;
+  right:15%;
+  bottom:25%;
+ }
+.la8{
+  position: absolute;
+  height: 20%;
+  right:5%;
+  bottom:40%;
+}
+//FIN DIAPOSITIVA 12
 
 .plusInfoCita{
   cursor: pointer;
@@ -597,8 +836,7 @@ body {
 }
 /* Responsive: Portrait tablets and up */
 @media only screen and (max-width: 1600px) {
-  .texto1{ font-size: 14px; }
-  .texto2{ font-size: 14px; }
+  .texto1, .texto2, .texto3{ font-size: 14px; }
   .textAddon{ font-size: $fontSizeSmall; }
-  .cita1{font-size: 11px;}
+  .cita1, .cita3 {font-size: 11px;}
 }
