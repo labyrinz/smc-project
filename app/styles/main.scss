@@ -3,6 +3,7 @@
 
 $fontSizeBig: 20px;
 $fontSizeMedium: 16px;
+$fontSizeInter: 12px;
 $fontSizeSmall: 10.5px;
 
 $colorWhite: #FFFFFF;
@@ -596,6 +597,8 @@ body {
 }
 /* Responsive: Portrait tablets and up */
 @media only screen and (max-width: 1600px) {
-  .texto1{ font-size: $fontSizeMedium; }
+  .texto1{ font-size: 14px; }
+  .texto2{ font-size: 14px; }
   .textAddon{ font-size: $fontSizeSmall; }
+  .cita1{font-size: 11px;}
 }
