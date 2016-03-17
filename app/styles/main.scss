@@ -152,7 +152,7 @@ body {
   background-color:#ccc;
 }
 .color2{
-  background-color: #C48332;
+  background-color: #ffd85f;
 }
 .color3{
   background-color: #2f6c8b;
@@ -960,7 +960,7 @@ body {
 }
 /* Responsive: Portrait tablets and up */
 @media only screen and (max-width: 1600px) {
-  .texto1, .texto2, .texto3, .texto4{ font-size: 14px; }
+  .texto1, .texto2, .texto3, .texto4, .texto5{ font-size: 14px; }
   .textAddon{ font-size: $fontSizeSmall; }
-  .cita1, .cita3, .cita4 {font-size: 11px;}
+  .cita1, .cita2, .cita3, .cita4, .cita5 {font-size: 11px;}
 }

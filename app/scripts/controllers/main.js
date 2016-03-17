@@ -184,7 +184,7 @@ angular.module('smcApp')
                 }
               }
               else {
-                if(step < 1){
+                if(step < 1.2){
                   //if(mapStatus) openCloseMap();
                   velocity = 1;
                   TweenLite.to(tl, 0.5, {progress:step, ease:Power2.easeOut, onComplete: pauseAnim});
