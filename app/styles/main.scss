@@ -20,6 +20,11 @@ body {
   background-color: #131213;
   overflow: hidden;
 }
+.img{
+  -webkit-box-shadow: 10px 10px 25px 3px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 25px 3px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 25px 3px rgba(0,0,0,0.75);
+}
 .faceSvgClass path{
   fill: none;
   stroke: #ffd85f;
@@ -349,12 +354,22 @@ body {
   z-index: 998;
   cursor: pointer;
 }
-//DIAPOSITIVA 1
-
 .plusInfo1{
   right: 5%;
   bottom:30%;
 }
+.plusInfo2{
+  right: 50%;
+  bottom:15%;
+  z-index: 999;
+}
+.plusInfo3{
+  right: 5%;
+  top:15%;
+  z-index: 999;
+}
+//DIAPOSITIVA 1
+
 .gironaMap{
   position: absolute;
   bottom: 10%;
@@ -438,11 +453,6 @@ body {
 //FIN DIAPOSITIVA 1
 //DIAPOSITIVA 3
 
-.plusInfo2{
-  right: 50%;
-  bottom:15%;
-  z-index: 999;
-}
 .prel05{
   position: absolute;
   top:10%;
@@ -557,7 +567,6 @@ body {
   left:5%;
   width: 50%;
   height:45%;
-  background-color: rgba(245, 245, 245, 0.8);
 }
 .texto25{
   width: 30%;
@@ -829,6 +838,121 @@ body {
   bottom:40%;
 }
 //FIN DIAPOSITIVA 12
+// DIAPOSITIVA 14
+.cita5{
+  position: absolute;
+  font-family: 'Alice',serif;
+  font-style: italic;
+  z-index: 997;
+  width: 20%;
+  color: #2f220f;
+  font-size: $fontSizeMedium;
+}
+.cita51{
+  top:26%;
+  right: 5%;
+}
+.cita52{
+  bottom: 15%;
+  left: 5%;
+}
+.al1{
+  position: absolute;
+  top:5%;
+  left: 5%;
+  width: 20%;
+}
+.al2{
+  position: absolute;
+  bottom: 15%;
+  right: 5%;
+  width: 15%;
+}
+.al3{
+  width: 15%;
+}
+.al4{
+  width: 15%;
+}
+.texto5{
+  font-family: 'Alice',serif;
+  z-index: 997;
+  color: #2f220f;
+  font-size: $fontSizeBig;
+  text-align: justify;
+  position: absolute;
+  width: 35%;
+}
+.texto51{
+  right: 10%;
+  top:7%;
+}
+//FIN DIAPOSITIVA 14
+// DIAPOSITIVA 15
+
+.texto52{
+  right: 10%;
+  top:10%;
+}
+.texto53{
+  right: 10%;
+  top:20%;
+}
+.texto54{
+  right: 10%;
+  top:30%;
+}
+.cita53{
+  bottom: 15%;
+  right: 5%;
+}
+.cita54{
+  bottom: 25%;
+  right: 5%;
+}
+.cita55{
+  bottom: 35%;
+  right: 5%;
+}
+.cita56{
+  bottom: 45%;
+  right: 5%;
+}
+.al3{
+  position: absolute;
+  width: 20%;
+  top:25%;
+  left: 0%;
+}
+.al4{
+  position: absolute;
+  width: 15%;
+  bottom: 0%;
+  left: 0%;
+}
+.al5{
+  position: absolute;
+  width: 15%;
+  left: 15%;
+  top:2%;
+}
+.al6{
+  position: absolute;
+  width: 15%;
+  top:48%;
+  left: 2%;
+}
+.al7{
+  position: absolute;
+  width: 15%;
+}
+.al8{
+  position: absolute;
+  width: 15%;
+  top:30%;
+  left: 3%;
+}
+//FIN DIAPOSITIVA 15
 
 .plusInfoCita{
   cursor: pointer;
