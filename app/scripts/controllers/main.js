@@ -157,7 +157,11 @@ angular.module('smcApp')
           .to("#page15",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
           //EPISODE 17
           .to("#page15",0.4,{ right: '100%', delay:1, ease: Power0.easeNone})
-          .to("#page16",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
+          .to("#page16",0.4,{ right: '0%', ease: Power0.easeNone},"charo-=0.4")
+          .to("#cb01",0.7,{ left: '10%',scale: '0.01', ease: Back.easeOut}, "charo+=2")
+          .to("#cb04",0.7,{ left: '45%',scale: '1', ease: Back.easeOut},"charo+=2")
+          .to("#texto61",0.7,{ left: '5%',scale: '0.01', ease: Back.easeOut},"charo+=2")
+          .to("#texto63",0.7,{ left: '25%',scale: '1', ease: Back.easeOut},"charo+=2")
           //EPISODE 18
           .to("#page16",0.4,{ right: '100%', delay:1, ease: Power0.easeNone})
           .to("#page17",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4");

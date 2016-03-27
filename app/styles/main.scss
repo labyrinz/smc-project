@@ -499,6 +499,14 @@ body {
 //FIN DIAPOSITIVA 3
 ///////////////RITA MONTANER///////////////////
 //DIAPOSITIVA 4
+.mujerTitle1{
+  font-family: 'Alice',serif;
+  width: 20%;
+  position: absolute;
+  bottom: 20%;
+  right: 10%;
+  font-size: 50px;
+}
 .texto2{
   font-family: 'Alice',serif;
   z-index: 997;
@@ -607,6 +615,14 @@ body {
 //FIN DIAPOSITIVA 7
 // DIAPOSITIVA 8
 
+.mujerTitle2{
+  font-family: 'Alice',serif;
+  width: 20%;
+  position: absolute;
+  bottom: 20%;
+  right: 10%;
+  font-size: 50px;
+}
 .texto3{
   font-family: 'Alice',serif;
   z-index: 997;
@@ -639,10 +655,6 @@ body {
 .texto36{
   right: 10%;
   top:40%;
-}
-.texto37{
-  right: 10%;
-  top:18%;
 }
 .texto38{
   right: 10%;
@@ -736,8 +748,43 @@ body {
   height: 30%;
 }
 //FIN DIAPOSITIVA 8
+// DIAPOSITIVA 10
+.ContainercuaAEEUU{
+  position: absolute;
+  width: 40%;
+  height: 55%;
+  top: 30%;
+  left: 20%;
+  overflow: hidden;
+}
+.mapCubaEEUU{
+  width: 600%;
+  margin-top: -95%;
+  margin-left: -80%;
+}
+.texto37{
+  right: 40%;
+  top:5%;
+}
+//FIN DIAPOSITIVA 10
 // DIAPOSITIVA 11
 
+.mujerTitle3{
+  font-family: 'Alice',serif;
+  width: 20%;
+  position: absolute;
+  bottom: 20%;
+  left: 10%;
+  font-size: 50px;
+}
+.lorraine{
+  font-family: 'Great Vibes', cursive;
+  width: 20%;
+  position: absolute;
+  top: 35%;
+  left: 55%;
+  font-size: 100px;
+}
 .texto4{
   font-family: 'Alice',serif;
   z-index: 997;
@@ -748,12 +795,14 @@ body {
   width: 35%;
 }
 .texto41{
-  right: 10%;
-  top:7%;
+  left: 5%;
+  top: 20%;
+  width: 20%;
 }
 .texto42{
-  right: 10%;
-  top:10%;
+  left: 20%;
+  top: 10%;
+  width: 55%;
 }
 .cita4{
   position: absolute;
@@ -769,9 +818,10 @@ body {
   right: 5%;
 }
 .cita42{
-  bottom:25%;
-  right: 7%;
-  color: #fff;
+  bottom: 25%;
+  left: 20%;
+  /* color: #fff; */
+  width: 55%;
 }
 .la1{
   position: absolute;
@@ -787,16 +837,16 @@ body {
 }
 .la3{
   position: absolute;
-  height: 20%;
-  bottom:15%;
-  right: 5%;
+  height: 45%;
+  top: 15%;
+  left: 30%;
 }
 .la4{
   position: absolute;
-  width: 25%;
-  bottom:15%;
-  right: 5%;
-  opacity:0.3;
+  width: 17%;
+  bottom: 43%;
+  right: 50%;
+  opacity: 0.7;
 }
 .la5{
   position: absolute;
@@ -808,12 +858,14 @@ body {
 //FIN DIAPOSITIVA 11
 // DIAPOSITIVA 12
 .texto43{
-  right:10%;
-  top:10%;
+  left: 25%;
+  bottom: 35%;
+  width: 55%;
 }
 .texto44{
-  right:10%;
-  top:20%;
+  left: 25%;
+  bottom: 25%;
+  width: 55%;
 }
 .texto45{
   right:10%;
@@ -821,24 +873,44 @@ body {
 }
 .la6{
   position: absolute;
-  height: 20%;
-  right:8%;
-  bottom:15%;
+  height: 30%;
+  left: 62%;
+  bottom: 45%;
+  transform: rotate(25deg);
 }
 .la7{
   position: absolute;
   height: 30%;
-  right:15%;
-  bottom:25%;
+  left: 15%;
+  top: 25%;
+  transform: rotate(-20deg);
  }
 .la8{
   position: absolute;
+  height: 25%;
+  left: 53%;
+  bottom: 55%;
+  transform: rotate(6deg);
+}
+
+.la9{
+  position: absolute;
   height: 20%;
-  right:5%;
-  bottom:40%;
+  left: 32%;
+  bottom: 60%;
+  transform: rotate(-6deg);
 }
 //FIN DIAPOSITIVA 12
 // DIAPOSITIVA 14
+
+.mujerTitle4{
+  font-family: 'Alice',serif;
+  width: 20%;
+  position: absolute;
+  bottom: 15%;
+  left: 10%;
+  font-size: 50px;
+}
 .cita5{
   position: absolute;
   font-family: 'Alice',serif;
@@ -853,14 +925,15 @@ body {
   right: 5%;
 }
 .cita52{
-  bottom: 15%;
-  left: 5%;
+  bottom: 33%;
+  right: 10%;
+  width: 35%;
 }
 .al1{
   position: absolute;
   top:5%;
   left: 5%;
-  width: 20%;
+  width: 30%;
 }
 .al2{
   position: absolute;
@@ -885,7 +958,14 @@ body {
 }
 .texto51{
   right: 10%;
-  top:7%;
+  bottom: 20%;
+}
+.teLoDijoAdela{
+  position: absolute;
+  top: 10%;
+  right: 10%;
+  width: 35%;
+  height: 40%;
 }
 //FIN DIAPOSITIVA 14
 // DIAPOSITIVA 15
@@ -895,8 +975,9 @@ body {
   top:10%;
 }
 .texto53{
-  right: 10%;
-  top:20%;
+  left: 25%;
+  bottom: 27%;
+  width: 55%;
 }
 .texto54{
   right: 10%;
@@ -916,7 +997,7 @@ body {
 }
 .cita56{
   bottom: 45%;
-  right: 5%;
+  right: 40%;
 }
 .al3{
   position: absolute;
@@ -927,14 +1008,14 @@ body {
 .al4{
   position: absolute;
   width: 15%;
-  bottom: 0%;
-  left: 0%;
+  bottom: 35%;
+  right: 20%;
 }
 .al5{
   position: absolute;
-  width: 15%;
-  left: 15%;
-  top:2%;
+  width: 20%;
+  left: 40%;
+  top: 12%;
 }
 .al6{
   position: absolute;
@@ -944,7 +1025,9 @@ body {
 }
 .al7{
   position: absolute;
-  width: 15%;
+  width: 20%;
+  left: 15%;
+  top: 10%;
 }
 .al8{
   position: absolute;
@@ -953,6 +1036,125 @@ body {
   left: 3%;
 }
 //FIN DIAPOSITIVA 15
+// DIAPOSITIVA 16
+
+.mujerTitle5{
+  font-family: 'Alice',serif;
+  width: 20%;
+  position: absolute;
+  bottom: 15%;
+  left: 10%;
+  font-size: 50px;
+}
+.texto6{
+  font-family: 'Alice',serif;
+  z-index: 997;
+  color: #2f220f;
+  font-size: $fontSizeBig;
+  text-align: justify;
+  position: absolute;
+}
+.texto61{
+  top: 10%;
+  left: 25%;
+  width: 55%;
+}
+.texto63{
+  top: 10%;
+  left: 60%;
+  width: 55%;
+  -webkit-transform: scale(0.01);
+  -moz-transform: scale(0.01);
+  -ms-transform: scale(0.01);
+  -o-transform: scale(0.01);
+  transform: scale(0.01);
+}
+.cita6{
+  position: absolute;
+  font-family: 'Alice',serif;
+  font-style: italic;
+  z-index: 997;
+  color: #2f220f;
+  font-size: $fontSizeMedium;
+}
+.cita61{
+  left:25%;
+  bottom:20%;
+  width: 55%;
+}
+.cb01{
+  position: absolute;
+  width: 30%;
+  top: 22%;
+  left: 35%;
+}
+.cb04{
+  position: absolute;
+  width: 15%;
+  top: 25%;
+  left: 70%;
+  -webkit-transform: scale(0.01);
+  -moz-transform: scale(0.01);
+  -ms-transform: scale(0.01);
+  -o-transform: scale(0.01);
+  transform: scale(0.01);
+}
+//FIN DIAPOSITIVA 16
+// DIAPOSITIVA 17
+.epilogoTitle{
+  font-family: 'Alice',serif;
+  width: 30%;
+  position: absolute;
+  bottom: 15%;
+  left: 10%;
+  font-size: 50px;
+}
+.texto62{
+  width: 40%;
+  top: 20%;
+  left: 10%;
+}
+.cita62{
+  width: 40%;
+  top: 40%;
+  left: 10%;
+}
+.cb06{
+  position: absolute;
+  width: 15%;
+  right: 5%;
+  top: 10%;
+  transform: rotate(15deg);
+}
+.cb07{
+  position: absolute;
+  width: 11%;
+  right: 25%;
+  top: 20%;
+  transform: rotate(-20deg);
+ }
+.cb08{
+  position: absolute;
+  width: 9%;
+  right: 16%;
+  top: 26%;
+  transform: rotate(15deg);
+}
+.cb09{
+  position: absolute;
+  width: 10%;
+  right: 15%;
+  top: 43%;
+  transform: rotate(-45deg);
+}
+.cb10{
+  position: absolute;
+  width: 11%;
+  right: 20%;
+  top: 13%;
+  transform: rotate(55deg);
+}
+//FIN DIAPOSITIVA 17
 
 .plusInfoCita{
   cursor: pointer;
