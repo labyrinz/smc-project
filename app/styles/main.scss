@@ -754,7 +754,7 @@ body {
   width: 40%;
   height: 55%;
   top: 30%;
-  left: 20%;
+  left: 10%;
   overflow: hidden;
 }
 .mapCubaEEUU{
@@ -763,8 +763,9 @@ body {
   margin-left: -80%;
 }
 .texto37{
-  right: 40%;
+  left: 10%;
   top:5%;
+  width: 40%;
 }
 //FIN DIAPOSITIVA 10
 // DIAPOSITIVA 11
@@ -844,7 +845,7 @@ body {
 .la4{
   position: absolute;
   width: 17%;
-  bottom: 43%;
+  bottom: 40%;
   right: 50%;
   opacity: 0.7;
 }
@@ -933,7 +934,7 @@ body {
   position: absolute;
   top:5%;
   left: 5%;
-  width: 30%;
+  width: 27%;
 }
 .al2{
   position: absolute;
@@ -1162,7 +1163,8 @@ body {
 }
 /* Responsive: Portrait tablets and up */
 @media only screen and (max-width: 1600px) {
-  .texto1, .texto2, .texto3, .texto4, .texto5{ font-size: 14px; }
+  .texto1, .texto2, .texto3, .texto4, .texto5, .texto6{ font-size: 14px; }
   .textAddon{ font-size: $fontSizeSmall; }
-  .cita1, .cita2, .cita3, .cita4, .cita5 {font-size: 11px;}
+  .cita1, .cita2, .cita3, .cita4, .cita5, .cita6 {font-size: 11px;}
+  .mujerTitle1, .mujerTitle2,.mujerTitle3,.mujerTitle4,.mujerTitle5,.epilogoTitle{font-size: 30px;}
 }
