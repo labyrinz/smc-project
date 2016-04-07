@@ -200,7 +200,7 @@ angular.module('smcApp')
           });
 
     //------------------------------------
-    //---------D3 CONTROLLER -----------
+    //---------MAP D3 CONTROLLER -----------
 
       var width = window.innerWidth/1.5,
           height = window.innerHeight/2;
@@ -288,6 +288,18 @@ angular.module('smcApp')
           openCloseMap();
         });
 
+        $(document).on('click','#arrowNext',function(){
+          nextFoto();
+        });
+
+        $(document).on('click','#arrowPrev',function(){
+          prevFoto();
+        });
+
+        $(document).on('click','#openPhoto',function(){
+          openPhoto();
+        });
+
         $(document).on('click','.plusInfo',function(){
           var value = $(this).attr('value');
           var target = '.ad'+value;
@@ -311,6 +323,23 @@ angular.module('smcApp')
             });
           }
         });
+
+        function nextFoto(){
+          var firstPhoto = $('#fotoGroup img').last();
+          $('#fotoGroup').prepend(firstPhoto);
+          console.log(firstPhoto);
+        }
+
+        function prevFoto(){
+          var firstPhoto = $('#fotoGroup img').first();
+          $('#fotoGroup').append(firstPhoto);
+          console.log(firstPhoto);
+        }
+
+        function openPhoto(){
+          var firstPhoto = $('#fotoGroup img').last();
+          $(firstPhoto).addClass('bigPhoto');
+        }
 
         function openCloseMap(val) {
           if(val==undefined){
