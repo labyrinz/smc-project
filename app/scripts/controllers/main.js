@@ -16,7 +16,7 @@ angular.module('smcApp')
       var mapStatus = false;
       var videoDisplay = true;
       var body = $('body');
-      var stepIncrement = 0.005;
+      var stepIncrement = 0.001;
       var totalWords = [];
       var step = 0;
 
@@ -67,7 +67,6 @@ angular.module('smcApp')
 
         function quitVideo(){
           if(videoDisplay){
-              facePortada.drawsvg('animate');
               soundEpilogo.play();
               //tl.play();
               videoDisplay = false;
@@ -96,77 +95,96 @@ angular.module('smcApp')
           .to(".videoClass", 0.2, {scale:0, ease: Power0.easeNone})
           .to(".BackVideo", 0.2, {opacity: 0, onComplete: hideVideo, ease: Power0.easeNone},"-=0.1")
           .to(".videoClass", 0.5, {volume: 0, ease: Power0.easeNone})
-          .to("#page0",0.4,{ right: '0%', ease: Power0.easeNone})
+          .to("#page0",0.4,{ right: '0%', onComplete: drawFace, ease: Power0.easeNone})
           .staggerFrom(introWords, 0.1, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.2]}, ease: Back.easeOut.config(0.8)}, 0.1)
-          .to(".instructions", 0.2, {opacity:1, repeat: 6,repeatDelay: 0.1, yoyo:true, ease: Power0.easeNone})
+          .addPause()
           //EPISODE 2
-          .to(".age1", 0.5, {color:'#ffd85f', fontSize: '2em', opacity: 1, ease:Power0.easeNone})
-          .to("#page0",0.5,{ right: '100%', delay:1, ease: Power0.easeNone})
-          .to("#page1",0.5,{ right: '0%', ease: Power0.easeNone},"-=0.5")
+          .to(".age1", 0.5, {color:'#ffd85f', fontSize: '2em', opacity: 1,  ease:Power0.easeNone})
+          .to("#page0",0.5,{ right: '100%', ease: Power0.easeNone})
+          .to(".ed1", 0.5, {left: '0%', ease: Back.easeOut})
+          .to(".ed2", 0.5, {top: '0%', ease: Back.easeOut})
+          .to(".ed3", 0.5, {left: '0%', ease: Back.easeOut},"-=1")
+          .to(".ed4", 0.5, {top: '0%', ease: Back.easeOut})
+          .to("#page1",0.5,{ right: '0%', ease: Power0.easeNone})
+          .addPause()
           //.to(arr1,1, arr2,"step3")
           //.to(arr3,1, arr2,"step3")
           //EPISODE 3
-          .to("#page1",0.4,{ right: '100%', delay:1, ease: Power0.easeNone})
+          .to("#page1",0.4,{ right: '100%', ease: Power0.easeNone})
           .to("#page2",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
           .from(".mapSvgClassTop", 1, {scale: 0,onComplete:initViaje, ease: Back.easeOut })
           .to(".mapSvgClassTop", 4, {width: '250%', top: '-60%', left: '-25%' , ease: Power2.easeIn},"+=1")
           .to(".mapSvgClassTop", 2, {width: '800%', top: '-385%', left: '-140%', ease: Power2.easeIn},"+=1")
           .to(".gironaMap",2,{opacity: 0, ease: Power2.easeOut},"-=2")
+          .addPause()
           //EPISODE 4
-          .to("#page2",0.4,{ right: '100%', delay:1, ease: Power0.easeNone})
+          .to("#page2",0.4,{ right: '100%', ease: Power0.easeNone})
           .to("#page3",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
+          .addPause()
           //EPISODE 5
-          .to("#page3",0.4,{ right: '100%', delay:1, ease: Power0.easeNone})
+          .to("#page3",0.4,{ right: '100%', ease: Power0.easeNone})
           .to("#page4",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
+          .addPause()
           //EPISODE 6
           .to(".age2", 0.5, {color:'#ffd85f', fontSize: '2em', opacity: 1, ease:Power0.easeNone})
-          .to("#page4",0.4,{ right: '100%', delay:1, ease: Power0.easeNone})
+          .to("#page4",0.4,{ right: '100%', ease: Power0.easeNone})
           .to("#page5",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
+          .addPause()
           //EPISODE 7
-          .to("#page5",0.4,{ right: '100%', delay:1, ease: Power0.easeNone})
+          .to("#page5",0.4,{ right: '100%', ease: Power0.easeNone})
           .to("#page6",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
+          .addPause()
           //EPISODE 8
-          .to("#page6",0.4,{ right: '100%', delay:1, ease: Power0.easeNone})
+          .to("#page6",0.4,{ right: '100%', ease: Power0.easeNone})
           .to("#page7",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
+          .addPause()
           //EPISODE 9
           .to(".age3", 0.5, {color:'#ffd85f', fontSize: '2em', opacity: 1, ease:Power0.easeNone})
-          .to("#page7",0.4,{ right: '100%', delay:1, ease: Power0.easeNone})
+          .to("#page7",0.4,{ right: '100%', ease: Power0.easeNone})
           .to("#page8",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
+          .addPause()
           //EPISODE 10
-          .to("#page8",0.4,{ right: '100%', delay:1, ease: Power0.easeNone})
+          .to("#page8",0.4,{ right: '100%', ease: Power0.easeNone})
           .to("#page9",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
+          .addPause()
           //EPISODE 11
-          .to("#page9",0.4,{ right: '100%', delay:1, ease: Power0.easeNone})
+          .to("#page9",0.4,{ right: '100%', ease: Power0.easeNone})
           .to("#page10",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
+          .addPause()
           //EPISODE 12
           .to(".age4", 0.5, {color:'#ffd85f', fontSize: '2em', opacity: 1, ease:Power0.easeNone})
-          .to("#page10",0.4,{ right: '100%', delay:1, ease: Power0.easeNone})
+          .to("#page10",0.4,{ right: '100%', ease: Power0.easeNone})
           .to("#page11",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
+          .addPause()
           //EPISODE 13
-          .to("#page11",0.4,{ right: '100%', delay:1, ease: Power0.easeNone})
+          .to("#page11",0.4,{ right: '100%', ease: Power0.easeNone})
           .to("#page12",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
+          .addPause()
           //EPISODE 14
-          .to("#page12",0.4,{ right: '100%', delay:1, ease: Power0.easeNone})
+          .to("#page12",0.4,{ right: '100%', ease: Power0.easeNone})
           .to("#page13",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
+          .addPause()
           //EPISODE 15
           .to(".age5", 0.5, {color:'#ffd85f', fontSize: '2em', opacity: 1, ease:Power0.easeNone})
-          .to("#page13",0.4,{ right: '100%', delay:1, ease: Power0.easeNone})
+          .to("#page13",0.4,{ right: '100%', ease: Power0.easeNone})
           .to("#page14",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
+          .addPause()
           //EPISODE 16
-          .to("#page14",0.4,{ right: '100%', delay:1, ease: Power0.easeNone})
+          .to("#page14",0.4,{ right: '100%', ease: Power0.easeNone})
           .to("#page15",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
+          .addPause()
           //EPISODE 17
-          .to("#page15",0.4,{ right: '100%', delay:1, ease: Power0.easeNone})
+          .to("#page15",0.4,{ right: '100%', ease: Power0.easeNone})
           .to("#page16",0.4,{ right: '0%', ease: Power0.easeNone},"charo-=0.4")
           .to("#cb01",0.7,{ left: '10%',scale: '0.01', ease: Back.easeOut}, "charo+=2")
           .to("#cb04",0.7,{ left: '45%',scale: '1', ease: Back.easeOut},"charo+=2")
           .to("#texto61",0.7,{ left: '5%',scale: '0.01', ease: Back.easeOut},"charo+=2")
           .to("#texto63",0.7,{ left: '25%',scale: '1', ease: Back.easeOut},"charo+=2")
+          .addPause()
           //EPISODE 18
-          .to("#page16",0.4,{ right: '100%', delay:1, ease: Power0.easeNone})
-          .to("#page17",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4");
-
-          //EPISODE 3
+          .to("#page16",0.4,{ right: '100%', ease: Power0.easeNone})
+          .to("#page17",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
+          .addPause();
 
        tl.pause();
 
@@ -178,23 +196,25 @@ angular.module('smcApp')
             TweenMax.to('.additional', 0.2, {opacity: 0, scale:0, ease:Back.easeOut});
             if(event.type != 'mousedown'){
               if (event.originalEvent.wheelDelta > 0 || event.originalEvent.detail < 0) {
-                if(step > 0){
-                  velocity = 1;
-                  //if(!mapStatus && step < 0.1){openCloseMap();}
-                  if(step > stepIncrement)step -= stepIncrement;
-                  else if(step <= stepIncrement ) step = 0;
-                  TweenLite.to(tl, 0.5, {progress:step, ease:Power2.easeOut, onComplete: pauseAnim});
-                  //$("#bookPages").turn("previous");
-                }
+                //if(step > 0){
+                //  velocity = 1;
+                //  //if(!mapStatus && step < 0.1){openCloseMap();}
+                //  if(step > stepIncrement)step -= stepIncrement;
+                //  else if(step <= stepIncrement ) step = 0;
+                //  TweenLite.to(tl, 0.5, {progress:step, ease:Power2.easeOut, onComplete: pauseAnim});
+                //  //$("#bookPages").turn("previous");
+                //}
+                tl.reverse();
               }
               else {
-                if(step < 1.2){
-                  //if(mapStatus) openCloseMap();
-                  velocity = 1;
-                  TweenLite.to(tl, 0.5, {progress:step, ease:Power2.easeOut, onComplete: pauseAnim});
-                  step += stepIncrement;
-                  //$("#bookPages").turn("next");
-                }
+                //if(step < 1.2){
+                //  //if(mapStatus) openCloseMap();
+                //  velocity = 1;
+                //  TweenLite.to(tl, 0.5, {progress:step, ease:Power2.easeOut, onComplete: pauseAnim});
+                //  step += stepIncrement;
+                //  //$("#bookPages").turn("next");
+                //}
+                tl.play();
               }
             }
           });
@@ -300,6 +320,10 @@ angular.module('smcApp')
           openPhoto();
         });
 
+        $(document).on('click','#closePhoto',function(){
+          closePhoto();
+        });
+
         $(document).on('click','.plusInfo',function(){
           var value = $(this).attr('value');
           var target = '.ad'+value;
@@ -323,22 +347,29 @@ angular.module('smcApp')
             });
           }
         });
-
+        function drawFace(){
+          facePortada.drawsvg('animate');
+          TweenMax.to(".instructions", 0.2, {opacity:1, repeat: 6,repeatDelay: 0.1, yoyo:true, ease: Power0.easeNone});
+        }
         function nextFoto(){
           var firstPhoto = $('#fotoGroup img').last();
-          $('#fotoGroup').prepend(firstPhoto);
-          console.log(firstPhoto);
+          TweenMax.to(firstPhoto, 0.1, {left: '30%', repeatDelay:0, repeat:1, yoyo:true, onRepeat:$('#fotoGroup').prepend(firstPhoto), ease: Power2.easeOut});
         }
 
         function prevFoto(){
           var firstPhoto = $('#fotoGroup img').first();
-          $('#fotoGroup').append(firstPhoto);
-          console.log(firstPhoto);
+          TweenMax.to(firstPhoto, 0.1, {left: '-15%', repeatDelay:0, repeat:1, yoyo:true, onRepeat:$('#fotoGroup').append(firstPhoto), ease: Power2.easeOut});
         }
 
         function openPhoto(){
           var firstPhoto = $('#fotoGroup img').last();
           $(firstPhoto).addClass('bigPhoto');
+          TweenMax.to(".closePhoto", 0.5, {scale: 1, delay: 0.5, ease: Back.easeOut});
+        }
+        function closePhoto(){
+          var firstPhoto = $('#fotoGroup img').last();
+          $(firstPhoto).removeClass('bigPhoto');
+          TweenMax.to(".closePhoto", 0.5, {scale: 0, ease: Back.easeOut});
         }
 
         function openCloseMap(val) {
