@@ -18,7 +18,7 @@ angular.module('smcApp')
       var body = $('body');
       var stepIncrement = 0.001;
       var totalWords = [];
-      var step = 0;
+      var player;
 
       var introLetters = $("#quote").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"introLetters"});
       var introWords = $(".introLetters");
@@ -347,6 +347,7 @@ angular.module('smcApp')
             });
           }
         });
+
         function drawFace(){
           facePortada.drawsvg('animate');
           TweenMax.to(".instructions", 0.2, {opacity:1, repeat: 6,repeatDelay: 0.1, yoyo:true, ease: Power0.easeNone});
@@ -402,12 +403,10 @@ angular.module('smcApp')
         }
 
         function hideVideo(){
+          console.log($('#introVideo'));
+          $('#introVideo').attr('src', '');
+          $('#introVideo').attr('src', 'https://www.youtube.com/embed/asF4OUyq7Y8');
           $(".BackVideo").css("display","none");
-        }
-
-        function pauseAnim(){
-          velocity = 0;
-          tl.pause();
         }
 
         function insertWords(variable,num){
