@@ -365,6 +365,7 @@ angular.module('smcApp')
         function openPhoto(){
           var firstPhoto = $('#fotoGroup img').last();
           $(firstPhoto).addClass('bigPhoto');
+          $(firstPhoto).css('left', '');
           TweenMax.to(".closePhoto", 0.5, {scale: 1, delay: 0.5, ease: Back.easeOut});
         }
         function closePhoto(){

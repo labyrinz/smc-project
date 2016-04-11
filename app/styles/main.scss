@@ -41,7 +41,7 @@ body {
   right: 25%;
   margin: auto;
   width: 50%;
-  height: 50%;
+  height: 75%;
   opacity: 0.7;
 }
 .mapIcon {
@@ -92,7 +92,7 @@ body {
   position: absolute;
   top: 30px;
   left: -905px;
-  z-index: 997;
+  z-index: 998;
   width: 900px;
   overflow: hidden;
   height: 340px;
@@ -141,8 +141,8 @@ body {
 .closePhoto{
   position: absolute;
   width: 2%;
-  top: 20%;
-  left: 15%;
+  top: 16%;
+  left: 6%;
   cursor: pointer;
   z-index: 999;
   -webkit-transform: scale(0);
@@ -468,15 +468,15 @@ body {
   font-family: 'Pacifico', cursive;
   font-style: italic;
   z-index: 997;
-  color: #000000;
-  font-size: $fontSizeBig;
-  background-color: rgba(255, 255, 255, 0.62);
+  color: #ffffff;
+  font-size: 30px;
+//  background-color: rgba(255, 255, 255, 0.62);
   padding: 2% 3%;
 }
 .cita11{
-  bottom: 15%;
-  width: 30%;
-  left: 5%;
+  bottom: 10%;
+  width: 90%;
+  left: 2%;
 }
 .texto1{
   font-family: 'Alice',serif;
@@ -1239,8 +1239,8 @@ body {
 .bigPhoto{
   height: 70%;
   top: 15%;
-  left: 15%;
-  z-index: 999;
+  left: 5%;
+  z-index: 997;
   transition: all 0.5s ease-in-out;
 }
 .plusInfoCita{
@@ -1251,6 +1251,6 @@ body {
 @media only screen and (max-width: 1600px) {
   .texto1, .texto2, .texto3, .texto4, .texto5, .texto6{ font-size: 14px; }
   .textAddon{ font-size: $fontSizeSmall; }
-  .cita1, .cita2, .cita3, .cita4, .cita5, .cita6 {font-size: 11px;}
+  .cita1, .cita2, .cita3, .cita4, .cita5, .cita6 {font-size: 25px;}
   .mujerTitle1, .mujerTitle2,.mujerTitle3,.mujerTitle4,.mujerTitle5,.epilogoTitle{font-size: 30px;}
 }
