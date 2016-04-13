@@ -23,8 +23,8 @@ angular.module('smcApp')
       var introLetters = $("#quote").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"introLetters"});
       var introWords = $(".introLetters");
 
-      //var cita1Letters = $("#cita1").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"cita1Letters"});
-      //  totalWords[0] = $(".cita1Letters");
+      var cita12Letters = $("#cita12").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"cita12Letters"});
+      totalWords[12] = $(".cita12Letters");
 
       //---------------------------
       //----SOUND TRACKS -----
@@ -57,10 +57,6 @@ angular.module('smcApp')
       //----------------------------
       //---------VIDEOS--------
 
-        $(".videoClass").bind("ended", function() {
-            quitVideo();
-        });
-
         $("#skip").on("click", function(){
             quitVideo();
         });
@@ -68,7 +64,7 @@ angular.module('smcApp')
         function quitVideo(){
           if(videoDisplay){
               soundEpilogo.play();
-              //tl.play();
+              tl.play();
               videoDisplay = false;
             }
           }
@@ -105,7 +101,8 @@ angular.module('smcApp')
           .to(".ed2", 0.5, {top: '0%', ease: Back.easeOut})
           .to(".ed3", 0.5, {left: '0%', ease: Back.easeOut},"-=1")
           .to(".ed4", 0.5, {top: '0%', ease: Back.easeOut})
-          .to("#page1",0.5,{ right: '0%', ease: Power0.easeNone})
+          .to(".cub1", 0.5, {top: '0%', ease: Power2.easeIn})
+          .to("#page1",0.5,{ right: '0%', ease: Power0.easeNone},"-=0.5")
           .addPause()
           //.to(arr1,1, arr2,"step3")
           //.to(arr3,1, arr2,"step3")
@@ -114,8 +111,11 @@ angular.module('smcApp')
           .to("#page2",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
           .from(".mapSvgClassTop", 1, {scale: 0,onComplete:initViaje, ease: Back.easeOut })
           .to(".mapSvgClassTop", 4, {width: '250%', top: '-60%', left: '-25%' , ease: Power2.easeIn},"+=1")
+          .to(".ed1", 0.5, {top: '120%', ease: Power2.easeIn})
+          .to(".ed2", 0.5, {top: '120%', ease: Power2.easeIn})
+          .to(".ed3", 0.5, {top: '120%', ease: Power2.easeIn},"-=1")
+          .to(".ed4", 0.5, {top: '120%', ease: Power2.easeIn})
           .to(".mapSvgClassTop", 2, {width: '800%', top: '-385%', left: '-140%', ease: Power2.easeIn},"+=1")
-          .to(".gironaMap",2,{opacity: 0, ease: Power2.easeOut},"-=2")
           .addPause()
           //EPISODE 4
           .to("#page2",0.4,{ right: '100%', ease: Power0.easeNone})
@@ -127,6 +127,7 @@ angular.module('smcApp')
           .addPause()
           //EPISODE 6
           .to(".age2", 0.5, {color:'#ffd85f', fontSize: '2em', opacity: 1, ease:Power0.easeNone})
+          .to(".cub1", 0.5, {top: '120%', ease: Power2.easeIn})
           .to("#page4",0.4,{ right: '100%', ease: Power0.easeNone})
           .to("#page5",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
           .addPause()
@@ -348,6 +349,14 @@ angular.module('smcApp')
           }
         });
 
+        function insertWords(variable,num){
+          $('#cita'+num+'suma').append(variable);
+          TweenMax.from(variable, 0.5, {opacity: 0, y:-40, transformOrigin:"0% 50% -50", ease: Power2.easeOut});
+        }
+        function deleteWords(variable){
+          $(variable).remove();
+        }
+
         function drawFace(){
           facePortada.drawsvg('animate');
           TweenMax.to(".instructions", 0.2, {opacity:1, repeat: 6,repeatDelay: 0.1, yoyo:true, ease: Power0.easeNone});
@@ -410,13 +419,6 @@ angular.module('smcApp')
           $(".BackVideo").css("display","none");
         }
 
-        function insertWords(variable,num){
-          $('#cita'+num+'suma').append(variable);
-          TweenMax.from(variable, 0.5, {opacity: 0, y:-40, transformOrigin:"0% 50% -50", ease: Power2.easeOut});
-        }
-        function deleteWords(variable){
-            $(variable).remove();
-        }
         function initViaje(){
           viaje1.drawsvg('animate');
         }
