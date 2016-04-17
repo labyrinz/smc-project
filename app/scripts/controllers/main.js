@@ -113,7 +113,10 @@ angular.module('smcApp')
           //.to(arr1,1, arr2,"step3")
           //.to(arr3,1, arr2,"step3")
           //EPISODE 3
-          .to("#page1",0.4,{ right: '100%', ease: Power0.easeNone})
+          .to(".ed2", 0.5, {left: '-5%', ease: Power2.easeIn},"scrollGer")
+          .to(".ed3", 0.5, {left: '-10%', ease: Power2.easeIn},"scrollGer")
+          .to(".ed4", 0.5, {left: '-15%', ease: Power2.easeIn},"scrollGer")
+          .to("#page1",0.4,{ right: '100%', ease: Power0.easeNone},"-=0.5")
           .to("#page2",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
           .from(".mapSvgClassTop", 1, {scale: 0,onComplete:initViaje, ease: Back.easeOut })
           .to(".mapSvgClassTop", 4, {width: '250%', top: '-60%', left: '-25%' , ease: Power2.easeIn},"+=1")
@@ -121,20 +124,34 @@ angular.module('smcApp')
           .to(".ed2", 0.5, {top: '120%', ease: Power2.easeIn})
           .to(".ed3", 0.5, {top: '120%', ease: Power2.easeIn},"-=1")
           .to(".ed4", 0.5, {top: '120%', ease: Power2.easeIn})
-          .to(".mapSvgClassTop", 2, {width: '800%', top: '-385%', left: '-140%', ease: Power2.easeIn},"+=1")
+          .to(".mapSvgClassTop", 2, {width: '800%', top: '-385%', left: '-140%', ease: Power2.easeIn},"-=1.2")
           .addPause()
           //EPISODE 4
           .to("#page2",0.4,{ right: '100%', ease: Power0.easeNone})
           .to("#page3",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
+          .to(".prel05",0.4,{ right: '75%', ease: Back.easeOut.config(1)})
+          .to(".prelpant1",0.4,{ right: '33%', ease: Back.easeOut.config(1)},"-=0.2")
+          .to(".prel06",0.4,{ right: '13%', ease: Back.easeOut.config(1)},"-=0.2")
+          .to(".texto14",0.4,{ right: '50%', ease: Back.easeOut.config(1)},"-=0.2")
+          .to(".texto15",0.4,{ right: '30%', ease: Back.easeOut.config(1)},"-=0.2")
+          .to(".texto16",0.4,{ right: '10%', ease: Back.easeOut.config(1)},"-=0.2")
           .addPause()
           //EPISODE 5
-          .to("#page3",0.4,{ right: '100%', ease: Power0.easeNone})
+          .to(".cub1", 0.5, {transform: 'rotateY(150deg)', ease: Power2.easeIn})
+          .to("#page3",0.4,{ right: '100%', ease: Power0.easeNone},"-=0.4")
           .to("#page4",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
+          .to(".ny4", 0.2, {opacity: '1', ease: Power2.easeIn},"-=1")
+          .to(".ny3", 0.5, {scale: '1', ease: Back.easeOut},"-=0.2")
+          .to(".ny1", 0.5, {scale: '1', ease: Back.easeOut},"-=0.2")
+          .to(".ny2", 0.5, {scale: '1', ease: Back.easeOut},"-=0.2")
+          .to(".texto17",0.4,{ right: '55%', ease: Back.easeOut.config(1)},"-=0.2")
+          .to(".texto18",0.4,{ right: '10%', ease: Back.easeOut.config(1)},"-=0.2")
+          .to(".cita12",0.4,{ right: '20%', ease: Back.easeOut.config(1)},"-=0.2")
           .addPause()
           //EPISODE 6
           .to(".age2", 0.5, {color:'#ffd85f', fontSize: '2em', opacity: 1, ease:Power0.easeNone})
-          .to(".cub1", 0.5, {top: '120%', ease: Power2.easeIn})
-          .to("#page4",0.4,{ right: '100%', ease: Power0.easeNone})
+          .to(".back3",0.4,{ opacity: '0', ease: Power0.easeNone})
+          .to("#page4",0.4,{ right: '100%', ease: Power0.easeNone},"-=0.4")
           .to("#page5",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
           .addPause()
           //EPISODE 7
@@ -344,7 +361,7 @@ angular.module('smcApp')
           if($(this).text()=='[+]'){
             $(this).text('[-]');
             _.each(totalWords[parseInt(numTexto)], function(val,i){
-              setTimeout(function(){insertWords(val,numTexto)}, 40*i);
+              setTimeout(function(){insertWords(val,numTexto)}, 5*i);
             });
           }
           else {
@@ -357,7 +374,7 @@ angular.module('smcApp')
 
         function insertWords(variable,num){
           $('#cita'+num+'suma').append(variable);
-          TweenMax.from(variable, 0.5, {opacity: 0, y:-40, transformOrigin:"0% 50% -50", ease: Power2.easeOut});
+          TweenMax.from(variable, 0.1, {opacity: 0, y:-40, transformOrigin:"0% 50% -50", ease: Power2.easeOut});
         }
         function deleteWords(variable){
           $(variable).remove();
