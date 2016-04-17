@@ -115,37 +115,36 @@ body {
 }
 .arrowPrev{
   position: absolute;
-  top: 25%;
-  height: 4%;
-  left: 9%;
+  bottom: -20%;
+  height: 20%;
+  left: 0%;
   cursor: pointer;
   opacity: 0.8;
-  z-index: 989;
+  z-index: 990;
 }
 .arrowNext{
   position: absolute;
-  top: 25%;
-  height: 4%;
-  left: 26%;
+  bottom: -20%;
+  height: 20%;
+  right: 0%;
   cursor: pointer;
   opacity: 0.8;
   transform: rotateY(180deg);
-  z-index: 989;
+  z-index: 990;
 }
-
 .openphoto{
   position: absolute;
-  width: 2%;
-  top: 28%;
-  left: 17%;
+  height: 20%;
+  bottom: -20%;
+  left: 45%;
   cursor: pointer;
-  z-index: 989;
+  z-index: 990;
 }
 .closePhoto{
   position: absolute;
-  width: 2%;
-  top: 16%;
-  left: 6%;
+  width: 10%;
+  top: 10%;
+  left: 10%;
   cursor: pointer;
   z-index: 999;
   -webkit-transform: scale(0);
@@ -459,34 +458,36 @@ body {
   opacity: 0.3;
 }
 .prelGroup{
+  position: absolute;
+  top: -100%;
+  left: 10%;
+  width: 20%;
+  height: 20%;
+  z-index: 989;
 }
 .prel01 {
   position: absolute;
-  height: 30%;
-  top: 10%;
-  left: 12%;
-  z-index: 989;
+  height: 150%;
+  top: -10%;
+  left: 15%;
 }
 .prel02{
   position: absolute;
-  top: 11%;
-  left: 7%;
-  height: 20%;
-  z-index: 989;
+  top: 5%;
+  left: -5%;
+  height: 100%;
 }
 .prel03{
   position: absolute;
-  top: 12%;
+  top: 2%;
   left: 9%;
-  height: 20%;
-  z-index: 989;
+  height: 100%;
 }
 .prel04{
   position: absolute;
-  top: 13%;
-  left: 11%;
-  height: 20%;
-  z-index: 989;
+  top: 12%;
+  left: 15%;
+  height: 100%;
 }
 .cita1{
   position: absolute;
@@ -499,7 +500,7 @@ body {
   padding: 2% 3%;
 }
 .cita11{
-  bottom: 10%;
+  bottom: -100%;
   width: 90%;
   left: 2%;
 }
@@ -515,15 +516,15 @@ body {
   padding: 3% 1%;
 }
 .texto11{
-  top: 9%;
+  top: -100%;
   right: 5%;
 }
 .texto12{
-  top: 30%;
+  top: -100%;
   right: 5%;
 }
 .texto13{
-  top: 55%;
+  top: -100%;
   right: 5%;
 }
 // DIAPOSITIVA 2
@@ -1272,8 +1273,8 @@ body {
 //FIN DIAPOSITIVA 17
 
 .bigPhoto{
-  height: 70%;
-  top: 15%;
+  height: 250%;
+  top: 0%;
   left: 5%;
   z-index: 997;
   transition: all 0.5s ease-in-out;

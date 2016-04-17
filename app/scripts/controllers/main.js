@@ -97,12 +97,16 @@ angular.module('smcApp')
           //EPISODE 2
           .to(".age1", 0.5, {color:'#ffd85f', fontSize: '2em', opacity: 1,  ease:Power0.easeNone})
           .to("#page0",0.5,{ right: '100%', ease: Power0.easeNone})
-          .to(".ed1", 0.5, {left: '0%', ease: Back.easeOut})
-          .to(".ed2", 0.5, {top: '0%', ease: Back.easeOut})
-          .to(".ed3", 0.5, {left: '0%', ease: Back.easeOut},"-=1")
-          .to(".ed4", 0.5, {top: '0%', ease: Back.easeOut})
-          .to(".cub1", 0.5, {top: '0%', ease: Power2.easeIn})
+          .to(".ed1", 0.5, {left: '0%', ease: Bounce.easeOut})
+          .to(".ed2", 0.5, {top: '0%', ease: Bounce.easeOut})
+          .to(".ed3", 0.5, {left: '0%', ease: Bounce.easeOut},"-=1")
+          .to(".ed4", 0.5, {top: '0%', ease: Bounce.easeOut})
           .to("#page1",0.5,{ right: '0%', ease: Power0.easeNone},"-=0.5")
+          .to(".texto11", 0.5, {top: '9%', ease: Bounce.easeIn},"elements")
+          .to(".texto12", 0.5, {top: '30%', ease: Bounce.easeIn},"elements")
+          .to(".texto13", 0.5, {top: '55%', ease: Bounce.easeIn},"elements")
+          .to(".cita11", 0.5, {bottom: '10%', ease: Bounce.easeIn},"elements")
+          .to(".prelGroup", 0.5, {top: '10%', ease: Bounce.easeIn},"elements")
           .addPause()
           //.to(arr1,1, arr2,"step3")
           //.to(arr3,1, arr2,"step3")
@@ -362,23 +366,23 @@ angular.module('smcApp')
           TweenMax.to(".instructions", 0.2, {opacity:1, repeat: 6,repeatDelay: 0.1, yoyo:true, ease: Power0.easeNone});
         }
         function nextFoto(){
-          var firstPhoto = $('#fotoGroup img').last();
-          TweenMax.to(firstPhoto, 0.1, {left: '30%', repeatDelay:0, repeat:1, yoyo:true, onRepeat:$('#fotoGroup').prepend(firstPhoto), ease: Power2.easeOut});
+          var firstPhoto = $('.slideimg').last();
+          TweenMax.to(firstPhoto, 0.1, {left: '130%', repeatDelay:0, repeat:1, yoyo:true, onRepeat:$('#fotoGroup').prepend(firstPhoto), ease: Power2.easeOut});
         }
 
         function prevFoto(){
-          var firstPhoto = $('#fotoGroup img').first();
-          TweenMax.to(firstPhoto, 0.1, {left: '-15%', repeatDelay:0, repeat:1, yoyo:true, onRepeat:$('#fotoGroup').append(firstPhoto), ease: Power2.easeOut});
+          var firstPhoto = $('.slideimg').first();
+          TweenMax.to(firstPhoto, 0.1, {left: '-130%', repeatDelay:0, repeat:1, yoyo:true, onRepeat:$('#fotoGroup').append(firstPhoto), ease: Power2.easeOut});
         }
 
         function openPhoto(){
-          var firstPhoto = $('#fotoGroup img').last();
+          var firstPhoto = $('.slideimg').last();
           $(firstPhoto).addClass('bigPhoto');
           $(firstPhoto).css('left', '');
           TweenMax.to(".closePhoto", 0.5, {scale: 1, delay: 0.5, ease: Back.easeOut});
         }
         function closePhoto(){
-          var firstPhoto = $('#fotoGroup img').last();
+          var firstPhoto = $('.slideimg').last();
           $(firstPhoto).removeClass('bigPhoto');
           TweenMax.to(".closePhoto", 0.5, {scale: 0, ease: Back.easeOut});
         }
