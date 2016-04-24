@@ -25,6 +25,16 @@ angular.module('smcApp')
 
       var cita12Letters = $("#cita12").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"cita12Letters"});
       totalWords[12] = $(".cita12Letters");
+      var cita42Letters = $("#cita42").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"cita42Letters"});
+      totalWords[42] = $(".cita42Letters");
+      var cita51Letters = $("#cita51").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"cita51Letters"});
+      totalWords[51] = $(".cita51Letters");
+      var cita52Letters = $("#cita52").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"cita52Letters"});
+      totalWords[52] = $(".cita52Letters");
+      var cita53Letters = $("#cita53").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"cita53Letters"});
+      totalWords[53] = $(".cita53Letters");
+      var cita61Letters = $("#cita61").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"cita61Letters"});
+      totalWords[61] = $(".cita61Letters");
 
       //---------------------------
       //----SOUND TRACKS -----
@@ -57,9 +67,9 @@ angular.module('smcApp')
       //----------------------------
       //---------VIDEOS--------
 
-        $("#skip").on("click", function(){
-            quitVideo();
-        });
+        //$("#skip").on("click", function(){
+        //    quitVideo();
+        //});
 
         function quitVideo(){
           if(videoDisplay){
@@ -88,16 +98,15 @@ angular.module('smcApp')
 
         tl
           //EPISODE 1
-          .to(".videoClass", 0.2, {scale:0, ease: Power0.easeNone})
-          .to(".BackVideo", 0.2, {opacity: 0, onComplete: hideVideo, ease: Power0.easeNone},"-=0.1")
-          .to(".videoClass", 0.5, {volume: 0, ease: Power0.easeNone})
           .to("#page0",0.4,{ right: '0%', onComplete: drawFace, ease: Power0.easeNone})
           .staggerFrom(introWords, 0.1, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.2]}, ease: Back.easeOut.config(0.8)}, 0.1)
           .addPause()
           //EPISODE 2
 
-          .to(".age1", 0.5, {color:'#ffd85f', fontSize: '2em', opacity: 1,  ease:Power0.easeNone})
-          .to("#page0",0.5,{ right: '100%', ease: Power0.easeNone})
+          //.to(".age1", 0.5, {color:'#ffd85f', fontSize: '2em', opacity: 1,  ease:Power0.easeNone})
+          .to("#page0",0.5,{ scale: '0', ease: Back.easeIn.config(1)})
+          .to(".pentagramRect",0.2,{ bottom: '1%', ease: Power0.easeNone},"-=0.2")
+          .to(".pentagramBack",0.2,{ bottom: '0%', ease: Power0.easeNone},"-=0.2")
           .to(".ed1", 0.5, {left: '0%', ease: Bounce.easeOut})
           .to(".ed2", 0.5, {top: '0%', ease: Bounce.easeOut})
           .to(".ed3", 0.5, {left: '0%', ease: Bounce.easeOut},"-=1")
@@ -149,9 +158,9 @@ angular.module('smcApp')
           .to(".cita12",0.4,{ right: '20%', ease: Back.easeOut.config(1)},"-=0.2")
           .addPause()
           //EPISODE 6
-          .to(".age2", 0.5, {color:'#ffd85f', fontSize: '2em', opacity: 1, ease:Power0.easeNone})
+          //.to(".age2", 0.5, {color:'#ffd85f', fontSize: '2em', opacity: 1, ease:Power0.easeNone})
           //.to(".back3",0.4,{ opacity: '0', ease: Power0.easeNone})
-          .to("#page4",0.4,{ right: '100%', ease: Power0.easeNone},"-=0.4")
+          .to("#page4",0.4,{ right: '100%', ease: Power0.easeNone})
           .to("#page5",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
           .to(".rm12",0.4,{ right: '70%', ease: Back.easeOut.config(1)})
           .to(".texto21",0.4,{ right: '10%', ease: Back.easeOut.config(1)},"-=0.2")
@@ -185,7 +194,7 @@ angular.module('smcApp')
           .to(".rm18",0.4,{ right: '70%', ease: Back.easeOut.config(1)},"-=0.2")
           .addPause()
           //EPISODE 9
-          .to(".age3", 0.5, {color:'#ffd85f', fontSize: '2em', opacity: 1, ease:Power0.easeNone})
+          //.to(".age3", 0.5, {color:'#ffd85f', fontSize: '2em', opacity: 1, ease:Power0.easeNone})
           .to("#page7",0.4,{ right: '100%', ease: Power0.easeNone})
           .to("#page8",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
           .to(".holly1", 0.3, {transform: 'rotateX(150deg)', ease: Back.easeOut.config(1)})
@@ -212,7 +221,7 @@ angular.module('smcApp')
           .to("#page10",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
           .addPause()
           //EPISODE 12
-          .to(".age4", 0.5, {color:'#ffd85f', fontSize: '2em', opacity: 1, ease:Power0.easeNone})
+          //.to(".age4", 0.5, {color:'#ffd85f', fontSize: '2em', opacity: 1, ease:Power0.easeNone})
           .to("#page10",0.4,{ right: '100%', ease: Power0.easeNone})
           .to(".carn1", 0.3, {transform: 'rotateY(150deg)', ease: Back.easeOut.config(1)},"-=0.2")
           .to(".chi1", 0.3, {transform: 'rotateY(0deg)', ease: Back.easeOut.config(1)},"-=0.2")
@@ -239,20 +248,26 @@ angular.module('smcApp')
           .to(".la9",0.4,{ bottom: '60%', ease: Back.easeOut.config(1)},"-=0.2")
           .addPause()
           //EPISODE 15
-          .to(".age5", 0.5, {color:'#ffd85f', fontSize: '2em', opacity: 1, ease:Power0.easeNone})
+          //.to(".age5", 0.5, {color:'#ffd85f', fontSize: '2em', opacity: 1, ease:Power0.easeNone})
           .to("#page13",0.4,{ right: '100%', ease: Power0.easeNone})
           .to("#page14",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
           .to(".chi1", 0.3, {transform: 'rotateY(150deg)', ease: Back.easeOut.config(1)},"-=0.2")
           .to(".lasv1", 0.3, {transform: 'rotateY(0deg)', ease: Back.easeOut.config(1)},"-=0.2")
-          .to(".cita52",0.4,{ right: '10%', ease: Back.easeOut.config(1)},"-=0.2")
+          .to(".texto52",0.4,{ right: '10%', ease: Back.easeOut.config(1)},"-=0.2")
+          .to(".cita53",0.4,{ right: '40%', ease: Back.easeOut.config(1)},"-=0.2")
+          .addPause()
+          .to(".texto52",0.4,{ top: '-100%', ease: Back.easeOut.config(1)})
+          .to(".cita53",0.4,{ bottom: '150%', ease: Back.easeOut.config(1)},"-=0.2")
+          .to(".cita52",0.4,{ top: '5%', ease: Back.easeOut.config(1)},"-=0.2")
+          .to(".cita51",0.4,{ top: '25%', ease: Back.easeOut.config(1)},"-=0.2")
           .to(".al1",0.4,{ top: '25%', ease: Back.easeOut.config(1)},"-=0.2")
-          .to(".texto51",0.4,{ right: '55%', ease: Back.easeOut.config(1)},"-=0.2")
-          .to(".teLoDijoAdela",0.4,{ right: '10%', ease: Back.easeOut.config(1)},"-=0.2")
+          .to(".texto51",0.4,{ bottom: '15%', ease: Back.easeOut.config(1)},"-=0.2")
+          .to(".teLoDijoAdela",0.4,{ top: '45%', ease: Back.easeOut.config(1)},"-=0.2")
           .addPause()
           //EPISODE 16
           .to("#page14",0.4,{ right: '100%', ease: Power0.easeNone})
           .to("#page15",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
-          .to(".texto53",0.4,{ bottom: '20%', ease: Back.easeOut.config(1)},"-=0.2")
+          .to(".texto53",0.4,{ left: '25%', ease: Back.easeOut.config(1)},"-=0.2")
           .to(".al4",0.4,{ right: '20%', ease: Back.easeOut.config(1)},"-=0.2")
           .to(".al5",0.4,{ top: '12%', ease: Back.easeOut.config(1)},"-=0.2")
           .to(".cita56",0.4,{ right: '40%', ease: Back.easeOut.config(1)},"-=0.2")
@@ -261,7 +276,8 @@ angular.module('smcApp')
           //EPISODE 17
           .to("#page15",0.4,{ right: '100%', ease: Power0.easeNone})
           .to("#page16",0.4,{ right: '0%', ease: Power0.easeNone},"charo-=0.4")
-          .to("#cb01",0.7,{ left: '10%',scale: '0.01', ease: Back.easeOut}, "charo+=2")
+          .addPause()
+          .to("#cb01",0.7,{ left: '10%',scale: '0.01', ease: Back.easeOut}, "charo")
           .to("#cb04",0.7,{ left: '45%',scale: '1', ease: Back.easeOut},"charo+=2")
           .to("#texto61",0.7,{ left: '5%',scale: '0.01', ease: Back.easeOut},"charo+=2")
           .to("#texto63",0.7,{ left: '25%',scale: '1', ease: Back.easeOut},"charo+=2")
@@ -271,7 +287,7 @@ angular.module('smcApp')
           .to("#page17",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
           .addPause();
 
-       tl.pause();
+       tl.play();
 
       //---------------------------------
       //----------MOUSE CONTROLS --------

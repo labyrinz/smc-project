@@ -1,12 +1,3 @@
-<div class="BackVideo">
-  <!--<video class="videoClass" autoplay onloadstart="this.volume=0.5">-->
-    <!--<source src="images/Walking.mp4" type="video/mp4">-->
-    <!--Your browser does not support the video tag.-->
-  <!--</video>-->
-  <iframe id="introVideo" class="videoClass" src="https://www.youtube.com/embed/asF4OUyq7Y8?autoplay=1" frameborder="0" allowfullscreen></iframe>
-
-  <div id="skip" class="skipVideo"> Skip </div>
-</div>
 <div id="mapIcon" class="mapIcon">
   <img class="mapItem" src="images/map.svg"/>
 </div>
@@ -48,13 +39,20 @@
   <div>
     <!--EPISODE 0-->
     <div id="page0" class="back color0 page0">
+        <div class="BackVideo"></div>
+        <!--<video class="videoClass" autoplay onloadstart="this.volume=0.5">-->
+        <!--<source src="images/Walking.mp4" type="video/mp4">-->
+        <!--Your browser does not support the video tag.-->
+        <!--</video>-->
+        <iframe id="introVideo" class="videoClass" src="https://www.youtube.com/embed/asF4OUyq7Y8?autoplay=1&loop=1&controls=0" frameborder="0" allowfullscreen></iframe>
+        <!--<div id="skip" class="skipVideo"> Skip </div>-->
       <div class="dinamycText" id="quote">
-        SEXE, MARAQUES I CHIHUAHUES - La increíble vida de Xavier Cugat
+        SEXE, MARAQUES I CHIHUAHUES  La increíble vida de Xavier Cugat
       </div>
-      <div class="instructions">
-        <img class="infoIcon" src="images/infoIcon.svg"/>
-        <div class="instructionsText">"Abre el mapa y selecctiona un capitulo o haz scroll down para avanzar"</div>
-      </div>
+      <!--<div class="instructions">-->
+        <!--<img class="infoIcon" src="images/infoIcon.svg"/>-->
+        <!--<div class="instructionsText">"Abre el mapa y selecctiona un capitulo o haz scroll down para avanzar"</div>-->
+      <!--</div>-->
       <div class="svgFace">
         <svg version="1.1" id="FirstFace" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
              y="0px" width="308.7px" height="419px" viewBox="0 0 308.7 419" enable-background="new 0 0 308.7 419" xml:space="preserve">
@@ -334,7 +332,9 @@
         <p><b>1942 - 1945 - </b>L'any 1942 [Entre 1942 y 1945 Cugat]participa a [varios musicales,] 'Bailando nace el amor', de William A. Seiter; un any més tard, a 'Tres días de amor y fe', de Frank Borzage, l'any 1944 a 'Dos chicas y un marinero', de Richard Thorpe, però sobretot a 'Escuela de Sirenas', de George Sidney,  considerat el primer musical en technicolor i un dels films més famosos d'aquells temps.</p>
         <p>L'any 1945 va participar a 'Fin de semana', de Robert Z. Leonard, basada en la història d'un director d'orquesta que perd el cantant principal...; l'any 1946 a 'Festival en México', amb George Sidney un altra vegada, el 1947 a 'El recuerdo de tus labios' de Richard Thorpe i el 1949 a 'La hija de Neptuno', de Edward Buzzell.</p>
       </div>
-      <div class="cita4 cita42">"Jo vaig viure el temps en què el cinema es basava sobretot en l'actor o l'actriu. S'anava a veure una pel·lícula de Charles Chaplin, de Pola Negri o de Greta Garbo. A ningú li interessava l'argument i ni sabien el nom del director. Els empresaris es dirigien a un bon professional i li deien simplement: 'Escriu-me un argument en què càpiguen tal i tal artista'. El mateix es feia en les pel·lícules musicals. Tot girava al voltant de Fred Astaire, Gene Kelly i el director de les orquestres que formaven l'espectacle. És així que jo em vaig convertir també en una 'estrella' del cinema i que es van fer algunes pel·lícules de les quals el protagonista bàsic i fonamental era Cugat i els seus nois."</div>
+      <div class="cita42" style="opacity:0"><spam id="cita42"> "Jo vaig viure el temps en què el cinema es basava sobretot en l'actor o l'actriu. S'anava a veure una pel·lícula de Charles Chaplin, de Pola Negri o de Greta Garbo. A ningú li interessava l'argument i ni sabien el nom del director. Els empresaris es dirigien a un bon professional i li deien simplement: 'Escriu-me un argument en què càpiguen tal i tal artista'. El mateix es feia en les pel·lícules musicals. Tot girava al voltant de Fred Astaire, Gene Kelly i el director de les orquestres que formaven l'espectacle.</spam></div>
+      <div class="cita4 cita42">" <span id="cita42suma"> </span>És així que jo em vaig convertir també en una 'estrella' del cinema <span class="plusInfoCita" value="42">[+]</span></div>
+      <!--<div class="cita4 cita42">"Jo vaig viure el temps en què el cinema es basava sobretot en l'actor o l'actriu. S'anava a veure una pel·lícula de Charles Chaplin, de Pola Negri o de Greta Garbo. A ningú li interessava l'argument i ni sabien el nom del director. Els empresaris es dirigien a un bon professional i li deien simplement: 'Escriu-me un argument en què càpiguen tal i tal artista'. El mateix es feia en les pel·lícules musicals. Tot girava al voltant de Fred Astaire, Gene Kelly i el director de les orquestres que formaven l'espectacle. És així que jo em vaig convertir també en una 'estrella' del cinema i que es van fer algunes pel·lícules de les quals el protagonista bàsic i fonamental era Cugat i els seus nois."</div>-->
       <img class="la4 img" src="images/LA_BCN_4.jpg"/>
       <!--<img class="la5 img" src="images/stage.jpg"/>-->
     </div>
@@ -356,14 +356,22 @@
     <!--EPISODE 5 ABBE LANE-->
     <div id="page14" class="back color5 page14">
       <div class="mujerTitle4">Abbe y yo</div>
+
+      <div id="texto52" class="texto5 texto52">En aquest punt de la vida, Cugat era considerat el rei de la rumba i de la samba per tot arreu. Havia arribat al cim de la seva professió i va deixar participar a Abbe Lane dels seus èxits. Abbe Lane va tastar, de la ma de Cugat, el xampany, el caviar i els avions per primera vegada.</div>
+      <div class="cita53" style="opacity:0"><spam id="cita53"> Va passar amb ella el mateix que amb les altres: quan va arribar a tenir un nom per si mateixa, es va separar del meu espectacle i va volar amb les seves pròpies ales</spam></div>
+      <div class="cita5 cita53">"Vam recórrer el món sencer. Amb ella vaig inaugurar un dels espectacles de Las Vegas.<span id="cita53suma"> </span>". <span class="plusInfoCita" value="53">[+]</span></div>
+
       <img class="al1 img" src="images/AL1.jpg"/>
       <!--<img class="al2" src="images/AL4.jpg"/>-->
       <div id="texto51" class="texto5 texto51"><b>1952 - </b>Quan es va casar per quarta vegada, Cugat tenia ja 52 anys i ella 20. El veritable nom d'Abbe Lane era Abigale Lasman, filla d'un matrimoni hebreu. Cugat la va rebatejar com Abbe Lane, com ja havia fet amb Rita Cansino, [a qui va convertir en Rita Hayworth i actriu de renom mundial.]</div>
-      <!--<div class="cita5 cita51">"Divorciat de Lorrain Allen, necessitava una nova companya, tant per a la meva vida privada com per a al meu espectacle. En la meva recerca d'una noia que complís els requisits necessaris, vaig anar a Nova York a veure l'espectacle produït per l'ex marit de Liz Taylor, el productor Michael Todd. L'espectacle es deia 'Botton Shoes'. En el cor hi havia setze noies ballant, totes molt belles i molt semblants. Però vaig creure que la cinquena per l'esquerra tenia 'un no sé què' diferent. M'agradaria conèixer a aquesta noia. Vaig fer que em presentessin a ella[...] Es deia Abbe Lane. El 1950 ens vam casar i vam ser feliços durant quinze anys de matrimoni".</div>-->
+      <div class="cita51" style="opacity:0"><spam id="cita51"> En la meva recerca d'una noia que complís els requisits necessaris, vaig anar a Nova York a veure l'espectacle produït per l'ex marit de Liz Taylor, el productor Michael Todd. L'espectacle es deia 'Botton Shoes'. En el cor hi havia setze noies ballant, totes molt belles i molt semblants. Però vaig creure que la cinquena per l'esquerra tenia 'un no sé què' diferent. M'agradaria conèixer a aquesta noia. Vaig fer que em presentessin a ella[...] Es deia Abbe Lane. El 1950 ens vam casar i vam ser feliços durant quinze anys de matrimoni</spam></div>
+      <div class="cita5 cita51">"Divorciat de Lorrain Allen, necessitava una nova companya, tant per a la meva vida privada com per a al meu espectacle. <span id="cita51suma"> </span>". <span class="plusInfoCita" value="51">[+]</span></div>
+
       <!--<img class="al3" src="images/AL3.jpg"/>-->
       <!--<img class="al2 img" src="images/AL6.jpg"/>-->
       <iframe class="teLoDijoAdela" src="https://www.youtube.com/embed/5JdZW_LpUEY" frameborder="0" allowfullscreen></iframe>
-      <div class="cita5 cita52">"Abbe Lane ha estat la dona que més ha influït en la meva vida. No és d'estranyar, va ser la que més vaig estimar i la que va estar amb mi més temps: 15 anys és tota una vida artística. Jo no sé fins a quin punt el meu amor de marit per ella tenia també una mica de paternal. Tinguem en compte la diferència d'edat i de condició. Quan jo la vaig descobrir era una simple dansaire de cabaret, molt bella però artísticament només sabia aixecar les cames en aquells ballets mecànics creats per les famosos 'Rockettes' del Radio City Hall. Jo la vaig interessar en el cant i en balls més sofisticats: vaig ser com un escultor que anava aixecant cada dia una estàtua més completa i atractiva: el seu marit, el seu pare i el seu creador artístic".</div>
+      <div class="cita52" style="opacity:0"><spam id="cita52"> i la que va estar amb mi més temps: 15 anys és tota una vida artística. Jo no sé fins a quin punt el meu amor de marit per ella tenia també una mica de paternal. Tinguem en compte la diferència d'edat i de condició. Quan jo la vaig descobrir era una simple dansaire de cabaret, molt bella però artísticament només sabia aixecar les cames en aquells ballets mecànics creats per les famosos 'Rockettes' del Radio City Hall. Jo la vaig interessar en el cant i en balls més sofisticats: vaig ser com un escultor que anava aixecant cada dia una estàtua més completa i atractiva: el seu marit, el seu pare i el seu creador artístic</spam></div>
+      <div class="cita5 cita52">"Abbe Lane ha estat la dona que més ha influït en la meva vida. No és d'estranyar, va ser la que més vaig estimar <span id="cita52suma"> </span>". <span class="plusInfoCita" value="52">[+]</span></div>
 
       <img class="plusInfo plusInfo2" value='13' src="images/plus-circle.svg"/>
       <div class="additional ad13">
@@ -376,8 +384,6 @@
     <div id="page15" class="back color5 page15">
       <!--<img class="al3 img" src="images/AL2.jpg"/>-->
       <img class="al5 img" src="images/AL12.jpg"/>
-      <!--<div id="texto52" class="texto5 texto52">En aquest punt de la vida, Cugat era considerat el rei de la rumba i de la samba per tot arreu. Havia arribat al cim de la seva professió i va deixar participar a Abbe Lane dels seus èxits. Abbe Lane va tastar, de la ma de Cugat, el xampany, el caviar i els avions per primera vegada.</div>-->
-      <!--<div class="cita5 cita53">"Vam recórrer el món sencer. Amb ella vaig inaugurar un dels espectacles de Las Vegas. Va passar amb ella el mateix que amb les altres: quan va arribar a tenir un nom per si mateixa, es va separar del meu espectacle i va volar amb les seves pròpies ales".</div>-->
 
       <img class="plusInfo plusInfo1" value='14' src="images/plus-circle.svg"/>
       <div class="additional ad14">
@@ -417,7 +423,9 @@
       <div class="mujerTitle5">Charo y yo</div>
       <img id="cb01" class="cb01" src="images/CB1.jpg"/>
       <div id="texto61" class="texto6 texto61"><b>1964 - </b>Soltero de nuevo, Cugat busca repetir la experiencia artística que materializó con Abbe Lane: encontrar una joven desconocida con potencial y “pulirla” hasta hacer de ella una intérprete profesional. Es entonces cuando aparece en su vida María del Rosario.</div>
-      <div class="cita6 cita61">“[Però tornem] a Madrid, [quan] jo estava buscant una artista pel meu espectacle. Un amic meu em va dir que hi havia una noia molt mona, però extremadament jove, que potser pogués fer alguna cosa per ella: un rosseta amb meleneta curta que tocava força bé la guitarra i tenia bona veu. 'No és molt professional encara, però res perdràs amb veure-la'. Li vaig demanar-li una cita perquè vingués al Hilton. Es va presentar amb la seva germana, la seva mare, la seva tia i un amic de la família. 'Bé, li vaig dir: ¿què és el que vostè sap fer?' Cantava i va ballar millor del que jo creia i vaig veure que tenia un excel·lent tipus per atraure els públics nord-americans. Necessitava però ser preparada”.</div>
+      <div class="cita61" style="opacity:0"><spam id="cita61"> Un amic meu em va dir que hi havia una noia molt mona, però extremadament jove, que potser pogués fer alguna cosa per ella: un rosseta amb meleneta curta que tocava força bé la guitarra i tenia bona veu. 'No és molt professional encara, però res perdràs amb veure-la'. Li vaig demanar-li una cita perquè vingués al Hilton. Es va presentar amb la seva germana, la seva mare, la seva tia i un amic de la família. 'Bé, li vaig dir: ¿què és el que vostè sap fer?' </spam></div>
+      <div class="cita6 cita61">“[Però tornem] a Madrid, [quan] jo estava buscant una artista pel meu espectacle.<span id="cita61suma"> </span> Cantava i va ballar millor del que jo creia i vaig veure que tenia un excel·lent tipus per atraure els públics nord-americans. Necessitava però ser preparada”. <span class="plusInfoCita" value="61">[+]</span></div>
+
       <!--<div id="texto43" class="texto texto43"><b>1965 - </b>Cugat se lleva a Charo a trabajar a Estados Unidos.</div>-->
       <!--<img class="cb02" src="images/CB2.jpg"/>-->
       <!--<div class="cita11 cita46">“Li vaig proposar que vingués amb mi als EUA acompanyada de la seva germana. Em van assegurar que eren majors d'edat, però després vaig saber que no era així. Una d'elles treballava com a maquilladora en els teatres. El primer que vaig fer en arribar als EUA va ser donar-li un professor d'anglès, una mestra de cant i després una altra de ball i que a poc a poc veiés com són els espectacles dels EUA”.</div>-->
@@ -448,13 +456,14 @@
     </div>
   </div>
 </div>
-<img class="pentagramRect" src="images/penta-recto2-mini.svg"/>
-<div class="yearsGroup">
-  <div class="ageTitle age1">1900</div>
-  <div class="ageTitle age2">1918</div>
-  <div class="ageTitle age3">1928</div>
-  <div class="ageTitle age4">1932</div>
-  <div class="ageTitle age5">1952</div>
-  <div class="ageTitle age6">1990</div>
-  <div class="ageTitle age7">Epil.</div>
-</div>
+<div class="pentagramBack"></div>
+<img class="pentagramRect" src="images/penta-recto-mini.svg"/>
+<!--<div class="yearsGroup">-->
+  <!--<div class="ageTitle age1">1900</div>-->
+  <!--<div class="ageTitle age2">1918</div>-->
+  <!--<div class="ageTitle age3">1928</div>-->
+  <!--<div class="ageTitle age4">1932</div>-->
+  <!--<div class="ageTitle age5">1952</div>-->
+  <!--<div class="ageTitle age6">1990</div>-->
+  <!--<div class="ageTitle age7">Epil.</div>-->
+<!--</div>-->
