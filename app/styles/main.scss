@@ -27,6 +27,7 @@ body {
   -webkit-box-shadow: 0px 0px 3px 3px rgba(255, 216, 95, 0.7);
   -moz-box-shadow: 0px 0px 3px 3px rgba(255, 216, 95, 0.7);
   box-shadow: 0px 0px 3px 3px rgba(255, 216, 95, 0.7);
+  z-index: 990;
 }
 .faceSvgClass path{
   fill: none;
@@ -242,6 +243,54 @@ body {
   -webkit-perspective: 700px;
   perspective: 700px;
   z-index: 984;
+}
+.back6{
+  //background: url(/images/back/infancia2.jpg) no-repeat center center fixed;
+  //-webkit-background-size: cover;
+  //-moz-background-size: cover;
+  //-o-background-size: cover;
+  //background-size: cover;
+  background-color: transparent;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  -webkit-perspective: 700px;
+  perspective: 700px;
+  z-index: 983;
+}
+.back7{
+  //background: url(/images/back/infancia2.jpg) no-repeat center center fixed;
+  //-webkit-background-size: cover;
+  //-moz-background-size: cover;
+  //-o-background-size: cover;
+  //background-size: cover;
+  background-color: transparent;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  -webkit-perspective: 700px;
+  perspective: 700px;
+  z-index: 982;
+}
+.back8{
+  //background: url(/images/back/infancia2.jpg) no-repeat center center fixed;
+  //-webkit-background-size: cover;
+  //-moz-background-size: cover;
+  //-o-background-size: cover;
+  //background-size: cover;
+  background-color: transparent;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  -webkit-perspective: 700px;
+  perspective: 700px;
+  z-index: 981;
 }
 .color0{
   background-color: rgba(14, 9, 7, 0);
@@ -574,7 +623,7 @@ body {
   position: absolute;
   width: 35%;
   background-color: rgba(33, 33, 33, 0.75);
-  padding: 3% 1%;
+  padding: 2% 1%;
 }
 .texto11{
   top: -100%;
@@ -773,7 +822,7 @@ body {
   position: absolute;
   width: 35%;
   background-color: rgba(33, 33, 33, 0.75);
-  padding: 3% 1%;
+  padding: 2% 1%;
 }
 .texto21{
   width: 30%;
@@ -849,6 +898,23 @@ body {
 }
 //FIN DIAPOSITIVA 5
 //DIAPOSITIVA 7
+.holly1{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0%;
+  left: 0;
+  -webkit-transform: rotateX(150deg);
+  -moz-transform: rotateX(150deg);
+  -ms-transform: rotateX(150deg);
+  -o-transform: rotateX(150deg);
+  transform: rotateX(150deg);
+  -webkit-transform-origin: 0% 0%;
+  -moz-transform-origin: 0% 0%;
+  -ms-transform-origin: 0% 0%;
+  -o-transform-origin: 0% 0%;
+  transform-origin: 0% 0%;
+}
 .rm7Group{
   position: absolute;
   top:10%;
@@ -859,39 +925,37 @@ body {
 }
 .texto25{
   width: 30%;
-  right: 10%;
+  right: -110%;
   top: 10%;
 }
 .texto26{
    width: 30%;
-   right: 10%;
+   right: -110%;
    top: 35%;
  }
 .rm15{
-  height: 100%;
-  position: absolute;
-  opacity: 0.7;
-}
-.rm16{
-  height: 75%;
-  position: absolute;
-  bottom: 0%;
-  right: 20%;
-  opacity: 0.7;
-}
-.rm17{
-  height: 90%;
+  height: 40%;
   position: absolute;
   top: 5%;
-  left: 28%;
-  opacity: 0.7;
+  right: -110%;
+}
+.rm16{
+  height: 30%;
+  position: absolute;
+  top: 20%;
+  right: -110%;
+}
+.rm17{
+  height: 40%;
+  position: absolute;
+  top: 5%;
+  right: -110%;
 }
 .rm18{
-  height: 70%;
+  height: 50%;
   position: absolute;
-  top: 0%;
-  right: 0%;
-  opacity: 0.7;
+  top: 40%;
+  right: -110%;
 }
 //FIN DIAPOSITIVA 7
 // DIAPOSITIVA 8
@@ -912,7 +976,6 @@ body {
   -o-transform-origin: 0% 0%;
   transform-origin: 0% 0%;
 }
-
 .mujerTitle2{
   font-family: 'Lora',serif;
   width: 20%;
@@ -931,10 +994,10 @@ body {
   position: absolute;
   width: 35%;
   background-color: rgba(33, 33, 33, 0.75);
-  padding: 3% 1%;
+  padding: 2% 1%;
 }
 .texto31{
-  right: 30%;
+  right: -110%;
   bottom:20%;
   z-index: 990;
 }
@@ -965,35 +1028,35 @@ body {
 }
 .cita31{
   bottom:20%;
-  left: 10%;
+  right: 10%;
 }
 .cc31{
   position: absolute;
   top:10%;
-  left:20%;
+  right:-110%;
   height: 40%;
   z-index: 990;
 }
 .cc32{
   position: absolute;
   top:35%;
-  left:10%;
+  right:-110%;
   height: 40%;
   z-index: 990;
 }
 //FIN DIAPOSITIVA 8
 // DIAPOSITIVA 9
 .texto33{
-  right: 10%;
+  right: -110%;
   top:10%;
 }
 .texto34{
-  right: 10%;
+  right: -110%;
   top:30%;
 }
 .cc33{
   position: absolute;
-  top:22%;
+  top:-110%;
   left:5%;
   height: 15%;
   z-index: 990;
@@ -1001,7 +1064,7 @@ body {
 }
 .cc34{
   position: absolute;
-  top:18%;
+  top:-110%;
   left:13%;
   height: 15%;
   z-index: 990;
@@ -1009,7 +1072,7 @@ body {
 }
 .cc35{
   position: absolute;
-  top:19%;
+  top:-110%;
   left:20%;
   height: 15%;
   z-index: 990;
@@ -1017,7 +1080,7 @@ body {
 }
 .cc36{
   position: absolute;
-  top:23%;
+  top:-110%;
   left:30%;
   height: 15%;
   z-index: 990;
@@ -1025,7 +1088,7 @@ body {
 }
 .cc37{
   position: absolute;
-  top:27%;
+  top:-110%;
   left:35%;
   height: 15%;
   z-index: 990;
@@ -1033,7 +1096,7 @@ body {
 }
 .cc38{
   position: absolute;
-  top:20%;
+  top:-110%;
   left:42%;
   height: 15%;
   z-index: 990;
@@ -1041,7 +1104,7 @@ body {
 }
 .cc39{
   position: absolute;
-  top:40%;
+  top:-110%;
   left:10%;
   height: 40%;
   z-index: 990;
@@ -1081,7 +1144,23 @@ body {
 }
 //FIN DIAPOSITIVA 10
 // DIAPOSITIVA 11
-
+.chi1{
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-transform: rotateY(150deg);
+  -moz-transform: rotateY(150deg);
+  -ms-transform: rotateY(150deg);
+  -o-transform: rotateY(150deg);
+  transform: rotateY(150deg);
+  -webkit-transform-origin: 0% 0%;
+  -moz-transform-origin: 0% 0%;
+  -ms-transform-origin: 0% 0%;
+  -o-transform-origin: 0% 0%;
+  transform-origin: 0% 0%;
+}
 .mujerTitle3{
   font-family: 'Lora',serif;
   width: 20%;
@@ -1089,52 +1168,33 @@ body {
   bottom: 20%;
   left: 10%;
   font-size: 50px;
+  z-index: 990;
 }
 .lorraine{
   font-family: 'Great Vibes', cursive;
   width: 20%;
+  color: #ffd85f;
   position: absolute;
-  top: 35%;
-  left: 55%;
-  font-size: 100px;
+  top: 5%;
+  right: -110%;
+  font-size: 200px;
+  z-index: 990;
 }
 .texto4{
   font-family: 'Lora',serif;
   z-index: 997;
-  color: #2f220f;
+  color: #f5f5f5;
   font-size: $fontSizeBig;
   text-align: justify;
   position: absolute;
   width: 35%;
+  background-color: rgba(33, 33, 33, 0.75);
+  padding: 2% 1%;
 }
 .texto41{
-  left: 5%;
+  right: -110%;
   top: 20%;
   width: 20%;
-}
-.texto42{
-  left: 20%;
-  top: 10%;
-  width: 55%;
-}
-.cita4{
-  position: absolute;
-  font-family: 'Lora',serif;
-  font-style: italic;
-  z-index: 997;
-  width: 20%;
-  color: #2f220f;
-  font-size: $fontSizeMedium;
-}
-.cita41{
-  top:26%;
-  right: 5%;
-}
-.cita42{
-  bottom: 25%;
-  left: 20%;
-  /* color: #fff; */
-  width: 55%;
 }
 .la1{
   position: absolute;
@@ -1152,14 +1212,7 @@ body {
   position: absolute;
   height: 45%;
   top: 15%;
-  left: 30%;
-}
-.la4{
-  position: absolute;
-  width: 17%;
-  bottom: 40%;
-  right: 50%;
-  opacity: 0.7;
+  right: -110%;
 }
 .la5{
   position: absolute;
@@ -1170,14 +1223,47 @@ body {
 }
 //FIN DIAPOSITIVA 11
 // DIAPOSITIVA 12
+.texto42{
+  right: -110%;
+  bottom: 10%;
+  width: 45%;
+}
+.cita4{
+  position: absolute;
+  font-family: 'Pacifico', cursive;
+  font-style: italic;
+  z-index: 997;
+  color: #150f08;
+  font-size: 35px;
+  background-color: rgba(255, 255, 255, 0.70);
+  padding: 2% 3%;
+}
+.cita41{
+  top:5%;
+  right: 5%;
+  width: 80%;
+}
+.cita42{
+  top: 5%;
+  right: -110%;
+  width: 80%;
+}
+.la4{
+  position: absolute;
+  width: 17%;
+  bottom: 15%;
+  right: -110%;
+}
+//FIN DIAPOSITIVA 12
+// DIAPOSITIVA 13
 .texto43{
-  left: 25%;
-  bottom: 35%;
+  right: -110%;
+  bottom: 30%;
   width: 55%;
 }
 .texto44{
-  left: 25%;
-  bottom: 25%;
+  right: -110%;
+  bottom: 15%;
   width: 55%;
 }
 .texto45{
@@ -1188,21 +1274,21 @@ body {
   position: absolute;
   height: 30%;
   left: 62%;
-  bottom: 45%;
+  bottom: -110%;
   transform: rotate(25deg);
 }
 .la7{
   position: absolute;
   height: 30%;
   left: 15%;
-  top: 25%;
+  top: -110%;
   transform: rotate(-20deg);
  }
 .la8{
   position: absolute;
   height: 25%;
   left: 53%;
-  bottom: 55%;
+  bottom: -110%;
   transform: rotate(6deg);
 }
 
@@ -1210,41 +1296,60 @@ body {
   position: absolute;
   height: 20%;
   left: 32%;
-  bottom: 60%;
+  bottom: -110%;
   transform: rotate(-6deg);
 }
-//FIN DIAPOSITIVA 12
+//FIN DIAPOSITIVA 13
 // DIAPOSITIVA 14
+.lasv1{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0%;
+  left: 0;
+  -webkit-transform: rotateY(150deg);
+  -moz-transform: rotateY(150deg);
+  -ms-transform: rotateY(150deg);
+  -o-transform: rotateY(150deg);
+  transform: rotateY(150deg);
+  -webkit-transform-origin: 0% 0%;
+  -moz-transform-origin: 0% 0%;
+  -ms-transform-origin: 0% 0%;
+  -o-transform-origin: 0% 0%;
+  transform-origin: 0% 0%;
+}
 
 .mujerTitle4{
   font-family: 'Lora',serif;
   width: 20%;
   position: absolute;
-  bottom: 15%;
-  left: 10%;
+  bottom: 28%;
+  left: 35%;
   font-size: 50px;
+  z-index: 990;
 }
 .cita5{
   position: absolute;
-  font-family: 'Lora',serif;
+  font-family: 'Pacifico', cursive;
   font-style: italic;
   z-index: 997;
-  width: 20%;
-  color: #2f220f;
-  font-size: $fontSizeMedium;
+  color: #150f08;
+  font-size: 30px;
+  background-color: rgba(255, 255, 255, 0.70);
+  padding: 2% 3%;
 }
 .cita51{
   top:26%;
   right: 5%;
 }
 .cita52{
-  bottom: 33%;
-  right: 10%;
-  width: 35%;
+  top: 5%;
+  right: -110%;
+  width: 80%;
 }
 .al1{
   position: absolute;
-  top:5%;
+  top:-110%;
   left: 5%;
   width: 27%;
 }
@@ -1263,22 +1368,25 @@ body {
 .texto5{
   font-family: 'Lora',serif;
   z-index: 997;
-  color: #2f220f;
+  color: #f5f5f5;
   font-size: $fontSizeBig;
   text-align: justify;
   position: absolute;
   width: 35%;
+  background-color: rgba(33, 33, 33, 0.75);
+  padding: 2% 1%;
 }
 .texto51{
-  right: 10%;
-  bottom: 20%;
+  right: -110%;
+  bottom: 15%;
 }
 .teLoDijoAdela{
   position: absolute;
-  top: 10%;
-  right: 10%;
+  top: 45%;
+  right: -110%;
   width: 35%;
   height: 40%;
+  z-index: 990;
 }
 //FIN DIAPOSITIVA 14
 // DIAPOSITIVA 15
@@ -1289,7 +1397,7 @@ body {
 }
 .texto53{
   left: 25%;
-  bottom: 27%;
+  bottom: -110%;
   width: 55%;
 }
 .texto54{
@@ -1322,13 +1430,13 @@ body {
   position: absolute;
   width: 15%;
   bottom: 35%;
-  right: 20%;
+  right: -110%;
 }
 .al5{
   position: absolute;
   width: 20%;
   left: 40%;
-  top: 12%;
+  top: -110%;
 }
 .al6{
   position: absolute;
@@ -1340,7 +1448,7 @@ body {
   position: absolute;
   width: 20%;
   left: 15%;
-  top: 10%;
+  top: -110%;
 }
 .al8{
   position: absolute;
@@ -1362,10 +1470,13 @@ body {
 .texto6{
   font-family: 'Lora',serif;
   z-index: 997;
-  color: #2f220f;
+  color: #f5f5f5;
   font-size: $fontSizeBig;
   text-align: justify;
   position: absolute;
+  width: 35%;
+  background-color: rgba(33, 33, 33, 0.75);
+  padding: 2% 1%;
 }
 .texto61{
   top: 10%;
@@ -1384,28 +1495,32 @@ body {
 }
 .cita6{
   position: absolute;
-  font-family: 'Lora',serif;
+  font-family: 'Pacifico', cursive;
   font-style: italic;
   z-index: 997;
-  color: #2f220f;
-  font-size: $fontSizeMedium;
+  color: #150f08;
+  font-size: 35px;
+  background-color: rgba(255, 255, 255, 0.70);
+  padding: 2% 3%;
 }
 .cita61{
-  left:25%;
-  bottom:20%;
-  width: 55%;
+  left:0%;
+  bottom:10%;
+  width: 80%;
 }
 .cb01{
   position: absolute;
   width: 30%;
   top: 22%;
   left: 35%;
+  z-index: 990;
 }
 .cb04{
   position: absolute;
   width: 15%;
   top: 25%;
   left: 70%;
+  z-index: 990;
   -webkit-transform: scale(0.01);
   -moz-transform: scale(0.01);
   -ms-transform: scale(0.01);
