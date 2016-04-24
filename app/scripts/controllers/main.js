@@ -104,7 +104,7 @@ angular.module('smcApp')
           //EPISODE 2
 
           //.to(".age1", 0.5, {color:'#ffd85f', fontSize: '2em', opacity: 1,  ease:Power0.easeNone})
-          .to("#page0",0.5,{ scale: '0', ease: Back.easeIn.config(1)})
+          .to("#page0",0.5,{ scale: '0', onComplete: hideVideo, ease: Back.easeIn.config(1)})
           .to(".pentagramRect",0.2,{ bottom: '1%', ease: Power0.easeNone},"-=0.2")
           .to(".pentagramBack",0.2,{ bottom: '0%', ease: Power0.easeNone},"-=0.2")
           .to(".ed1", 0.5, {left: '0%', ease: Bounce.easeOut})
@@ -516,7 +516,7 @@ angular.module('smcApp')
           console.log($('#introVideo'));
           $('#introVideo').attr('src', '');
           $('#introVideo').attr('src', 'https://www.youtube.com/embed/asF4OUyq7Y8');
-          $(".BackVideo").css("display","none");
+          //$(".BackVideo").css("display","none");
         }
 
         function initViaje(){
