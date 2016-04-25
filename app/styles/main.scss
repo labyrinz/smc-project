@@ -360,7 +360,7 @@ body {
   //background-size: cover;
   position: absolute;
   background-color: #000000;
-  opacity: 0.5;
+  opacity: 0.6;
   right: 0px;
   top: 0px;
   width: 100%;
@@ -1624,4 +1624,8 @@ body {
   .textAddon{ font-size: $fontSizeSmall; }
   .cita1, .cita2, .cita3, .cita4, .cita5, .cita6 {font-size: 25px;}
   .mujerTitle1, .mujerTitle2,.mujerTitle3,.mujerTitle4,.mujerTitle5,.epilogoTitle{font-size: 30px;}
+  .dinamycText {
+    font-size: 45px;
+    width: 760px;
+  }
 }

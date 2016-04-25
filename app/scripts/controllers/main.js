@@ -98,26 +98,28 @@ angular.module('smcApp')
 
         tl
           //EPISODE 1
-          .to("#page0",0.4,{ right: '0%', onComplete: drawFace, ease: Power0.easeNone})
+          .to("#page0",0.4,{ right: '0%', ease: Power0.easeNone})
+          .addPause()
           .staggerFrom(introWords, 0.1, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.2]}, ease: Back.easeOut.config(0.8)}, 0.1)
           .addPause()
           //EPISODE 2
 
           //.to(".age1", 0.5, {color:'#ffd85f', fontSize: '2em', opacity: 1,  ease:Power0.easeNone})
-          .to("#page0",0.5,{ scale: '0', onComplete: hideVideo, ease: Back.easeIn.config(1)})
-          .to(".pentagramRect",0.2,{ bottom: '1%', ease: Power0.easeNone},"-=0.2")
-          .to(".pentagramBack",0.2,{ bottom: '0%', ease: Power0.easeNone},"-=0.2")
+          //.to("#page0",0.5,{ scale: '0', onComplete: hideVideo, ease: Back.easeIn.config(1)})
           .to(".ed1", 0.5, {left: '0%', ease: Bounce.easeOut})
           .to(".ed2", 0.5, {top: '0%', ease: Bounce.easeOut})
           .to(".ed3", 0.5, {left: '0%', ease: Bounce.easeOut},"-=1")
           .to(".ed4", 0.5, {transform: 'rotateX(0deg)', ease: Back.easeOut.config(1)})
-          .to("#page1",0.1,{ right: '0%', ease: Power0.easeNone},"-=0.5")
+          .to(".pentagramRect",0.2,{ bottom: '1%', ease: Power0.easeNone},"-=0.2")
+          .to(".pentagramBack",0.2,{ bottom: '0%', ease: Power0.easeNone},"-=0.2")
+          .to("#page1",0.1,{ right: '0%', onComplete: hideVideo, ease: Power0.easeNone},"-=0.5")
           .to(".texto11", 0.5, {top: '9%', ease: Back.easeOut.config(1)})
           .to(".texto12", 0.5, {top: '30%', ease: Back.easeOut.config(1)},"-=0.2")
           .to(".texto13", 0.5, {top: '55%', ease: Back.easeOut.config(1)},"-=0.2")
           .to(".cita11", 0.5, {bottom: '10%', ease: Back.easeOut.config(1)},"-=1")
           .to(".prelGroup", 0.5, {top: '10%', ease: Back.easeOut.config(1)},"-=1")
           .to(".cub1", 0.5, {top: '0%', ease: Power0.easeNone})
+          .to("#page0",0.5,{ scale: '0', ease: Back.easeIn.config(1)})
           .addPause()
           //.to(arr1,1, arr2,"step3")
           //.to(arr3,1, arr2,"step3")
@@ -288,6 +290,8 @@ angular.module('smcApp')
           .addPause();
 
        tl.play();
+       setTimeout(playTimeLine, 7000);
+       setTimeout(drawFace, 5000);
 
       //---------------------------------
       //----------MOUSE CONTROLS --------
@@ -448,7 +452,9 @@ angular.module('smcApp')
             });
           }
         });
-
+        function playTimeLine(){
+          tl.play();
+        }
         function insertWords(variable,num){
           $('#cita'+num+'suma').append(variable);
           TweenMax.from(variable, 0.1, {opacity: 0, y:-40, transformOrigin:"0% 50% -50", ease: Power2.easeOut});
