@@ -21,14 +21,30 @@ body {
   overflow: hidden;
 }
 .img{
-  //-webkit-box-shadow: 10px 10px 25px 3px rgba(0,0,0,0.75);
-  //-moz-box-shadow: 10px 10px 25px 3px rgba(0,0,0,0.75);
-  //box-shadow: 10px 10px 25px 3px rgba(0,0,0,0.75);
-  -webkit-box-shadow: 0px 0px 3px 3px rgba(255, 216, 95, 0.7);
-  -moz-box-shadow: 0px 0px 3px 3px rgba(255, 216, 95, 0.7);
-  box-shadow: 0px 0px 3px 3px rgba(255, 216, 95, 0.7);
+  -webkit-box-shadow: 10px 10px 25px 3px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 25px 3px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 25px 3px rgba(0,0,0,0.75);
+  //-webkit-box-shadow: 0px 0px 3px 3px rgba(255, 216, 95, 0.7);
+  //-moz-box-shadow: 0px 0px 3px 3px rgba(255, 216, 95, 0.7);
+  //box-shadow: 0px 0px 3px 3px rgba(255, 216, 95, 0.7);
   z-index: 990;
 }
+//-----ICONOS---------------
+.iconos{
+  position: absolute;
+  top:3%;
+  width: 2%;
+  height: 5%;
+  z-index: 999;
+  cursor: pointer;
+}
+.iconoMenu{ left: 2%;}
+.iconoMenuImage{width: 100%;}
+.iconoSound{ right: 2%;}
+.iconoSoundImage{width: 100%;}
+.iconoMute{ right: 2%;}
+.iconoMuteImage{width: 100%;}
+//---- CARA ANIMATION ------
 .faceSvgClass path{
   fill: none;
   stroke: #ffd85f;
@@ -46,6 +62,8 @@ body {
   opacity: 0.7;
   z-index: 999;
 }
+// ----- fIN CARA ANIMATED -----
+// ----- MENU MAPA -------------
 .mapIcon {
   width: 30px;
   height: 30px;
@@ -107,6 +125,8 @@ body {
   -webkit-transition: left 0.2s ease-in-out 0.5s;
   transition: left 0.2s ease-in-out 0.5s;
 }
+// ----- FIN MENU MAPA -----
+// ------ ARROW CONTROLS -----
 .arrowLeft{
   position: absolute;
   top: 2%;
@@ -134,36 +154,17 @@ body {
   transform: rotateY(180deg);
   z-index: 990;
 }
-.openphoto{
-  position: absolute;
-  height: 20%;
-  bottom: -20%;
-  left: 45%;
-  cursor: pointer;
-  z-index: 990;
-}
-.closePhoto{
-  position: absolute;
-  width: 10%;
-  top: 10%;
-  left: 10%;
-  cursor: pointer;
-  z-index: 999;
-  -webkit-transform: scale(0);
-  -moz-transform: scale(0);
-  -ms-transform: scale(0);
-  -o-transform: scale(0);
-  transform: scale(0);
-}
+// ------ PAGES -------
 .back{
   position: absolute;
   top: 0;
   right: 0;
   height: 100%;
   width: 100%;
+  z-index:991;
 }
 .page0 {
-  right: 0%;
+  z-index: 987;
   -webkit-transform: scale(1);
   -moz-transform: scale(1);
   -o-transform: scale(1);
@@ -172,12 +173,7 @@ body {
 .page1, .page2, .page3, .page4, .page5, .page6, .page7, .page8, .page9, .page10, .page11, .page12, .page13, .page14, .page15, .page16, .page17, .page18{
   right: -100%;
 }
-.back1{
-  //background: url(/images/back/infancia2.jpg) no-repeat center center fixed;
-  //-webkit-background-size: cover;
-  //-moz-background-size: cover;
-  //-o-background-size: cover;
-  //background-size: cover;
+.backIlustration{
   background-color: transparent;
   position: absolute;
   width: 100%;
@@ -186,145 +182,19 @@ body {
   left: 0;
   -webkit-perspective: 300px;
   perspective: 300px;
-  z-index: 988;
 }
-.back2{
-  //background: url(/images/back/infancia2.jpg) no-repeat center center fixed;
-  //-webkit-background-size: cover;
-  //-moz-background-size: cover;
-  //-o-background-size: cover;
-  //background-size: cover;
-  background-color: transparent;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  -webkit-perspective: 700px;
-  perspective: 700px;
-  z-index: 987;
-}
-.back3{
-  //background: url(/images/back/infancia2.jpg) no-repeat center center fixed;
-  //-webkit-background-size: cover;
-  //-moz-background-size: cover;
-  //-o-background-size: cover;
-  //background-size: cover;
-  background-color: transparent;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  -webkit-perspective: 700px;
-  perspective: 700px;
-  z-index: 986;
-}
-.back4{
-  //background: url(/images/back/infancia2.jpg) no-repeat center center fixed;
-  //-webkit-background-size: cover;
-  //-moz-background-size: cover;
-  //-o-background-size: cover;
-  //background-size: cover;
-  background-color: transparent;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  -webkit-perspective: 700px;
-  perspective: 700px;
-  z-index: 985;
-}
-.back5{
-  //background: url(/images/back/infancia2.jpg) no-repeat center center fixed;
-  //-webkit-background-size: cover;
-  //-moz-background-size: cover;
-  //-o-background-size: cover;
-  //background-size: cover;
-  background-color: transparent;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  -webkit-perspective: 700px;
-  perspective: 700px;
-  z-index: 984;
-}
-.back6{
-  //background: url(/images/back/infancia2.jpg) no-repeat center center fixed;
-  //-webkit-background-size: cover;
-  //-moz-background-size: cover;
-  //-o-background-size: cover;
-  //background-size: cover;
-  background-color: transparent;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  -webkit-perspective: 700px;
-  perspective: 700px;
-  z-index: 983;
-}
-.back7{
-  //background: url(/images/back/infancia2.jpg) no-repeat center center fixed;
-  //-webkit-background-size: cover;
-  //-moz-background-size: cover;
-  //-o-background-size: cover;
-  //background-size: cover;
-  background-color: transparent;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  -webkit-perspective: 700px;
-  perspective: 700px;
-  z-index: 982;
-}
-.back8{
-  //background: url(/images/back/infancia2.jpg) no-repeat center center fixed;
-  //-webkit-background-size: cover;
-  //-moz-background-size: cover;
-  //-o-background-size: cover;
-  //background-size: cover;
-  background-color: transparent;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  -webkit-perspective: 700px;
-  perspective: 700px;
-  z-index: 981;
-}
+.back1{z-index: 988;}
+.back2{z-index: 987;}
+.back3{z-index: 986;}
+.back4{z-index: 985;}
+.back5{z-index: 984;}
+.back6{z-index: 983;}
+.back7{z-index: 982;}
+.back8{z-index: 981;}
 .color0{
   background-color: rgba(14, 9, 7, 0);
 }
-.color1{
-  background-color: rgba(14, 9, 7, 0);
-  //background-color:#ccc;
-}
-.color2{
-  background-color: #ffd85f;
-}
-.color3{
-  background-color: #2f6c8b;
-}
-.color4{
-  background-color: #956483;
-}
-.color5{
-  background-color: #6f9850;
-}
-.color6{
-  background-color: #19a1cc;
-}
-.color7{
-  background-color: #cc124e;
-}
+// -------- PENTAGRAM -----
 .pentagramRect{
   position: absolute;
   bottom: -50%;
@@ -337,13 +207,57 @@ body {
   position: absolute;
   bottom: -50%;
   left:0;
-  //background: black; /* For browsers that do not support gradients */
-  //background: -webkit-linear-gradient(top, rgba(10,10,10,0) 10%,rgba(10,10,10,1) 90%); /* For Safari 5.1 to 6.0 */
-  //background: -o-linear-gradient(rgba(10,10,10,0),rgba(10,10,10,1)); /* For Opera 11.1 to 12.0 */
-  //background: -moz-linear-gradient(rgba(10,10,10,0),rgba(10,10,10,1)); /* For Firefox 3.6 to 15 */
+  background: black; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(rgba(10,10,10,0) 1%,rgba(10,10,10,0.9) 40%); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(rgba(10,10,10,0) 1%,rgba(10,10,10,0.9) 40%); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(rgba(10,10,10,0) 1%,rgba(10,10,10,0.9) 40%); /* For Firefox 3.6 to 15 */
   background: linear-gradient(rgba(10,10,10,0) 1%,rgba(10,10,10,0.9) 40%); /* Standard syntax */
   z-index: 997;
 }
+.pentagramNotesGroup{
+  position: absolute;
+  left: 6%;
+  bottom: -50%;
+  width: 100%;
+  z-index: 998;
+}
+.pentagramNotes{
+  width: 3%;
+  height: 100%;
+  float: left;
+}
+.noteImgNegra{
+  width: 30%;
+  height: 30%;
+}
+.noteImgSilen{
+  width: 50%;
+  height: 50%;
+}
+.noteImgTrioNegra{
+  width: 100%;
+  height: 100%;
+}
+.noteImgCor{
+  width: 50%;
+  height: 50%;
+}
+.linePent1{
+  margin-top: 0%;
+}
+.linePent2{
+  margin-top: -25%;
+}
+.linePent3{
+  margin-top: -50%;
+}
+.linePent4{
+  margin-top: -75%;
+}
+.linePent5{
+  margin-top: -100%;
+}
+// ------- VIDEO --------
 .videoClass{
   position: absolute;
   top:0;
@@ -355,9 +269,7 @@ body {
   width: 100%;
   z-index: 990;
 }
-.BackVideo{
-  //background-image: url("../images/cubaWide.jpg");
-  //background-size: cover;
+.videoCover{
   position: absolute;
   background-color: #000000;
   opacity: 0.6;
@@ -366,38 +278,6 @@ body {
   width: 100%;
   height: 100%;
   z-index: 991;
-}
-.skipVideo{
-  position: absolute;
-  right: 3%;
-  bottom:3%;
-  font-size: 30px;
-  font-family: 'Lora',serif;
-  text-align: center;
-  color: #ffd85f;
-  cursor: pointer;
-}
-.videoEpisode1{
-  height: 100%;
-}
-.ageTitle {
-  font-family: 'Lora',serif;
-  text-align: center;
-  color: #434242;
-  opacity: 0.5;
-  height: 30px;
-  width: 14%;
-  font-size: $fontSizeBig;
-  font-weight: bold;
-  float: left;
-  display: inline-block;
-}
-.yearsGroup {
-  position: absolute;
-  left: 1%;
-  bottom: 3%;
-  width: 100%;
-  z-index: 998;
 }
 .dinamycText {
   position: absolute;
@@ -410,37 +290,12 @@ body {
   top: 55%;
   z-index: 999;
 }
-.instructions {
-  position: absolute;
-  bottom: 15%;
-  left: 3%;
-  font-family: 'Lora',serif;
-  text-align: justify;
-  width: 60%;
-  color: #ffd85f;
-  font-size: 16px;
-  opacity: 0;
-  z-index: 998;
-}
-.instructionsText{
-  padding-top: 7px;
-}
-.infoIcon{
-  width:15px;
-  float: left;
-  margin-right: 2%;
-}
-.boxGroup {
-  display: block;
-  float: right;
-  margin: auto;
-  height: 50px;
-}
 .wordStyle{
   display: inline-block;
   margin-right: 9px;
   opacity: 1;
 }
+//------ADITIONAL CONTENT --------
 .additional{
   position: absolute;
   width: 70%;
@@ -473,54 +328,21 @@ body {
   font-style: italic;
   z-index: 997;
   color: #2f220f;
-  //transform: scale(0);
   font-size: $fontSizeMedium;
   right:10%;
   width: 30%;
 }
-.textAddon1{
-  top: 10%;
-}
-.textAddon2{
-  top: 30%;
-}
-.textAddon3{
-  top: 50%;
-}
-.textAddon4{
-  top: 70%;
-}
-.textAddon5{
-  top: 10%;
-  left: 10%;
-}
-
-.textAddon6{
-  top: 30%;
-  left: 10%;
-}
-
-.textAddon7{
-  top: 50%;
-  left: 10%;
-}
-
-.textAddon8{
-  top: 75%;
-  left: 10%;
-}
-.imageAddon{
-  position: absolute;
-  width: 20%;
-  left: 10%;
-}
-.imageAddon1{
-  top:5%;
-}
-.imageAddon2{
-  top:15%;
-  left: 30%;
-}
+.textAddon1{top: 10%;}
+.textAddon2{top: 30%;}
+.textAddon3{top: 50%;}
+.textAddon4{top: 70%;}
+.textAddon5{top: 10%;  left: 10%;}
+.textAddon6{ top: 30%; left: 10%;}
+.textAddon7{ top: 50%; left: 10%;}
+.textAddon8{ top: 75%; left: 10%;}
+.imageAddon{ position: absolute; width: 20%; left: 10%;}
+.imageAddon1{ top:5%;}
+.imageAddon2{ top:15%; left: 30%;}
 .plusInfo{
   width: 4%;
   position: absolute;
@@ -541,6 +363,7 @@ body {
   top:15%;
   z-index: 999;
 }
+//---------FIN ADITIONAL CONTENT --------
 //DIAPOSITIVA 1
 .ed1{
   width: 110%;
@@ -628,7 +451,6 @@ body {
   z-index: 997;
   color: #ffd85f;
   font-size: 35px;
-//  background-color: rgba(255, 255, 255, 0.62);
   padding: 2% 3%;
 }
 .cita11{
@@ -659,6 +481,13 @@ body {
   top: -100%;
   right: 5%;
 }
+.p11Video{
+  position: absolute;
+  top: 10%;
+  right: 10%;
+  z-index: 991;
+}
+// FIN DIAPOSITIVA 1
 // DIAPOSITIVA 2
 .cub1{
   width: 100%;
@@ -704,7 +533,6 @@ body {
   stroke-width: 2px;
 }
 //FIN DIAPOSITIVA 2
-//FIN DIAPOSITIVA 1
 //DIAPOSITIVA 3
 .ny1{
   position: absolute;
@@ -808,6 +636,18 @@ body {
   top: 80%;
   right: -100%;
 }
+.p21Video{
+  position: absolute;
+  top:10%;
+  right: 10%;
+  z-index: 991;
+}
+.p22Video{
+  position: absolute;
+  top:10%;
+  left: 10%;
+  z-index: 991;
+}
 //FIN DIAPOSITIVA 3
 // DIAPOSITIVA 4
 .texto17{
@@ -822,6 +662,12 @@ body {
   top: 10%;
   width: 70%;
   right: -100%;
+}
+.p31Video{
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  z-index: 991;
 }
 //FIN DIAPOSITIVA 4
 ///////////////RITA MONTANER///////////////////
@@ -877,19 +723,25 @@ body {
   height: 25%;
   z-index: 990;
 }
+.rm1Video{
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  z-index: 991;
+}
 //FIN DIAPOSITIVA 5
-//DIAPOSITIVA 5
+//DIAPOSITIVA 6
 .ber1{
   position: absolute;
   top:0;
   left: 0;
   width: 100%;
   height: 100%;
-  -webkit-transform: rotateY(150deg);
-  -moz-transform: rotateY(150deg);
-  -ms-transform: rotateY(150deg);
-  -o-transform: rotateY(150deg);
-  transform: rotateY(150deg);
+  -webkit-transform: rotateY(165deg);
+  -moz-transform: rotateY(165deg);
+  -ms-transform: rotateY(165deg);
+  -o-transform: rotateY(165deg);
+  transform: rotateY(165deg);
   -webkit-transform-origin: 0% 0%;
   -moz-transform-origin: 0% 0%;
   -ms-transform-origin: 0% 0%;
@@ -918,7 +770,19 @@ body {
   right: -100%;
   z-index: 990;
 }
-//FIN DIAPOSITIVA 5
+.rm21Video{
+  position: absolute;
+  top:10%;
+  right: 10%;
+  z-index: 991;
+}
+.rm22Video{
+  position: absolute;
+  top:10%;
+  left: 10%;
+  z-index: 991;
+}
+//FIN DIAPOSITIVA 6
 //DIAPOSITIVA 7
 .holly1{
   width: 100%;
@@ -979,6 +843,24 @@ body {
   top: 40%;
   right: -110%;
 }
+.rm31Video{
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  z-index: 991;
+}
+.rm32Video{
+  position: absolute;
+  top: 10%;
+  right: 10%;
+  z-index: 991;
+}
+.rm33Video{
+  position: absolute;
+  bottom: 10%;
+  right: 10%;
+  z-index: 991;
+}
 //FIN DIAPOSITIVA 7
 // DIAPOSITIVA 8
 .carn1{
@@ -987,11 +869,11 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  -webkit-transform: rotateY(150deg);
-  -moz-transform: rotateY(150deg);
-  -ms-transform: rotateY(150deg);
-  -o-transform: rotateY(150deg);
-  transform: rotateY(150deg);
+  -webkit-transform: rotateY(165deg);
+  -moz-transform: rotateY(165deg);
+  -ms-transform: rotateY(165deg);
+  -o-transform: rotateY(165deg);
+  transform: rotateY(165deg);
   -webkit-transform-origin: 0% 0%;
   -moz-transform-origin: 0% 0%;
   -ms-transform-origin: 0% 0%;
@@ -1143,7 +1025,25 @@ body {
   left:50%;
   height: 30%;
 }
-//FIN DIAPOSITIVA 9
+.cc21Video{
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  z-index: 991;
+}
+.cc22Video{
+  position: absolute;
+  top: 10%;
+  right: 10%;
+  z-index: 991;
+}
+.cc23Video{
+  position: absolute;
+  bottom: 10%;
+  right: 10%;
+  z-index: 991;
+}
+// FIN DIAPOSITIVA 9
 // DIAPOSITIVA 10
 .ContainercuaAEEUU{
   position: absolute;
@@ -1164,6 +1064,12 @@ body {
   top:5%;
   width: 40%;
 }
+.cc31Video{
+  position: absolute;
+  bottom: 10%;
+  right: 10%;
+  z-index:991;
+}
 //FIN DIAPOSITIVA 10
 // DIAPOSITIVA 11
 .chi1{
@@ -1172,11 +1078,11 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  -webkit-transform: rotateY(150deg);
-  -moz-transform: rotateY(150deg);
-  -ms-transform: rotateY(150deg);
-  -o-transform: rotateY(150deg);
-  transform: rotateY(150deg);
+  -webkit-transform: rotateY(165deg);
+  -moz-transform: rotateY(165deg);
+  -ms-transform: rotateY(165deg);
+  -o-transform: rotateY(165deg);
+  transform: rotateY(165deg);
   -webkit-transform-origin: 0% 0%;
   -moz-transform-origin: 0% 0%;
   -ms-transform-origin: 0% 0%;
@@ -1329,11 +1235,11 @@ body {
   position: absolute;
   top: 0%;
   left: 0;
-  -webkit-transform: rotateY(150deg);
-  -moz-transform: rotateY(150deg);
-  -ms-transform: rotateY(150deg);
-  -o-transform: rotateY(150deg);
-  transform: rotateY(150deg);
+  -webkit-transform: rotateY(165deg);
+  -moz-transform: rotateY(165deg);
+  -ms-transform: rotateY(165deg);
+  -o-transform: rotateY(165deg);
+  transform: rotateY(165deg);
   -webkit-transform-origin: 0% 0%;
   -moz-transform-origin: 0% 0%;
   -ms-transform-origin: 0% 0%;
@@ -1606,14 +1512,6 @@ body {
   transform: rotate(55deg);
 }
 //FIN DIAPOSITIVA 17
-
-.bigPhoto{
-  height: 250%;
-  top: 0%;
-  left: 5%;
-  z-index: 997;
-  transition: all 0.5s ease-in-out;
-}
 .plusInfoCita{
   cursor: pointer;
   font-weight: bolder;
