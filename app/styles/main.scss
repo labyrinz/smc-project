@@ -486,6 +486,8 @@ body {
   top: 10%;
   right: 10%;
   z-index: 991;
+  width: 20%;
+  height: 20%;
 }
 // FIN DIAPOSITIVA 1
 // DIAPOSITIVA 2
@@ -641,12 +643,16 @@ body {
   top:10%;
   right: 10%;
   z-index: 991;
+  width: 20%;
+  height: 20%;
 }
 .p22Video{
   position: absolute;
   top:10%;
   left: 10%;
   z-index: 991;
+  width: 20%;
+  height: 20%;
 }
 //FIN DIAPOSITIVA 3
 // DIAPOSITIVA 4
@@ -668,6 +674,8 @@ body {
   top: 10%;
   left: 10%;
   z-index: 991;
+  width: 20%;
+  height: 20%;
 }
 //FIN DIAPOSITIVA 4
 ///////////////RITA MONTANER///////////////////
@@ -728,6 +736,8 @@ body {
   top: 10%;
   left: 10%;
   z-index: 991;
+  width: 20%;
+  height: 20%;
 }
 //FIN DIAPOSITIVA 5
 //DIAPOSITIVA 6
@@ -775,12 +785,16 @@ body {
   top:10%;
   right: 10%;
   z-index: 991;
+  width: 20%;
+  height: 20%;
 }
 .rm22Video{
   position: absolute;
   top:10%;
   left: 10%;
   z-index: 991;
+  width: 20%;
+  height: 20%;
 }
 //FIN DIAPOSITIVA 6
 //DIAPOSITIVA 7
@@ -848,18 +862,24 @@ body {
   top: 10%;
   left: 10%;
   z-index: 991;
+  width: 20%;
+  height: 20%;
 }
 .rm32Video{
   position: absolute;
   top: 10%;
   right: 10%;
   z-index: 991;
+  width: 20%;
+  height: 20%;
 }
 .rm33Video{
   position: absolute;
   bottom: 10%;
   right: 10%;
   z-index: 991;
+  width: 20%;
+  height: 20%;
 }
 //FIN DIAPOSITIVA 7
 // DIAPOSITIVA 8
@@ -1030,18 +1050,24 @@ body {
   top: 10%;
   left: 10%;
   z-index: 991;
+  width: 20%;
+  height: 20%;
 }
 .cc22Video{
   position: absolute;
   top: 10%;
   right: 10%;
   z-index: 991;
+  width: 20%;
+  height: 20%;
 }
 .cc23Video{
   position: absolute;
   bottom: 10%;
   right: 10%;
   z-index: 991;
+  width: 20%;
+  height: 20%;
 }
 // FIN DIAPOSITIVA 9
 // DIAPOSITIVA 10
@@ -1069,6 +1095,16 @@ body {
   bottom: 10%;
   right: 10%;
   z-index:991;
+  width: 20%;
+  height: 20%;
+}
+.cc32Video{
+  position: absolute;
+  bottom: 10%;
+  left: 10%;
+  z-index: 991;
+  width: 20%;
+  height: 20%;
 }
 //FIN DIAPOSITIVA 10
 // DIAPOSITIVA 11
@@ -1182,6 +1218,22 @@ body {
   bottom: 15%;
   right: -110%;
 }
+.la21Video{
+  position: absolute;
+  bottom: 10%;
+  right: 10%;
+  z-index: 991;
+  width: 20%;
+  height: 20%;
+}
+.la22Video{
+  position: absolute;
+  bottom: 10%;
+  left: 10%;
+  z-index: 991;
+  width: 20%;
+  height: 20%;
+}
 //FIN DIAPOSITIVA 12
 // DIAPOSITIVA 13
 .texto43{
@@ -1226,6 +1278,22 @@ body {
   left: 32%;
   bottom: -110%;
   transform: rotate(-6deg);
+}
+.la31Video{
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  z-index: 991;
+  width: 20%;
+  height: 20%;
+}
+.la32Video{
+  position: absolute;
+  top: 10%;
+  right: 10%;
+  z-index: 991;
+  width: 20%;
+  height: 20%;
 }
 //FIN DIAPOSITIVA 13
 // DIAPOSITIVA 14
@@ -1317,6 +1385,14 @@ body {
   height: 40%;
   z-index: 990;
 }
+.al11Video{
+  position: absolute;
+  top: 10%;
+  right: 10%;
+  z-index: 991;
+  width: 20%;
+  height: 20%;
+}
 //FIN DIAPOSITIVA 14
 // DIAPOSITIVA 15
 
@@ -1384,6 +1460,22 @@ body {
   width: 15%;
   top:30%;
   left: 3%;
+}
+.al21Video{
+  position: absolute;
+  top: 10%;
+  right: 10%;
+  z-index: 991;
+  width: 20%;
+  height: 20%;
+}
+.al22Video{
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  z-index: 991;
+  width: 20%;
+  height: 20%;
 }
 //FIN DIAPOSITIVA 15
 // DIAPOSITIVA 16
@@ -1511,7 +1603,56 @@ body {
   top: 13%;
   transform: rotate(55deg);
 }
+.cb21Video{
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  z-index: 991;
+  width: 20%;
+  height: 20%;
+}
+.cb22Video{
+  position: absolute;
+  top: 10%;
+  right: 10%;
+  z-index: 991;
+  width: 20%;
+  height: 20%;
+}
 //FIN DIAPOSITIVA 17
+
+.ep11Video{
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  z-index: 991;
+  width: 20%;
+  height: 20%;
+}
+.ep12Video{
+  position: absolute;
+  top: 10%;
+  right: 10%;
+  z-index: 991;
+  width: 20%;
+  height: 20%;
+}
+.ep13Video{
+  position: absolute;
+  bottom: 10%;
+  left: 10%;
+  z-index: 991;
+  width: 20%;
+  height: 20%;
+}
+.ep14Video{
+  position: absolute;
+  bottom: 10%;
+  right: 10%;
+  z-index: 991;
+  width: 20%;
+  height: 20%;
+}
 .plusInfoCita{
   cursor: pointer;
   font-weight: bolder;
