@@ -281,7 +281,7 @@ body {
 }
 .dinamycText {
   position: absolute;
-  font-family: 'Lora',serif;
+  font-family: 'Bowlby One', cursive;
   text-align: justify;
   color: #ffd85f;
   font-size: 70px;
@@ -324,7 +324,7 @@ body {
 }
 .textAddon{
   position: absolute;
-  font-family: 'Lora',serif;
+  font-family: 'Open Sans', sans-serif;
   font-style: italic;
   z-index: 997;
   color: #2f220f;
@@ -371,6 +371,11 @@ body {
   position: absolute;
   top: 0;
   left: -120%;
+  -webkit-filter: blur(0px);
+  -moz-filter: blur(0px);
+  -o-filter: blur(0px);
+  -ms-filter: blur(0px);
+  filter: blur(0px);
 }
 .ed2{
   width: 110%;
@@ -378,6 +383,11 @@ body {
   position: absolute;
   top: -120%;
   left: 0;
+  -webkit-filter: blur(0px);
+  -moz-filter: blur(0px);
+  -o-filter: blur(0px);
+  -ms-filter: blur(0px);
+  filter: blur(0px);
 }
 .ed3{
   width: 110%;
@@ -385,6 +395,11 @@ body {
   position: absolute;
   top: 0;
   left: 120%;
+  -webkit-filter: blur(0px);
+  -moz-filter: blur(0px);
+  -o-filter: blur(0px);
+  -ms-filter: blur(0px);
+  filter: blur(0px);
 }
 .ed4{
   width: 130%;
@@ -392,6 +407,11 @@ body {
   position: absolute;
   top: -10%;
   left: 0;
+  -webkit-filter: blur(0px);
+  -moz-filter: blur(0px);
+  -o-filter: blur(0px);
+  -ms-filter: blur(0px);
+  filter: blur(0px);
   -webkit-transform: rotateX(-90deg);
   -moz-transform: rotateX(-90deg);
   -ms-transform: rotateX(-90deg);
@@ -459,7 +479,7 @@ body {
   left: 2%;
 }
 .texto1{
-  font-family: 'Lora', serif;
+  font-family: 'Open Sans', sans-serif;
   z-index: 997;
   color: #FFFFFF;
   font-size: $fontSizeMedium;
@@ -497,6 +517,11 @@ body {
   position: absolute;
   top: 120%;
   left: 0;
+  -webkit-filter: blur(0px);
+  -moz-filter: blur(0px);
+  -o-filter: blur(0px);
+  -ms-filter: blur(0px);
+  filter: blur(0px);
   -webkit-transform: rotateY(0deg);
   -moz-transform: rotateY(0deg);
   -ms-transform: rotateY(0deg);
@@ -542,6 +567,11 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
+  -webkit-filter: blur(0px);
+  -moz-filter: blur(0px);
+  -o-filter: blur(0px);
+  -ms-filter: blur(0px);
+  filter: blur(0px);
   -webkit-transform: scale(0) rotateY(0deg);
   -moz-transform: scale(0) rotateY(0deg);
   -ms-transform: scale(0) rotateY(0deg);
@@ -559,6 +589,11 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
+  -webkit-filter: blur(0px);
+  -moz-filter: blur(0px);
+  -o-filter: blur(0px);
+  -ms-filter: blur(0px);
+  filter: blur(0px);
   -webkit-transform: scale(0) rotateY(0deg);
   -moz-transform: scale(0) rotateY(0deg);
   -ms-transform: scale(0) rotateY(0deg);
@@ -576,6 +611,11 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
+  -webkit-filter: blur(0px);
+  -moz-filter: blur(0px);
+  -o-filter: blur(0px);
+  -ms-filter: blur(0px);
+  filter: blur(0px);
   -webkit-transform: scale(0) rotateY(0deg);
   -moz-transform: scale(0) rotateY(0deg);
   -ms-transform: scale(0) rotateY(0deg);
@@ -594,6 +634,11 @@ body {
   width: 100%;
   height: 100%;
   opacity: 0;
+  -webkit-filter: blur(0px);
+  -moz-filter: blur(0px);
+  -o-filter: blur(0px);
+  -ms-filter: blur(0px);
+  filter: blur(0px);
   -webkit-transform: rotateY(0deg);
   -moz-transform: rotateY(0deg);
   -ms-transform: rotateY(0deg);
@@ -681,7 +726,7 @@ body {
 ///////////////RITA MONTANER///////////////////
 //DIAPOSITIVA 5
 .mujerTitle1{
-  font-family: 'Lora',serif;
+  font-family: 'Bowlby One', cursive;
   width: 20%;
   position: absolute;
   top: 8%;
@@ -690,7 +735,7 @@ body {
   z-index: 990;
 }
 .texto2{
-  font-family: 'Lora', serif;
+  font-family: 'Open Sans', sans-serif;
   z-index: 997;
   color: #FFFFFF;
   font-size: $fontSizeBig;
@@ -747,6 +792,11 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
+  -webkit-filter: blur(0px);
+  -moz-filter: blur(0px);
+  -o-filter: blur(0px);
+  -ms-filter: blur(0px);
+  filter: blur(0px);
   -webkit-transform: rotateY(165deg);
   -moz-transform: rotateY(165deg);
   -ms-transform: rotateY(165deg);
@@ -804,6 +854,11 @@ body {
   position: absolute;
   top: 0%;
   left: 0;
+  -webkit-filter: blur(0px);
+  -moz-filter: blur(0px);
+  -o-filter: blur(0px);
+  -ms-filter: blur(0px);
+  filter: blur(0px);
   -webkit-transform: rotateX(150deg);
   -moz-transform: rotateX(150deg);
   -ms-transform: rotateX(150deg);
@@ -889,6 +944,11 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
+  -webkit-filter: blur(0px);
+  -moz-filter: blur(0px);
+  -o-filter: blur(0px);
+  -ms-filter: blur(0px);
+  filter: blur(0px);
   -webkit-transform: rotateY(165deg);
   -moz-transform: rotateY(165deg);
   -ms-transform: rotateY(165deg);
@@ -901,7 +961,7 @@ body {
   transform-origin: 0% 0%;
 }
 .mujerTitle2{
-  font-family: 'Lora',serif;
+  font-family: 'Bowlby One', cursive;
   width: 20%;
   position: absolute;
   bottom: 20%;
@@ -910,7 +970,7 @@ body {
   z-index: 990;
 }
 .texto3{
-  font-family: 'Lora', serif;
+  font-family: 'Open Sans', sans-serif;
   z-index: 997;
   color: #FFFFFF;
   font-size: $fontSizeBig;
@@ -943,7 +1003,7 @@ body {
 }
 .cita3{
   position: absolute;
-  font-family: 'Lora',serif;
+  font-family: 'Pacifico', cursive;
   font-style: italic;
   z-index: 997;
   width: 30%;
@@ -1114,6 +1174,11 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
+  -webkit-filter: blur(0px);
+  -moz-filter: blur(0px);
+  -o-filter: blur(0px);
+  -ms-filter: blur(0px);
+  filter: blur(0px);
   -webkit-transform: rotateY(165deg);
   -moz-transform: rotateY(165deg);
   -ms-transform: rotateY(165deg);
@@ -1126,7 +1191,7 @@ body {
   transform-origin: 0% 0%;
 }
 .mujerTitle3{
-  font-family: 'Lora',serif;
+  font-family: 'Bowlby One', cursive;
   width: 20%;
   position: absolute;
   bottom: 20%;
@@ -1135,7 +1200,7 @@ body {
   z-index: 990;
 }
 .lorraine{
-  font-family: 'Great Vibes', cursive;
+  font-family: 'Bowlby One', cursive;
   width: 20%;
   color: #ffd85f;
   position: absolute;
@@ -1145,7 +1210,7 @@ body {
   z-index: 990;
 }
 .texto4{
-  font-family: 'Lora',serif;
+  font-family: 'Open Sans', sans-serif;
   z-index: 997;
   color: #f5f5f5;
   font-size: $fontSizeBig;
@@ -1303,6 +1368,11 @@ body {
   position: absolute;
   top: 0%;
   left: 0;
+  -webkit-filter: blur(0px);
+  -moz-filter: blur(0px);
+  -o-filter: blur(0px);
+  -ms-filter: blur(0px);
+  filter: blur(0px);
   -webkit-transform: rotateY(165deg);
   -moz-transform: rotateY(165deg);
   -ms-transform: rotateY(165deg);
@@ -1316,7 +1386,7 @@ body {
 }
 
 .mujerTitle4{
-  font-family: 'Lora',serif;
+  font-family: 'Bowlby One', cursive;
   width: 20%;
   position: absolute;
   bottom: 28%;
@@ -1363,7 +1433,7 @@ body {
   width: 15%;
 }
 .texto5{
-  font-family: 'Lora',serif;
+  font-family: 'Open Sans', sans-serif;
   z-index: 997;
   color: #f5f5f5;
   font-size: $fontSizeBig;
@@ -1481,7 +1551,7 @@ body {
 // DIAPOSITIVA 16
 
 .mujerTitle5{
-  font-family: 'Lora',serif;
+  font-family: 'Bowlby One', cursive;
   width: 20%;
   position: absolute;
   bottom: 15%;
@@ -1489,7 +1559,7 @@ body {
   font-size: 50px;
 }
 .texto6{
-  font-family: 'Lora',serif;
+  font-family: 'Open Sans', sans-serif;
   z-index: 997;
   color: #f5f5f5;
   font-size: $fontSizeBig;
@@ -1551,7 +1621,7 @@ body {
 //FIN DIAPOSITIVA 16
 // DIAPOSITIVA 17
 .epilogoTitle{
-  font-family: 'Lora',serif;
+  font-family: 'Bowlby One', cursive;
   width: 30%;
   position: absolute;
   bottom: 15%;
@@ -1664,7 +1734,7 @@ body {
   .cita1, .cita2, .cita3, .cita4, .cita5, .cita6 {font-size: 25px;}
   .mujerTitle1, .mujerTitle2,.mujerTitle3,.mujerTitle4,.mujerTitle5,.epilogoTitle{font-size: 30px;}
   .dinamycText {
-    font-size: 45px;
-    width: 760px;
+    font-size: 33px;
+    width: 640px;
   }
 }
