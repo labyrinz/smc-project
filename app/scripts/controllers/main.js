@@ -170,9 +170,9 @@ angular.module('smcApp')
           .to(".ny1", 0.3, {transform: 'rotateY(165deg)', ease: Power2.easeIn})
           .to(".ny2", 0.3, {transform: 'rotateY(165deg)', ease: Power2.easeIn})
           .to(".ny4", 0.3, {transform: 'rotateY(165deg)', ease: Power2.easeIn})
-          .to(".ny5", 0.5, {scale: '5', right: '110', ease: Bounce.easeOut},"-=0.2")
-          .to(".ny6", 0.5, {scale: '5', right: '110', ease: Bounce.easeOut},"-=0.2")
-          .to(".ny7", 0.5, {scale: '5', right: '110', ease: Bounce.easeOut},"-=0.2")
+          .to(".ny5", 0.5, {scale: '5', right: '150', ease: Bounce.easeOut},"-=0.2")
+          .to(".ny6", 0.5, {scale: '5', right: '150', ease: Bounce.easeOut},"-=0.2")
+          .to(".ny7", 0.5, {scale: '5', right: '150', ease: Bounce.easeOut},"-=0.2")
           .to(".ber1", 0.3, {transform: 'rotateY(0deg)', ease: Back.easeOut.config(1)})
           .to(".texto23",0.4,{ right: '60%', ease: Back.easeOut.config(1)})
           .to(".rm14",0.4,{ right: '60%', ease: Back.easeOut.config(1)},"-=0.2")
@@ -519,7 +519,7 @@ angular.module('smcApp')
             };
             if( support.transitions ) {
               try{
-                overlay.on(transEndEventName, function(){onEndTransitionFn()})  
+                overlay.on(transEndEventName, function(){onEndTransitionFn()})
                 //overlay.addEventListener( transEndEventName, onEndTransitionFn );
               } catch(ex){
                 onEndTransitionFn();

@@ -688,6 +688,9 @@ body {
   width: 40%;
   height: 40%;
 }
+.textProl4{width: 40%; top: 10%; left: 5%;}
+.textProl5{width: 40%; top: 35%; left: 5%;}
+.textProl6{width: 40%; top: 60%; left: 5%;}
 //FIN DIAPOSITIVA 4
 ///////////////RITA MONTANER///////////////////
 //DIAPOSITIVA 5
@@ -744,11 +747,63 @@ body {
 }
 .rm1Video{
   position: absolute;
-  top: 10%;
+  top: 0;
+  bottom: 10%;
   left: 10%;
-  z-index: 991;
-  width: 20%;
-  height: 20%;
+  right: 0;
+  margin: auto;
+  z-index: 997;
+  width: 30%;
+  height: 30%;
+  border: solid 3px rgb(255, 216, 95);;
+}
+.textAddonRm{
+  position: absolute;
+  font-family: 'Open Sans', sans-serif;
+  font-style: italic;
+  z-index: 997;
+  color: rgba(255, 255, 255, 1);
+  font-size: $fontSizeMedium;
+}
+.textRm1{
+  width: 50%;
+  bottom: 15%;
+  right: 15%;
+}
+.citaAddonRm{
+  position: absolute;
+  font-family: 'Bowlby', cursive;
+  font-style: italic;
+  font-size:14px;
+  z-index: 997;
+  color: rgb(255, 216, 95);
+}
+.citaRm1{
+  width: 30%;
+  top: 15%;
+  left: 5%;
+}
+.citaRm2{
+  width: 30%;
+  top: 40%;
+  left: 5%;
+}
+.citaRm3{
+  width: 30%;
+  top: 55%;
+  left: 5%;
+}
+.imageRm11{
+  position: absolute;
+  z-index: 997;
+  top: 5%;
+  right: 20%;
+}
+.imageRm12{
+  position: absolute;
+  z-index: 997;
+  top: 15%;
+  right: 5%;
 }
 //FIN DIAPOSITIVA 5
 //DIAPOSITIVA 6
