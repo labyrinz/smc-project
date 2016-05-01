@@ -4,6 +4,28 @@
 <!--<div id="mapContainer" class="mapaDMini">-->
   <!--<img id="arrowClose" class="arrowLeft" src="images/arrow-left.svg"/>-->
 <!--</div>-->
+
+<div class="container">
+<div class="overlay overlay-contentscale">
+  <button type="button" class="overlay-close">Close</button>
+  <nav>
+    <ul>
+      <div class="nav-column">
+        <li><div ng-click="upTo('inicio')">Inicio</div></li>
+        <li><div ng-click="upTo('prologo')">1. Prólogo <span>(1900-1918)</span></div></li>
+        <li><div ng-click="upTo('ritaMontaner')">2. Rita Montaner <span>(1918-1925)</span></div></li>
+        <li><div ng-click="upTo('carmenCastillo')">3. Carmen Castillo <span>(1928-1932)</span></div></li>
+      </div>
+      <div class="nav-column">
+        <li><div ng-click="upTo('lorraineAllen')">4. Lorraine Allen <span>(1932-1946)</span></div></li>
+        <li><div ng-click="upTo('abbeLane')">5. Abbe Lane <span>(1952-1963)</span></div></li>
+        <li><div ng-click="upTo('charoBaeza')">6. Charo Baeza <span>(1964-1990)</span></div></li>
+        <li><div ng-click="upTo('epilogo')">7. Epílogo <span></span></div></li>
+      </div>
+    </ul>
+  </nav>
+</div>
+
 <div class="topMenu">
   <div class="iconos iconoMenu"><img class="iconoMenuImage" id="trigger-overlay" src="images/icono_menu.png"/></div>
   <div class="iconos iconoSound"><img class="iconoSoundImage" src="images/icono_sound.png"/></div>

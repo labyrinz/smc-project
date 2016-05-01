@@ -95,7 +95,7 @@ angular.module('smcApp')
           .staggerFrom(introWordsName, 0.1, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.2]}, ease: Back.easeOut.config(0.8)}, 0.1)
           .addPause()
           //EPISODE 2
-          .to(".ed1", 0.5, {left: '0%', ease: Bounce.easeOut})
+          .to(".ed1", 0.5, {left: '0%', ease: Bounce.easeOut},"prologo")
           .to(".ed2", 0.5, {top: '0%', ease: Bounce.easeOut})
           .to(".ed3", 0.5, {left: '0%', ease: Bounce.easeOut},"-=1")
           .to(".ed4", 0.5, {transform: 'rotateX(0deg)', ease: Back.easeOut.config(1)})
@@ -155,7 +155,7 @@ angular.module('smcApp')
           .to(".cita12",0.4,{ right: '20%', ease: Back.easeOut.config(1)},"-=0.2")
           .addPause()
           //EPISODE 6
-          .to("#page4",0.4,{ right: '100%', ease: Power0.easeNone})
+          .to("#page4",0.4,{ right: '100%', ease: Power0.easeNone},"ritaMontaner")
           .to("#page5",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
           .to(".rm12",0.4,{ right: '70%', ease: Back.easeOut.config(1)})
           .to(".texto21",0.4,{ right: '10%', ease: Back.easeOut.config(1)},"-=0.2")
@@ -192,7 +192,7 @@ angular.module('smcApp')
           .to(".rm18",0.4,{ right: '70%', ease: Back.easeOut.config(1)},"-=0.2")
           .addPause()
           //EPISODE 9
-          .to("#page7",0.4,{ right: '100%', ease: Power0.easeNone})
+          .to("#page7",0.4,{ right: '100%', ease: Power0.easeNone},"carmenCastillo")
           .to("#page8",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
           .to(".holly1", 0.3, {transform: 'rotateX(165deg)', ease: Back.easeOut.config(1)})
           .to(".carn1", 0.3, {transform: 'rotateY(0deg)', ease: Back.easeOut.config(1)},"-=0.2")
@@ -218,7 +218,7 @@ angular.module('smcApp')
           .to("#page10",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
           .addPause()
           //EPISODE 12
-          .to("#page10",0.4,{ right: '100%', ease: Power0.easeNone})
+          .to("#page10",0.4,{ right: '100%', ease: Power0.easeNone},"lorraineAllen")
           .to(".carn1", 0.3, {transform: 'rotateY(165deg)', ease: Back.easeOut.config(1)},"-=0.2")
           .to(".chi1", 0.3, {transform: 'rotateY(0deg)', ease: Back.easeOut.config(1)},"-=0.2")
           .to("#page11",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
@@ -251,7 +251,7 @@ angular.module('smcApp')
           .to(".texto52",0.4,{ right: '10%', ease: Back.easeOut.config(1)},"-=0.2")
           .to(".cita53",0.4,{ right: '40%', ease: Back.easeOut.config(1)},"-=0.2")
           .addPause()
-          .to(".texto52",0.4,{ top: '-100%', ease: Back.easeOut.config(1)})
+          .to(".texto52",0.4,{ top: '-100%', ease: Back.easeOut.config(1)},"abbeLane")
           .to(".cita53",0.4,{ bottom: '150%', ease: Back.easeOut.config(1)},"-=0.2")
           .to(".cita52",0.4,{ top: '5%', ease: Back.easeOut.config(1)},"-=0.2")
           .to(".cita51",0.4,{ top: '25%', ease: Back.easeOut.config(1)},"-=0.2")
@@ -270,15 +270,15 @@ angular.module('smcApp')
           .addPause()
           //EPISODE 17
           .to("#page15",0.4,{ right: '100%', ease: Power0.easeNone})
-          .to("#page16",0.4,{ right: '0%', ease: Power0.easeNone},"charo-=0.4")
+          .to("#page16",0.4,{ right: '0%', ease: Power0.easeNone})
           .addPause()
-          .to("#cb01",0.7,{ left: '10%',scale: '0.01', ease: Back.easeOut}, "charo")
-          .to("#cb04",0.7,{ left: '45%',scale: '1', ease: Back.easeOut},"charo+=2")
-          .to("#texto61",0.7,{ left: '5%',scale: '0.01', ease: Back.easeOut},"charo+=2")
-          .to("#texto63",0.7,{ left: '25%',scale: '1', ease: Back.easeOut},"charo+=2")
+          .to("#cb01",0.7,{ left: '10%',scale: '0.01', ease: Back.easeOut}, "charoBaeza")
+          .to("#cb04",0.7,{ left: '45%',scale: '1', ease: Back.easeOut},"charoBaeza+=2")
+          .to("#texto61",0.7,{ left: '5%',scale: '0.01', ease: Back.easeOut},"charoBaeza+=2")
+          .to("#texto63",0.7,{ left: '25%',scale: '1', ease: Back.easeOut},"charoBaeza+=2")
           .addPause()
           //EPISODE 18
-          .to("#page16",0.4,{ right: '100%', ease: Power0.easeNone})
+          .to("#page16",0.4,{ right: '100%', ease: Power0.easeNone},"epilogo")
           .to("#page17",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
           .addPause()
           //EPISODE 19
@@ -390,7 +390,12 @@ angular.module('smcApp')
 
       //--------------------------------------
       //-------FUNCTIONS --------------------
-
+        $scope.upTo = function(value) {
+          console.log(value);
+          $('#introVideo').attr('src', '');
+          $('#introVideo').attr('src', 'https://www.youtube.com/embed/wpWO4L0qPPw?showinfo=0');
+          tl.play(value);
+        };
         $(document).on('click','#mapIcon, #arrowClose',function(){
           openCloseMap();
         });
@@ -483,9 +488,8 @@ angular.module('smcApp')
           }
         }
         function hideVideo(){
-          console.log($('#introVideo'));
           $('#introVideo').attr('src', '');
-          $('#introVideo').attr('src', 'https://www.youtube.com/embed/asF4OUyq7Y8');
+          $('#introVideo').attr('src', 'https://www.youtube.com/embed/wpWO4L0qPPw?autoplay=1&controls=0&loop=1&showinfo=0');
         }
 
         function initViaje(){
