@@ -353,41 +353,6 @@ body {
   -o-transform-origin: 100% 80%;
   transform-origin: 100% 80%;
 }
-
-.videoAddon{
-  visibility: visible;
-  position: absolute;
-  width: 30%;
-  left: 10%;
-}
-.videoAddon1{
-  top: 10%;
-}
-.videoAddon2{
-  top: 45%;
-}
-.textAddon{
-  position: absolute;
-  /*font-family: 'Lora',serif;*/
-  font-style: italic;
-  z-index: 997;
-  color: #2f220f;
-  font-size: $fontSizeMedium;
-  right:10%;
-  width: 30%;
-}
-.textAddon1{top: 10%;}
-.textAddon2{top: 30%;}
-.textAddon3{top: 50%;}
-.textAddon4{top: 70%;}
-.textAddon5{top: 10%;  left: 10%;}
-.textAddon6{ top: 30%; left: 10%;}
-.textAddon7{ top: 50%; left: 10%;}
-.textAddon8{ top: 75%; left: 10%;}
-.imageAddon{ position: absolute; width: 20%; left: 10%;}
-.imageAddon1{ top:5%;}
-.imageAddon2{ top:15%; left: 30%;}
-
 .plusInfo{
   width: 4%;
   position: absolute;
