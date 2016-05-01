@@ -523,10 +523,10 @@ angular.module('smcApp')
 
       // MENU
 
-      var container = document.querySelector( 'div.container' ),
-          triggerBttn = document.getElementById( 'trigger-overlay' ),
-          overlay = document.querySelector( 'div.overlay' ),
-          closeBttn = overlay.querySelector( 'button.overlay-close'),
+      var container = $( 'div.container' ),
+          triggerBttn = $( '#trigger-overlay' ),
+          overlay = $( 'div.overlay' ),
+          closeBttn = $( 'button.overlay-close'),
           transEndEventNames = {
             'WebkitTransition': 'webkitTransitionEnd',
             'MozTransition': 'transitionend',
@@ -538,29 +538,31 @@ angular.module('smcApp')
           support = { transitions : Modernizr.csstransitions };
 
         function toggleOverlay() {
-          if( classie.has( overlay, 'open' ) ) {
-            classie.remove( overlay, 'open' );
-            classie.remove( container, 'overlay-open' );
-            classie.add( overlay, 'close' );
+          if( overlay.hasClass( 'open' ) ) {
+            overlay.removeClass( 'open' );
+            container.removeClass( 'overlay-open' );
+            overlay.addClass( 'close' );
             var onEndTransitionFn = function( ev ) {
-              if( support.transitions ) {
-                if( ev.propertyName !== 'visibility' ) return;
-                this.removeEventListener( transEndEventName, onEndTransitionFn );
-              }
-              classie.remove( overlay, 'close' );
+              overlay.removeClass( 'close' );
             };
             if( support.transitions ) {
-              overlay.addEventListener( transEndEventName, onEndTransitionFn );
+              try{
+                overlay.on(transEndEventName, function(){onEndTransitionFn()})  
+                //overlay.addEventListener( transEndEventName, onEndTransitionFn );
+              } catch(ex){
+                onEndTransitionFn();
+              }
             }
             else {
               onEndTransitionFn();
             }
           }
-          else if( !classie.has( overlay, 'close' ) ) {
-            classie.add( overlay, 'open' );
-            classie.add( container, 'overlay-open' );
+          else if( !overlay.hasClass( 'close' ) ) {
+            overlay.addClass( 'open' );
+            container.addClass( 'overlay-open' );
           }
         }
-        triggerBttn.addEventListener( 'click', toggleOverlay );
-        closeBttn.addEventListener( 'click', toggleOverlay );
+
+        triggerBttn.on( 'click', function(){toggleOverlay()} );
+        closeBttn.on( 'click', function(){toggleOverlay()} );
   });
