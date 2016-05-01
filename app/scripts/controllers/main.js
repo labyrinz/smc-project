@@ -48,7 +48,7 @@ angular.module('smcApp')
       var introLetters = $("#quote h2").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"introLetters"});
       var introLettersSubtitle = $("#quote h3 span.subtitle").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"introLettersSubtitle"});
       var introLettersName = $("#quote h3 span.cugat-name").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"introLettersName"});
-      
+
       var introWords = $(".introLetters");
       var introWordsSubtitle = $(".introLettersSubtitle");
       var introWordsName = $(".introLettersName");
@@ -523,7 +523,7 @@ angular.module('smcApp')
       var container = document.querySelector( 'div.container' ),
           triggerBttn = document.getElementById( 'trigger-overlay' ),
           overlay = document.querySelector( 'div.overlay' ),
-          closeBttn = overlay.querySelector( 'button.overlay-close' );
+          closeBttn = overlay.querySelector( 'button.overlay-close'),
           transEndEventNames = {
             'WebkitTransition': 'webkitTransitionEnd',
             'MozTransition': 'transitionend',
@@ -558,9 +558,6 @@ angular.module('smcApp')
             classie.add( container, 'overlay-open' );
           }
         }
-
         triggerBttn.addEventListener( 'click', toggleOverlay );
         closeBttn.addEventListener( 'click', toggleOverlay );
-
-
   });
