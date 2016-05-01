@@ -17,34 +17,6 @@ angular.module('smcApp')
       var body = $('body');
       var totalWords = [];
 
-      var videoUrl={
-          'p31Video': "https://drive.google.com/file/d/0B3Fh20_rP_uzYVZzcUxrRGdMSGM/preview",
-          'rm1Video': "https://drive.google.com/file/d/0B3Fh20_rP_uzTGJFN1dVMkNhZ1k/preview",
-          'rm21Video': "https://drive.google.com/file/d/0B3Fh20_rP_uzdE1YZkNLVF9rOTA/preview",
-          'rm22Video': "https://drive.google.com/file/d/0B3Fh20_rP_uzNEZUSnNnbE5hcDA/preview",
-          'rm31Video':"https://drive.google.com/file/d/0B3Fh20_rP_uzaDNvUzNWS1JSMlE/preview",
-          'rm32Video': "https://drive.google.com/file/d/0B3Fh20_rP_uzVU9ZN083Nl9YTTA/preview",
-          'rm33Video': "https://drive.google.com/file/d/0B3Fh20_rP_uzSXhJY25CZ0wxRFU/preview",
-          'cc21Video': "https://drive.google.com/file/d/0B3Fh20_rP_uzaVFmcmZmRXlNdk0/preview",
-          'cc22Video': "https://drive.google.com/file/d/0B3Fh20_rP_uzdUh2RU4zX3lLcEE/preview",
-          'cc23Video': "https://drive.google.com/file/d/0B3Fh20_rP_uzQUVRak44Y05mUzg/preview",
-          'cc31Video': "https://drive.google.com/file/d/0B3Fh20_rP_uzMlpWcUcxeWNGb28/preview",
-          'cc32Video': "https://drive.google.com/file/d/0B3Fh20_rP_uzcVVjX2hqR3NpOGc/preview",
-          'la21Video': "https://drive.google.com/file/d/0B3Fh20_rP_uzX0NZbTRiWHdpaVU/preview",
-          'la22Video': "https://drive.google.com/file/d/0B3Fh20_rP_uzYXlJS3c1RGlDVmM/preview",
-          'la31Video': "https://drive.google.com/file/d/0B3Fh20_rP_uzdkdPOFl1TXZFVWc/preview",
-          'la32Video': "https://drive.google.com/file/d/0B3Fh20_rP_uzY3NoOXh3amlFUzA/preview",
-          'al11Video': "https://drive.google.com/file/d/0B3Fh20_rP_uzb2g1c2w5QU9lY1U/preview",
-          'al21Video': "https://drive.google.com/file/d/0B3Fh20_rP_uzc3NOQlpUdmlLQnM/preview",
-          'al22Video': "https://drive.google.com/file/d/0B3Fh20_rP_uzeGV0RDJiNGJvY0U/preview",
-          'cb21Video': "https://drive.google.com/file/d/0B3Fh20_rP_uzQVFETzhldEZURFE/preview",
-          'cb22Video': "https://drive.google.com/file/d/0B3Fh20_rP_uzX1ZlYTc3X0lPRGM/preview",
-          'ep11Video': "https://drive.google.com/file/d/0B3Fh20_rP_uzWW8zWHkxaURMVjQ/preview",
-          'ep12Video': "https://drive.google.com/file/d/0B3Fh20_rP_uzTzU2MUpvd2ZITGs/preview",
-          'ep13Video': "https://drive.google.com/file/d/0B3Fh20_rP_uzYXZnQ1ozNVJDMlk/preview",
-          'ep14Video': "https://drive.google.com/file/d/0B3Fh20_rP_uzOFQ5UEZlN2pjWEE/preview"
-      }
-
       var introLetters = $("#quote h2").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"introLetters"});
       var introLettersSubtitle = $("#quote h3 span.subtitle").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"introLettersSubtitle"});
       var introLettersName = $("#quote h3 span.cugat-name").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"introLettersName"});
@@ -168,16 +140,19 @@ angular.module('smcApp')
           .to(".texto16",0.4,{ right: '10%', ease: Back.easeOut.config(1)},"-=0.2")
           .addPause()
           //EPISODE 5
-          .to(".cub1", 0.5, {transform: 'rotateY(165deg)', onComplete: addSrc, onCompleteParams:[['p31Video'], [videoUrl.p31Video] ], ease: Power2.easeIn})
+          .to(".cub1", 0.5, {transform: 'rotateY(165deg)', ease: Power2.easeIn})
           .to("#page3",0.4,{ right: '100%', ease: Power0.easeNone},"-=0.4")
           .to("#page4",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
-          .to(".ny4", 0.2, {opacity: '1', ease: Power2.easeIn},"-=1")
-          .to(".ny3", 0.5, {scale: '1', ease: Back.easeOut},"-=0.2")
-          .to(".ny1", 0.5, {scale: '1', ease: Back.easeOut},"-=0.2")
-          .to(".ny2", 0.5, {scale: '1', ease: Back.easeOut},"-=0.2")
+          .to(".ny4", 0.2, {top: '0%', ease: Bounce.easeOut},"-=0.5")
+          .to(".ny3", 0.5, {top: '0%', ease: Bounce.easeOut},"-=0.2")
+          .to(".ny1", 0.5, {top: '0%', ease: Bounce.easeOut},"-=0.2")
+          .to(".ny2", 0.5, {top: '0%', ease: Bounce.easeOut},"-=0.2")
+          .to(".ny5", 0.5, {scale: '1', right: '0', ease: Bounce.easeOut},"-=0.2")
+          .to(".ny6", 0.5, {scale: '1', right: '0', ease: Bounce.easeOut},"-=0.2")
+          .to(".ny7", 0.5, {scale: '1', right: '0', ease: Bounce.easeOut},"-=0.2")
           .to(".texto17",0.4,{ right: '55%', ease: Back.easeOut.config(1)},"-=0.2")
           .to(".texto18",0.4,{ right: '10%', ease: Back.easeOut.config(1)},"-=0.2")
-          .to(".cita12",0.4,{ right: '20%', onComplete: addSrc, onCompleteParams:[['rm1Video'], [videoUrl.rm1Video]], ease: Back.easeOut.config(1)},"-=0.2")
+          .to(".cita12",0.4,{ right: '20%', ease: Back.easeOut.config(1)},"-=0.2")
           .addPause()
           //EPISODE 6
           .to("#page4",0.4,{ right: '100%', ease: Power0.easeNone})
@@ -186,7 +161,7 @@ angular.module('smcApp')
           .to(".texto21",0.4,{ right: '10%', ease: Back.easeOut.config(1)},"-=0.2")
           .to(".cita13",0.4,{ right: '10%', ease: Back.easeOut.config(1)},"-=0.2")
           .to(".rm11",0.4,{ right: '58%', ease: Back.easeOut.config(1)},"-=0.2")
-          .to(".rm13",0.4,{ right: '60%', onComplete: addSrc, onCompleteParams:[['rm21Video','rm22Video'], [videoUrl.rm21Video, videoUrl.rm22Video]], ease: Back.easeOut.config(1)},"-=0.2")
+          .to(".rm13",0.4,{ right: '60%', ease: Back.easeOut.config(1)},"-=0.2")
           .addPause()
           //EPISODE 7
           .to("#page5",0.4,{ right: '100%', ease: Power0.easeNone})
@@ -195,11 +170,14 @@ angular.module('smcApp')
           .to(".ny1", 0.3, {transform: 'rotateY(165deg)', ease: Power2.easeIn})
           .to(".ny2", 0.3, {transform: 'rotateY(165deg)', ease: Power2.easeIn})
           .to(".ny4", 0.3, {transform: 'rotateY(165deg)', ease: Power2.easeIn})
+          .to(".ny5", 0.5, {scale: '5', right: '110', ease: Bounce.easeOut},"-=0.2")
+          .to(".ny6", 0.5, {scale: '5', right: '110', ease: Bounce.easeOut},"-=0.2")
+          .to(".ny7", 0.5, {scale: '5', right: '110', ease: Bounce.easeOut},"-=0.2")
           .to(".ber1", 0.3, {transform: 'rotateY(0deg)', ease: Back.easeOut.config(1)})
           .to(".texto23",0.4,{ right: '60%', ease: Back.easeOut.config(1)})
           .to(".rm14",0.4,{ right: '60%', ease: Back.easeOut.config(1)},"-=0.2")
           .to(".texto24",0.4,{ right: '10%', ease: Back.easeOut.config(1)},"-=0.2")
-          .to(".cita14",0.4,{ right: '5%', onComplete: addSrc, onCompleteParams:[['rm31Video','rm32Video','rm33Video'], [videoUrl.rm31Video, videoUrl.rm32Video, videoUrl.rm33Video]], ease: Back.easeOut.config(1)},"-=0.2")
+          .to(".cita14",0.4,{ right: '5%',ease: Back.easeOut.config(1)},"-=0.2")
           .addPause()
           //EPISODE 8
           .to("#page6",0.4,{ right: '100%', ease: Power0.easeNone})
@@ -220,7 +198,7 @@ angular.module('smcApp')
           .to(".carn1", 0.3, {transform: 'rotateY(0deg)', ease: Back.easeOut.config(1)},"-=0.2")
           .to(".texto31",0.4,{ right: '30%', ease: Back.easeOut.config(1)},"-=0.2")
           .to(".cc31",0.4,{ right: '60%', ease: Back.easeOut.config(1)},"-=0.2")
-          .to(".cc32",0.4,{ right: '70%', onComplete: addSrc, onCompleteParams:[['cc21Video','cc22Video','cc23Video'], [videoUrl.cc21Video, videoUrl.cc22Video, videoUrl.cc23Video]], ease: Back.easeOut.config(1)},"-=0.2")
+          .to(".cc32",0.4,{ right: '70%', ease: Back.easeOut.config(1)},"-=0.2")
           .addPause()
           //EPISODE 10
           .to("#page8",0.4,{ right: '100%', ease: Power0.easeNone})
@@ -233,7 +211,7 @@ angular.module('smcApp')
           .to(".cc36",0.4,{ top: '23%', ease: Back.easeOut.config(1)},"-=0.2")
           .to(".cc37",0.4,{ top: '27%', ease: Back.easeOut.config(1)},"-=0.2")
           .to(".cc38",0.4,{ top: '20%', ease: Back.easeOut.config(1)},"-=0.2")
-          .to(".cc39",0.4,{ top: '40%', onComplete: addSrc, onCompleteParams:[['cc31Video','cc32Video'], [videoUrl.cc31Video, videoUrl.cc32Video]], ease: Back.easeOut.config(1)},"-=0.2")
+          .to(".cc39",0.4,{ top: '40%', ease: Back.easeOut.config(1)},"-=0.2")
           .addPause()
           //EPISODE 11
           .to("#page9",0.4,{ right: '100%', ease: Power0.easeNone})
@@ -246,14 +224,14 @@ angular.module('smcApp')
           .to("#page11",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
           .to(".lorraine",0.4,{ right: '35%', ease: Back.easeOut.config(1)},"-=0.2")
           .to(".texto41",0.4,{ right: '75%', ease: Back.easeOut.config(1)},"-=0.2")
-          .to(".la3",0.4,{ right: '55%', onComplete: addSrc, onCompleteParams:[['la21Video','la22Video'], [videoUrl.la21Video, videoUrl.la22Video]], ease: Back.easeOut.config(1)},"-=0.2")
+          .to(".la3",0.4,{ right: '55%', ease: Back.easeOut.config(1)},"-=0.2")
           .addPause()
           //EPISODE 13
           .to("#page11",0.4,{ right: '100%', ease: Power0.easeNone})
           .to("#page12",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
           .to(".cita42",0.4,{ right: '10%', ease: Back.easeOut.config(1)},"-=0.2")
           .to(".texto42",0.4,{ right: '50%', ease: Back.easeOut.config(1)},"-=0.2")
-          .to(".la4",0.4,{ right: '15%', onComplete: addSrc, onCompleteParams:[['la31Video','la32Video'], [videoUrl.la31Video, videoUrl.la32Video]], ease: Back.easeOut.config(1)},"-=0.2")
+          .to(".la4",0.4,{ right: '15%', ease: Back.easeOut.config(1)},"-=0.2")
           .addPause()
           //EPISODE 14
           .to("#page12",0.4,{ right: '100%', ease: Power0.easeNone})
@@ -271,7 +249,7 @@ angular.module('smcApp')
           .to(".chi1", 0.3, {transform: 'rotateY(165deg)', ease: Back.easeOut.config(1)},"-=0.2")
           .to(".lasv1", 0.3, {transform: 'rotateY(0deg)', ease: Back.easeOut.config(1)},"-=0.2")
           .to(".texto52",0.4,{ right: '10%', ease: Back.easeOut.config(1)},"-=0.2")
-          .to(".cita53",0.4,{ right: '40%', onComplete: addSrc, onCompleteParams:[['al11Video'], [videoUrl.al11Video]], ease: Back.easeOut.config(1)},"-=0.2")
+          .to(".cita53",0.4,{ right: '40%', ease: Back.easeOut.config(1)},"-=0.2")
           .addPause()
           .to(".texto52",0.4,{ top: '-100%', ease: Back.easeOut.config(1)})
           .to(".cita53",0.4,{ bottom: '150%', ease: Back.easeOut.config(1)},"-=0.2")
@@ -279,7 +257,7 @@ angular.module('smcApp')
           .to(".cita51",0.4,{ top: '25%', ease: Back.easeOut.config(1)},"-=0.2")
           .to(".al1",0.4,{ top: '25%', ease: Back.easeOut.config(1)},"-=0.2")
           .to(".texto51",0.4,{ bottom: '15%', ease: Back.easeOut.config(1)},"-=0.2")
-          .to(".teLoDijoAdela",0.4,{ top: '45%', onComplete: addSrc, onCompleteParams:[['al21Video','al22Video'], [videoUrl.al21Video, videoUrl.al22Video]], ease: Back.easeOut.config(1)},"-=0.2")
+          .to(".teLoDijoAdela",0.4,{ top: '45%', ease: Back.easeOut.config(1)},"-=0.2")
           .addPause()
           //EPISODE 16
           .to("#page14",0.4,{ right: '100%', ease: Power0.easeNone})
@@ -297,11 +275,11 @@ angular.module('smcApp')
           .to("#cb01",0.7,{ left: '10%',scale: '0.01', ease: Back.easeOut}, "charo")
           .to("#cb04",0.7,{ left: '45%',scale: '1', ease: Back.easeOut},"charo+=2")
           .to("#texto61",0.7,{ left: '5%',scale: '0.01', ease: Back.easeOut},"charo+=2")
-          .to("#texto63",0.7,{ left: '25%',scale: '1', onComplete: addSrc, onCompleteParams:[['cb21Video','cb22Video'], [videoUrl.cb21Video, videoUrl.cb22Video]], ease: Back.easeOut},"charo+=2")
+          .to("#texto63",0.7,{ left: '25%',scale: '1', ease: Back.easeOut},"charo+=2")
           .addPause()
           //EPISODE 18
           .to("#page16",0.4,{ right: '100%', ease: Power0.easeNone})
-          .to("#page17",0.4,{ right: '0%', onComplete: addSrc, onCompleteParams:[['ep11Video','ep12Video','ep13Video','ep14Video'], [videoUrl.ep11Video, videoUrl.ep12Video, videoUrl.ep13Video, videoUrl.ep14Video]], ease: Power0.easeNone},"-=0.4")
+          .to("#page17",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
           .addPause()
           //EPISODE 19
           .to("#page17",0.4,{ right: '100%', ease: Power0.easeNone})
@@ -503,12 +481,6 @@ angular.module('smcApp')
             $("#mapContainer").removeClass('mapaD');
             mapStatus = false;
           }
-        }
-
-        function addSrc(lay,url){
-          _.each(lay, function(value,i){
-              $('.'+value).attr('src', url[i]);
-          });
         }
         function hideVideo(){
           console.log($('#introVideo'));

@@ -568,74 +568,39 @@ body {
 }
 //FIN DIAPOSITIVA 2
 //DIAPOSITIVA 3
-.ny1{
+.ny1, .ny2, .ny3, .ny4{
   position: absolute;
-  top:0;
+  top:-150%;
   left: 0;
   width: 100%;
   height: 100%;
-  -webkit-transform: scale(0) rotateY(0deg);
-  -moz-transform: scale(0) rotateY(0deg);
-  -ms-transform: scale(0) rotateY(0deg);
-  -o-transform: scale(0) rotateY(0deg);
-  transform: scale(0) rotateY(0deg);
-  -webkit-transform-origin: 0% 0%;
-  -moz-transform-origin: 0% 0%;
-  -ms-transform-origin: 0% 0%;
-  -o-transform-origin: 0% 0%;
-  transform-origin: 0% 0%;
-}
-.ny2{
-  position: absolute;
-  top:0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  -webkit-transform: scale(0) rotateY(0deg);
-  -moz-transform: scale(0) rotateY(0deg);
-  -ms-transform: scale(0) rotateY(0deg);
-  -o-transform: scale(0) rotateY(0deg);
-  transform: scale(0) rotateY(0deg);
-  -webkit-transform-origin: 0% 0%;
-  -moz-transform-origin: 0% 0%;
-  -ms-transform-origin: 0% 0%;
-  -o-transform-origin: 0% 0%;
-  transform-origin: 0% 0%;
-}
-.ny3{
-  position: absolute;
-  top:0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  -webkit-transform: scale(0) rotateY(0deg);
-  -moz-transform: scale(0) rotateY(0deg);
-  -ms-transform: scale(0) rotateY(0deg);
-  -o-transform: scale(0) rotateY(0deg);
-  transform: scale(0) rotateY(0deg);
-  -webkit-transform-origin: 0% 0%;
-  -moz-transform-origin: 0% 0%;
-  -ms-transform-origin: 0% 0%;
-  -o-transform-origin: 0% 0%;
-  transform-origin: 0% 0%;
-}
-.ny4{
-  position: absolute;
-  top:0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
   -webkit-transform: rotateY(0deg);
-  -moz-transform: rotateY(0deg);
+  -moz-transform:  rotateY(0deg);
   -ms-transform: rotateY(0deg);
   -o-transform: rotateY(0deg);
   transform: rotateY(0deg);
-  -webkit-transform-origin: 0% 0%;
-  -moz-transform-origin: 0% 0%;
-  -ms-transform-origin: 0% 0%;
-  -o-transform-origin: 0% 0%;
-  transform-origin: 0% 0%;
+  -webkit-transform-origin: 100% 0%;
+  -moz-transform-origin: 100% 0%;
+  -ms-transform-origin: 100% 0%;
+  -o-transform-origin: 100% 0%;
+  transform-origin: 100% 0%;
+}
+.ny5, .ny6, .ny7{
+  position: absolute;
+  top: 0%;
+  right: -150%;
+  width: 100%;
+  height: 100%;
+  -webkit-transform: scale(0) rotateY(0deg);
+  -moz-transform:  scale(0) rotateY(0deg);
+  -ms-transform: scale(0) rotateY(0deg);
+  -o-transform: scale(0) rotateY(0deg);
+  transform: scale(0) rotateY(0deg);
+  -webkit-transform-origin: 100% 60%;
+  -moz-transform-origin: 100% 60%;
+  -ms-transform-origin: 100% 60%;
+  -o-transform-origin: 100% 60%;
+  transform-origin: 100% 60%;
 }
 .prel05{
   position: absolute;
@@ -672,7 +637,7 @@ body {
 }
 .p21Video{
   position: absolute;
-  top:10%;
+  top:50%;
   right: 10%;
   z-index: 991;
   width: 20%;
@@ -680,12 +645,23 @@ body {
 }
 .p22Video{
   position: absolute;
-  top:10%;
-  left: 10%;
+  top:15%;
+  right: 10%;
   z-index: 991;
   width: 20%;
   height: 20%;
 }
+.textAddonProl3{
+  position: absolute;
+  font-family: 'Open Sans', sans-serif;
+  font-style: italic;
+  z-index: 997;
+  color: rgba(255, 255, 255, 1);
+  font-size: $fontSizeMedium;
+}
+.textProl1{width: 40%; top: 10%; left: 5%;}
+.textProl2{width: 40%; top: 35%; left: 5%;}
+.textProl3{width: 40%; top: 60%; left: 5%;}
 //FIN DIAPOSITIVA 3
 // DIAPOSITIVA 4
 .texto17{
@@ -703,11 +679,14 @@ body {
 }
 .p31Video{
   position: absolute;
-  top: 10%;
-  left: 10%;
+  top: 0%;
+  bottom: 10%;
+  left: 0%;
+  right: 0%;
+  margin:auto;
   z-index: 991;
-  width: 20%;
-  height: 20%;
+  width: 40%;
+  height: 40%;
 }
 //FIN DIAPOSITIVA 4
 ///////////////RITA MONTANER///////////////////
