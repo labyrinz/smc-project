@@ -391,7 +391,6 @@ angular.module('smcApp')
       //--------------------------------------
       //-------FUNCTIONS --------------------
         $scope.upTo = function(value) {
-          console.log(value);
           $('#introVideo').attr('src', '');
           $('#introVideo').attr('src', 'https://www.youtube.com/embed/wpWO4L0qPPw?showinfo=0');
           tl.play(value);
@@ -489,7 +488,7 @@ angular.module('smcApp')
         }
         function hideVideo(){
           $('#introVideo').attr('src', '');
-          $('#introVideo').attr('src', 'https://www.youtube.com/embed/wpWO4L0qPPw?autoplay=1&controls=0&loop=1&showinfo=0');
+          $('#introVideo').attr('src', 'https://www.youtube.com/embed/wpWO4L0qPPw?showinfo=0');
         }
 
         function initViaje(){
