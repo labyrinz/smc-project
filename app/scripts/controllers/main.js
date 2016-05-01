@@ -66,7 +66,7 @@ angular.module('smcApp')
 
         var soundEpilogo = new Howl({
           urls: ['audio/ValsViudaAlegre.mp3'],
-          loop: false,
+          loop: true,
           volume: 0.5,
           onend: function() {
             console.log('Finished!');
@@ -127,13 +127,12 @@ angular.module('smcApp')
           .to(".ed2", 1, {css:{'-webkit-filter': 'blur(8px)'}, ease: Power0.easeOut},"blurEffect1+=1")
           .to(".ed3", 1, {css:{'-webkit-filter': 'blur(8px)'}, ease: Power0.easeOut},"blurEffect1+=1")
           .to(".ed4", 1, {css:{'-webkit-filter': 'blur(8px)'}, ease: Power0.easeOut},"blurEffect1+=1")
-          .to("#page1",0.1,{ right: '0%', onComplete: hideVideo, ease: Power0.easeNone},"-=0.5")
+          .to("#page1",0.1,{ right: '0%', onComplete: hideVideo, ease: Power0.easeNone},"-=1")
           .to(".texto11", 0.5, {top: '9%', ease: Back.easeOut.config(1)})
           .to(".texto12", 0.5, {top: '30%', ease: Back.easeOut.config(1)},"-=0.2")
           .to(".texto13", 0.5, {top: '55%', ease: Back.easeOut.config(1)},"-=0.2")
           .to(".cita11", 0.5, {bottom: '10%', ease: Back.easeOut.config(1)},"-=1")
           .to(".prelGroup", 0.5, {top: '10%', ease: Back.easeOut.config(1)},"-=1")
-          .to(".cub1", 0.5, {top: '0%', ease: Power0.easeNone})
           .to("#page0",0.5,{ scale: '0', ease: Back.easeIn.config(1)})
           .addPause()
           //EPISODE 3
@@ -144,6 +143,7 @@ angular.module('smcApp')
           .to("#page2",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
           .from(".mapSvgClassTop", 1, {scale: 0,onComplete:initViaje, ease: Back.easeOut })
           .to(".mapSvgClassTop", 4, {width: '250%', top: '-60%', left: '-25%' , ease: Power2.easeIn},"+=1")
+          .to(".cub1", 0.5, {top: '0%', ease: Power0.easeNone})
           .to(".ed1", 0.5, {top: '120%', ease: Power2.easeIn})
           .to(".ed2", 0.5, {top: '120%', ease: Power2.easeIn})
           .to(".ed3", 0.5, {top: '120%', ease: Power2.easeIn},"-=1")
@@ -419,7 +419,10 @@ angular.module('smcApp')
         });
 
         $(document).on('click','.plusInfo',function(){
+          console.log($(this).css('opacity'));
           var value = $(this).attr('value');
+          if($(this).css('opacity') == 1)$(this).css('opacity', '0');
+          else $(this).css('opacity', '1');
           var target = '.ad'+value;
           var opacityValue = $(target).css('opacity');
           if(opacityValue == 0) TweenMax.to(target, 0.3, {opacity: 1, scale:1, ease:Back.easeOut});
