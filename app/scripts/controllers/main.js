@@ -45,8 +45,13 @@ angular.module('smcApp')
           'ep14Video': "https://drive.google.com/file/d/0B3Fh20_rP_uzOFQ5UEZlN2pjWEE/preview"
       }
 
-      var introLetters = $("#quote").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"introLetters"});
+      var introLetters = $("#quote h2").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"introLetters"});
+      var introLettersSubtitle = $("#quote h3 span.subtitle").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"introLettersSubtitle"});
+      var introLettersName = $("#quote h3 span.cugat-name").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"introLettersName"});
+      
       var introWords = $(".introLetters");
+      var introWordsSubtitle = $(".introLettersSubtitle");
+      var introWordsName = $(".introLettersName");
 
       var cita12Letters = $("#cita12").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"cita12Letters"});
       totalWords[12] = $(".cita12Letters");
@@ -64,24 +69,24 @@ angular.module('smcApp')
       //---------------------------
       //----SOUND TRACKS -----
 
-        var soundEpilogo = new Howl({
+        /*var soundEpilogo = new Howl({
           urls: ['audio/ValsViudaAlegre.mp3'],
           loop: false,
           volume: 0.5,
           onend: function() {
             console.log('Finished!');
           }
-        });
+        });*/
 
       //-----------------------
       //------ DRAW SVG ------------
-      var facePortada = $('#FirstFace').drawsvg({
+      /*var facePortada = $('#FirstFace').drawsvg({
         duration: 3000,
         easing: 'linear',
         callback: function() {
           console.log('dibujo terminado');
         }
-      });
+      });*/
       var viaje1 = $('#viaje1Svg').drawsvg({
         duration: 8000,
         easing: 'linear',
@@ -114,6 +119,8 @@ angular.module('smcApp')
           //EPISODE 1
           .addPause()
           .staggerFrom(introWords, 0.1, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.2]}, ease: Back.easeOut.config(0.8)}, 0.1)
+          .staggerFrom(introWordsSubtitle, 0.1, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.2]}, ease: Back.easeOut.config(0.8)}, 0.1)
+          .staggerFrom(introWordsName, 0.1, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.2]}, ease: Back.easeOut.config(0.8)}, 0.1)
           .addPause()
           //EPISODE 2
           .to(".ed1", 0.5, {left: '0%', ease: Bounce.easeOut})
@@ -303,7 +310,7 @@ angular.module('smcApp')
 
        tl.play();
        setTimeout(playTimeLine, 7000);
-       setTimeout(drawFace, 5000);
+       /* setTimeout(drawFace, 5000);*/
 
       //---------------------------------
       //----------MOUSE CONTROLS --------
@@ -510,5 +517,50 @@ angular.module('smcApp')
           viaje1.drawsvg('animate');
         }
       //-----------------------------------
+
+      // MENU
+
+      var container = document.querySelector( 'div.container' ),
+          triggerBttn = document.getElementById( 'trigger-overlay' ),
+          overlay = document.querySelector( 'div.overlay' ),
+          closeBttn = overlay.querySelector( 'button.overlay-close' );
+          transEndEventNames = {
+            'WebkitTransition': 'webkitTransitionEnd',
+            'MozTransition': 'transitionend',
+            'OTransition': 'oTransitionEnd',
+            'msTransition': 'MSTransitionEnd',
+            'transition': 'transitionend'
+          },
+          transEndEventName = transEndEventNames[ Modernizr.prefixed( 'transition' ) ],
+          support = { transitions : Modernizr.csstransitions };
+
+        function toggleOverlay() {
+          if( classie.has( overlay, 'open' ) ) {
+            classie.remove( overlay, 'open' );
+            classie.remove( container, 'overlay-open' );
+            classie.add( overlay, 'close' );
+            var onEndTransitionFn = function( ev ) {
+              if( support.transitions ) {
+                if( ev.propertyName !== 'visibility' ) return;
+                this.removeEventListener( transEndEventName, onEndTransitionFn );
+              }
+              classie.remove( overlay, 'close' );
+            };
+            if( support.transitions ) {
+              overlay.addEventListener( transEndEventName, onEndTransitionFn );
+            }
+            else {
+              onEndTransitionFn();
+            }
+          }
+          else if( !classie.has( overlay, 'close' ) ) {
+            classie.add( overlay, 'open' );
+            classie.add( container, 'overlay-open' );
+          }
+        }
+
+        triggerBttn.addEventListener( 'click', toggleOverlay );
+        closeBttn.addEventListener( 'click', toggleOverlay );
+
 
   });

@@ -19,6 +19,7 @@ body {
   margin: 0;
   background-color: #131213;
   overflow: hidden;
+  font-family: 'Open Sans', sans-serif;
 }
 .img{
   -webkit-box-shadow: 10px 10px 25px 3px rgba(0,0,0,0.75);
@@ -30,11 +31,25 @@ body {
   z-index: 990;
 }
 //-----ICONOS---------------
+
+.topMenu{
+  width: 100%;
+  height: 75px;
+  position: absolute;
+  top: 0%;
+  left:0;
+  background: #000; /* For browsers that do not support gradients */
+  background: -moz-linear-gradient(top,  rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+  z-index: 997;
+}
+
 .iconos{
   position: absolute;
-  top:3%;
-  width: 2%;
-  height: 5%;
+  top:10px;
+  width: 28px;
   z-index: 999;
   cursor: pointer;
 }
@@ -208,10 +223,14 @@ body {
   bottom: -50%;
   left:0;
   background: black; /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(rgba(10,10,10,0) 1%,rgba(10,10,10,0.9) 40%); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(rgba(10,10,10,0) 1%,rgba(10,10,10,0.9) 40%); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(rgba(10,10,10,0) 1%,rgba(10,10,10,0.9) 40%); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(rgba(10,10,10,0) 1%,rgba(10,10,10,0.9) 40%); /* Standard syntax */
+  /*background: -webkit-linear-gradient(rgba(10,10,10,0) 1%,rgba(10,10,10,0.9) 40%); /* For Safari 5.1 to 6.0 */
+  /*background: -o-linear-gradient(rgba(10,10,10,0) 1%,rgba(10,10,10,0.9) 40%); /* For Opera 11.1 to 12.0 */
+  /*background: -moz-linear-gradient(rgba(10,10,10,0) 1%,rgba(10,10,10,0.9) 40%); /* For Firefox 3.6 to 15 */
+  /*background: linear-gradient(rgba(10,10,10,0) 1%,rgba(10,10,10,0.9) 40%); /* Standard syntax */
+  background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.8) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.8) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
   z-index: 997;
 }
 .pentagramNotesGroup{
@@ -279,16 +298,35 @@ body {
   height: 100%;
   z-index: 991;
 }
-.dinamycText {
+.dinamycText{
   position: absolute;
-  font-family: 'Bowlby One', cursive;
-  text-align: justify;
-  color: #ffd85f;
-  font-size: 70px;
-  width: 1173px;
-  left: 40%;
-  top: 55%;
+  width: 100%;
+  top: 25%;
   z-index: 999;
+}
+.dinamycText h2{
+  /*font-family: 'Lora',serif;*/
+  /*font-family: "Avenir", "Arial Black", Arial, sans-serif;*/
+  /*font-family: 'Bowlby One SC', cursive;*/
+  font-family: 'Alegreya Sans', "Avenir", "Arial Black", Arial, sans-serif;
+  text-align: center;
+  font-weight: 900;
+  color: #ffd85f;/*#FFE698;*/
+  /*font-size: 70px;*/
+  margin: 0;
+}
+.dinamycText h3{
+  font-family: "Baskerville", serif;
+  text-align: center;
+  font-style: italic;
+  font-weight: normal;
+  color: #f3f3f3;
+  font-size: 28;
+  margin: 0;
+}
+.dinamycText h3 span.cugat-name{
+  text-transform: uppercase;
+  color: red;
 }
 .wordStyle{
   display: inline-block;
@@ -324,7 +362,7 @@ body {
 }
 .textAddon{
   position: absolute;
-  font-family: 'Open Sans', sans-serif;
+  /*font-family: 'Lora',serif;*/
   font-style: italic;
   z-index: 997;
   color: #2f220f;
@@ -371,11 +409,6 @@ body {
   position: absolute;
   top: 0;
   left: -120%;
-  -webkit-filter: blur(0px);
-  -moz-filter: blur(0px);
-  -o-filter: blur(0px);
-  -ms-filter: blur(0px);
-  filter: blur(0px);
 }
 .ed2{
   width: 110%;
@@ -383,11 +416,6 @@ body {
   position: absolute;
   top: -120%;
   left: 0;
-  -webkit-filter: blur(0px);
-  -moz-filter: blur(0px);
-  -o-filter: blur(0px);
-  -ms-filter: blur(0px);
-  filter: blur(0px);
 }
 .ed3{
   width: 110%;
@@ -395,11 +423,6 @@ body {
   position: absolute;
   top: 0;
   left: 120%;
-  -webkit-filter: blur(0px);
-  -moz-filter: blur(0px);
-  -o-filter: blur(0px);
-  -ms-filter: blur(0px);
-  filter: blur(0px);
 }
 .ed4{
   width: 130%;
@@ -407,11 +430,6 @@ body {
   position: absolute;
   top: -10%;
   left: 0;
-  -webkit-filter: blur(0px);
-  -moz-filter: blur(0px);
-  -o-filter: blur(0px);
-  -ms-filter: blur(0px);
-  filter: blur(0px);
   -webkit-transform: rotateX(-90deg);
   -moz-transform: rotateX(-90deg);
   -ms-transform: rotateX(-90deg);
@@ -466,7 +484,7 @@ body {
 }
 .cita1{
   position: absolute;
-  font-family: 'Pacifico', cursive;
+  font-family: 'Dancing Script', cursive;
   font-style: italic;
   z-index: 997;
   color: #ffd85f;
@@ -479,7 +497,7 @@ body {
   left: 2%;
 }
 .texto1{
-  font-family: 'Open Sans', sans-serif;
+  /*font-family: 'Lora', serif;*/
   z-index: 997;
   color: #FFFFFF;
   font-size: $fontSizeMedium;
@@ -517,11 +535,6 @@ body {
   position: absolute;
   top: 120%;
   left: 0;
-  -webkit-filter: blur(0px);
-  -moz-filter: blur(0px);
-  -o-filter: blur(0px);
-  -ms-filter: blur(0px);
-  filter: blur(0px);
   -webkit-transform: rotateY(0deg);
   -moz-transform: rotateY(0deg);
   -ms-transform: rotateY(0deg);
@@ -567,11 +580,6 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  -webkit-filter: blur(0px);
-  -moz-filter: blur(0px);
-  -o-filter: blur(0px);
-  -ms-filter: blur(0px);
-  filter: blur(0px);
   -webkit-transform: scale(0) rotateY(0deg);
   -moz-transform: scale(0) rotateY(0deg);
   -ms-transform: scale(0) rotateY(0deg);
@@ -589,11 +597,6 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  -webkit-filter: blur(0px);
-  -moz-filter: blur(0px);
-  -o-filter: blur(0px);
-  -ms-filter: blur(0px);
-  filter: blur(0px);
   -webkit-transform: scale(0) rotateY(0deg);
   -moz-transform: scale(0) rotateY(0deg);
   -ms-transform: scale(0) rotateY(0deg);
@@ -611,11 +614,6 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  -webkit-filter: blur(0px);
-  -moz-filter: blur(0px);
-  -o-filter: blur(0px);
-  -ms-filter: blur(0px);
-  filter: blur(0px);
   -webkit-transform: scale(0) rotateY(0deg);
   -moz-transform: scale(0) rotateY(0deg);
   -ms-transform: scale(0) rotateY(0deg);
@@ -634,11 +632,6 @@ body {
   width: 100%;
   height: 100%;
   opacity: 0;
-  -webkit-filter: blur(0px);
-  -moz-filter: blur(0px);
-  -o-filter: blur(0px);
-  -ms-filter: blur(0px);
-  filter: blur(0px);
   -webkit-transform: rotateY(0deg);
   -moz-transform: rotateY(0deg);
   -ms-transform: rotateY(0deg);
@@ -726,7 +719,7 @@ body {
 ///////////////RITA MONTANER///////////////////
 //DIAPOSITIVA 5
 .mujerTitle1{
-  font-family: 'Bowlby One', cursive;
+  /*font-family: 'Lora',serif;*/
   width: 20%;
   position: absolute;
   top: 8%;
@@ -735,7 +728,7 @@ body {
   z-index: 990;
 }
 .texto2{
-  font-family: 'Open Sans', sans-serif;
+  /*font-family: 'Lora', serif;*/
   z-index: 997;
   color: #FFFFFF;
   font-size: $fontSizeBig;
@@ -792,11 +785,6 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  -webkit-filter: blur(0px);
-  -moz-filter: blur(0px);
-  -o-filter: blur(0px);
-  -ms-filter: blur(0px);
-  filter: blur(0px);
   -webkit-transform: rotateY(165deg);
   -moz-transform: rotateY(165deg);
   -ms-transform: rotateY(165deg);
@@ -854,11 +842,6 @@ body {
   position: absolute;
   top: 0%;
   left: 0;
-  -webkit-filter: blur(0px);
-  -moz-filter: blur(0px);
-  -o-filter: blur(0px);
-  -ms-filter: blur(0px);
-  filter: blur(0px);
   -webkit-transform: rotateX(150deg);
   -moz-transform: rotateX(150deg);
   -ms-transform: rotateX(150deg);
@@ -944,11 +927,6 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  -webkit-filter: blur(0px);
-  -moz-filter: blur(0px);
-  -o-filter: blur(0px);
-  -ms-filter: blur(0px);
-  filter: blur(0px);
   -webkit-transform: rotateY(165deg);
   -moz-transform: rotateY(165deg);
   -ms-transform: rotateY(165deg);
@@ -961,7 +939,7 @@ body {
   transform-origin: 0% 0%;
 }
 .mujerTitle2{
-  font-family: 'Bowlby One', cursive;
+  /*font-family: 'Lora',serif;*/
   width: 20%;
   position: absolute;
   bottom: 20%;
@@ -970,7 +948,7 @@ body {
   z-index: 990;
 }
 .texto3{
-  font-family: 'Open Sans', sans-serif;
+  /*font-family: 'Lora', serif;*/
   z-index: 997;
   color: #FFFFFF;
   font-size: $fontSizeBig;
@@ -1003,7 +981,7 @@ body {
 }
 .cita3{
   position: absolute;
-  font-family: 'Pacifico', cursive;
+  font-family: 'Lora',serif;
   font-style: italic;
   z-index: 997;
   width: 30%;
@@ -1174,11 +1152,6 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  -webkit-filter: blur(0px);
-  -moz-filter: blur(0px);
-  -o-filter: blur(0px);
-  -ms-filter: blur(0px);
-  filter: blur(0px);
   -webkit-transform: rotateY(165deg);
   -moz-transform: rotateY(165deg);
   -ms-transform: rotateY(165deg);
@@ -1191,7 +1164,7 @@ body {
   transform-origin: 0% 0%;
 }
 .mujerTitle3{
-  font-family: 'Bowlby One', cursive;
+  /*font-family: 'Lora',serif;*/
   width: 20%;
   position: absolute;
   bottom: 20%;
@@ -1200,7 +1173,7 @@ body {
   z-index: 990;
 }
 .lorraine{
-  font-family: 'Bowlby One', cursive;
+  font-family: 'Great Vibes', cursive;
   width: 20%;
   color: #ffd85f;
   position: absolute;
@@ -1210,7 +1183,7 @@ body {
   z-index: 990;
 }
 .texto4{
-  font-family: 'Open Sans', sans-serif;
+  /*font-family: 'Lora',serif;*/
   z-index: 997;
   color: #f5f5f5;
   font-size: $fontSizeBig;
@@ -1259,7 +1232,7 @@ body {
 }
 .cita4{
   position: absolute;
-  font-family: 'Pacifico', cursive;
+  font-family: 'Dancing Script', cursive;
   font-style: italic;
   z-index: 997;
   color: #150f08;
@@ -1368,11 +1341,6 @@ body {
   position: absolute;
   top: 0%;
   left: 0;
-  -webkit-filter: blur(0px);
-  -moz-filter: blur(0px);
-  -o-filter: blur(0px);
-  -ms-filter: blur(0px);
-  filter: blur(0px);
   -webkit-transform: rotateY(165deg);
   -moz-transform: rotateY(165deg);
   -ms-transform: rotateY(165deg);
@@ -1386,7 +1354,7 @@ body {
 }
 
 .mujerTitle4{
-  font-family: 'Bowlby One', cursive;
+  /*font-family: 'Lora',serif;*/
   width: 20%;
   position: absolute;
   bottom: 28%;
@@ -1396,7 +1364,7 @@ body {
 }
 .cita5{
   position: absolute;
-  font-family: 'Pacifico', cursive;
+  font-family: 'Dancing Script', cursive;
   font-style: italic;
   z-index: 997;
   color: #150f08;
@@ -1433,7 +1401,7 @@ body {
   width: 15%;
 }
 .texto5{
-  font-family: 'Open Sans', sans-serif;
+  /*font-family: 'Lora',serif;*/
   z-index: 997;
   color: #f5f5f5;
   font-size: $fontSizeBig;
@@ -1551,7 +1519,7 @@ body {
 // DIAPOSITIVA 16
 
 .mujerTitle5{
-  font-family: 'Bowlby One', cursive;
+  /*font-family: 'Lora',serif;*/
   width: 20%;
   position: absolute;
   bottom: 15%;
@@ -1559,7 +1527,7 @@ body {
   font-size: 50px;
 }
 .texto6{
-  font-family: 'Open Sans', sans-serif;
+  /*font-family: 'Lora',serif;*/
   z-index: 997;
   color: #f5f5f5;
   font-size: $fontSizeBig;
@@ -1586,7 +1554,7 @@ body {
 }
 .cita6{
   position: absolute;
-  font-family: 'Pacifico', cursive;
+  font-family: 'Dancing Script', cursive;
   font-style: italic;
   z-index: 997;
   color: #150f08;
@@ -1621,7 +1589,7 @@ body {
 //FIN DIAPOSITIVA 16
 // DIAPOSITIVA 17
 .epilogoTitle{
-  font-family: 'Bowlby One', cursive;
+  /*font-family: 'Lora',serif;*/
   width: 30%;
   position: absolute;
   bottom: 15%;
@@ -1734,7 +1702,116 @@ body {
   .cita1, .cita2, .cita3, .cita4, .cita5, .cita6 {font-size: 25px;}
   .mujerTitle1, .mujerTitle2,.mujerTitle3,.mujerTitle4,.mujerTitle5,.epilogoTitle{font-size: 30px;}
   .dinamycText {
-    font-size: 33px;
-    width: 640px;
+    font-size: 45px;
+    /*width: 760px;*/
   }
 }
+
+
+/* Menu Overlay */
+
+/* Overlay style */
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(153,204,51,0.9);
+}
+
+/* Overlay closing cross */
+.overlay .overlay-close {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  overflow: hidden;
+  border: none;
+  background: url(../images/cross.png) no-repeat center center;
+  text-indent: 200%;
+  color: transparent;
+  outline: none;
+  z-index: 100;
+}
+
+/* Menu style */
+.overlay nav {
+  text-align: center;
+  position: relative;
+  top: 50%;
+  height: 60%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.overlay ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  display: inline-block;
+  height: 100%;
+  position: relative;
+}
+
+.overlay ul li {
+  display: block;
+  height: 20%;
+  height: calc(100% / 5);
+  min-height: 54px;
+}
+
+.overlay ul li a {
+  font-size: 54px;
+  font-weight: 300;
+  display: block;
+  color: #fff;
+  -webkit-transition: color 0.2s;
+  transition: color 0.2s;
+}
+
+.overlay ul li a:hover,
+.overlay ul li a:focus {
+  color: #f0f0f0;
+}
+
+/* Effects */
+
+.container {
+  background: #111;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+}
+
+.container.overlay-open {
+  -webkit-transform: scale(0.8);
+  transform: scale(0.8);
+}
+
+.overlay-contentscale {
+  visibility: hidden;
+  -webkit-transform: translateY(100%);
+  transform: translateY(100%);
+  -webkit-transition: -webkit-transform 0.5s, visibility 0s 0.5s;
+  transition: transform 0.5s, visibility 0s 0.5s;
+}
+
+.overlay-contentscale.open {
+  visibility: visible;
+  -webkit-transform: translateY(0%);
+  transform: translateY(0%);
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+}
+
+@media screen and (max-height: 30.5em) {
+  .overlay nav {
+    height: 70%;
+    font-size: 34px;
+  }
+  .overlay ul li {
+    min-height: 34px;
+  }
+}
+

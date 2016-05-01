@@ -5,15 +5,20 @@
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
+    <!--link href='https://fonts.googleapis.com/css?family=Alice' rel='stylesheet' type='text/css'-->
+    <link href='https://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Dancing+Script' rel='stylesheet' type='text/css'>
+    <!--link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'-->
+    <link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Bowlby+One+SC' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Alegreya+Sans:400,900' rel='stylesheet' type='text/css'>
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Bowlby+One' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
@@ -21,6 +26,23 @@
     <div class="container">
     <div ng-view=""></div>
     </div>
+
+    <div class="overlay overlay-contentscale">
+      <button type="button" class="overlay-close">Close</button>
+      <nav>
+        <ul>
+          <li><a href="#">Inicio</a></li>
+          <li><a href="#">Prólogo</a></li>
+          <li><a href="#">Rita Montaner</a></li>
+          <li><a href="#">Carmen Castillo</a></li>
+          <li><a href="#">Lorraine Allen</a></li>
+          <li><a href="#">Abbe Lane</a></li>
+          <li><a href="#">Charo Baeza</a></li>
+          <li><a href="#">Epílogo</a></li>
+        </ul>
+      </nav>
+    </div>
+
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
        !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
@@ -42,7 +64,6 @@
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
     <script src="bower_components/greensock/src/uncompressed/TweenMax.js"></script>
-    <script src="bower_components/greensock/src/uncompressed/SplitTextPlugin.js"></script>
     <script src="bower_components/underscore/underscore.js"></script>
     <script src="bower_components/howler/howler.js"></script>
     <script src="bower_components/d3/d3.js"></script>
