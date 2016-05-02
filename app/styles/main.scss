@@ -244,6 +244,7 @@ body {
   width: 3%;
   height: 100%;
   float: left;
+  cursor: pointer;
 }
 .noteImgNegra{
   width: 30%;
@@ -521,20 +522,10 @@ body {
 .plusInfoProlPlus1{
   right: 5%;
   bottom:20%;
-  -webkit-transform: scale(0);
-  -moz-transform: scale(0);
-  -ms-transform: scale(0);
-  -o-transform: scale(0);
-  transform: scale(0);
 }
 .plusInfoProlMinus1{
   right: 5%;
   bottom:20%;
-  -webkit-transform: scale(0);
-  -moz-transform: scale(0);
-  -ms-transform: scale(0);
-  -o-transform: scale(0);
-  transform: scale(0);
 }
 .CitaAddonProl1{
   position: absolute;
@@ -643,36 +634,66 @@ body {
 }
 .prel05{
   position: absolute;
-  top:10%;
-  right: -100%;
+  top:-200%;
+  right: 75%;
   height:35%;
   z-index: 989;
+  -webkit-transform: scale(10);
+  -moz-transform: scale(10);
+  -ms-transform: scale(10);
+  -o-transform: scale(10);
+  transform: scale(10);
 }
 .prelpant1{
   position: absolute;
-  top:10%;
-  right: -100%;
+  top:-200%;
+  right: 33%;
   height:35%;
   z-index: 989;
+  -webkit-transform: scale(10);
+  -moz-transform: scale(10);
+  -ms-transform: scale(10);
+  -o-transform: scale(10);
+  transform: scale(10);
 }
 .prel06{
   position: absolute;
-  top:10%;
-  right: -100%;
+  top:-200%;
+  right: 13%;
   height:35%;
   z-index: 989;
+  -webkit-transform: scale(10);
+  -moz-transform: scale(10);
+  -ms-transform: scale(10);
+  -o-transform: scale(10);
+  transform: scale(10);
 }
 .texto14{
-  top: 48%;
-  right: -100%;
+  top:-150%;
+  right: 50%;
+  -webkit-transform: scale(10);
+  -moz-transform: scale(10);
+  -ms-transform: scale(10);
+  -o-transform: scale(10);
+  transform: scale(10);
 }
 .texto15{
-  top: 65%;
-  right: -100%;
+  top:-150%;
+  right: 30%;
+  -webkit-transform: scale(10);
+  -moz-transform: scale(10);
+  -ms-transform: scale(10);
+  -o-transform: scale(10);
+  transform: scale(10);
 }
 .texto16{
-  top: 80%;
-  right: -100%;
+  top:-150%;
+  right: 10%;
+  -webkit-transform: scale(10);
+  -moz-transform: scale(10);
+  -ms-transform: scale(10);
+  -o-transform: scale(10);
+  transform: scale(10);
 }
 .p21Video{
   position: absolute;
@@ -808,7 +829,8 @@ body {
   z-index: 997;
   width: 30%;
   height: 30%;
-  border: solid 3px rgb(255, 216, 95);;
+  border-left: dotted 10px rgb(255, 216, 95);
+  border-right: dotted 10px rgb(255, 216, 95);
 }
 .textAddonRm{
   position: absolute;
@@ -917,22 +939,44 @@ body {
 }
 //FIN DIAPOSITIVA 6
 //DIAPOSITIVA 7
-.holly1{
+.holly1, .holly2, .holly3, .holly4{
   width: 100%;
   height: 100%;
   position: absolute;
   top: 0%;
   left: 0;
-  -webkit-transform: rotateX(150deg);
-  -moz-transform: rotateX(150deg);
-  -ms-transform: rotateX(150deg);
-  -o-transform: rotateX(150deg);
-  transform: rotateX(150deg);
-  -webkit-transform-origin: 0% 0%;
-  -moz-transform-origin: 0% 0%;
-  -ms-transform-origin: 0% 0%;
-  -o-transform-origin: 0% 0%;
-  transform-origin: 0% 0%;
+  -webkit-transform: rotateX(165deg);
+  -moz-transform: rotateX(165deg);
+  -ms-transform: rotateX(165deg);
+  -o-transform: rotateX(165deg);
+  transform: rotateX(165deg);
+  -webkit-transform-origin: 100% 100%;
+  -moz-transform-origin: 100% 100%;
+  -ms-transform-origin: 100% 100%;
+  -o-transform-origin: 100% 100%;
+  transform-origin: 100% 100%;
+}
+.holly6{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 110%;
+  left: 0;
+}
+.holly7{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: -110%;
+  left: 0;
+}
+.holly5{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0%;
+  left: 0;
+  opacity: 0;
 }
 .rm7Group{
   position: absolute;
