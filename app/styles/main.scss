@@ -206,6 +206,10 @@ body {
 .back6{z-index: 983;}
 .back7{z-index: 982;}
 .back8{z-index: 981;}
+.blurEffect1, .blurEffect2, .blurEffect3, .blurEffect4, .blurEffect5, .blurEffect6, .blurEffect7, .blurEffect8{
+  -webkit-filter: blur(0px); /* Chrome, Safari, Opera */
+  filter: blur(0px);
+}
 .color0{
   background-color: rgba(14, 9, 7, 0);
 }
@@ -768,6 +772,9 @@ body {
 //FIN DIAPOSITIVA 4
 ///////////////RITA MONTANER///////////////////
 //DIAPOSITIVA 5
+.imageAddonRm{
+  position:absolute;
+}
 .mujerTitle1{
   /*font-family: 'Lora',serif;*/
   width: 20%;
@@ -865,7 +872,7 @@ body {
 }
 .citaRm3{
   width: 30%;
-  top: 55%;
+  top: 60%;
   left: 5%;
 }
 .imageRm11{
@@ -877,7 +884,7 @@ body {
 .imageRm12{
   position: absolute;
   z-index: 997;
-  top: 15%;
+  top: 10%;
   right: 5%;
 }
 //FIN DIAPOSITIVA 5
@@ -923,19 +930,45 @@ body {
 }
 .rm21Video{
   position: absolute;
-  top:10%;
-  right: 10%;
+  top:30%;
+  left: 10%;
   z-index: 991;
-  width: 20%;
-  height: 20%;
+  width: 25%;
+  height: 25%;
+  border-left: dotted 10px rgb(255, 216, 95);
+  border-right: dotted 10px rgb(255, 216, 95);
 }
 .rm22Video{
   position: absolute;
-  top:10%;
+  top:65%;
   left: 10%;
   z-index: 991;
-  width: 20%;
-  height: 20%;
+  width: 25%;
+  height: 25%;
+  border-left: dotted 10px rgb(255, 216, 95);
+  border-right: dotted 10px rgb(255, 216, 95);
+}
+.textRm2{
+  width: 40%;
+  right: 10%;
+  bottom: 40%;
+}
+.citaRm4{
+  width: 50%;
+  left: 10%;
+  top: 10%;
+}
+.plusInfoProlPlus2{
+  right: 0;
+  left: 0;
+  margin: auto;
+  bottom:15%;
+}
+.plusInfoProlMinus2{
+  right: 0;
+  left: 0;
+  margin: auto;
+  bottom:15%;
 }
 //FIN DIAPOSITIVA 6
 //DIAPOSITIVA 7
@@ -1022,19 +1055,26 @@ body {
 }
 .rm31Video{
   position: absolute;
-  top: 10%;
-  left: 10%;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
   z-index: 991;
   width: 20%;
   height: 20%;
+  border-left: dotted 10px rgb(255, 216, 95);
+  border-right: dotted 10px rgb(255, 216, 95);
 }
 .rm32Video{
   position: absolute;
-  top: 10%;
+  bottom: 40%;
   right: 10%;
   z-index: 991;
   width: 20%;
   height: 20%;
+  border-left: dotted 10px rgb(255, 216, 95);
+  border-right: dotted 10px rgb(255, 216, 95);
 }
 .rm33Video{
   position: absolute;
@@ -1043,9 +1083,77 @@ body {
   z-index: 991;
   width: 20%;
   height: 20%;
+  border-left: dotted 10px rgb(255, 216, 95);
+  border-right: dotted 10px rgb(255, 216, 95);
+}
+.textRm3{
+  width: 40%;
+  right: 10%;
+  top: 10%;
+}
+.citaRm5{
+  width: 40%;
+  left: 5%;
+  bottom: 10%;
+}
+.imageRm1{
+  width: 15%;
+  top: 15%;
+  left: 5%;
+}
+.imageRm2{
+  width: 15%;
+  top: 15%;
+  left: 20%;
+}
+.citaRm6{
+  width: 40%;
+  left: 5%;
+  top: 5%;
+}
+.citaRm7{
+  width: 40%;
+  right: 5%;
+  top: 30%;
+}
+.citaRm8{
+  width: 40%;
+  left: 5%;
+  top: 45%;
+}
+.citaRm9{
+  width: 40%;
+  right: 5%;
+  top: 5%;
+}
+.citaRm10{
+  width: 40%;
+  left: 5%;
+  top: 20%;
+}
+.citaRm11{
+  width: 40%;
+  right: 5%;
+  top: 45%;
 }
 //FIN DIAPOSITIVA 7
 // DIAPOSITIVA 8
+.citaAddonCc{
+  position: absolute;
+  font-family: 'Bowlby', cursive;
+  font-style: italic;
+  font-size:14px;
+  z-index: 997;
+  color: rgb(255, 216, 95);
+}
+.textAddonCc{
+  position: absolute;
+  font-family: 'Open Sans', sans-serif;
+  font-style: italic;
+  z-index: 997;
+  color: rgba(255, 255, 255, 1);
+  font-size: $fontSizeMedium;
+}
 .carn1{
   position: absolute;
   top:0;
@@ -1130,6 +1238,31 @@ body {
   right:-110%;
   height: 40%;
   z-index: 990;
+}
+.citaCc1{
+  width: 40%;
+  left: 5%;
+  top: 5%;
+}
+.citaCc2{
+  width: 40%;
+  left: 5%;
+  top: 20%;
+}
+.citaCc3{
+  width: 40%;
+  left: 5%;
+  top: 50%;
+}
+.citaCc4{
+  width: 40%;
+  right: 5%;
+  top: 5%;
+}
+.textCc1{
+  width: 45%;
+  right: 5%;
+  top: 45%;
 }
 //FIN DIAPOSITIVA 8
 // DIAPOSITIVA 9
@@ -1968,9 +2101,9 @@ body {
 /* Trigger text */
 
 .tooltip-item {
-  
+
   cursor: pointer;
-  
+
 }
 
 /* Gap filler */
