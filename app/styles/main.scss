@@ -291,7 +291,7 @@ body {
 .videoCover{
   position: absolute;
   background-color: #000000;
-  opacity: 0.6;
+  opacity: 1;
   right: 0px;
   top: 0px;
   width: 100%;
@@ -424,11 +424,16 @@ body {
 }
 .prelGroup{
   position: absolute;
-  top: -100%;
+  top: -420%;
   left: 10%;
   width: 40%;
   height: 40%;
   z-index: 989;
+  -webkit-transform: scale(10);
+  -moz-transform: scale(10);
+  -ms-transform: scale(10);
+  -o-transform: scale(10);
+  transform: scale(10);
 }
 .prel01 {
   position: absolute;
@@ -459,14 +464,21 @@ body {
   font-family: 'Dancing Script', cursive;
   font-style: italic;
   z-index: 997;
-  color: #ffd85f;
+  //color: #231a16;
+  color: #ffd85f;/*#FFE698;*/
   font-size: 35px;
+  //background-color: rgba(255, 255, 255, 0.70);
   padding: 2% 3%;
 }
 .cita11{
   bottom: -100%;
   width: 90%;
   left: 2%;
+  -webkit-transform: scale(10);
+  -moz-transform: scale(10);
+  -ms-transform: scale(10);
+  -o-transform: scale(10);
+  transform: scale(10);
 }
 .texto1{
   /*font-family: 'Lora', serif;*/
@@ -482,30 +494,55 @@ body {
 .texto11{
   top: -100%;
   right: 5%;
+  -webkit-transform: scale(10);
+  -moz-transform: scale(10);
+  -ms-transform: scale(10);
+  -o-transform: scale(10);
+  transform: scale(10);
 }
 .texto12{
   top: -100%;
   right: 5%;
+  -webkit-transform: scale(10);
+  -moz-transform: scale(10);
+  -ms-transform: scale(10);
+  -o-transform: scale(10);
+  transform: scale(10);
 }
 .texto13{
   top: -100%;
   right: 5%;
+  -webkit-transform: scale(10);
+  -moz-transform: scale(10);
+  -ms-transform: scale(10);
+  -o-transform: scale(10);
+  transform: scale(10);
 }
 .plusInfoProlPlus1{
   right: 5%;
   bottom:20%;
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  -ms-transform: scale(0);
+  -o-transform: scale(0);
+  transform: scale(0);
 }
 .plusInfoProlMinus1{
   right: 5%;
   bottom:20%;
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  -ms-transform: scale(0);
+  -o-transform: scale(0);
+  transform: scale(0);
 }
 .CitaAddonProl1{
   position: absolute;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Bowlby', cursive;
   font-style: italic;
+  font-size:14px;
   z-index: 997;
-  color: rgba(255, 255, 255, 1);
-  font-size: $fontSizeMedium;
+  color: rgb(255, 216, 95);
 }
 .prol1{width: 40%; top: 10%; left: 5%;}
 .prol2{width: 40%; top: 30%; left: 5%;}
@@ -520,6 +557,8 @@ body {
   z-index: 991;
   width: 30%;
   height: 30%;
+  border-right: dotted 10px rgb(255, 216, 95);
+  border-left: dotted 10px rgb(255, 216, 95);
 }
 // FIN DIAPOSITIVA 1
 // DIAPOSITIVA 2
@@ -637,19 +676,23 @@ body {
 }
 .p21Video{
   position: absolute;
-  top:50%;
+  top:10%;
   right: 10%;
   z-index: 991;
-  width: 20%;
-  height: 20%;
+  width: 30%;
+  height: 30%;
+  border-right: dotted 10px rgb(255, 216, 95);
+  border-left: dotted 10px rgb(255, 216, 95);
 }
 .p22Video{
   position: absolute;
-  top:15%;
+  top:50%;
   right: 10%;
   z-index: 991;
-  width: 20%;
-  height: 20%;
+  width: 30%;
+  height: 30%;
+  border-right: dotted 10px rgb(255, 216, 95);
+  border-left: dotted 10px rgb(255, 216, 95);
 }
 .textAddonProl3{
   position: absolute;
@@ -659,9 +702,17 @@ body {
   color: rgba(255, 255, 255, 1);
   font-size: $fontSizeMedium;
 }
+.CitaAddonProl3{
+  position: absolute;
+  font-family: 'Bowlby', cursive;
+  font-style: italic;
+  font-size:14px;
+  z-index: 997;
+  color: rgb(255, 216, 95);
+}
 .textProl1{width: 40%; top: 10%; left: 5%;}
-.textProl2{width: 40%; top: 35%; left: 5%;}
-.textProl3{width: 40%; top: 60%; left: 5%;}
+.citaProl1{width: 40%; top: 35%; left: 5%;}
+.citaProl2{width: 40%; top: 60%; left: 5%;}
 //FIN DIAPOSITIVA 3
 // DIAPOSITIVA 4
 .texto17{
@@ -682,11 +733,13 @@ body {
   top: 0%;
   bottom: 10%;
   left: 0%;
-  right: 0%;
+  right: -150%;
   margin:auto;
   z-index: 991;
   width: 40%;
   height: 40%;
+  border-right: dotted 10px rgb(255, 216, 95);
+  border-left: dotted 10px rgb(255, 216, 95);
 }
 .textProl4{width: 40%; top: 10%; left: 5%;}
 .textProl5{width: 40%; top: 35%; left: 5%;}
@@ -1761,6 +1814,7 @@ body {
   text-indent: 200%;
   color: transparent;
   outline: none;
+  cursor: pointer;
   z-index: 100;
 }
 

@@ -89,16 +89,17 @@ angular.module('smcApp')
 
         tl
           //EPISODE 1
-          .addPause()
-          .staggerFrom(introWords, 0.1, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.2]}, ease: Back.easeOut.config(0.8)}, 0.1)
-          .staggerFrom(introWordsSubtitle, 0.1, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.2]}, ease: Back.easeOut.config(0.8)}, 0.1)
-          .staggerFrom(introWordsName, 0.1, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.2]}, ease: Back.easeOut.config(0.8)}, 0.1)
+          .to(".videoCover", 3, {opacity: '0.6', delay: 3, ease: Power0.easeOut},"inicio")
+          .staggerFrom(introWords, 0.6, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.2]}, ease: Back.easeOut.config(0.8)}, 0.1)
+          .staggerFrom(introWordsSubtitle, 0.6, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.2]}, ease: Back.easeOut.config(0.8)}, 0.1)
+          .staggerFrom(introWordsName, 0.6, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.2]}, ease: Back.easeOut.config(0.8)}, 0.1)
           .addPause()
           //EPISODE 2
           .to(".ed1", 0.5, {left: '0%', ease: Bounce.easeOut},"prologo")
           .to(".ed2", 0.5, {top: '0%', ease: Bounce.easeOut})
           .to(".ed3", 0.5, {left: '0%', ease: Bounce.easeOut},"-=1")
           .to(".ed4", 0.5, {transform: 'rotateX(0deg)', ease: Back.easeOut.config(1)})
+          .to("#page1",0.1,{ right: '0%', onComplete: hideVideo, ease: Power0.easeNone})
           .to(".pentagramRect",0.2,{ bottom: '1%', ease: Power0.easeNone},"-=0.2")
           .to(".pentagramBack",0.2,{ bottom: '0%', ease: Power0.easeNone},"-=0.2")
           .to(".pentagramNotesGroup",0.2,{ bottom: '2%', ease: Power0.easeNone},"-=0.2")
@@ -106,15 +107,23 @@ angular.module('smcApp')
           .to(".ed2", 1, {css:{'-webkit-filter': 'blur(8px)'}, ease: Power0.easeOut},"blurEffect1+=1")
           .to(".ed3", 1, {css:{'-webkit-filter': 'blur(8px)'}, ease: Power0.easeOut},"blurEffect1+=1")
           .to(".ed4", 1, {css:{'-webkit-filter': 'blur(8px)'}, ease: Power0.easeOut},"blurEffect1+=1")
-          .to("#page1",0.1,{ right: '0%', onComplete: hideVideo, ease: Power0.easeNone},"-=1")
-          .to(".texto11", 0.5, {top: '9%', ease: Back.easeOut.config(1)})
-          .to(".texto12", 0.5, {top: '30%', ease: Back.easeOut.config(1)},"-=0.2")
-          .to(".texto13", 0.5, {top: '55%', ease: Back.easeOut.config(1)},"-=0.2")
-          .to(".cita11", 0.5, {bottom: '10%', ease: Back.easeOut.config(1)},"-=1")
-          .to(".prelGroup", 0.5, {top: '10%', ease: Back.easeOut.config(1)},"-=1")
+          .to(".texto11", 0.5, {top: '9%', scale: '1', ease: Back.easeOut.config(0.7)},"-=1")
+          .to(".texto12", 0.5, {top: '30%', scale: '1', ease: Back.easeOut.config(0.7)},"-=0.2")
+          .to(".texto13", 0.5, {top: '55%', scale: '1', ease: Back.easeOut.config(0.7)},"-=0.2")
+          .to(".cita11", 0.5, {bottom: '10%', scale: '1', ease: Back.easeOut.config(0.7)},"-=1")
+          .to(".prelGroup", 0.5, {top: '10%', scale: '1', ease: Back.easeOut.config(0.7)},"-=1")
+          .to(".plusInfoProlPlus1", 0.5, { scale: '1', ease: Back.easeOut.config(0.7)})
+          .to(".plusInfoProlMinus1", 0.5, { scale: '1', ease: Back.easeOut.config(0.7)},"-=0.5")
           .to("#page0",0.5,{ scale: '0', ease: Back.easeIn.config(1)})
           .addPause()
           //EPISODE 3
+          .to(".texto11", 0.5, {top: '50%', scale: '0', ease: Back.easeOut.config(0.7)})
+          .to(".texto12", 0.5, {top: '50%', scale: '0', ease: Back.easeOut.config(0.7)},"-=0.5")
+          .to(".texto13", 0.5, {top: '50%', scale: '0', ease: Back.easeOut.config(0.7)},"-=0.5")
+          .to(".cita11", 0.5, {bottom: '50%', scale: '0', ease: Back.easeOut.config(0.7)},"-=0.5")
+          .to(".prelGroup", 0.5, {top: '50%', scale: '0', ease: Back.easeOut.config(0.7)},"-=0.5")
+          .to(".plusInfoProlPlus1", 0.5, { scale: '0', ease: Back.easeOut.config(0.7)},"-=0.5")
+          .to(".plusInfoProlMinus1", 0.5, { scale: '0', ease: Back.easeOut.config(0.7)},"-=0.5")
           .to(".ed2", 0.5, {left: '-5%', ease: Power2.easeIn},"scrollGer")
           .to(".ed3", 0.5, {left: '-10%', ease: Power2.easeIn},"scrollGer")
           .to(".ed4", 0.5, {left: '-15%', ease: Power2.easeIn},"scrollGer")
@@ -138,6 +147,7 @@ angular.module('smcApp')
           .to(".texto14",0.4,{ right: '50%', ease: Back.easeOut.config(1)},"-=0.2")
           .to(".texto15",0.4,{ right: '30%', ease: Back.easeOut.config(1)},"-=0.2")
           .to(".texto16",0.4,{ right: '10%', ease: Back.easeOut.config(1)},"-=0.2")
+          .to(".p21Video",0.4,{ right: '10%', ease: Back.easeOut.config(1)},"-=0.2")
           .addPause()
           //EPISODE 5
           .to(".cub1", 0.5, {transform: 'rotateY(165deg)', ease: Power2.easeIn})
@@ -150,9 +160,17 @@ angular.module('smcApp')
           .to(".ny5", 0.5, {scale: '1', right: '0', ease: Bounce.easeOut},"-=0.2")
           .to(".ny6", 0.5, {scale: '1', right: '0', ease: Bounce.easeOut},"-=0.2")
           .to(".ny7", 0.5, {scale: '1', right: '0', ease: Bounce.easeOut},"-=0.2")
-          .to(".texto17",0.4,{ right: '55%', ease: Back.easeOut.config(1)},"-=0.2")
-          .to(".texto18",0.4,{ right: '10%', ease: Back.easeOut.config(1)},"-=0.2")
-          .to(".cita12",0.4,{ right: '20%', ease: Back.easeOut.config(1)},"-=0.2")
+          .to(".ny1", 1, {css:{'-webkit-filter': 'blur(8px)'}, ease: Power0.easeOut},"blurEffect3+=2")
+          .to(".ny2", 1, {css:{'-webkit-filter': 'blur(8px)'}, ease: Power0.easeOut},"blurEffect3+=2")
+          .to(".ny3", 1, {css:{'-webkit-filter': 'blur(8px)'}, ease: Power0.easeOut},"blurEffect3+=2")
+          .to(".ny4", 1, {css:{'-webkit-filter': 'blur(8px)'}, ease: Power0.easeOut},"blurEffect3+=2")
+          .to(".ny5", 1, {css:{'-webkit-filter': 'blur(8px)'}, ease: Power0.easeOut},"blurEffect3+=2")
+          .to(".ny6", 1, {css:{'-webkit-filter': 'blur(8px)'}, ease: Power0.easeOut},"blurEffect3+=2")
+          .to(".ny7", 1, {css:{'-webkit-filter': 'blur(8px)'}, ease: Power0.easeOut},"blurEffect3+=2")
+          .to(".texto17",0.4,{ right: '55%', ease: Back.easeOut.config(1)},"-=1")
+          .to(".texto18",0.4,{ right: '10%', ease: Back.easeOut.config(1)},"-=1")
+          .to(".cita12",0.4,{ right: '20%', ease: Back.easeOut.config(1)},"-=1")
+          .to(".p31Video",0.4,{ right: '10%', ease: Back.easeOut.config(1)},"-=1")
           .addPause()
           //EPISODE 6
           .to("#page4",0.4,{ right: '100%', ease: Power0.easeNone},"ritaMontaner")
@@ -269,16 +287,17 @@ angular.module('smcApp')
           .to(".al7",0.4,{ top: '10%', ease: Back.easeOut.config(1)},"-=0.2")
           .addPause()
           //EPISODE 17
-          .to("#page15",0.4,{ right: '100%', ease: Power0.easeNone})
+          .to("#page15",0.4,{ right: '100%', ease: Power0.easeNone}, "charoBaeza")
           .to("#page16",0.4,{ right: '0%', ease: Power0.easeNone})
           .addPause()
-          .to("#cb01",0.7,{ left: '10%',scale: '0.01', ease: Back.easeOut}, "charoBaeza")
-          .to("#cb04",0.7,{ left: '45%',scale: '1', ease: Back.easeOut},"charoBaeza+=2")
-          .to("#texto61",0.7,{ left: '5%',scale: '0.01', ease: Back.easeOut},"charoBaeza+=2")
-          .to("#texto63",0.7,{ left: '25%',scale: '1', ease: Back.easeOut},"charoBaeza+=2")
+          .to("#cb01",0.7,{ left: '10%',scale: '0.01', ease: Back.easeOut}, "charoBaezatrans")
+          .to("#cb04",0.7,{ left: '45%',scale: '1', ease: Back.easeOut},"charoBaezatrans")
+          .to("#texto61",0.7,{ left: '5%',scale: '0.01', ease: Back.easeOut},"charoBaezatrans")
+          .to("#texto63",0.7,{ left: '25%',scale: '1', ease: Back.easeOut},"charoBaezatrans")
           .addPause()
           //EPISODE 18
-          .to("#page16",0.4,{ right: '100%', ease: Power0.easeNone},"epilogo")
+          .to(".lasv1", 0.3, {transform: 'rotateY(165deg)', ease: Back.easeOut.config(1)},"epilogo")
+          .to("#page16",0.4,{ right: '100%', ease: Power0.easeNone})
           .to("#page17",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
           .addPause()
           //EPISODE 19
@@ -286,8 +305,8 @@ angular.module('smcApp')
           .to("#page18",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
           .addPause();
 
-       tl.play();
-       setTimeout(playTimeLine, 7000);
+       tl.pause();
+       setTimeout(playTimeLine, 15000);
        /* setTimeout(drawFace, 5000);*/
 
       //---------------------------------
@@ -391,8 +410,11 @@ angular.module('smcApp')
       //--------------------------------------
       //-------FUNCTIONS --------------------
         $scope.upTo = function(value) {
-          $('#introVideo').attr('src', '');
-          $('#introVideo').attr('src', 'https://www.youtube.com/embed/wpWO4L0qPPw?showinfo=0');
+          if(value=='inicio') $('#introVideo').attr('src', 'https://www.youtube.com/embed/wpWO4L0qPPw?playlist=wpWO4L0qPPw&autoplay=1&controls=0&loop=1&showinfo=0');
+          else {
+            $('#introVideo').attr('src', '');
+            $('#introVideo').attr('src', 'https://www.youtube.com/embed/wpWO4L0qPPw?showinfo=0');
+          }
           tl.play(value);
         };
         $(document).on('click','#mapIcon, #arrowClose',function(){
