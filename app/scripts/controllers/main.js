@@ -416,6 +416,7 @@ angular.module('smcApp')
             $('#introVideo').attr('src', 'https://www.youtube.com/embed/wpWO4L0qPPw?showinfo=0');
           }
           tl.play(value);
+          toggleOverlay();
         };
         $(document).on('click','#mapIcon, #arrowClose',function(){
           openCloseMap();
