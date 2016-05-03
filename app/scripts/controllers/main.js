@@ -103,7 +103,7 @@ angular.module('smcApp')
           .to(".pentagramRect",0.2,{ bottom: '1%', ease: Power0.easeNone},"-=0.2")
           .to(".pentagramBack",0.2,{ bottom: '0%', ease: Power0.easeNone},"-=0.2")
           .to(".pentagramNotesGroup",0.2,{ bottom: '2%', ease: Power0.easeNone},"-=0.2")
-          .to(".age1",0.2,{ transform: 'rotateX(0deg)', ease: Back.easeOut.config(0.7)},"-=0.2")
+          .to(".age1",0.3,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"-=0.2")
           .to(".blurEffect1",0.2,{ filter: 'blur(8px)',webkitFilter: 'blur(8px)', ease: Power0.easeNone},"+=1")
           .to(".texto11", 0.5, {top: '9%', scale: '1', ease: Back.easeOut.config(0.7)},"-=1")
           .to(".texto12", 0.5, {top: '30%', scale: '1', ease: Back.easeOut.config(0.7)},"-=0.2")
@@ -136,8 +136,8 @@ angular.module('smcApp')
           //EPISODE 4
           .to("#page2",0.4,{ right: '100%', ease: Power0.easeNone})
           .to("#page3",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
-          .to(".age1",0.2,{ transform: 'rotateX(90deg)', ease: Back.easeOut.config(0.7)})
-          .to(".age2",0.2,{ transform: 'rotateX(0deg)', ease: Back.easeOut.config(0.7)},"-=0.2")
+          .to(".age1",0.3,{ transform: 'rotateX(90deg)', ease: Bounce.easeOut})
+          .to(".age2",0.3,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"-=0.3")
           .to(".blurEffect2",0.2,{ filter: 'blur(8px)',webkitFilter: 'blur(8px)', ease: Power0.easeNone},"+=1")
           .to(".prel05",0.4,{ top: '10%',scale: '1', ease: Back.easeOut.config(1)})
           .to(".prelpant1",0.4,{ top: '10%',scale: '1', ease: Back.easeOut.config(1)},"-=0.2")
@@ -258,12 +258,19 @@ angular.module('smcApp')
           //EPISODE 11
           .to("#page9",0.4,{ right: '100%', ease: Back.easeInOut.config(1)})
           .to("#page10",0.4,{ right: '0%', ease: Back.easeInOut.config(1)},"-=0.4")
+          .to(".age2",0.3,{ transform: 'rotateX(90deg)', ease: Bounce.easeOut})
+          .to(".age3",0.3,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"-=0.3")
           .addPause()
           //EPISODE 12
           .to("#page10",0.4,{ right: '100%', ease: Power0.easeNone},"lorraineAllen")
           .to(".blurEffect5",0.2,{ filter: 'blur(0px)',webkitFilter: 'blur(0px)', ease: Power0.easeNone},"-=0.2")
           .to(".carn1", 0.3, {transform: 'rotateY(165deg)', ease: Back.easeOut.config(1)})
-          .to(".chi1", 0.3, {transform: 'rotateY(0deg)', ease: Back.easeOut.config(1)},"-=0.2")
+          .to(".chi1", 0.3, {transform: 'rotatex(0deg)', ease: Back.easeOut.config(1)},"-=0.2")
+          .to(".chi2", 0.3, {opacity: '1', ease: Back.easeOut.config(1)},"+=0.5")
+          .to(".chi3", 0.3, {opacity: '1', ease: Back.easeOut.config(1)},"+=0.5")
+          .to(".chi4", 0.3, {opacity: '1', onComplete: lightAction, ease: Bounce.easeOut},"+=0.5")
+          .to(".chi5", 1, {left: '0', ease:Power4.easeOut})
+          .to(".chi6", 1, {left: '0', ease: Power4.easeOut})
           .to(".blurEffect7",0.2,{ filter: 'blur(8px)',webkitFilter: 'blur(8px)', ease: Power0.easeNone},"+=1")
           .to("#page11",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
           .to(".lorraine",0.4,{ right: '35%', ease: Back.easeOut.config(1)},"-=0.2")
@@ -328,6 +335,8 @@ angular.module('smcApp')
           .to(".lasv1", 0.3, {transform: 'rotateY(165deg)', ease: Back.easeOut.config(1)},"+=1")
           .to("#page16",0.4,{ right: '100%', ease: Power0.easeNone})
           .to("#page17",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
+          .to(".age3",0.3,{ transform: 'rotateX(90deg)', ease: Bounce.easeOut})
+          .to(".age4",0.3,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"-=0.3")
           .addPause()
           //EPISODE 19
           .to("#page17",0.4,{ right: '100%', ease: Power0.easeNone})
@@ -485,6 +494,14 @@ angular.module('smcApp')
             });
           }
         });
+        function lightAction(){
+          TweenMax.to(".let1", 1, {opacity:0, repeatDelay:1, repeat:-1, yoyo:true, ease: Bounce.easeOut});
+          TweenMax.to(".let2", 0.8, {opacity:0, repeatDelay:0.8, repeat:-1, yoyo:true, ease: Bounce.easeOut});
+          TweenMax.to(".let3", 1.3, {opacity:0, repeatDelay:1.3, repeat:-1, yoyo:true, ease: Bounce.easeOut});
+          TweenMax.to(".let4", 0.5, {opacity:0, repeatDelay:0.5, repeat:-1, yoyo:true, ease: Bounce.easeOut});
+          TweenMax.to(".let5", 1.1, {opacity:0, repeatDelay:1.1, repeat:-1, yoyo:true, ease: Bounce.easeOut});
+        }
+
         function playTimeLine(){
           tl.play();
         }
