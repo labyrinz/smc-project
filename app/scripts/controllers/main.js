@@ -37,6 +37,8 @@ angular.module('smcApp')
       totalWords[53] = $(".cita53Letters");
       var cita61Letters = $("#cita61").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"cita61Letters"});
       totalWords[61] = $(".cita61Letters");
+      var cita41Letters = $("#cita41").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"cita41Letters"});
+      totalWords[41] = $(".cita41Letters");
 
       //---------------------------
       //----SOUND TRACKS -----
@@ -280,8 +282,8 @@ angular.module('smcApp')
           .to("#page11",0.4,{ right: '100%', ease: Power0.easeNone})
           .to("#page12",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
           .to(".cita42",0.4,{ right: '10%', ease: Back.easeOut.config(1)},"-=0.2")
-          .to(".texto42",0.4,{ right: '50%', ease: Back.easeOut.config(1)},"-=0.2")
-          .to(".la4",0.4,{ right: '15%', ease: Back.easeOut.config(1)},"-=0.2")
+          .to(".texto42",0.4,{ right: '5%', ease: Back.easeOut.config(1)},"-=0.2")
+          .to(".la4",0.4,{ right: '65%', ease: Back.easeOut.config(1)},"-=0.2")
           .addPause()
           //EPISODE 14
           .to("#page12",0.4,{ right: '100%', ease: Power0.easeNone})

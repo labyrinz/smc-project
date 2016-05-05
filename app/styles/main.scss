@@ -1518,19 +1518,12 @@ body {
   top: 15%;
   right: -110%;
 }
-.la5{
-  position: absolute;
-  height: 100%;
-  top:0%;
-  left: 0%;
-  opacity: 0.6;
-}
 //FIN DIAPOSITIVA 11
 // DIAPOSITIVA 12
 .texto42{
   right: -110%;
-  bottom: 10%;
-  width: 45%;
+  bottom: 15%;
+  width: 40%;
 }
 .cita4{
   position: absolute;
@@ -1558,9 +1551,15 @@ body {
   bottom: 15%;
   right: -110%;
 }
+.la5{
+  position: absolute;
+  height: 70%;
+  top: 5%;
+  left: 5%;
+}
 .la21Video{
   position: absolute;
-  bottom: 10%;
+  bottom: 50%;
   right: 10%;
   z-index: 991;
   width: 20%;
@@ -1568,8 +1567,8 @@ body {
 }
 .la22Video{
   position: absolute;
-  bottom: 10%;
-  left: 10%;
+  bottom: 50%;
+  right: 45%;
   z-index: 991;
   width: 20%;
   height: 20%;
