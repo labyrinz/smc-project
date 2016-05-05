@@ -267,8 +267,7 @@ angular.module('smcApp')
           .to(".carn1", 0.3, {transform: 'rotateY(165deg)', ease: Back.easeOut.config(1)})
           .to(".chi1", 0.3, {transform: 'rotatex(0deg)', ease: Back.easeOut.config(1)},"-=0.2")
           .to(".chi2", 0.3, {opacity: '1', ease: Back.easeOut.config(1)},"+=0.5")
-          .to(".chi3", 0.3, {opacity: '1', ease: Back.easeOut.config(1)},"+=0.5")
-          .to(".chi4", 0.3, {opacity: '1', onComplete: lightAction, ease: Bounce.easeOut},"+=0.5")
+          .to(".chi4", 0.3, {opacity: '1', ease: Bounce.easeOut},"+=0.5")
           .to(".chi5", 1, {left: '0', ease:Power4.easeOut})
           .to(".chi6", 1, {left: '0', ease: Power4.easeOut})
           .to(".blurEffect7",0.2,{ filter: 'blur(8px)',webkitFilter: 'blur(8px)', ease: Power0.easeNone},"+=1")
@@ -296,9 +295,13 @@ angular.module('smcApp')
           .addPause()
           //EPISODE 15
           .to("#page13",0.4,{ right: '100%', ease: Power0.easeNone})
-          .to("#page14",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
-          .to(".chi1", 0.3, {transform: 'rotateY(165deg)', ease: Back.easeOut.config(1)},"-=0.2")
           .to(".blurEffect7",0.2,{ filter: 'blur(0px)',webkitFilter: 'blur(0px)', ease: Power0.easeNone},"+=1")
+          .to(".chi2", 0.3, {opacity: '0', ease: Back.easeOut.config(1)},"+=0.5")
+          .to(".chi4", 0.3, {opacity: '0', ease: Bounce.easeOut},"+=0.5")
+          .to(".chi5", 1, {left: '150%', ease:Power4.easeOut})
+          .to(".chi6", 1, {left: '-150%', ease: Power4.easeOut})
+          .to(".chi1", 0.3, {transform: 'rotatex(-165deg)', ease: Back.easeOut.config(1)},"-=0.2")
+          .to("#page14",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
           .to(".lasv1", 0.3, {transform: 'rotateY(0deg)', ease: Back.easeOut.config(1)},"-=0.2")
           .to(".blurEffect8",0.2,{ filter: 'blur(8px)',webkitFilter: 'blur(8px)', ease: Power0.easeNone},"+=1")
           .to(".texto52",0.4,{ right: '10%', ease: Back.easeOut.config(1)},"-=0.2")
@@ -494,13 +497,6 @@ angular.module('smcApp')
             });
           }
         });
-        function lightAction(){
-          TweenMax.to(".let1", 1, {opacity:0, repeatDelay:1, repeat:-1, yoyo:true, ease: Bounce.easeOut});
-          TweenMax.to(".let2", 0.8, {opacity:0, repeatDelay:0.8, repeat:-1, yoyo:true, ease: Bounce.easeOut});
-          TweenMax.to(".let3", 1.3, {opacity:0, repeatDelay:1.3, repeat:-1, yoyo:true, ease: Bounce.easeOut});
-          TweenMax.to(".let4", 0.5, {opacity:0, repeatDelay:0.5, repeat:-1, yoyo:true, ease: Bounce.easeOut});
-          TweenMax.to(".let5", 1.1, {opacity:0, repeatDelay:1.1, repeat:-1, yoyo:true, ease: Bounce.easeOut});
-        }
 
         function playTimeLine(){
           tl.play();
