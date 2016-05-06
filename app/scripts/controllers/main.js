@@ -282,7 +282,7 @@ angular.module('smcApp')
           .to("#page11",0.4,{ right: '100%', ease: Power0.easeNone})
           .to("#page12",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
           .to(".cita42",0.4,{ right: '10%', ease: Back.easeOut.config(1)},"-=0.2")
-          .to(".texto42",0.4,{ right: '5%', ease: Back.easeOut.config(1)},"-=0.2")
+          .to(".texto42",0.4,{ right: '10%', ease: Back.easeOut.config(1)},"-=0.2")
           .to(".la4",0.4,{ right: '65%', ease: Back.easeOut.config(1)},"-=0.2")
           .addPause()
           //EPISODE 14
