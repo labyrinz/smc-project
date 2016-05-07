@@ -185,8 +185,8 @@ body {
   -o-transform: scale(1);
   transform: scale(1);
 }
-.page1, .page2, .page3, .page4, .page5, .page6, .page7, .page8, .page9, .page10, .page11, .page12, .page13, .page14, .page15, .page16, .page17, .page18{
-  right: -100%;
+.page1, .page2, .page3, .page4, .page5, .page6, .page7, .page8, .page9, .page10, .page11, .page12, .page13, .page14, .page15, .page16, .page17, .page18, .page19, .page20{
+  right: -2000%;
 }
 .backIlustration{
   background-color: transparent;
@@ -440,27 +440,13 @@ body {
   -o-transform-origin: 100% 100%;
   transform-origin: 100% 100%;
 }
-.gironaMap{
-  position: absolute;
-  bottom: 10%;
-  width: 15%;
-  z-index: 997;
-  right: 10%;
-  transform: rotateZ(90deg);
-  opacity: 0.3;
-}
 .prelGroup{
   position: absolute;
-  top: -420%;
+  top: 10%;
   left: 10%;
   width: 40%;
   height: 40%;
   z-index: 989;
-  -webkit-transform: scale(10);
-  -moz-transform: scale(10);
-  -ms-transform: scale(10);
-  -o-transform: scale(10);
-  transform: scale(10);
 }
 .prel01 {
   position: absolute;
@@ -491,24 +477,16 @@ body {
   font-family: 'Dancing Script', cursive;
   font-style: italic;
   z-index: 997;
-  //color: #231a16;
   color: #ffd85f;/*#FFE698;*/
   font-size: 35px;
-  //background-color: rgba(255, 255, 255, 0.70);
   padding: 2% 3%;
 }
 .cita11{
-  bottom: -100%;
+  bottom: 10%;
   width: 90%;
   left: 2%;
-  -webkit-transform: scale(10);
-  -moz-transform: scale(10);
-  -ms-transform: scale(10);
-  -o-transform: scale(10);
-  transform: scale(10);
 }
 .texto1{
-  /*font-family: 'Lora', serif;*/
   z-index: 997;
   color: #FFFFFF;
   font-size: 15px;
@@ -519,31 +497,16 @@ body {
   padding: 2% 1%;
 }
 .texto11{
-  top: -100%;
+  top: 9%;
   right: 5%;
-  -webkit-transform: scale(10);
-  -moz-transform: scale(10);
-  -ms-transform: scale(10);
-  -o-transform: scale(10);
-  transform: scale(10);
 }
 .texto12{
-  top: -100%;
+  top: 30%;
   right: 5%;
-  -webkit-transform: scale(10);
-  -moz-transform: scale(10);
-  -ms-transform: scale(10);
-  -o-transform: scale(10);
-  transform: scale(10);
 }
 .texto13{
-  top: -100%;
+  top: 55%;
   right: 5%;
-  -webkit-transform: scale(10);
-  -moz-transform: scale(10);
-  -ms-transform: scale(10);
-  -o-transform: scale(10);
-  transform: scale(10);
 }
 .plusInfoProlPlus1{
   right: 5%;
@@ -574,8 +537,7 @@ body {
   z-index: 991;
   width: 30%;
   height: 30%;
-  border-right: dotted 10px rgb(255, 216, 95);
-  border-left: dotted 10px rgb(255, 216, 95);
+  border: solid 10px rgb(255, 255, 255);
 }
 // FIN DIAPOSITIVA 1
 // DIAPOSITIVA 2
@@ -660,66 +622,36 @@ body {
 }
 .prel05{
   position: absolute;
-  top:-200%;
+  top:10%;
   right: 75%;
   height:35%;
   z-index: 989;
-  -webkit-transform: scale(10);
-  -moz-transform: scale(10);
-  -ms-transform: scale(10);
-  -o-transform: scale(10);
-  transform: scale(10);
 }
 .prelpant1{
   position: absolute;
-  top:-200%;
+  top:10%;
   right: 33%;
   height:35%;
   z-index: 989;
-  -webkit-transform: scale(10);
-  -moz-transform: scale(10);
-  -ms-transform: scale(10);
-  -o-transform: scale(10);
-  transform: scale(10);
 }
 .prel06{
   position: absolute;
-  top:-200%;
+  top:10%;
   right: 13%;
   height:35%;
   z-index: 989;
-  -webkit-transform: scale(10);
-  -moz-transform: scale(10);
-  -ms-transform: scale(10);
-  -o-transform: scale(10);
-  transform: scale(10);
 }
 .texto14{
-  top:-150%;
+  top:48%;
   right: 50%;
-  -webkit-transform: scale(10);
-  -moz-transform: scale(10);
-  -ms-transform: scale(10);
-  -o-transform: scale(10);
-  transform: scale(10);
 }
 .texto15{
-  top:-150%;
+  top:65%;
   right: 30%;
-  -webkit-transform: scale(10);
-  -moz-transform: scale(10);
-  -ms-transform: scale(10);
-  -o-transform: scale(10);
-  transform: scale(10);
 }
 .texto16{
-  top:-150%;
+  top:78%;
   right: 10%;
-  -webkit-transform: scale(10);
-  -moz-transform: scale(10);
-  -ms-transform: scale(10);
-  -o-transform: scale(10);
-  transform: scale(10);
 }
 .p21Video{
   position: absolute;
@@ -728,8 +660,7 @@ body {
   z-index: 991;
   width: 30%;
   height: 30%;
-  border-right: dotted 10px rgb(255, 216, 95);
-  border-left: dotted 10px rgb(255, 216, 95);
+  border: solid 10px rgb(255, 255, 255);
 }
 .p22Video{
   position: absolute;
@@ -738,8 +669,7 @@ body {
   z-index: 991;
   width: 30%;
   height: 30%;
-  border-right: dotted 10px rgb(255, 216, 95);
-  border-left: dotted 10px rgb(255, 216, 95);
+  border: solid 10px rgb(255, 255, 255);
 }
 .textAddonProl3{
   position: absolute;
@@ -764,47 +694,36 @@ body {
 // DIAPOSITIVA 4
 .texto17{
   top: 70%;
-  right: -100%;
+  right: 55%;
 }
 .texto18{
   top: 70%;
-  right: -100%;
+  right: 10%;
 }
 .cita12{
   top: 10%;
   width: 70%;
-  right: -100%;
+  right: 20%;
 }
 .p31Video{
   position: absolute;
   top: 0%;
   bottom: 10%;
   left: 0%;
-  right: -150%;
+  right: 10%;
   margin:auto;
   z-index: 991;
   width: 40%;
   height: 40%;
-  border-right: dotted 10px rgb(255, 216, 95);
-  border-left: dotted 10px rgb(255, 216, 95);
+  border: solid 10px rgb(255, 255, 255);
 }
 .textProl4{width: 40%; top: 10%; left: 5%;}
 .textProl5{width: 40%; top: 35%; left: 5%;}
 .textProl6{width: 40%; top: 60%; left: 5%;}
 //FIN DIAPOSITIVA 4
-///////////////RITA MONTANER///////////////////
 //DIAPOSITIVA 5
 .imageAddonRm{
   position:absolute;
-}
-.mujerTitle1{
-  /*font-family: 'Lora',serif;*/
-  width: 20%;
-  position: absolute;
-  top: 8%;
-  right: 45%;
-  font-size: 50px;
-  z-index: 990;
 }
 .texto2{
   /*font-family: 'Lora', serif;*/
@@ -819,32 +738,41 @@ body {
 }
 .texto21{
   width: 30%;
-  right: -100%;
+  right: 10%;
   top: 15%;
 }
-.cita13{
+.cita2{
+  position: absolute;
+  font-family: 'Dancing Script', cursive;
+  font-style: italic;
+  z-index: 997;
+  color: #ffd85f;/*#FFE698;*/
+  font-size: 35px;
+  padding: 2% 3%;
+}
+.cita21{
   width: 80%;
   bottom: 10%;
-  right: -100%;
+  right: 10%;
 }
 .rm11{
   position: absolute;
   top:15%;
-  right: -100%;
+  right: 58%;
   height:35%;
   z-index: 990;
 }
 .rm12{
   position: absolute;
   top:10%;
-  right: -100%;
+  right: 70%;
   height:60%;
   z-index: 990;
 }
 .rm13{
   position: absolute;
   top: 40%;
-  right: -100%;
+  right: 60%;
   height: 25%;
   z-index: 990;
 }
@@ -858,8 +786,7 @@ body {
   z-index: 997;
   width: 30%;
   height: 30%;
-  border-left: dotted 10px rgb(255, 216, 95);
-  border-right: dotted 10px rgb(255, 216, 95);
+  border: solid 10px rgb(255, 255, 255);
 }
 .textAddonRm{
   position: absolute;
@@ -930,24 +857,24 @@ body {
 }
 .texto23{
   width: 30%;
-  right: -100%;
+  right: 60%;
   top: 70%;
 }
 .texto24{
   width: 30%;
-  right: -100%;
+  right: 10%;
   top: 70%;
 }
 .cita14{
   width: 40%;
   top: 20%;
-  right: -100%;
+  right: 5%;
 }
 .rm14{
   height: 15%;
   position: absolute;
   top: 5%;
-  right: -100%;
+  right: 60%;
   z-index: 990;
 }
 .rm21Video{
@@ -957,8 +884,7 @@ body {
   z-index: 991;
   width: 25%;
   height: 25%;
-  border-left: dotted 10px rgb(255, 216, 95);
-  border-right: dotted 10px rgb(255, 216, 95);
+  border: solid 10px rgb(255, 255, 255);
 }
 .rm22Video{
   position: absolute;
@@ -967,8 +893,7 @@ body {
   z-index: 991;
   width: 25%;
   height: 25%;
-  border-left: dotted 10px rgb(255, 216, 95);
-  border-right: dotted 10px rgb(255, 216, 95);
+  border: solid 10px rgb(255, 255, 255);
 }
 .textRm2{
   width: 40%;
@@ -1043,37 +968,37 @@ body {
 }
 .texto25{
   width: 30%;
-  right: -110%;
+  right:10%;
   top: 10%;
 }
 .texto26{
    width: 30%;
-   right: -110%;
+   right: 10%;
    top: 35%;
  }
 .rm15{
   height: 40%;
   position: absolute;
   top: 5%;
-  right: -110%;
+  right: 80%;
 }
 .rm16{
   height: 30%;
   position: absolute;
   top: 20%;
-  right: -110%;
+  right: 70%;
 }
 .rm17{
   height: 40%;
   position: absolute;
   top: 5%;
-  right: -110%;
+  right: 55%;
 }
 .rm18{
   height: 50%;
   position: absolute;
   top: 40%;
-  right: -110%;
+  right: 70%;
 }
 .rm31Video{
   position: absolute;
@@ -1085,8 +1010,7 @@ body {
   z-index: 991;
   width: 20%;
   height: 20%;
-  border-left: dotted 10px rgb(255, 216, 95);
-  border-right: dotted 10px rgb(255, 216, 95);
+  border: solid 10px rgb(255, 255, 255);
 }
 .rm32Video{
   position: absolute;
@@ -1095,8 +1019,7 @@ body {
   z-index: 991;
   width: 20%;
   height: 20%;
-  border-left: dotted 10px rgb(255, 216, 95);
-  border-right: dotted 10px rgb(255, 216, 95);
+  border: solid 10px rgb(255, 255, 255);
 }
 .rm33Video{
   position: absolute;
@@ -1105,8 +1028,7 @@ body {
   z-index: 991;
   width: 20%;
   height: 20%;
-  border-left: dotted 10px rgb(255, 216, 95);
-  border-right: dotted 10px rgb(255, 216, 95);
+  border: solid 10px rgb(255, 255, 255);
 }
 .textRm3{
   width: 40%;
@@ -1193,15 +1115,6 @@ body {
   -o-transform-origin: 0% 0%;
   transform-origin: 0% 0%;
 }
-.mujerTitle2{
-  /*font-family: 'Lora',serif;*/
-  width: 20%;
-  position: absolute;
-  bottom: 20%;
-  right: 10%;
-  font-size: 50px;
-  z-index: 990;
-}
 .texto3{
   /*font-family: 'Lora', serif;*/
   z-index: 997;
@@ -1214,25 +1127,9 @@ body {
   padding: 2% 1%;
 }
 .texto31{
-  right: -110%;
+  right: 30%;
   bottom:20%;
   z-index: 990;
-}
-.texto32{
-  right: 10%;
-  top:40%;
-}
-.texto35{
-  right: 10%;
-  top:30%;
-}
-.texto36{
-  right: 10%;
-  top:40%;
-}
-.texto38{
-  right: 10%;
-  top:40%;
 }
 .cita3{
   position: absolute;
@@ -1243,21 +1140,17 @@ body {
   color: #2f220f;
   font-size: $fontSizeMedium;
 }
-.cita31{
-  bottom:20%;
-  right: 10%;
-}
 .cc31{
   position: absolute;
   top:10%;
-  right:-110%;
+  right:60%;
   height: 40%;
   z-index: 990;
 }
 .cc32{
   position: absolute;
   top:35%;
-  right:-110%;
+  right:70%;
   height: 40%;
   z-index: 990;
 }
@@ -1289,103 +1182,94 @@ body {
 //FIN DIAPOSITIVA 8
 // DIAPOSITIVA 9
 .texto33{
-  right: -110%;
+  right: 60%;
   top:10%;
 }
 .texto34{
-  right: -110%;
+  right: 60%;
   top:30%;
 }
 .cc33{
   position: absolute;
-  top:-110%;
-  left:5%;
+  top:22%;
+  right:5%;
   height: 15%;
   z-index: 990;
   cursor: pointer;
 }
 .cc34{
   position: absolute;
-  top:-110%;
-  left:13%;
+  top:18%;
+  right:13%;
   height: 15%;
   z-index: 990;
   cursor: pointer;
 }
 .cc35{
   position: absolute;
-  top:-110%;
-  left:20%;
+  top:19%;
+  right:20%;
   height: 15%;
   z-index: 990;
   cursor: pointer;
 }
 .cc36{
   position: absolute;
-  top:-110%;
-  left:30%;
+  top:23%;
+  right:30%;
   height: 15%;
   z-index: 990;
   cursor: pointer;
 }
 .cc37{
   position: absolute;
-  top:-110%;
-  left:35%;
+  top:27%;
+  right:35%;
   height: 15%;
   z-index: 990;
   cursor: pointer;
 }
 .cc38{
   position: absolute;
-  top:-110%;
-  left:42%;
+  top:20%;
+  right:42%;
   height: 15%;
   z-index: 990;
   cursor: pointer;
 }
 .cc39{
   position: absolute;
-  top:-110%;
-  left:10%;
+  top:400%;
+  right:10%;
   height: 40%;
   z-index: 990;
 }
-.cc391{
-  position: absolute;
-  top:20%;
-  left:30%;
-  height: 40%;
-}
-.cc392{
-  position: absolute;
-  top:50%;
-  left:50%;
-  height: 30%;
-}
 .cc21Video{
   position: absolute;
-  top: 10%;
-  left: 10%;
+  bottom: 20%;
+  right: 70%;
   z-index: 991;
   width: 20%;
   height: 20%;
+  border: solid 10px rgb(255, 255, 255);
 }
 .cc22Video{
   position: absolute;
-  top: 10%;
-  right: 10%;
+  bottom: 20%;
+  right: 40%;
   z-index: 991;
   width: 20%;
   height: 20%;
+  border: solid 10px rgb(255, 255, 255);
 }
 .cc23Video{
   position: absolute;
-  bottom: 10%;
+  bottom: 20%;
   right: 10%;
   z-index: 991;
   width: 20%;
   height: 20%;
+  border: solid 10px rgb(255, 255, 255);
 }
 // FIN DIAPOSITIVA 9
 // DIAPOSITIVA 10
@@ -1405,27 +1289,29 @@ body {
 }
 .texto37{
   right: 10%;
-  top:5%;
+  top:10%;
   width: 40%;
 }
 .cc31Video{
   position: absolute;
-  bottom: 10%;
-  right: 10%;
+  top: 10%;
+  right: 65%;
   z-index:991;
-  width: 20%;
-  height: 20%;
+  width: 30%;
+  height: 30%;
+  border: solid 10px rgb(255, 255, 255);
 }
 .cc32Video{
   position: absolute;
-  bottom: 10%;
-  left: 10%;
+  top: 50%;
+  right: 65%;
   z-index: 991;
-  width: 20%;
-  height: 20%;
+  width: 30%;
+  height: 30%;
+  border: solid 10px rgb(255, 255, 255);
 }
 //FIN DIAPOSITIVA 10
-// DIAPOSITIVA 11
+// DIAPOSITIVA 12
 .chi1{
   position: absolute;
   top:0;
@@ -1465,25 +1351,6 @@ body {
   width: 100%;
   height: 100%;
 }
-.mujerTitle3{
-  /*font-family: 'Lora',serif;*/
-  width: 20%;
-  position: absolute;
-  bottom: 20%;
-  left: 10%;
-  font-size: 50px;
-  z-index: 990;
-}
-.lorraine{
-  font-family: 'Great Vibes', cursive;
-  width: 20%;
-  color: #ffd85f;
-  position: absolute;
-  top: 5%;
-  right: -110%;
-  font-size: 200px;
-  z-index: 990;
-}
 .texto4{
   /*font-family: 'Lora',serif;*/
   z-index: 997;
@@ -1493,10 +1360,10 @@ body {
   position: absolute;
   width: 35%;
   background-color: rgba(33, 33, 33, 0.75);
-  padding: 2% 1%;
+  padding: 1.5% 1%;
 }
 .texto41{
-  right: -110%;
+  right: 75%;
   top: 20%;
   width: 20%;
 }
@@ -1516,12 +1383,12 @@ body {
   position: absolute;
   height: 45%;
   top: 15%;
-  right: -110%;
+  right: 55%;
 }
-//FIN DIAPOSITIVA 11
-// DIAPOSITIVA 12
+//FIN DIAPOSITIVA 12
+// DIAPOSITIVA 13
 .texto42{
-  right: -110%;
+  right: 10%;
   bottom: 15%;
   width: 40%;
 }
@@ -1535,27 +1402,22 @@ body {
   background-color: rgba(255, 255, 255, 0.70);
   padding: 2% 3%;
 }
-.cita41{
-  top:5%;
-  right: 5%;
-  width: 80%;
-}
 .cita42{
   top: 5%;
-  right: -110%;
+  right: 10%;
   width: 80%;
 }
 .la4{
   position: absolute;
   width: 17%;
   bottom: 15%;
-  right: -110%;
+  right: 65%;
 }
 .la5{
   position: absolute;
   height: 70%;
   top: 5%;
-  left: 5%;
+  right: 80%;
 }
 .la21Video{
   position: absolute;
@@ -1564,6 +1426,7 @@ body {
   z-index: 991;
   width: 20%;
   height: 20%;
+  border: solid 10px rgb(255, 255, 255);
 }
 .la22Video{
   position: absolute;
@@ -1572,59 +1435,42 @@ body {
   z-index: 991;
   width: 20%;
   height: 20%;
+  border: solid 10px rgb(255, 255, 255);
 }
-//FIN DIAPOSITIVA 12
-// DIAPOSITIVA 13
+//FIN DIAPOSITIVA 13
+// DIAPOSITIVA 14
 .texto43{
-  right: -110%;
+  right: 20%;
   bottom: 30%;
   width: 55%;
 }
 .texto44{
-  right: -110%;
+  right: 20%;
   bottom: 15%;
   width: 55%;
-}
-.texto45{
-  right:10%;
-  top:30%;
 }
 .la6{
   position: absolute;
   height: 30%;
-  left: 62%;
-  bottom: -110%;
+  right: 25%;
+  bottom: 45%;
   transform: rotate(25deg);
 }
 .la7{
   position: absolute;
   height: 30%;
-  left: 15%;
-  top: -110%;
+  right: 60%;
+  top: 25%;
   transform: rotate(-20deg);
  }
-.la8{
-  position: absolute;
-  height: 25%;
-  left: 53%;
-  bottom: -110%;
-  transform: rotate(6deg);
-}
-
-.la9{
-  position: absolute;
-  height: 20%;
-  left: 32%;
-  bottom: -110%;
-  transform: rotate(-6deg);
-}
 .la31Video{
   position: absolute;
   top: 10%;
-  left: 10%;
+  right: 70%;
   z-index: 991;
   width: 20%;
   height: 20%;
+  border: solid 10px rgb(255, 255, 255);
 }
 .la32Video{
   position: absolute;
@@ -1633,9 +1479,10 @@ body {
   z-index: 991;
   width: 20%;
   height: 20%;
+  border: solid 10px rgb(255, 255, 255);
 }
-//FIN DIAPOSITIVA 13
-// DIAPOSITIVA 14
+//FIN DIAPOSITIVA 14
+// DIAPOSITIVA 15
 .lasv1{
   width: 100%;
   height: 100%;
@@ -1653,16 +1500,6 @@ body {
   -o-transform-origin: 0% 0%;
   transform-origin: 0% 0%;
 }
-
-.mujerTitle4{
-  /*font-family: 'Lora',serif;*/
-  width: 20%;
-  position: absolute;
-  bottom: 28%;
-  left: 35%;
-  font-size: 50px;
-  z-index: 990;
-}
 .cita5{
   position: absolute;
   font-family: 'Dancing Script', cursive;
@@ -1674,32 +1511,9 @@ body {
   padding: 2% 3%;
 }
 .cita51{
-  top:150%;
-  right: 5%;
-  width: 75%;
-}
-.cita52{
-  top: 150%;
+  top:10%;
   right: 10%;
   width: 75%;
-}
-.al1{
-  position: absolute;
-  top:150%;
-  left: 5%;
-  width: 27%;
-}
-.al2{
-  position: absolute;
-  bottom: 15%;
-  right: 5%;
-  width: 15%;
-}
-.al3{
-  width: 15%;
-}
-.al4{
-  width: 15%;
 }
 .texto5{
   /*font-family: 'Lora',serif;*/
@@ -1714,119 +1528,74 @@ body {
 }
 .texto51{
   right: 55%;
-  bottom: -110%;
+  top: 55%;
 }
 .teLoDijoAdela{
   position: absolute;
-  top: 150%;
+  top: 40%;
   right: 10%;
   width: 35%;
   height: 40%;
   z-index: 990;
-}
-.al11Video{
-  position: absolute;
-  top: 10%;
-  right: 10%;
-  z-index: 991;
-  width: 20%;
-  height: 20%;
-}
-//FIN DIAPOSITIVA 14
-// DIAPOSITIVA 15
-
-.texto52{
-  right: -110%;
-  top:10%;
-}
-.texto53{
-  left: 180%;
-  bottom: 20%;
-  width: 55%;
-}
-.texto54{
-  right: 10%;
-  top:30%;
-}
-.cita53{
-  bottom: 15%;
-  right: -110%;
-}
-.cita54{
-  bottom: 25%;
-  right: 5%;
-}
-.cita55{
-  bottom: 35%;
-  right: 5%;
-}
-.cita56{
-  bottom: 45%;
-  right: -110%;
-}
-.al3{
-  position: absolute;
-  width: 20%;
-  top:25%;
-  left: 0%;
-}
-.al4{
-  position: absolute;
-  width: 15%;
-  bottom: 35%;
-  right: -110%;
-}
-.al5{
-  position: absolute;
-  width: 20%;
-  left: 40%;
-  top: -110%;
-}
-.al6{
-  position: absolute;
-  width: 15%;
-  top:48%;
-  left: 2%;
-}
-.al7{
-  position: absolute;
-  width: 20%;
-  left: 15%;
-  top: -110%;
-}
-.al8{
-  position: absolute;
-  width: 15%;
-  top:30%;
-  left: 3%;
-}
-.al21Video{
-  position: absolute;
-  top: 10%;
-  right: 10%;
-  z-index: 991;
-  width: 20%;
-  height: 20%;
-}
-.al22Video{
-  position: absolute;
-  top: 10%;
-  left: 10%;
-  z-index: 991;
-  width: 20%;
-  height: 20%;
+  border: solid 10px rgb(255, 255, 255);
 }
 //FIN DIAPOSITIVA 15
 // DIAPOSITIVA 16
 
-.mujerTitle5{
-  /*font-family: 'Lora',serif;*/
-  width: 20%;
-  position: absolute;
-  bottom: 15%;
-  left: 10%;
-  font-size: 50px;
+.texto52{
+  right: 55%;
+  top:60%;
 }
+.cita52{
+  top: 35%;
+  right: 40%;
+}
+.cita53{
+  top: 10%;
+  right: 35%;
+}
+.al3{
+  position: absolute;
+  width: 20%;
+  right:25%;
+  top: 55% ;
+}
+.al5{
+  position: absolute;
+  width: 20%;
+  right: 10%;
+  top: 35%;
+}
+//FIN DIAPOSITIVA 16
+//DIAPOSITIVA 17
+.al7{
+  position: absolute;
+  width: 20%;
+  right: 70%;
+  top: 10%;
+}
+.cita54{
+  top: 15%;
+  right: 5%;
+  width: 45%;
+}
+.cita55{
+  top: 35%;
+  right: 5%;
+  width: 45%;
+}
+.cita56{
+  top: 55%;
+  right: 5%;
+  width: 45%;
+}
+.texto53{
+  right: 70%;
+  top: 61%;
+  width: 18%;
+}
+//FIN DIAPOSITIVA 17
+// DIAPOSITIVA 18
 .texto6{
   /*font-family: 'Lora',serif;*/
   z-index: 997;
@@ -1840,12 +1609,12 @@ body {
 }
 .texto61{
   top: 10%;
-  left: 25%;
+  right: 25%;
   width: 55%;
 }
 .texto63{
   top: 10%;
-  left: 60%;
+  right: 0%;
   width: 55%;
   -webkit-transform: scale(0.01);
   -moz-transform: scale(0.01);
@@ -1864,7 +1633,7 @@ body {
   padding: 2% 3%;
 }
 .cita61{
-  left:0%;
+  right:10%;
   bottom:10%;
   width: 80%;
 }
@@ -1872,14 +1641,14 @@ body {
   position: absolute;
   width: 30%;
   top: 22%;
-  left: 35%;
+  right: 40%;
   z-index: 990;
 }
 .cb04{
   position: absolute;
-  width: 15%;
-  top: 25%;
-  left: 70%;
+  width: 20%;
+  top: 20%;
+  right: 0%;
   z-index: 990;
   -webkit-transform: scale(0.01);
   -moz-transform: scale(0.01);
@@ -1887,68 +1656,58 @@ body {
   -o-transform: scale(0.01);
   transform: scale(0.01);
 }
-//FIN DIAPOSITIVA 16
-// DIAPOSITIVA 17
-.epilogoTitle{
-  /*font-family: 'Lora',serif;*/
-  width: 30%;
-  position: absolute;
-  bottom: 15%;
-  left: 10%;
-  font-size: 50px;
-}
+//FIN DIAPOSITIVA 18
+// DIAPOSITIVA 19
 .texto62{
   width: 40%;
-  top: 20%;
-  left: 10%;
+  top: 70%;
+  right: 40%;
 }
 .cita62{
   width: 40%;
+  top: 10%;
+  right: 50%;
+}
+.cita63{
+  width: 40%;
   top: 40%;
-  left: 10%;
+  right: 50%;
 }
 .cb06{
   position: absolute;
   width: 15%;
   right: 5%;
-  top: 10%;
+  top: 60%;
   transform: rotate(15deg);
 }
 .cb07{
   position: absolute;
   width: 11%;
   right: 25%;
-  top: 20%;
+  top: 60%;
   transform: rotate(-20deg);
  }
 .cb08{
   position: absolute;
   width: 9%;
   right: 16%;
-  top: 26%;
-  transform: rotate(15deg);
+  top: 70%;
+  transform: rotate(5deg);
 }
 .cb09{
   position: absolute;
-  width: 10%;
-  right: 15%;
-  top: 43%;
-  transform: rotate(-45deg);
-}
-.cb10{
-  position: absolute;
-  width: 11%;
-  right: 20%;
-  top: 13%;
-  transform: rotate(55deg);
+  width: 20%;
+  right: 10%;
+  top: 10%;
 }
 .cb21Video{
   position: absolute;
   top: 10%;
-  left: 10%;
+  right: 10%;
   z-index: 991;
   width: 20%;
   height: 20%;
+  border: solid 10px rgb(255, 255, 255);
 }
 .cb22Video{
   position: absolute;
@@ -1957,16 +1716,31 @@ body {
   z-index: 991;
   width: 20%;
   height: 20%;
+  border: solid 10px rgb(255, 255, 255);
 }
-//FIN DIAPOSITIVA 17
-
+//FIN DIAPOSITIVA 20
+.texto65{
+  position: absolute;
+  top: 10%;
+  right: 50%;
+  width: 40%;
+}
+.texto64{
+  position: absolute;
+  top: 70%;
+  right: 5%;
+  width: 30%;
+  text-align: center;
+  font-size: 30px;
+}
 .ep11Video{
   position: absolute;
   top: 10%;
-  left: 10%;
+  right: 70%;
   z-index: 991;
   width: 20%;
   height: 20%;
+  border: solid 10px rgb(255, 255, 255);
 }
 .ep12Video{
   position: absolute;
@@ -1975,22 +1749,25 @@ body {
   z-index: 991;
   width: 20%;
   height: 20%;
+  border: solid 10px rgb(255, 255, 255);
 }
 .ep13Video{
   position: absolute;
-  bottom: 10%;
-  left: 10%;
+  top: 55%;
+  right: 70%;
   z-index: 991;
   width: 20%;
   height: 20%;
+  border: solid 10px rgb(255, 255, 255);
 }
 .ep14Video{
   position: absolute;
-  bottom: 10%;
-  right: 10%;
+  top: 40%;
+  right: 50%;
   z-index: 991;
-  width: 20%;
-  height: 20%;
+  width: 40%;
+  height: 40%;
+  border: solid 10px rgb(255, 255, 255);
 }
 .plusInfoCita{
   cursor: pointer;
