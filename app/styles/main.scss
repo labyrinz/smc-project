@@ -304,6 +304,42 @@ body {
   transform: rotateX(-90deg);
 }
 // ------- VIDEO --------
+.fullScreenVideo{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  width: 95%;
+  height: 90%;
+  z-index: 999;
+  border: solid 30px white ;
+  -webkit-transform: rotate(20deg) scale(0);
+  -moz-transform: rotate(20deg) scale(0);
+  -ms-transform: rotate(20deg) scale(0);
+  -o-transform: rotate(20deg) scale(0);
+  transform: rotate(20deg) scale(0);
+}
+.closeFullScreenVideo{
+  position: absolute;
+  width: 3%;
+  height: 3%;
+  top: 0.5%;
+  right: 0.5%;
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.64);
+  padding: 5px;
+  font-size: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 999;
+}
+.fullScreeVideoEnter{
+  width: 100%;
+  height: 100%;
+}
+
 .videoClass{
   position: absolute;
   top:0;
@@ -1483,22 +1519,37 @@ body {
 }
 //FIN DIAPOSITIVA 14
 // DIAPOSITIVA 15
-.lasv1{
+.lasv1, .lasv7, .lasv8, .lasv9{
   width: 100%;
   height: 100%;
   position: absolute;
   top: 0%;
   left: 0;
-  -webkit-transform: rotateY(165deg);
-  -moz-transform: rotateY(165deg);
-  -ms-transform: rotateY(165deg);
-  -o-transform: rotateY(165deg);
-  transform: rotateY(165deg);
-  -webkit-transform-origin: 0% 0%;
-  -moz-transform-origin: 0% 0%;
-  -ms-transform-origin: 0% 0%;
-  -o-transform-origin: 0% 0%;
-  transform-origin: 0% 0%;
+  opacity: 0;
+}
+.lasv2, .lasv3, .lasv10{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: -150%;
+  left: 0;
+}
+.lasv4, .lasv5{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0%;
+  left: 0;
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+  -webkit-transform-origin: 100% 50%;
+  -moz-transform-origin: 100% 50%;
+  -ms-transform-origin: 100% 50%;
+  -o-transform-origin: 100% 50%;
+  transform-origin: 100% 50%;
 }
 .cita5{
   position: absolute;
@@ -1594,6 +1645,20 @@ body {
   top: 61%;
   width: 18%;
 }
+//FIN DIAPOSITIVA 16
+//DIAPOSITIVA 17
+.texto66{
+  position: absolute;
+  width: 40%;
+  right: 50%;
+  top: 10%;
+}
+.cb5{
+  position: absolute;
+  width: 30%;
+  right: 10%;
+  top: 30;
+}
 //FIN DIAPOSITIVA 17
 // DIAPOSITIVA 18
 .texto6{
@@ -1616,11 +1681,11 @@ body {
   top: 10%;
   right: 0%;
   width: 55%;
-  -webkit-transform: scale(0.01);
-  -moz-transform: scale(0.01);
-  -ms-transform: scale(0.01);
-  -o-transform: scale(0.01);
-  transform: scale(0.01);
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  -ms-transform: scale(0);
+  -o-transform: scale(0);
+  transform: scale(0);
 }
 .cita6{
   position: absolute;
@@ -1633,7 +1698,7 @@ body {
   padding: 2% 3%;
 }
 .cita61{
-  right:10%;
+  right:5%;
   bottom:10%;
   width: 80%;
 }
@@ -1650,11 +1715,11 @@ body {
   top: 20%;
   right: 0%;
   z-index: 990;
-  -webkit-transform: scale(0.01);
-  -moz-transform: scale(0.01);
-  -ms-transform: scale(0.01);
-  -o-transform: scale(0.01);
-  transform: scale(0.01);
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  -ms-transform: scale(0);
+  -o-transform: scale(0);
+  transform: scale(0);
 }
 //FIN DIAPOSITIVA 18
 // DIAPOSITIVA 19

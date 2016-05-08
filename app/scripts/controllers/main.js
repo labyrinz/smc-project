@@ -94,7 +94,7 @@ angular.module('smcApp')
 
         tl
           //EPISODE 1
-          .to(".videoCover", 3, {opacity: '0.6', delay: 1, ease: Power0.easeOut},"inicio")
+          .to(".videoCover", 3, {opacity: '0.6', delay: 4, ease: Power0.easeOut},"inicio")
           .staggerFrom(introWords, 0.6, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.2]}, ease: Back.easeOut.config(0.8)}, 0.1)
           .staggerFrom(introWordsSubtitle, 0.6, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.2]}, ease: Back.easeOut.config(0.8)}, 0.1)
           .staggerFrom(introWordsName, 0.6, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.2]}, ease: Back.easeOut.config(0.8)}, 0.1)
@@ -248,7 +248,16 @@ angular.module('smcApp')
           .to(".chi6", 1, {left: '-150%', ease: Power4.easeOut})
           .to(".chi1", 0.3, {transform: 'rotatex(-165deg)', ease: Back.easeOut.config(1)},"-=0.2")
           .to("#page14",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
-          .to(".lasv1", 0.3, {transform: 'rotateY(0deg)', ease: Back.easeOut.config(1)},"abbeLane")
+          .to(".lasv1", 0.3, {opacity: '1', ease: Back.easeOut.config(1)},"abbeLane")
+          .to(".lasv2", 0.3, {top:'0%', ease: Bounce.easeOut})
+          .to(".lasv3", 0.3, {top:'0%', ease: Bounce.easeOut})
+          .to(".lasv10", 0.3, {top:'0%', ease: Bounce.easeOut})
+          .to(".lasv4", 0.3, {transform: 'rotate(0deg)', ease: Back.easeOut.config(1)})
+          .to(".lasv5", 0.3, {transform: 'rotate(0deg)', ease: Back.easeOut.config(1)})
+          .to(".lasv6", 0.3, {opacity: '1', ease: Back.easeOut.config(1)})
+          .to(".lasv7", 0.3, {opacity: '1', ease: Back.easeOut.config(1)})
+          .to(".lasv8", 0.3, {opacity: '1', ease: Back.easeOut.config(1)})
+          .to(".lasv9", 0.3, {opacity: '1', ease: Back.easeOut.config(1)})
           .to(".blurEffect8",0.2,{ filter: 'blur(8px)',webkitFilter: 'blur(8px)', ease: Power0.easeNone},"+=1")
           .staggerFrom($("#page14").children(),0.6,{ right:'-150%', ease: Back.easeInOut.config(1)},0.3)
           .addPause()
@@ -263,9 +272,19 @@ angular.module('smcApp')
           .staggerFrom($("#page16").children(),0.6,{ right:'-150%', ease: Back.easeInOut.config(1)},0.3)
           .addPause()
           //EPISODE 18
-          .to(".lasv1", 0.3, {transform: 'rotateY(165deg)', ease: Back.easeOut.config(1)}, "charoBaeza")
           .to("#page16",0.4,{ right: '100%', ease: Power0.easeNone})
           .to("#page17",0.4,{ right: '0%', ease: Power0.easeNone})
+          .to(".blurEffect8",0.2,{ filter: 'blur(0px)',webkitFilter: 'blur(0px)', ease: Power0.easeNone})
+          .to(".lasv8", 0.3, {opacity: '0', ease: Back.easeOut.config(1)},"+=1")
+          .to(".lasv9", 0.3, {opacity: '0', ease: Back.easeOut.config(1)})
+          .to(".lasv6", 0.3, {opacity: '0', ease: Back.easeOut.config(1)})
+          .to(".lasv7", 0.3, {opacity: '0', ease: Back.easeOut.config(1)})
+          .to(".lasv5", 0.3, {transform: 'rotate(180deg)', ease: Back.easeOut.config(1)})
+          .to(".lasv4", 0.3, {transform: 'rotate(180deg)', ease: Back.easeOut.config(1)})
+          .to(".lasv10", 0.3, {top:'-150%', ease: Bounce.easeOut})
+          .to(".lasv3", 0.3, {top:'-1500%', ease: Bounce.easeOut})
+          .to(".lasv2", 0.3, {top:'-150%', ease: Bounce.easeOut})
+          .to(".lasv1", 0.3, {opacity: '0', ease: Back.easeOut.config(1)})
           .staggerFrom($("#page17").children(),0.6,{ right:'-150%', ease: Back.easeInOut.config(1)},0.3)
           .addPause()
           //EPISODE 19
@@ -279,18 +298,20 @@ angular.module('smcApp')
           .to("#cb04",0.4,{ right: '45%', scale: '1', ease: Power4.easeOut},"bTrans")
           .addPause()
           //EPISODE 20
+          .to(".age3",0.3,{ transform: 'rotateX(90deg)', ease: Bounce.easeOut})
+          .to(".age4",0.3,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"-=0.3")
           .to("#page18",0.4,{ right: '100%', ease: Power0.easeNone}, "epilogo")
           .to("#page19",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
           .staggerFrom($("#page19").children(),0.6,{ right:'-150%', ease: Back.easeInOut.config(1)},0.3)
           .addPause()
-          //EPISODE 20
+          //EPISODE 21
           .to("#page19",0.4,{ right: '100%', ease: Power0.easeNone})
           .to("#page20",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
           .staggerFrom($("#page20").children(),0.6,{ right:'-150%', ease: Back.easeInOut.config(1)},0.3)
           .addPause();
 
-       tl.pause();
-       setTimeout(playTimeLine, 15000);
+       tl.play();
+       //setTimeout(playTimeLine, 15000);
        /* setTimeout(drawFace, 5000);*/
 
       //---------------------------------
@@ -402,6 +423,15 @@ angular.module('smcApp')
           tl.play(value);
           if ($("div.overlay").hasClass("open")) toggleOverlay();
         };
+        $scope.openVideo = function(value){
+            $('.fullScreeVideoEnter').attr('src', 'https://www.youtube.com/embed/'+value+'?playlist='+value+'&autoplay=1&controls=0&loop=1&showinfo=0');
+            TweenMax.to(".fullScreenVideo", 3, {transform: 'scale(0.3) rotate(20deg)', ease: Power4.easeOut})
+            TweenMax.to(".fullScreenVideo", 3, {transform: 'scale(1) rotate(0deg)', ease: Power4.easeOut, delay:1})
+        };
+        $scope.closeVideo = function(){
+            TweenMax.to(".fullScreenVideo", 3, {transform: 'scale(0.3) rotate(0deg)', ease: Power4.easeOut})
+            TweenMax.to(".fullScreenVideo", 1, {transform: 'scale(0) rotate(30deg)', onComplete: hideFullScreenVideo, ease: Power4.easeOut, delay:1})
+        };
         $(document).on('click','#mapIcon, #arrowClose',function(){
           openCloseMap();
         });
@@ -497,6 +527,9 @@ angular.module('smcApp')
         function hideVideo(){
           $('#introVideo').attr('src', '');
           $('#introVideo').attr('src', 'https://www.youtube.com/embed/wpWO4L0qPPw?showinfo=0');
+        }
+        function hideFullScreenVideo(){
+          $('.fullScreeVideoEnter').attr('src', '');
         }
 
         function initViaje(){
