@@ -93,9 +93,9 @@ angular.module('smcApp')
       var updateTitle = function(index){
           
           var notes = $(".pentagramNotes");
-          notes.hide()
+          notes.removeClass("activeNote")
           for (var i = 0; i <= index; i++) {
-            $(notes[i]).show();
+            $(notes[i]).addClass("activeNote");
           }
           var note = $($(".pentagramNotes")[index]);
           var title = note.find(".tooltip-text").html();
@@ -462,7 +462,7 @@ angular.module('smcApp')
             $('#introVideo').attr('src', 'https://www.youtube.com/embed/wpWO4L0qPPw?showinfo=0');
           }
           tl.play(value);
-          if ($("div.overlay").hasClass("open")) toggleOverlay();
+          if ($("div.overlay").hasClass("open")) $("#trigger-overlay").click();
         };
         $scope.openVideo = function(value){
             $('.fullScreeVideoEnter').attr('src', 'https://www.youtube.com/embed/'+value+'?playlist='+value+'&autoplay=1&controls=0&loop=1&showinfo=0');
@@ -621,5 +621,14 @@ angular.module('smcApp')
         }
 
         triggerBttn.on( 'click', function(){toggleOverlay()} );
-        closeBttn.on( 'click', function(){toggleOverlay()} );
+        //closeBttn.on( 'click', function(){toggleOverlay()} );
+
+        (function() {
+          // initialize icons          
+          [].slice.call( document.querySelectorAll( '.si-icons-default > .si-icon' ) ).forEach( function( el ) {
+            var svgicon = new svgIcon( el, svgIconConfig );
+          } );
+        })();
+
+
   });

@@ -43,7 +43,7 @@ body {
   background: -webkit-linear-gradient(top,  rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
   background: linear-gradient(to bottom,  rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
-  z-index: 997;
+  z-index: 10000;
 }
 
 .iconos{
@@ -304,7 +304,6 @@ body {
   padding: 0 10px;
   float: left;
   cursor: pointer;
-  display: none;
 }
 .noteImgNegra{
   width: 10px;
@@ -2046,7 +2045,11 @@ body {
 .tooltip-item {
 
   cursor: pointer;
+  opacity: .3;
 
+}
+.activeNote .tooltip-item {
+  opacity: 1;
 }
 
 /* Gap filler */
@@ -2188,4 +2191,34 @@ body {
   font-weight: bold;
 }
 
+/* SVG Icons */
+
+.si-icons span {
+  display: inline-block;
+  width: 64px;
+  height: 64px;
+  margin: 20px 20px;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.si-icons-hover span {
+  width: 128px;
+  height: 128px;
+  margin: 50px 40px;
+}
+
+.si-icon-volume{
+  position: absolute;
+  right: 0;
+}
+
+/* Fallback for browsers that don't support SVG - Generated with http://iconizr.com/ */
+
+.no-svg .si-icon-hamburger, .no-svg .si-icon-hamburger-cross { background-image: url('../images/png/hamburger.png') }
+.no-svg .si-icon-play { background-image: url('../images/png/play.png') }
+.no-svg .si-icon-plus, .no-svg .si-icon-plus-cross { background-image: url('../images/png/plus.png') }
+.no-svg .si-icon-volume { background-image: url('../images/png/volume.png') }
+.no-svg .si-icon-zoom { background-image: url('../images/png/zoom.png') }
 
