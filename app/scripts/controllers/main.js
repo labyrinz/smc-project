@@ -105,13 +105,19 @@ angular.module('smcApp')
 
       //-----------------------
       //-----TIMELINE ---------
+        var animationFromPattern = { scale: '0', right: '-20%', ease: Back.easeInOut.config(1)};
+        var animationToPattern = { scale: '0', opacity: '0', ease: Back.easeInOut.config(1)};
+        var staggerFromVelocity = 0.05;
+        var staggerToVelocity = 0.03;
+
+
         TweenMax.set(".scrollIcon, .hiddenCanvas, .dinamycText, .ageTitle, .napFace, .addon1, .prel01", {visibility:"visible"});
 
         var tl = new TimelineMax({repeat:0});
 
         tl
           //EPISODE 1
-          .to(".videoCover", 3, {opacity: '0.6', delay: 4, ease: Power0.easeOut},"inicio")
+          .to(".videoCover", 3, {css:{opacity: '0.6'}, delay: 4, ease: Power0.easeOut},"inicio")
           .staggerFrom(introWords, 0.6, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.2]}, ease: Back.easeOut.config(0.8)}, 0.1)
           .staggerFrom(introWordsSubtitle, 0.6, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.2]}, ease: Back.easeOut.config(0.8)}, 0.1)
           .staggerFrom(introWordsName, 0.6, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.2]}, ease: Back.easeOut.config(0.8)}, 0.1)
@@ -122,6 +128,7 @@ angular.module('smcApp')
           .to(".ed2", 0.5, {top: '0%', ease: Bounce.easeOut})
           .to(".ed3", 0.5, {left: '0%', ease: Bounce.easeOut},"-=1")
           .to(".ed4", 0.5, {transform: 'rotateX(0deg)', ease: Back.easeOut.config(1)})
+          .to("#page0",0.5,{ scale: '0', ease: Back.easeIn.config(1)})
           .to("#page1",0.1,{ right: '0%', onComplete: hideVideo, ease: Power0.easeNone})
           .to(".pentagramRect",0.2,{ bottom: '1%', ease: Power0.easeNone},"-=0.2")
           .to(".currentDetails",0.2,{ top: '12px', ease: Power0.easeNone},"-=0.2")
@@ -131,11 +138,10 @@ angular.module('smcApp')
           .to(".age1",0.3,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"-=0.2")
           .call(updateTitle,[0])
           .to(".blurEffect1",0.2,{ filter: 'blur(8px)',webkitFilter: 'blur(8px)', ease: Power0.easeNone},"+=1")
-          .staggerFrom($("#page1").children(),0.6,{ scale: '100', opacity: '0', ease: Back.easeInOut.config(1)},0.01)
-          .to("#page0",0.5,{ scale: '0', ease: Back.easeIn.config(1)})
+          .staggerFrom($("#page1").children(),0.6, animationFromPattern, staggerFromVelocity)
           .addPause()
           //EPISODE 3
-          .staggerTo($("#page1").children(),0.6,{ scale: '0', opacity: '0', ease: Back.easeInOut.config(1)},0.01)
+          .staggerTo($("#page1").children(),0.6, animationToPattern, staggerToVelocity)
           .to(".blurEffect1",0.2,{ filter: 'blur(0px)',webkitFilter: 'blur(0px)', ease: Power0.easeNone})
           .to(".ed2", 0.5, {left: '-5%', ease: Power2.easeIn},"scrollGer")
           .to(".ed3", 0.5, {left: '-10%', ease: Power2.easeIn},"scrollGer")
@@ -159,10 +165,10 @@ angular.module('smcApp')
           .to(".age2",0.3,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"-=0.3")
           .call(updateTitle,[2])
           .to(".blurEffect2",0.2,{ filter: 'blur(8px)',webkitFilter: 'blur(8px)', ease: Power0.easeNone},"+=1")
-          .staggerFrom($("#page3").children(),0.6,{ scale: '100', opacity: '0', ease:Back.easeInOut.config(1)},0.01)
+          .staggerFrom($("#page3").children(),0.6, animationFromPattern, staggerFromVelocity)
           .addPause()
           //EPISODE 5
-          .staggerTo($("#page3").children(),0.6,{ scale: '0', opacity: '0', ease: Back.easeInOut.config(1)},0.01)
+          .staggerTo($("#page3").children(),0.6, animationToPattern, staggerToVelocity)
           .to(".cub1", 0.5, {transform: 'rotateY(165deg)', ease: Power2.easeIn},"newyork1")
           .to(".ny4", 0.2, {top: '0%', ease: Bounce.easeOut},"-=0.5")
           .to(".ny3", 0.5, {top: '0%', ease: Bounce.easeOut},"-=0.2")
@@ -175,16 +181,17 @@ angular.module('smcApp')
           .to("#page3",0.4,{ right: '100%', ease: Power0.easeNone})
           .to("#page4",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
           .to(".blurEffect3",0.2,{ filter: 'blur(8px)',webkitFilter: 'blur(8px)', ease: Power0.easeNone},"+=1")
-          .staggerFrom($("#page4").children(),0.6,{ right:'-150%', ease: Back.easeInOut.config(1)},0.1)
+          .staggerFrom($("#page4").children(),0.6, animationFromPattern, staggerFromVelocity)
           .addPause()
           //EPISODE 6
-          //.staggerFrom($("#page4").children(),0.6,{ right:'100%', ease: Back.easeInOut.config(1)},0.1)
+          .staggerTo($("#page4").children(),0.6, animationToPattern, staggerToVelocity)
           .to("#page4",0.4,{ right: '100%', ease: Back.easeInOut.config(1)},"ritaMontaner")
           .to("#page5",0.4,{ right: '0%', ease: Back.easeInOut.config(1)},"-=0.4")
           .call(updateTitle,[4])
-          .staggerFrom($("#page5").children(),0.6,{ right:'-150%', ease: Back.easeInOut.config(1)},0.1)
+          .staggerFrom($("#page5").children(),0.6, animationFromPattern, staggerFromVelocity)
           .addPause()
           //EPISODE 7
+          .staggerTo($("#page5").children(),0.6, animationToPattern, staggerToVelocity)
           .to("#page5",0.4,{ right: '100%', ease: Back.easeInOut.config(1)})
           .to("#page6",0.4,{ right: '0%', ease: Back.easeInOut.config(1)},"-=0.4")
           .call(updateTitle,[5])
@@ -198,90 +205,99 @@ angular.module('smcApp')
           .to(".ny4", 0.3, {transform: 'rotateY(165deg)', ease: Power2.easeIn})
           .to(".ber1", 0.3, {transform: 'rotateY(0deg)', ease: Back.easeOut.config(1)})
           .to(".blurEffect4",0.2,{ filter: 'blur(8px)',webkitFilter: 'blur(8px)', ease: Power0.easeNone},"+=1")
-          .staggerFrom($("#page6").children(),0.6,{ right:'-150%', ease: Back.easeInOut.config(1)},0.1)
+          .staggerFrom($("#page6").children(),0.6, animationFromPattern, staggerFromVelocity)
           .addPause()
           //EPISODE 8
+          .staggerTo($("#page6").children(),0.6, animationToPattern, staggerToVelocity)
           .to("#page6",0.4,{ right: '100%', ease: Back.easeInOut.config(1)})
           .to("#page7",0.2,{ right: '0%', ease: Back.easeInOut.config(1)},"-=0.4")
           .call(updateTitle,[6])
-          .to(".blurEffect4",0.2,{ filter: 'blur(0px)',webkitFilter: 'blur(0px)', ease: Power0.easeNone},"+=1")
+          .to(".blurEffect4",0.2,{ filter: 'blur(0px)',webkitFilter: 'blur(0px)', ease: Power0.easeNone},"-=1")
           .to(".ber1", 0.3, {transform: 'rotateY(165deg)', ease: Back.easeOut.config(1)})
-          .to(".holly1", 0.5, {transform: 'rotateX(0deg)', ease: Back.easeOut.config(1)})
           .to(".holly2", 0.5, {transform: 'rotateX(0deg)', ease: Back.easeOut.config(1)})
-          .to(".holly3", 0.5, {transform: 'rotateX(0deg)', ease: Back.easeOut.config(1)})
-          .to(".holly4", 0.5, {transform: 'rotateX(0deg)', ease: Back.easeOut.config(1)})
-          .to(".holly7", 0.5, {top: '0%', ease: Bounce.easeOut})
+          .to(".holly1", 0.5, {transform: 'rotateX(0deg)', ease: Back.easeOut.config(1)},"-=0.2")
+          .to(".holly3", 0.5, {transform: 'rotateX(0deg)', ease: Back.easeOut.config(1)},"-=0.2")
+          .to(".holly4", 0.5, {transform: 'rotateX(0deg)', ease: Back.easeOut.config(1)},"-=0.2")
+          .to(".holly7", 0.5, {top: '0%', ease: Bounce.easeOut},"-=0.2")
           .to(".holly6", 2, {top: '0%', ease: Power4.easeOut})
-          .staggerFrom($("#page7").children(),0.6,{ right:'-150%', ease: Back.easeInOut.config(1)},0.3)
+          .to(".blurEffect6",0.2,{ filter: 'blur(8px)',webkitFilter: 'blur(8px)', ease: Power0.easeNone},"+=1")
+          .staggerFrom($("#page7").children(),0.6, animationFromPattern, staggerFromVelocity)
           .to(".holly5", 2, {opacity: '1', ease: Power4.easeOut})
           .addPause()
           //EPISODE 9
+          .staggerTo($("#page7").children(),0.6, animationToPattern, staggerToVelocity)
           .to("#page7",0.4,{ right: '100%', ease: Back.easeInOut.config(1)})
+          .to(".blurEffect6",0.2,{ filter: 'blur(0px)',webkitFilter: 'blur(0px)', ease: Power0.easeNone},"-=1")
           .call(updateTitle,[7])
-          .to(".blurEffect6",0.2,{ filter: 'blur(0px)',webkitFilter: 'blur(0px)', ease: Power0.easeNone},"+=1")
-          .to(".holly5", 2, {opacity: '0', ease: Power4.easeOut})
-          .to(".holly1", 0.5, {transform: 'rotateX(165deg)', ease: Back.easeOut.config(1)},"-=1.5")
+          .to(".holly5", 1, {opacity: '0', ease: Power4.easeOut})
           .to(".holly2", 0.5, {transform: 'rotateX(165deg)', ease: Back.easeOut.config(1)},"-=0.5")
-          .to(".holly3", 0.5, {transform: 'rotateX(165deg)', ease: Back.easeOut.config(1)},"-=0.5")
-          .to(".holly4", 0.5, {transform: 'rotateX(165deg)', ease: Back.easeOut.config(1)},"-=0.5")
-          .to(".holly7", 0.5, {top: '150%', ease: Bounce.easeOut},"-=0.5")
-          .to(".holly6", 2, {top: '-150%', ease: Power4.easeOut},"-=0.5")
-          .to(".carn1", 0.3, {transform: 'rotateY(0deg)', ease: Back.easeOut.config(1)},"carmenCastillo")
+          .to(".holly1", 0.5, {transform: 'rotateX(165deg)', ease: Back.easeOut.config(1)},"-=0.3")
+          .to(".holly3", 0.5, {transform: 'rotateX(165deg)', ease: Back.easeOut.config(1)},"-=0.3")
+          .to(".holly4", 0.5, {transform: 'rotateX(165deg)', ease: Back.easeOut.config(1)},"-=0.3")
+          .to(".holly7", 0.5, {top: '150%', ease: Bounce.easeOut},"-=0.3")
+          .to(".holly6", 0.5, {top: '-150%', ease: Power4.easeOut},"-=0.3")
+          .to(".carn1", 0.3, {transform: 'rotateY(0deg)', ease: Back.easeOut.config(1)},"carmenCastillo-=0.5")
           .call(updateTitle,[8])
           .to(".blurEffect5",0.2,{ filter: 'blur(8px)',webkitFilter: 'blur(8px)', ease: Power0.easeNone},"+=1")
           .to("#page8",0.4,{ right: '0%', ease: Back.easeInOut.config(1)},"-=0.4")
-          .staggerFrom($("#page8").children(),0.6,{ right:'-150%', ease: Back.easeInOut.config(1)},0.3)
+          .staggerFrom($("#page8").children(),0.6, animationFromPattern, staggerFromVelocity)
           .addPause()
           //EPISODE 10
+          .staggerTo($("#page8").children(),0.6, animationToPattern, staggerToVelocity)
           .to("#page8",0.4,{ right: '100%', ease: Back.easeInOut.config(1)})
           .to("#page9",0.4,{ right: '0%', ease: Back.easeInOut.config(1)},"-=0.4")
           .call(updateTitle,[9])
-          .staggerFrom($("#page9").children(),0.6,{ right:'-150%', ease: Back.easeInOut.config(1)},0.3)
+          .staggerFrom($("#page9").children(),0.6, animationFromPattern, staggerFromVelocity)
           .addPause()
           //EPISODE 11
+          .staggerTo($("#page9").children(),0.6, animationToPattern, staggerToVelocity)
           .to("#page9",0.4,{ right: '100%', ease: Back.easeInOut.config(1)})
           .to("#page10",0.4,{ right: '0%', ease: Back.easeInOut.config(1)},"-=0.4")
           .call(updateTitle,[10])
           .to(".age2",0.3,{ transform: 'rotateX(90deg)', ease: Bounce.easeOut})
           .to(".age3",0.3,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"-=0.3")
-          .staggerFrom($("#page10").children(),0.6,{ right:'-150%', ease: Back.easeInOut.config(1)},0.3)
+          .staggerFrom($("#page10").children(),0.6, animationFromPattern, staggerFromVelocity)
           .addPause()
           //EPISODE 12
+          .staggerTo($("#page10").children(),0.6, animationToPattern, staggerToVelocity)
           .to("#page10",0.4,{ right: '100%', ease: Power0.easeNone},"lorraineAllen")
           .call(updateTitle,[11])
           .to(".blurEffect5",0.2,{ filter: 'blur(0px)',webkitFilter: 'blur(0px)', ease: Power0.easeNone},"-=0.2")
-          .to(".carn1", 0.3, {transform: 'rotateY(165deg)', ease: Back.easeOut.config(1)})
-          .to(".chi1", 0.3, {transform: 'rotatex(0deg)', ease: Back.easeOut.config(1)},"-=0.2")
-          //.to(".chi2", 0.3, {opacity: '1', ease: Back.easeOut.config(1)},"+=0.5")
-          .to(".chi4", 0.3, {opacity: '1', ease: Bounce.easeOut},"+=0.5")
-          .to(".chi5", 1, {left: '0', ease:Power4.easeOut})
-          .to(".chi6", 1, {left: '0', ease: Power4.easeOut})
+          .to(".carn1", 0.3, { transform: 'rotateY(165deg)', ease: Back.easeOut.config(1)})
+          .to(".chi4", 0.3, { opacity: '1', ease: Bounce.easeOut },"-=0.2")
+          .to(".chi2", 1, { opacity: '1', ease: Power4.easeOut })
+          .to(".chi1", 4, { opacity: '1', ease: Power0.easeNone },"+=1")
+          .to(".chi5", 1, { left: '0', ease: Power4.easeOut })
+          .to(".chi6", 1, { left: '0', ease: Power4.easeOut })
           .call(updateTitle,[12])
           .to(".blurEffect7",0.2,{ filter: 'blur(8px)',webkitFilter: 'blur(8px)', ease: Power0.easeNone},"+=1")
           .to("#page11",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
-          .staggerFrom($("#page11").children(),0.6,{ right:'-150%', ease: Back.easeInOut.config(1)},0.3)
+          .staggerFrom($("#page11").children(),0.6, animationFromPattern, staggerFromVelocity)
           .addPause()
           //EPISODE 13
+          .staggerTo($("#page11").children(),0.6, animationToPattern, staggerToVelocity)
           .to("#page11",0.4,{ right: '100%', ease: Power0.easeNone})
           .to("#page12",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
           .call(updateTitle,[13])
-          .staggerFrom($("#page12").children(),0.6,{ right:'-150%', ease: Back.easeInOut.config(1)},0.3)
+          .staggerFrom($("#page12").children(),0.6, animationFromPattern, staggerFromVelocity)
           .addPause()
           //EPISODE 14
+          .staggerTo($("#page12").children(),0.6, animationToPattern, staggerToVelocity)
           .to("#page12",0.4,{ right: '100%', ease: Power0.easeNone})
           .to("#page13",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
           .call(updateTitle,[14])
-          .staggerFrom($("#page13").children(),0.6,{ right:'-150%', ease: Back.easeInOut.config(1)},0.3)
+          .staggerFrom($("#page13").children(),0.6, animationFromPattern, staggerFromVelocity)
           .addPause()
           //EPISODE 15
+          .staggerTo($("#page13").children(),0.6, animationToPattern, staggerToVelocity)
           .to("#page13",0.4,{ right: '100%', ease: Power0.easeNone})
           .call(updateTitle,[15])
           .to(".blurEffect7",0.2,{ filter: 'blur(0px)',webkitFilter: 'blur(0px)', ease: Power0.easeNone},"+=1")
-          //.to(".chi2", 0.3, {opacity: '0', ease: Back.easeOut.config(1)},"+=0.5")
+          .to(".chi2", 0.3, {opacity: '0', ease: Back.easeOut.config(1)},"+=0.5")
           .to(".chi4", 0.3, {opacity: '0', ease: Bounce.easeOut},"+=0.5")
           .to(".chi5", 1, {left: '150%', ease:Power4.easeOut})
           .to(".chi6", 1, {left: '-150%', ease: Power4.easeOut})
-          .to(".chi1", 0.3, {transform: 'rotatex(-165deg)', ease: Back.easeOut.config(1)},"-=0.2")
+          .to(".chi1", 0.3, {opacity: '0', ease: Back.easeOut.config(1)},"-=0.2")
           .to("#page14",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
           .to(".lasv1", 0.3, {opacity: '1', ease: Back.easeOut.config(1)},"abbeLane")
           .to(".lasv2", 0.3, {top:'0%', ease: Bounce.easeOut})
@@ -295,21 +311,24 @@ angular.module('smcApp')
           .to(".lasv9", 0.3, {opacity: '1', ease: Back.easeOut.config(1)})
           .call(updateTitle,[16])
           .to(".blurEffect8",0.2,{ filter: 'blur(8px)',webkitFilter: 'blur(8px)', ease: Power0.easeNone},"+=1")
-          .staggerFrom($("#page14").children(),0.6,{ right:'-150%', ease: Back.easeInOut.config(1)},0.3)
+          .staggerFrom($("#page14").children(),0.6, animationFromPattern, staggerFromVelocity)
           .addPause()
           //EPISODE 16
+          .staggerTo($("#page14").children(),0.6, animationToPattern, staggerToVelocity)
           .to("#page14",0.4,{ right: '100%', ease: Power0.easeNone})
           .to("#page15",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
           .call(updateTitle,[17])
-          .staggerFrom($("#page15").children(),0.6,{ right:'-150%', ease: Back.easeInOut.config(1)},0.3)
+          .staggerFrom($("#page15").children(),0.6, animationFromPattern, staggerFromVelocity)
           .addPause()
           //EPISODE 17
+          .staggerTo($("#page15").children(),0.6, animationToPattern, staggerToVelocity)
           .to("#page15",0.4,{ right: '100%', ease: Power0.easeNone})
           .to("#page16",0.4,{ right: '0%', ease: Power0.easeNone})
           .call(updateTitle,[18])
-          .staggerFrom($("#page16").children(),0.6,{ right:'-150%', ease: Back.easeInOut.config(1)},0.3)
+          .staggerFrom($("#page16").children(),0.6, animationFromPattern, staggerFromVelocity)
           .addPause()
           //EPISODE 18
+          .staggerTo($("#page16").children(),0.6, animationToPattern, staggerToVelocity)
           .to("#page16",0.4,{ right: '100%', ease: Power0.easeNone})
           .to("#page17",0.4,{ right: '0%', ease: Power0.easeNone})
           .to(".blurEffect8",0.2,{ filter: 'blur(0px)',webkitFilter: 'blur(0px)', ease: Power0.easeNone})
@@ -324,13 +343,14 @@ angular.module('smcApp')
           .to(".lasv2", 0.3, {top:'-150%', ease: Bounce.easeOut})
           .to(".lasv1", 0.3, {opacity: '0', ease: Back.easeOut.config(1)})
           .call(updateTitle,[19])
-          .staggerFrom($("#page17").children(),0.6,{ right:'-150%', ease: Back.easeInOut.config(1)},0.3)
+          .staggerFrom($("#page17").children(),0.6, animationFromPattern, staggerFromVelocity)
           .addPause()
           //EPISODE 19
+          .staggerTo($("#page17").children(),0.6, animationToPattern, staggerToVelocity)
           .to("#page17",0.4,{ right: '100%', ease: Power0.easeNone})
           .to("#page18",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
           .call(updateTitle,[20])
-          .staggerFrom($("#page18").children(),0.6,{ right:'-150%', ease: Back.easeInOut.config(1)},0.3)
+          .staggerFrom($("#page18").children(),0.6, animationFromPattern, staggerFromVelocity)
           .addPause()
           .to("#cb01",0.4,{ right: '80%', scale: '0', ease: Power4.easeOut},"bTrans")
           .to("#texto61",0.4,{ right: '80%', scale: '0', ease: Power4.easeOut},"bTrans")
@@ -338,18 +358,20 @@ angular.module('smcApp')
           .to("#cb04",0.4,{ right: '45%', scale: '1', ease: Power4.easeOut},"bTrans")
           .addPause()
           //EPISODE 20
+          .staggerTo($("#page18").children(),0.6, animationToPattern, staggerToVelocity)
           .to(".age3",0.3,{ transform: 'rotateX(90deg)', ease: Bounce.easeOut})
           .to(".age4",0.3,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"-=0.3")
           .to("#page18",0.4,{ right: '100%', ease: Power0.easeNone}, "epilogo")
           .to("#page19",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
           .call(updateTitle,[21])
-          .staggerFrom($("#page19").children(),0.6,{ right:'-150%', ease: Back.easeInOut.config(1)},0.3)
+          .staggerFrom($("#page19").children(),0.6, animationFromPattern, staggerFromVelocity)
           .addPause()
           //EPISODE 21
+          .staggerTo($("#page19").children(),0.6, animationToPattern, staggerToVelocity)
           .to("#page19",0.4,{ right: '100%', ease: Power0.easeNone})
           .to("#page20",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
           .call(updateTitle,[22])
-          .staggerFrom($("#page20").children(),0.6,{ right:'-150%', ease: Back.easeInOut.config(1)},0.3)
+          .staggerFrom($("#page20").children(),0.6, animationFromPattern, staggerFromVelocity)
           .addPause();
 
        tl.play();
@@ -462,28 +484,44 @@ angular.module('smcApp')
             TweenMax.to(".fullScreenVideo", 0.5, {css: {transform: 'scale(0) rotate(30deg)'}, delay:1, onComplete: hideFullScreenVideo, ease: Expo.easeOut});
             fullScreenVideoStatus = false;
         };
+
+        $scope.prevFoto = function(){
+          var firstPhoto = $('.slideimg').first();
+          TweenMax.to(firstPhoto, 0.1, {left: '-130%', repeatDelay:0, repeat:1, yoyo:true, onRepeat:$('#fotoGroup').append(firstPhoto), ease: Power2.easeOut});
+        };
+
+        $scope.nextFoto = function(){
+          var firstPhoto = $('.slideimg').last();
+          TweenMax.to(firstPhoto, 0.1, {left: '130%', repeatDelay:0, repeat:1, yoyo:true, onRepeat:$('#fotoGroup').prepend(firstPhoto), ease: Power2.easeOut});
+        };
+
+        $scope.openCloseAddInfo = function(val){
+          var target = '.ad'+val;
+          if($('.plusInfoO'+val).css('opacity')==1){
+              $('.plusInfoC'+val).css('opacity','1');
+              $('.plusInfoO'+val).css('opacity','0');
+              TweenMax.to(target, 0.3, {opacity: 1, scale:1, ease:Back.easeOut});
+            }
+          else{
+            $('.plusInfoC'+val).css('opacity','0');
+            $('.plusInfoO'+val).css('opacity','1');
+            TweenMax.to(target, 0.3, {opacity: 0, scale:0, ease:Back.easeOut});
+          }
+        };
         $(document).on('click','#mapIcon, #arrowClose',function(){
           openCloseMap();
         });
 
-        $(document).on('click','#arrowNext',function(){
-          nextFoto();
-        });
-
-        $(document).on('click','#arrowPrev',function(){
-          prevFoto();
-        });
-
-        $(document).on('click','.plusInfo',function(){
-          console.log($(this).css('opacity'));
-          var value = $(this).attr('value');
-          if($(this).css('opacity') == 1)$(this).css('opacity', '0');
-          else $(this).css('opacity', '1');
-          var target = '.ad'+value;
-          var opacityValue = $(target).css('opacity');
-          if(opacityValue == 0) TweenMax.to(target, 0.3, {opacity: 1, scale:1, ease:Back.easeOut});
-          else  TweenMax.to(target, 0.3, {opacity: 0, scale:0, ease:Back.easeOut});
-        });
+        //$(document).on('click','.plusInfo',function(){
+        //  console.log($(this).css('opacity'));
+        //  var value = $(this).attr('value');
+        //  if($(this).css('opacity') == 1)$(this).css('opacity', '0');
+        //  else $(this).css('opacity', '1');
+        //  var target = '.ad'+value;
+        //  var opacityValue = $(target).css('opacity');
+        //  if(opacityValue == 0) TweenMax.to(target, 0.3, {opacity: 1, scale:1, ease:Back.easeOut});
+        //  else  TweenMax.to(target, 0.3, {opacity: 0, scale:0, ease:Back.easeOut});
+        //});
 
         $(document).on('click','.plusInfoCita', function(){
           var numTexto = $(this).attr('value');
@@ -501,9 +539,6 @@ angular.module('smcApp')
           }
         });
 
-        function playTimeLine(){
-          tl.play();
-        }
         function insertWords(variable,num){
           $('#cita'+num+'suma').append(variable);
           TweenMax.from(variable, 0.1, {opacity: 0, y:-40, transformOrigin:"0% 50% -50", ease: Power2.easeOut});
@@ -512,48 +547,6 @@ angular.module('smcApp')
           $(variable).remove();
         }
 
-        function drawFace(){
-          facePortada.drawsvg('animate');
-          TweenMax.to(".instructions", 0.2, {opacity:1, repeat: 6,repeatDelay: 0.1, yoyo:true, ease: Power0.easeNone});
-        }
-        function nextFoto(){
-          var firstPhoto = $('.slideimg').last();
-          TweenMax.to(firstPhoto, 0.1, {left: '130%', repeatDelay:0, repeat:1, yoyo:true, onRepeat:$('#fotoGroup').prepend(firstPhoto), ease: Power2.easeOut});
-        }
-
-        function prevFoto(){
-          var firstPhoto = $('.slideimg').first();
-          TweenMax.to(firstPhoto, 0.1, {left: '-130%', repeatDelay:0, repeat:1, yoyo:true, onRepeat:$('#fotoGroup').append(firstPhoto), ease: Power2.easeOut});
-        }
-
-        function openCloseMap(val) {
-          if(val==undefined){
-            if(!mapStatus){
-              $("#mapIcon").addClass('mapIconMini');
-              $(".mapItem").addClass('mapItemMini');
-              $("#mapContainer").addClass('mapaD');
-              mapStatus = true;
-            }
-            else {
-              $("#mapIcon").removeClass('mapIconMini');
-              $(".mapItem").removeClass('mapItemMini');
-              $("#mapContainer").removeClass('mapaD');
-              mapStatus = false;
-            }
-          }
-          else if(val){
-            $("#mapIcon").addClass('mapIconMini');
-            $(".mapItem").addClass('mapItemMini');
-            $("#mapContainer").addClass('mapaD');
-            mapStatus = true;
-          }
-          else if (!val){
-            $("#mapIcon").removeClass('mapIconMini');
-            $(".mapItem").removeClass('mapItemMini');
-            $("#mapContainer").removeClass('mapaD');
-            mapStatus = false;
-          }
-        }
         function hideVideo(){
           $('#introVideo').attr('src', '');
           $('#introVideo').attr('src', 'https://www.youtube.com/embed/wpWO4L0qPPw?showinfo=0');
@@ -565,6 +558,40 @@ angular.module('smcApp')
         function initViaje(){
           viaje1.drawsvg('animate');
         }
+        //function drawFace(){
+        //  facePortada.drawsvg('animate');
+        //  TweenMax.to(".instructions", 0.2, {opacity:1, repeat: 6,repeatDelay: 0.1, yoyo:true, ease: Power0.easeNone});
+        //}
+
+      //function openCloseMap(val) {
+      //    if(val==undefined){
+      //      if(!mapStatus){
+      //        $("#mapIcon").addClass('mapIconMini');
+      //        $(".mapItem").addClass('mapItemMini');
+      //        $("#mapContainer").addClass('mapaD');
+      //        mapStatus = true;
+      //      }
+      //      else {
+      //        $("#mapIcon").removeClass('mapIconMini');
+      //        $(".mapItem").removeClass('mapItemMini');
+      //        $("#mapContainer").removeClass('mapaD');
+      //        mapStatus = false;
+      //      }
+      //    }
+      //    else if(val){
+      //      $("#mapIcon").addClass('mapIconMini');
+      //      $(".mapItem").addClass('mapItemMini');
+      //      $("#mapContainer").addClass('mapaD');
+      //      mapStatus = true;
+      //    }
+      //    else if (!val){
+      //      $("#mapIcon").removeClass('mapIconMini');
+      //      $(".mapItem").removeClass('mapItemMini');
+      //      $("#mapContainer").removeClass('mapaD');
+      //      mapStatus = false;
+      //    }
+      //  }
+
 
       //----------MOUSE CONTROLS --------
 
@@ -632,7 +659,7 @@ angular.module('smcApp')
         //closeBttn.on( 'click', function(){toggleOverlay()} );
 
         (function() {
-          // initialize icons          
+          // initialize icons
           [].slice.call( document.querySelectorAll( '.si-icons-default > .si-icon' ) ).forEach( function( el ) {
             var svgicon = new svgIcon( el, svgIconConfig );
           } );
