@@ -78,7 +78,17 @@
       <!--EPISODE 0-->
       <div id="page0" class="back color0 page0">
         <div class="videoCover"></div>
-        <iframe id="introVideo" class="videoClass" src="https://www.youtube.com/embed/wpWO4L0qPPw?playlist=wpWO4L0qPPw&autoplay=1&controls=0&loop=1&showinfo=0"></iframe>
+        <div class="videoClass">
+          <video
+          id="introVideo"
+          class="video-js vjs-default-skin introVideoFull"
+          autoplay
+          width="100%" height="100%"
+          data-setup='{ "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": "https://www.youtube.com/watch?v=wpWO4L0qPPw"}] }'
+          >
+          </video>
+        </div>
+        <!--iframe id="introVideo" class="videoClass" src="https://www.youtube.com/embed/wpWO4L0qPPw?playlist=wpWO4L0qPPw&autoplay=1&controls=0&loop=1&showinfo=0"></iframe-->
         <div class="dinamycText" id="quote">
           <h2>SEXE, MARAQUES I CHIHUAHUES</h2>
           <h3><span class="subtitle">La increíble vida de</span> <br> <span class="cugat-name">Xavier Cugat</span></h3>
@@ -194,10 +204,15 @@
           <div class="textAddonProl3 textProl1">La màgica nit de Reis d'aquell any, el veí li va fer un violí a la seva mida. Ja no va deixar l'instrument. El pare li va recomanar que deixés d'anar a estudi i es dediqués a la música. Així començava la carrera de qui es convertiria en un mite, músic, compositor, director i productor que triomfaria en els anys daurats de Hollywood amb la música llatina, que va popularitzar a tot el món.</div>
           <div class="CitaAddonProl3 citaProl1">"Davant de la casa on vivíem, un valencià anomenat Salvador Iglesias tenia una botiga o taller en el qual fabricava violins i guitarres; l'única existent a la ciutat. Jo tenia quatre o cinc anys i em passava tot el dia admirant com feia aquells instruments musicals. No hi havia trànsit al carrer i jo passava de casa meva a la del senyor Salvador constantment, fascinat pel seu treball".</div>
           <div class="CitaAddonProl3 citaProl2">"El destí de l'ésser humà ve decidit indubtablement pel seu caràcter; jo he heretat del meu pare el seu amor al treball i a la persistència. La vida depèn també de circumstàncies imprevistes: és un camí amb múltiples corbes, pujades i baixades. L'ésser humà camina per ella sense rumb fix i en determinats moments passa alguna cosa que ha de canviar tot el seu devenir. Si el senyor Salvador Iglesias hagués estat fabricant de xoriços, potser jo hagués estat ''xoricer'. Però va tenir el bon gust de fabricar violins i els reis de fer-me aquell meravellós present".</div>
-          <!--<iframe class="p21Video" src="https://www.youtube.com/embed/AEX6_GEVq2c?controls=2&showinfo=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>-->
-          <!--<iframe class="p22Video" src="https://www.youtube.com/embed/ghTHOjcc3IM?controls=2&showinfo=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>-->
-          <img class="p21Video"  ng-click="openVideo('AEX6_GEVq2c')" src="images/videoThumbs/p11.png"/>
-          <img class="p22Video"  ng-click="openVideo('ghTHOjcc3IM')" src="images/videoThumbs/p22.png"/>
+          <div class="p21Video videoPlay" ng-click="openVideo('AEX6_GEVq2c', 'p21Video')"
+            style="background-image: url('http://img.youtube.com/vi/AEX6_GEVq2c/hqdefault.jpg')">
+            <!--iframe class="p21Video" src="https://www.youtube.com/embed/AEX6_GEVq2c?controls=2&showinfo=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe-->
+          </div>
+          <div class="p22Video videoPlay" ng-click="openVideo('ghTHOjcc3IM', 'p22Video')" 
+            style="background-image: url('http://img.youtube.com/vi/ghTHOjcc3IM/hqdefault.jpg')">
+            <!--iframe class="p22Video" src="https://www.youtube.com/embed/ghTHOjcc3IM?controls=2&showinfo=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe-->
+          </div>
+          
           <!--<img class="videoAddon videoAddon1" src="images/movie.gif"/> <!--FRAGMENTO REPORTAJE RTVE BAILANDO CON CUGAT 26:20 a 26:50-->-->
           <!--<img class="videoAddon videoAddon2" src="images/movie2.gif"/> <!--FRAGMENTO DOCU 6:59 a 7:28-->-->
         </div>
@@ -214,10 +229,12 @@
         <div class="cita12" style="opacity:0"><spam id="cita12"> Finalment va venir el moment que vaig creure posseir els diners suficients per emprendre aquell viatge somiat i a Nova York me'n vaig anar amb el meu violí sota el braç, embolicat en una funda que em va fer la meva mare perquè no teníem prou diners per comprar un estoig.</spam></div>
         <div class="cita12 cita1">" <span id="cita12suma"> </span>Vaig desembarcar en aquella ciutat portentosa sense ni cinc a la butxaca i sense parlar una paraula d'anglès". <span class="plusInfoCita" value="12">[+]</span></div>
         <div id="texto18" class="texto1 texto18"><b>1915 -</b> Entre 1915 i 1918 lidera la seva primera formació musical, un grup de tangos i comença el seu periple amorós amb la seva primera dona.</div>
-        <!--<iframe class="p31Video" src="https://www.youtube.com/embed/xYX5Ep2ALRo?controls=2&showinfo=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>-->
-        <img class="p31Video"  ng-click="openVideo('xYX5Ep2ALRo')" src="images/videoThumbs/p31.png"/>
-        <img class="plusInfoC4 plusInfoClose1" ng-click="openCloseAddInfo('4')" src="images/infoTextVideoMin.svg"/>
-        <img class="plusInfoO4 plusInfoOpen1" ng-click="openCloseAddInfo('4')" src="images/infoTextVideo.svg"/>
+        <div class="p31Video videoPlay" ng-click="openVideo('xYX5Ep2ALRo', 'p22Video')" 
+            style="background-image: url('http://img.youtube.com/vi/xYX5Ep2ALRo/hqdefault.jpg')">
+            <!--iframe class="p31Video" src="https://www.youtube.com/embed/xYX5Ep2ALRo?controls=2&showinfo=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe-->
+        </div>
+        <img class="plusInfo plusInfoProlMinus1" value='4' src="images/infoTextVideoMin.svg"/>
+        <img class="plusInfo plusInfoProlPlus1" value='4' src="images/infoTextVideo.svg"/>
         <div class="additional ad4">
           <div class="CitaAddonProl1 textProl4">"Vaig dormir moltes nits al parc. La foscor m'espantava i sentia els llunyans sorolls de la ciutat que s'anava dormint lentament...". <b> - Yo Cugat. Mis primeros ochenta años (1981)</b></div>
           <div class="textAddonProl3 textProl5">Agustí Borgunyó era un pianista que havia arribat a Nova York en una situació precària semblant a la de Cugat. La fortuna feu que les seves vides s'entrecreuessin en un duo musical de supervivència i junts arribaren a tocar al Carnegie Hall i el Metropolitan Opera, dos prestigiosos salons de Nova York.</div>
@@ -243,8 +260,10 @@
           <div class="textAddonRm textRm1">Ella es va convertir en una estrella del xou musical i va ser la primera persona a qui Xavier Cugat va ajudar a arribar a la fama. La primera d'una llarga llista de dones que sempre l'acabaven abandonant, però per a les que no sentia cap ressentiment. Cugat es veia com l'escultor que modula, amb dedicació i bon criteri, les possibilitats artístiques d'una joia en brut.</div>
           <img class="imageRm11" src="images/RM4.jpg"/>
           <img class="imageRm12" src="images/RM5.jpg"/>
-          <!--<iframe class="rm1Video" src="https://www.youtube.com/embed/fSH8GVWKLjk?controls=2&showinfo=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>-->
-          <img class="rm1Video"  ng-click="openVideo('fSH8GVWKLjk')" src="images/videoThumbs/rm11.png"/>
+          <div class="rm1Video videoPlay" ng-click="openVideo('fSH8GVWKLjk', 'p22Video')" 
+            style="background-image: url('http://img.youtube.com/vi/fSH8GVWKLjk/hqdefault.jpg')">
+            <!--iframe class="rm1Video" src="https://www.youtube.com/embed/fSH8GVWKLjk?controls=2&showinfo=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe-->
+          </div>
           <div class="citaAddonRm citaRm3">"El meu destí, que té el seu aspecte tràgic potser desconegut per la brillantor del meu nom, és que he portat a la més gran altura artística a les meves esposes i després, potser massa segures de si mateixes, m'han abandonat". <b>-Yo Cugat. Mis primeros ochenta años (1981)</b></div>
         </div>
       </div>
@@ -258,10 +277,14 @@
         <div class="additional ad6">
           <div class="textAddonRm textRm2">Durant els anys 20 del segle XX, la moda "Tsigane", que remetia a un imaginari de gitanos i melodies frenètiques, va donar pas a ritmes llatinoamericans com el tango, l'havanera, la rumba, la conga, la samba, el merengue , el bolero o el txa txa txa. Cugat va veure aquí una gran oportunitat per importar aquests ritmes llatins i es va dedicar a això en cos i ànima.</div>
           <div class="citaAddonRm citaRm4">"La feina d'un virtuós de qualsevol instrument musical, especialment el piano i el violí, exigeix ​​diverses hores diàries d'exercicis. És una ocupació totalment absorbent que no permet contactes personals aliens a aquella vocació, per la resta, reconec que jo no era físicament atractiu i que moltes dones veien en mi no a l'home físic, sinó a l'artista popular."</div>
-          <!--<iframe class="rm21Video" src="https://www.youtube.com/embed/l7GtWlyMHJo?controls=2&showinfo=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>-->
-          <!--<iframe class="rm22Video" src="https://www.youtube.com/embed/6s_CY6gSjEQ?controls=2&showinfo=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>-->
-          <img class="rm21Video"  ng-click="openVideo('l7GtWlyMHJo')" src="images/videoThumbs/e21.png"/>
-          <img class="rm22Video"  ng-click="openVideo('6s_CY6gSjEQ')" src="images/videoThumbs/e21.png"/>
+          <div class="rm21Video videoPlay" ng-click="openVideo('l7GtWlyMHJo', 'p22Video')" 
+            style="background-image: url('http://img.youtube.com/vi/l7GtWlyMHJo/hqdefault.jpg')">
+            <!--iframe class="rm21Video" src="https://www.youtube.com/embed/l7GtWlyMHJo?controls=2&showinfo=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe-->
+          </div>
+          <div class="rm22Video videoPlay" ng-click="openVideo('6s_CY6gSjEQ', 'p22Video')" 
+            style="background-image: url('http://img.youtube.com/vi/6s_CY6gSjEQ/hqdefault.jpg')">
+            <!--iframe class="rm22Video" src="https://www.youtube.com/embed/6s_CY6gSjEQ?controls=2&showinfo=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe-->
+          </div>
         </div>
       </div>
       <div id="page7" class="back color0 page7">
@@ -277,12 +300,18 @@
         <img class="plusInfoC7 plusInfoClose2" ng-click="openCloseAddInfo('7')" src="images/infoTextVideoMin.svg"/>
         <img class="plusInfoO7 plusInfoOpen2" ng-click="openCloseAddInfo('7')" src="images/infoTextVideo.svg"/>
         <div class="additional ad7">
-          <!--<iframe class="rm31Video" src="https://www.youtube.com/embed/I736e6ChYD8?controls=2&showinfo=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>-->
-          <!--<iframe class="rm32Video" src="https://www.youtube.com/embed/mnX-eWJktbg?controls=2&showinfo=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>-->
-          <!--<iframe class="rm33Video" src="https://www.youtube.com/embed/GJzc92BlYP8?controls=2&showinfo=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>-->
-          <img class="rm31Video"  ng-click="openVideo('I736e6ChYD8')" src="images/videoThumbs/e21.png"/>
-          <img class="rm32Video"  ng-click="openVideo('mnX-eWJktbg')" src="images/videoThumbs/e21.png"/>
-          <img class="rm33Video"  ng-click="openVideo('GJzc92BlYP8')" src="images/videoThumbs/e21.png"/>
+          <div class="rm31Video videoPlay" ng-click="openVideo('I736e6ChYD8', 'p22Video')" 
+            style="background-image: url('http://img.youtube.com/vi/I736e6ChYD8/hqdefault.jpg')">
+            <!--iframe class="rm31Video" src="https://www.youtube.com/embed/I736e6ChYD8?controls=2&showinfo=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe-->
+          </div>
+          <div class="rm32Video videoPlay" ng-click="openVideo('mnX-eWJktbg', 'p22Video')" 
+            style="background-image: url('http://img.youtube.com/vi/mnX-eWJktbg/hqdefault.jpg')">
+            <!--iframe class="rm32Video" src="https://www.youtube.com/embed/mnX-eWJktbg?controls=2&showinfo=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe-->
+          </div>
+          <div class="rm33Video videoPlay" ng-click="openVideo('GJzc92BlYP8', 'p22Video')" 
+            style="background-image: url('http://img.youtube.com/vi/GJzc92BlYP8/hqdefault.jpg')">
+            <!--iframe class="rm33Video" src="https://www.youtube.com/embed/GJzc92BlYP8?controls=2&showinfo=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe-->
+          </div>
           <div class="textAddonRm textRm3">Conegut en anglès com Rudolph Valentino, aquest actor italià va ser el primer sex-symbol del cinema mundial, llatí i latin lover per excel·lència. Va morir jove en estranyes circumstàncies[, però.]</div>
           <img class="imageAddonRm imageRm1" src="images/RM6.jpg"/>
           <img class="imageAddonRm imageRm2" src="images/RM9.jpg"/>
@@ -331,12 +360,18 @@
         <img class="cc38 img" src="images/CC_BCN_19.jpg"/>
         <div id="texto34" class="texto3 texto34">[Aquest mateix any] [Cugat] comença les seves primeres aventures com a director de cinema, primer amb el curt "Un fotógrafo distraído" i després amb el seu primer llargmetratge "Charros, gauchos y manolas".</div>
         <img class="cc39 img" src="images/CC6.jpg"/>
-        <!--<iframe class="cc21Video" src="https://www.youtube.com/embed/w4pvV9o8l0k?controls=2&showinfo=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>-->
-        <!--<iframe class="cc22Video" src="https://www.youtube.com/embed/9Ze3iO82MD0?controls=2&showinfo=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>-->
-        <!--<iframe class="cc23Video" src="https://www.youtube.com/embed/F5j1s8inof4?controls=2&showinfo=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>-->
-        <img class="cc21Video"  ng-click="openVideo('w4pvV9o8l0k')" src="images/videoThumbs/e21.png"/>
-        <img class="cc22Video"  ng-click="openVideo('9Ze3iO82MD0')" src="images/videoThumbs/e21.png"/>
-        <img class="cc23Video"  ng-click="openVideo('F5j1s8inof4')" src="images/videoThumbs/e21.png"/>
+        <div class="cc21Video videoPlay" ng-click="openVideo('w4pvV9o8l0k', 'p22Video')" 
+            style="background-image: url('http://img.youtube.com/vi/w4pvV9o8l0k/hqdefault.jpg')">
+            <!--<iframe class="cc21Video" src="https://www.youtube.com/embed/w4pvV9o8l0k?controls=2&showinfo=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>-->
+          </div>
+        <div class="cc22Video videoPlay" ng-click="openVideo('9Ze3iO82MD0', 'p22Video')" 
+            style="background-image: url('http://img.youtube.com/vi/9Ze3iO82MD0/hqdefault.jpg')">
+            <!--<iframe class="cc22Video" src="https://www.youtube.com/embed/9Ze3iO82MD0?controls=2&showinfo=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>-->
+          </div>
+        <div class="cc23Video videoPlay" ng-click="openVideo('F5j1s8inof4', 'p22Video')" 
+            style="background-image: url('http://img.youtube.com/vi/F5j1s8inof4/hqdefault.jpg')">
+            <!--<iframe class="cc23Video" src="https://www.youtube.com/embed/F5j1s8inof4?controls=2&showinfo=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>-->
+          </div>
         <img class="plusInfoC11 plusInfoClose1" ng-click="openCloseAddInfo('11')" src="images/infoTextVideoMin.svg"/>
         <img class="plusInfoO11 plusInfoOpen1" ng-click="openCloseAddInfo('11')" src="images/infoTextVideo.svg"/>
         <div class="additional ad11">
@@ -376,10 +411,14 @@
         <!--<div class="ContainercuaAEEUU">-->
           <!--<img class="mapCubaEEUU" src="images/mapWorld.svg"/>-->
         <!--</div>-->
-        <!--<iframe class="cc31Video" src="https://www.youtube.com/embed/2hLIdI99eiw?controls=2&showinfo=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>-->
-        <!--<iframe class="cc32Video" src="https://www.youtube.com/embed/F3kQC4ULRPc?controls=2&showinfo=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>-->
-        <img class="cc31Video"  ng-click="openVideo('2hLIdI99eiw')" src="images/videoThumbs/e21.png"/>
-        <img class="cc32Video"  ng-click="openVideo('F3kQC4ULRPc')" src="images/videoThumbs/e21.png"/>
+        <div class="cc31Video videoPlay" ng-click="openVideo('2hLIdI99eiw', 'p22Video')" 
+            style="background-image: url('http://img.youtube.com/vi/2hLIdI99eiw/hqdefault.jpg')">
+            <!--<iframe class="cc31Video" src="https://www.youtube.com/embed/2hLIdI99eiw?controls=2&showinfo=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>-->
+          </div>
+        <div class="cc32Video videoPlay" ng-click="openVideo('F3kQC4ULRPc', 'p22Video')" 
+            style="background-image: url('http://img.youtube.com/vi/F3kQC4ULRPc/hqdefault.jpg')">
+            <!--<iframe class="cc32Video" src="https://www.youtube.com/embed/F3kQC4ULRPc?controls=2&showinfo=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>-->
+          </div>
         <!--<div ib="texto38" class="texto3 texto38"><b>1932 - </b>[Pero al año siguiente Cugat]Rep una oferta de l'Hotel Waldorf Astoria de Nova York perquè ell i la seva neboda Margo animessin un dels salons. S'hi queda 15 anys de forma ininterrompuda...</div>-->
         <!--<img class="cc391 img" src="images/CC_BCN_1.jpg"/>-->
         <!--<img class="cc392 img" src="images/CC_BCN_2.jpg"/>-->
@@ -410,10 +449,14 @@
         <!--<div class="cita4 cita42">"Jo vaig viure el temps en què el cinema es basava sobretot en l'actor o l'actriu. S'anava a veure una pel·lícula de Charles Chaplin, de Pola Negri o de Greta Garbo. A ningú li interessava l'argument i ni sabien el nom del director. Els empresaris es dirigien a un bon professional i li deien simplement: 'Escriu-me un argument en què càpiguen tal i tal artista'. El mateix es feia en les pel·lícules musicals. Tot girava al voltant de Fred Astaire, Gene Kelly i el director de les orquestres que formaven l'espectacle. És així que jo em vaig convertir també en una 'estrella' del cinema i que es van fer algunes pel·lícules de les quals el protagonista bàsic i fonamental era Cugat i els seus nois."</div>-->
         <img class="la5 img" src="images/stage.jpg"/>
         <img class="la4 img" src="images/LA_BCN_4.jpg"/>
-        <!--<iframe class="la21Video" src="https://www.youtube.com/embed/APqdZiVo3hs?controls=2&showinfo=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>-->
-        <!--<iframe class="la22Video" src="https://www.youtube.com/embed/DIsiwM780FY?controls=2&showinfo=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>-->
-        <img class="la21Video"  ng-click="openVideo('APqdZiVo3hs')" src="images/videoThumbs/e21.png"/>
-        <img class="la22Video"  ng-click="openVideo('DIsiwM780FY')" src="images/videoThumbs/e21.png"/>
+        <div class="la21Video videoPlay" ng-click="openVideo('APqdZiVo3hs', 'p22Video')" 
+            style="background-image: url('http://img.youtube.com/vi/APqdZiVo3hs/hqdefault.jpg')">
+            <!--<iframe class="la21Video" src="https://www.youtube.com/embed/APqdZiVo3hs?controls=2&showinfo=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>-->
+          </div>
+        <div class="la22Video videoPlay" ng-click="openVideo('DIsiwM780FY', 'p22Video')" 
+            style="background-image: url('http://img.youtube.com/vi/DIsiwM780FY/hqdefault.jpg')">
+            <!--<iframe class="la22Video" src="https://www.youtube.com/embed/DIsiwM780FY?controls=2&showinfo=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>-->
+          </div>
         <img class="plusInfoC14 plusInfoClose1" ng-click="openCloseAddInfo('14')" src="images/infoTextVideoMin.svg"/>
         <img class="plusInfoO14 plusInfoOpen1" ng-click="openCloseAddInfo('14')" src="images/infoTextVideo.svg"/>
         <div class="additional ad14">
@@ -427,10 +470,14 @@
         <img class="la7 img" src="images/frankS.jpg"/>
         <img class="la6 img" src="images/LA5.jpg"/>
         <!--<img class="la9 img" src="images/LA4.jpg"/>-->
-        <!--<iframe class="la31Video" src="https://www.youtube.com/embed/qlhD0EGomJc?controls=2&showinfo=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>-->
-        <!--<iframe class="la32Video" src="https://www.youtube.com/embed/RqhKw6lg25I?controls=2&showinfo=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>-->
-        <img class="la31Video"  ng-click="openVideo('qlhD0EGomJc')" src="images/videoThumbs/e21.png"/>
-        <img class="la32Video"  ng-click="openVideo('RqhKw6lg25I')" src="images/videoThumbs/e21.png"/>
+        <div class="la31Video videoPlay" ng-click="openVideo('qlhD0EGomJc', 'p22Video')" 
+            style="background-image: url('http://img.youtube.com/vi/qlhD0EGomJc/hqdefault.jpg')">
+            <!--<iframe class="la31Video" src="https://www.youtube.com/embed/qlhD0EGomJc?controls=2&showinfo=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>-->
+          </div>
+        <div class="la32Video videoPlay" ng-click="openVideo('RqhKw6lg25I', 'p22Video')" 
+            style="background-image: url('http://img.youtube.com/vi/RqhKw6lg25I/hqdefault.jpg')">
+            <!--<iframe class="la32Video" src="https://www.youtube.com/embed/RqhKw6lg25I?controls=2&showinfo=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>-->
+          </div>
         <img class="plusInfoC15 plusInfoClose1" ng-click="openCloseAddInfo('15')" src="images/infoTextVideoMin.svg"/>
         <img class="plusInfoO15 plusInfoOpen1" ng-click="openCloseAddInfo('15')" src="images/infoTextVideo.svg"/>
         <div class="additional ad15">
@@ -446,7 +493,10 @@
         <div id="texto51" class="texto5 texto51"><b>1952 - </b>Quan es va casar per quarta vegada, Cugat tenia ja 52 anys i ella 20. El veritable nom d'Abbe Lane era Abigale Lasman, filla d'un matrimoni hebreu. Cugat la va rebatejar com Abbe Lane, com ja havia fet amb Rita Cansino, [a qui va convertir en Rita Hayworth i actriu de renom mundial.]</div>
         <div class="cita51" style="opacity:0"><spam id="cita51"> En la meva recerca d'una noia que complís els requisits necessaris, vaig anar a Nova York a veure l'espectacle produït per l'ex marit de Liz Taylor, el productor Michael Todd. L'espectacle es deia 'Botton Shoes'. En el cor hi havia setze noies ballant, totes molt belles i molt semblants. Però vaig creure que la cinquena per l'esquerra tenia 'un no sé què' diferent. M'agradaria conèixer a aquesta noia. Vaig fer que em presentessin a ella[...] Es deia Abbe Lane. El 1950 ens vam casar i vam ser feliços durant quinze anys de matrimoni</spam></div>
         <div class="cita5 cita51">"Divorciat de Lorrain Allen, necessitava una nova companya, tant per a la meva vida privada com per a al meu espectacle. <span id="cita51suma"> </span>". <span class="plusInfoCita" value="51">[+]</span></div>
-        <iframe class="teLoDijoAdela" src="https://www.youtube.com/embed/5JdZW_LpUEY?controls=2&showinfo=0" frameborder="0" allowfullscreen></iframe>
+        <div class="teLoDijoAdela videoPlay" ng-click="openVideo('5JdZW_LpUEY', 'p22Video')" 
+            style="background-image: url('http://img.youtube.com/vi/5JdZW_LpUEY/hqdefault.jpg')">
+            <!--<iframe class="teLoDijoAdela" src="https://www.youtube.com/embed/5JdZW_LpUEY?controls=2&showinfo=0" frameborder="0" allowfullscreen></iframe>-->
+          </div>
       </div>
       <div id="page15" class="back color0 page15">
         <div id="texto52" class="texto5 texto52">En aquest punt de la vida, Cugat era considerat el rei de la rumba i de la samba per tot arreu. Havia arribat al cim de la seva professió i va deixar participar a Abbe Lane dels seus èxits. Abbe Lane va tastar, de la ma de Cugat, el xampany, el caviar i els avions per primera vegada.</div>
@@ -548,7 +598,10 @@
         <!--<iframe class="ep11Video" src="https://www.youtube.com/embed/yiHLlJ1hujs?controls=2&showinfo=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>-->
         <!--<iframe class="ep12Video" src="https://www.youtube.com/embed/6H_4dq8cUU0?controls=2&showinfo=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>-->
         <!--<iframe class="ep13Video" src="https://drive.google.com/file/d/0B3Fh20_rP_uzYXZnQ1ozNVJDMlk/preview" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>-->
-        <img class="ep14Video"  ng-click="openVideo('ZIP0Vi6PSIU')" src="images/videoThumbs/e21.png"/>
+        <div class="ep14Video videoPlay" ng-click="openVideo('ZIP0Vi6PSIU', 'p22Video')" 
+            style="background-image: url('http://img.youtube.com/vi/ZIP0Vi6PSIU/hqdefault.jpg')">
+            <!--<!--img class="ep14Video"  ng-click="openVideo('ZIP0Vi6PSIU', 'ep14Video')" src="images/videoThumbs/e21.png"/-->-->
+          </div>
         <div id="texto64" class="texto6 texto64">Cugat fallece en Barcelona el 27 de octubre de 1990.</div>
       </div>
     </div>
@@ -833,7 +886,15 @@
 </div>
 
 <div class="fullScreenVideo">
-  <iframe id="fullScreeVideoEnter" class="fullScreeVideoEnter" src=""></iframe>
+  <!--iframe id="fullScreeVideoEnter" class="fullScreeVideoEnter" src=""></iframe-->
+  <video
+    id="fullScreeVideoEnter"
+    class="video-js vjs-default-skin fullScreeVideoEnter"
+    controls
+    width="100%" height="100%"
+    data-setup='{ "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": "https://www.youtube.com/watch?v="}] }'
+  >
+  </video>
   <div ng-click="closeVideo()" class="closeFullScreenVideo">X</div>
 </div>
 <!--<div id="mapIcon" class="mapIcon">-->

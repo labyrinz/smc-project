@@ -88,6 +88,29 @@ angular.module('smcApp')
         //    }
         //  }
 
+        var player = videojs('fullScreeVideoEnter');
+        var playerIntro = videojs('introVideo');
+        
+        var playVideo = function(){
+            //player.currentTime(0);
+            player.play();
+        }
+        var playIntroVideo = function(){
+            //playerIntro.currentTime(0);
+            playerIntro.play();
+        }
+        var stopIntroVideo = function(){
+            playerIntro.currentTime(0);
+            playerIntro.pause();
+        }
+        playerIntro.ready(function(){
+          playerIntro.on("ended",function(){
+            console.log("intro video ended")
+            tl.play(); // On Intro Video ended, next slide
+          })
+        });
+
+
       //-----------------------
       //------ TITLE ----------
 
@@ -117,6 +140,7 @@ angular.module('smcApp')
 
         tl
           //EPISODE 1
+          .call(playIntroVideo,[])
           .to(".videoCover", 3, {css:{opacity: '0.6'}, delay: 4, ease: Power0.easeOut},"inicio")
           .staggerFrom(introWords, 0.6, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.2]}, ease: Back.easeOut.config(0.8)}, 0.1)
           .staggerFrom(introWordsSubtitle, 0.6, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.2]}, ease: Back.easeOut.config(0.8)}, 0.1)
@@ -124,6 +148,7 @@ angular.module('smcApp')
           .to(".mouseIcon", 0.5, {bottom: '150px', ease: Bounce.easeIn})
           .addPause()
           //EPISODE 2
+          .call(stopIntroVideo,[])
           .to(".ed1", 0.5, {left: '0%', ease: Bounce.easeOut},"prologo")
           .to(".ed2", 0.5, {top: '0%', ease: Bounce.easeOut})
           .to(".ed3", 0.5, {left: '0%', ease: Bounce.easeOut},"-=1")
@@ -471,17 +496,23 @@ angular.module('smcApp')
           tl.play(value);
           if ($("div.overlay").hasClass("open")) $("#trigger-overlay").click();
         };
-        $scope.openVideo = function(value){
+        $scope.openVideo = function(value, origin){
+            /*var op = $( "."+origin );
+            var position = op.position();
+            $(".fullScreenVideo").css({top: position.top+"px", left: position.left+"px"});*/
             //$('.fullScreeVideoEnter').attr('src', 'https://www.youtube.com/embed/'+value+'?playlist='+value+'&autoplay=1&controls=0&loop=1&showinfo=0');
-            $('.fullScreeVideoEnter').attr('src', 'https://www.youtube.com/embed/'+value+'?autoplay=1&controls=0&loop=1&rel=0&amp;showinfo=0');
-            TweenMax.to(".fullScreenVideo", 3, {css: {transform: 'scale(0.3) rotate(20deg)'}, delay:0.5, ease: Expo.easeOut});
-            TweenMax.to(".fullScreenVideo", 3, {css: {transform: 'scale(1) rotate(0deg)'}, delay:3, ease: Expo.easeOut});
+            player.src({ type: 'video/youtube', src: 'https://www.youtube.com/watch?v='+value });
+            playVideo();
+            TweenMax.to(".fullScreenVideo", 1, {css: {transform: 'scale(0.3) rotate(20deg)'}, delay:0.5, ease: Expo.easeOut})
+            TweenMax.to(".fullScreenVideo", 1, {css: {transform: 'scale(1) rotate(0deg)', top: 0, left: 0}, delay:1.5, ease: Expo.easeOut})
             fullScreenVideoStatus = true;
 
         };
         $scope.closeVideo = function(){
-            TweenMax.to(".fullScreenVideo", 2, {css: {transform: 'scale(0.3) rotate(0deg)'}, ease: Expo.easeOut});
-            TweenMax.to(".fullScreenVideo", 0.5, {css: {transform: 'scale(0) rotate(30deg)'}, delay:1, onComplete: hideFullScreenVideo, ease: Expo.easeOut});
+            var player = videojs('fullScreeVideoEnter');
+            player.pause();
+            TweenMax.to(".fullScreenVideo", 1, {css: {transform: 'scale(0.3) rotate(0deg)'}, ease: Expo.easeOut})
+            TweenMax.to(".fullScreenVideo", 1, {css: {transform: 'scale(0) rotate(30deg)'}, delay:1, onComplete: hideFullScreenVideo, ease: Expo.easeOut})
             fullScreenVideoStatus = false;
         };
 
@@ -617,6 +648,7 @@ angular.module('smcApp')
 
       var container = $( 'div.container' ),
           triggerBttn = $( '#trigger-overlay' ),
+          soundBttn = $( '.si-icon-volume'),
           overlay = $( 'div.overlay' ),
           closeBttn = $( 'button.overlay-close'),
           transEndEventNames = {
@@ -655,7 +687,15 @@ angular.module('smcApp')
           }
         }
 
+        var boolsound = 1;
+        function toggleSound(){
+          boolsound = boolsound ? 0 : 1;
+          player.volume(boolsound);
+          playerIntro.volume(boolsound);
+        }
+
         triggerBttn.on( 'click', function(){toggleOverlay()} );
+        soundBttn.on( 'click', function(){toggleSound()} );
         //closeBttn.on( 'click', function(){toggleOverlay()} );
 
         (function() {
