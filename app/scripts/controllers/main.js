@@ -16,6 +16,7 @@ angular.module('smcApp')
       var videoDisplay = true;
       var body = $('body');
       var totalWords = [];
+      var fullScreenVideoStatus = false;
 
       var introLetters = $("#quote h2").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"introLetters"});
       var introLettersSubtitle = $("#quote h3 span.subtitle").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"introLettersSubtitle"});
@@ -89,9 +90,9 @@ angular.module('smcApp')
 
       //-----------------------
       //------ TITLE ----------
-      
+
       var updateTitle = function(index){
-          
+
           var notes = $(".pentagramNotes");
           notes.hide()
           for (var i = 0; i <= index; i++) {
@@ -356,22 +357,6 @@ angular.module('smcApp')
        /* setTimeout(drawFace, 5000);*/
 
       //---------------------------------
-      //----------MOUSE CONTROLS --------
-
-        $(window).bind('mousewheel DOMMouseScroll', function(event){
-            event.preventDefault();
-            TweenMax.to('.additional', 0.2, {opacity: 0, scale:0, ease:Back.easeOut});
-            if(event.type != 'mousedown'){
-              if (event.originalEvent.wheelDelta > 0 || event.originalEvent.detail < 0) {
-                tl.reverse();
-              }
-              else {
-                tl.play();
-              }
-            }
-          });
-
-    //------------------------------------
     //---------MAP D3 CONTROLLER -----------
 
       //var width = window.innerWidth/1.5,
@@ -465,13 +450,17 @@ angular.module('smcApp')
           if ($("div.overlay").hasClass("open")) toggleOverlay();
         };
         $scope.openVideo = function(value){
-            $('.fullScreeVideoEnter').attr('src', 'https://www.youtube.com/embed/'+value+'?playlist='+value+'&autoplay=1&controls=0&loop=1&showinfo=0');
-            TweenMax.to(".fullScreenVideo", 3, {css: {transform: 'scale(0.3) rotate(20deg)'}, delay:0.5, ease: Expo.easeOut})
-            TweenMax.to(".fullScreenVideo", 3, {css: {transform: 'scale(1) rotate(0deg)'}, delay:3, ease: Expo.easeOut})
+            //$('.fullScreeVideoEnter').attr('src', 'https://www.youtube.com/embed/'+value+'?playlist='+value+'&autoplay=1&controls=0&loop=1&showinfo=0');
+            $('.fullScreeVideoEnter').attr('src', 'https://www.youtube.com/embed/'+value+'?autoplay=1&controls=0&loop=1&rel=0&amp;showinfo=0');
+            TweenMax.to(".fullScreenVideo", 3, {css: {transform: 'scale(0.3) rotate(20deg)'}, delay:0.5, ease: Expo.easeOut});
+            TweenMax.to(".fullScreenVideo", 3, {css: {transform: 'scale(1) rotate(0deg)'}, delay:3, ease: Expo.easeOut});
+            fullScreenVideoStatus = true;
+
         };
         $scope.closeVideo = function(){
-            TweenMax.to(".fullScreenVideo", 3, {css: {transform: 'scale(0.3) rotate(0deg)'}, ease: Expo.easeOut})
-            TweenMax.to(".fullScreenVideo", 1, {css: {transform: 'scale(0) rotate(30deg)'}, delay:3, onComplete: hideFullScreenVideo, ease: Expo.easeOut})
+            TweenMax.to(".fullScreenVideo", 2, {css: {transform: 'scale(0.3) rotate(0deg)'}, ease: Expo.easeOut});
+            TweenMax.to(".fullScreenVideo", 0.5, {css: {transform: 'scale(0) rotate(30deg)'}, delay:1, onComplete: hideFullScreenVideo, ease: Expo.easeOut});
+            fullScreenVideoStatus = false;
         };
         $(document).on('click','#mapIcon, #arrowClose',function(){
           openCloseMap();
@@ -576,6 +565,25 @@ angular.module('smcApp')
         function initViaje(){
           viaje1.drawsvg('animate');
         }
+
+      //----------MOUSE CONTROLS --------
+
+      $(window).bind('mousewheel DOMMouseScroll', function(event){
+        event.preventDefault();
+        TweenMax.to('.additional', 0.2, {opacity: 0, scale:0, ease:Back.easeOut});
+        if(event.type != 'mousedown'){
+          if (event.originalEvent.wheelDelta > 0 || event.originalEvent.detail < 0) {
+            tl.reverse();
+            if(fullScreenVideoStatus)$scope.closeVideo();
+          }
+          else {
+            tl.play();
+            if(fullScreenVideoStatus)$scope.closeVideo();
+          }
+        }
+      });
+
+      //------------------------------------
       //-----------------------------------
 
       // MENU
