@@ -59,6 +59,28 @@ body {
 .iconoSoundImage{width: 100%;}
 .iconoMute{ right: 2%;}
 .iconoMuteImage{width: 100%;}
+
+.mouseIcon{
+  color: #fff;
+  text-align: center;
+  width: 150px;
+  position: absolute;
+  bottom: -150px;
+  left: 50%;
+  margin-left: -75px;
+  z-index: 1000;
+}
+.mouseIcon .iconSpace{
+  width: 100%;
+  height: 48px;
+  background: transparent url(../images/mouse2.png) no-repeat center center;
+  margin-bottom: 5px;
+}
+.mouseIcon p{
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
 //---- CARA ANIMATION ------
 .faceSvgClass path{
   fill: none;
@@ -214,18 +236,49 @@ body {
   background-color: rgba(14, 9, 7, 0);
 }
 // -------- PENTAGRAM -----
+#pentagram{
+  width: 100%;
+  position: absolute;
+  height: 100px;
+  bottom: 0;
+  z-index: 100000;
+}
+
+.currentDetails{
+  position: absolute;
+  width: 100%;
+  height: 30px;
+  top: 200%;
+  left: 110px;
+  z-index: 900;
+}
+.currentDetails h4{
+  color: #FFF;
+  margin: 0;
+  font-family: 'Lora', serif;
+  font-weight: normal;
+  text-shadow: 0px 1px 1px #444;
+  font-size: 23px;
+}
+
+.claveSol{
+  position: absolute;
+  left: 110px;
+  bottom: -100%;
+  height: 60px;
+}
+
 .pentagramRect{
   position: absolute;
   bottom: -50%;
-  width: 100%;
+  height: 70px;
+  left: 50px;
+  /*width: 100%;*/
   z-index: 998;
 }
 .pentagramBack{
   width: 100%;
-  height: 13%;
-  position: absolute;
-  bottom: -50%;
-  left:0;
+  height: 100%;
   background: black; /* For browsers that do not support gradients */
   /*background: -webkit-linear-gradient(rgba(10,10,10,0) 1%,rgba(10,10,10,0.9) 40%); /* For Safari 5.1 to 6.0 */
   /*background: -o-linear-gradient(rgba(10,10,10,0) 1%,rgba(10,10,10,0.9) 40%); /* For Opera 11.1 to 12.0 */
@@ -237,34 +290,33 @@ body {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
   z-index: 997;
 }
+
 .pentagramNotesGroup{
   position: absolute;
-  left: 12%;
+  left: 155px;
   bottom: -50%;
   width: 100%;
   z-index: 998;
 }
 .pentagramNotes{
-  width: 3%;
+  /*width: 40px;*/
   height: 100%;
+  padding: 0 10px;
   float: left;
   cursor: pointer;
+  display: none;
 }
 .noteImgNegra{
-  width: 30%;
-  height: 30%;
+  width: 10px;
 }
 .noteImgSilen{
-  width: 50%;
-  height: 50%;
+  width: 15px;
 }
 .noteImgTrioNegra{
-  width: 100%;
-  height: 100%;
+  width: 60px;
 }
 .noteImgCor{
-  width: 50%;
-  height: 50%;
+  width: 15px;
 }
 .linePent1{
   margin-top: 0%;
@@ -283,20 +335,20 @@ body {
 }
 .agesImageGroup{
   position: absolute;
-  bottom: 0%;
-  left: 0%;
-  width: 8%;
-  height: 16%;
+  bottom: 0;
+  left: 0;
+  width: 100px;
+  height: 100%;
   z-index: 999;
-  -webkit-perspective: 300px;
-  perspective: 300px;
+  /*-webkit-perspective: 300px;
+  perspective: 300px;*/
 }
 .ageImage{
   position: absolute;
   top:0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100px;
+  height: 100px;
   -webkit-transform: rotateX(-90deg);
   -moz-transform: rotateX(-90deg);
   -ms-transform: rotateX(-90deg);
@@ -511,9 +563,11 @@ body {
 .cita1{
   position: absolute;
   font-family: 'Dancing Script', cursive;
+  text-shadow: 0px 0px 2px rgb(0, 0, 0);
   font-style: italic;
   z-index: 997;
-  color: #ffd85f;/*#FFE698;*/
+  //color: #231a16;
+  color: #F1F1F1; /*#ffd85f;#FFE698;*/
   font-size: 35px;
   padding: 2% 3%;
 }
@@ -1841,9 +1895,11 @@ body {
 }
 /* Responsive: Portrait tablets and up */
 @media only screen and (max-width: 1600px) {
-  .texto1, .texto2, .texto3, .texto4, .texto5, .texto6{ font-size: 12px; }
+  .texto1, .texto2, .texto3, .texto4, .texto5, .texto6{ font-size: 14px; }
   .CitaAddonProl1{ font-size: 13px; }
-  .cita1, .cita2, .cita3, .cita4, .cita5, .cita6 {font-size: 25px;}
+  .cita1, .cita2, .cita3, .cita4, .cita5, .cita6 {
+    font-size: 25px;
+  }
   .mujerTitle1, .mujerTitle2,.mujerTitle3,.mujerTitle4,.mujerTitle5,.epilogoTitle{font-size: 30px;}
   .dinamycText {
     font-size: 45px;

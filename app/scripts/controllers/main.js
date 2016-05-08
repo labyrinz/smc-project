@@ -69,7 +69,7 @@ angular.module('smcApp')
         duration: 8000,
         easing: 'linear',
         callback: function() {
-          console.log('dibujo terminado');
+          //console.log('dibujo terminado');
         }
       });
       //----------------------------
@@ -86,6 +86,22 @@ angular.module('smcApp')
         //      videoDisplay = false;
         //    }
         //  }
+
+      //-----------------------
+      //------ TITLE ----------
+      
+      var updateTitle = function(index){
+          
+          var notes = $(".pentagramNotes");
+          notes.hide()
+          for (var i = 0; i <= index; i++) {
+            $(notes[i]).show();
+          }
+          var note = $($(".pentagramNotes")[index]);
+          var title = note.find(".tooltip-text").html();
+          $(".currentDetails h4").html(title);
+        }
+
       //-----------------------
       //-----TIMELINE ---------
         TweenMax.set(".scrollIcon, .hiddenCanvas, .dinamycText, .ageTitle, .napFace, .addon1, .prel01", {visibility:"visible"});
@@ -98,6 +114,7 @@ angular.module('smcApp')
           .staggerFrom(introWords, 0.6, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.2]}, ease: Back.easeOut.config(0.8)}, 0.1)
           .staggerFrom(introWordsSubtitle, 0.6, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.2]}, ease: Back.easeOut.config(0.8)}, 0.1)
           .staggerFrom(introWordsName, 0.6, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.2]}, ease: Back.easeOut.config(0.8)}, 0.1)
+          .to(".mouseIcon", 0.5, {bottom: '150px', ease: Bounce.easeIn})
           .addPause()
           //EPISODE 2
           .to(".ed1", 0.5, {left: '0%', ease: Bounce.easeOut},"prologo")
@@ -106,9 +123,12 @@ angular.module('smcApp')
           .to(".ed4", 0.5, {transform: 'rotateX(0deg)', ease: Back.easeOut.config(1)})
           .to("#page1",0.1,{ right: '0%', onComplete: hideVideo, ease: Power0.easeNone})
           .to(".pentagramRect",0.2,{ bottom: '1%', ease: Power0.easeNone},"-=0.2")
+          .to(".currentDetails",0.2,{ top: '12px', ease: Power0.easeNone},"-=0.2")
+          .to(".claveSol",0.2,{ bottom: '0', ease: Power0.easeNone},"-=0.2")
           .to(".pentagramBack",0.2,{ bottom: '0%', ease: Power0.easeNone},"-=0.2")
           .to(".pentagramNotesGroup",0.2,{ bottom: '2%', ease: Power0.easeNone},"-=0.2")
           .to(".age1",0.3,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"-=0.2")
+          .call(updateTitle,[0])
           .to(".blurEffect1",0.2,{ filter: 'blur(8px)',webkitFilter: 'blur(8px)', ease: Power0.easeNone},"+=1")
           .staggerFrom($("#page1").children(),0.6,{ scale: '100', opacity: '0', ease: Back.easeInOut.config(1)},0.01)
           .to("#page0",0.5,{ scale: '0', ease: Back.easeIn.config(1)})
@@ -123,24 +143,26 @@ angular.module('smcApp')
           .to("#page2",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
           .from(".mapSvgClassTop", 1, {scale: 0,onComplete:initViaje, ease: Back.easeOut })
           .to(".mapSvgClassTop", 4, {width: '250%', top: '-60%', left: '-25%' , ease: Power2.easeIn},"+=1")
-          .to(".cub1", 0.5, {top: '0%', ease: Power0.easeNone})
+          .to(".cub1", 0.5, {top: '0%', ease: Power0.easeNone},"cuba1")
           .to(".ed1", 0.5, {top: '120%', ease: Power2.easeIn})
           .to(".ed2", 0.5, {top: '120%', ease: Power2.easeIn})
           .to(".ed3", 0.5, {top: '120%', ease: Power2.easeIn},"-=1")
           .to(".ed4", 0.5, {top: '120%', ease: Power2.easeIn})
           .to(".mapSvgClassTop", 2, {width: '800%', top: '-385%', left: '-140%', ease: Power2.easeIn},"-=1.2")
+          .call(updateTitle,[1])
           .addPause()
           //EPISODE 4
-          .to("#page2",0.4,{ right: '100%', ease: Power0.easeNone})
+          .to("#page2",0.4,{ right: '100%', ease: Power0.easeNone},"cuba2")
           .to("#page3",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
           .to(".age1",0.3,{ transform: 'rotateX(90deg)', ease: Bounce.easeOut})
           .to(".age2",0.3,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"-=0.3")
+          .call(updateTitle,[2])
           .to(".blurEffect2",0.2,{ filter: 'blur(8px)',webkitFilter: 'blur(8px)', ease: Power0.easeNone},"+=1")
           .staggerFrom($("#page3").children(),0.6,{ scale: '100', opacity: '0', ease:Back.easeInOut.config(1)},0.01)
           .addPause()
           //EPISODE 5
           .staggerTo($("#page3").children(),0.6,{ scale: '0', opacity: '0', ease: Back.easeInOut.config(1)},0.01)
-          .to(".cub1", 0.5, {transform: 'rotateY(165deg)', ease: Power2.easeIn})
+          .to(".cub1", 0.5, {transform: 'rotateY(165deg)', ease: Power2.easeIn},"newyork1")
           .to(".ny4", 0.2, {top: '0%', ease: Bounce.easeOut},"-=0.5")
           .to(".ny3", 0.5, {top: '0%', ease: Bounce.easeOut},"-=0.2")
           .to(".ny1", 0.5, {top: '0%', ease: Bounce.easeOut},"-=0.2")
@@ -148,6 +170,7 @@ angular.module('smcApp')
           .to(".ny5", 0.8, {scale: '1', right: '0', ease: Power4.easeOut},"-=0.2")
           .to(".ny6", 0.8, {scale: '1', right: '0', ease: Power4.easeOut},"-=0.2")
           .to(".ny7", 0.8, {scale: '1', right: '0', ease: Power4.easeOut},"-=0.2")
+          .call(updateTitle,[3])
           .to("#page3",0.4,{ right: '100%', ease: Power0.easeNone})
           .to("#page4",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
           .to(".blurEffect3",0.2,{ filter: 'blur(8px)',webkitFilter: 'blur(8px)', ease: Power0.easeNone},"+=1")
@@ -157,11 +180,13 @@ angular.module('smcApp')
           //.staggerFrom($("#page4").children(),0.6,{ right:'100%', ease: Back.easeInOut.config(1)},0.1)
           .to("#page4",0.4,{ right: '100%', ease: Back.easeInOut.config(1)},"ritaMontaner")
           .to("#page5",0.4,{ right: '0%', ease: Back.easeInOut.config(1)},"-=0.4")
+          .call(updateTitle,[4])
           .staggerFrom($("#page5").children(),0.6,{ right:'-150%', ease: Back.easeInOut.config(1)},0.1)
           .addPause()
           //EPISODE 7
           .to("#page5",0.4,{ right: '100%', ease: Back.easeInOut.config(1)})
           .to("#page6",0.4,{ right: '0%', ease: Back.easeInOut.config(1)},"-=0.4")
+          .call(updateTitle,[5])
           .to(".blurEffect3",0.2,{ filter: 'blur(0px)',webkitFilter: 'blur(0px)', ease: Power0.easeNone},"+=1")
           .to(".ny5", 0.5, {scale: '5', right: '200%', ease: Power4.easeIn})
           .to(".ny6", 0.5, {scale: '5', right: '200%', ease: Power4.easeIn},"-=0.2")
@@ -173,11 +198,11 @@ angular.module('smcApp')
           .to(".ber1", 0.3, {transform: 'rotateY(0deg)', ease: Back.easeOut.config(1)})
           .to(".blurEffect4",0.2,{ filter: 'blur(8px)',webkitFilter: 'blur(8px)', ease: Power0.easeNone},"+=1")
           .staggerFrom($("#page6").children(),0.6,{ right:'-150%', ease: Back.easeInOut.config(1)},0.1)
-
           .addPause()
           //EPISODE 8
           .to("#page6",0.4,{ right: '100%', ease: Back.easeInOut.config(1)})
           .to("#page7",0.2,{ right: '0%', ease: Back.easeInOut.config(1)},"-=0.4")
+          .call(updateTitle,[6])
           .to(".blurEffect4",0.2,{ filter: 'blur(0px)',webkitFilter: 'blur(0px)', ease: Power0.easeNone},"+=1")
           .to(".ber1", 0.3, {transform: 'rotateY(165deg)', ease: Back.easeOut.config(1)})
           .to(".holly1", 0.5, {transform: 'rotateX(0deg)', ease: Back.easeOut.config(1)})
@@ -191,6 +216,7 @@ angular.module('smcApp')
           .addPause()
           //EPISODE 9
           .to("#page7",0.4,{ right: '100%', ease: Back.easeInOut.config(1)})
+          .call(updateTitle,[7])
           .to(".blurEffect6",0.2,{ filter: 'blur(0px)',webkitFilter: 'blur(0px)', ease: Power0.easeNone},"+=1")
           .to(".holly5", 2, {opacity: '0', ease: Power4.easeOut})
           .to(".holly1", 0.5, {transform: 'rotateX(165deg)', ease: Back.easeOut.config(1)},"-=1.5")
@@ -200,6 +226,7 @@ angular.module('smcApp')
           .to(".holly7", 0.5, {top: '150%', ease: Bounce.easeOut},"-=0.5")
           .to(".holly6", 2, {top: '-150%', ease: Power4.easeOut},"-=0.5")
           .to(".carn1", 0.3, {transform: 'rotateY(0deg)', ease: Back.easeOut.config(1)},"carmenCastillo")
+          .call(updateTitle,[8])
           .to(".blurEffect5",0.2,{ filter: 'blur(8px)',webkitFilter: 'blur(8px)', ease: Power0.easeNone},"+=1")
           .to("#page8",0.4,{ right: '0%', ease: Back.easeInOut.config(1)},"-=0.4")
           .staggerFrom($("#page8").children(),0.6,{ right:'-150%', ease: Back.easeInOut.config(1)},0.3)
@@ -207,17 +234,20 @@ angular.module('smcApp')
           //EPISODE 10
           .to("#page8",0.4,{ right: '100%', ease: Back.easeInOut.config(1)})
           .to("#page9",0.4,{ right: '0%', ease: Back.easeInOut.config(1)},"-=0.4")
+          .call(updateTitle,[9])
           .staggerFrom($("#page9").children(),0.6,{ right:'-150%', ease: Back.easeInOut.config(1)},0.3)
           .addPause()
           //EPISODE 11
           .to("#page9",0.4,{ right: '100%', ease: Back.easeInOut.config(1)})
           .to("#page10",0.4,{ right: '0%', ease: Back.easeInOut.config(1)},"-=0.4")
+          .call(updateTitle,[10])
           .to(".age2",0.3,{ transform: 'rotateX(90deg)', ease: Bounce.easeOut})
           .to(".age3",0.3,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"-=0.3")
           .staggerFrom($("#page10").children(),0.6,{ right:'-150%', ease: Back.easeInOut.config(1)},0.3)
           .addPause()
           //EPISODE 12
           .to("#page10",0.4,{ right: '100%', ease: Power0.easeNone},"lorraineAllen")
+          .call(updateTitle,[11])
           .to(".blurEffect5",0.2,{ filter: 'blur(0px)',webkitFilter: 'blur(0px)', ease: Power0.easeNone},"-=0.2")
           .to(".carn1", 0.3, {transform: 'rotateY(165deg)', ease: Back.easeOut.config(1)})
           .to(".chi1", 0.3, {transform: 'rotatex(0deg)', ease: Back.easeOut.config(1)},"-=0.2")
@@ -225,6 +255,7 @@ angular.module('smcApp')
           .to(".chi4", 0.3, {opacity: '1', ease: Bounce.easeOut},"+=0.5")
           .to(".chi5", 1, {left: '0', ease:Power4.easeOut})
           .to(".chi6", 1, {left: '0', ease: Power4.easeOut})
+          .call(updateTitle,[12])
           .to(".blurEffect7",0.2,{ filter: 'blur(8px)',webkitFilter: 'blur(8px)', ease: Power0.easeNone},"+=1")
           .to("#page11",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
           .staggerFrom($("#page11").children(),0.6,{ right:'-150%', ease: Back.easeInOut.config(1)},0.3)
@@ -232,15 +263,18 @@ angular.module('smcApp')
           //EPISODE 13
           .to("#page11",0.4,{ right: '100%', ease: Power0.easeNone})
           .to("#page12",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
+          .call(updateTitle,[13])
           .staggerFrom($("#page12").children(),0.6,{ right:'-150%', ease: Back.easeInOut.config(1)},0.3)
           .addPause()
           //EPISODE 14
           .to("#page12",0.4,{ right: '100%', ease: Power0.easeNone})
           .to("#page13",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
+          .call(updateTitle,[14])
           .staggerFrom($("#page13").children(),0.6,{ right:'-150%', ease: Back.easeInOut.config(1)},0.3)
           .addPause()
           //EPISODE 15
           .to("#page13",0.4,{ right: '100%', ease: Power0.easeNone})
+          .call(updateTitle,[15])
           .to(".blurEffect7",0.2,{ filter: 'blur(0px)',webkitFilter: 'blur(0px)', ease: Power0.easeNone},"+=1")
           //.to(".chi2", 0.3, {opacity: '0', ease: Back.easeOut.config(1)},"+=0.5")
           .to(".chi4", 0.3, {opacity: '0', ease: Bounce.easeOut},"+=0.5")
@@ -258,17 +292,20 @@ angular.module('smcApp')
           .to(".lasv7", 0.3, {opacity: '1', ease: Back.easeOut.config(1)})
           .to(".lasv8", 0.3, {opacity: '1', ease: Back.easeOut.config(1)})
           .to(".lasv9", 0.3, {opacity: '1', ease: Back.easeOut.config(1)})
+          .call(updateTitle,[16])
           .to(".blurEffect8",0.2,{ filter: 'blur(8px)',webkitFilter: 'blur(8px)', ease: Power0.easeNone},"+=1")
           .staggerFrom($("#page14").children(),0.6,{ right:'-150%', ease: Back.easeInOut.config(1)},0.3)
           .addPause()
           //EPISODE 16
           .to("#page14",0.4,{ right: '100%', ease: Power0.easeNone})
           .to("#page15",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
+          .call(updateTitle,[17])
           .staggerFrom($("#page15").children(),0.6,{ right:'-150%', ease: Back.easeInOut.config(1)},0.3)
           .addPause()
           //EPISODE 17
           .to("#page15",0.4,{ right: '100%', ease: Power0.easeNone})
           .to("#page16",0.4,{ right: '0%', ease: Power0.easeNone})
+          .call(updateTitle,[18])
           .staggerFrom($("#page16").children(),0.6,{ right:'-150%', ease: Back.easeInOut.config(1)},0.3)
           .addPause()
           //EPISODE 18
@@ -285,11 +322,13 @@ angular.module('smcApp')
           .to(".lasv3", 0.3, {top:'-1500%', ease: Bounce.easeOut})
           .to(".lasv2", 0.3, {top:'-150%', ease: Bounce.easeOut})
           .to(".lasv1", 0.3, {opacity: '0', ease: Back.easeOut.config(1)})
+          .call(updateTitle,[19])
           .staggerFrom($("#page17").children(),0.6,{ right:'-150%', ease: Back.easeInOut.config(1)},0.3)
           .addPause()
           //EPISODE 19
           .to("#page17",0.4,{ right: '100%', ease: Power0.easeNone})
           .to("#page18",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
+          .call(updateTitle,[20])
           .staggerFrom($("#page18").children(),0.6,{ right:'-150%', ease: Back.easeInOut.config(1)},0.3)
           .addPause()
           .to("#cb01",0.4,{ right: '80%', scale: '0', ease: Power4.easeOut},"bTrans")
@@ -302,11 +341,13 @@ angular.module('smcApp')
           .to(".age4",0.3,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"-=0.3")
           .to("#page18",0.4,{ right: '100%', ease: Power0.easeNone}, "epilogo")
           .to("#page19",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
+          .call(updateTitle,[21])
           .staggerFrom($("#page19").children(),0.6,{ right:'-150%', ease: Back.easeInOut.config(1)},0.3)
           .addPause()
           //EPISODE 21
           .to("#page19",0.4,{ right: '100%', ease: Power0.easeNone})
           .to("#page20",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
+          .call(updateTitle,[22])
           .staggerFrom($("#page20").children(),0.6,{ right:'-150%', ease: Back.easeInOut.config(1)},0.3)
           .addPause();
 

@@ -85,6 +85,11 @@
           <h2>SEXE, MARAQUES I CHIHUAHUES</h2>
           <h3><span class="subtitle">La increíble vida de</span> <br> <span class="cugat-name">Xavier Cugat</span></h3>
         </div>
+
+        <div class="mouseIcon">
+          <div class="iconSpace"></div>
+          <p>Scroll para continuar</p>
+        </div>
         <!--div class="svgFace">
           <svg version="1.1" id="FirstFace" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
                y="0px" width="308.7px" height="419px" viewBox="0 0 308.7 419" enable-background="new 0 0 308.7 419" xml:space="preserve">
@@ -532,81 +537,285 @@
       </div>
     </div>
   </div>
+
+</div>
+
+<div id="pentagram">
+  
   <div class="pentagramBack"></div>
-  <img class="pentagramRect" src="images/penta-recto-mini.svg"/>
+
   <div class="agesImageGroup">
-    <img class="ageImage age4" src="images/cugat_anciano.png"/>
+    <img class="ageImage age4" src="images/cugat_anciano_2.png"/>
     <img class="ageImage age3" src="images/cugat_adulto.png"/>
-    <img class="ageImage age2" src="images/cugat_joven.png"/>
-    <img class="ageImage age1" src="images/cugat_nino.png"/>
-    </div>
+    <img class="ageImage age2" src="images/cugat_joven_2.png"/>
+    <img class="ageImage age1" src="images/cugat_nino_2.png"/>
+  </div>
+
+  <div class="currentDetails">
+    <h4 class="detailText"></h4>
+  </div>
+
+  <div class="pentagramImage">
+      <img class="pentagramRect" src="images/penta-recto-mini.svg"/>
+      <img class="claveSol" src="images/clavesol.png"/>
+  </div>
+
   <div class="pentagramNotesGroup">
-      <div class="pentagramNotes">
-        <span class="tooltip tooltip-effect-4" ng-click="upTo('prologo')">
-          <span class="tooltip-item">
-            <img class="noteImgNegra" src="images/notes/nota_negra.png"/>
-          </span>
-          <span class="tooltip-content clearfix">
-            <span class="tooltip-text">
-              <strong>1900</strong> - GIRONA
-            </span>
+    <div class="pentagramNotes">
+      <span class="tooltip tooltip-effect-4" ng-click="upTo('prologo')">
+        <span class="tooltip-item">
+          <img class="noteImgNegra" src="images/notes/nota_negra.png"/>
+        </span>
+        <span class="tooltip-content clearfix">
+          <span class="tooltip-text">
+            <strong>1900</strong> - GIRONA
           </span>
         </span>
-      </div>
-      <div class="pentagramNotes">
-        <span class="tooltip tooltip-effect-4">
-          <span class="tooltip-item">
-            <img class="noteImgCor linePent4" src="images/notes/nota_corchea.png"/>
-          </span>
-          <span class="tooltip-content clearfix">
-            <span class="tooltip-text">
-              <strong>1905</strong> - CUBA
-            </span>
+      </span>
+    </div>
+    <div class="pentagramNotes">
+      <span class="tooltip tooltip-effect-4" ng-click="upTo('cuba1')">
+        <span class="tooltip-item">
+          <img class="noteImgNegra" src="images/notes/nota_negra.png"/>
+        </span>
+        <span class="tooltip-content clearfix">
+          <span class="tooltip-text">
+            <strong>1905</strong> - CUBA
           </span>
         </span>
-      </div>
-      <div class="pentagramNotes">
-        <span class="tooltip tooltip-effect-4">
-          <span class="tooltip-item">
-            <img class="noteImgNegra" src="images/notes/nota_negra.png"/>
-          </span>
-          <span class="tooltip-content clearfix">
-            <span class="tooltip-text">
-              <strong>1905</strong> - CUBA
-            </span>
+    </div>
+    <div class="pentagramNotes">
+      <span class="tooltip tooltip-effect-4"  ng-click="upTo('cuba2')">
+        <span class="tooltip-item">
+          <img class="noteImgNegra" src="images/notes/nota_negra.png"/>
+        </span>
+        <span class="tooltip-content clearfix">
+          <span class="tooltip-text">
+            <strong>1912</strong> - CUBA
           </span>
         </span>
-      </div>
-      <div class="pentagramNotes">
-        <span class="tooltip tooltip-effect-4">
-          <span class="tooltip-item">
-            <img class="noteImgCor linePent4" src="images/notes/nota_corchea.png"/>
-          </span>
-          <span class="tooltip-content clearfix">
-            <span class="tooltip-text">
-              <strong>1912</strong> - NEW YORK
-            </span>
+      </span>
+    </div>
+    <div class="pentagramNotes">
+      <span class="tooltip tooltip-effect-4"  ng-click="upTo('newyork1')">
+        <span class="tooltip-item">
+          <img class="noteImgCor linePent4" src="images/notes/nota_corchea.png"/>
+        </span>
+        <span class="tooltip-content clearfix">
+          <span class="tooltip-text">
+            <strong>1915</strong> - NEW YORK
           </span>
         </span>
-      </div>
-      <div class="pentagramNotes"><img class="noteImgSilen" src="images/notes/nota_silencio.png"/></div>
-      <div class="pentagramNotes"><img class="noteImgNegra" src="images/notes/nota_negra.png"/></div>
-      <div class="pentagramNotes"><img class="noteImgTrioNegra" src="images/notes/nota_trio_negras.png"/></div>
-      <div class="pentagramNotes"><img class="noteImgCor" src="images/notes/nota_corchea.png"/></div>
-      <div class="pentagramNotes"><img class="noteImgNegra linePent4" src="images/notes/nota_negra.png"/></div>
-      <div class="pentagramNotes"><img class="noteImgSilen" src="images/notes/nota_silencio.png"/></div>
-      <div class="pentagramNotes"><img class="noteImgCor linePent3" src="images/notes/nota_corchea.png"/></div>
-      <div class="pentagramNotes"><img class="noteImgCor" src="images/notes/nota_corchea.png"/></div>
-      <div class="pentagramNotes"><img class="noteImgSilen" src="images/notes/nota_silencio.png"/></div>
-      <div class="pentagramNotes"><img class="noteImgNegra linePent3" src="images/notes/nota_negra.png"/></div>
-      <div class="pentagramNotes"><img class="noteImgCor" src="images/notes/nota_corchea.png"/></div>
-      <div class="pentagramNotes"><img class="noteImgNegra linePent4" src="images/notes/nota_negra.png"/></div>
-      <div class="pentagramNotes"><img class="noteImgTrioNegra linePent2" src="images/notes/nota_trio_negras.png"/></div>
-      <div class="pentagramNotes"><img class="noteImgCor" src="images/notes/nota_corchea.png"/></div>
-      <div class="pentagramNotes"><img class="noteImgNegra linePent3" src="images/notes/nota_negra.png"/></div>
-      <div class="pentagramNotes"><img class="noteImgSilen" src="images/notes/nota_silencio.png"/></div>
+      </span>
+    </div>
+    <div class="pentagramNotes">
+      <span class="tooltip tooltip-effect-4"  ng-click="">
+        <span class="tooltip-item">
+          <img class="noteImgSilen" src="images/notes/nota_silencio.png"/>
+        </span>
+        <span class="tooltip-content clearfix">
+          <span class="tooltip-text">
+            <strong>19xx</strong> - Nota 4
+          </span>
+        </span>
+      </span>
+    </div>
+    <div class="pentagramNotes">
+      <span class="tooltip tooltip-effect-4">
+        <span class="tooltip-item">
+          <img class="noteImgNegra" src="images/notes/nota_negra.png"/>
+        </span>
+        <span class="tooltip-content clearfix">
+          <span class="tooltip-text">
+            <strong>19xx</strong> - Nota 5
+          </span>
+        </span>
+      </span>
+    </div>
+    <div class="pentagramNotes">
+      <span class="tooltip tooltip-effect-4">
+        <span class="tooltip-item">
+          <img class="noteImgTrioNegra" src="images/notes/nota_trio_negras.png"/>
+        </span>
+        <span class="tooltip-content clearfix">
+          <span class="tooltip-text">
+            <strong>19xx</strong> - Nota 6
+          </span>
+        </span>
+      </span>
+    </div>
+    <div class="pentagramNotes">
+      <span class="tooltip tooltip-effect-4">
+        <span class="tooltip-item">
+          <img class="noteImgCor" src="images/notes/nota_corchea.png"/>
+        </span>
+        <span class="tooltip-content clearfix">
+          <span class="tooltip-text">
+            <strong>19xx</strong> - Nota 7
+          </span>
+        </span>
+      </span>
+    </div>
+    <div class="pentagramNotes">
+      <span class="tooltip tooltip-effect-4">
+        <span class="tooltip-item">
+          <img class="noteImgNegra" src="images/notes/nota_negra.png"/>
+        </span>
+        <span class="tooltip-content clearfix">
+          <span class="tooltip-text">
+            <strong>19xx</strong> - Nota 8
+          </span>
+        </span>
+      </span>
+    </div>
+    <div class="pentagramNotes">
+      <span class="tooltip tooltip-effect-4">
+        <span class="tooltip-item">
+          <img class="noteImgSilen" src="images/notes/nota_silencio.png"/>
+        </span>
+        <span class="tooltip-content clearfix">
+          <span class="tooltip-text">
+            <strong>19xx</strong> - Nota 9
+          </span>
+        </span>
+      </span>
+    </div>
+    <div class="pentagramNotes">
+      <span class="tooltip tooltip-effect-4">
+        <span class="tooltip-item">
+          <img class="noteImgCor linePent3" src="images/notes/nota_corchea.png"/>
+        </span>
+        <span class="tooltip-content clearfix">
+          <span class="tooltip-text">
+            <strong>19xx</strong> - Nota 10
+          </span>
+        </span>
+      </span>
+    </div>
+    <div class="pentagramNotes">
+      <span class="tooltip tooltip-effect-4">
+        <span class="tooltip-item">
+          <img class="noteImgCor" src="images/notes/nota_corchea.png"/>
+        </span>
+        <span class="tooltip-content clearfix">
+          <span class="tooltip-text">
+            <strong>19xx</strong> - Nota 11
+          </span>
+        </span>
+      </span>
+    </div>
+    <div class="pentagramNotes">
+      <span class="tooltip tooltip-effect-4">
+        <span class="tooltip-item">
+          <img class="noteImgCor" src="images/notes/nota_corchea.png"/>
+        </span>
+        <span class="tooltip-content clearfix">
+          <span class="tooltip-text">
+            <strong>19xx</strong> - Nota 12
+          </span>
+        </span>
+      </span>
+    </div>
+    <div class="pentagramNotes">
+      <span class="tooltip tooltip-effect-4">
+        <span class="tooltip-item">
+          <img class="noteImgSilen" src="images/notes/nota_silencio.png"/>
+        </span>
+        <span class="tooltip-content clearfix">
+          <span class="tooltip-text">
+            <strong>19xx</strong> - Nota 13
+          </span>
+        </span>
+      </span>
+    </div>
+    <div class="pentagramNotes">
+      <span class="tooltip tooltip-effect-4">
+        <span class="tooltip-item">
+          <img class="noteImgNegra" src="images/notes/nota_negra.png"/>
+        </span>
+        <span class="tooltip-content clearfix">
+          <span class="tooltip-text">
+            <strong>19xx</strong> - Nota 14
+          </span>
+        </span>
+      </span>
+    </div>
+    <div class="pentagramNotes">
+      <span class="tooltip tooltip-effect-4">
+        <span class="tooltip-item">
+          <img class="noteImgCor" src="images/notes/nota_corchea.png"/>
+        </span>
+        <span class="tooltip-content clearfix">
+          <span class="tooltip-text">
+            <strong>19xx</strong> - Nota 15
+          </span>
+        </span>
+      </span>
+    </div>
+    <div class="pentagramNotes">
+      <span class="tooltip tooltip-effect-4">
+        <span class="tooltip-item">
+          <img class="noteImgNegra linePent4" src="images/notes/nota_negra.png"/>
+        </span>
+        <span class="tooltip-content clearfix">
+          <span class="tooltip-text">
+            <strong>19xx</strong> - Nota 16
+          </span>
+        </span>
+      </span>
+    </div>
+    <div class="pentagramNotes">
+      <span class="tooltip tooltip-effect-4">
+        <span class="tooltip-item">
+          <img class="noteImgTrioNegra linePent2" src="images/notes/nota_trio_negras.png"/>
+        </span>
+        <span class="tooltip-content clearfix">
+          <span class="tooltip-text">
+            <strong>19xx</strong> - Nota 17
+          </span>
+        </span>
+      </span>
+    </div>
+    <div class="pentagramNotes">
+      <span class="tooltip tooltip-effect-4">
+        <span class="tooltip-item">
+          <img class="noteImgCor" src="images/notes/nota_corchea.png"/>
+        </span>
+        <span class="tooltip-content clearfix">
+          <span class="tooltip-text">
+            <strong>19xx</strong> - Nota 18
+          </span>
+        </span>
+      </span>
+    </div>
+    <div class="pentagramNotes">
+      <span class="tooltip tooltip-effect-4">
+        <span class="tooltip-item">
+          <img class="noteImgNegra linePent3" src="images/notes/nota_negra.png"/>
+        </span>
+        <span class="tooltip-content clearfix">
+          <span class="tooltip-text">
+            <strong>19xx</strong> - Nota 19
+          </span>
+        </span>
+      </span>
+    </div>
+    <div class="pentagramNotes">
+      <span class="tooltip tooltip-effect-4">
+        <span class="tooltip-item">
+          <img class="noteImgSilen" src="images/notes/nota_silencio.png"/>
+        </span>
+        <span class="tooltip-content clearfix">
+          <span class="tooltip-text">
+            <strong>19xx</strong> - Nota 20
+          </span>
+        </span>
+      </span>
+    </div>
+
   </div>
 </div>
+
 <div class="fullScreenVideo">
   <iframe id="fullScreeVideoEnter" class="fullScreeVideoEnter" src=""></iframe>
   <div ng-click="closeVideo()" class="closeFullScreenVideo">X</div>
