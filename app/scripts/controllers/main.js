@@ -425,12 +425,12 @@ angular.module('smcApp')
         };
         $scope.openVideo = function(value){
             $('.fullScreeVideoEnter').attr('src', 'https://www.youtube.com/embed/'+value+'?playlist='+value+'&autoplay=1&controls=0&loop=1&showinfo=0');
-            TweenMax.to(".fullScreenVideo", 3, {transform: 'scale(0.3) rotate(20deg)', ease: Power4.easeOut})
-            TweenMax.to(".fullScreenVideo", 3, {transform: 'scale(1) rotate(0deg)', ease: Power4.easeOut, delay:1})
+            TweenMax.to(".fullScreenVideo", 3, {css: {transform: 'scale(0.3) rotate(20deg)'}, delay:0.5, ease: Expo.easeOut})
+            TweenMax.to(".fullScreenVideo", 3, {css: {transform: 'scale(1) rotate(0deg)'}, delay:3, ease: Expo.easeOut})
         };
         $scope.closeVideo = function(){
-            TweenMax.to(".fullScreenVideo", 3, {transform: 'scale(0.3) rotate(0deg)', ease: Power4.easeOut})
-            TweenMax.to(".fullScreenVideo", 1, {transform: 'scale(0) rotate(30deg)', onComplete: hideFullScreenVideo, ease: Power4.easeOut, delay:1})
+            TweenMax.to(".fullScreenVideo", 3, {css: {transform: 'scale(0.3) rotate(0deg)'}, ease: Expo.easeOut})
+            TweenMax.to(".fullScreenVideo", 1, {css: {transform: 'scale(0) rotate(30deg)'}, delay:3, onComplete: hideFullScreenVideo, ease: Expo.easeOut})
         };
         $(document).on('click','#mapIcon, #arrowClose',function(){
           openCloseMap();
