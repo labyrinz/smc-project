@@ -90,7 +90,7 @@ angular.module('smcApp')
 
         var player = videojs('fullScreeVideoEnter');
         var playerIntro = videojs('introVideo');
-        
+
         var playVideo = function(){
             //player.currentTime(0);
             player.play();
@@ -542,17 +542,6 @@ angular.module('smcApp')
         $(document).on('click','#mapIcon, #arrowClose',function(){
           openCloseMap();
         });
-
-        //$(document).on('click','.plusInfo',function(){
-        //  console.log($(this).css('opacity'));
-        //  var value = $(this).attr('value');
-        //  if($(this).css('opacity') == 1)$(this).css('opacity', '0');
-        //  else $(this).css('opacity', '1');
-        //  var target = '.ad'+value;
-        //  var opacityValue = $(target).css('opacity');
-        //  if(opacityValue == 0) TweenMax.to(target, 0.3, {opacity: 1, scale:1, ease:Back.easeOut});
-        //  else  TweenMax.to(target, 0.3, {opacity: 0, scale:0, ease:Back.easeOut});
-        //});
 
         $(document).on('click','.plusInfoCita', function(){
           var numTexto = $(this).attr('value');
