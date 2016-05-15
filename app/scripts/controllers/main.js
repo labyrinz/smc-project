@@ -50,7 +50,7 @@ angular.module('smcApp')
 
         var soundEpilogo = new Howl({
           urls: ['audio/perfidia.mp3'],
-          loop: true,
+          loop: false,
           volume: 0.5,
           onend: function() {
             console.log('Finished!');
@@ -153,10 +153,10 @@ angular.module('smcApp')
         var staggerFromVelocity = 0.05;
         var staggerToVelocity = 0.03;
 
-
         TweenMax.set(".scrollIcon, .hiddenCanvas, .dinamycText, .ageTitle, .napFace, .addon1, .prel01", {visibility:"visible"});
 
         var tl = new TimelineMax({repeat:0});
+        var cugatNino = new TimelineMax({repeat:-1});
 
         tl
           //EPISODE 1
@@ -169,18 +169,21 @@ angular.module('smcApp')
           .addPause()
           //EPISODE 2
           .call(stopIntroVideo,[])
-          .to(".ed1", 0.5, {left: '0%', ease: Bounce.easeOut},"prologo")
+          .to("#page0",0.5,{ scale: '0', ease: Back.easeIn.config(1)})
+          .to(".ed1", 0.5, {left: '0%', onReverseComplete: stopNinoAnimation, ease: Bounce.easeOut},"prologo")
           .to(".ed2", 0.5, {top: '0%', ease: Bounce.easeOut})
           .to(".ed3", 0.5, {left: '0%', ease: Bounce.easeOut},"-=1")
           .to(".ed4", 0.5, {transform: 'rotateX(0deg)', ease: Back.easeOut.config(1)})
-          .to("#page0",0.5,{ scale: '0', ease: Back.easeIn.config(1)})
+          .to(".age1",0.3,{ transform: 'rotateX(0deg)', onComplete: ninoAnimation, ease: Bounce.easeOut},"-=0.2")
+          .to(".texto11",1.5,{ transform: 'scale(1)', opacity: '1', ease: Power4.easeOut},"+=1")
+          .addPause()
+          .to(".texto11",1.5,{ transform: 'scale(0)', opacity: '0', ease: Power4.easeOut},"+=0.2")
           .to("#page1",0.1,{ right: '0%', ease: Power0.easeNone})
-          .to(".pentagramRect",0.2,{ bottom: '1%', ease: Power0.easeNone},"-=0.2")
+          .to(".pentagramRect",0.2,{ bottom: '1%', ease: Power0.easeNone})
           .to(".currentDetails",0.2,{ top: '12px', ease: Power0.easeNone},"-=0.2")
           .to(".claveSol",0.2,{ bottom: '0', ease: Power0.easeNone},"-=0.2")
           .to(".pentagramBack",0.2,{ bottom: '0%', ease: Power0.easeNone},"-=0.2")
           .to(".pentagramNotesGroup",0.2,{ bottom: '2%', ease: Power0.easeNone},"-=0.2")
-          .to(".age1",0.3,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"-=0.2")
           .call(updateTitle,[0])
           .to(".blurEffect1",0.2,{ filter: 'blur(8px)',webkitFilter: 'blur(8px)', ease: Power0.easeNone},"+=1")
           .staggerFrom($("#page1").children(),0.6, animationFromPattern, staggerFromVelocity)
@@ -195,8 +198,8 @@ angular.module('smcApp')
           .to("#page2",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
           .from(".mapSvgClassTop", 1, {scale: 0,onComplete:initViaje, ease: Back.easeOut })
           .to(".mapSvgClassTop", 4, {width: '250%', top: '-60%', left: '-25%' , ease: Power2.easeIn},"+=1")
-          .to(".cub1", 0.5, {top: '0%', ease: Power0.easeNone},"cuba1")
-          .to(".ed1", 0.5, {top: '120%', ease: Power2.easeIn})
+          .to(".cub1", 0.5, {top: '0%', onComplete: stopNinoAnimation, ease: Power0.easeNone},"cuba1")
+          .to(".ed1", 0.5, {top: '120%', onReverseComplete: ninoAnimation, ease: Power2.easeIn})
           .to(".ed2", 0.5, {top: '120%', ease: Power2.easeIn})
           .to(".ed3", 0.5, {top: '120%', ease: Power2.easeIn},"-=1")
           .to(".ed4", 0.5, {top: '120%', ease: Power2.easeIn})
@@ -347,6 +350,7 @@ angular.module('smcApp')
           .to(".chi1", 0.3, {opacity: '0', ease: Back.easeOut.config(1)},"-=0.2")
           .to("#page14",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
           .to(".lasv1", 0.3, {opacity: '1', ease: Back.easeOut.config(1)},"abbeLane")
+          .call(playResumeVideo,[189,11000])
           .to(".lasv2", 0.3, {top:'0%', ease: Bounce.easeOut})
           .to(".lasv3", 0.3, {top:'0%', ease: Bounce.easeOut})
           .to(".lasv10", 0.3, {top:'0%', ease: Bounce.easeOut})
@@ -583,6 +587,24 @@ angular.module('smcApp')
             });
           }
         });
+
+        function ninoAnimation(){
+          cugatNino
+            .set(".ed5", {top: '5%', left: "120%", transform: "rotate(0deg)"})
+            .to(".ed5", 1, {left: '20%', ease: Power0.easeNone})
+            .to(".ed5", 3, {left: '-14%', transform: "rotate(5deg)", top: '-7%', ease: Power0.easeNone})
+            .to(".ed5", 1, {left: '-25%',  top: '-10%', ease: Power0.easeNone})
+            .to(".ed5", 3, {left: '-150%',transform: "rotate(0deg)", top: '-7%', ease: Power0.easeNone})
+            .to(".ed5", 0.1, {transform: "rotateY(180deg)", ease: Power0.easeNone})
+            .to(".ed5", 5, {left: '25%', top: '-7%', ease: Power0.easeNone})
+            .to(".ed5", 3, {left: '65%', top: '3%', ease: Power0.easeNone})
+            .to(".ed5", 3, {left: '150%', top: '3%', ease: Power0.easeNone})
+            .play();
+        };
+        function stopNinoAnimation(){
+          TweenMax.to(".ed5",0.1, {top: '5%', left: "120%", transform: "rotate(0deg)", ease: Power0.easeNone});
+          cugatNino.pause();
+        };
         function insertWords(variable,num){
           $('#cita'+num+'suma').append(variable);
           TweenMax.from(variable, 0.1, {opacity: 0, y:-40, transformOrigin:"0% 50% -50", ease: Power2.easeOut});
@@ -696,6 +718,8 @@ angular.module('smcApp')
           boolsound = boolsound ? 0 : 1;
           player.volume(boolsound);
           playerIntro.volume(boolsound);
+          resume.volume(boolsound);
+          soundEpilogo.volume(boolsound);
         }
 
         triggerBttn.on( 'click', function(){toggleOverlay()} );
