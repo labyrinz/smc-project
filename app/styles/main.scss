@@ -249,17 +249,20 @@ body {
   position: absolute;
   width: 100%;
   height: 30px;
-  top: 200%;
+  top: 0;
   left: 110px;
   z-index: 900;
 }
 .currentDetails h4{
   color: #FFF;
   margin: 0;
-  font-family: 'Lora', serif;
+  font-family: 'Open Sans', serif;
   font-weight: normal;
   text-shadow: 0px 1px 1px #444;
-  font-size: 23px;
+  font-size: 32px;
+}
+.currentDetails h4 strong{
+  font-size: 35px;
 }
 
 .claveSol{
@@ -447,9 +450,10 @@ body {
   /*font-family: 'Lora',serif;*/
   /*font-family: "Avenir", "Arial Black", Arial, sans-serif;*/
   /*font-family: 'Bowlby One SC', cursive;*/
-  font-family: 'Alegreya Sans', "Avenir", "Arial Black", Arial, sans-serif;
+  /*font-family: 'Alegreya Sans', "Avenir", "Arial Black", Arial, sans-serif;*/
+  font-family: 'Passion One', cursive;
   text-align: center;
-  font-weight: 900;
+  font-weight: 400;
   color: #ffd85f;/*#FFE698;*/
   /*font-size: 70px;*/
   margin: 0;
@@ -2427,4 +2431,100 @@ body {
 .no-svg .si-icon-plus, .no-svg .si-icon-plus-cross { background-image: url('../images/png/plus.png') }
 .no-svg .si-icon-volume { background-image: url('../images/png/volume.png') }
 .no-svg .si-icon-zoom { background-image: url('../images/png/zoom.png') }
+
+
+/* Title retro effect */
+
+.retro2 {
+  display: block;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  float: none;
+  z-index: auto;
+  width: auto;
+  height: auto;
+  position: static;
+  cursor: default;
+  opacity: 1;
+  margin: 0 auto;
+  padding: 0;
+  overflow: visible;
+  border: none;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  font: normal 82px/normal 'Bowlby One SC',"Anton", Helvetica, cursive;
+  color: rgb(112, 112, 112);
+  text-align: center;
+  text-transform: uppercase;
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  letter-spacing: 10px;
+  background: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  text-shadow: 4px 4px 0 rgb(238,238,238) , 6px 6px 0 rgb(112,112,112) ;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+  transition: none;
+  -webkit-transform: none;
+  transform: none;
+  -webkit-transform-origin: 50% 50% 0;
+  transform-origin: 50% 50% 0;
+}
+
+.retro {
+  text-align: center;
+  font-family: 'Passion One', cursive;
+  /*font-family: 'Bowlby One SC', cursives;*/
+  font-size: 60px;
+  text-transform: uppercase;
+  color: #f3f3f3;
+  /*text-shadow: 5px 5px 0px #eee, 7px 7px 0px #707070;*/
+  text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+  display: block;
+  width: 100%;
+  position: absolute;
+  top: 100px;
+  margin: 0;
+  font-weight: normal;
+}
+
+.retro3{
+  display: block;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  float: none;
+  z-index: auto;
+  width: auto;
+  height: auto;
+  /*position: static;*/
+  /*cursor: pointer;*/
+  opacity: 1;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+  border: none;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  /*font: normal 72px/normal "Passero One", Helvetica, sans-serif;*/
+  color: rgba(255,255,255,1);
+  text-align: center;
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  background: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  text-shadow: 0 1px 0 rgb(204,204,204) , 0 2px 0 rgb(201,201,201) , 0 3px 0 rgb(187,187,187) , 0 4px 0 rgb(185,185,185) , 0 5px 0 rgb(170,170,170) , 0 6px 1px rgba(0,0,0,0.0980392) , 0 0 5px rgba(0,0,0,0.0980392) , 0 1px 3px rgba(0,0,0,0.298039) , 0 3px 5px rgba(0,0,0,0.2) , 0 5px 10px rgba(0,0,0,0.247059) , 0 10px 10px rgba(0,0,0,0.2) , 0 20px 20px rgba(0,0,0,0.14902) ;
+  -webkit-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+  -moz-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+  -o-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+  transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+  -webkit-transform: none;
+  transform: none;
+  -webkit-transform-origin: 50% 50% 0;
+  transform-origin: 50% 50% 0;
+}
 
