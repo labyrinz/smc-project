@@ -175,7 +175,7 @@ body {
 .arrowPrev{
   position: absolute;
   bottom: -20%;
-  height: 20%;
+  height: 15%;
   left: 0%;
   cursor: pointer;
   opacity: 0.8;
@@ -184,7 +184,7 @@ body {
 .arrowNext{
   position: absolute;
   bottom: -20%;
-  height: 20%;
+  height: 15%;
   right: 0%;
   cursor: pointer;
   opacity: 0.8;
@@ -597,9 +597,9 @@ body {
 .prelGroup{
   position: absolute;
   top: 10%;
-  right: 50%;
-  width: 40%;
-  height: 40%;
+  right: 30%;
+  width: 35%;
+  height: 35%;
   z-index: 989;
 }
 .prel01 {
@@ -629,18 +629,20 @@ body {
 .cita1{
   position: absolute;
   font-family: 'Dancing Script', cursive;
-  text-shadow: 0px 0px 10px rgb(0, 0, 0);
+//  text-shadow: 0px 0px 10px rgb(0, 0, 0);
   font-style: italic;
   z-index: 997;
+  background-color: white;
   //color: #231a16;
-  color: #F1F1F1; /*#ffd85f;#FFE698;*/
+  color: #333333; /*#ffd85f;#FFE698;*/
   font-size: 35px;
   padding: 2% 3%;
 }
 .cita11{
-  bottom: 15%;
-  width: 90%;
-  right: 2%;
+  bottom: 30%;
+  width: 60%;
+  right: 20%;
+  border-radius: 40px;
 }
 .texto1{
   z-index: 997;
