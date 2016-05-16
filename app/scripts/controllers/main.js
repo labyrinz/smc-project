@@ -173,12 +173,12 @@ angular.module('smcApp')
           .to(".ed1", 0.5, {left: '0%', onReverseComplete: stopNinoAnimation, ease: Bounce.easeOut},"prologo")
           .to(".ed2", 0.5, {top: '0%', ease: Bounce.easeOut})
           .to(".ed3", 0.5, {left: '0%', ease: Bounce.easeOut},"-=1")
-          .to(".ed4", 0.5, {transform: 'rotateX(0deg)', ease: Back.easeOut.config(1)})
-          .to(".age1",0.3,{ transform: 'rotateX(0deg)', onComplete: ninoAnimation, ease: Bounce.easeOut},"-=0.2")
+          .to(".ed4", 0.5, {transform: 'rotateX(0deg)', onComplete: ninoAnimation, ease: Back.easeOut.config(1)})
           .to(".texto11",3,{ transform: 'scale(1)', opacity: '1', ease: Power4.easeOut},"+=1")
           .addPause()
           .to(".texto11",1.5,{ transform: 'scale(0)', opacity: '0', ease: Power4.easeOut},"+=0.2")
           .to("#page1",0.1,{ right: '0%', ease: Power0.easeNone})
+          .to(".age1",0.3,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"-=0.2")
           .to(".pentagramRect",0.2,{ bottom: '1%', ease: Power0.easeNone})
           .to(".currentDetails",0.2,{ top: '0px', ease: Power0.easeNone},"-=0.2")
           .to(".claveSol",0.2,{ bottom: '0', ease: Power0.easeNone},"-=0.2")
@@ -535,6 +535,7 @@ angular.module('smcApp')
       //--------------------------------------
       //-------FUNCTIONS --------------------
         $scope.upTo = function(value) {
+          stopNinoAnimation();
           if(value=='inicio') { playerIntro.play(); }
           else { playerIntro.pause(); }
           tl.play(value);
