@@ -117,16 +117,18 @@ angular.module('smcApp')
           resume.currentTime(timer);
           resume.play();
           resume.off('timeupdate');
+          resume.breakpoint = false;
           resume.on('timeupdate', function() {
-            if (resume.currentTime() >= breakpoint && (breakpoint+0.2) < resume.currentTime() ){
+            if ( !resume.breakpoint && (resume.currentTime() >= breakpoint) ){
               console.log("Current time (breakpoint): "+resume.currentTime())
+              resume.breakpoint = true;
               tl.play()
             }
             if (resume.currentTime() >= duration) {
               console.log("Current time (end): "+resume.currentTime())
               resume.pause();
             }
-          })  
+          })
           
         };
 
@@ -303,6 +305,7 @@ angular.module('smcApp')
           .addPause()
           //EPISODE 6
           .staggerTo($("#page4").children(),0.6, animationToPattern, staggerToVelocity,"ritaMontaner")
+          .call(updateTitle,[4])
           .call(playResumeVideo,[39,89,55])
           .to(".resumeVideoBox", 1, {opacity: '1', scale: '1', ease: Power4.easeIn})
           .addPause()
@@ -310,7 +313,6 @@ angular.module('smcApp')
           //.call(playResumeVideo,[55,88])
           .to("#page4",0.4,{ right: '100%', ease: Back.easeInOut.config(1)})
           .to("#page5",0.4,{ right: '0%', ease: Back.easeInOut.config(1)},"-=0.4")
-          .call(updateTitle,[4])
           .staggerFrom($("#page5").children(),0.6, animationFromPattern, staggerFromVelocity)
           .addPause()
           //EPISODE 7
@@ -362,6 +364,8 @@ angular.module('smcApp')
           .to(".holly4", 0.5, {transform: 'rotateX(165deg)', ease: Back.easeOut.config(1)},"-=0.3")
           .to(".holly7", 0.5, {top: '150%', ease: Bounce.easeOut},"-=0.3")
           .to(".holly6", 0.5, {top: '-150%', ease: Power4.easeOut},"-=0.3")
+          .to(".age2",0.3,{ transform: 'rotateX(90deg)', ease: Bounce.easeOut})
+          .to(".age3",0.3,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"-=0.3")
           .to(".carn1", 0.3, {transform: 'rotateY(0deg)', ease: Back.easeOut.config(1)},"carmenCastillo-=0.5")
           .call(updateTitle,[7])
           .call(playResumeVideo,[101,131,131])
@@ -371,8 +375,6 @@ angular.module('smcApp')
           .call(stopResumeVideo)
           .to(".blurEffect5",0.2,{ filter: 'blur(8px)',webkitFilter: 'blur(8px)', ease: Power0.easeNone},"+=1")
           .to("#page8",0.4,{ right: '0%', ease: Back.easeInOut.config(1)},"-=0.4")
-          .to(".age2",0.3,{ transform: 'rotateX(90deg)', ease: Bounce.easeOut})
-          .to(".age3",0.3,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"-=0.3")
           .staggerFrom($("#page8").children(),0.6, animationFromPattern, staggerFromVelocity)
           .addPause()
           //EPISODE 10
@@ -820,6 +822,7 @@ angular.module('smcApp')
         }
 
         triggerBttn.on( 'click', function(){toggleOverlay()} );
+        soundBttn.click()
         soundBttn.on( 'click', function(){toggleSound()} );
         //closeBttn.on( 'click', function(){toggleOverlay()} );
 
