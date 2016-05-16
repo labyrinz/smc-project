@@ -278,7 +278,7 @@ body {
   height: 70px;
   left: 50px;
   /*width: 100%;*/
-  z-index: 998;
+  z-index: 800;
 }
 .pentagramBack{
   width: 100%;
@@ -340,9 +340,9 @@ body {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 15%;
-  height: 250%;
-  z-index: 999;
+  /*width: 15%;*/
+  height: 320%;
+  z-index: 900;
   /*-webkit-perspective: 300px;
   perspective: 300px;*/
 }
@@ -350,7 +350,7 @@ body {
   position: absolute;
   top:0;
   left: 0;
-  width: 100%;
+  /*width: 100%;*/
   height: 100%;
   -webkit-transform: rotateX(-90deg);
   -moz-transform: rotateX(-90deg);
@@ -463,21 +463,30 @@ body {
   text-align: center;
   font-weight: 400;
   color: #ffd85f;/*#FFE698;*/
+  color: #FFC100;
   /*font-size: 70px;*/
   margin: 0;
+  text-shadow: 2px 2px 5px #000, 
+               0px 0px 1px #000;
 }
 .dinamycText h3{
   font-family: "Baskerville", serif;
+  font-family: 'Open Sans', sans-serif;
   text-align: center;
   font-style: italic;
   font-weight: normal;
   color: #f3f3f3;
-  font-size: 28px;
+  font-size: 32px;
   margin: 0;
+  text-shadow: 1px 1px 1px #000, 0px 0px 1px #000;
+  text-transform: uppercase;
 }
 .dinamycText h3 span.cugat-name{
   text-transform: uppercase;
   color: red;
+  color: #FF3D3D;
+  font-weight: bold;
+  font-size: 1.5em;
 }
 .wordStyle{
   display: inline-block;
@@ -2613,13 +2622,16 @@ body {
   text-transform: uppercase;
   color: #f3f3f3;
   /*text-shadow: 5px 5px 0px #eee, 7px 7px 0px #707070;*/
-  text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+  text-shadow: 2px 2px 3px rgba(0,0,0,.3),
+               1px 1px 3px rgba(30,30,30,0.5),
+               -1px -1px 3px rgba(30,30,30,0.5);
   display: block;
   width: 100%;
   position: absolute;
   top: 100px;
   margin: 0;
   font-weight: normal;
+  z-index: 1000;
 }
 
 .retro3{
