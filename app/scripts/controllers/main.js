@@ -94,27 +94,90 @@ angular.module('smcApp')
 
         var playVideo = function(){
             //player.currentTime(0);
+            controlSound()
             player.play();
         };
+
         var playIntroVideo = function(){
             //playerIntro.currentTime(0);
-            playerIntro.play();
+            controlSound()
+            playerIntro.play();  
+            
         };
+
         var stopIntroVideo = function(){
             playerIntro.currentTime(0);
             playerIntro.pause();
         };
 
-        var playResumeVideo = function(timer, duration){
+        var playResumeVideo = function(timer, duration, breakpoint){
           //resume.duration(8);
+          controlSound();
+          $(".resumeVideoBox").show();
           resume.currentTime(timer);
           resume.play();
+          resume.off('timeupdate');
           resume.on('timeupdate', function() {
+            if (resume.currentTime() >= breakpoint && (breakpoint+0.2) < resume.currentTime() ){
+              console.log("Current time (breakpoint): "+resume.currentTime())
+              tl.play()
+            }
             if (resume.currentTime() >= duration) {
+              console.log("Current time (end): "+resume.currentTime())
               resume.pause();
             }
-          })
+          })  
+          
         };
+
+        var stopResumeVideo = function(){
+          resume.pause()
+          $(".resumeVideoBox").hide();
+        }
+
+        
+        function fadeVolume(videoPlayer, volume, callback)
+        {
+            var factor  = 0.01,
+                speed   = 50;
+            var volume = videoPlayer.volume();
+            if (volume > factor)
+            {
+                setTimeout(function(){
+                    fadeVolume(videoPlayer, (volume -= factor), callback);         
+                }, speed);
+            } else {
+                (typeof(callback) !== 'function') || callback();
+            }
+        }
+        
+
+
+        var controlSound = function(boolsound, callback){
+          player.pause();
+          playerIntro.pause();
+          resume.pause();
+
+          /*fadeVolume(player, player.volume(), function(){
+              console.log('fade complete: player');
+              player.pause();
+              player.volume(boolsound)
+              
+              fadeVolume(playerIntro, playerIntro.volume(), function(){
+                  console.log('fade complete: playerIntro');
+                  playerIntro.pause();
+                  playerIntro.volume(boolsound);
+                  
+                  fadeVolume(resume, resume.volume(), function(){
+                      console.log('fade complete: resume');
+                      resume.pause();
+                      resume.volume(boolsound);
+                      (typeof(callback) !== 'function') || callback();
+                  });
+              });
+          });*/
+
+        }
 
         var playOnlyAudio =  function(id){
           player.src({ type: 'video/youtube', src: 'https://www.youtube.com/watch?v='+id });
@@ -162,7 +225,7 @@ angular.module('smcApp')
         tl
           //EPISODE 1
           .call(playIntroVideo,[])
-          .to(".videoCover", 3, {css:{opacity: '0.6'}, delay: 4, ease: Power0.easeOut},"inicio")
+          .to(".videoCover", 3, {css:{opacity: '0.6'}, delay: 2, ease: Power0.easeOut},"inicio")
           .staggerFrom(introWords, 0.6, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.2]}, ease: Back.easeOut.config(0.8)}, 0.1)
           .staggerFrom(introWordsSubtitle, 0.6, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.2]}, ease: Back.easeOut.config(0.8)}, 0.1)
           .staggerFrom(introWordsName, 0.6, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.2]}, ease: Back.easeOut.config(0.8)}, 0.1)
@@ -240,11 +303,11 @@ angular.module('smcApp')
           .addPause()
           //EPISODE 6
           .staggerTo($("#page4").children(),0.6, animationToPattern, staggerToVelocity,"ritaMontaner")
-          .call(playResumeVideo,[38,88])
-          .to(".resumeVideoBox", 0.1, {scale: '1', ease: Power4.easeOut})
+          .call(playResumeVideo,[39,89,55])
+          .to(".resumeVideoBox", 1, {opacity: '1', scale: '1', ease: Power4.easeIn})
           .addPause()
+          .to(".resumeVideoBox", 0.5, {scale: '0.2', ease: Power4.easeOut})
           //.call(playResumeVideo,[55,88])
-          .to(".resumeVideoBox", 0.8, {scale: '0.2', ease: Power4.easeOut})
           .to("#page4",0.4,{ right: '100%', ease: Back.easeInOut.config(1)})
           .to("#page5",0.4,{ right: '0%', ease: Back.easeInOut.config(1)},"-=0.4")
           .call(updateTitle,[4])
@@ -252,7 +315,9 @@ angular.module('smcApp')
           .addPause()
           //EPISODE 7
           .staggerTo($("#page5").children(),0.6, animationToPattern, staggerToVelocity)
-          .to(".resumeVideoBox", 0.3, {scale: '0', ease: Power4.easeOut})
+          .call(stopResumeVideo)
+          .to(".resumeVideoBox", 0.1, {opacity: '0', scale: '1', ease: Power4.easeOut})
+          //.to(".resumeVideoBox", 0.3, {scale: '0', ease: Power4.easeOut})
           .to("#page5",0.4,{ right: '100%', ease: Back.easeInOut.config(1)},"ritaMontaner2")
           .to("#page6",0.4,{ right: '0%', ease: Back.easeInOut.config(1)},"-=0.4")
           .call(updateTitle,[5])
@@ -298,11 +363,16 @@ angular.module('smcApp')
           .to(".holly7", 0.5, {top: '150%', ease: Bounce.easeOut},"-=0.3")
           .to(".holly6", 0.5, {top: '-150%', ease: Power4.easeOut},"-=0.3")
           .to(".carn1", 0.3, {transform: 'rotateY(0deg)', ease: Back.easeOut.config(1)},"carmenCastillo-=0.5")
+          .call(updateTitle,[7])
+          .call(playResumeVideo,[101,131,131])
+          .to(".resumeVideoBox", 1, {opacity: '1', scale: '1', ease: Power4.easeIn})
+          .addPause()
+          .to(".resumeVideoBox", 1, {opacity: '0', ease: Power4.easeOut})
+          .call(stopResumeVideo)
           .to(".blurEffect5",0.2,{ filter: 'blur(8px)',webkitFilter: 'blur(8px)', ease: Power0.easeNone},"+=1")
           .to("#page8",0.4,{ right: '0%', ease: Back.easeInOut.config(1)},"-=0.4")
           .to(".age2",0.3,{ transform: 'rotateX(90deg)', ease: Bounce.easeOut})
           .to(".age3",0.3,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"-=0.3")
-          .call(updateTitle,[7])
           .staggerFrom($("#page8").children(),0.6, animationFromPattern, staggerFromVelocity)
           .addPause()
           //EPISODE 10
@@ -323,7 +393,11 @@ angular.module('smcApp')
           .staggerTo($("#page10").children(),0.6, animationToPattern, staggerToVelocity)
           .to("#page10",0.4,{ right: '100%', ease: Power0.easeNone},"lorraineAllen")
           .call(updateTitle,[10])
-          .call(playResumeVideo,[131,8500])
+          .call(playResumeVideo,[132,189,189])
+          .to(".resumeVideoBox", 1, {opacity: '1', ease: Power4.easeIn})
+          .addPause()
+          .to(".resumeVideoBox", 1, {opacity: '0', ease: Power4.easeOut})
+          .call(stopResumeVideo)
           .to(".blurEffect5",0.2,{ filter: 'blur(0px)',webkitFilter: 'blur(0px)', ease: Power0.easeNone},"-=0.2")
           .to(".carn1", 0.3, { transform: 'rotateY(165deg)', ease: Back.easeOut.config(1)})
           .to(".chi4", 0.3, { opacity: '1', ease: Bounce.easeOut },"-=0.2")
@@ -354,6 +428,11 @@ angular.module('smcApp')
           .staggerTo($("#page13").children(),0.6, animationToPattern, staggerToVelocity)
           .to("#page13",0.4,{ right: '100%', ease: Power0.easeNone},"abbeLane1")
           .call(updateTitle,[13])
+          .call(playResumeVideo,[189,266,266])
+          .to(".resumeVideoBox", 1, {opacity: '1', ease: Power4.easeIn})
+          .addPause()
+          .to(".resumeVideoBox", 1, {opacity: '0', ease: Power4.easeOut})
+          .call(stopResumeVideo)
           .to(".blurEffect7",0.2,{ filter: 'blur(0px)',webkitFilter: 'blur(0px)', ease: Power0.easeNone},"+=1")
           .to(".chi2", 0.3, {opacity: '0', ease: Back.easeOut.config(1)},"+=0.5")
           .to(".chi4", 0.3, {opacity: '0', ease: Bounce.easeOut},"+=0.5")
@@ -362,7 +441,6 @@ angular.module('smcApp')
           .to(".chi1", 0.3, {opacity: '0', ease: Back.easeOut.config(1)},"-=0.2")
           .to("#page14",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
           .to(".lasv1", 0.3, {opacity: '1', ease: Back.easeOut.config(1)})
-          .call(playResumeVideo,[189,11000])
           .to(".lasv2", 0.3, {top:'0%', ease: Bounce.easeOut})
           .to(".lasv3", 0.3, {top:'0%', ease: Bounce.easeOut})
           .to(".lasv10", 0.3, {top:'0%', ease: Bounce.easeOut})
@@ -412,6 +490,11 @@ angular.module('smcApp')
           .to("#page17",0.4,{ right: '100%', ease: Power0.easeNone},"charoBaeza1")
           .to("#page18",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
           .call(updateTitle,[17])
+          .call(playResumeVideo,[266.5,321,321])
+          .to(".resumeVideoBox", 1, {opacity: '1', ease: Power4.easeIn})
+          .addPause()
+          .to(".resumeVideoBox", 1, {opacity: '0', ease: Power4.easeOut})
+          .call(stopResumeVideo)
           .staggerFrom($("#page18").children(),0.6, animationFromPattern, staggerFromVelocity)
           .addPause()
           .to("#cb01",0.4,{ right: '80%', scale: '0', ease: Power4.easeOut},"charoBaeza2")
