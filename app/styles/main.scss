@@ -380,11 +380,19 @@ body {
   position: absolute;
   top: 0;
   right: 0;
+  width: 100%;
+  z-index: 999;
+  height: 100%;
   -webkit-transform: scale(0);
   -moz-transform: scale(0);
   -ms-transform: scale(0);
   -o-transform: scale(0);
   transform: scale(0);
+  -webkit-transform-origin: 90% 15%;
+  -moz-transform-origin: 90% 15%;
+  -ms-transform-origin: 90% 15%;
+  -o-transform-origin: 90% 15%;
+  transform-origin: 90% 15%;
 }
 .closeFullScreenVideo{
   position: absolute;
@@ -600,7 +608,7 @@ body {
 }
 .prelGroup{
   position: absolute;
-  top: 30%;
+  top: 33%;
   right: 10%;
   width: 35%;
   height: 35%;
@@ -1197,7 +1205,7 @@ body {
 .rm15{
   height: 40%;
   position: absolute;
-  top: 5%;
+  top: 15%;
   right: 80%;
 }
 .rm16{
@@ -1209,7 +1217,7 @@ body {
 .rm17{
   height: 40%;
   position: absolute;
-  top: 5%;
+  top: 50%;
   right: 55%;
 }
 .rm18{

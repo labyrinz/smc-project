@@ -109,11 +109,12 @@ angular.module('smcApp')
           //resume.duration(8);
           resume.currentTime(timer);
           resume.play();
-          //resume.on("load", function(){
-          //  resume.duration(8);
-          //})
-          setTimeout(function(){resume.pause();}, duration);
-        }
+          resume.on('timeupdate', function() {
+            if (resume.currentTime() >= duration) {
+              resume.pause();
+            }
+          })
+        };
 
         var playOnlyAudio =  function(id){
           player.src({ type: 'video/youtube', src: 'https://www.youtube.com/watch?v='+id });
@@ -223,7 +224,7 @@ angular.module('smcApp')
           .addPause()
           //EPISODE 5
           .staggerTo($("#page3").children(),0.6, animationToPattern, staggerToVelocity)
-          .to(".cub1", 0.5, {transform: 'rotateY(165deg)', ease: Power2.easeIn},"newyork1")
+          .to(".cub1", 0.5, {transform: 'rotateY(165deg)', onComplete: playOnlyAudio, onCompleteParams: ['xYX5Ep2ALRo'], ease: Power2.easeIn},"newyork1")
           .to(".ny4", 0.2, {top: '0%', ease: Bounce.easeOut},"-=0.5")
           .to(".ny3", 0.5, {top: '0%', ease: Bounce.easeOut},"-=0.2")
           .to(".ny1", 0.5, {top: '0%', ease: Bounce.easeOut},"-=0.2")
@@ -231,11 +232,6 @@ angular.module('smcApp')
           .to(".ny5", 0.8, {scale: '1', right: '0', ease: Power4.easeOut},"-=0.2")
           .to(".ny6", 0.8, {scale: '1', right: '0', ease: Power4.easeOut},"-=0.2")
           .to(".ny7", 0.8, {scale: '1', right: '0',onComplete: playOnlyAudio, onCompleteParams: ['xYX5Ep2ALRo'], ease: Power4.easeOut},"-=0.2")
-          .to(".fullScreenVideo", 0.5, {css: {transform: 'scale(0.3) rotate(20deg)'}, ease: Expo.easeOut})
-          .to(".fullScreenVideo", 0.5, {css: {transform: 'scale(1) rotate(0deg)', top: 0, left: 0}, ease: Expo.easeOut})
-          .addPause()
-          .to(".fullScreenVideo", 0.5, {css: {transform: 'scale(0.3) rotate(0deg)'}, onReverseComplete: playOnlyAudio, onReverseCompleteParams: ['ghTHOjcc3IM'],ease: Expo.easeOut})
-          .to(".fullScreenVideo", 0.5, {css: {transform: 'scale(0) rotate(30deg)'}, onComplete: player.pause(), ease: Expo.easeOut})
           .call(updateTitle,[3])
           .to("#page3",0.4,{ right: '100%', ease: Power0.easeNone})
           .to("#page4",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
@@ -243,14 +239,20 @@ angular.module('smcApp')
           .staggerFrom($("#page4").children(),0.6, animationFromPattern, staggerFromVelocity)
           .addPause()
           //EPISODE 6
-          .staggerTo($("#page4").children(),0.6, animationToPattern, staggerToVelocity)
-          .to("#page4",0.4,{ right: '100%', ease: Back.easeInOut.config(1)},"ritaMontaner")
+          .staggerTo($("#page4").children(),0.6, animationToPattern, staggerToVelocity,"ritaMontaner")
+          .call(playResumeVideo,[38,54])
+          .to(".resumeVideoBox", 0.1, {scale: '1', ease: Power4.easeOut})
+          .addPause()
+          .call(playResumeVideo,[55,88])
+          .to(".resumeVideoBox", 0.8, {scale: '0.2', ease: Power4.easeOut})
+          .to("#page4",0.4,{ right: '100%', ease: Back.easeInOut.config(1)})
           .to("#page5",0.4,{ right: '0%', ease: Back.easeInOut.config(1)},"-=0.4")
           .call(updateTitle,[4])
           .staggerFrom($("#page5").children(),0.6, animationFromPattern, staggerFromVelocity)
           .addPause()
           //EPISODE 7
           .staggerTo($("#page5").children(),0.6, animationToPattern, staggerToVelocity)
+          .to(".resumeVideoBox", 0.3, {scale: '0', ease: Power4.easeOut})
           .to("#page5",0.4,{ right: '100%', ease: Back.easeInOut.config(1)},"ritaMontaner2")
           .to("#page6",0.4,{ right: '0%', ease: Back.easeInOut.config(1)},"-=0.4")
           .call(updateTitle,[5])
@@ -270,6 +272,7 @@ angular.module('smcApp')
           .staggerTo($("#page6").children(),0.6, animationToPattern, staggerToVelocity)
           .to("#page6",0.4,{ right: '100%', ease: Back.easeInOut.config(1)},"losAngeles")
           .to("#page7",0.2,{ right: '0%', ease: Back.easeInOut.config(1)},"-=0.4")
+          .call(playOnlyAudio,['mnX-eWJktbg'])
           .call(updateTitle,[6])
           .to(".blurEffect4",0.2,{ filter: 'blur(0px)',webkitFilter: 'blur(0px)', ease: Power0.easeNone},"-=1")
           .to(".ber1", 0.3, {transform: 'rotateY(165deg)', ease: Back.easeOut.config(1)})
