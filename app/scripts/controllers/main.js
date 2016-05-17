@@ -130,7 +130,7 @@ angular.module('smcApp')
             }
             if (resume.currentTime() >= duration) {
               console.log("Current time (end): "+resume.currentTime())
-              resume.pause();
+              resume.pause()
             }
           })
 
@@ -231,6 +231,7 @@ angular.module('smcApp')
         tl
           //EPISODE 1
           .call(playIntroVideo,[])
+          .call(stopResumeVideo)
           .to(".videoCover", 3, {css:{opacity: '0.6'}, delay: 2, ease: Power0.easeOut},"inicio")
           .staggerFrom(introWords, 0.6, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.2]}, ease: Back.easeOut.config(0.8)}, 0.1)
           .staggerFrom(introWordsSubtitle, 0.6, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.2]}, ease: Back.easeOut.config(0.8)}, 0.1)
@@ -310,7 +311,7 @@ angular.module('smcApp')
           //EPISODE 6
           .staggerTo($("#page4").children(),0.6, animationToPattern, staggerToVelocity,"ritaMontaner")
           .call(updateTitle,[4])
-          .call(playResumeVideo,[39,89,55])
+          .call(playResumeVideo,[38.5,89,55])
           .to(".resumeVideoBox", 1, {opacity: '1', scale: '1', ease: Power4.easeIn})
           .addPause()
           .to(".resumeVideoBox", 0.5, {scale: '0.2', ease: Power4.easeOut})
@@ -440,7 +441,7 @@ angular.module('smcApp')
           .addPause()
           //EPISODE 15
           .staggerTo($("#page13").children(),0.6, animationToPattern, staggerToVelocity)
-          .to("#page13",0.4,{ right: '100%', ease: Power0.easeNone})
+          .to("#page13",0.4,{ right: '100%', ease: Power0.easeNone},"abbeLane")
           .call(updateTitle,[13])
           .call(playResumeVideo,[189,266,266])
           .to(".resumeVideoBox", 1, {opacity: '1', ease: Power4.easeIn})
@@ -454,7 +455,7 @@ angular.module('smcApp')
           .to(".chi6", 1, {left: '-150%', ease: Power4.easeOut})
           .to(".chi1", 0.3, {opacity: '0', ease: Back.easeOut.config(1)},"-=0.2")
           .to("#page14",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
-          .to(".lasv1", 0.3, {opacity: '1', ease: Back.easeOut.config(1)},"abbeLane")
+          .to(".lasv1", 0.3, {opacity: '1', ease: Back.easeOut.config(1)})
           .to(".lasv2", 0.3, {top:'0%', ease: Bounce.easeOut})
           .to(".lasv3", 0.3, {top:'0%', ease: Bounce.easeOut})
           .to(".lasv10", 0.3, {top:'0%', ease: Bounce.easeOut})
@@ -486,7 +487,7 @@ angular.module('smcApp')
           .to("#page16",0.4,{ right: '100%', ease: Power0.easeNone})
           .to("#page17",0.4,{ right: '0%', ease: Power0.easeNone},"charoBaeza")
           .call(updateTitle,[16])
-          .call(playResumeVideo,[266.5,321,321])
+          .call(playResumeVideo,[266.5,321.5,321.5])
           .to(".resumeVideoBox", 1, {opacity: '1', ease: Power4.easeIn})
           .addPause()
           .to(".resumeVideoBox", 1, {opacity: '0', ease: Power4.easeOut})
@@ -828,7 +829,6 @@ angular.module('smcApp')
         }
 
         triggerBttn.on( 'click', function(){toggleOverlay()} );
-        soundBttn.click()
         soundBttn.on( 'click', function(){toggleSound()} );
         //closeBttn.on( 'click', function(){toggleOverlay()} );
 
