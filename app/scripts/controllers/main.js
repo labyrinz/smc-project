@@ -48,14 +48,18 @@ angular.module('smcApp')
       //---------------------------
       //----SOUND TRACKS -----
 
-        var soundEpilogo = new Howl({
-          urls: ['audio/perfidia.mp3'],
-          loop: false,
-          volume: 0.5,
-          onend: function() {
-            console.log('Finished!');
-          }
-        });
+          //var soundEpilogo = new Howl({
+          //  urls: ['audio/'+url+'.mp3'],
+          //  loop: false,
+          //  volume: 0.5,
+          //  onend: function() {
+          //    console.log('Finished!');
+          //  }
+          //});
+
+        //soundEpilogo.play().fadeIn(0.5, 2000)
+        //
+        //console.log('sound epilogo: ', soundEpilogo._src);
 
       //-----------------------
       //------ DRAW SVG ------------
@@ -222,7 +226,7 @@ angular.module('smcApp')
         TweenMax.set(".scrollIcon, .hiddenCanvas, .dinamycText, .ageTitle, .napFace, .addon1, .prel01", {visibility:"visible"});
 
         var tl = new TimelineMax({repeat:0});
-        var cugatNino = new TimelineMax({repeat:-1});
+        var cugatNino = new TimelineMax({repeat:3});
 
         tl
           //EPISODE 1
