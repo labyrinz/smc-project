@@ -179,7 +179,7 @@ body {
   left: 0%;
   cursor: pointer;
   opacity: 0.8;
-  z-index: 990;
+  z-index: 999;
 }
 .arrowNext{
   position: absolute;
@@ -189,7 +189,7 @@ body {
   cursor: pointer;
   opacity: 0.8;
   transform: rotateY(180deg);
-  z-index: 990;
+  z-index: 999;
 }
 // ------ PAGES -------
 .back{
@@ -665,7 +665,7 @@ body {
   content: "";
   position: absolute;
   bottom: 30px;
-  left: -9%;
+  left: -6%;
   /* width: 36px; */
   border-top: 35px solid transparent;
   border-bottom: 4px solid transparent;
@@ -857,7 +857,7 @@ body {
 }
 .prol01{
   position: absolute;
-  top:0%;
+  top:10%;
   right: 10%;
   height:150%;
   z-index: 989;
@@ -865,13 +865,13 @@ body {
 .prol02{
   position: absolute;
   top:5%;
-  right: 10%;
+  right: 30%;
   height:150%;
   z-index: 989;
 }
 .prol03{
   position: absolute;
-  top:0%;
+  top:-5%;
   right: 10%;
   height:150%;
   z-index: 989;
@@ -949,9 +949,9 @@ body {
 }
 .prol05{
   position: absolute;
-  top:27%;
-  right: 15%;
-  height:30%;
+  top:20%;
+  right: 10%;
+  height:50%;
   z-index: 989;
 }
 .cita12{
@@ -962,12 +962,12 @@ body {
 }
 .p31Video{
   position: absolute;
-  top: 65%;
-  right: 10%;
+  top: 15%;
+  right: 70%;
   margin:auto;
   z-index: 991;
-  width: 10%;
-  height: 10%;
+  width: 20%;
+  height: 20%;
   border: solid 5px rgb(255, 255, 255);
   cursor: pointer;
 }
@@ -1011,7 +1011,7 @@ body {
   content: "";
   position: absolute;
   bottom: 30px;
-  left: -9%;
+  left: -6%;
   /* width: 36px; */
   border-top: 35px solid transparent;
   border-bottom: 4px solid transparent;
@@ -1237,36 +1237,33 @@ body {
    top: 35%;
  }
 .rm15{
-  height: 40%;
+  height: 150%;
   position: absolute;
   top: 15%;
-  right: 80%;
+  right: 30%;
 }
 .rm16{
-  height: 30%;
+  height: 120%;
   position: absolute;
-  top: 20%;
-  right: 70%;
+  top: 0%;
+  right: 35%;
 }
 .rm17{
-  height: 40%;
+  height: 120%;
   position: absolute;
-  top: 50%;
-  right: 55%;
+  top: 5%;
+  right: 20%;
 }
 .rm18{
-  height: 50%;
+  height: 120%;
   position: absolute;
-  top: 40%;
-  right: 70%;
+  top: 10%;
+  right: 30%;
 }
 .rm31Video{
   position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  margin: auto;
+  top: 10%;
+  right: 70%;
   z-index: 991;
   width: 20%;
   height: 20%;
@@ -1275,8 +1272,8 @@ body {
 }
 .rm32Video{
   position: absolute;
-  bottom: 40%;
-  right: 10%;
+  top: 35%;
+  right: 65%;
   z-index: 991;
   width: 20%;
   height: 20%;
@@ -1285,8 +1282,8 @@ body {
 }
 .rm33Video{
   position: absolute;
-  bottom: 10%;
-  right: 10%;
+  top: 60%;
+  right: 55%;
   z-index: 991;
   width: 20%;
   height: 20%;
@@ -1437,7 +1434,7 @@ body {
   content: "";
   position: absolute;
   bottom: 30px;
-  left: -9%;
+  left: -6%;
   /* width: 36px; */
   border-top: 35px solid transparent;
   border-bottom: 4px solid transparent;
@@ -1485,8 +1482,8 @@ body {
 //FIN DIAPOSITIVA 8
 // DIAPOSITIVA 9
 .texto33{
-  right: 10%;
-  top:50%;
+  right: 60%;
+  top:20%;
 }
 .texto34{
   right: 10%;
@@ -1494,57 +1491,57 @@ body {
 }
 .cc33{
   position: absolute;
-  top:22%;
-  right:5%;
-  height: 15%;
+  top:20%;
+  right:10%;
+  height: 110%;
   z-index: 990;
   cursor: pointer;
 }
 .cc34{
   position: absolute;
-  top:18%;
-  right:13%;
-  height: 15%;
+  top:10%;
+  right:20%;
+  height: 110%;
   z-index: 990;
   cursor: pointer;
 }
 .cc35{
   position: absolute;
-  top:19%;
-  right:20%;
-  height: 15%;
+  top:5%;
+  right:10%;
+  height: 110%;
   z-index: 990;
   cursor: pointer;
 }
 .cc36{
   position: absolute;
-  top:23%;
-  right:30%;
-  height: 15%;
+  top:25%;
+  right:20%;
+  height: 110%;
   z-index: 990;
   cursor: pointer;
 }
 .cc37{
   position: absolute;
   top:27%;
-  right:35%;
-  height: 15%;
+  right:25%;
+  height: 110%;
   z-index: 990;
   cursor: pointer;
 }
 .cc38{
   position: absolute;
-  top:20%;
-  right:42%;
-  height: 15%;
+  top:0%;
+  right:10%;
+  height: 110%;
   z-index: 990;
   cursor: pointer;
 }
 .cc39{
   position: absolute;
-  top:400%;
-  right:10%;
-  height: 40%;
+  top:10%;
+  right:25%;
+  height: 110%;
   z-index: 990;
 }
 .cc21Video{
@@ -1601,7 +1598,7 @@ body {
 .cc31Video{
   position: absolute;
   top: 10%;
-  right: 10%;
+  right: 60%;
   z-index:991;
   width: 30%;
   height: 30%;
@@ -1728,7 +1725,7 @@ body {
   content: "";
   position: absolute;
   bottom: 30px;
-  left: -9%;
+  left: -6%;
   /* width: 36px; */
   border-top: 35px solid transparent;
   border-bottom: 4px solid transparent;
@@ -1926,7 +1923,7 @@ body {
   content: "";
   position: absolute;
   bottom: 30px;
-  left: -9%;
+  left: -6%;
   /* width: 36px; */
   border-top: 35px solid transparent;
   border-bottom: 4px solid transparent;
@@ -1978,8 +1975,8 @@ body {
 // DIAPOSITIVA 16
 
 .texto52{
-  right: 5%;
-  top:60%;
+  right: 60%;
+  top:15%;
   width: 25%;
 }
 .cita52{
@@ -1991,48 +1988,48 @@ body {
 .cita53{
   bottom: 30%;
   width: 30%;
-  right: 35%;
+  right: 45%;
   border-radius: 40px;
 }
 .al21{
   position: absolute;
-  width: 10%;
-  right:85%;
-  top: 15% ;
+  height: 120%;
+  right:20%;
+  top: 5% ;
 }
 .al22{
   position: absolute;
-  width: 10%;
-  right: 75%;
+  height: 100%;
+  right: 10%;
   top: 15%;
 }
 .al23{
   position: absolute;
-  width: 10%;
-  right: 65%;
+  height: 120%;
+  right: 15%;
   top: 15%;
 }
 .al24{
   position: absolute;
-  width: 10%;
-  right: 55%;
-  top: 15%;
+  height: 120%;
+  right: 10%;
+  top: 10%;
 }
 .al25{
   position: absolute;
-  width: 10%;
-  right: 45%;
+  height: 120%;
+  right: 20%;
   top: 15%;
 }
 .al26{
   position: absolute;
-  width: 10%;
-  right: 35%;
-  top: 15%;
+  height: 120%;
+  right: 5%;
+  top: 5%;
 }
 .al27{
   position: absolute;
-  width: 10%;
+  height: 120%;
   right: 25%;
   top: 15%;
 }
@@ -2071,31 +2068,31 @@ body {
 //DIAPOSITIVA 17
 .al31{
   position: absolute;
-  width: 20%;
-  right: 70%;
-  top: 10%;
+  height: 150%;
+  right: 15%;
+  top: -10%;
 }
 .al32{
   position: absolute;
-  width: 20%;
-  right: 55%;
-  top: 10%;
+  height: 100%;
+  right: 5%;
+  top: 15%;
 }
 .al33{
   position: absolute;
-  width: 20%;
-  right: 40%;
+  height: 110%;
+  right: 15%;
   top: 10%;
 }
 .al34{
   position: absolute;
-  width: 20%;
+  height: 110%;
   right: 25%;
   top: 10%;
 }
 .al35{
   position: absolute;
-  width: 20%;
+  height: 110%;
   right: 10%;
   top: 10%;
 }
@@ -2114,13 +2111,13 @@ body {
 .cita56{
   bottom: 30%;
   width: 30%;
-  right: 40%;
+  right: 50%;
   border-radius: 40px;
 }
 .texto53{
-  right: 10%;
-  top: 61%;
-  width: 18%;
+  right: 50%;
+  top: 15%;
+  width: 35%;
 }
 //FIN DIAPOSITIVA 16
 //DIAPOSITIVA 17
@@ -2140,7 +2137,7 @@ body {
   content: "";
   position: absolute;
   bottom: 30px;
-  left: -9%;
+  left: -6%;
   /* width: 36px; */
   border-top: 35px solid transparent;
   border-bottom: 4px solid transparent;

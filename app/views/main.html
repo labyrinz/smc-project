@@ -31,7 +31,7 @@
     <img class="barc6 blurEffect9" src="images/back/barcelona/copa2.png"/>
     <img class="barc7 blurEffect9" src="images/back/barcelona/hojas1.png"/>
     <img class="barc8 blurEffect9" src="images/back/barcelona/hojas2.png"/>
-    <div id="textoFin" class="texto1 textoFin highlightText2">Cugat fallece en Barcelona el 27 de octubre de 1990.</div>
+    <div id="textoFin" class="texto1 textoFin highlightText">Cugat fallece en Barcelona el 27 de octubre de 1990.</div>
   </div>
   <div id="back8" class="back8 backIlustration">
     <img class="lasv1 blurEffect8" src="images/back/lasvegas/fondo.png"/>
@@ -182,10 +182,10 @@
           </div>
         </div>
         <!--<img class="prol04 img" src="images/prol34.jpg"/>-->
-        <div class="p22Video videoPlay" ng-click="openVideo('ghTHOjcc3IM', 'p22Video')"
-             style="background-image: url('http://img.youtube.com/vi/ghTHOjcc3IM/hqdefault.jpg')">
-          <!--iframe class="p22Video" src="https://www.youtube.com/embed/ghTHOjcc3IM?controls=2&showinfo=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe-->
-        </div>
+        <!--<div class="p22Video videoPlay" ng-click="openVideo('ghTHOjcc3IM', 'p22Video')"-->
+             <!--style="background-image: url('http://img.youtube.com/vi/ghTHOjcc3IM/hqdefault.jpg')">-->
+          <!--&lt;!&ndash;iframe class="p22Video" src="https://www.youtube.com/embed/ghTHOjcc3IM?controls=2&showinfo=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe&ndash;&gt;-->
+        <!--</div>-->
         <!--<img class="prel06 img" src="images/BCN_02.jpg"/>-->
         <!--<div id="texto16" class="texto1 texto16"><b>1910 - </b>Un joveníssim Cugat comença a tocar a l'Orquestra Simfònica del Teatre Nacional de Cuba i coneix al gran tenor del moment, Enrico Caruso.</div>-->
         <!--<iframe class="p21Video" src="https://drive.google.com/file/d/0B3Fh20_rP_uzOGFNV3hjT1pGd0E/preview" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>-->
@@ -304,10 +304,16 @@
       <div id="page7" class="back color0 page7">
         <h2 class="title retro">Los Ángeles - 1921</h2>
         <!--<div id="texto25" class="texto2 texto25"><b>1921 - </b>El 1921 participa en la seva primera gran producció de Hollywood, 'Els quatre genets de l'Apocalipsi', de Rex Ingram, una pel·lícula muda on apareix Cugat i el seu violí. Rodolfo Valentino protagonitza la pel·lícula i conèixer-lo li obre les portes de Hollywood de bat a bat.</div>-->
-        <img class="rm17 img" src="images/RM10.jpg"/>
-        <img class="rm16 img" src="images/RM8.jpg"/>
-        <img class="rm15 img" src="images/RM7.jpg"/>
-        <img class="rm18 img" src="images/RM11.jpg"/>
+        <div id="fotoGroup61" class="prelGroup">
+          <img class="rm17 img slideimg61" src="images/RM10.jpg"/>
+          <img class="rm16 img slideimg61" src="images/RM8.jpg"/>
+          <img class="rm15 img slideimg61" src="images/RM7.jpg"/>
+          <img class="rm18 img slideimg61" src="images/RM11.jpg"/>
+          <div>
+            <img id="arrowPrev2" ng-click="prevFoto('61')" class="arrowPrev" src="images/arrow-left.svg"/>
+            <img id="arrowNext2" ng-click="nextFoto('61')" class="arrowNext" src="images/arrow-left.svg"/>
+          </div>
+        </div>
         <div class="rm31Video videoPlay" ng-click="openVideo('I736e6ChYD8', 'p22Video')"
         style="background-image: url('http://img.youtube.com/vi/I736e6ChYD8/hqdefault.jpg')">
         <!--iframe class="rm31Video" src="https://www.youtube.com/embed/I736e6ChYD8?controls=2&showinfo=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe-->
@@ -381,14 +387,20 @@
       <div id="page9" class="back color0 page9">
         <!--h2 class="title retro"></h2-->
         <div id="texto33" class="texto3 texto33"><b>1930 - </b>El  1930, a Tijuana es fixa amb una cantant i actriu jove, Rita Cansino. Cugat la va batejar com<span style="font-size: 20px;font-weight: bold;"> Rita Hayworth</span> i la va catapultar a la fama mundial.</div>
-        <img class="cc33 img" src="images/CC3.jpg"/>
-        <img class="cc34 img" src="images/CC4.jpg"/>
-        <img class="cc35 img" src="images/CC5.jpg"/>
-        <img class="cc36 img" src="images/CC4_1.jpg"/>
-        <img class="cc37 img" src="images/CC5_1.jpg"/>
-        <img class="cc38 img" src="images/CC_BCN_19.jpg"/>
-        <!--<div id="texto34" class="texto3 texto34">[Aquest mateix any] [Cugat] comença les seves primeres aventures com a director de cinema, primer amb el curt "Un fotógrafo distraído" i després amb el seu primer llargmetratge "Charros, gauchos y manolas".</div>-->
-        <img class="cc39 img" src="images/CC6.jpg"/>
+        <div id="fotoGroup62" class="prelGroup">
+          <img class="cc33 img slideimg62" src="images/CC3.jpg"/>
+          <img class="cc34 img slideimg62" src="images/CC4.jpg"/>
+          <img class="cc35 img slideimg62" src="images/CC5.jpg"/>
+          <img class="cc36 img slideimg62" src="images/CC4_1.jpg"/>
+          <img class="cc37 img slideimg62" src="images/CC5_1.jpg"/>
+          <img class="cc38 img slideimg62" src="images/CC_BCN_19.jpg"/>
+          <!--<div id="texto34" class="texto3 texto34">[Aquest mateix any] [Cugat] comença les seves primeres aventures com a director de cinema, primer amb el curt "Un fotógrafo distraído" i després amb el seu primer llargmetratge "Charros, gauchos y manolas".</div>-->
+          <img class="cc39 img slideimg62" src="images/CC6.jpg"/>
+          <div>
+            <img id="arrowPrev2" ng-click="prevFoto('62')" class="arrowPrev" src="images/arrow-left.svg"/>
+            <img id="arrowNext2" ng-click="nextFoto('62')" class="arrowNext" src="images/arrow-left.svg"/>
+          </div>
+        </div>
         <!--<div class="cc21Video videoPlay" ng-click="openVideo('w4pvV9o8l0k', 'p22Video')"-->
             <!--style="background-image: url('http://img.youtube.com/vi/w4pvV9o8l0k/hqdefault.jpg')">-->
             <!--&lt;!&ndash;<iframe class="cc21Video" src="https://www.youtube.com/embed/w4pvV9o8l0k?controls=2&showinfo=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>&ndash;&gt;-->
@@ -441,11 +453,11 @@
         <!--<div class="ContainercuaAEEUU">-->
           <!--<img class="mapCubaEEUU" src="images/mapWorld.svg"/>-->
         <!--</div>-->
-        <div class="cc31Video videoPlay" ng-click="openVideo('2hLIdI99eiw', 'p22Video')"
+        <div class="cc31Video videoPlay img" ng-click="openVideo('2hLIdI99eiw', 'p22Video')"
             style="background-image: url('http://img.youtube.com/vi/2hLIdI99eiw/hqdefault.jpg')">
             <!--<iframe class="cc31Video" src="https://www.youtube.com/embed/2hLIdI99eiw?controls=2&showinfo=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>-->
           </div>
-        <div class="cc32Video videoPlay" ng-click="openVideo('F3kQC4ULRPc', 'p22Video')"
+        <div class="cc32Video videoPlay img" ng-click="openVideo('F3kQC4ULRPc', 'p22Video')"
             style="background-image: url('http://img.youtube.com/vi/F3kQC4ULRPc/hqdefault.jpg')">
             <!--<iframe class="cc32Video" src="https://www.youtube.com/embed/F3kQC4ULRPc?controls=2&showinfo=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>-->
           </div>
@@ -543,13 +555,19 @@
       </div>
       <div id="page15" class="back color0 page15">
         <div id="texto52" class="texto5 texto52">En aquest punt de la vida, Cugat era considerat el rei de la rumba i de la samba per tot arreu. Havia arribat al cim de la seva professió i va deixar participar a Abbe Lane dels seus èxits. Abbe Lane va tastar, de la ma de Cugat, el xampany, el caviar i els avions per primera vegada.</div>
-        <img class="al21 img" src="images/AL12.jpg"/>
-        <img class="al22 img" src="images/prol31.jpg"/>
-        <img class="al23 img" src="images/AL33.jpg"/>
-        <img class="al24 img" src="images/AL34.jpg"/>
-        <img class="al25 img" src="images/AL35.jpg"/>
-        <img class="al26 img" src="images/AL1.jpg"/>
-        <img class="al27 img" src="images/AL7.jpg"/>
+        <div id="fotoGroup73" class="prelGroup">
+            <img class="al21 img slideimg73" src="images/AL12.jpg"/>
+            <img class="al22 img slideimg73" src="images/prol31.jpg"/>
+            <img class="al23 img slideimg73" src="images/AL33.jpg"/>
+            <img class="al24 img slideimg73" src="images/AL34.jpg"/>
+            <img class="al25 img slideimg73" src="images/AL35.jpg"/>
+            <img class="al26 img slideimg73" src="images/AL1.jpg"/>
+            <img class="al27 img slideimg73" src="images/AL7.jpg"/>
+          <div>
+            <img id="arrowPrev2" ng-click="prevFoto('73')" class="arrowPrev" src="images/arrow-left.svg"/>
+            <img id="arrowNext2" ng-click="nextFoto('73')" class="arrowNext" src="images/arrow-left.svg"/>
+          </div>
+        </div>
         <!--<div class="cita52" style="opacity:0"><spam id="cita52"> i la que va estar amb mi més temps: 15 anys és tota una vida artística. Jo no sé fins a quin punt el meu amor de marit per ella tenia també una mica de paternal. Tinguem en compte la diferència d'edat i de condició. Quan jo la vaig descobrir era una simple dansaire de cabaret, molt bella però artísticament només sabia aixecar les cames en aquells ballets mecànics creats per les famosos 'Rockettes' del Radio City Hall. Jo la vaig interessar en el cant i en balls més sofisticats: vaig ser com un escultor que anava aixecant cada dia una estàtua més completa i atractiva: el seu marit, el seu pare i el seu creador artístic</spam></div>-->
         <!--<div class="cita5 cita52">"Abbe Lane ha estat la dona que més ha influït en la meva vida. No és d'estranyar, va ser la que més vaig estimar <span id="cita52suma"> </span>". <span class="plusInfoCita" value="52">[+]</span></div>-->
         <div class="cita53" style="opacity:0"><spam id="cita53"> Va passar amb ella el mateix que amb les altres: quan va arribar a tenir un nom per si mateixa, es va separar del meu espectacle i va volar amb les seves pròpies ales</spam></div>
@@ -572,11 +590,17 @@
         <!--<div class="cita5 cita54">"L'aeroport semblava un eixam amb tanta vespa" - fans a la seva rebuda en la seva gira per Espanya - Premsa de l'època</div>-->
         <!--<div class="cita5 cita55">"Amb un pes de 53kg harmoniosament distribuïts" - sobre Abbe Lane, que acompanyava Cugat - Premsa de l'època</div>-->
         <div class="cita5 cita56">“Ara que ja he introduit la rumba al mercat nord-americà, la meva intenció és introduir la sardana”.</div>
-        <img class="al31 img" src="images/AL11.jpg"/>
-        <img class="al32 img" src="images/AL21.jpg"/>
-        <img class="al33 img" src="images/AL22.png"/>
-        <img class="al34 img" src="images/AL9.jpg"/>
-        <img class="al35 img" src="images/AL8.jpg"/>
+        <div id="fotoGroup75" class="prelGroup">
+          <img class="al31 img slideimg75" src="images/AL11.jpg"/>
+          <img class="al32 img slideimg75" src="images/AL21.jpg"/>
+          <img class="al33 img slideimg75" src="images/AL22.png"/>
+          <img class="al34 img slideimg75" src="images/AL9.jpg"/>
+          <img class="al35 img slideimg75" src="images/AL8.jpg"/>
+          <div>
+            <img id="arrowPrev2" ng-click="prevFoto('75')" class="arrowPrev" src="images/arrow-left.svg"/>
+            <img id="arrowNext2" ng-click="nextFoto('75')" class="arrowNext" src="images/arrow-left.svg"/>
+          </div>
+        </div>
         <!--<img class="al3 img" src="images/AL2.jpg"/>-->
         <!--<iframe class="al21Video" src="https://www.youtube.com/embed/_sPLgL7tFTA?controls=2&showinfo=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>-->
         <!--<iframe class="al22Video" src="https://www.youtube.com/embed/YBtJ1u7Kz2E?controls=2&showinfo=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>-->
@@ -645,14 +669,14 @@
         <!--<iframe class="cb22Video" src="" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>-->
       </div>
       <div id="page20" class="back color0 page20">
-        <div id="texto65" class="texto6 texto65">En sus últimos años, Cugat se dedica a sus negocios, que van desde la cría de chihuahuas a la franquicia de restaurantes, pasando por las chocolatinas. Todo bajo el paraguas de una palabra, una marca que evoca la magia de la música, de toda una vida de búsqueda, trabajo y éxito: Cugat.</div>
+        <!--<div id="texto65" class="texto6 texto65">En sus últimos años, Cugat se dedica a sus negocios, que van desde la cría de chihuahuas a la franquicia de restaurantes, pasando por las chocolatinas. Todo bajo el paraguas de una palabra, una marca que evoca la magia de la música, de toda una vida de búsqueda, trabajo y éxito: Cugat.</div>-->
         <!--<iframe class="ep11Video" src="https://www.youtube.com/embed/yiHLlJ1hujs?controls=2&showinfo=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>-->
         <!--<iframe class="ep12Video" src="https://www.youtube.com/embed/6H_4dq8cUU0?controls=2&showinfo=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>-->
         <!--<iframe class="ep13Video" src="https://drive.google.com/file/d/0B3Fh20_rP_uzYXZnQ1ozNVJDMlk/preview" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>-->
-        <div class="ep14Video videoPlay" ng-click="openVideo('ZIP0Vi6PSIU', 'p22Video')"
-             style="background-image: url('http://img.youtube.com/vi/ZIP0Vi6PSIU/hqdefault.jpg')">
-          <!--<!--img class="ep14Video"  ng-click="openVideo('ZIP0Vi6PSIU', 'ep14Video')" src="images/videoThumbs/e21.png"/-->-->
-        </div>
+        <!--<div class="ep14Video videoPlay" ng-click="openVideo('ZIP0Vi6PSIU', 'p22Video')"-->
+             <!--style="background-image: url('http://img.youtube.com/vi/ZIP0Vi6PSIU/hqdefault.jpg')">-->
+          <!--&lt;!&ndash;&lt;!&ndash;img class="ep14Video"  ng-click="openVideo('ZIP0Vi6PSIU', 'ep14Video')" src="images/videoThumbs/e21.png"/&ndash;&gt;&ndash;&gt;-->
+        <!--</div>-->
         <!--<div id="texto64" class="texto6 texto64">Cugat fallece en Barcelona el 27 de octubre de 1990.</div>-->
       </div>
   </div>
