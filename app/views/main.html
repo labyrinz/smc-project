@@ -17,6 +17,7 @@
       </ul>
     </nav>
   </div>
+</div>
   <div class="topMenu si-icons si-icons-default">
         <span class="si-icon si-icon-hamburger-cross" data-icon-name="hamburgerCross" id="trigger-overlay"></span>
         <span class="si-icon si-icon-volume" data-icon-name="volume"></span>
@@ -30,6 +31,7 @@
     <img class="barc6 blurEffect9" src="images/back/barcelona/copa2.png"/>
     <img class="barc7 blurEffect9" src="images/back/barcelona/hojas1.png"/>
     <img class="barc8 blurEffect9" src="images/back/barcelona/hojas2.png"/>
+    <div id="textoFin" class="texto1 textoFin highlightText2">Cugat fallece en Barcelona el 27 de octubre de 1990.</div>
   </div>
   <div id="back8" class="back8 backIlustration">
     <img class="lasv1 blurEffect8" src="images/back/lasvegas/fondo.png"/>
@@ -170,9 +172,15 @@
         <!--<img class="prel05 img" src="images/prel_08.jpg"/>-->
         <!--<img class="prelpant1 img" src="images/pant837.jpg"/>-->
         <!--<div id="texto15" class="texto1 texto15"><b>1907 - </b>El prestigiós conservatori Peyrellada de l'Havana li va obrir les portes per estudiar violí molt jove de la mà de Joaquín Molina, director de l'orquestra Nacional de Cuba.</div>-->
-        <img class="prol01 img" src="images/prel_06.jpg"/>
-        <img class="prol02 img" src="images/prel_07.jpeg"/>
-        <img class="prol03 img" src="images/prel_08.jpg"/>
+        <div id="fotoGroup31" class="prelGroup">
+          <img class="prol01 img slideimg31" src="images/prel_06.jpg"/>
+          <img class="prol02 img slideimg31" src="images/prel_07.jpeg"/>
+          <img class="prol03 img slideimg31" src="images/prel_08.jpg"/>
+          <div>
+            <img id="arrowPrev" ng-click="prevFoto('31')" class="arrowPrev" src="images/arrow-left.svg"/>
+            <img id="arrowNext" ng-click="nextFoto('31')" class="arrowNext" src="images/arrow-left.svg"/>
+          </div>
+        </div>
         <!--<img class="prol04 img" src="images/prol34.jpg"/>-->
         <div class="p22Video videoPlay" ng-click="openVideo('ghTHOjcc3IM', 'p22Video')"
              style="background-image: url('http://img.youtube.com/vi/ghTHOjcc3IM/hqdefault.jpg')">
@@ -242,7 +250,7 @@
         <!--<img class="rm11 img" src="images/RM1.jpg"/>-->
         <!--<img class="rm13 img" src="images/RM3.jpg"/>-->
         <!--<img class="rm12 img" src="images/RM2.jpg"/>-->
-        <div class="cita2 cita21">"Era una autèntica estàtua de banús clar i les seves línies corporals tenien la perfecció d'una obra d'art". <b>-Yo Cugat. Mis primeros ochenta años (1981)</b></div>
+        <div class="cita2 cita21">"Era una autèntica estàtua de banús clar i les seves línies corporals tenien la perfecció d'una obra d'art".</div>
         <!--<img class="plusInfoC5 plusInfoClose1" ng-click="openCloseAddInfo('5')" src="images/infoTextVideoMin.svg"/>-->
         <!--<img class="plusInfoO5 plusInfoOpen1" ng-click="openCloseAddInfo('5')" src="images/infoTextVideo.svg"/>-->
         <!--<div class="additional ad5">-->
@@ -263,7 +271,7 @@
         <!--<img class="rm14" src="images/Be_Berlin_Logo.svg"/>-->
         <!--<div id="texto23" class="texto2 texto23"><b>1919 -</b> El 1919 Cugat se'n va a estudiar a Alemanya, a Berlín, per perfeccionar la seva tècnica, i els seus pares tornen a Espanya i s'instal·len a la Bisbal d'Empordà, Girona, adquirint una granja de pollastres.</div>-->
         <!--<div id="texto24" class="texto2 texto24">El gran somni de Cugat era esdevenir un gran concertista clàssic. No ho va aconseguir però sí que va aconseguir l'anomenat "Somni americà".</div>-->
-        <div class="cita1 cita14">"Era indispensable ampliar els meus estudis i assistir a les escoles musicals més acreditades de l'època que es trobaven a Berlín".<b>-Yo Cugat. Mis primeros ochenta años (1981)</b></div>
+        <div class="cita1 cita14">"Era indispensable ampliar els meus estudis i assistir a les escoles musicals més acreditades de l'època que es trobaven a Berlín".</div>
         <!--<img class="plusInfoC6 plusInfoClose1" ng-click="openCloseAddInfo('6')" src="images/infoTextVideoMin.svg"/>-->
         <!--<img class="plusInfoO6 plusInfoOpen1" ng-click="openCloseAddInfo('6')" src="images/infoTextVideo.svg"/>-->
         <!--<div class="additional ad6">-->
@@ -307,15 +315,15 @@
         <!--<div class="additional ad7">-->
           <!--<div class="rm31Video videoPlay" ng-click="openVideo('I736e6ChYD8', 'p22Video')"-->
             <!--style="background-image: url('http://img.youtube.com/vi/I736e6ChYD8/hqdefault.jpg')">-->
-            <!--<!--iframe class="rm31Video" src="https://www.youtube.com/embed/I736e6ChYD8?controls=2&showinfo=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe-->-->
+            <!--<!--iframe class="rm31Video" src="https://www.youtube.com/embed/I736e6ChYD8?controls=2&showinfo=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe-->
           <!--</div>-->
           <!--<div class="rm32Video videoPlay" ng-click="openVideo('mnX-eWJktbg', 'p22Video')"-->
             <!--style="background-image: url('http://img.youtube.com/vi/mnX-eWJktbg/hqdefault.jpg')">-->
-            <!--<!--iframe class="rm32Video" src="https://www.youtube.com/embed/mnX-eWJktbg?controls=2&showinfo=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe-->-->
+            <!--<!--iframe class="rm32Video" src="https://www.youtube.com/embed/mnX-eWJktbg?controls=2&showinfo=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe-->
           <!--</div>-->
           <!--<div class="rm33Video videoPlay" ng-click="openVideo('GJzc92BlYP8', 'p22Video')"-->
             <!--style="background-image: url('http://img.youtube.com/vi/GJzc92BlYP8/hqdefault.jpg')">-->
-            <!--<!--iframe class="rm33Video" src="https://www.youtube.com/embed/GJzc92BlYP8?controls=2&showinfo=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe-->-->
+            <!--<!--iframe class="rm33Video" src="https://www.youtube.com/embed/GJzc92BlYP8?controls=2&showinfo=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe-->
           <!--</div>-->
           <!--<div class="textAddonRm textRm3">Conegut en anglès com Rudolph Valentino, aquest actor italià va ser el primer sex-symbol del cinema mundial, llatí i latin lover per excel·lència. Va morir jove en estranyes circumstàncies[, però.]</div>-->
           <!--<img class="imageAddonRm imageRm1" src="images/RM6.jpg"/>-->
@@ -631,10 +639,9 @@
              style="background-image: url('http://img.youtube.com/vi/ZIP0Vi6PSIU/hqdefault.jpg')">
           <!--<!--img class="ep14Video"  ng-click="openVideo('ZIP0Vi6PSIU', 'ep14Video')" src="images/videoThumbs/e21.png"/-->-->
         </div>
-        <div id="texto64" class="texto6 texto64">Cugat fallece en Barcelona el 27 de octubre de 1990.</div>
+        <!--<div id="texto64" class="texto6 texto64">Cugat fallece en Barcelona el 27 de octubre de 1990.</div>-->
       </div>
   </div>
-
 </div>
 
 <div id="pentagram">

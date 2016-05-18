@@ -384,11 +384,11 @@ body {
   z-index: 999;
   height: 100%;
   opacity: 0;
-  /*-webkit-transform: scale(1);
-  -moz-transform: scale(1);
-  -ms-transform: scale(1);
-  -o-transform: scale(1);
-  transform: scale(1);*/
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  -ms-transform: scale(0);
+  -o-transform: scale(0);
+  transform: scale(0);
   -webkit-transform-origin: 90% 15%;
   -moz-transform-origin: 90% 15%;
   -ms-transform-origin: 90% 15%;
@@ -717,6 +717,17 @@ body {
   top: 25%;
   left: 0;
 }
+.highlightText2{
+  background: transparent;
+  text-shadow: 1px 1px 1px #333, 0 0 12px #000;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 2.3em;
+  width: 100%;
+  text-align: center;
+  font-weight: 700;
+  bottom: 25%;
+  left: 25%;
+}
 
 .CitaAddonProl1{
   position: absolute;
@@ -846,23 +857,23 @@ body {
 }
 .prol01{
   position: absolute;
-  top:25%;
-  right: 5%;
-  height:30%;
+  top:0%;
+  right: 10%;
+  height:150%;
   z-index: 989;
 }
 .prol02{
   position: absolute;
-  top:55%;
-  right: 15%;
-  height:30%;
+  top:5%;
+  right: 10%;
+  height:150%;
   z-index: 989;
 }
 .prol03{
   position: absolute;
-  top:15%;
-  right: 80%;
-  height:30%;
+  top:0%;
+  right: 10%;
+  height:150%;
   z-index: 989;
 }
 .prol04{
@@ -2242,6 +2253,7 @@ body {
   position: absolute;
   top: 10%;
   left: 150%;
+  opacity:1;
   -webkit-transform: scale(0.4);
   -moz-transform: scale(0.4);
   -ms-transform: scale(0.4);
@@ -2339,6 +2351,15 @@ body {
   text-align: center;
   font-size: 30px;
 }
+.textoFin {
+  opacity: 0;
+  font-size: 30px;
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  -ms-transform: scale(0);
+  -o-transform: scale(0);
+  transform: scale(0);
+}
 .ep11Video{
   position: absolute;
   top: 10%;
@@ -2386,6 +2407,7 @@ body {
 /* Responsive: Portrait tablets and up */
 @media only screen and (max-width: 1600px) {
   .texto1, .texto2, .texto3, .texto4, .texto5, .texto6{ font-size: 14px; }
+  .textoFin{font-size: 20px;}
   .CitaAddonProl1{ font-size: 13px; }
   .cita1, .cita2, .cita3, .cita4, .cita5, .cita6 {
     font-size: 25px;
