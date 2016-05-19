@@ -73,20 +73,6 @@ angular.module('smcApp')
         });
 
       //-----------------------
-      //------ TITLE ----------
-
-      var updateTitle = function(index){
-          var notes = $(".pentagramNotes");
-          notes.removeClass("activeNote")
-          for (var i = 0; i <= index; i++) {
-            $(notes[i]).addClass("activeNote");
-          }
-          var note = $($(".pentagramNotes")[index]);
-          var title = note.find(".tooltip-text").html();
-          $(".currentDetails h4").html(title);
-        }
-
-      //-----------------------
       //-----TIMELINE ---------
         var animationFromPattern = { scale: '0', right: '-20%', ease: Back.easeInOut.config(1)};
         var animationToPattern = { scale: '0', opacity: '0', ease: Back.easeInOut.config(1)};
@@ -127,7 +113,7 @@ angular.module('smcApp')
           .to(".age1",0.3,{ onStart: stopNinoAnimation, transform: 'rotateX(0deg)',  ease: Bounce.easeOut})
           .call(updateTitle,[0])
           .staggerFrom($("#page1").children(),0.6, animationFromPattern, staggerFromVelocity)
-          .to(".cita11",1,{ opacity: '1', transform: "rotate(0deg)", ease: Bounce.easeOut},"+=1")
+          .to(".cita11",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1")
           .addPause()
           //EPISODE 3
           .staggerTo($("#page1").children(),0.6, animationToPattern, staggerToVelocity)
@@ -143,8 +129,7 @@ angular.module('smcApp')
           .to(".ed2", 0.5, {top: '120%', ease: Power2.easeIn})
           .to(".ed3", 0.5, {top: '120%', ease: Power2.easeIn},"-=1")
           .to(".ed4", 0.5, {top: '120%', ease: Power2.easeIn})
-          .to(".mapSvgClassTop", 2, {width: '800%', top: '-385%', left: '-140%', ease: Power2.easeIn},"-=1.2")
-          .call(updateTitle,[1])
+          .to(".mapSvgClassTop", 2, {onStart: updateTitle, onStartParams: [1],width: '800%', top: '-385%', left: '-140%', ease: Power2.easeIn},"-=1.2")
           //EPISODE 4
           .to("#page2",0.4,{ right: '100%', onComplete: openVideo, onCompleteParams: ['ghTHOjcc3IM'], onReverseComplete: closeVideo, ease: Power0.easeNone})
           .addPause()
@@ -168,7 +153,7 @@ angular.module('smcApp')
           .to("#page3",0.4,{ right: '100%', ease: Power0.easeNone})
           .to("#page4",0.4,{ right: '0%', onReverseComplete: stopResumeVideo, ease: Power0.easeNone},"-=0.4")
           .staggerFrom($("#page4").children(),0.6, animationFromPattern, staggerFromVelocity)
-          .to(".cita12",1,{ opacity: '1', transform: "rotate(0deg)", ease: Bounce.easeOut},"+=1")
+          .to(".cita12",1,{  transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1")
           .addPause()
           //EPISODE 6
           .staggerTo($("#page4").children(),0.6, animationToPattern, staggerToVelocity,"ritaMontaner")
@@ -179,7 +164,7 @@ angular.module('smcApp')
           .to("#page4",0.4,{ right: '100%', ease: Back.easeInOut.config(1)})
           .to("#page5",0.4,{ right: '0%', onComplete: playSound, onCompleteParams: ['ElManisero'], onReverseComplete: playSound, onReverseCompleteParams: ['BeginTheBeguine'], ease: Back.easeInOut.config(1)},"-=0.4")
           .staggerFrom($("#page5").children(),0.6, animationFromPattern, staggerFromVelocity)
-          .to(".cita21",1,{ opacity: '1', transform: "rotate(0deg)", ease: Bounce.easeOut},"+=1")
+          .to(".cita21",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1")
           .addPause()
           //EPISODE 7
           .staggerTo($("#page5").children(),0.6, animationToPattern, staggerToVelocity)
@@ -198,7 +183,7 @@ angular.module('smcApp')
           .to(".ber1", 0.3, {transform: 'rotateY(0deg)', ease: Back.easeOut.config(1)})
           //.to(".blurEffect4",0.2,{ filter: 'blur(8px)',webkitFilter: 'blur(8px)', ease: Power0.easeNone},"+=1")
           .staggerFrom($("#page6").children(),0.6, animationFromPattern, staggerFromVelocity)
-          .to(".cita14",1,{ opacity: '1', transform: "rotate(0deg)", ease: Bounce.easeOut},"+=1")
+          .to(".cita14",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1")
           .addPause()
           //EPISODE 8
           .staggerTo($("#page6").children(),0.6, animationToPattern, staggerToVelocity)
@@ -280,7 +265,7 @@ angular.module('smcApp')
           .to(".blurEffect7",0.2,{ filter: 'blur(8px)',webkitFilter: 'blur(8px)', ease: Power0.easeNone},"+=1")
           .call(updateTitle,[11])
           .staggerFrom($("#page12").children(),0.6, animationFromPattern, staggerFromVelocity)
-          .to(".cita42",1,{ opacity: '1', transform: "rotate(0deg)", ease: Bounce.easeOut},"+=1")
+          .to(".cita42",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1")
           .addPause()
           //EPISODE 14
           .staggerTo($("#page12").children(),0.6, animationToPattern, staggerToVelocity)
@@ -314,7 +299,7 @@ angular.module('smcApp')
           .to(".lasv8", 0.3, {opacity: '1', ease: Back.easeOut.config(1)})
           .to(".lasv9", 0.3, {opacity: '1', ease: Back.easeOut.config(1)})
           .staggerFrom($("#page14").children(),0.6, animationFromPattern, staggerFromVelocity)
-          .to(".cita51",1,{ opacity: '1', transform: "rotate(0deg)", ease: Bounce.easeOut},"+=1")
+          .to(".cita51",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1")
           .addPause()
           //EPISODE 16
           .staggerTo($("#page14").children(),0.6, animationToPattern, staggerToVelocity)
@@ -323,7 +308,7 @@ angular.module('smcApp')
           .to(".blurEffect8",0.2,{ filter: 'blur(8px)',webkitFilter: 'blur(8px)', ease: Power0.easeNone},"+=1")
           .call(updateTitle,[14])
           .staggerFrom($("#page15").children(),0.6, animationFromPattern, staggerFromVelocity)
-          .to(".cita53",1,{ opacity: '1', transform: "rotate(0deg)", ease: Bounce.easeOut},"+=1")
+          .to(".cita53",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1")
           .addPause()
           //EPISODE 17
           .staggerTo($("#page15").children(),0.6, animationToPattern, staggerToVelocity)
@@ -341,7 +326,7 @@ angular.module('smcApp')
           .addPause()
           .to(".resumeVideoBox", 1, {scale: '0',opacity: '0', onComplete: stopResumeVideo, onReverseComplete: playResumeVideo, onReverseCompleteParams:[266.5,321.5,321.5], ease: Power4.easeOut})
           .staggerFrom($("#page17").children(),0.6, animationFromPattern, staggerFromVelocity)
-          .to(".cita60",1,{ opacity: '1', transform: "rotate(0deg)", ease: Bounce.easeOut},"+=1")
+          .to(".cita60",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1")
           .addPause()
           //EPISODE 19
           .staggerTo($("#page17").children(),0.6, animationToPattern, staggerToVelocity)
@@ -349,7 +334,7 @@ angular.module('smcApp')
           .to("#page18",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
           .call(updateTitle,[17])
           .staggerFrom($("#page18").children(),0.6, animationFromPattern, staggerFromVelocity)
-          .to(".cita61",1,{ opacity: '1', transform: "rotate(0deg)", ease: Bounce.easeOut},"+=1")
+          .to(".cita61",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1")
           .call(updateTitle,[18])
           .addPause()
           //EPISODE 20
@@ -383,7 +368,7 @@ angular.module('smcApp')
           .to("#page19",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
           .call(updateTitle,[20])
           .staggerFrom($("#page19").children(),0.6, animationFromPattern, staggerFromVelocity)
-          .to(".cita62",1,{ opacity: '1', transform: "rotate(0deg)", ease: Bounce.easeOut},"+=1")
+          .to(".cita62",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1")
           .addPause()
           //EPISODE 21
           .staggerTo($("#page19").children(),0.6, animationToPattern, staggerToVelocity)
@@ -481,7 +466,8 @@ angular.module('smcApp')
 
       //--------------------------------------
       //-------FUNCTIONS --------------------
-        $scope.upTo = function(value) {
+        $scope.upTo = function(value, index) {
+          updateTitle(index)
           stopNinoAnimation();
           if(value=='inicio') { playerIntro.play(); }
           else { playerIntro.pause(); }
@@ -547,6 +533,23 @@ angular.module('smcApp')
             });
           }
         });
+        //------ TITLE ----------
+
+        function updateTitle(index){
+         if(index){
+           var notes = $(".pentagramNotes");
+           notes.removeClass("activeNote")
+           for (var i = 0; i <= index; i++) {
+             $(notes[i]).addClass("activeNote");
+           }
+           var note = $($(".pentagramNotes")[index]);
+           var title = note.find(".tooltip-text").html();
+           $(".currentDetails h4").html(title);
+         }
+          else $(".currentDetails h4").html('');
+        }
+
+    //-----------------------
         function openVideo(value, origin){
           player.src({ type: 'video/youtube', src: 'https://www.youtube.com/watch?v='+value });
           playVideo();
@@ -628,21 +631,19 @@ angular.module('smcApp')
             player.pause();
             playerIntro.pause();
             resume.pause();
-            fullScreenVideoStatus = false;
           }
 
         function playOnlyAudio(id){
             if(soundEpilogo && soundEpilogo.volume() != 0){ console.log(soundEpilogo.volume()); soundEpilogo.fade(1,0,2000); }
             player.src({ type: 'video/youtube', src: 'https://www.youtube.com/watch?v='+id });
             playVideo();
-            fullScreenVideoStatus = true;
             player.on("ended", function(){
               if(soundEpilogo && soundEpilogo.volume() < 1)soundEpilogo.fade(0,1,2000);
             })
           }
 
         function playSound(url){
-          if(soundEpilogo && soundEpilogo.volume() > 0){ console.log(soundEpilogo.volume()); soundEpilogo.fade(1,0,2000); }
+          if(soundEpilogo && soundEpilogo.volume() > 0){ console.log(soundEpilogo.volume()); soundEpilogo.fade(1,0,1000); }
           setTimeout(function(){
             if(soundEpilogo) soundEpilogo.stop();
             soundEpilogo = new Howl({
@@ -652,9 +653,9 @@ angular.module('smcApp')
               onend: function() {
               }
             });
-            if(resume.paused())soundEpilogo.fade(0,1,5000);
+            if(resume.paused()) soundEpilogo.fade(0,1,2000);
             soundEpilogo.play();
-          }, 2000)
+          }, 500)
         }
 
         function ninoAnimation(){
