@@ -46,6 +46,8 @@ angular.module('smcApp')
       totalWords[62] = $(".cita62Letters");
       var cita63Letters = $("#cita63").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"cita63Letters"});
       totalWords[63] = $(".cita63Letters");
+      var cita91Letters = $("#cita91").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"cita91Letters"});
+      totalWords[91] = $(".cita91Letters");
 
       //---------------------------
       //----SOUND TRACKS -----
@@ -245,6 +247,7 @@ angular.module('smcApp')
           .to("#page9",0.4,{ right: '0%', ease: Back.easeInOut.config(1)},"-=0.4")
           .call(updateTitle,[8])
           .staggerFrom($("#page9").children(),0.6, animationFromPattern, staggerFromVelocity)
+          .to(".cita91",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1")
           .addPause()
           //EPISODE 11
           .staggerTo($("#page9").children(),0.6, animationToPattern, staggerToVelocity)
@@ -411,8 +414,9 @@ angular.module('smcApp')
       //-------FUNCTIONS --------------------
         $scope.upTo = function(value, music) {
           //updateTitle(index);
+          controlSound();
           if(music) { playSound(playListOrder[music]); }
-          else { soundEpilogo.stop(); updateTitle(music); }
+          else { if(soundEpilogo)soundEpilogo.stop(); updateTitle(music); }
           stopNinoAnimation();
           if(value=='inicio') { playerIntro.play(); }
           else { playerIntro.pause(); }
@@ -585,7 +589,7 @@ angular.module('smcApp')
           }
 
         function playSound(url){
-          if(soundEpilogo && soundEpilogo.volume() > 0){ console.log(soundEpilogo.volume()); soundEpilogo.fade(1,0,1000); }
+          if(soundEpilogo && soundEpilogo.volume() > 0){ console.log(soundEpilogo.volume()); soundEpilogo.fade(1,0,3000); }
           setTimeout(function(){
             if(soundEpilogo) soundEpilogo.stop();
             soundEpilogo = new Howl({
@@ -595,7 +599,7 @@ angular.module('smcApp')
               onend: function() {
               }
             });
-            if(resume.paused()) soundEpilogo.fade(0,1,2000);
+            if(resume.paused()) soundEpilogo.fade(0,1,3000);
             soundEpilogo.play();
           }, 500)
         }

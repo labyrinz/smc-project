@@ -870,9 +870,9 @@ body {
 }
 .prol03{
   position: absolute;
-  top:-5%;
-  right: 10%;
-  height:150%;
+  top: 15%;
+  right: 20%;
+  width: 130%;
   z-index: 989;
 }
 .prol04{
@@ -1028,7 +1028,7 @@ body {
 .rm11{
   position: absolute;
   top: 10%;
-  right: 25%;
+  right: 15%;
   height: 150%;
   z-index: 990;
 }
@@ -1042,7 +1042,7 @@ body {
 .rm13{
   position: absolute;
   top: 5%;
-  right: 33%;
+  right: 12%;
   height: 150%;
   z-index: 990;
 }
@@ -1242,13 +1242,13 @@ body {
   height: 150%;
   position: absolute;
   top: 15%;
-  right: 30%;
+  right: 25%;
 }
 .rm16{
   height: 120%;
   position: absolute;
   top: 0%;
-  right: 35%;
+  right: 25%;
 }
 .rm17{
   height: 120%;
@@ -1505,7 +1505,7 @@ body {
 .cc34{
   position: absolute;
   top:10%;
-  right:20%;
+  right:5%;
   height: 110%;
   z-index: 990;
   cursor: pointer;
@@ -1521,7 +1521,7 @@ body {
 .cc36{
   position: absolute;
   top:25%;
-  right:20%;
+  right:5%;
   height: 110%;
   z-index: 990;
   cursor: pointer;
@@ -1529,7 +1529,7 @@ body {
 .cc37{
   position: absolute;
   top:27%;
-  right:25%;
+  right:15%;
   height: 110%;
   z-index: 990;
   cursor: pointer;
@@ -1545,7 +1545,7 @@ body {
 .cc39{
   position: absolute;
   top: 10%;
-  right: 35%;
+  right: 15%;
   height: 150%;
   z-index: 990;
 }
@@ -1578,6 +1578,12 @@ body {
   height: 20%;
   border: solid 10px rgb(255, 255, 255);
   cursor: pointer;
+}
+.cita91{
+  border-radius: 40px;
+  width: 50%;
+  right: 10%;
+  top: 10%;
 }
 // FIN DIAPOSITIVA 9
 // DIAPOSITIVA 10
@@ -1740,9 +1746,9 @@ body {
   border-right: 50px solid white;
 }
 .cita42{
-  bottom: 20%;
+  bottom: 36%;
   width: 50%;
-  right: 30%;
+  right: 33%;
   border-radius: 40px;
 }
 .la4{
@@ -2721,10 +2727,10 @@ body {
 }
 
 .contextual{
-
   position: absolute;
   bottom: 150px;
   right: 20%;
+  z-index: 999;
 
   .tooltip {
     display: inline;
