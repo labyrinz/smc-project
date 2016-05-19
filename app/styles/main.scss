@@ -176,22 +176,25 @@ body {
   position: absolute;
   top: 50%;
   margin-top: -24px;
-  height: 48px;
+  height: 64px;
   left: 0%;
   cursor: pointer;
-  opacity: 0.8;
+  opacity: 0.7;
   z-index: 999;
 }
 .arrowNext{
   position: absolute;
   top: 50%;
   margin-top: -24px;
-  height: 48px;
+  height: 64px;
   right: 0%;
   cursor: pointer;
-  opacity: 0.8;
+  opacity: 0.7;
   transform: rotateY(180deg);
   z-index: 999;
+}
+.arrowPrev:hover, .arrowNext:hover{
+  opacity: 1;
 }
 // ------ PAGES -------
 .back{
