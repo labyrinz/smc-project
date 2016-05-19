@@ -4,15 +4,15 @@
       <ul>
         <div class="nav-column">
           <li><div ng-click="upTo('inicio',false)">Inicio</div></li>
-          <li><div ng-click="upTo('prologo')">1. Prólogo <span>(1900-1918)</span></div></li>
-          <li><div ng-click="upTo('ritaMontaner')">2. Rita Montaner <span>(1918-1925)</span></div></li>
-          <li><div ng-click="upTo('carmenCastillo')">3. Carmen Castillo <span>(1928-1932)</span></div></li>
+          <li><div ng-click="upTo('prologo1',0)">1. Prólogo <span>(1900-1918)</span></div></li>
+          <li><div ng-click="upTo('RR1',1)">2. Rita Montaner <span>(1918-1925)</span></div></li>
+          <li><div ng-click="upTo('CC2',3)">3. Carmen Castillo <span>(1928-1932)</span></div></li>
         </div>
         <div class="nav-column">
-          <li><div ng-click="upTo('lorraineAllen')">4. Lorraine Allen <span>(1932-1946)</span></div></li>
-          <li><div ng-click="upTo('abbeLane')">5. Abbe Lane <span>(1952-1963)</span></div></li>
-          <li><div ng-click="upTo('charoBaeza')">6. Charo Baeza <span>(1964-1990)</span></div></li>
-          <li><div ng-click="upTo('epilogo')">7. Epílogo <span></span></div></li>
+          <li><div ng-click="upTo('LA1',4)">4. Lorraine Allen <span>(1932-1946)</span></div></li>
+          <li><div ng-click="upTo('AL1',7)">5. Abbe Lane <span>(1952-1963)</span></div></li>
+          <li><div ng-click="upTo('CB1',9)">6. Charo Baeza <span>(1964-1990)</span></div></li>
+          <li><div ng-click="upTo('EP1',10)">7. Epílogo <span></span></div></li>
         </div>
       </ul>
     </nav>
@@ -159,8 +159,8 @@
           <img class="prel03 img slideimg1" src="images/prel_03_old.jpg"/>
           <img class="prel04 img slideimg1" src="images/prel_0.jpg"/>-->
           <div>
-            <img id="arrowPrev" ng-click="prevFoto('1')" class="arrowPrev" src="images/arrow-left-2.svg"/>
-            <img id="arrowNext" ng-click="nextFoto('1')" class="arrowNext" src="images/arrow-left-2.svg"/>
+            <img id="arrowPrev" ng-click="prevFoto('1')" class="arrowPrev" src="images/arrow-leftC.svg"/>
+            <img id="arrowNext" ng-click="nextFoto('1')" class="arrowNext" src="images/arrow-leftC.svg"/>
           </div>
         </div>
         <!--<img class="plusInfoC1 plusInfoClose1" ng-click="openCloseAddInfo('1')" src="images/infoTextVideoMin.svg"/>-->
@@ -684,7 +684,7 @@
         <!--<div class="cita63" style="opacity:0"><spam id="cita63"> M'encanta el colorit i tinc certa facilitat per a l'art pictòric i sobretot una gran atracció per a ell. He viatjat en avió des de San Francisco a Chicago només per gaudir d'una exposició de pintura i això mai ho hagués fet per escoltar un concert</spam></div>-->
         <!--<div class="cita6 cita63">“La professió que corresponia més als meus desitjos íntims i als meus facultats, era la de pintor.<span id="cita63suma"> </span> ". -Yo Cugat. Mis primeros ochenta años (1981)<span class="plusInfoCita" value="63">[+]</span></div>-->
         <div class="cita62" style="opacity:0"><spam id="cita62">  o sino un terreny situat en una muntanya, prou elevada perquè ningú li tregui la vista. Jo només vull un estudi amb bany, així doncs no crec que sigui gaire difícil trobar un petit terreny i jo m’hi edificaré un estudi. En el futur penso passar moltes temporades a la cosa Brava pintant i el que necessito és alguna cosa còmoda amb molta llum i que estigui situada en un lloc que no sigui trist ni amagat.</spam></div>
-        <div class="cita6 cita62">“El que m’interessa és adquirir alguna cosa feta,<span id="cita62suma"> </span> No espero ni vull un palau, només un lloc per treballar i per sortir d’aquest Beverly Hills que ja no aguanto”.-Correspondència amb Enric Sabater, el seu representant<span class="plusInfoCita" value="62">[+]</span></div>
+        <div class="cita6 cita62">“El que m’interessa és adquirir alguna cosa feta,<span id="cita62suma"> </span> No espero ni vull un palau, només un lloc per treballar i per sortir d’aquest Beverly Hills que ja no aguanto”.-Correspondència amb Enric Sabater, el seu representant". <span class="plusInfoCita" value="62">[+]</span></div>
         <!--<div id="texto47" class="texto texto47">A les cases Cugat s'oferia menjar mexicà i la cadena s'estenia per diverses ciutats d'Estats Units. El Cugat cuiner és un altre aspecte de la seva personalitat…</div>-->
         <!--<img class="cb05" src="images/CB_BCN_9.jpg"/>-->
         <img class="cb06" src="images/BCN_01_ep.png"/>
@@ -713,13 +713,6 @@
 
   <div class="pentagramBack"></div>
 
-  <div class="agesImageGroup">
-    <img class="ageImage age4" src="images/cugat_anciano2.png"/>
-    <img class="ageImage age3" src="images/cugat_adulto2.png"/>
-    <img class="ageImage age2" src="images/cugat_joven2.png"/>
-    <img class="ageImage age1" src="images/cugat_nino2.png"/>
-  </div>
-
   <div class="currentDetails">
     <h4 class="detailText"></h4>
   </div>
@@ -729,9 +722,16 @@
       <img class="claveSol" src="images/clavesol.png"/>
   </div>
 
+  <div class="agesImageGroup">
+    <img class="ageImage age4" src="images/cugat_anciano2.png"/>
+    <img class="ageImage age3" src="images/cugat_adulto2.png"/>
+    <img class="ageImage age2" src="images/cugat_joven2.png"/>
+    <img class="ageImage age1" src="images/cugat_nino2.png"/>
+  </div>
+
   <div class="pentagramNotesGroup">
     <div class="pentagramNotes">
-      <span class="tooltip tooltip-effect-4" ng-click="upTo('prologo',0)">
+      <span class="tooltip tooltip-effect-4" ng-click="upTo('prologo1',0)">
         <span class="tooltip-item">
           <img class="noteImgNegra" src="images/notes/nota_negra.png"/>
         </span>
@@ -743,7 +743,7 @@
       </span>
     </div>
     <div class="pentagramNotes">
-      <span class="tooltip tooltip-effect-4" ng-click="upTo('cuba1')">
+      <span class="tooltip tooltip-effect-4" ng-click="upTo('prologo2',0)">
         <span class="tooltip-item">
           <img class="noteImgNegra" src="images/notes/nota_negra.png"/>
         </span>
@@ -755,7 +755,7 @@
       </span>
     </div>
     <div class="pentagramNotes">
-      <span class="tooltip tooltip-effect-4"  ng-click="upTo('cuba2')">
+      <span class="tooltip tooltip-effect-4"  ng-click="upTo('prologo2Add',0)">
         <span class="tooltip-item">
           <img class="noteImgNegra" src="images/notes/nota_negra.png"/>
         </span>
@@ -767,7 +767,7 @@
       </span>
     </div>
     <div class="pentagramNotes">
-      <span class="tooltip tooltip-effect-4"  ng-click="upTo('newyork1')">
+      <span class="tooltip tooltip-effect-4"  ng-click="upTo('prologo3',0)">
         <span class="tooltip-item">
           <img class="noteImgCor linePent4" src="images/notes/nota_corchea.png"/>
         </span>
@@ -779,7 +779,7 @@
       </span>
     </div>
     <div class="pentagramNotes">
-      <span class="tooltip tooltip-effect-4"  ng-click="upTo('ritaMontaner')">
+      <span class="tooltip tooltip-effect-4"  ng-click="upTo('RR1',1)">
         <span class="tooltip-item">
           <img class="noteImgSilen" src="images/notes/nota_silencio.png"/>
         </span>
@@ -791,7 +791,7 @@
       </span>
     </div>
     <div class="pentagramNotes">
-      <span class="tooltip tooltip-effect-4" ng-click="upTo('ritaMontaner2')">
+      <span class="tooltip tooltip-effect-4" ng-click="upTo('RR2',1)">
         <span class="tooltip-item">
           <img class="noteImgNegra" src="images/notes/nota_negra.png"/>
         </span>
@@ -803,7 +803,7 @@
       </span>
     </div>
     <div class="pentagramNotes">
-      <span class="tooltip tooltip-effect-4" ng-click="upTo('losAngeles')">
+      <span class="tooltip tooltip-effect-4" ng-click="upTo('RR3',2)">
         <span class="tooltip-item">
           <img class="noteImgTrioNegra" src="images/notes/nota_trio_negras.png"/>
         </span>
@@ -815,7 +815,7 @@
       </span>
     </div>
     <div class="pentagramNotes">
-      <span class="tooltip tooltip-effect-4" ng-click="upTo('carmenCastillo')">
+      <span class="tooltip tooltip-effect-4" ng-click="upTo('CC1',3)">
         <span class="tooltip-item">
           <img class="noteImgCor" src="images/notes/nota_corchea.png"/>
         </span>
@@ -827,7 +827,7 @@
       </span>
     </div>
     <div class="pentagramNotes">
-      <span class="tooltip tooltip-effect-4" ng-click="upTo('carmenCastillo2')">
+      <span class="tooltip tooltip-effect-4" ng-click="upTo('CC2',3)">
         <span class="tooltip-item">
           <img class="noteImgNegra" src="images/notes/nota_negra.png"/>
         </span>
@@ -839,7 +839,7 @@
       </span>
     </div>
     <div class="pentagramNotes">
-      <span class="tooltip tooltip-effect-4" ng-click="upTo('carmenCastillo3')">
+      <span class="tooltip tooltip-effect-4" ng-click="upTo('CC3',3)">
         <span class="tooltip-item">
           <img class="noteImgSilen" src="images/notes/nota_silencio.png"/>
         </span>
@@ -851,7 +851,7 @@
       </span>
     </div>
     <div class="pentagramNotes">
-      <span class="tooltip tooltip-effect-4" ng-click="upTo('lorraineAllen')">
+      <span class="tooltip tooltip-effect-4" ng-click="upTo('LA1',4)">
         <span class="tooltip-item">
           <img class="noteImgCor linePent3" src="images/notes/nota_corchea.png"/>
         </span>
@@ -863,7 +863,7 @@
       </span>
     </div>
     <div class="pentagramNotes">
-      <span class="tooltip tooltip-effect-4" ng-click="upTo('lorraineAllen2')">
+      <span class="tooltip tooltip-effect-4" ng-click="upTo('LA2',5)">
         <span class="tooltip-item">
           <img class="noteImgCor" src="images/notes/nota_corchea.png"/>
         </span>
@@ -875,7 +875,7 @@
       </span>
     </div>
     <div class="pentagramNotes">
-      <span class="tooltip tooltip-effect-4" ng-click="upTo('lorraineAllen3')">
+      <span class="tooltip tooltip-effect-4" ng-click="upTo('LA3',6)">
         <span class="tooltip-item">
           <img class="noteImgCor" src="images/notes/nota_corchea.png"/>
         </span>
@@ -887,7 +887,7 @@
       </span>
     </div>
     <div class="pentagramNotes">
-      <span class="tooltip tooltip-effect-4" ng-click="upTo('abbeLane')">
+      <span class="tooltip tooltip-effect-4" ng-click="upTo('AL1',7)">
         <span class="tooltip-item">
           <img class="noteImgSilen" src="images/notes/nota_silencio.png"/>
         </span>
@@ -899,7 +899,7 @@
       </span>
     </div>
     <div class="pentagramNotes">
-      <span class="tooltip tooltip-effect-4" ng-click="upTo('abbeLane2')">
+      <span class="tooltip tooltip-effect-4" ng-click="upTo('AL2',8)">
         <span class="tooltip-item">
           <img class="noteImgNegra" src="images/notes/nota_negra.png"/>
         </span>
@@ -911,7 +911,7 @@
       </span>
     </div>
     <div class="pentagramNotes">
-      <span class="tooltip tooltip-effect-4" ng-click="upTo('abbeLane3')">
+      <span class="tooltip tooltip-effect-4" ng-click="upTo('AL3',9)">
         <span class="tooltip-item">
           <img class="noteImgCor" src="images/notes/nota_corchea.png"/>
         </span>
@@ -923,7 +923,7 @@
       </span>
     </div>
     <div class="pentagramNotes">
-      <span class="tooltip tooltip-effect-4" ng-click="upTo('lasVegas')">
+      <span class="tooltip tooltip-effect-4" ng-click="upTo('AL3',9)">
         <span class="tooltip-item">
           <img class="noteImgNegra linePent4" src="images/notes/nota_negra.png"/>
         </span>
@@ -935,7 +935,7 @@
       </span>
     </div>
     <div class="pentagramNotes">
-      <span class="tooltip tooltip-effect-4" ng-click="upTo('charoBaeza1')">
+      <span class="tooltip tooltip-effect-4" ng-click="upTo('CB1',9)">
         <span class="tooltip-item">
           <img class="noteImgTrioNegra linePent2" src="images/notes/nota_trio_negras.png"/>
         </span>
@@ -947,7 +947,7 @@
       </span>
     </div>
     <div class="pentagramNotes">
-      <span class="tooltip tooltip-effect-4" ng-click="upTo('charoBaeza2')">
+      <span class="tooltip tooltip-effect-4" ng-click="upTo('CB2',9)">
         <span class="tooltip-item">
           <img class="noteImgCor" src="images/notes/nota_corchea.png"/>
         </span>
@@ -959,7 +959,7 @@
       </span>
     </div>
     <div class="pentagramNotes">
-      <span class="tooltip tooltip-effect-4" ng-click="upTo('barcelona1')">
+      <span class="tooltip tooltip-effect-4" ng-click="upTo('EP1',10)">
         <span class="tooltip-item">
           <img class="noteImgNegra linePent3" src="images/notes/nota_negra.png"/>
         </span>
@@ -971,7 +971,7 @@
       </span>
     </div>
     <div class="pentagramNotes">
-      <span class="tooltip tooltip-effect-4" ng-click="upTo('barcelona2')">
+      <span class="tooltip tooltip-effect-4" ng-click="upTo('EP2',10)">
         <span class="tooltip-item">
           <img class="noteImgSilen" src="images/notes/nota_silencio.png"/>
         </span>

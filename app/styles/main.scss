@@ -200,7 +200,6 @@ body {
   right: 0;
   height: 100%;
   width: 100%;
-  z-index:991;
 }
 .page0 {
   z-index: 987;
@@ -244,7 +243,7 @@ body {
   position: absolute;
   height: 100px;
   bottom: 0;
-  z-index: 100000;
+  z-index: 992;
 }
 
 .currentDetails{
@@ -253,7 +252,6 @@ body {
   height: 30px;
   top: 0;
   left: 110px;
-  z-index: 900;
 }
 .currentDetails h4{
   color: #FFF;
@@ -280,7 +278,6 @@ body {
   height: 70px;
   left: 50px;
   /*width: 100%;*/
-  z-index: 800;
 }
 .pentagramBack{
   width: 100%;
@@ -294,7 +291,6 @@ body {
   background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.8) 100%); /* Chrome10-25,Safari5.1-6 */
   background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.8) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
-  z-index: 997;
 }
 
 .pentagramNotesGroup{
@@ -302,7 +298,6 @@ body {
   left: 155px;
   bottom: -50%;
   width: 100%;
-  z-index: 998;
 }
 .pentagramNotes{
   /*width: 40px;*/
@@ -344,7 +339,6 @@ body {
   left: 0;
   /*width: 15%;*/
   height: 320%;
-  z-index: 900;
   /*-webkit-perspective: 300px;
   perspective: 300px;*/
 }
@@ -1033,9 +1027,9 @@ body {
 }
 .rm11{
   position: absolute;
-  top:15%;
-  right: 35%;
-  height:120%;
+  top: 10%;
+  right: 25%;
+  height: 150%;
   z-index: 990;
 }
 .rm12{
@@ -1048,8 +1042,8 @@ body {
 .rm13{
   position: absolute;
   top: 5%;
-  right: 25%;
-  height: 120%;
+  right: 33%;
+  height: 150%;
   z-index: 990;
 }
 .rm1Video{
@@ -1550,9 +1544,9 @@ body {
 }
 .cc39{
   position: absolute;
-  top:10%;
-  right:25%;
-  height: 110%;
+  top: 10%;
+  right: 35%;
+  height: 150%;
   z-index: 990;
 }
 .cc21Video{
@@ -1949,7 +1943,7 @@ body {
 .cita51{
   bottom: 25%;
   width: 50%;
-  right: 30%;
+  right: 33%;
   border-radius: 40px;
 }
 .texto5{
@@ -2312,6 +2306,7 @@ body {
   right: 5%;
   top: 60%;
   transform: rotate(15deg);
+  z-index: 999;
 }
 .cb07{
   position: absolute;
@@ -2319,6 +2314,7 @@ body {
   right: 25%;
   top: 60%;
   transform: rotate(-20deg);
+  z-index: 999;
  }
 .cb08{
   position: absolute;
@@ -2326,12 +2322,14 @@ body {
   right: 16%;
   top: 70%;
   transform: rotate(5deg);
+  z-index: 999;
 }
 .cb09{
   position: absolute;
   width: 20%;
   right: 10%;
   top: 10%;
+  z-index: 999;
 }
 .cb21Video{
   position: absolute;
