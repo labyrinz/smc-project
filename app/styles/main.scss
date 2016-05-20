@@ -1406,7 +1406,14 @@ body {
   width: 100%;
   height: 170%;
 }
-
+.cita100{
+  bottom: 60%;
+  width: 50%;
+  right: 15%;
+  transform: scale(0);
+  border-radius: 40px;
+  z-index: 999;
+}
 .texto3{
   /*font-family: 'Lora', serif;*/
   z-index: 997;
@@ -2167,9 +2174,9 @@ body {
   border-right: 50px solid white;
 }
 .cita60{
-  bottom: 30%;
+  bottom: 25%;
   width: 40%;
-  right: 40%;
+  right: 43%;
   border-radius: 40px;
 }
 .texto66{
@@ -2180,27 +2187,32 @@ body {
 }
 .cb11{
   position: absolute;
-  width: 30%;
-  right: 70%;
-  top: 20%;
+  width: 25%;
+  right: 5%;
+  bottom: 20%;
 }
 .cb12{
   position: absolute;
-  width: 15%;
-  right: 50%;
-  top: 20%;
+  width: 10%;
+  right: 80%;
+  top: 10%;
 }
 .cb13{
   position: absolute;
-  width: 15%;
-  right: 30%;
-  top: 20%;
+  width: 10%;
+  right: 65%;
+  top: 10%;
 }
 .cb14{
   position: absolute;
-  width: 15%;
-  right: 10%;
-  top: 20%;
+  width: 10%;
+  right: 50%;
+  top: 10%;
+}
+.texto61{
+  top: 30%;
+  right: 5%;
+  width: 30%;
 }
 //FIN DIAPOSITIVA 17
 // DIAPOSITIVA 18
@@ -2214,11 +2226,6 @@ body {
   width: 35%;
   background-color: rgba(33, 33, 33, 0.75);
   padding: 2% 1%;
-}
-.texto61{
-  top: 10%;
-  right: 25%;
-  width: 55%;
 }
 .texto63{
   top: 10%;
@@ -2239,16 +2246,16 @@ body {
 .cb01{
   position: absolute;
   width: 30%;
-  top: 15%;
+  top: 10%;
   right: 55%;
   z-index: 990;
 }
 .cb04{
   position: absolute;
-  width: 20%;
-  top: 15%;
-  right: 25%;
-  z-index: 990;
+  top: 12%;
+  right: 15%;
+  height: 100%;
+  z-index: 999;
 }
 //FIN DIAPOSITIVA 18
 // DIAPOSITIVA 19
@@ -2340,6 +2347,42 @@ body {
   top: 10%;
   z-index: 999;
 }
+
+.cb10{
+  position: absolute;
+  width: 15%;
+  right: 80%;
+  top: 10%;
+  -webkit-transform: rotate(15deg);
+  -moz-transform: rotate(15deg);
+  -o-transform: rotate(15deg);
+  transform: rotate(15deg);
+  z-index: 996;
+}
+
+.cb11{
+  position: absolute;
+  width: 15%;
+  right: 60%;
+  top: 20%;
+  -webkit-transform: rotate(-20deg);
+  -moz-transform: rotate(-20deg);
+  -o-transform: rotate(-20deg);
+  transform: rotate(-20deg);
+  z-index: 996;
+}
+
+.cb12{
+  position: absolute;
+  width: 15%;
+  right: 40%;
+  top: 5%;
+  -webkit-transform: rotate(5deg);
+  -moz-transform: rotate(5deg);
+  -o-transform: rotate(5deg);
+  transform: rotate(5deg);
+  z-index: 996;
+}
 .cb21Video{
   position: absolute;
   top: 10%;
@@ -2393,6 +2436,17 @@ body {
   height: 20%;
   border: solid 10px rgb(255, 255, 255);
   cursor: pointer;
+}
+.ep15{
+  position: absolute;
+  width: 30%;
+  right: 0;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  margin: auto;
+  opacity:0;
+  z-index: 999;
 }
 .ep12Video{
   position: absolute;

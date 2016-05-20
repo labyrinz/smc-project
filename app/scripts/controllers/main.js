@@ -48,6 +48,8 @@ angular.module('smcApp')
       totalWords[63] = $(".cita63Letters");
       var cita91Letters = $("#cita91").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"cita91Letters"});
       totalWords[91] = $(".cita91Letters");
+      var cita91Letters = $("#cita100").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"cita100Letters"});
+      totalWords[100] = $(".cita100Letters");
 
       //---------------------------
       //----SOUND TRACKS -----
@@ -213,7 +215,6 @@ angular.module('smcApp')
           .addPause()
           //EPISODE 9
           .staggerTo($("#page7").children(),0.6, animationToPattern, staggerToVelocity)
-          .add("CC1")
           .to("#page7",0.4,{ onStart: controlSound, right: '100%', ease: Back.easeInOut.config(1)})
           .to(".holly2", 0.5, {transform: 'rotateX(165deg)', ease: Back.easeOut.config(1)},"-=0.5")
           .to(".holly1", 0.5, {transform: 'rotateX(165deg)', ease: Back.easeOut.config(1)},"-=0.3")
@@ -222,6 +223,7 @@ angular.module('smcApp')
           .to(".holly7", 0.5, {top: '150%', ease: Bounce.easeOut},"-=0.3")
           .to(".holly6", 0.5, {top: '-150%', ease: Power4.easeOut},"carmenCastillo")
           .to(".holly5", 1, {opacity: '0', onComplete: playSound, onCompleteParams: [playListOrder[3]], onReverseComplete: playSound, onReverseCompleteParams: [playListOrder[2]], ease: Power4.easeOut})
+          .add("CC1")
           .to(".age2",0.3,{ transform: 'rotateX(90deg)', ease: Bounce.easeOut})
           .to(".carn2", 4, { opacity: '1', ease: RoughEase.ease.config({ template: Power0.easeNone, strength: 2, points: 20, taper: "none", randomize: true, clamp: false})})
           .to(".carn1", 2, {opacity: '1', ease: Back.easeOut.config(1)},"-=2")
@@ -231,6 +233,7 @@ angular.module('smcApp')
           .to(".carn4", 2, {top: '-50%', ease: Power4.easeOut},"-=2")
           .to(".carn5", 2, {top: '-50%', ease: Power4.easeOut},"-=2")
           .to(".carn6", 2, {top: '-50%', ease: Power4.easeOut},"-=2")
+          .to(".cita100",1,{ scale:'1',transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=0.5")
           .addPause()
           .add("CC2")
           .call(updateTitle,[7])
@@ -319,7 +322,7 @@ angular.module('smcApp')
           .to(".lasv8", 0.3, {opacity: '1', ease: Back.easeOut.config(1)})
           .to(".lasv9", 0.3, {opacity: '1', ease: Back.easeOut.config(1)})
           .staggerFrom($("#page14").children(),0.6, animationFromPattern, staggerFromVelocity)
-          .to(".cita51",1,{ transform: 'rotateX(0deg)', onReverseComplete: playSound, onReverseCompleteParams: [playListOrder[6]], ease: Bounce.easeOut},"+=1")
+          .to(".cita51",1,{ transform: 'rotateX(0deg)', onReverseComplete: playSound, onReverseCompleteParams: [playListOrder[6]], ease: Bounce.easeOut},"+=0.5")
           .addPause()
           //EPISODE 16
           .staggerTo($("#page14").children(),0.6, animationToPattern, staggerToVelocity)
@@ -359,6 +362,7 @@ angular.module('smcApp')
           .call(updateTitle,[17])
           .staggerFrom($("#page18").children(),0.6, animationFromPattern, staggerFromVelocity)
           .to(".cita61",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1")
+          .to(".resumeVideoBox", 0.5, {onStart: playResumeVideo, onStartParams: [298,320,320], opacity: '0',scale: '0', ease: Power4.easeOut})
           .call(updateTitle,[18])
           .addPause()
           //EPISODE 20
@@ -402,7 +406,9 @@ angular.module('smcApp')
           .add("EP2")
           .staggerFrom($("#page20").children(),0.6, animationFromPattern, staggerFromVelocity)
           .to(".textoFin",3,{ transform: 'scale(1)', opacity: '1', ease: Power4.easeOut},"+=2")
-          .to(".blurEffect9",6,{ onStart:function(){soundEpilogo.fade(1,0,6000)},opacity: '0', ease: Power4.easeOut},"+=3")
+          .to(".textoFin",3,{ top: '0', ease: Power4.easeOut},"+=2")
+          .to(".ep15",3,{ opacity: '1', ease: Power4.easeOut},"-=3")
+          .to(".blurEffect9",6,{ onStart:function(){soundEpilogo.fade(1,0,6000)},opacity: '0', ease: Power4.easeOut},"-=6")
           .to(".age4",3,{onReverseComplete: function(){soundEpilogo.fade(0,1,3000)},opacity: '0', ease: Power4.easeOut},"-=6")
           .addPause();
 
@@ -555,7 +561,7 @@ angular.module('smcApp')
           };
 
         function stopResumeVideo(){
-            if(soundEpilogo && soundEpilogo.volume() < 1){ console.log(soundEpilogo.volume()); soundEpilogo.fade(0,1,2000); }
+            if(soundEpilogo){ if(soundEpilogo.volume() < 1) soundEpilogo.fade(0,1,2000); }
             resume.pause();
           }
 
