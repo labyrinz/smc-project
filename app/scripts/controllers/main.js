@@ -94,7 +94,7 @@ angular.module('smcApp')
           .call(playIntroVideo,[])
           .call(stopResumeVideo)
           .add("inicio")
-          .to(".videoCover", 3, {css:{opacity: '0.6'}, delay: 2, ease: Power0.easeOut})
+          .to(".videoCover", 3, {css:{opacity: '0.2'}, delay: 2, ease: Power0.easeOut})
           .staggerFrom(introWords, 0.6, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.2]}, ease: Back.easeOut.config(0.8)}, 0.1)
           .staggerFrom(introWordsSubtitle, 0.6, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.2]}, ease: Back.easeOut.config(0.8)}, 0.1)
           .staggerFrom(introWordsName, 0.6, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.2]}, ease: Back.easeOut.config(0.8)}, 0.1)
@@ -342,6 +342,7 @@ angular.module('smcApp')
           .call(updateTitle,[15])
           .to("#page16",0.4,{ right: '0%', ease: Power0.easeNone})
           .staggerFrom($("#page16").children(),0.6, animationFromPattern, staggerFromVelocity)
+          .to(".cita56",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1")
           .addPause()
           //EPISODE 18
           .staggerTo($("#page16").children(),0.6, animationToPattern, staggerToVelocity)
@@ -353,7 +354,7 @@ angular.module('smcApp')
           .addPause()
           .to(".resumeVideoBox", 1, {scale: '0',opacity: '0', onComplete: stopResumeVideo, onReverseComplete: playResumeVideo, onReverseCompleteParams:[266.5,321.5,321.5], ease: Power4.easeOut})
           .staggerFrom($("#page17").children(),0.6, animationFromPattern, staggerFromVelocity)
-          .to(".cita60",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1")
+          .to(".cita60",1,{ transform: 'rotateX(0deg)', onReverseComplete: stopResumeVideo, ease: Bounce.easeOut},"+=1")
           .addPause()
           //EPISODE 19
           .staggerTo($("#page17").children(),0.6, animationToPattern, staggerToVelocity)
@@ -368,7 +369,7 @@ angular.module('smcApp')
           .addPause()
           //EPISODE 20
           .staggerTo($("#page18").children(),0.6, animationToPattern, staggerToVelocity)
-          .to(".blurEffect8",0.2,{ filter: 'blur(0px)',webkitFilter: 'blur(0px)', ease: Power0.easeNone})
+          .to(".blurEffect8",0.2,{ onStart: stopResumeVideo, filter: 'blur(0px)',webkitFilter: 'blur(0px)', ease: Power0.easeNone})
           .to(".lasv8", 0.3, {opacity: '0', ease: Back.easeOut.config(1)},"+=1")
           .to(".lasv9", 0.3, {opacity: '0', ease: Back.easeOut.config(1)})
           .to(".lasv6", 0.3, {opacity: '0', ease: Back.easeOut.config(1)})
@@ -449,12 +450,12 @@ angular.module('smcApp')
 
         $scope.prevFoto = function(value){
           var firstPhoto = $('.slideimg'+value).first();
-          TweenMax.to(firstPhoto, 0.1, {left: '-60%', repeatDelay:0, repeat:1, yoyo:true, onRepeat:$('#fotoGroup'+value).append(firstPhoto), ease: Power2.easeOut});
+          TweenMax.to(firstPhoto, 0.1, {left: '-110%', repeatDelay:0.1, repeat:1, yoyo:true, onRepeat:function(){$('#fotoGroup'+value).append(firstPhoto)}, ease: Power4.easeOut});
         };
 
         $scope.nextFoto = function(value){
           var firstPhoto = $('.slideimg'+value).last();
-          TweenMax.to(firstPhoto, 0.1, {left: '80%', repeatDelay:0, repeat:1, yoyo:true, onRepeat:$('#fotoGroup'+value).prepend(firstPhoto), ease: Power2.easeOut});
+          TweenMax.to(firstPhoto, 0.1, {left: '110%', repeatDelay:0.1, repeat:1, yoyo:true, onRepeat:function(){$('#fotoGroup'+value).prepend(firstPhoto)}, ease: Power4.easeOut});
         };
 
         $scope.openCloseAddInfo = function(val){
