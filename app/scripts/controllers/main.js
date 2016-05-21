@@ -281,8 +281,8 @@ angular.module('smcApp')
           .addPause()
           //EPISODE 13
           .add("LA2")
-          .to("#page11",0.4,{ right: '100%', onComplete: playSound, onCompleteParams: [playListOrder[5]], ease: Power0.easeNone})
-          .staggerTo($("#page11").children(),0.6, animationToPattern, staggerToVelocity)
+          .to("#page11",0.4,{ right: '100%', onComplete: playSound, onCompleteParams: [playListOrder[5]], ease: Back.easeIn})
+          //.staggerTo($("#page11").children(),0.6, animationToPattern, staggerToVelocity)
           .to("#page12",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
           .to(".blurEffect7",0.2,{ filter: 'blur(8px)',webkitFilter: 'blur(8px)', ease: Power0.easeNone},"+=1")
           .call(updateTitle,[11])
@@ -448,14 +448,18 @@ angular.module('smcApp')
             setTimeout(function(){ player.pause(); if(soundEpilogo && soundEpilogo.volume() != 1 ){ console.log(soundEpilogo.volume()); soundEpilogo.fade(0,1,2000); }}, 1000);
         };
 
-        $scope.prevFoto = function(value){
-          var firstPhoto = $('.slideimg'+value).first();
-          TweenMax.to(firstPhoto, 0.1, {left: '-110%', repeatDelay:0.1, repeat:1, yoyo:true, onRepeat:function(){$('#fotoGroup'+value).append(firstPhoto)}, ease: Power4.easeOut});
+        $scope.prevFoto = function(id,value){
+          if(value==undefined) var desp = '-110%';
+          else var desp = '-'+value;
+          var firstPhoto = $('.slideimg'+id).first();
+          TweenMax.to(firstPhoto, 0.1, {left: desp, repeatDelay:0.1, repeat:1, yoyo:true, onRepeat:function(){$('#fotoGroup'+id).append(firstPhoto)}, ease: Power4.easeOut});
         };
 
-        $scope.nextFoto = function(value){
-          var firstPhoto = $('.slideimg'+value).last();
-          TweenMax.to(firstPhoto, 0.1, {left: '110%', repeatDelay:0.1, repeat:1, yoyo:true, onRepeat:function(){$('#fotoGroup'+value).prepend(firstPhoto)}, ease: Power4.easeOut});
+        $scope.nextFoto = function(id, value){
+          if(value==undefined) var desp = '110%';
+          else var desp = value;
+          var firstPhoto = $('.slideimg'+id).last();
+          TweenMax.to(firstPhoto, 0.1, {left: desp, repeatDelay:0.1, repeat:1, yoyo:true, onRepeat:function(){$('#fotoGroup'+id).prepend(firstPhoto)}, ease: Power4.easeOut});
         };
 
         $scope.openCloseAddInfo = function(val){
