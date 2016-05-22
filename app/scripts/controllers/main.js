@@ -48,8 +48,8 @@ angular.module('smcApp')
       totalWords[62] = $(".cita62Letters");
       var cita63Letters = $("#cita63").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"cita63Letters"});
       totalWords[63] = $(".cita63Letters");
-      var cita91Letters = $("#cita91").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"cita91Letters"});
-      totalWords[91] = $(".cita91Letters");
+      //var cita91Letters = $("#cita91").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"cita91Letters"});
+      //totalWords[91] = $(".cita91Letters");
       var cita91Letters = $("#cita100").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"cita100Letters"});
       totalWords[100] = $(".cita100Letters");
 
@@ -100,10 +100,11 @@ angular.module('smcApp')
           .staggerFrom(introWords, 0.6, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.2]}, ease: Back.easeOut.config(0.8)}, 0.1)
           .staggerFrom(introWordsSubtitle, 0.6, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.2]}, ease: Back.easeOut.config(0.8)}, 0.1)
           .staggerFrom(introWordsName, 0.6, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.2]}, ease: Back.easeOut.config(0.8)}, 0.1)
-          .to(".mouseIcon", 0.5, {bottom: '150px', ease: Bounce.easeIn})
+          .to(".mouseIcon", 0.5, {bottom: '150px', ease: Bounce.easeOut})
           .addPause()
           //EPISODE 2
           .call(stopIntroVideo,[])
+          .to(".mouseIcon", 0.5, {bottom: '-150px', ease: Bounce.easeOut})
           .add("prologo1")
           .to("#page0",0.5,{ scale: '0', ease: Back.easeIn.config(1)})
           .to(".ed1", 0.5, {left: '0%', onComplete: playSound, onCompleteParams: [playListOrder[0]], onReverseComplete: stopNinoAnimation, ease: Bounce.easeOut})
@@ -111,7 +112,9 @@ angular.module('smcApp')
           .to(".ed3", 0.5, {left: '0%', ease: Bounce.easeOut},"-=1")
           .to(".ed4", 0.5, {transform: 'rotateX(0deg)', onComplete: ninoAnimation, ease: Back.easeOut.config(1)})
           .to(".texto11",3,{ transform: 'scale(1)', opacity: '1', ease: Power4.easeOut},"+=1")
+          .to(".mouseIcon", 0.5, {bottom: '150px', ease: Bounce.easeOut},"+=0.5")
           .addPause()
+          .to(".mouseIcon", 0.5, {bottom: '-150px', ease: Bounce.easeOut})
           .to(".texto11",1.5,{ transform: 'scale(0)', opacity: '0', ease: Power4.easeOut},"+=0.2")
           .to("#page1",0.1,{ right: '0%', ease: Power0.easeNone})
           .to(".pentagramRect",0.2,{ bottom: '1%', ease: Power0.easeNone})
@@ -141,7 +144,7 @@ angular.module('smcApp')
           .to(".ed4", 0.5, {top: '120%', ease: Power2.easeIn})
           .to(".mapSvgClassTop", 2, {onStart: updateTitle, onStartParams: [1],width: '800%', top: '-385%', left: '-140%', ease: Power2.easeIn},"-=1.2")
           //EPISODE 4
-          .to("#page2",0.4,{ right: '100%', onComplete: openVideo, onCompleteParams: ['ghTHOjcc3IM'], onReverseComplete: closeVideo, ease: Power0.easeNone},"+=1")
+          .to("#page2",0.4,{ right: '100%', onComplete: openVideo, onCompleteParams: ['ghTHOjcc3IM', 'ct'], onReverseComplete: closeVideo, ease: Power0.easeNone},"+=1")
           .addPause()
           .add("prologo2Add")
           .to("#page3",0.4,{ right: '0%', onComplete: closeVideo, onReverseComplete: openVideo, onReverseCompleteParams: ['ghTHOjcc3IM'], ease: Power0.easeNone})
@@ -237,7 +240,9 @@ angular.module('smcApp')
           .to(".carn5", 2, {top: '-50%', ease: Power4.easeOut},"-=2")
           .to(".carn6", 2, {top: '-50%', ease: Power4.easeOut},"-=2")
           .to(".cita100",1,{ scale:'1',transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=0.5")
+          .to(".mouseIcon", 0.5, {bottom: '150px', ease: Bounce.easeOut})
           .addPause()
+          .to(".mouseIcon", 0.5, {bottom: '-150px', ease: Bounce.easeOut})
           .to(".cita100",1,{ scale:'0',transform: 'rotateX(90deg)', ease: Bounce.easeOut},"+=0.5")
           .add("CC2")
           .call(updateTitle,[8])
@@ -259,10 +264,10 @@ angular.module('smcApp')
           //EPISODE 11
           .staggerTo($("#page9").children(),0.6, animationToPattern, staggerToVelocity)
           .add("CC4")
+          .call(updateTitle,[10])
           .to("#page9",0.4,{ right: '100%', ease: Back.easeInOut.config(1)})
           .to("#page10",0.4,{ right: '0%', ease: Back.easeInOut.config(1)},"-=0.4")
           .to(".age3",0.3,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut})
-          .call(updateTitle,[10])
           .staggerFrom($("#page10").children(),0.6, animationFromPattern, staggerFromVelocity)
           .addPause()
           //EPISODE 12
@@ -302,18 +307,18 @@ angular.module('smcApp')
           .addPause()
           //EPISODE 15
           .staggerTo($("#page13").children(),0.6, animationToPattern, staggerToVelocity)
-          .to("#page13",0.4,{ right: '100%', ease: Power0.easeNone})
-          .add("AL1")
-          .call(updateTitle,[14])
-          .to(".resumeVideoBox", 1, {onStart: playResumeVideo, onStartParams:[189,266,266], scale: '1',opacity: '1', onReverseComplete: stopResumeVideo, ease: Power4.easeIn})
-          .addPause()
-          .to(".resumeVideoBox", 1, { scale: '0', opacity: '0', onComplete: stopResumeVideo, onReverseComplete: playResumeVideo, onReverseCompleteParams:[189,266,266], ease:  Power4.easeOut})
           .to(".blurEffect7",0.2,{ filter: 'blur(0px)',webkitFilter: 'blur(0px)', ease: Power0.easeNone},"+=1")
           .to(".chi2", 0.3, {opacity: '0', ease: Back.easeOut.config(1)},"+=0.5")
           .to(".chi4", 0.3, {opacity: '0', ease: Bounce.easeOut},"+=0.5")
           .to(".chi5", 1, {left: '150%', ease:Power4.easeOut})
           .to(".chi6", 1, {left: '-150%', ease: Power4.easeOut})
           .to(".chi1", 0.3, {opacity: '0', ease: Back.easeOut.config(1)},"-=0.2")
+          .to("#page13",0.4,{ right: '100%', ease: Power0.easeNone})
+          .add("AL1")
+          .call(updateTitle,[14])
+          .to(".resumeVideoBox", 1, {onStart: playResumeVideo, onStartParams:[189,266,266], scale: '1',opacity: '1', onReverseComplete: stopResumeVideo, ease: Power4.easeIn})
+          .addPause()
+          .to(".resumeVideoBox", 1, { scale: '0', opacity: '0', onComplete: stopResumeVideo, onReverseComplete: playResumeVideo, onReverseCompleteParams:[189,266,266], ease:  Power4.easeOut})
           .to("#page14",0.4,{ right: '0%', onComplete: playSound, onCompleteParams: [playListOrder[7]], onReverseComplete: playSound, onReverseCompleteParams: [playListOrder[6]], ease: Power0.easeNone},"-=0.4")
           .to(".lasv1", 0.3, {opacity: '1', ease: Back.easeOut.config(1)})
           .to(".lasv2", 0.3, {top:'0%', ease: Bounce.easeOut})
@@ -367,7 +372,7 @@ angular.module('smcApp')
           .call(updateTitle,[18])
           .staggerFrom($("#page18").children(),0.6, animationFromPattern, staggerFromVelocity)
           .to(".cita61",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1")
-          .to(".resumeVideoBox", 0.5, {onStart: playResumeVideo, onStartParams: [298,320,320], opacity: '0',scale: '0', ease: Power4.easeOut})
+          //.to(".resumeVideoBox", 0.5, {onStart: playResumeVideo, onStartParams: [298,320,320], opacity: '0',scale: '0', ease: Power4.easeOut})
           .call(updateTitle,[19])
           .addPause()
           //EPISODE 20
@@ -527,18 +532,18 @@ angular.module('smcApp')
             player.play();
             player.on("ended", function(){
               if(playTimelineBefore){
-                  console.log('porque entra?? ', playTimelineBefore)
+                  console.log('porque entra?? ', playTimelineBefore);
                   closeVideo();
                   tl.play();
                 }
-              else playTimelineBefore = true;
               if(soundEpilogo && soundEpilogo.volume() < 1) soundEpilogo.fade(0,1,2000);
             })
           };
         function stopVideo(){
           player.pause();
         }
-        function openVideo(value, origin){
+        function openVideo(value, ct){
+          if(ct!=undefined) playTimelineBefore= true;
           player.src({ type: 'video/youtube', src: 'https://www.youtube.com/watch?v='+value });
           playVideo();
           TweenMax.to(".fullScreenVideo", 1, {css: {transform: 'scale(0.3) rotate(20deg)'}, delay:0.5, ease: Expo.easeOut});

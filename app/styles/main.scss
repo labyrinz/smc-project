@@ -74,6 +74,9 @@ body {
   left: 50%;
   margin-left: -75px;
   z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.45);
+  padding: 15px;
+  box-sizing: content-box;
 }
 .mouseIcon .iconSpace{
   width: 100%;
@@ -395,11 +398,11 @@ body {
   -ms-transform: scale(0);
   -o-transform: scale(0);
   transform: scale(0);
-  -webkit-transform-origin: 90% 15%;
-  -moz-transform-origin: 90% 15%;
-  -ms-transform-origin: 90% 15%;
-  -o-transform-origin: 90% 15%;
-  transform-origin: 90% 15%;
+  -webkit-transform-origin: 10% 20%;
+  -moz-transform-origin: 10% 20%;
+  -ms-transform-origin: 10% 20%;
+  -o-transform-origin: 10% 20%;
+  transform-origin: 10% 20%;
 }
 .closeFullScreenVideo{
   position: absolute;
@@ -627,7 +630,7 @@ body {
 }
 .prelGroup{
   position: absolute;
-  top: 25%;
+  top: 20%;
   right: 10%;
   width: 35%;
   height: 40%;
@@ -1992,8 +1995,8 @@ img.infoAdvice{
 }
 .cita51{
   bottom: 25%;
-  width: 50%;
-  right: 33%;
+  width: 35%;
+  right: 55%;
   border-radius: 40px;
 }
 .texto5{
@@ -2014,27 +2017,28 @@ img.infoAdvice{
 .al11{
   position: absolute;
   top: 15%;
-  right: 70%;
-  width: 25%;
+  left: 0%;
+  width: 80%;
+  height: 130%;
 }
 .al12{
   position: absolute;
-  top: 15%;
+  top: -32%;
   right: 5%;
-  height: 70%;
+  width: 85%;
+  height: 200%;
   cursor: pointer;
 }
 .teLoDijoAdela{
   position: absolute;
-  top: 0%;
-  bottom: 15%;
-  left: 0%;
-  right: 0%;
-  margin: auto;
-  width: 20%;
-  height: 20%;
-  z-index: 990;
-  border: solid 10px rgb(255, 255, 255);
+  top: 20%;
+  left: 20%;
+  margin:auto;
+  z-index: 991;
+  width: 25%;
+  height: 25%;
+  border: solid 5px rgb(255, 255, 255);
+  cursor: pointer;
 }
 //FIN DIAPOSITIVA 15
 // DIAPOSITIVA 16
@@ -2058,14 +2062,14 @@ img.infoAdvice{
 }
 .al21{
   position: absolute;
-  height: 190%;
+  height: 155%;
   left: -4%;
   top: -20%;
   cursor: pointer;
 }
 .al22{
   position: absolute;
-  height: 135%;
+  height: 120%;
   left: -10%;
   top: -5%;
   cursor: pointer;
@@ -2161,14 +2165,14 @@ img.infoAdvice{
 //DIAPOSITIVA 17
 .al31{
   position: absolute;
-  height: 210%;
+  height: 190%;
   left: 10%;
-  top: -60%;
+  top: -30%;
   cursor: pointer;
 }
 .al32{
   position: absolute;
-  height: 130%;
+  height: 114%;
   left: -7%;
   top: 10%;
   cursor: pointer;
@@ -2190,7 +2194,7 @@ img.infoAdvice{
 .al35{
   position: absolute;
   height: 150%;
-  left: 6%;
+  left: -6%;
   top: -5%;
   cursor: pointer;
 }
@@ -2323,17 +2327,15 @@ img.infoAdvice{
 }
 .cb01{
   position: absolute;
-  width: 30%;
+  height: 105%;
   top: 10%;
-  right: 55%;
-  z-index: 990;
+  left: 10%;
 }
 .cb04{
   position: absolute;
-  top: 12%;
-  right: 10%;
-  height: 65%;
-  z-index: 999;
+  top: 5%;
+  left: 15%;
+  height: 150%;
   cursor: pointer;
 }
 //FIN DIAPOSITIVA 18
@@ -2384,72 +2386,56 @@ img.infoAdvice{
   right: 40%;
 }
 .cita62{
-  bottom: 25%;
-  width: 45%;
-  right: 35%;
+  bottom: 20%;
+  width: 35%;
+  right: 50%;
   border-radius: 40px;
 }
 .cita63{
-  bottom: 20%;
+  bottom: 15%;
   width: 30%;
-  right: 50%;
+  right: 60%;
   border-radius: 40px;
 }
 .cb06{
   position: absolute;
-  width: 15%;
-  right: 5%;
-  top: 60%;
-  transform: rotate(15deg);
-  z-index: 999;
+  width: 100%;
+  left: 5%;
+  top: 10%;
 }
 .cb07{
   position: absolute;
-  width: 11%;
-  right: 25%;
-  top: 60%;
-  transform: rotate(-20deg);
-  z-index: 999;
+  width: 100%;
+  left: 0%;
+  top: 5%;
  }
 .cb08{
   position: absolute;
-  width: 9%;
-  right: 16%;
-  top: 70%;
-  transform: rotate(5deg);
-  z-index: 999;
+  width: 100%;
+  left: 5%;
+  top: -25%;
 }
 .cb09{
   position: absolute;
   width: 20%;
-  right: 10%;
-  top: 10%;
-  z-index: 999;
+  right: 70%;
+  top: 5%;
+  z-index: 996;
   cursor: pointer;
 }
 
 .cb20{
   position: absolute;
-  width: 15%;
-  right: 80%;
+  width: 100%;
+  left: -5%;
   top: 10%;
-  -webkit-transform: rotate(15deg);
-  -moz-transform: rotate(15deg);
-  -o-transform: rotate(15deg);
-  transform: rotate(15deg);
-  z-index: 996;
 }
 
 .cb21{
   position: absolute;
-  width: 15%;
-  right: 60%;
-  top: 20%;
-  -webkit-transform: rotate(-20deg);
-  -moz-transform: rotate(-20deg);
-  -o-transform: rotate(-20deg);
-  transform: rotate(-20deg);
-  z-index: 996;
+  width: 100%;
+  left: 0%;
+  top: 15%;
 }
 
 .cb22{
@@ -2991,6 +2977,129 @@ img.infoAdvice{
 
 }
 
+.contextual2{
+  position: absolute;
+  bottom: 150px;
+  right: 70%;
+  z-index: 999;
+
+  .tooltip {
+    display: inline;
+    position: relative;
+    z-index: 999;
+  }
+
+  .infoIcon{
+    height: 60px;
+  }
+
+  /* Gap filler */
+  .tooltip::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 20px;
+    bottom: 100%;
+    left: 50%;
+    pointer-events: none;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+  }
+
+  .tooltip:hover::after {
+    pointer-events: auto;
+  }
+
+  /* Tooltip */
+
+  .tooltip-content {
+    position: absolute;
+    z-index: 9999;
+    width: 300px;
+    left: 50%;
+    bottom: 100%;
+    font-size: 20px;
+    line-height: 1;
+    font-weight: 400;
+    background: transparent;
+    opacity: 0;
+    margin: 0 0 40px -150px;
+    cursor: default;
+    pointer-events: none;
+    font-family: 'Open Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -webkit-transition: opacity 0.3s 0.3s;
+    transition: opacity 0.3s 0.3s;
+    border: 0;
+    color: #f2f2f2;
+    text-align: left;
+    box-shadow: none;
+  }
+
+  .tooltip:hover .tooltip-content {
+    opacity: 1;
+    pointer-events: auto;
+    -webkit-transition-delay: 0s;
+    transition-delay: 0s;
+  }
+
+  .tooltip-content span {
+    display: block;
+  }
+
+  .tooltip-text {
+    border-bottom: 10px solid #FFFFFF;
+    overflow: hidden;
+    -webkit-transform: scale3d(0,1,1);
+    transform: scale3d(0,1,1);
+    -webkit-transition: -webkit-transform 0.3s 0.3s;
+    transition: transform 0.3s 0.3s;
+    padding: 0;
+    background: transparent;
+  }
+
+  .tooltip:hover .tooltip-text {
+    -webkit-transition-delay: 0s;
+    transition-delay: 0s;
+    -webkit-transform: scale3d(1,1,1);
+    transform: scale3d(1,1,1);
+  }
+
+  .tooltip-inner {
+    background: rgba(45, 45, 45, 0.8);
+    padding: 40px;
+    -webkit-transform: translate3d(0,100%,0);
+    transform: translate3d(0,100%,0);
+    webkit-transition: -webkit-transform 0.3s;
+    transition: transform 0.3s;
+  }
+
+  .tooltip:hover .tooltip-inner {
+    -webkit-transition-delay: 0.3s;
+    transition-delay: 0.3s;
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+  }
+
+  /* Arrow */
+
+  .tooltip-content::after {
+    content: '';
+    bottom: -20px;
+    left: 50%;
+    border: solid transparent;
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-color: transparent;
+    border-top-color: #fffaf0;
+    border-width: 10px;
+    margin-left: -10px;
+  }
+
+
+}
 
 /* SVG Icons */
 
