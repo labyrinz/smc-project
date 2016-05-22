@@ -20,11 +20,16 @@ body {
   background-color: #131213;
   overflow: hidden;
   font-family: 'Open Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 .img{
-  -webkit-box-shadow: 10px 10px 25px 3px rgba(0,0,0,0.75);
-  -moz-box-shadow: 10px 10px 25px 3px rgba(0,0,0,0.75);
-  box-shadow: 10px 10px 25px 3px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 0px 0px 15px 2px rgba(0,0,0,.55);
+  -moz-box-shadow: 0px 0px 15px 2px rgba(0,0,0,.55);
+  box-shadow: 0px 0px 15px 2px rgba(0,0,0,.55);
+  //-webkit-box-shadow: 10px 10px 25px 3px rgba(0,0,0,0.75);
+  //-moz-box-shadow: 10px 10px 25px 3px rgba(0,0,0,0.75);
+  //box-shadow: 10px 10px 25px 3px rgba(0,0,0,0.75);
   //-webkit-box-shadow: 0px 0px 3px 3px rgba(255, 216, 95, 0.7);
   //-moz-box-shadow: 0px 0px 3px 3px rgba(255, 216, 95, 0.7);
   //box-shadow: 0px 0px 3px 3px rgba(255, 216, 95, 0.7);
@@ -39,9 +44,9 @@ body {
   top: 0%;
   left:0;
   background: #000; /* For browsers that do not support gradients */
-  background: -moz-linear-gradient(top,  rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(top,  rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom,  rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  background: -moz-linear-gradient(top,  rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
   z-index: 100000;
 }
@@ -244,7 +249,7 @@ body {
 #pentagram{
   width: 100%;
   position: absolute;
-  height: 100px;
+  height: 120px;
   bottom: 0;
   z-index: 992;
 }
@@ -254,7 +259,7 @@ body {
   width: 100%;
   height: 30px;
   top: 0;
-  left: 110px;
+  padding-top: 20px;
 }
 .currentDetails h4{
   color: #FFF;
@@ -263,6 +268,8 @@ body {
   font-weight: normal;
   text-shadow: 0px 1px 1px #444;
   font-size: 32px;
+  text-align: right;
+  padding: 0 30px;
 }
 .currentDetails h4 strong{
   font-size: 35px;
@@ -270,7 +277,7 @@ body {
 
 .claveSol{
   position: absolute;
-  left: 110px;
+  left: 10px;
   bottom: -100%;
   height: 60px;
 }
@@ -279,7 +286,7 @@ body {
   position: absolute;
   bottom: -55%;
   height: 70px;
-  left: 50px;
+  left: 0px;
   /*width: 100%;*/
 }
 .pentagramBack{
@@ -290,15 +297,15 @@ body {
   /*background: -o-linear-gradient(rgba(10,10,10,0) 1%,rgba(10,10,10,0.9) 40%); /* For Opera 11.1 to 12.0 */
   /*background: -moz-linear-gradient(rgba(10,10,10,0) 1%,rgba(10,10,10,0.9) 40%); /* For Firefox 3.6 to 15 */
   /*background: linear-gradient(rgba(10,10,10,0) 1%,rgba(10,10,10,0.9) 40%); /* Standard syntax */
-  background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.8) 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.8) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.9) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.9) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.9) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
 }
 
 .pentagramNotesGroup{
   position: absolute;
-  left: 155px;
+  left: 55px;
   bottom: -50%;
   width: 100%;
 }
@@ -306,8 +313,8 @@ body {
   /*width: 40px;*/
   height: 100%;
   padding: 0 10px;
-  float: left;
   cursor: pointer;
+  display: inline-block;
 }
 .noteImgNegra{
   width: 10px;
@@ -338,10 +345,10 @@ body {
 }
 .agesImageGroup{
   position: absolute;
-  bottom: 0;
-  left: 0;
+  bottom: 35px;
+  left: 10px;
   /*width: 15%;*/
-  height: 320%;
+  height: 250%;
   /*-webkit-perspective: 300px;
   perspective: 300px;*/
 }
@@ -618,10 +625,10 @@ body {
 }
 .prelGroup{
   position: absolute;
-  top: 33%;
+  top: 25%;
   right: 10%;
   width: 35%;
-  height: 35%;
+  height: 40%;
   z-index: 989;
 }
 .infoAdvice{
@@ -671,7 +678,7 @@ body {
   -o-transform: rotateX(90deg);
   transform: rotateX(90deg);
 }
-.cita1:after {
+.cita1:before {
   content: "";
   position: absolute;
   bottom: 30px;
@@ -680,6 +687,7 @@ body {
   border-top: 35px solid transparent;
   border-bottom: 4px solid transparent;
   border-right: 50px solid white;
+  z-index: -10;
 }
 .cita11{
   bottom: 20%;
@@ -1017,7 +1025,7 @@ body {
   -o-transform: rotateX(90deg);
   transform: rotateX(90deg);
 }
-.cita2:after {
+.cita2:before {
   content: "";
   position: absolute;
   bottom: 30px;
@@ -1026,6 +1034,7 @@ body {
   border-top: 35px solid transparent;
   border-bottom: 4px solid transparent;
   border-right: 50px solid white;
+  z-index: -10;
 }
 .cita21{
   bottom: 30%;
@@ -1449,7 +1458,7 @@ body {
   -o-transform: rotateX(90deg);
   transform: rotateX(90deg);
 }
-.cita3:after {
+.cita3:before {
   content: "";
   position: absolute;
   bottom: 30px;
@@ -1458,6 +1467,7 @@ body {
   border-top: 35px solid transparent;
   border-bottom: 4px solid transparent;
   border-right: 50px solid white;
+  z-index: -10;
 }
 .cc31{
   position: absolute;
@@ -1747,7 +1757,7 @@ body {
   -o-transform: rotateX(90deg);
   transform: rotateX(90deg);
 }
-.cita4:after {
+.cita4:before {
   content: "";
   position: absolute;
   bottom: 30px;
@@ -1756,6 +1766,7 @@ body {
   border-top: 35px solid transparent;
   border-bottom: 4px solid transparent;
   border-right: 50px solid white;
+  z-index:-10;
 }
 .cita42{
   bottom: 36%;
@@ -1940,7 +1951,7 @@ body {
   -o-transform: rotateX(90deg);
   transform: rotateX(90deg);
 }
-.cita5:after {
+.cita5:before {
   content: "";
   position: absolute;
   bottom: 30px;
@@ -1949,6 +1960,7 @@ body {
   border-top: 35px solid transparent;
   border-bottom: 4px solid transparent;
   border-right: 50px solid white;
+  z-index: -10;
 }
 .cita51{
   bottom: 25%;
@@ -2194,7 +2206,7 @@ body {
   -o-transform: rotateX(90deg);
   transform: rotateX(90deg);
 }
-.cita6:after {
+.cita6:before {
   content: "";
   position: absolute;
   bottom: 30px;
@@ -2203,6 +2215,7 @@ body {
   border-top: 35px solid transparent;
   border-bottom: 4px solid transparent;
   border-right: 50px solid white;
+  z-index:-10;
 }
 .cita60{
   bottom: 25%;
@@ -2947,7 +2960,7 @@ body {
   display: inline-block;
   width: 64px;
   height: 64px;
-  margin: 20px 20px;
+  margin: 10px 10px;
   cursor: pointer;
   background-repeat: no-repeat;
   background-position: center center;
@@ -3020,7 +3033,7 @@ body {
   /*font-family: 'Bowlby One SC', cursives;*/
   font-size: 60px;
   text-transform: uppercase;
-  color: #f3f3f3;
+  color: #ffffff;
   /*text-shadow: 5px 5px 0px #eee, 7px 7px 0px #707070;*/
   text-shadow: 2px 2px 3px rgba(0,0,0,.3),
                1px 1px 3px rgba(30,30,30,0.5),
@@ -3028,7 +3041,7 @@ body {
   display: block;
   width: 100%;
   position: absolute;
-  top: 100px;
+  top: 15px;
   margin: 0;
   font-weight: normal;
   z-index: 1000;
@@ -3168,7 +3181,7 @@ $maincolor: $color6;
   background: $maincolor;
   color: #f2f2f2;
   padding: 10px;
-  text-align:center;
+  text-align:left;
   font-size: .9em;
   @include transparency(0);
 }
