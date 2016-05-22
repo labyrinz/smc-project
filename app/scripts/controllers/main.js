@@ -452,6 +452,7 @@ angular.module('smcApp')
           if(value==undefined) var desp = '-110%';
           else var desp = '-'+value;
           var firstPhoto = $('.slideimg'+id).first();
+          console.log('entra', id, value, firstPhoto)
           TweenMax.to(firstPhoto, 0.1, {left: desp, repeatDelay:0.1, repeat:1, yoyo:true, onRepeat:function(){$('#fotoGroup'+id).append(firstPhoto)}, ease: Power4.easeOut});
         };
 
@@ -459,6 +460,7 @@ angular.module('smcApp')
           if(value==undefined) var desp = '110%';
           else var desp = value;
           var firstPhoto = $('.slideimg'+id).last();
+          console.log('entra', id, value, firstPhoto)
           TweenMax.to(firstPhoto, 0.1, {left: desp, repeatDelay:0.1, repeat:1, yoyo:true, onRepeat:function(){$('#fotoGroup'+id).prepend(firstPhoto)}, ease: Power4.easeOut});
         };
 

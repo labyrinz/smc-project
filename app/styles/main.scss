@@ -1513,7 +1513,6 @@ body {
   top:20%;
   left:10%;
   height: 110%;
-  z-index: 990;
   cursor: pointer;
 }
 .cc34{
@@ -1595,6 +1594,30 @@ body {
   width: 50%;
   right: 18%;
   top: 10%;
+}
+.arrowPrev3{
+  position: absolute;
+  top: 50%;
+  margin-top: -24px;
+  height: 64px;
+  left: -6%;
+  cursor: pointer;
+  opacity: 0.7;
+  z-index: 999;
+}
+.arrowNext3{
+  position: absolute;
+  top: 50%;
+  margin-top: -24px;
+  height: 64px;
+  right: -6%;
+  cursor: pointer;
+  opacity: 0.7;
+  transform: rotateY(180deg);
+  z-index: 999;
+}
+.arrowPrev3:hover, .arrowNext3:hover{
+  opacity: 1;
 }
 // FIN DIAPOSITIVA 9
 // DIAPOSITIVA 10
@@ -1777,14 +1800,14 @@ body {
 }
 .la8{
   position: absolute;
-  height: 20%;
+  height: 40%;
   top: 25%;
-  right: 50%;
+  right: 5%;
 }
 .la21Video{
   position: absolute;
   top: 25%;
-  right: 20%;
+  right: 42%;
   z-index: 991;
   width: 19%;
   height: 19%;
@@ -1794,7 +1817,7 @@ body {
 .la22Video{
   position: absolute;
   bottom: 55%;
-  right: 45%;
+  right: 65%;
   z-index: 991;
   width: 20%;
   height: 20%;
