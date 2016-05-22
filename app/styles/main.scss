@@ -403,17 +403,19 @@ body {
 }
 .closeFullScreenVideo{
   position: absolute;
-  width: 3%;
-  height: 3%;
+  width: 48px;
+  height: 48px;
   top: 0.5%;
   right: 0.5%;
   color: #ffffff;
   background-color: rgba(0, 0, 0, 0.64);
   padding: 5px;
-  font-size: 50px;
+  font-size: 48px;
   font-weight: bold;
   cursor: pointer;
   z-index: 999;
+  line-height: 48px;
+  font-family: 'Open Sans', sans-serif;
 }
 .fullScreeVideoEnter{
   width: 100%;
@@ -637,6 +639,9 @@ body {
   height: 20px;
   top: 5%;
   left: 5%;
+}
+img.infoAdvice{
+  display: none;
 }
 .prel01 {
   position: absolute;
@@ -965,24 +970,24 @@ body {
 .prol05{
   position: absolute;
   top:20%;
-  right: 10%;
+  right: 3%;
   height:50%;
   z-index: 989;
 }
 .cita12{
   bottom: 25%;
-  width: 45%;
-  right: 38%;
+  width: 40%;
+  left: 20%;
   border-radius: 40px;
 }
 .p31Video{
   position: absolute;
-  top: 15%;
-  right: 70%;
+  top: 20%;
+  left: 20%;
   margin:auto;
   z-index: 991;
-  width: 20%;
-  height: 20%;
+  width: 25%;
+  height: 25%;
   border: solid 5px rgb(255, 255, 255);
   cursor: pointer;
 }
@@ -1280,20 +1285,20 @@ body {
 }
 .rm31Video{
   position: absolute;
-  top: 10%;
-  right: 70%;
+  top: 20%;
+  left: 25%;
   z-index: 991;
-  width: 20%;
+  width: 25%;
   height: 20%;
   border: solid 10px rgb(255, 255, 255);
   cursor: pointer;
 }
 .rm32Video{
   position: absolute;
-  top: 35%;
-  right: 65%;
+  top: 40%;
+  left: 25%;
   z-index: 991;
-  width: 20%;
+  width: 25%;
   height: 20%;
   border: solid 10px rgb(255, 255, 255);
   cursor: pointer;
@@ -1301,9 +1306,9 @@ body {
 .rm33Video{
   position: absolute;
   top: 60%;
-  right: 55%;
+  left: 25%;
   z-index: 991;
-  width: 20%;
+  width: 25%;
   height: 20%;
   border: solid 10px rgb(255, 255, 255);
 }
@@ -1652,8 +1657,8 @@ body {
 }
 .cc31Video{
   position: absolute;
-  top: 10%;
-  right: 60%;
+  top: 35%;
+  left: 10%;
   z-index:991;
   width: 30%;
   height: 30%;
@@ -1662,8 +1667,8 @@ body {
 }
 .cc32Video{
   position: absolute;
-  top: 50%;
-  right: 15%;
+  top: 35%;
+  right: 10%;
   z-index: 991;
   width: 30%;
   height: 30%;
@@ -2241,7 +2246,7 @@ body {
   z-index:-10;
 }
 .cita60{
-  bottom: 25%;
+  bottom: 20%;
   width: 40%;
   right: 43%;
   border-radius: 40px;
@@ -2275,6 +2280,12 @@ body {
   width: 10%;
   right: 50%;
   top: 10%;
+}
+.cb15{
+  position: absolute;
+  width: 30%;
+  left: 20%;
+  top: 20%;
 }
 .texto61{
   top: 30%;
@@ -2550,6 +2561,10 @@ body {
 .plusInfoCita{
   cursor: pointer;
   font-weight: bolder;
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+  font-style: normal;
 }
 /* Responsive: Portrait tablets and up */
 @media only screen and (max-width: 1600px) {
@@ -3214,6 +3229,23 @@ $maincolor: $color6;
   min-width: 100%;
   max-height: 100%;
 }
+.pic:after{
+  content: '';
+  height: 32px;
+  width: 32px;
+  display: block;
+  background-image: url(../images/more-info.svg);
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  position: absolute;
+  cursor: pointer;
+  opacity: .8;
+}
+.pic:hover:after {
+  opacity: .1;
+}
+
 .pic:hover .pic-image{
   @include prefix(transform, scale(1));
 }
