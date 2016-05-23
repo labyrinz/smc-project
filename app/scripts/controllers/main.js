@@ -185,7 +185,7 @@ angular.module('smcApp')
           //EPISODE 7
           .staggerTo($("#page5").children(),0.6, animationToPattern, staggerToVelocity)
           .add("RR2")
-          .to(".resumeVideoBox", 0.2, {opacity: '0', scale: '0', onComplete: stopResumeVideo, onReverseComplete: playResumeVideo, onReverseCompleteParams: [38.5,89,55], ease: Power4.easeOut},"-=0.2")
+          .to(".resumeVideoBox", 0.2, {opacity: '0', scale: '0', onComplete: stopResumeVideo, onReverseComplete: playResumeVideo, onReverseCompleteParams: [38.5,89,55, true], ease: Power4.easeOut},"-=0.2")
           .to("#page5",0.4,{ right: '100%', ease: Back.easeInOut.config(1)})
           .to("#page6",0.4,{ right: '0%', ease: Back.easeInOut.config(1)},"-=0.4")
           .call(updateTitle,[5])
@@ -246,9 +246,9 @@ angular.module('smcApp')
           .to(".cita100",1,{ scale:'0',transform: 'rotateX(90deg)', ease: Bounce.easeOut},"+=0.5")
           .add("CC2")
           .call(updateTitle,[8])
-          .to(".resumeVideoBox", 1, {onStart: playResumeVideo, onStartParams:[101,108,108], scale: '1',opacity: '1', onReverseComplete: stopResumeVideo, ease: Power4.easeIn})
+          .to(".resumeVideoBox", 1, {onStart: playResumeVideo, onStartParams:[101,108,108,false], scale: '1',opacity: '1', onReverseComplete: stopResumeVideo, ease: Power4.easeIn})
           .addPause()
-          .to(".resumeVideoBox", 1, {scale: '0',opacity: '0', onComplete: stopResumeVideo, onReverseComplete: playResumeVideo, onReverseCompleteParams:[101,131,131], ease: Power4.easeOut})
+          .to(".resumeVideoBox", 1, {scale: '0',opacity: '0', onComplete: stopResumeVideo, onReverseComplete: playResumeVideo, onReverseCompleteParams:[101,131,131,false], ease: Power4.easeOut})
           .to("#page8",0.4,{ right: '0%', ease: Back.easeInOut.config(1)},"-=0.4")
           .staggerFrom($("#page8").children(),0.6, animationFromPattern, staggerFromVelocity)
           .addPause()
@@ -276,9 +276,9 @@ angular.module('smcApp')
           .to("#page10",0.4,{ right: '100%', ease: Power0.easeNone})
           .add("LA1")
           .call(updateTitle,[11])
-          .to(".resumeVideoBox", 0.1, {onStart: playResumeVideo, onStartParams:[132,189,189], scale: '1', opacity: '1', onReverseComplete: stopResumeVideo, ease: Power4.easeIn})
+          .to(".resumeVideoBox", 0.1, {onStart: playResumeVideo, onStartParams:[132,189,189,false], scale: '1', opacity: '1', onReverseComplete: stopResumeVideo, ease: Power4.easeIn})
           .addPause()
-          .to(".resumeVideoBox", 1, {scale: '0', opacity: '0', onComplete: stopResumeVideo, onReverseComplete: playResumeVideo, onReverseCompleteParams:[132,189,189], ease: Power4.easeOut})
+          .to(".resumeVideoBox", 1, {scale: '0', opacity: '0', onComplete: stopResumeVideo, onReverseComplete: playResumeVideo, onReverseCompleteParams:[132,189,189,false], ease: Power4.easeOut})
           .to(".chi4", 0.3, {  onStart: playSound, onStartParams: [playListOrder[4]],opacity: '1', onReverseComplete: playSound, onReverseCompleteParams: [playListOrder[3]], ease: Bounce.easeOut },"-=0.2")
           .to(".chi2", 1, { opacity: '1', ease: Power4.easeOut })
           .to(".chi1", 4, { opacity: '1', ease: Power0.easeNone },"+=1")
@@ -316,9 +316,9 @@ angular.module('smcApp')
           .to("#page13",0.4,{ right: '100%', ease: Power0.easeNone})
           .add("AL1")
           .call(updateTitle,[14])
-          .to(".resumeVideoBox", 1, {onStart: playResumeVideo, onStartParams:[189,266,266], scale: '1',opacity: '1', onReverseComplete: stopResumeVideo, ease: Power4.easeIn})
+          .to(".resumeVideoBox", 1, {onStart: playResumeVideo, onStartParams:[189,266,266,false], scale: '1',opacity: '1', onReverseComplete: stopResumeVideo, ease: Power4.easeIn})
           .addPause()
-          .to(".resumeVideoBox", 1, { scale: '0', opacity: '0', onComplete: stopResumeVideo, onReverseComplete: playResumeVideo, onReverseCompleteParams:[189,266,266], ease:  Power4.easeOut})
+          .to(".resumeVideoBox", 1, { scale: '0', opacity: '0', onComplete: stopResumeVideo, onReverseComplete: playResumeVideo, onReverseCompleteParams:[189,266,266,false], ease:  Power4.easeOut})
           .to("#page14",0.4,{ right: '0%', onComplete: playSound, onCompleteParams: [playListOrder[7]], onReverseComplete: playSound, onReverseCompleteParams: [playListOrder[6]], ease: Power0.easeNone},"-=0.4")
           .to(".lasv1", 0.3, {opacity: '1', ease: Back.easeOut.config(1)})
           .to(".lasv2", 0.3, {top:'0%', ease: Bounce.easeOut})
@@ -358,9 +358,9 @@ angular.module('smcApp')
           .to("#page17",0.4,{ right: '0%', ease: Power0.easeNone})
           .add("CB1")
           .call(updateTitle,[17])
-          .to(".resumeVideoBox", 1, {onStart: playResumeVideo, onStartParams:[266.5,321.5,321.5], scale: '1',opacity: '1', onReverseComplete: stopResumeVideo, ease: Power4.easeIn})
+          .to(".resumeVideoBox", 1, {onStart: playResumeVideo, onStartParams:[266.5,321.5,321.5,false], scale: '1',opacity: '1', onReverseComplete: stopResumeVideo, ease: Power4.easeIn})
           .addPause()
-          .to(".resumeVideoBox", 1, {scale: '0',opacity: '0', onComplete: stopResumeVideo, onReverseComplete: playResumeVideo, onReverseCompleteParams:[266.5,321.5,321.5], ease: Power4.easeOut})
+          .to(".resumeVideoBox", 1, {scale: '0',opacity: '0', onComplete: stopResumeVideo, onReverseComplete: playResumeVideo, onReverseCompleteParams:[266.5,321.5,321.5,false], ease: Power4.easeOut})
           .staggerFrom($("#page17").children(),0.6, animationFromPattern, staggerFromVelocity)
           .to(".cita60",1,{ transform: 'rotateX(0deg)', onReverseComplete: stopResumeVideo, ease: Bounce.easeOut},"+=1")
           .addPause()
@@ -572,7 +572,12 @@ angular.module('smcApp')
           };
 
         function playResumeVideo(timer, duration, breakpoint, continueBeforeStop){
-            if(soundEpilogo && soundEpilogo.volume() > 0){ soundEpilogo.fade(1,0,2000); }
+            console.log(soundEpilogo);
+            if(soundEpilogo){
+                if(soundEpilogo.volume() > 0) {
+                  soundEpilogo.fade(1, 0, 2000);
+                }
+             }
             controlSound();
             $(".resumeVideoBox").show();
             resume.currentTime(timer);
@@ -588,7 +593,7 @@ angular.module('smcApp')
               if (resume.currentTime() >= duration) {
                 console.log("Current time (end): "+resume.currentTime())
                 resume.pause()
-                tl.play();
+                if(!continueBeforeStop) tl.play();
                 if(soundEpilogo && soundEpilogo.volume() < 1)soundEpilogo.fade(0,1,2000);
               }
             })
