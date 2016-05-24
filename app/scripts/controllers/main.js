@@ -507,9 +507,11 @@ angular.module('smcApp')
         function updateTitle(index){
          if(index){
            var notes = $(".pentagramNotes");
-           notes.removeClass("activeNote")
+           notes.removeClass("activeNote");
+           notes.removeClass("currentNote");
            for (var i = 0; i <= index; i++) {
              $(notes[i]).addClass("activeNote");
+             if (i==index) $(notes[i]).addClass("currentNote");
            }
            var note = $($(".pentagramNotes")[index]);
            var title = note.find(".tooltip-text").html();

@@ -68,6 +68,7 @@ body {
 .mouseIcon{
   color: #fff;
   text-align: center;
+  font-weight: bold;
   width: 150px;
   position: absolute;
   bottom: -150px;
@@ -673,12 +674,13 @@ img.infoAdvice{
 }
 .cita1{
   position: absolute;
-  font-family: 'Dancing Script', cursive;
+  //font-family: 'Dancing Script', cursive;
   font-style: italic;
   z-index: 997;
   background-color: white;
   color: #333333; /*#ffd85f;#FFE698;*/
-  font-size: 35px;
+  font-size: 20px;
+  line-height: 1.2em;
   padding: 2% 3%;
   -webkit-transform: rotateX(90deg);
   -moz-transform: rotateX(90deg);
@@ -1020,12 +1022,13 @@ img.infoAdvice{
 }
 .cita2{
   position: absolute;
-  font-family: 'Dancing Script', cursive;
+  //font-family: 'Dancing Script', cursive;
   font-style: italic;
   z-index: 997;
   background-color: white;
   color: #333333; /*#ffd85f;#FFE698;*/
-  font-size: 35px;
+  font-size: 20px;
+  line-height: 1.2em;
   padding: 2% 3%;
   -webkit-transform: rotateX(90deg);
   -moz-transform: rotateX(90deg);
@@ -1453,12 +1456,13 @@ img.infoAdvice{
 }
 .cita3{
   position: absolute;
-  font-family: 'Dancing Script', cursive;
+  //font-family: 'Dancing Script', cursive;
   font-style: italic;
   z-index: 997;
   background-color: white;
   color: #333333; /*#ffd85f;#FFE698;*/
-  font-size: 35px;
+  font-size: 20px;
+  line-height: 1.2em;
   padding: 2% 3%;
   -webkit-transform: rotateX(90deg);
   -moz-transform: rotateX(90deg);
@@ -1775,12 +1779,13 @@ img.infoAdvice{
 }
 .cita4{
   position: absolute;
-  font-family: 'Dancing Script', cursive;
+  //font-family: 'Dancing Script', cursive;
   font-style: italic;
   z-index: 997;
   background-color: white;
   color: #333333; /*#ffd85f;#FFE698;*/
-  font-size: 35px;
+  font-size: 20px;
+  line-height: 1.2em;
   padding: 2% 3%;
   -webkit-transform: rotateX(90deg);
   -moz-transform: rotateX(90deg);
@@ -1969,12 +1974,13 @@ img.infoAdvice{
 }
 .cita5{
   position: absolute;
-  font-family: 'Dancing Script', cursive;
+  //font-family: 'Dancing Script', cursive;
   font-style: italic;
   z-index: 997;
   background-color: white;
   color: #333333; /*#ffd85f;#FFE698;*/
-  font-size: 35px;
+  font-size: 20px;
+  line-height: 1.2em;
   padding: 2% 3%;
   -webkit-transform: rotateX(90deg);
   -moz-transform: rotateX(90deg);
@@ -2225,12 +2231,13 @@ img.infoAdvice{
 //DIAPOSITIVA 17
 .cita6{
   position: absolute;
-  font-family: 'Dancing Script', cursive;
+  //font-family: 'Dancing Script', cursive;
   font-style: italic;
   z-index: 997;
   background-color: white;
   color: #333333; /*#ffd85f;#FFE698;*/
-  font-size: 35px;
+  font-size: 20px;
+  line-height: 1.2em;
   padding: 2% 3%;
   -webkit-transform: rotateX(90deg);
   -moz-transform: rotateX(90deg);
@@ -2558,7 +2565,7 @@ img.infoAdvice{
   .textoFin{font-size: 35px;}
   .CitaAddonProl1{ font-size: 13px; }
   .cita1, .cita2, .cita3, .cita4, .cita5, .cita6 {
-    font-size: 25px;
+    font-size: 20px;
   }
   .texto11{font-size: 31px;}
   .mujerTitle1, .mujerTitle2,.mujerTitle3,.mujerTitle4,.mujerTitle5,.epilogoTitle{font-size: 30px;}
@@ -2712,6 +2719,14 @@ img.infoAdvice{
 }
 .activeNote .tooltip-item {
   opacity: 1;
+}
+
+.activeNote.currentNote{
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#25c2ec+0,fefcea+78,fefcea+78&1+0,0+79 */
+  background: -moz-radial-gradient(center, ellipse cover,  rgba(37,194,236,1) 0%, rgba(254,252,234,0.01) 78%, rgba(254,252,234,0) 79%); /* FF3.6-15 */
+  background: -webkit-radial-gradient(center, ellipse cover,  rgba(37,194,236,1) 0%,rgba(254,252,234,0.01) 78%,rgba(254,252,234,0) 79%); /* Chrome10-25,Safari5.1-6 */
+  background: radial-gradient(ellipse at center,  rgba(37,194,236,1) 0%,rgba(254,252,234,0.01) 78%,rgba(254,252,234,0) 79%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#25c2ec', endColorstr='#00fefcea',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
 
 /* Gap filler */
