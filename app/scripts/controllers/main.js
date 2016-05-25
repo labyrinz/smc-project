@@ -31,6 +31,41 @@ angular.module('smcApp')
       var introWordsSubtitle = $(".introLettersSubtitle");
       var introWordsName = $(".introLettersName");
 
+      var localVideo = [];
+
+      localVideo["q36eiNYFApg"] = "RESUMEN CUGAT v2.mp4";
+      localVideo["QvuPDyEEYAw"] = "ACTUACION 2.mp4";
+      localVideo["fSH8GVWKLjk"] = "RM1.mp4";
+      localVideo["GJzc92BlYP8"] = "RM3 CLIP3.mp4";
+      localVideo["I736e6ChYD8"] = "RM3 CLIP1.mp4";
+      localVideo["9Ze3iO82MD0"] = "CC2 CLIP2.mp4";
+      localVideo["l7GtWlyMHJo"] = "RM2 CLIP1.mp4";
+      localVideo["AEX6_GEVq2c"] = "P2 CLIP 1.mp4";
+      localVideo["eR2IOLR_wwA"] = "HOME PAGE 1.mp4";
+      localVideo["YBtJ1u7Kz2E"] = "AL2 CLIP 2.mp4";
+      localVideo["_sPLgL7tFTA"] = "AL2 CLIP 1.mp4";
+      localVideo["APqdZiVo3hs"] = "LA2 CLIP1.mp4";
+      localVideo["w4pvV9o8l0k"] = "CC2 CLIP 1.mp4";
+      localVideo["ZIP0Vi6PSIU"] = "EPILOGO CLIP4.mp4";
+      localVideo["DIsiwM780FY"] = "LA2 CLIP 2.mp4";
+      localVideo["yiHLlJ1hujs"] = "EPILOGO CLUP 1.mp4";
+      localVideo["F3kQC4ULRPc"] = "CC3 CLIP 2.mp4";
+      localVideo["6H_4dq8cUU0"] = "EPILOGO CLIP2.mp4";
+      localVideo["QjhkUmiiuNk"] = "AL1.mp4";
+      localVideo["qlhD0EGomJc"] = "LA3 CLIP1.mp4";
+      localVideo["yz9aUDtYpuU"] = "ACTUACIÓN 1.mp4";
+      localVideo["6s_CY6gSjEQ"] = "RM2 CLIP 2.mp4";
+      localVideo["1Su1PJ-lhXo"] = "miranda.mp4";
+      localVideo["xYX5Ep2ALRo"] = "P3 CLIP 1.mp4";
+      localVideo["ghTHOjcc3IM"] = "P2 CLIP 2.mp4";
+      localVideo["2hLIdI99eiw"] = "CC3 CLIP 1.mp4";
+      localVideo["eM_BYikroX0"] = "CB2 CLIP 2.mp4";
+      localVideo["F5j1s8inof4"] = "CC2 CLIP3.mp4";
+      localVideo["RqhKw6lg25I"] = "LA3 CLIP2.mp4";
+      localVideo["mnX-eWJktbg"] = "RM3 CLIP 2.mp4";
+      localVideo["qnhndquMgh4"] = "CB2 CLIP 1.mp4";
+      localVideo["wpWO4L0qPPw"] = "HOME PAGE 1.mp4";
+
       var cita12Letters = $("#cita12").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"cita12Letters"});
       totalWords[12] = $(".cita12Letters");
       var cita41Letters = $("#cita41").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"cita41Letters"});
@@ -498,12 +533,14 @@ angular.module('smcApp')
             closeVideo();
           }
         function playOnlyAudio(id){
-            player.src({ type: 'video/youtube', src: 'https://www.youtube.com/watch?v='+id });
+            //player.src({ type: 'video/youtube', src: 'https://www.youtube.com/watch?v='+id });
+            player.src({ type: 'video/mp4', src: '..video/'+localVideo[id] });
             playTimelineBefore = false;
             playVideo();
           }
         function openVideo(value, origin){
-          player.src({ type: 'video/youtube', src: 'https://www.youtube.com/watch?v='+value });
+          //player.src({ type: 'video/youtube', src: 'https://www.youtube.com/watch?v='+value });
+          player.src({ type: 'video/mp4', src: '../video/'+localVideo[value] });
           playVideo();
           TweenMax.to(".fullScreenVideo", 1, {css: {transform: 'scale(0.3) rotate(20deg)'}, delay:0.5, ease: Expo.easeOut});
           TweenMax.to(".fullScreenVideo", 1, {css: {transform: 'scale(1) rotate(0deg)', top: 0, left: 0}, delay:1.5, ease: Expo.easeOut});
