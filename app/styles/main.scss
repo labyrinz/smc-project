@@ -988,13 +988,14 @@ img.infoAdvice{
 .p31Video{
   position: absolute;
   top: 20%;
-  left: 20%;
+  right: 55%;
   margin:auto;
   z-index: 991;
   width: 25%;
   height: 25%;
   border: solid 5px rgb(255, 255, 255);
   cursor: pointer;
+  background-image: url('http://img.youtube.com/vi/xYX5Ep2ALRo/hqdefault.jpg')
 }
 .textProl4{width: 40%; top: 10%; left: 5%;}
 .textProl5{width: 40%; top: 35%; left: 5%;}
@@ -1077,8 +1078,8 @@ img.infoAdvice{
   position: absolute;
   top: 0;
   bottom: 10%;
-  left: 10%;
-  right: 0;
+  right: 60%;
+  left: 0;
   margin: auto;
   z-index: 997;
   width: 30%;
@@ -1805,38 +1806,40 @@ img.infoAdvice{
   z-index:-10;
 }
 .cita42{
-  bottom: 36%;
-  width: 50%;
-  right: 33%;
+  bottom: 30%;
+  width: 35%;
+  right: 50%;
   border-radius: 40px;
 }
 .la4{
   position: absolute;
-  height: 20%;
-  top: 25%;
-  right: 65%;
+  height: 160%;
+  top: -10%;
+  left: 0%;
 }
 .la5{
   position: absolute;
-  height: 20%;
-  top: 25%;
-  right: 75%;
+  height: 120%;
+  top: 10%;
+  left: 0%;
 }
 .la8{
   position: absolute;
-  height: 40%;
-  top: 25%;
-  right: 5%;
+  height: 140%;
+  top: -5%;
+  left: -5%;
 }
 .la21Video{
   position: absolute;
-  top: 25%;
-  right: 42%;
+  top: 20%;
+  right: 60%;
+  margin:auto;
   z-index: 991;
-  width: 19%;
-  height: 19%;
-  border: solid 10px rgb(255, 255, 255);
+  width: 25%;
+  height: 25%;
+  border: solid 5px rgb(255, 255, 255);
   cursor: pointer;
+  background-image: url('http://img.youtube.com/vi/APqdZiVo3hs/hqdefault.jpg')
 }
 .la22Video{
   position: absolute;
@@ -2038,7 +2041,7 @@ img.infoAdvice{
 .teLoDijoAdela{
   position: absolute;
   top: 20%;
-  left: 20%;
+  right: 55%;
   margin:auto;
   z-index: 991;
   width: 25%;
@@ -2340,7 +2343,7 @@ img.infoAdvice{
 }
 .cb04{
   position: absolute;
-  top: 5%;
+  top: -10%;
   left: 15%;
   height: 150%;
   cursor: pointer;

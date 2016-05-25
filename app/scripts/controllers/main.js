@@ -20,6 +20,7 @@ angular.module('smcApp')
       var soundEpilogo = false;
       var boolsound = 1;
       var playTimelineBefore = true;
+      var resumeVideoOn = false;
 
       var playListOrder = ['BeginTheBeguine','ElManisero','TICOTICO','Siboney','MyShawl','JungleRhumba','perfidia','QuizasQuizasQuizas','ParaVigomevoy','YoTeAmoMucho','Tabu']
       var introLetters = $("#quote h2").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"introLetters"});
@@ -106,11 +107,11 @@ angular.module('smcApp')
           .call(stopIntroVideo,[])
           .to(".mouseIcon", 0.5, {bottom: '-150px', ease: Bounce.easeOut})
           .add("prologo1")
-          .to("#page0",0.5,{ scale: '0', ease: Back.easeIn.config(1)})
-          .to(".ed1", 0.5, {left: '0%', onComplete: playSound, onCompleteParams: [playListOrder[0]], onReverseComplete: stopNinoAnimation, ease: Bounce.easeOut})
-          .to(".ed2", 0.5, {top: '0%', ease: Bounce.easeOut})
-          .to(".ed3", 0.5, {left: '0%', ease: Bounce.easeOut},"-=1")
-          .to(".ed4", 0.5, {transform: 'rotateX(0deg)', onComplete: ninoAnimation, ease: Back.easeOut.config(1)})
+          .to("#page0",0.5,{ scale: '0', onComplete: updateTitle, onCompleteParams: [0], ease: Back.easeIn.config(1)})
+          .to(".ed1", 0.5, { left: '0%', onComplete: playSound, onCompleteParams: [playListOrder[0]], onReverseComplete: stopNinoAnimation, ease: Bounce.easeOut})
+          .to(".ed2", 0.5, { top: '0%', ease: Bounce.easeOut})
+          .to(".ed3", 0.5, { left: '0%', ease: Bounce.easeOut},"-=1")
+          .to(".ed4", 0.5, { transform: 'rotateX(0deg)', onComplete: ninoAnimation, ease: Back.easeOut.config(1)})
           .to(".texto11",3,{ transform: 'scale(1)', opacity: '1', ease: Power4.easeOut},"+=1")
           .to(".mouseIcon", 0.5, {bottom: '150px', ease: Bounce.easeOut},"+=0.5")
           .addPause()
@@ -123,14 +124,13 @@ angular.module('smcApp')
           .to(".pentagramBack",0.2,{ bottom: '0%', ease: Power0.easeNone},"-=0.2")
           .to(".pentagramNotesGroup",0.2,{ bottom: '2%', ease: Power0.easeNone},"-=0.2")
           .to(".age1",0.3,{ onStart: stopNinoAnimation, transform: 'rotateX(0deg)',  ease: Bounce.easeOut})
-          .call(updateTitle,[0])
           .staggerFrom($("#page1").children(),0.6, animationFromPattern, staggerFromVelocity)
-          .to(".cita11",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1")
+          .to(".cita11",1,{ transform: 'rotateX(0deg)', onReverseComplete: updateTitle, onReverseCompleteParams: [0], ease: Bounce.easeOut},"+=1")
           .addPause()
           //EPISODE 3
           .staggerTo($("#page1").children(),0.6, animationToPattern, staggerToVelocity)
           .add("prologo2")
-          .to(".ed2", 0.5, {left: '-5%', ease: Power2.easeIn},"scrollGer")
+          .to(".ed2", 0.5, {onStart: updateTitle, onStartParams: [1],left: '-5%', ease: Power2.easeIn},"scrollGer")
           .to(".ed3", 0.5, {left: '-10%', ease: Power2.easeIn},"scrollGer")
           .to(".ed4", 0.5, {left: '-15%', ease: Power2.easeIn},"scrollGer")
           .to("#page1",0.4,{ right: '100%', ease: Power0.easeNone},"-=0.5")
@@ -142,53 +142,49 @@ angular.module('smcApp')
           .to(".ed2", 0.5, {top: '120%', ease: Power2.easeIn})
           .to(".ed3", 0.5, {top: '120%', ease: Power2.easeIn},"-=1")
           .to(".ed4", 0.5, {top: '120%', ease: Power2.easeIn})
-          .to(".mapSvgClassTop", 2, {onStart: updateTitle, onStartParams: [1],width: '800%', top: '-385%', left: '-140%', ease: Power2.easeIn},"-=1.2")
+          .to(".mapSvgClassTop", 2, {width: '800%', top: '-385%', left: '-140%', onReverseComplete: updateTitle, onReverseCompleteParams: [0,'reverse'], ease: Power2.easeIn},"-=1.2")
           //EPISODE 4
           .to("#page2",0.4,{ right: '100%', onComplete: openVideo, onCompleteParams: ['ghTHOjcc3IM', 'ct'], onReverseComplete: closeVideo, ease: Power0.easeNone},"+=1")
           .addPause()
           .add("prologo2Add")
           .to("#page3",0.4,{ right: '0%', onComplete: closeVideo, onReverseComplete: openVideo, onReverseCompleteParams: ['ghTHOjcc3IM'], ease: Power0.easeNone})
-          .to(".age1",0.3,{ transform: 'rotateX(90deg)', ease: Bounce.easeOut})
-          .to(".age2",0.3,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"-=0.3")
-          .call(updateTitle,[2])
+          .to(".age1",0.3,{ transform: 'rotateX(90deg)', onStart: updateTitle, onStartParams: [2], ease: Bounce.easeOut})
+          .to(".age2",0.3,{ transform: 'rotateX(0deg)', onReverseComplete: updateTitle, onReverseCompleteParams: [1], ease: Bounce.easeOut},"-=0.3")
           .staggerFrom($("#page3").children(),0.6, animationFromPattern, staggerFromVelocity)
           .addPause()
           //EPISODE 5
           .staggerTo($("#page3").children(),0.6, animationToPattern, staggerToVelocity)
           .add("prologo3")
-          .to(".cub1", 0.5, {transform: 'rotateY(165deg)', onComplete: playOnlyAudio, onCompleteParams: ['xYX5Ep2ALRo'], ease: Power2.easeIn})
-          .to(".ny4", 0.2, {top: '0%', ease: Bounce.easeOut},"-=0.5")
-          .to(".ny3", 0.5, {top: '0%', ease: Bounce.easeOut},"-=0.2")
-          .to(".ny1", 0.5, {top: '0%', ease: Bounce.easeOut},"-=0.2")
-          .to(".ny2", 0.5, {top: '0%', ease: Bounce.easeOut},"-=0.2")
-          .to(".ny5", 0.8, {scale: '1', right: '0', ease: Power4.easeOut},"-=0.2")
-          .to(".ny6", 0.8, {scale: '1', right: '0', ease: Power4.easeOut},"-=0.2")
-          .to(".ny7", 0.8, {scale: '1', right: '0', onReverseComplete: playOnlyAudio, onReverseCompleteParams: ['xYX5Ep2ALRo'], ease: Power4.easeOut},"-=0.2")
-          .call(updateTitle,[3])
+          .to(".cub1", 0.5, { transform: 'rotateY(165deg)', onComplete: playOnlyAudio, onCompleteParams: ['xYX5Ep2ALRo'], ease: Power2.easeIn})
+          .to(".ny4", 0.2, { onStart: updateTitle, onStartParams: [3], top: '0%', ease: Bounce.easeOut},"-=0.5")
+          .to(".ny3", 0.5, { top: '0%', ease: Bounce.easeOut},"-=0.2")
+          .to(".ny1", 0.5, { top: '0%', ease: Bounce.easeOut},"-=0.2")
+          .to(".ny2", 0.5, { top: '0%', ease: Bounce.easeOut},"-=0.2")
+          .to(".ny5", 0.8, { scale: '1', right: '0', ease: Power4.easeOut},"-=0.2")
+          .to(".ny6", 0.8, { scale: '1', right: '0', ease: Power4.easeOut},"-=0.2")
+          .to(".ny7", 0.8, { scale: '1', right: '0', onReverseComplete: playOnlyAudio, onReverseCompleteParams: ['xYX5Ep2ALRo'], ease: Power4.easeOut},"-=0.2")
           .to("#page3",0.4,{ right: '100%', ease: Power0.easeNone})
           .to("#page4",0.4,{ right: '0%', onReverseComplete: stopResumeVideo, ease: Power0.easeNone},"-=0.4")
           .staggerFrom($("#page4").children(),0.6, animationFromPattern, staggerFromVelocity)
-          .to(".cita12",1,{  transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1")
+          .to(".cita12",1,{  transform: 'rotateX(0deg)', onReverseComplete: updateTitle, onReverseCompleteParams: [2], ease: Bounce.easeOut},"+=1")
           .addPause()
           //EPISODE 6
           .staggerTo($("#page4").children(),0.6, animationToPattern, staggerToVelocity)
           .add("RR1")
-          .call(updateTitle,[4])
           .to(".resumeVideoBox", 1, {onStart: playResumeVideo, onStartParams: [38.5,89,55, true], opacity: '1', scale: '1', onReverseComplete: stopResumeVideo, ease: Power4.easeIn})
           .addPause()
-          .to(".resumeVideoBox", 0.5, { opacity: '1',scale: '0.2', ease: Power4.easeOut})
+          .to(".resumeVideoBox", 0.5, { onStart: updateTitle, onStartParams: [4], opacity: '1',scale: '0.2', ease: Power4.easeOut})
           .to("#page4",0.4,{ right: '100%', ease: Back.easeInOut.config(1)})
           .to("#page5",0.4,{ right: '0%', onComplete: playSound, onCompleteParams: [playListOrder[1]], onReverseComplete: playSound, onReverseCompleteParams: [playListOrder[0]], ease: Back.easeInOut.config(1)},"-=0.4")
           .staggerFrom($("#page5").children(),0.6, animationFromPattern, staggerFromVelocity)
-          .to(".cita21",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1")
+          .to(".cita21",1,{ transform: 'rotateX(0deg)', onReverseComplete: updateTitle, onReverseCompleteParams: [3], ease: Bounce.easeOut},"+=1")
           .addPause()
           //EPISODE 7
           .staggerTo($("#page5").children(),0.6, animationToPattern, staggerToVelocity)
           .add("RR2")
-          .to(".resumeVideoBox", 0.2, {opacity: '0', scale: '0', onComplete: stopResumeVideo, onReverseComplete: playResumeVideo, onReverseCompleteParams: [38.5,89,55, true], ease: Power4.easeOut},"-=0.2")
-          .to("#page5",0.4,{ right: '100%', ease: Back.easeInOut.config(1)})
+          .to(".resumeVideoBox", 0.2, { opacity: '0', scale: '0', onComplete: stopResumeVideo, onReverseComplete: playResumeVideo, onReverseCompleteParams: [38.5,89,55, true], ease: Power4.easeOut},"-=0.2")
+          .to("#page5",0.4,{ onStart: updateTitle, onStartParams: [5], right: '100%', ease: Back.easeInOut.config(1)})
           .to("#page6",0.4,{ right: '0%', ease: Back.easeInOut.config(1)},"-=0.4")
-          .call(updateTitle,[5])
           //.to(".blurEffect3",0.2,{ filter: 'blur(0px)',webkitFilter: 'blur(0px)', ease: Power0.easeNone},"+=1")
           .to(".ny5", 0.5, {scale: '5', right: '200%', ease: Power4.easeIn})
           .to(".ny6", 0.5, {scale: '5', right: '200%', ease: Power4.easeIn},"-=0.2")
@@ -200,28 +196,27 @@ angular.module('smcApp')
           .to(".ber1", 0.3, {transform: 'rotateY(0deg)', ease: Back.easeOut.config(1)})
           //.to(".blurEffect4",0.2,{ filter: 'blur(8px)',webkitFilter: 'blur(8px)', ease: Power0.easeNone},"+=1")
           .staggerFrom($("#page6").children(),0.6, animationFromPattern, staggerFromVelocity)
-          .to(".cita14",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1")
+          .to(".cita14",1,{ transform: 'rotateX(0deg)', onReverseComplete: updateTitle, onReverseCompleteParams: [4], ease: Bounce.easeOut},"+=1")
           .addPause()
           //EPISODE 8
           .staggerTo($("#page6").children(),0.6, animationToPattern, staggerToVelocity)
           .add("RR3")
           .to("#page6",0.4,{ right: '100%', ease: Back.easeInOut.config(1)})
           .to("#page7",0.2,{ right: '0%', onComplete: playSound, onCompleteParams: [playListOrder[2]], onReverseComplete: playSound, onReverseCompleteParams: [playListOrder[1]], ease: Back.easeInOut.config(1)},"-=0.4")
-          .call(updateTitle,[6])
           .to(".ber1", 0.3, {transform: 'rotateY(165deg)', ease: Back.easeOut.config(1)})
-          .to(".holly2", 0.5, {transform: 'rotateX(0deg)', ease: Back.easeOut.config(1)})
+          .to(".holly2", 0.5, {onStart: updateTitle, onStartParams: [6],transform: 'rotateX(0deg)', ease: Back.easeOut.config(1)})
           .to(".holly1", 0.5, {transform: 'rotateX(0deg)', ease: Back.easeOut.config(1)},"-=0.2")
           .to(".holly3", 0.5, {transform: 'rotateX(0deg)', ease: Back.easeOut.config(1)},"-=0.2")
           .to(".holly4", 0.5, {transform: 'rotateX(0deg)', ease: Back.easeOut.config(1)},"-=0.2")
           .to(".holly7", 0.5, {top: '0%', ease: Bounce.easeOut},"-=0.2")
           .to(".holly6", 2, {top: '0%', onComplete: playOnlyAudio, onCompleteParams: ['mnX-eWJktbg'], ease: Power4.easeOut})
           .staggerFrom($("#page7").children(),0.6, animationFromPattern, staggerFromVelocity)
-          .to(".holly5", 2, {opacity: '1', ease: Power4.easeOut})
+          .to(".holly5", 2, {opacity: '1', onReverseComplete: updateTitle, onReverseCompleteParams: [5], ease: Power4.easeOut})
           .addPause()
           //EPISODE 9
           .staggerTo($("#page7").children(),0.6, animationToPattern, staggerToVelocity)
           .to("#page7",0.4,{ onStart: controlSound, right: '100%', onReverseComplete: playOnlyAudio, onReverseCompleteParams: ['mnX-eWJktbg'], ease: Back.easeInOut.config(1)})
-          .to(".holly2", 0.5, {transform: 'rotateX(165deg)', ease: Back.easeOut.config(1)},"-=0.5")
+          .to(".holly2", 0.5, { transform: 'rotateX(165deg)', ease: Back.easeOut.config(1)},"-=0.5")
           .to(".holly1", 0.5, {transform: 'rotateX(165deg)', ease: Back.easeOut.config(1)},"-=0.3")
           .to(".holly3", 0.5, {transform: 'rotateX(165deg)', ease: Back.easeOut.config(1)},"-=0.3")
           .to(".holly4", 0.5, {transform: 'rotateX(165deg)', ease: Back.easeOut.config(1)},"-=0.3")
@@ -229,8 +224,7 @@ angular.module('smcApp')
           .to(".holly6", 0.5, {top: '-150%', ease: Power4.easeOut},"carmenCastillo")
           .to(".holly5", 1, {opacity: '0', onComplete: playSound, onCompleteParams: [playListOrder[3]], onReverseComplete: playSound, onReverseCompleteParams: [playListOrder[2]], ease: Power4.easeOut})
           .add("CC1")
-          .to(".age2",0.3,{ transform: 'rotateX(90deg)', ease: Bounce.easeOut})
-          .call(updateTitle,[7])
+          .to(".age2",0.3,{ onStart: updateTitle, onStartParams: [7], transform: 'rotateX(90deg)', ease: Bounce.easeOut})
           .to(".carn2", 4, { opacity: '1', ease: RoughEase.ease.config({ template: Power0.easeNone, strength: 2, points: 20, taper: "none", randomize: true, clamp: false})})
           .to(".carn1", 2, {opacity: '1', ease: Back.easeOut.config(1)},"-=2")
           .to(".carn1", 2, {top: '-50%', ease: Power4.easeOut})
@@ -240,34 +234,31 @@ angular.module('smcApp')
           .to(".carn5", 2, {top: '-50%', ease: Power4.easeOut},"-=2")
           .to(".carn6", 2, {top: '-50%', ease: Power4.easeOut},"-=2")
           .to(".cita100",1,{ scale:'1',transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=0.5")
-          .to(".mouseIcon", 0.5, {bottom: '150px', ease: Bounce.easeOut})
+          .to(".mouseIcon", 0.5, {bottom: '150px', onReverseComplete: updateTitle, onReverseCompleteParams: [6], ease: Bounce.easeOut})
           .addPause()
           .to(".mouseIcon", 0.5, {bottom: '-150px', ease: Bounce.easeOut})
           .to(".cita100",1,{ scale:'0',transform: 'rotateX(90deg)', ease: Bounce.easeOut},"+=0.5")
           .add("CC2")
-          .call(updateTitle,[8])
-          .to(".resumeVideoBox", 1, {onStart: playResumeVideo, onStartParams:[101,108,108,false], scale: '1',opacity: '1', onReverseComplete: stopResumeVideo, ease: Power4.easeIn})
+          .to(".resumeVideoBox", 1, { onStart: playResumeVideo, onStartParams:[101,108,108,false], scale: '1',opacity: '1', onReverseComplete: stopResumeVideo, ease: Power4.easeIn})
           .addPause()
-          .to(".resumeVideoBox", 1, {scale: '0',opacity: '0', onComplete: stopResumeVideo, onReverseComplete: playResumeVideo, onReverseCompleteParams:[101,131,131,false], ease: Power4.easeOut})
-          .to("#page8",0.4,{ right: '0%', ease: Back.easeInOut.config(1)},"-=0.4")
+          .to(".resumeVideoBox", 1, { onStart: updateTitle, onStartParams: [8],scale: '0',opacity: '0', onComplete: stopResumeVideo, onReverseComplete: playResumeVideo, onReverseCompleteParams:[101,131,131,false], ease: Power4.easeOut})
+          .to("#page8",0.4,{ right: '0%', onReverseComplete: updateTitle, onReverseCompleteParams: [7], ease: Back.easeInOut.config(1)},"-=0.4")
           .staggerFrom($("#page8").children(),0.6, animationFromPattern, staggerFromVelocity)
           .addPause()
           //EPISODE 10
           .staggerTo($("#page8").children(),0.6, animationToPattern, staggerToVelocity)
           .add("CC3")
-          .call(updateTitle,[9])
-          .to("#page8",0.4,{ right: '100%', ease: Back.easeInOut.config(1)})
+          .to("#page8",0.4,{ onStart: updateTitle, onStartParams: [9], right: '100%', ease: Back.easeInOut.config(1)})
           .to("#page9",0.4,{ right: '0%', ease: Back.easeInOut.config(1)},"-=0.4")
           .staggerFrom($("#page9").children(),0.6, animationFromPattern, staggerFromVelocity)
-          .to(".cita91",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1")
+          .to(".cita91",1,{ transform: 'rotateX(0deg)', onReverseComplete: updateTitle, onReverseCompleteParams: [8], ease: Bounce.easeOut},"+=1")
           .addPause()
           //EPISODE 11
           .staggerTo($("#page9").children(),0.6, animationToPattern, staggerToVelocity)
           .add("CC4")
-          .call(updateTitle,[10])
-          .to("#page9",0.4,{ right: '100%', ease: Back.easeInOut.config(1)})
+          .to("#page9",0.4,{ onStart: updateTitle, onStartParams: [10], right: '100%', ease: Back.easeInOut.config(1)})
           .to("#page10",0.4,{ right: '0%', ease: Back.easeInOut.config(1)},"-=0.4")
-          .to(".age3",0.3,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut})
+          .to(".age3",0.3,{ transform: 'rotateX(0deg)', onReverseComplete: updateTitle, onReverseCompleteParams: [9], ease: Bounce.easeOut})
           .staggerFrom($("#page10").children(),0.6, animationFromPattern, staggerFromVelocity)
           .addPause()
           //EPISODE 12
@@ -275,34 +266,31 @@ angular.module('smcApp')
           .to(".blurEffect5", 2, { opacity: '0', ease: Back.easeOut.config(1)},"+=2")
           .to("#page10",0.4,{ right: '100%', ease: Power0.easeNone})
           .add("LA1")
-          .call(updateTitle,[11])
           .to(".resumeVideoBox", 0.1, {onStart: playResumeVideo, onStartParams:[132,189,189,false], scale: '1', opacity: '1', onReverseComplete: stopResumeVideo, ease: Power4.easeIn})
           .addPause()
           .to(".resumeVideoBox", 1, {scale: '0', opacity: '0', onComplete: stopResumeVideo, onReverseComplete: playResumeVideo, onReverseCompleteParams:[132,189,189,false], ease: Power4.easeOut})
-          .to(".chi4", 0.3, {  onStart: playSound, onStartParams: [playListOrder[4]],opacity: '1', onReverseComplete: playSound, onReverseCompleteParams: [playListOrder[3]], ease: Bounce.easeOut },"-=0.2")
-          .to(".chi2", 1, { opacity: '1', ease: Power4.easeOut })
+          .to(".chi4", 0.3, {  onStart: playSound, onStartParams: [playListOrder[4]], opacity: '1', onReverseComplete: playSound, onReverseCompleteParams: [playListOrder[3]], ease: Bounce.easeOut },"-=0.2")
+          .to(".chi2", 1, { onStart: updateTitle, onStartParams: [11], opacity: '1', ease: Power4.easeOut })
           .to(".chi1", 4, { opacity: '1', ease: Power0.easeNone },"+=1")
           .to(".chi5", 1, { left: '0', ease: Power4.easeOut })
-          .to(".chi6", 1, { left: '0', ease: Power4.easeOut })
+          .to(".chi6", 1, { left: '0', onReverseComplete: updateTitle, onReverseCompleteParams: [10], ease: Power4.easeOut })
           .to("#page11",0.4,{ right: '0%', onReverseComplete: playSound, onReverseCompleteParams: [playListOrder[4]], ease: Power0.easeNone},"-=0.4")
           .staggerFrom($("#page11").children(),0.6, animationFromPattern, staggerFromVelocity)
           .addPause()
           //EPISODE 13
           .add("LA2")
-          .to("#page11",0.4,{ right: '100%', onComplete: playSound, onCompleteParams: [playListOrder[5]], ease: Back.easeIn})
+          .to("#page11",0.4,{ onStart: updateTitle, onStartParams: [12],right: '100%', onComplete: playSound, onCompleteParams: [playListOrder[5]], ease: Back.easeIn})
           //.staggerTo($("#page11").children(),0.6, animationToPattern, staggerToVelocity)
           .to("#page12",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
           .to(".blurEffect7",0.2,{ filter: 'blur(8px)',webkitFilter: 'blur(8px)', ease: Power0.easeNone},"+=1")
-          .call(updateTitle,[12])
           .staggerFrom($("#page12").children(),0.6, animationFromPattern, staggerFromVelocity)
           .to(".cita42",1,{ transform: 'rotateX(0deg)', onReverseComplete: playSound, onReverseCompleteParams: [playListOrder[5]], ease: Bounce.easeOut},"+=1")
           .addPause()
           //EPISODE 14
           .add("LA3")
-          .to("#page12",0.4,{ right: '100%', onComplete: playSound, onCompleteParams: [playListOrder[6]], ease: Power0.easeNone})
+          .to("#page12",0.4,{ onStart: updateTitle, onStartParams: [13],right: '100%', onComplete: playSound, onCompleteParams: [playListOrder[6]], ease: Power0.easeNone})
           .staggerTo($("#page12").children(),0.6, animationToPattern, staggerToVelocity)
-          .to("#page13",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
-          .call(updateTitle,[13])
+          .to("#page13",0.4,{ right: '0%', onComplete: updateTitle, onCompleteParams: [13], onReverseComplete: updateTitle, onReverseCompleteParams: [12], ease: Power0.easeNone},"-=0.4")
           .staggerFrom($("#page13").children(),0.6, animationFromPattern, staggerFromVelocity)
           .addPause()
           //EPISODE 15
@@ -315,12 +303,11 @@ angular.module('smcApp')
           .to(".chi1", 0.3, {opacity: '0', ease: Back.easeOut.config(1)},"-=0.2")
           .to("#page13",0.4,{ right: '100%', ease: Power0.easeNone})
           .add("AL1")
-          .call(updateTitle,[14])
           .to(".resumeVideoBox", 1, {onStart: playResumeVideo, onStartParams:[189,266,266,false], scale: '1',opacity: '1', onReverseComplete: stopResumeVideo, ease: Power4.easeIn})
           .addPause()
-          .to(".resumeVideoBox", 1, { scale: '0', opacity: '0', onComplete: stopResumeVideo, onReverseComplete: playResumeVideo, onReverseCompleteParams:[189,266,266,false], ease:  Power4.easeOut})
+          .to(".resumeVideoBox", 1, { onStart: updateTitle, onStartParams: [14], scale: '0', opacity: '0', onComplete: stopResumeVideo, onReverseComplete: playResumeVideo, onReverseCompleteParams:[189,266,266,false], ease:  Power4.easeOut})
           .to("#page14",0.4,{ right: '0%', onComplete: playSound, onCompleteParams: [playListOrder[7]], onReverseComplete: playSound, onReverseCompleteParams: [playListOrder[6]], ease: Power0.easeNone},"-=0.4")
-          .to(".lasv1", 0.3, {opacity: '1', ease: Back.easeOut.config(1)})
+          .to(".lasv1", 0.3, {opacity: '1', onReverseComplete: updateTitle, onReverseCompleteParams: [13], ease: Back.easeOut.config(1)})
           .to(".lasv2", 0.3, {top:'0%', ease: Bounce.easeOut})
           .to(".lasv3", 0.3, {top:'0%', ease: Bounce.easeOut})
           .to(".lasv10", 0.3, {top:'0%', ease: Bounce.easeOut})
@@ -336,19 +323,17 @@ angular.module('smcApp')
           //EPISODE 16
           .staggerTo($("#page14").children(),0.6, animationToPattern, staggerToVelocity)
           .add("Al2")
-          .to("#page14",0.4,{ right: '100%', onComplete: playSound, onCompleteParams: [playListOrder[8]], ease: Power0.easeNone})
+          .to("#page14",0.4,{ onStart: updateTitle, onStartParams: [15], right: '100%', onComplete: playSound, onCompleteParams: [playListOrder[8]], ease: Power0.easeNone})
           .to("#page15",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
-          .to(".blurEffect8",0.2,{ filter: 'blur(8px)',webkitFilter: 'blur(8px)', ease: Power0.easeNone},"+=1")
-          .call(updateTitle,[15])
+          .to(".blurEffect8",0.2,{ filter: 'blur(8px)', onReverseComplete: updateTitle, onReverseCompleteParams: [14], webkitFilter: 'blur(8px)', ease: Power0.easeNone},"+=1")
           .staggerFrom($("#page15").children(),0.6, animationFromPattern, staggerFromVelocity)
           .to(".cita53",1,{ transform: 'rotateX(0deg)', onReverseComplete: playSound, onReverseCompleteParams: [playListOrder[8]], ease: Bounce.easeOut},"+=1")
           .addPause()
           //EPISODE 17
           .staggerTo($("#page15").children(),0.6, animationToPattern, staggerToVelocity)
           .add("AL3")
-          .to("#page15",0.4,{ right: '100%', onComplete: playSound, onCompleteParams: [playListOrder[9]], ease: Power0.easeNone})
-          .call(updateTitle,[16])
-          .to("#page16",0.4,{ right: '0%', ease: Power0.easeNone})
+          .to("#page15",0.4,{ onStart: updateTitle, onStartParams: [16], right: '100%', onComplete: playSound, onCompleteParams: [playListOrder[9]], ease: Power0.easeNone})
+          .to("#page16",0.4,{ right: '0%', onReverseComplete: updateTitle, onReverseCompleteParams: [15], ease: Power0.easeNone})
           .staggerFrom($("#page16").children(),0.6, animationFromPattern, staggerFromVelocity)
           .to(".cita56",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1")
           .addPause()
@@ -357,23 +342,21 @@ angular.module('smcApp')
           .to("#page16",0.4,{ right: '100%', ease: Power0.easeNone})
           .to("#page17",0.4,{ right: '0%', ease: Power0.easeNone})
           .add("CB1")
-          .call(updateTitle,[17])
           .to(".resumeVideoBox", 1, {onStart: playResumeVideo, onStartParams:[266.5,321.5,321.5,false], scale: '1',opacity: '1', onReverseComplete: stopResumeVideo, ease: Power4.easeIn})
           .addPause()
-          .to(".resumeVideoBox", 1, {scale: '0',opacity: '0', onComplete: stopResumeVideo, onReverseComplete: playResumeVideo, onReverseCompleteParams:[266.5,321.5,321.5,false], ease: Power4.easeOut})
+          .to(".resumeVideoBox", 1, { onStart: updateTitle, onStartParams: [17], scale: '0',opacity: '0', onComplete: stopResumeVideo, onReverseComplete: playResumeVideo, onReverseCompleteParams:[266.5,321.5,321.5,false], ease: Power4.easeOut})
           .staggerFrom($("#page17").children(),0.6, animationFromPattern, staggerFromVelocity)
+          .to(".cita60",0.01,{ transform: 'rotateX(0deg)', onReverseComplete: updateTitle, onReverseCompleteParams: [16], ease: Bounce.easeOut})
           .to(".cita60",1,{ transform: 'rotateX(0deg)', onReverseComplete: stopResumeVideo, ease: Bounce.easeOut},"+=1")
           .addPause()
           //EPISODE 19
           .staggerTo($("#page17").children(),0.6, animationToPattern, staggerToVelocity)
-          .to("#page17",0.4,{ right: '100%', ease: Power0.easeNone})
-          .to("#page18",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
+          .to("#page17",0.4,{ onStart: updateTitle, onStartParams: [18], right: '100%', ease: Power0.easeNone})
+          .to("#page18",0.4,{ right: '0%', onReverseComplete: updateTitle, onReverseCompleteParams: [17], ease: Power0.easeNone},"-=0.4")
           .add("CB2")
-          .call(updateTitle,[18])
           .staggerFrom($("#page18").children(),0.6, animationFromPattern, staggerFromVelocity)
           .to(".cita61",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1")
           //.to(".resumeVideoBox", 0.5, {onStart: playResumeVideo, onStartParams: [298,320,320], opacity: '0',scale: '0', ease: Power4.easeOut})
-          .call(updateTitle,[19])
           .addPause()
           //EPISODE 20
           .staggerTo($("#page18").children(),0.6, animationToPattern, staggerToVelocity)
@@ -389,9 +372,8 @@ angular.module('smcApp')
           .to(".lasv2", 0.3, {top:'-150%', ease: Bounce.easeOut})
           .to(".lasv1", 0.3, {opacity: '0', ease: Back.easeOut.config(1)})
           .add("EP1")
-          .to(".age3",0.3,{ transform: 'rotateX(90deg)', onComplete: playSound, onCompleteParams: [playListOrder[10]], onReverseComplete: playSound, onReverseCompleteParams: [playListOrder[9]], ease: Bounce.easeOut})
-          .call(updateTitle,[20])
-          .to(".barc1", 3, {opacity: '1', ease: Power4.easeIn})
+          .to(".age3",0.3,{ onStart: updateTitle, onStartParams: [19], transform: 'rotateX(90deg)', onComplete: playSound, onCompleteParams: [playListOrder[10]], onReverseComplete: playSound, onReverseCompleteParams: [playListOrder[9]], ease: Bounce.easeOut})
+          .to(".barc1", 3, { opacity: '1', onReverseComplete: updateTitle, onReverseCompleteParams: [18], ease: Power4.easeIn})
           .to(".barc4", 0.3, {transform: 'scale(1)', ease: Power2.easeIn})
           .to(".barc5", 0.3, {transform: 'scale(1)', ease: Power2.easeIn})
           .to(".barc6", 0.3, {transform: 'scale(1)', ease: Power2.easeIn})
@@ -405,7 +387,6 @@ angular.module('smcApp')
           .to(".age4",0.3,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"-=0.3")
           .to("#page18",0.4,{ right: '100%', ease: Power0.easeNone})
           .to("#page19",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
-          .call(updateTitle,[21])
           .staggerFrom($("#page19").children(),0.6, animationFromPattern, staggerFromVelocity)
           .to(".cita62",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1")
           .addPause()
@@ -415,11 +396,11 @@ angular.module('smcApp')
           .to("#page20",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
           .add("EP2")
           .staggerFrom($("#page20").children(),0.6, animationFromPattern, staggerFromVelocity)
-          .to(".textoFin",3,{ transform: 'scale(1)', opacity: '1', ease: Power4.easeOut},"+=2")
+          .to(".textoFin",3,{ onStart: updateTitle, onStartParams: [20], transform: 'scale(1)', opacity: '1', onReverseComplete: updateTitle, onReverseCompleteParams: [19], ease: Power4.easeOut},"+=2")
           .to(".textoFin",3,{ top: '0', ease: Power4.easeOut},"+=2")
           .to(".ep15",3,{ opacity: '1', ease: Power4.easeOut},"-=3")
           .to(".blurEffect9",6,{ onStart:function(){soundEpilogo.fade(1,0,6000)},opacity: '0', ease: Power4.easeOut},"-=6")
-          .to(".age4",3,{onReverseComplete: function(){soundEpilogo.fade(0,1,3000)},opacity: '0', ease: Power4.easeOut},"-=6")
+          .to(".age4",3,{ onReverseComplete: function(){soundEpilogo.fade(0,1,3000)}, opacity: '0', ease: Power4.easeOut},"-=6")
           .addPause();
 
        tl.play();
@@ -428,33 +409,18 @@ angular.module('smcApp')
 
       //-------------------------------------
       //-------FUNCTIONS --------------------
-        $scope.upTo = function(value, music) {
+        $scope.upTo = function(value, music, notes) {
           //updateTitle(index);
+          closeVideo();
           controlSound();
+          updateTitle(notes);
           if(music) { playSound(playListOrder[music]); }
-          else { if(soundEpilogo)soundEpilogo.stop(); updateTitle(music); }
+          else { if(soundEpilogo)soundEpilogo.stop(); }
           stopNinoAnimation();
           if(value=='inicio') { playerIntro.play(); }
-          if(value=='prologo1') { updateTitle(0); }
           else { playerIntro.pause(); }
           tl.play(value);
           if ($("div.overlay").hasClass("open")) $("#trigger-overlay").click();
-        };
-        $scope.openVideo = function(value, origin){
-            player.src({ type: 'video/youtube', src: 'https://www.youtube.com/watch?v='+value });
-            playVideo();
-            TweenMax.to(".fullScreenVideo", 1, {css: {transform: 'scale(0.3) rotate(20deg)'}, delay:0.5, ease: Expo.easeOut});
-            TweenMax.to(".fullScreenVideo", 1, {css: {transform: 'scale(1) rotate(0deg)', top: 0, left: 0}, delay:1.5, ease: Expo.easeOut});
-            fullScreenVideoStatus = true;
-        };
-        $scope.closeVideo = function(){
-          var player = videojs('fullScreeVideoEnter');
-          if(fullScreenVideoStatus){
-              TweenMax.to(".fullScreenVideo", 1, {css: {transform: 'scale(0.3) rotate(0deg)'}, ease: Expo.easeOut});
-              TweenMax.to(".fullScreenVideo", 1, {css: {transform: 'scale(0) rotate(30deg)'}, delay:1, onComplete: player.pause(), ease: Expo.easeOut});
-              fullScreenVideoStatus = false;
-            }
-            setTimeout(function(){ player.pause(); if(soundEpilogo && soundEpilogo.volume() != 1 && boolsound == 1){ console.log(soundEpilogo.volume()); soundEpilogo.fade(0,1,2000); }}, 1000);
         };
 
         $scope.prevFoto = function(id,value){
@@ -504,9 +470,11 @@ angular.module('smcApp')
         });
         //------ TITLE ----------
 
-        function updateTitle(index){
-         if(index){
+        function updateTitle(index,leteer){
+          console.log('llama a update: ', index,leteer);
+         if(index!='intro'){
            var notes = $(".pentagramNotes");
+           console.log('notes: ', notes[0]);
            notes.removeClass("activeNote");
            notes.removeClass("currentNote");
            for (var i = 0; i <= index; i++) {
@@ -520,32 +488,21 @@ angular.module('smcApp')
           else $(".currentDetails h4").html('');
         }
 
-    //-----------------------
+        //-----------------------
+        //------ vIDEO & AUDIO -------------------------
 
+        $scope.openVideo = function(value, origin){
+            openVideo(value, origin);
+          }
+        $scope.closeVideo = function(){
+            closeVideo();
+          }
         function playOnlyAudio(id){
-            if(soundEpilogo && soundEpilogo.volume() != 0){ soundEpilogo.fade(1,0,2000); }
             player.src({ type: 'video/youtube', src: 'https://www.youtube.com/watch?v='+id });
             playTimelineBefore = false;
             playVideo();
           }
-        function playVideo(){
-            if(soundEpilogo && soundEpilogo.volume() > 0){ console.log(soundEpilogo.volume()); soundEpilogo.fade(1,0,2000); }
-            controlSound()
-            player.play();
-            player.on("ended", function(){
-              if(playTimelineBefore){
-                  console.log('porque entra?? ', playTimelineBefore);
-                  closeVideo();
-                  tl.play();
-                }
-              if(soundEpilogo && soundEpilogo.volume() < 1) soundEpilogo.fade(0,1,2000);
-            })
-          };
-        function stopVideo(){
-          player.pause();
-        }
-        function openVideo(value, ct){
-          if(ct!=undefined) playTimelineBefore= true;
+        function openVideo(value, origin){
           player.src({ type: 'video/youtube', src: 'https://www.youtube.com/watch?v='+value });
           playVideo();
           TweenMax.to(".fullScreenVideo", 1, {css: {transform: 'scale(0.3) rotate(20deg)'}, delay:0.5, ease: Expo.easeOut});
@@ -559,27 +516,37 @@ angular.module('smcApp')
             TweenMax.to(".fullScreenVideo", 1, {css: {transform: 'scale(0) rotate(30deg)'}, delay:1, onComplete: player.pause(), ease: Expo.easeOut});
             fullScreenVideoStatus = false;
           }
-          setTimeout(function(){ player.pause(); if(soundEpilogo && soundEpilogo.volume() != 1 ){ console.log(soundEpilogo.volume()); soundEpilogo.fade(0,1,2000); }}, 1000);
+          setTimeout(function(){ player.pause(); if(soundEpilogo && soundEpilogo.volume() < 1 && boolsound == 1){ soundEpilogo.fade(0,1,2000); }}, 1000);
         };
-        function playIntroVideo(){
-            if(soundEpilogo && soundEpilogo.volume() > 0){ console.log(soundEpilogo.volume()); soundEpilogo.fade(1,0,2000); }
+        function playVideo(){
+            if(soundEpilogo && soundEpilogo.volume() > 0){ soundEpilogo.fade(1,0,2000); }
             controlSound()
+            player.play();
+          console.log('estado del video: ', player.paused());
+            player.on("ended", function(){
+              if(playTimelineBefore){
+                  tl.play();
+                }
+              if(soundEpilogo && soundEpilogo.volume() < 1){ soundEpilogo.fade(0,1,2000); }
+            })
+          };
+        function stopVideo(){
+          player.pause();
+        }
+        function playIntroVideo(){
+            if(soundEpilogo && soundEpilogo.volume() > 0){ soundEpilogo.fade(1,0,2000); }
+            controlSound();
             playerIntro.play();
           };
 
         function stopIntroVideo(){
-            if(soundEpilogo && soundEpilogo.volume() < 1){ console.log(soundEpilogo.volume()); soundEpilogo.fade(0,1,2000); }
+            if(soundEpilogo && soundEpilogo.volume() < 1 && boolsound == 1){ soundEpilogo.fade(0,1,2000); }
             playerIntro.currentTime(0);
             playerIntro.pause();
           };
 
         function playResumeVideo(timer, duration, breakpoint, continueBeforeStop){
-            console.log(soundEpilogo);
-            if(soundEpilogo){
-                if(soundEpilogo.volume() > 0) {
-                  soundEpilogo.fade(1, 0, 2000);
-                }
-             }
+            resumeVideoOn = true;
             controlSound();
             $(".resumeVideoBox").show();
             resume.currentTime(timer);
@@ -590,18 +557,22 @@ angular.module('smcApp')
               if (!resume.breakpoint && (resume.currentTime() >= breakpoint) ){
                 console.log("Current time (breakpoint): "+resume.currentTime());
                 resume.breakpoint = true;
+                resumeVideoOn = false;
                 if(!continueBeforeStop) tl.play();
               }
               if (resume.currentTime() >= duration) {
                 console.log("Current time (end): "+resume.currentTime())
                 resume.pause()
+                resumeVideoOn = false;
                 if(!continueBeforeStop) tl.play();
-                if(soundEpilogo && soundEpilogo.volume() < 1)soundEpilogo.fade(0,1,2000);
+                if(soundEpilogo && soundEpilogo.volume() < 1 && boolsound == 1)soundEpilogo.fade(0,1,2000);
               }
             })
+            if(soundEpilogo && soundEpilogo.volume() > 0 ) soundEpilogo.fade(1,0,2000);
           };
 
         function stopResumeVideo(){
+            resumeVideoOn = false;
             if(soundEpilogo){ if(soundEpilogo.volume() < 1 && boolsound == 1) soundEpilogo.fade(0,1,2000); }
             resume.pause();
           }
@@ -627,7 +598,7 @@ angular.module('smcApp')
           }
 
         function playSound(url){
-          if(soundEpilogo && soundEpilogo.volume() > 0){ console.log(soundEpilogo.volume()); soundEpilogo.fade(1,0,3000); }
+          if(soundEpilogo){ if(soundEpilogo.volume() > 0) soundEpilogo.fade(1,0,2000); }
           setTimeout(function(){
             if(soundEpilogo) soundEpilogo.stop();
             soundEpilogo = new Howl({
@@ -637,10 +608,20 @@ angular.module('smcApp')
               onend: function() {
               }
             });
-            if(resume.paused() && boolsound == 1 && player.paused() ) soundEpilogo.fade(0,1,3000);
             soundEpilogo.play();
+            //if(soundEpilogo){ if(player.paused() && playerIntro.paused() && resume.paused() && soundEpilogo.volume() < 1 && boolsound == 1) { soundEpilogo.fade(0,1,2000); }}
+            if(soundEpilogo){ if(!resumeVideoOn && boolsound == 1) { soundEpilogo.fade(0,1,2000); }}
           }, 500)
         }
+        function toggleSound(){
+          boolsound = boolsound ? 0 : 1;
+          player.volume(boolsound);
+          playerIntro.volume(boolsound);
+          resume.volume(boolsound);
+          soundEpilogo.volume(boolsound);
+        }
+
+        //--------------------------------------------------------------------
 
         function ninoAnimation(){
           cugatNino
@@ -729,14 +710,6 @@ angular.module('smcApp')
             overlay.addClass( 'open' );
             container.addClass( 'overlay-open' );
           }
-        }
-
-        function toggleSound(){
-          boolsound = boolsound ? 0 : 1;
-          player.volume(boolsound);
-          playerIntro.volume(boolsound);
-          resume.volume(boolsound);
-          soundEpilogo.volume(boolsound);
         }
 
         triggerBttn.on( 'click', function(){toggleOverlay()} );
