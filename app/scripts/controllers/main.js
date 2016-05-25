@@ -534,7 +534,7 @@ angular.module('smcApp')
           }
         function playOnlyAudio(id){
             //player.src({ type: 'video/youtube', src: 'https://www.youtube.com/watch?v='+id });
-            player.src({ type: 'video/mp4', src: '..video/'+localVideo[id] });
+            player.src({ type: 'video/mp4', src: '/video/'+localVideo[id] });
             playTimelineBefore = false;
             playVideo();
           }
