@@ -35,6 +35,56 @@ body {
   //box-shadow: 0px 0px 3px 3px rgba(255, 216, 95, 0.7);
   z-index: 990;
 }
+.LanguajeSel {
+  position: absolute;
+  right: 6%;
+  bottom: 5%;
+  width: 60px;
+  height: 45px;
+  border: solid 3px rgba(255, 255, 255, 0.66);
+  color: white;
+  cursor: pointer;
+}
+.espana {
+  position: absolute;
+  right: 14%;
+  bottom: 5%;
+  width: 60px;
+  height: 60px;
+  border: solid 5px rgba(255, 255, 255, 0.78);
+  border-radius: 80px;
+  color: white;
+  cursor: pointer;
+  opacity: 0;
+  transform: scale(0);
+}
+.cataluna {
+  position: absolute;
+  right: 11%;
+  bottom: 15%;
+  width: 60px;
+  height: 60px;
+  border: solid 5px rgba(255, 255, 255, 0.78);
+  border-radius: 80px;
+  color: white;
+  cursor: pointer;
+  opacity: 0;
+  transform: scale(0);
+}
+.england {
+  position: absolute;
+  right: 5%;
+  bottom: 16%;
+  width: 60px;
+  height: 60px;
+  border: solid 5px rgba(255, 255, 255, 0.78);
+  border-radius: 80px;
+  color: white;
+  cursor: pointer;
+  opacity: 0;
+  transform: scale(0);
+}
+
 //-----ICONOS---------------
 
 .topMenu{
@@ -76,6 +126,10 @@ body {
   margin-left: -75px;
   z-index: 1000;
   background-color: rgba(0, 0, 0, 0.45);
+  background: -moz-radial-gradient(rgba(0,0,0,0.45) 0%, rgba(0,0,0,0) 70%); /* FF3.6-15 */
+  background: -webkit-radial-gradient(rgba(0,0,0,0.45) 0%, rgba(0,0,0,0) 70%); /* Chrome10-25,Safari5.1-6 */
+  background: radial-gradient(rgba(0,0,0,0.45) 0%, rgba(0,0,0,0) 70%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
   padding: 15px;
   box-sizing: content-box;
 }
@@ -201,6 +255,24 @@ body {
   opacity: 0.7;
   transform: rotateY(180deg);
   z-index: 999;
+}
+.arrowPrev1{
+  left: -6%;
+}
+.arrowNext1{
+  right: -20%;
+}
+.arrowPrev2 {
+  left: -20%;
+}
+.arrowNext2 {
+  right: -20%;
+}
+.arrowPrev3{
+  left: -6%;
+}
+.arrowNext3{
+  right: -20%;
 }
 .arrowPrev:hover, .arrowNext:hover{
   opacity: 1;
@@ -1618,30 +1690,6 @@ img.infoAdvice{
   right: 18%;
   top: 10%;
 }
-.arrowPrev3{
-  position: absolute;
-  top: 50%;
-  margin-top: -24px;
-  height: 64px;
-  left: -6%;
-  cursor: pointer;
-  opacity: 0.7;
-  z-index: 999;
-}
-.arrowNext3{
-  position: absolute;
-  top: 50%;
-  margin-top: -24px;
-  height: 64px;
-  right: -6%;
-  cursor: pointer;
-  opacity: 0.7;
-  transform: rotateY(180deg);
-  z-index: 999;
-}
-.arrowPrev3:hover, .arrowNext3:hover{
-  opacity: 1;
-}
 // FIN DIAPOSITIVA 9
 // DIAPOSITIVA 10
 .ContainercuaAEEUU{
@@ -1685,6 +1733,39 @@ img.infoAdvice{
 }
 //FIN DIAPOSITIVA 10
 // DIAPOSITIVA 12
+.cita4{
+  position: absolute;
+  //font-family: 'Dancing Script', cursive;
+  font-style: italic;
+  z-index: 997;
+  background-color: white;
+  color: #333333; /*#ffd85f;#FFE698;*/
+  font-size: 20px;
+  line-height: 1.2em;
+  padding: 2% 3%;
+  -webkit-transform: rotateX(90deg);
+  -moz-transform: rotateX(90deg);
+  -ms-transform: rotateX(90deg);
+  -o-transform: rotateX(90deg);
+  transform: rotateX(90deg);
+}
+.cita4:before {
+  content: "";
+  position: absolute;
+  bottom: 30px;
+  left: -4%;
+  /* width: 36px; */
+  border-top: 35px solid transparent;
+  border-bottom: 4px solid transparent;
+  border-right: 50px solid white;
+  z-index:-10;
+}
+.cita41{
+  bottom: 30%;
+  width: 35%;
+  right: 50%;
+  border-radius: 40px;
+}
 .chi1{
   position: absolute;
   top:0;
@@ -1733,14 +1814,14 @@ img.infoAdvice{
 }
 .la1{
   position: absolute;
-  height: 40%;
-  bottom:35%;
+  height: 35%;
+  bottom: 50%;
   right: 60%;
 }
 .la2{
   position: absolute;
-  height: 60%;
-  top:25%;
+  width: 40%;
+  top: 15%;
   right: 10%;
   cursor: pointer;
 }
@@ -1778,33 +1859,6 @@ img.infoAdvice{
   bottom: 15%;
   width: 35%;
 }
-.cita4{
-  position: absolute;
-  //font-family: 'Dancing Script', cursive;
-  font-style: italic;
-  z-index: 997;
-  background-color: white;
-  color: #333333; /*#ffd85f;#FFE698;*/
-  font-size: 20px;
-  line-height: 1.2em;
-  padding: 2% 3%;
-  -webkit-transform: rotateX(90deg);
-  -moz-transform: rotateX(90deg);
-  -ms-transform: rotateX(90deg);
-  -o-transform: rotateX(90deg);
-  transform: rotateX(90deg);
-}
-.cita4:before {
-  content: "";
-  position: absolute;
-  bottom: 30px;
-  left: -4%;
-  /* width: 36px; */
-  border-top: 35px solid transparent;
-  border-bottom: 4px solid transparent;
-  border-right: 50px solid white;
-  z-index:-10;
-}
 .cita42{
   bottom: 30%;
   width: 35%;
@@ -1827,17 +1881,21 @@ img.infoAdvice{
   position: absolute;
   height: 140%;
   top: -5%;
-  left: -5%;
+  left: 15%;
+}
+.la10{
+  position: absolute;
+  height: 140%;
+  top: -15%;
+  left: -15%;
 }
 .la21Video{
   position: absolute;
   top: 20%;
-  right: 60%;
-  margin:auto;
-  z-index: 991;
-  width: 25%;
-  height: 25%;
-  border: solid 5px rgb(255, 255, 255);
+  left: -2%;
+  width: 90%;
+  height: 90%;
+  border: solid 5px white;
   cursor: pointer;
   background-image: url('http://img.youtube.com/vi/APqdZiVo3hs/hqdefault.jpg')
 }
@@ -1875,23 +1933,23 @@ img.infoAdvice{
 }
 .la6{
   position: absolute;
-  height: 55%;
+  height: 40%;
   right: 65%;
   top: 15%;
   cursor: pointer;
 }
 .la7{
   position: absolute;
-  height: 65%;
-  right: 10%;
-  top: 10%;
+  height: 40%;
+  right: 15%;
+  top: 15%;
   cursor: pointer;
  }
 .la9{
   position: absolute;
   height: 40%;
   right: 40%;
-  top: 20%;
+  top: 15%;
 }
 .la31Video{
   position: absolute;
@@ -2041,11 +2099,10 @@ img.infoAdvice{
 .teLoDijoAdela{
   position: absolute;
   top: 20%;
-  right: 55%;
-  margin:auto;
-  z-index: 991;
-  width: 25%;
-  height: 25%;
+  left: 10%;
+  margin: auto;
+  width: 80%;
+  height: 80%;
   border: solid 5px rgb(255, 255, 255);
   cursor: pointer;
 }
@@ -2118,26 +2175,12 @@ img.infoAdvice{
   top: -20%;
   cursor: pointer;
 }
-.arrowPrev2 {
+.al28{
   position: absolute;
-  top: 50%;
-  margin-top: -24px;
-  height: 64px;
-  left: -20%;
+  height: 170%;
+  left: -5%;
+  top: -20%;
   cursor: pointer;
-  opacity: 0.7;
-  z-index: 999;
-}
-.arrowNext2 {
-  position: absolute;
-  top: 50%;
-  margin-top: -24px;
-  height: 64px;
-  right: -20%;
-  cursor: pointer;
-  opacity: 0.7;
-  transform: rotateY(180deg);
-  z-index: 999;
 }
 .citaAddonAl{
   position: absolute;
@@ -2184,7 +2227,6 @@ img.infoAdvice{
   height: 114%;
   left: -7%;
   top: 10%;
-  cursor: pointer;
 }
 .al33{
   position: absolute;
@@ -2198,7 +2240,6 @@ img.infoAdvice{
   height: 170%;
   left: 0%;
   top: -15%;
-  cursor: pointer;
 }
 .al35{
   position: absolute;
@@ -2275,7 +2316,7 @@ img.infoAdvice{
   position: absolute;
   width: 35%;
   right: 5%;
-  bottom: 20%;
+  top: 15%;
 }
 .cb12{
   position: absolute;
@@ -2297,9 +2338,9 @@ img.infoAdvice{
 }
 .cb15{
   position: absolute;
-  width: 30%;
-  left: 20%;
-  top: 20%;
+  height: 35%;
+  left: 15%;
+  top: 15%;
 }
 .texto61{
   top: 30%;
@@ -2568,7 +2609,7 @@ img.infoAdvice{
   .textoFin{font-size: 35px;}
   .CitaAddonProl1{ font-size: 13px; }
   .cita1, .cita2, .cita3, .cita4, .cita5, .cita6 {
-    font-size: 20px;
+    font-size: 15px;
     line-height: 1.2em;
   }
   .texto11{font-size: 31px;}

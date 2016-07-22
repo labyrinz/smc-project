@@ -21,6 +21,7 @@ angular.module('smcApp')
     var boolsound = 1;
     var playTimelineBefore = true;
     var resumeVideoOn = false;
+    var languajeOpen = false;
 
     var playListOrder = ['BeginTheBeguine','ElManisero','TICOTICO','Siboney','MyShawl','JungleRhumba','perfidia','QuizasQuizasQuizas','ParaVigomevoy','YoTeAmoMucho','Tabu']
     var introLetters = $("#quote h2").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"introLetters"});
@@ -31,63 +32,20 @@ angular.module('smcApp')
     var introWordsSubtitle = $(".introLettersSubtitle");
     var introWordsName = $(".introLettersName");
 
-    var localVideo = [];
+    $scope.CatText = CatTextCT;
+    $scope.photoText = photoTextCT;
+    $scope.tooltipText = tooltipTextCT;
 
-    localVideo["q36eiNYFApg"] = "RESUMEN CUGAT v2.mp4";
-    localVideo["QvuPDyEEYAw"] = "ACTUACION 2.mp4";
-    localVideo["fSH8GVWKLjk"] = "RM1.mp4";
-    localVideo["GJzc92BlYP8"] = "RM3 CLIP3.mp4";
-    localVideo["I736e6ChYD8"] = "RM3 CLIP1.mp4";
-    localVideo["9Ze3iO82MD0"] = "CC2 CLIP2.mp4";
-    localVideo["l7GtWlyMHJo"] = "RM2 CLIP1.mp4";
-    localVideo["AEX6_GEVq2c"] = "P2 CLIP 1.mp4";
-    localVideo["eR2IOLR_wwA"] = "HOME PAGE 1.mp4";
-    localVideo["YBtJ1u7Kz2E"] = "AL2 CLIP 2.mp4";
-    localVideo["_sPLgL7tFTA"] = "AL2 CLIP 1.mp4";
-    localVideo["APqdZiVo3hs"] = "LA2 CLIP1.mp4";
-    localVideo["w4pvV9o8l0k"] = "CC2 CLIP 1.mp4";
-    localVideo["ZIP0Vi6PSIU"] = "EPILOGO CLIP4.mp4";
-    localVideo["DIsiwM780FY"] = "LA2 CLIP 2.mp4";
-    localVideo["yiHLlJ1hujs"] = "EPILOGO CLUP 1.mp4";
-    localVideo["F3kQC4ULRPc"] = "CC3 CLIP 2.mp4";
-    localVideo["6H_4dq8cUU0"] = "EPILOGO CLIP2.mp4";
-    localVideo["QjhkUmiiuNk"] = "AL1.mp4";
-    localVideo["qlhD0EGomJc"] = "LA3 CLIP1.mp4";
-    localVideo["yz9aUDtYpuU"] = "ACTUACIÓN 1.mp4";
-    localVideo["6s_CY6gSjEQ"] = "RM2 CLIP 2.mp4";
-    localVideo["1Su1PJ-lhXo"] = "miranda.mp4";
-    localVideo["xYX5Ep2ALRo"] = "P3 CLIP 1.mp4";
-    localVideo["ghTHOjcc3IM"] = "P2 CLIP 2.mp4";
-    localVideo["2hLIdI99eiw"] = "CC3 CLIP 1.mp4";
-    localVideo["eM_BYikroX0"] = "CB2 CLIP 2.mp4";
-    localVideo["F5j1s8inof4"] = "CC2 CLIP3.mp4";
-    localVideo["RqhKw6lg25I"] = "LA3 CLIP2.mp4";
-    localVideo["mnX-eWJktbg"] = "RM3 CLIP 2.mp4";
-    localVideo["qnhndquMgh4"] = "CB2 CLIP 1.mp4";
-    localVideo["wpWO4L0qPPw"] = "HOME PAGE 1.mp4";
-
-    var cita12Letters = $("#cita12").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"cita12Letters"});
-    totalWords[12] = $(".cita12Letters");
-    var cita41Letters = $("#cita41").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"cita41Letters"});
-    totalWords[41] = $(".cita41Letters");
-    var cita42Letters = $("#cita42").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"cita42Letters"});
-    totalWords[42] = $(".cita42Letters");
-    var cita51Letters = $("#cita51").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"cita51Letters"});
-    totalWords[51] = $(".cita51Letters");
-    var cita52Letters = $("#cita52").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"cita52Letters"});
-    totalWords[52] = $(".cita52Letters");
-    var cita53Letters = $("#cita53").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"cita53Letters"});
-    totalWords[53] = $(".cita53Letters");
-    var cita61Letters = $("#cita61").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"cita61Letters"});
-    totalWords[61] = $(".cita61Letters");
-    var cita62Letters = $("#cita62").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"cita62Letters"});
-    totalWords[62] = $(".cita62Letters");
-    var cita63Letters = $("#cita63").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"cita63Letters"});
-    totalWords[63] = $(".cita63Letters");
-    //var cita91Letters = $("#cita91").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"cita91Letters"});
-    //totalWords[91] = $(".cita91Letters");
-    var cita91Letters = $("#cita100").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"cita100Letters"});
-    totalWords[100] = $(".cita100Letters");
+    totalWords[12] = $scope.CatText.cita12Plus.split(" ");
+    totalWords[41] = $scope.CatText.cita41Plus.split(" ");
+    totalWords[42] = $scope.CatText.cita42Plus.split(" ");
+    totalWords[51] = $scope.CatText.cita51Plus.split(" ");
+    totalWords[52] = $scope.CatText.cita52Plus.split(" ");
+    totalWords[53] = $scope.CatText.cita53Plus.split(" ");
+    totalWords[61] = $scope.CatText.cita61Plus.split(" ");
+    totalWords[62] = $scope.CatText.cita62Plus.split(" ");
+    totalWords[63] = $scope.CatText.cita63Plus.split(" ");
+    totalWords[100] = $scope.CatText.cita100Plus.split(" ");
 
     //---------------------------
     //----SOUND TRACKS -----
@@ -124,6 +82,7 @@ angular.module('smcApp')
 
     TweenMax.set(".scrollIcon, .hiddenCanvas, .dinamycText, .ageTitle, .napFace, .addon1, .prel01", {visibility:"visible"});
 
+
     var tl = new TimelineMax({repeat:0});
     var cugatNino = new TimelineMax({repeat:3});
 
@@ -140,7 +99,7 @@ angular.module('smcApp')
       .addPause()
       //EPISODE 2
       .call(stopIntroVideo,[])
-      .to(".mouseIcon", 0.5, {bottom: '-150px', ease: Bounce.easeOut})
+      .to(".mouseIcon", 0.2, {bottom: '-150px', ease: Power0.easeOut})
       .add("prologo1")
       .to("#page0",0.5,{ scale: '0', onComplete: updateTitle, onCompleteParams: [0], ease: Back.easeIn.config(1)})
       .to(".ed1", 0.5, { left: '0%', onComplete: playSound, onCompleteParams: [playListOrder[0]], onReverseComplete: stopNinoAnimation, ease: Bounce.easeOut})
@@ -150,7 +109,7 @@ angular.module('smcApp')
       .to(".texto11",3,{ transform: 'scale(1)', opacity: '1', ease: Power4.easeOut},"+=1")
       .to(".mouseIcon", 0.5, {bottom: '150px', ease: Bounce.easeOut},"+=0.5")
       .addPause()
-      .to(".mouseIcon", 0.5, {bottom: '-150px', ease: Bounce.easeOut})
+      .to(".mouseIcon", 0.2, {bottom: '-150px', ease: Power0.easeOut})
       .to(".texto11",1.5,{ transform: 'scale(0)', opacity: '0', ease: Power4.easeOut},"+=0.2")
       .to("#page1",0.1,{ right: '0%', ease: Power0.easeNone})
       .to(".pentagramRect",0.2,{ bottom: '1%', ease: Power0.easeNone})
@@ -269,9 +228,9 @@ angular.module('smcApp')
       .to(".carn5", 2, {top: '-50%', ease: Power4.easeOut},"-=2")
       .to(".carn6", 2, {top: '-50%', ease: Power4.easeOut},"-=2")
       .to(".cita100",1,{ scale:'1',transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=0.5")
-      .to(".mouseIcon", 0.5, {bottom: '150px', onReverseComplete: updateTitle, onReverseCompleteParams: [6], ease: Bounce.easeOut})
+      .to(".mouseIcon", 0.5, {bottom: '100px', onReverseComplete: updateTitle, onReverseCompleteParams: [6], ease: Bounce.easeOut})
       .addPause()
-      .to(".mouseIcon", 0.5, {bottom: '-150px', ease: Bounce.easeOut})
+      .to(".mouseIcon", 0.2, {bottom: '-150px', ease: Power0.easeOut})
       .to(".cita100",1,{ scale:'0',transform: 'rotateX(90deg)', ease: Bounce.easeOut},"+=0.5")
       .add("CC2")
       .to(".resumeVideoBox", 1, { onStart: playResumeVideo, onStartParams:[101,108,108,false], scale: '1',opacity: '1', onReverseComplete: stopResumeVideo, ease: Power4.easeIn})
@@ -311,6 +270,7 @@ angular.module('smcApp')
       .to(".chi6", 1, { left: '0', onReverseComplete: updateTitle, onReverseCompleteParams: [10], ease: Power4.easeOut })
       .to("#page11",0.4,{ right: '0%', onReverseComplete: playSound, onReverseCompleteParams: [playListOrder[4]], ease: Power0.easeNone},"-=0.4")
       .staggerFrom($("#page11").children(),0.6, animationFromPattern, staggerFromVelocity)
+      .to(".cita41",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1")
       .addPause()
       //EPISODE 13
       .add("LA2")
@@ -360,7 +320,7 @@ angular.module('smcApp')
       .add("Al2")
       .to("#page14",0.4,{ onStart: updateTitle, onStartParams: [15], right: '100%', onComplete: playSound, onCompleteParams: [playListOrder[8]], ease: Power0.easeNone})
       .to("#page15",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
-      .to(".blurEffect8",0.2,{ filter: 'blur(8px)', onReverseComplete: updateTitle, onReverseCompleteParams: [14], webkitFilter: 'blur(8px)', ease: Power0.easeNone},"+=1")
+      .to(".blurEffect8",0.2,{ filter: 'blur(8px)', onReverseComplete: updateTitle, onReverseCompleteParams: [14], webkitFilter: 'blur(8px)', ease: Power0.easeNone})
       .staggerFrom($("#page15").children(),0.6, animationFromPattern, staggerFromVelocity)
       .to(".cita53",1,{ transform: 'rotateX(0deg)', onReverseComplete: playSound, onReverseCompleteParams: [playListOrder[8]], ease: Bounce.easeOut},"+=1")
       .addPause()
@@ -446,6 +406,7 @@ angular.module('smcApp')
     //-------FUNCTIONS --------------------
     $scope.upTo = function(value, music, notes) {
       //updateTitle(index);
+      console.log('notes: ', notes);
       closeVideo();
       controlSound();
       updateTitle(notes);
@@ -487,6 +448,17 @@ angular.module('smcApp')
         TweenMax.to(target, 0.3, {opacity: 0, scale:0, ease:Back.easeOut});
       }
     };
+    $scope.openLanguaje = function(){
+      console.log(languajeOpen);
+      if(!languajeOpen) { languajeOpen = true; TweenMax.staggerTo(".lang", 0.3, { opacity: 1, scale:1, ease: Back.easeOut.config(0.8)}, 0.1); console.log('entra en false', languajeOpen ); }
+      else { TweenMax.staggerTo(".lang", 0.3, { opacity: 0, scale:0, ease: Back.easeOut.config(0.8)}, 0.1); languajeOpen = false; console.log('entra en true', languajeOpen ); }
+
+    }
+    $scope.changeLenguaje = function(val){
+      $scope.CatText = CatTextSP;
+      $scope.photoText = photoTextSP;
+      $scope.tooltipText = tooltipTextSP;
+    };
 
     $(document).on('click','.plusInfoCita', function(){
       var numTexto = $(this).attr('value');
@@ -505,8 +477,8 @@ angular.module('smcApp')
     });
     //------ TITLE ----------
 
-    function updateTitle(index,leteer){
-      console.log('llama a update: ', index,leteer);
+    function updateTitle(index){
+      console.log('llama a update: ', index);
       if(index!='intro'){
         var notes = $(".pentagramNotes");
         console.log('notes: ', notes[0]);
@@ -533,14 +505,14 @@ angular.module('smcApp')
       closeVideo();
     }
     function playOnlyAudio(id){
-      //player.src({ type: 'video/youtube', src: 'https://www.youtube.com/watch?v='+id });
-      player.src({ type: 'video/mp4', src: 'video/'+localVideo[id] });
+      player.src({ type: 'video/youtube', src: 'https://www.youtube.com/watch?v='+id });
+      //player.src({ type: 'video/mp4', src: 'video/'+localVideo[id] });
       playTimelineBefore = false;
       playVideo();
     }
     function openVideo(value, origin){
-      //player.src({ type: 'video/youtube', src: 'https://www.youtube.com/watch?v='+value });
-      player.src({ type: 'video/mp4', src: 'video/'+localVideo[value] });
+      player.src({ type: 'video/youtube', src: 'https://www.youtube.com/watch?v='+value });
+      //player.src({ type: 'video/mp4', src: 'video/'+localVideo[value] });
       playVideo();
       TweenMax.to(".fullScreenVideo", 1, {css: {transform: 'scale(0.3) rotate(20deg)'}, delay:0.5, ease: Expo.easeOut});
       TweenMax.to(".fullScreenVideo", 1, {css: {transform: 'scale(1) rotate(0deg)', top: 0, left: 0}, delay:1.5, ease: Expo.easeOut});
@@ -678,8 +650,9 @@ angular.module('smcApp')
       cugatNino.pause();
     };
     function insertWords(variable,num){
-      $('#cita'+num+'suma').append(variable);
-      TweenMax.from(variable, 0.1, {opacity: 0, y:-40, transformOrigin:"0% 50% -50", ease: Power2.easeOut});
+      var elementToInsert = '<div class="wordStyle">'+variable+'</div>';
+      $('#cita'+num+'suma').append(elementToInsert);
+      TweenMax.from(elementToInsert, 0.1, {opacity: 0, y:-40, transformOrigin:"0% 50% -50", ease: Power2.easeOut});
     }
     function deleteWords(variable){
       $(variable).remove();
