@@ -90,6 +90,7 @@ var tooltipTextCT = {
 var textCT = {
   'text1': "Entre 1915 y 1918  lidera su primera formación musical y empieza su periplo amoroso con su primera mujer: RITA MONTANER",
   'text2': "L'any 1945 Cugat i Frank Sinatra varem gravar un senzill amb un parell de boleros lents: 'My Shawl' i 'Stars in your eyes'",
-  'text3': "El salt definitiu a la direcció d'orquestres de ball el va fer de la mà de la seva segona esposa, Carmen Castillo, amb la qual es va casar l'any 1928."
+  'text3': "El salt definitiu a la direcció d'orquestres de ball el va fer de la mà de la seva segona esposa, Carmen Castillo, amb la qual es va casar l'any 1928.",
+  'text4': "Cugat se lleva a Charo a trabajar a Estados Unidos y, finalment, l'any 1966 es casa amb ella, el seu cinquè i últim matrimoni."
 }
 
