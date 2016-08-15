@@ -579,11 +579,11 @@ body {
   font-size: 15px;
   text-align: justify;
   position: absolute;
-  /* width: 35%; */
+//  width: 60%;
   background-color: rgba(33, 33, 33, 0.85);
   padding: 2% 5%;
   top: 15%;
-  right: 40%;
+  right: 60%;
 }
 
 .dinamycText{
@@ -1110,6 +1110,19 @@ img.infoAdvice{
 }
 .p31Video{
   position: absolute;
+  top: 20%;
+  left: 20%;
+  margin: auto;
+  z-index: 991;
+  width: 30%;
+  height: 30%;
+  border: solid 5px white;
+  cursor: pointer;
+  background-image: url("http://img.youtube.com/vi/xYX5Ep2ALRo/hqdefault.jpg");
+
+}
+.ContextualVideo{
+  position: absolute;
   top: 0%;
   left: 0%;
   margin: auto;
@@ -1182,7 +1195,7 @@ img.infoAdvice{
 }
 .rm11 {
   position: absolute;
-  height: 150%;
+  height: 100%;
   top: -10%;
   left: 15%;
 }
@@ -1190,7 +1203,7 @@ img.infoAdvice{
   position: absolute;
   top: -5%;
   left: 20%;
-  height: 150%;
+  height: 140%;
   width: 65%;
 }
 .rm13{
@@ -1399,7 +1412,7 @@ img.infoAdvice{
   left: 25%;
 }
 .rm16{
-  height: 170%;
+  height: 150%;
   position: absolute;
   top: -19%;
   left: 14%;
@@ -1703,7 +1716,7 @@ img.infoAdvice{
   position: absolute;
   top: 0%;
   left: 6%;
-  height: 130%;
+  height: 100%;
   cursor: pointer;
 }
 .cc39{
@@ -1933,7 +1946,7 @@ img.infoAdvice{
 }
 .la5{
   position: absolute;
-  height: 120%;
+  width: 80%;
   top: 10%;
   left: 0%;
 }
@@ -2154,10 +2167,10 @@ img.infoAdvice{
 }
 .al12{
   position: absolute;
-  top: -32%;
+  top: -25%;
   left: 11%;
-  width: 79%;
-  height: 175%;
+  width: 80%;
+  height: 160%;
   cursor: pointer;
 }
 .teLoDijoAdela{
@@ -2206,14 +2219,16 @@ img.infoAdvice{
 }
 .al23{
   position: absolute;
-  height: 150%;
+  width: 80%;
+  height: 130%;
   left: 5%;
   top: -15%;
   cursor: pointer;
 }
 .al24{
   position: absolute;
-  height: 170%;
+  width: 80%;
+  height: 145%;
   left: 5%;
   top: -10%;
   cursor: pointer;
@@ -2227,7 +2242,8 @@ img.infoAdvice{
 }
 .al26{
   position: absolute;
-  height: 190%;
+  width: 80%;
+  height: 160%;
   left: 12%;
   top: -30%;
   cursor: pointer;
@@ -2241,7 +2257,8 @@ img.infoAdvice{
 }
 .al28{
   position: absolute;
-  height: 170%;
+  width: 100%;
+  height: 160%;
   left: -5%;
   top: -20%;
   cursor: pointer;
@@ -2281,33 +2298,38 @@ img.infoAdvice{
 //DIAPOSITIVA 17
 .al31{
   position: absolute;
-  height: 190%;
+  width: 80%;
+  height: 160%;
   left: 10%;
   top: -30%;
   cursor: pointer;
 }
 .al32{
   position: absolute;
-  height: 114%;
+  width: 90%;
+  height: 90%;
   left: -7%;
   top: 10%;
 }
 .al33{
   position: absolute;
-  height: 150%;
+  width: 90%;
+  height: 110%;
   left: -10%;
   top: 5%;
   cursor: pointer;
 }
 .al34{
   position: absolute;
-  height: 170%;
+  width: 80%;
+  height: 120%;
   left: 0%;
   top: -15%;
 }
 .al35{
   position: absolute;
-  height: 150%;
+  width: 85%;
+  height: 100%;
   left: -6%;
   top: -5%;
   cursor: pointer;
@@ -2526,24 +2548,24 @@ img.infoAdvice{
 }
 .cb06{
   position: absolute;
-  /* width: 80%; */
+  width: 80%;
   left: 5%;
   top: 10%;
-  height: 120%;
+  height: 100%;
 }
 .cb07{
   position: absolute;
-  /* width: 80%; */
+  width: 80%;
   left: 0%;
   top: 5%;
-  height: 120%;
+  height: 100%;
  }
 .cb08{
   position: absolute;
-  /* width: 84%; */
+  width: 80%;
   left: 5%;
   top: -6%;
-  height: 150%;
+  height: 100%;
 }
 .cb09{
   position: absolute;
@@ -2556,18 +2578,18 @@ img.infoAdvice{
 
 .cb20{
   position: absolute;
-  /* width: 80%; */
+  width: 80%;
   left: 7%;
   top: 10%;
-  height: 120%;
+  height: 100%;
 }
 
 .cb21{
   position: absolute;
-  /* width: 80%; */
+  width: 80%;
   left: 0%;
   top: 15%;
-  height: 120%;
+  height: 100%;
 }
 
 .cb22{
@@ -2997,7 +3019,7 @@ img.infoAdvice{
 
 .contextual{
   position: absolute;
-  bottom: 200px;
+  bottom: 25%;
   right: 20%;
   z-index: 999;
 
@@ -3121,8 +3143,9 @@ img.infoAdvice{
 
 .contextual2{
   position: absolute;
-  bottom: 150px;
-  right: 70%;
+  bottom: 10%;
+  left: 40%;
+  margin: auto;
   z-index: 999;
 
   .tooltip {

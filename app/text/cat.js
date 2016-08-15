@@ -1,38 +1,48 @@
 /**
  * Created by sergiosantamaria on 5/06/16.
  */
-
-var CatTextCT = {
-  'cita11': "De Girona recordo molt poc, si no és la intimitat d'aquella plaça on passava llargues hores del dia i que em semblava meva.",
-  'cita12': "Vaig desembarcar en aquella ciutat portentosa sense ni cinc a la butxaca i sense parlar ni una paraula d'anglès.",
-  'cita12Plus': "Finalment va venir el moment que vaig creure posseir els diners suficients per emprendre aquell viatge somiat i a Nova York me'n vaig anar amb el meu violí sota el braç, embolicat en una funda que em va fer la meva mare perquè no teníem prou diners per comprar un estoig.",
-  'cita14': "Era indispensable ampliar els meus estudis i assistir a les escoles musicals més acreditades de l'època que es trobaven a Berlín",
-  'cita15': "Llegué a Hollywood cuando tenía 18 años",
-  'cita21': "Va ser en aquesta època quan va néixer en mi el sentiment de l'amor. El nom de la meva enamorada era Rita Montaner, un cubana de pare català Y Era una autèntica estàtua de banús clar i les seves línies corporals tenien la perfecció d'una obra d'art.Ens vam conèixer quan érem nens. Ella tenia els mateixos anys que jo. Estudiava com jo al Conservatori Peyrellada de l'Havana: ella el piano i jo el violí. Vam fer alguns concerts conjuntament.Artista polifacètica i mite cubà, Montaner és pianista i antiga condiscípula a l'Havana, i durant tres anys viatgen i actuen pel vell continent.",
-  'cita41':"“El nostre matrimoni només va durar tres anys.",
-  'cita41Plus': "Com totes les grans models, va arribar a percebre un sou fenomenal per hora: 500$; dòlars de llavors....Un matrimoni entre un director d'orquestra i  una model exuberant no pot durar molt de temps, ja que mentre ella estava a Chicago, literalment envoltada d'admiradors, jo tocava a Manila envoltat d'unes filipines angèliques. ",
-  'cita41Post': "Al final ens varem divorciar, molt feliços i molt amics, fins avui”",
-  'cita42': "És així que jo em vaig convertir també en una 'estrella' del cinemacinema i que es van fer algunes pel·lícules de les quals el protagonista bàsic i fonamental era Cugat i els seus nois.",
-  'cita42Plus': "Jo vaig viure el temps en què el cinema es basava sobretot en l'actor o l'actriu. S'anava a veure una pel·lícula de Charles Chaplin, de Pola Negri o de Greta Garbo. A ningú li interessava l'argument i ni sabien el nom del director. Els empresaris es dirigien a un bon professional i li deien simplement: 'Escriu-me un argument en què càpiguen tal i tal artista'. El mateix es feia en les pel·lícules musicals. Tot girava al voltant de Fred Astaire, Gene Kelly i el director de les orquestres que formaven l'espectacle.",
-  'cita51':"Abbe Lane ha estat la dona que més ha influït en la meva vida. No és d'estranyar, va ser la que més vaig estimar",
-  'cita51Plus': "i la que va estar amb mi més temps: 15 anys és tota una vida artística. Jo no sé fins a quin punt el meu amor de marit per ella tenia també una mica de paternal. Tinguem en compte la diferència d'edat i de condició. Quan jo la vaig descobrir era una simple dansaire de cabaret, molt bella però artísticament només sabia aixecar les cames en aquells ballets mecànics creats per les famosos 'Rockettes' del Radio City Hall. Jo la vaig interessar en el cant i en balls més sofisticats: vaig ser com un escultor que anava aixecant cada dia una estàtua més completa i atractiva: el seu marit, el seu pare i el seu creador artístic.",
-  'cita52':"",
-  'cita52Plus': "",
-  'cita53':"Vam recórrer el món sencer. Amb ella vaig inaugurar un dels espectacles de Las Vegas.",
-  'cita53Plus': "Va passar amb ella el mateix que amb les altres: quan va arribar a tenir un nom per si mateixa, es va separar del meu espectacle i va volar amb les seves pròpies ales.",
-  'cita56': "“Ara que ja he introduit la rumba al mercat nord-americà, la meva intenció és introduir la sardana”.",
-  'cita60': "Jo estava buscant una artista pel meu espectacle. Charo cantava i va ballar millor del que jo creia i vaig veure que tenia un excel·lent tipus per atraure els públics nord-americans. Necessitava però ser preparada.",
-  'cita61':"Charo Baeza ha estat amb Abbe Lane, l'artista i l'esposa que m'han donat més satisfaccions sentimentals i artístiques.",
-  'cita61Plus': "Ara bé, Abbe Lane només era apreciada pels homes; Charo, en canvi, ha caigut molt bé als homes i als nens nord­americans. Ha sortit una nina que és el seu efígie. Es venen milions d'exemplars i Charo té una comissió. Tant ella com Abbe Lane eren dues dones posseïdores d'aquest 'sexy' tan misteriós.",
-  'cita62':"El que m’interessa és adquirir alguna cosa feta,",
-  'cita62Plus': " o sino un terreny situat en una muntanya, prou elevada perquè ningú li tregui la vista. Jo només vull un estudi amb bany, així doncs no crec que sigui gaire difícil trobar un petit terreny i jo m’hi edificaré un estudi. En el futur penso passar moltes temporades a la cosa Brava pintant i el que necessito és alguna cosa còmoda amb molta llum i que estigui situada en un lloc que no sigui trist ni amagat.",
-  'cita62Post': "No espero ni vull un palau, només un lloc per treballar i per sortir d’aquest Beverly Hills que ja no aguanto.",
-  'cita63':"",
-  'cita63Plus': "",
-  'cita100':"Durant setmanes senceres vaig tractar inútilment de tenir una cita amb Carmen. Quan li demanava el seu número de telèfon em feia números falsos.",
-  'cita100Plus': "Li vaig demanar com era l'estranya raó de la seva conducta. Carmen em va explicar que en el fons del seu cor creia que si continuaven les nostres relacions culminarien en matrimoni i ella no estava disposada a abandonar la seva carrera."
-};
-var photoTextCT = {
+var languajeCT = {
+  'menu': {
+    'ini': "Inici",
+    'pro': "Próleg",
+    'rita': "Rita Montaner",
+    'carmen': "Carmen Castillo",
+    'lorraine': "Lorraine Allen",
+    'abbe': "Abbe Lane",
+    'charo': "Charo Baeza",
+    'epi': "Epilég"
+  },
+  'CatText': {
+    'cita11': "De Girona recordo molt poc, si no és la intimitat d'aquella plaça on passava llargues hores del dia i que em semblava meva.",
+    'cita12': "Vaig desembarcar en aquella ciutat portentosa sense ni cinc a la butxaca i sense parlar ni una paraula d'anglès.",
+    'cita12Plus': "Finalment va venir el moment que vaig creure posseir els diners suficients per emprendre aquell viatge somiat i a Nova York me'n vaig anar amb el meu violí sota el braç, embolicat en una funda que em va fer la meva mare perquè no teníem prou diners per comprar un estoig.",
+    'cita14': "Era indispensable ampliar els meus estudis i assistir a les escoles musicals més acreditades de l'època que es trobaven a Berlín",
+    'cita15': "Llegué a Hollywood cuando tenía 18 años",
+    'cita21': "Va ser en aquesta època quan va néixer en mi el sentiment de l'amor. El nom de la meva enamorada era Rita Montaner, un cubana de pare català Y Era una autèntica estàtua de banús clar i les seves línies corporals tenien la perfecció d'una obra d'art.Ens vam conèixer quan érem nens. Ella tenia els mateixos anys que jo. Estudiava com jo al Conservatori Peyrellada de l'Havana: ella el piano i jo el violí. Vam fer alguns concerts conjuntament.Artista polifacètica i mite cubà, Montaner és pianista i antiga condiscípula a l'Havana, i durant tres anys viatgen i actuen pel vell continent.",
+    'cita41':"“El nostre matrimoni només va durar tres anys.",
+    'cita41Plus': "Com totes les grans models, va arribar a percebre un sou fenomenal per hora: 500$; dòlars de llavors....Un matrimoni entre un director d'orquestra i  una model exuberant no pot durar molt de temps, ja que mentre ella estava a Chicago, literalment envoltada d'admiradors, jo tocava a Manila envoltat d'unes filipines angèliques. ",
+    'cita41Post': "Al final ens varem divorciar, molt feliços i molt amics, fins avui”",
+    'cita42': "És així que jo em vaig convertir també en una 'estrella' del cinemacinema i que es van fer algunes pel·lícules de les quals el protagonista bàsic i fonamental era Cugat i els seus nois.",
+    'cita42Plus': "Jo vaig viure el temps en què el cinema es basava sobretot en l'actor o l'actriu. S'anava a veure una pel·lícula de Charles Chaplin, de Pola Negri o de Greta Garbo. A ningú li interessava l'argument i ni sabien el nom del director. Els empresaris es dirigien a un bon professional i li deien simplement: 'Escriu-me un argument en què càpiguen tal i tal artista'. El mateix es feia en les pel·lícules musicals. Tot girava al voltant de Fred Astaire, Gene Kelly i el director de les orquestres que formaven l'espectacle.",
+    'cita51':"Abbe Lane ha estat la dona que més ha influït en la meva vida. No és d'estranyar, va ser la que més vaig estimar",
+    'cita51Plus': "i la que va estar amb mi més temps: 15 anys és tota una vida artística. Jo no sé fins a quin punt el meu amor de marit per ella tenia també una mica de paternal. Tinguem en compte la diferència d'edat i de condició. Quan jo la vaig descobrir era una simple dansaire de cabaret, molt bella però artísticament només sabia aixecar les cames en aquells ballets mecànics creats per les famosos 'Rockettes' del Radio City Hall. Jo la vaig interessar en el cant i en balls més sofisticats: vaig ser com un escultor que anava aixecant cada dia una estàtua més completa i atractiva: el seu marit, el seu pare i el seu creador artístic.",
+    'cita52':"",
+    'cita52Plus': "",
+    'cita53':"Vam recórrer el món sencer. Amb ella vaig inaugurar un dels espectacles de Las Vegas.",
+    'cita53Plus': "Va passar amb ella el mateix que amb les altres: quan va arribar a tenir un nom per si mateixa, es va separar del meu espectacle i va volar amb les seves pròpies ales.",
+    'cita56': "“Ara que ja he introduit la rumba al mercat nord-americà, la meva intenció és introduir la sardana”.",
+    'cita60': "Jo estava buscant una artista pel meu espectacle. Charo cantava i va ballar millor del que jo creia i vaig veure que tenia un excel·lent tipus per atraure els públics nord-americans. Necessitava però ser preparada.",
+    'cita61':"Charo Baeza ha estat amb Abbe Lane, l'artista i l'esposa que m'han donat més satisfaccions sentimentals i artístiques.",
+    'cita61Plus': "Ara bé, Abbe Lane només era apreciada pels homes; Charo, en canvi, ha caigut molt bé als homes i als nens nord­americans. Ha sortit una nina que és el seu efígie. Es venen milions d'exemplars i Charo té una comissió. Tant ella com Abbe Lane eren dues dones posseïdores d'aquest 'sexy' tan misteriós.",
+    'cita62':"El que m’interessa és adquirir alguna cosa feta,",
+    'cita62Plus': " o sino un terreny situat en una muntanya, prou elevada perquè ningú li tregui la vista. Jo només vull un estudi amb bany, així doncs no crec que sigui gaire difícil trobar un petit terreny i jo m’hi edificaré un estudi. En el futur penso passar moltes temporades a la cosa Brava pintant i el que necessito és alguna cosa còmoda amb molta llum i que estigui situada en un lloc que no sigui trist ni amagat.",
+    'cita62Post': "No espero ni vull un palau, només un lloc per treballar i per sortir d’aquest Beverly Hills que ja no aguanto.",
+    'cita63':"",
+    'cita63Plus': "",
+    'cita100':"Durant setmanes senceres vaig tractar inútilment de tenir una cita amb Carmen. Quan li demanava el seu número de telèfon em feia números falsos.",
+    'cita100Plus': "Li vaig demanar com era l'estranya raó de la seva conducta. Carmen em va explicar que en el fons del seu cor creia que si continuaven les nostres relacions culminarien en matrimoni i ella no estava disposada a abandonar la seva carrera."
+  },
+'photoText': {
   'prel03': "'Confesso una certa nostàlgia cap a aquella plaça de l'Oli on vaig néixer, i no em fa vergonya dir que rebria amb gran plaer la notícia que l'ajuntament posés una placa, per petita i discreta que sigui, a la façana de la casa on la meva mare em va parir. Això em faria feliç, perquè sense ella sóc un arbre amb moltes branques sense cap arrel concreta.'",
   'prel02': "En aquesta casa hi nasqué Xavier Cugat i Mingall (1900-1990), músic i intèrpret cinematogràfic",
   'prel04': "Joan Cugat de Bru era un electricista amb problemes per idees progressistes i republicanes a l'Espanya de principis del segle XX. Al costat de la seva dona, la modista, Àvila Mingall, els seus quatre fills Francesc, Albert, Xavier i Enric, i la seva cunyada i el seu sogre, va emprendre un llarg viatge cap a les Amèriques.",
@@ -79,18 +89,21 @@ var photoTextCT = {
   'cb09': "L'any 1971 torna a Catalunya i el seu ideal era tenir una casa estudi a la Costa Brava on poder mirar el mar i dibuixar.",
   'cb09b': "Retrato de Xavier Cugat realizado por Manuel Pérez Sanjulián.",
   'cb21': "Algunas de las obras de Xavier Cugat."
-};
-var tooltipTextCT = {
+},
+'tooltipText': {
   'text1': "La màgica nit de Reis d'aquell any, el veí li va fer un violí a la seva mida. Ja no va deixar l'instrument. El pare li va recomanar que deixés d'anar a estudiar i es dediqués a la música. Així començava la carrera de qui es convertiria en un mite, músic, compositor, director i productor que triomfaria en els anys daurats de Hollywood amb la música llatina, que va popularitzar a tot el món.",
   'text2a': "Cugat se'n va a estudiar a Alemanya, a Berlín, per perfeccionar la seva tècnica, i els seus pares tornen a Espanya i s'instal·len a la Bisbal d'Empordà, Girona, adquirint una granja de pollastres.",
   'text2b': "El gran somni de Cugat era esdevenir un gran concertista clàssic. No ho va aconseguir però sí que va aconseguir l'anomenat 'Somni americà'.",
   'text3': "'Va ser també durant aquests temps quan va aconseguir gran fama a Tijuana en la frontera de Mèxic i la Baixa Califòrnia un club nocturn, que era també casino de joc i hipòdrom. Jo era l'espectacle principal i tenia una parella que aviat es va imposar a l'atenció del públic. Paradoxalment estava formada per un pare i la seva filla, excel·lents ballarins espanyols. La filla es deia Rita, tenia 17 anys, de formes proporcionades i harmòniques'.",
-  'text4': "L'any 1946 Cugat va guanyar un milió de dòlars com a director d'orquesta. En aquell moment, era el màxim salari guanyat mai per un director d'orquesta - Cugat (1995)."
-};
-var textCT = {
+  'text4': "L'any 1946 Cugat va guanyar un milió de dòlars com a director d'orquesta. En aquell moment, era el màxim salari guanyat mai per un director d'orquesta - Cugat (1995).",
+  'text5': "'Divorciat de Lorrain Allen, necessitava una nova companya, tant per a la meva vida privada com per a al meu espectacle. En la meva recerca d'una noia que complís els requisits necessaris, vaig anar a Nova York a veure l'espectacle produït per l'ex marit de Liz Taylor, el productor Michael Todd. L'espectacle es deia 'Botton Shoes'. En el cor hi havia setze noies ballant, totes molt belles i molt semblants. Però vaig creure que la cinquena per l'esquerra tenia 'un no sé què' diferent. M'agradaria conèixer a aquesta noia. Vaig fer que em presentessin a ella[...] Es deia Abbe Lane. El 1950 ens vam casar i vam ser feliços durant quinze anys de matrimoni'."
+},
+'text': {
   'text1': "Entre 1915 y 1918  lidera su primera formación musical y empieza su periplo amoroso con su primera mujer: RITA MONTANER",
   'text2': "L'any 1945 Cugat i Frank Sinatra varem gravar un senzill amb un parell de boleros lents: 'My Shawl' i 'Stars in your eyes'",
   'text3': "El salt definitiu a la direcció d'orquestres de ball el va fer de la mà de la seva segona esposa, Carmen Castillo, amb la qual es va casar l'any 1928.",
-  'text4': "Cugat se lleva a Charo a trabajar a Estados Unidos y, finalment, l'any 1966 es casa amb ella, el seu cinquè i últim matrimoni."
+  'text4': "Cugat se lleva a Charo a trabajar a Estados Unidos y, finalment, l'any 1966 es casa amb ella, el seu cinquè i últim matrimoni.",
+  'text5': "El 1954, Cugat debuta amb la seva orquestra a la Plaça Monumental de Barcelona.",
+  'text6': "Descubridor de Rita Hayworth"
 }
-
+};

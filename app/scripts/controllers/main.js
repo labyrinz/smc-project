@@ -28,10 +28,11 @@ angular.module('smcApp')
     var introWordsSubtitle = $(".introLettersSubtitle");
     var introWordsName = $(".introLettersName");
 
-    $scope.CatText = CatTextCT;
-    $scope.photoText = photoTextCT;
-    $scope.tooltipText = tooltipTextCT;
-    $scope.generalText = textCT;
+    $scope.CatText = languajeCT.CatText;
+    $scope.photoText = languajeCT.photoText;
+    $scope.tooltipText = languajeCT.tooltipText;
+    $scope.generalText = languajeCT.text;
+    $scope.menuText = languajeCT.menu;
 
     totalWords[12] = $scope.CatText.cita12Plus.split(" ");
     totalWords[41] = $scope.CatText.cita41Plus.split(" ");
@@ -416,11 +417,11 @@ angular.module('smcApp')
       .add("CB1")
       .to("", 0.1, { onStart: updateTitle, onStartParams: [17] })
       .to("#page17",0.4,{ right: '0%', ease: Power0.easeNone})
-      .to("", 0.1, { onStart: videoPlay, onStartParams:['resume',266.5,321.5,321.5, true, 'q36eiNYFApg', 'resumeVideoBox', 'resumeVideoBoxEnter']})
+      .to("", 0.1, { onStart: videoPlay, onStartParams:['resume',266.5,297,297, true, 'q36eiNYFApg', 'resumeVideoBox', 'resumeVideoBoxEnter']})
       .to("", 0.1, { onReverseComplete: stopVideo })
       .addPause()
       .to("", 0.1, { onStart: stopVideo })
-      .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams:['resume',266.5,321.5,321.5, true, 'q36eiNYFApg', 'resumeVideoBox', 'resumeVideoBoxEnter']})
+      .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams:['resume',266.5,301.5,301.5, false, 'q36eiNYFApg', 'resumeVideoBox', 'resumeVideoBoxEnter']})
       .staggerFrom($("#page17").children(),0.6, animationFromPattern, staggerFromVelocity)
       .to(".cita60",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=0.5")
       .addPause()
@@ -432,10 +433,10 @@ angular.module('smcApp')
       .to("", 0.1, { onStart: updateTitle, onStartParams: [18] })
       .to("#page18",0.4,{ right: '0%', ease: Power0.easeNone})
       .staggerFrom($("#page18").children(),0.6, animationFromPattern, staggerFromVelocity)
-      .to(".cita61",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1")
+      .to(".cita61",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=0.2")
       .addPause()
       .staggerTo($("#page18").children(),0.6, animationToPattern, staggerToVelocity)
-      .to(".blurEffect8",0.2,{ onStart: stopVideo, filter: 'blur(0px)',webkitFilter: 'blur(0px)', ease: Power0.easeNone})
+      .to(".blurEffect8",0.2,{ filter: 'blur(0px)',webkitFilter: 'blur(0px)', ease: Power0.easeNone})
       .to(".lasv8", 0.3, {opacity: '0', ease: Back.easeOut.config(1)},"+=1")
       .to(".lasv9", 0.3, {opacity: '0', ease: Back.easeOut.config(1)})
       .to(".lasv6", 0.3, {opacity: '0', ease: Back.easeOut.config(1)})
@@ -508,8 +509,8 @@ angular.module('smcApp')
         else { player.pause(); }
         tl.play(value);
       },500);
-      TweenMax.to(".coverTransitions", 10, {opacity: 0, ease: Power4.easeOut, delay: 3});
-      TweenMax.to(".coverTransitions", 0.1, {scale: 0, ease: Power4.easeOut, delay: 8});
+      TweenMax.to(".coverTransitions", 10, {opacity: 0, ease: Power4.easeOut, delay: 4});
+      TweenMax.to(".coverTransitions", 0.1, {scale: 0, ease: Power4.easeOut, delay: 9});
     };
 
     $scope.prevFoto = function(id,value){
@@ -548,10 +549,17 @@ angular.module('smcApp')
 
     }
     $scope.changeLenguaje = function(val){
-      $scope.CatText = CatTextSP;
-      $scope.photoText = photoTextSP;
-      $scope.tooltipText = tooltipTextSP;
-      $scope.generalText = textSP;
+      switch (val) {
+        case (val == 'CT'): var languajeSelected = languajeCT; break;
+        case (val == 'SP'): var languajeSelected = languajeSP; break;
+        case (val == 'ENG'): var languajeSelected = languajeENG; break;
+        default: var languajeSelected = languajeCT;
+      }
+      $scope.CatText = languajeSelected.CatText;
+      $scope.photoText = languajeSelected.photoText;
+      $scope.tooltipText = languajeSelected.tooltipText;
+      $scope.generalText = languajeSelected.text;
+      $scope.menuText = languajeSelected.menu;
     };
 
     $(document).on('click','.plusInfoCita', function(){

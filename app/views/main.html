@@ -1,22 +1,22 @@
 <div class="container">
   <div class="overlay overlay-contentscale">
     <!--<img class="LanguajeSel" ng-click="openLanguaje()" src="images/cataluna.png"/>-->
-    <!--<img class="espana lang" ng-click="changeLenguaje(sp)" src="images/espana.png"/>-->
+    <!--<img class="espana lang" ng-click="changeLenguaje(SP)" src="images/espana.png"/>-->
     <!--<img class="cataluna lang" ng-click="changeLenguaje(CT)" src="images/cataluna.png"/>-->
     <!--<img class="england lang" ng-click="changeLenguaje(ENG)" src="images/england.jpg"/>-->
     <nav>
       <ul>
         <div class="nav-column">
-          <li><div ng-click="upTo('inicio',0,'intro')">Inici</div></li>
-          <li><div ng-click="upTo('prologo1',0,0)">1. Pròleg <span>(1900-1918)</span></div></li>
-          <li><div ng-click="upTo('RR1',1,4)">2. Rita Montaner <span>(1918-1920)</span></div></li>
-          <li><div ng-click="upTo('CC1',3,7)">3. Carmen Castillo <span>(1929-1946)</span></div></li>
+          <li><div ng-click="upTo('inicio',0,'intro')">{{ menuText.ini }}</div></li>
+          <li><div ng-click="upTo('prologo1',0,0)">1. {{ menuText.pro }} <span>(1900-1918)</span></div></li>
+          <li><div ng-click="upTo('RR1',1,4)">2. {{ menuText.rita }} <span>(1918-1920)</span></div></li>
+          <li><div ng-click="upTo('CC1',3,7)">3. {{ menuText.carmen }} <span>(1929-1946)</span></div></li>
         </div>
         <div class="nav-column">
-          <li><div ng-click="upTo('LA1',4,11)">4. Lorraine Allen <span>(1947-1952)</span></div></li>
-          <li><div ng-click="upTo('AL1',7,14)">5. Abbe Lane <span>(1952-1964)</span></div></li>
-          <li><div ng-click="upTo('CB1',9,17)">6. Charo Baeza <span>(1966-1978)</span></div></li>
-          <li><div ng-click="upTo('EP1',10,19)">7. Epíleg <span>(1978-1990)</span></div></li>
+          <li><div ng-click="upTo('LA1',4,11)">4. {{ menuText.lorraine }} <span>(1947-1952)</span></div></li>
+          <li><div ng-click="upTo('AL1',7,14)">5. {{ menuText.abbe }} <span>(1952-1964)</span></div></li>
+          <li><div ng-click="upTo('CB1',9,17)">6. {{ menuText.charo }} <span>(1966-1978)</span></div></li>
+          <li><div ng-click="upTo('EP1',10,19)">7. {{ menuText.epi }} <span>(1978-1990)</span></div></li>
         </div>
       </ul>
     </nav>
@@ -194,7 +194,7 @@
             <span class="tooltip-content">
               <span class="tooltip-text">
                 <span class="tooltip-inner">
-                   <div class="p31Video videoPlay" ng-click="openVideo('xYX5Ep2ALRo', 'p22Video')">
+                   <div class="ContextualVideo videoPlay" ng-click="openVideo('xYX5Ep2ALRo', 'p22Video')">
                    </div>
                 </span>
               </span>
@@ -213,7 +213,7 @@
             </span>
       </div>
       <div class="cita12 cita1"><span id="cita12suma"> </span> {{ CatText.cita12 }} <span class="plusInfoCita" value="12">[+]</span></div>
-      <div class="p31Video videoPlay videoGeneral" ng-click="openVideo('xYX5Ep2ALRo', 'p22Video')">
+      <div class="p31Video videoPlay" ng-click="openVideo('xYX5Ep2ALRo', 'p22Video')">
       </div>
       <div class="textoGeneral"> {{ generalText.text1 }} </div>
     </div>
@@ -362,6 +362,7 @@
       <div class="textoGeneral"> {{ generalText.text3 }} </div>
     </div>
     <div id="page9" class="back color0 page9">
+      <h2 class="title retro">{{ generalText.text6 }}</h2>
       <div id="fotoGroup62" class="prelGroup">
         <div class="pic cc33 img slideimg62">
           <img src="images/CC3.jpg" class="pic-image" alt="Pic"/>
@@ -644,6 +645,18 @@
            <!--style="background-image: url('http://img.youtube.com/vi/5JdZW_LpUEY/hqdefault.jpg')">-->
         <!--<!--<iframe class="teLoDijoAdela" src="https://www.youtube.com/embed/5JdZW_LpUEY?controls=2&showinfo=0" frameborder="0" allowfullscreen></iframe>-->-->
       <!--</div>-->
+      <div class="contextual2">
+        <a class="tooltip" href="#" onclick="return false;">
+          <img src="images/more-button.svg" alt="" class="infoIcon"/>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  {{ tooltipText.text5 }}
+                </span>
+              </span>
+            </span>
+        </a>
+      </div>
     </div>
     <div id="page15" class="back color0 page15">
       <!--<div id="texto52" class="texto5 texto52">En aquest punt de la vida, Cugat era considerat el rei de la rumba i de la samba per tot arreu. Havia arribat al cim de la seva professió i va deixar participar a Abbe Lane dels seus èxits. Abbe Lane va tastar, de la ma de Cugat, el xampany, el caviar i els avions per primera vegada.</div>-->
@@ -774,6 +787,7 @@
           <img ng-click="nextFoto('75')" class="arrowNext arrowNext2" src="images/arrow-left-3.svg"/>
         </div>
       </div>
+      <div class="textoGeneral2"> {{ generalText.text5 }} </div>
       <!---->
       <!--<div id="fotoGroup75" class="prelGroup">-->
       <!--<img class="al31 img slideimg75" src="images/AL11.jpg"/>-->
