@@ -104,6 +104,7 @@ var languajeCT = {
   'text3': "El salt definitiu a la direcció d'orquestres de ball el va fer de la mà de la seva segona esposa, Carmen Castillo, amb la qual es va casar l'any 1928.",
   'text4': "Cugat se lleva a Charo a trabajar a Estados Unidos y, finalment, l'any 1966 es casa amb ella, el seu cinquè i últim matrimoni.",
   'text5': "El 1954, Cugat debuta amb la seva orquestra a la Plaça Monumental de Barcelona.",
-  'text6': "Descubridor de Rita Hayworth"
+  'text6': "Descubridor de Rita Hayworth",
+  'text7': "L'any 1971 torna a Catalunya i el seu ideal era tenir una casa estudi a la Costa Brava on poder mirar el mar i dibuixar."
 }
 };
