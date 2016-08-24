@@ -16,6 +16,7 @@ angular.module('smcApp')
     var fullScreenVideoStatus = false;
     var soundEpilogo = false;
     var boolsound = 1;
+    var videoCardToogleSound = 1;
     var languajeOpen = false;
 
     var playListOrder = ['BeginTheBeguine','ElManisero','TICOTICO','Siboney','MyShawl','JungleRhumba','perfidia','QuizasQuizasQuizas','ParaVigomevoy','YoTeAmoMucho','Tabu']
@@ -511,10 +512,16 @@ angular.module('smcApp')
 
     //------------------------------------
     $scope.playVideoSlide = function(id, container){
-      $('#'+container).removeAttr("style")
-      if($("#"+id).get(0).paused) { $("#"+id).get(0).play(); $('#'+container).addClass('videoSlideResize'); }
-      else { $("#"+id).get(0).pause(); $('#'+container).removeClass('videoSlideResize'); }
-
+      if(boolsound == 1){ videoCardtoggleSound(); }
+      $('#'+container).css("left",'');
+      //videoSlideResize $('#'+container).addClass('videoFullScreen');
+      if($("#"+id).get(0).paused) { $("#"+id).get(0).play(); $('#'+container).removeClass('videoPlay'); }
+      else { $("#"+id).get(0).pause();  $('#'+container).addClass('videoPlay'); }
+      $("#"+id).on("ended", function() {
+        if(boolsound == 1)videoCardtoggleSound();
+        $('#'+container).addClass('videoPlay');
+        $('#'+container).removeClass('videoFullScreen');
+      });
     }
     //-------FUNCTIONS --------------------
     $scope.upTo = function(value, music, notes) {
@@ -543,14 +550,18 @@ angular.module('smcApp')
       if(value==undefined) var desp = '-110%';
       else var desp = '-'+value;
       var firstPhoto = $('.slideimg'+id).first();
-      TweenMax.to(firstPhoto, 0.1, {left: desp, repeatDelay:0.1, repeat:1, yoyo:true, onRepeat:function(){$('#fotoGroup'+id).append(firstPhoto)}, ease: Power4.easeOut});
+      TweenMax.to(firstPhoto, 0.1, {left: desp, repeatDelay:0.1, repeat:1, yoyo:true, onRepeat:function(){$('#fotoGroup'+id).append(firstPhoto); if(firstPhoto[0].childNodes[1].id) {  if(videoCardToogleSound == 0) $("#"+firstPhoto[0].childNodes[1].id).get(0).play(); };}, ease: Power4.easeOut});
     };
 
     $scope.nextFoto = function(id, value){
       if(value==undefined) var desp = '110%';
       else var desp = value;
       var firstPhoto = $('.slideimg'+id).last();
-      TweenMax.to(firstPhoto, 0.1, {left: desp, repeatDelay:0.1, repeat:1, yoyo:true, onRepeat:function(){$('#fotoGroup'+id).prepend(firstPhoto)}, ease: Power4.easeOut});
+      console.log(firstPhoto);
+      //$("#"+firstPhoto[0].childNodes[1].id).get(0).play();
+      firstPhoto.attr('autoplay','autoplay');
+      TweenMax.to(firstPhoto, 0.1, {left: desp, repeatDelay:0.1, repeat:1, yoyo:true, onRepeat:function(){$('#fotoGroup'+id).prepend(firstPhoto);if(firstPhoto[0].childNodes[1].id) {  if(videoCardToogleSound == 0) $("#"+firstPhoto[0].childNodes[1].id).get(0).play(); };}, ease: Power4.easeOut});
+
     };
 
     $scope.openCloseAddInfo = function(val){
@@ -706,6 +717,11 @@ angular.module('smcApp')
       player.volume(boolsound);
       if(!fullScreenVideoStatus)soundEpilogo.volume(boolsound);
     }
+    function videoCardtoggleSound(){
+      videoCardToogleSound = videoCardToogleSound ? 0 : 1;
+      player.volume(videoCardToogleSound);
+      if(!fullScreenVideoStatus)soundEpilogo.volume(videoCardToogleSound);
+    }
 
     //--------------------------------------------------------------------
 
@@ -838,33 +854,33 @@ angular.module('smcApp')
       support = { transitions : Modernizr.csstransitions };
 
     function toggleOverlay() {
-      if( overlay.hasClass( 'open' ) ) {
-        overlay.removeClass( 'open' );
-        container.removeClass( 'overlay-open' );
-        overlay.addClass( 'close' );
-        var onEndTransitionFn = function( ev ) {
-          overlay.removeClass( 'close' );
-        };
-        if( support.transitions ) {
-          try{
-            overlay.on(transEndEventName, function(){onEndTransitionFn()})
-            //overlay.addEventListener( transEndEventName, onEndTransitionFn );
-          } catch(ex){
+        if( overlay.hasClass( 'open' ) ) {
+          overlay.removeClass( 'open' );
+          container.removeClass( 'overlay-open' );
+          overlay.addClass( 'close' );
+          var onEndTransitionFn = function( ev ) {
+            overlay.removeClass( 'close' );
+          };
+          if( support.transitions ) {
+            try{
+              overlay.on(transEndEventName, function(){onEndTransitionFn()})
+              //overlay.addEventListener( transEndEventName, onEndTransitionFn );
+            } catch(ex){
+              onEndTransitionFn();
+            }
+          }
+          else {
             onEndTransitionFn();
           }
         }
-        else {
-          onEndTransitionFn();
+        else if( !overlay.hasClass( 'close' )) {
+          overlay.addClass( 'open' );
+          container.addClass( 'overlay-open' );
         }
-      }
-      else if( !overlay.hasClass( 'close' ) ) {
-        overlay.addClass( 'open' );
-        container.addClass( 'overlay-open' );
-      }
     }
 
     triggerBttn.on( 'click', function(){toggleOverlay()} );
-    soundBttn.on( 'click', function(){toggleSound()} );
+    soundBttn.on( 'click', function(){ toggleSound()} );
     //closeBttn.on( 'click', function(){toggleOverlay()} );
 
     (function() {

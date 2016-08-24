@@ -532,10 +532,31 @@ body {
 }
 .videoPlay:after{
   display: block;
-  width: 100%;
-  height: 100%;
+  width: 20%;
+  height: 25%;
   background: transparent url(../images/videoplay.png) no-repeat center center;
   content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+.videoFullScreen{
+  background-size: cover;
+  background-position: center center;
+}
+.videoFullScreen:after{
+  display: block;
+  width: 20%;
+  height: 25%;
+  background: transparent url(../images/fullScreen.png) no-repeat center center;
+  content: '';
+  position: absolute;
+  right: -4%;
+  bottom: -4%;
+  opacity: 0.9;
 }
 .videoClass{
   position: absolute;
@@ -2053,9 +2074,9 @@ img.infoAdvice{
 }
 .la10{
   position: absolute;
-  height: 140%;
+  height: 120%;
   top: -15%;
-  left: -10%;
+  left: 0%;
 }
 .la21Video{
   position: absolute;

@@ -194,8 +194,8 @@
             <span class="tooltip-content">
               <span class="tooltip-text">
                 <span class="tooltip-inner">
-                  <div id="slideVideoContainerHavana" class="ContextualVideo" style="background: black">
-                    <video id="slideVideoHavana" width="100%" height="100%" ng-click="playVideoSlide('slideVideoHavana', '')">
+                  <div id="slideVideoContainerHavana" class="ContextualVideo videoPlay" style="background: black">
+                    <video id="slideVideoHavana" width="100%" height="100%" ng-click="playVideoSlide('slideVideoHavana', 'slideVideoContainerHavana')">
                       <source src="http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/7/1/1471877098717.mp4" type="video/mp4">
                     </video>
                   </div>
@@ -216,8 +216,8 @@
             </span>
       </div>
       <div class="cita12 cita1"><span id="cita12suma"> </span> {{ CatText.cita12 }} <span class="plusInfoCita" value="12">[+]</span></div>
-      <div id="slideVideoContainerNY" class="p31Video" style="background: black">
-        <video id="slideVideoNY" width="100%" height="100%" ng-click="playVideoSlide('slideVideoNY', '')">
+      <div id="slideVideoContainerNY" class="p31Video videoPlay" style="background: black">
+        <video id="slideVideoNY" width="100%" height="100%" ng-click="playVideoSlide('slideVideoNY', 'slideVideoContainerNY')">
           <source src="http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/5/0/1471877015205.mp4" type="video/mp4">
         </video>
       </div>
@@ -631,7 +631,7 @@
       <!--</span>-->
       <!--</div>-->
       <div id="fotoGroup81" class="prelGroup">
-        <div id="slideVideoContainerAbbe" class="teLoDijoAdela img slideimg81" style="background: black">
+        <div id="slideVideoContainerAbbe" class="teLoDijoAdela img videoPlay slideimg81" style="background: black">
           <video id="slideVideoAbbe" width="100%" height="100%" ng-click="playVideoSlide('slideVideoAbbe', 'slideVideoContainerAbbe')">
             <source src="http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/8/1/1471877050018.mp4" type="video/mp4">
           </video>
