@@ -446,14 +446,14 @@ angular.module('smcApp')
       //EPISODE 19
       .add("CB2")
       .to("", 0.1, { onStart: updateTitle, onStartParams: [18] })
-      .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['resume',300,305,305,false,'7/5/1471877240757.mp4', 'videoCloud', 'videoCloudInside'] })
+      .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['resume',300,322,322,false,'7/5/1471877240757.mp4', 'videoCloud', 'videoCloudInside'] })
       .to("#page18",0.4,{ right: '0%', ease: Power0.easeNone})
       .staggerFrom($("#page18").children(),0.6, animationFromPattern, staggerFromVelocity)
       .to(".cita61",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=0.2")
       .to("", 0.1, { onReverseComplete: stopVideo })
       .addPause()
       .to("", 0.1, { onStart: stopVideo })
-      .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['resume',300,305,305,false,'7/5/1471877240757.mp4', 'videoCloud', 'videoCloudInside'] })
+      .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['resume',300,322,322,false,'7/5/1471877240757.mp4', 'videoCloud', 'videoCloudInside'] })
       .staggerTo($("#page18").children(),0.6, animationToPattern, staggerToVelocity)
       .to(".blurEffect8",0.2,{ filter: 'blur(0px)',webkitFilter: 'blur(0px)', ease: Power0.easeNone})
       .to(".lasv8", 0.3, {opacity: '0', ease: Back.easeOut.config(1)},"+=1")
@@ -646,11 +646,14 @@ angular.module('smcApp')
          player.off('timeupdate');
          player.breakpoint = false;
          player.on('timeupdate', function() {
-           if (!player.breakpoint && (player.currentTime() >= breakpoint-3) ){
+           if (!player.breakpoint && (player.currentTime() == breakpoint-3) ){
+             console.log('cumple timeupdate antes:', player.breakpoint, player.currentTime());
              TweenMax.to($('#videoContainer'), 3, { opacity: 0, scale: 0, ease: Power4.easeOut });
            }
            if (!player.breakpoint && (player.currentTime() >= breakpoint) ){
+             console.log('cumple timeupdate:', player.breakpoint, player.currentTime());
              player.breakpoint = true;
+             stopVideo();
              if(continueBeforeStop == true) tl.play();
              fullScreenVideoStatus = false;
            }
