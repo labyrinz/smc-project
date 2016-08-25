@@ -511,17 +511,23 @@ angular.module('smcApp')
     /* setTimeout(drawFace, 5000);*/
 
     //------------------------------------
-    $scope.playVideoSlide = function(id, container){
+    $scope.playVideoSlide = function(id, container, playButton, fullScreenButton){
       if(boolsound == 1){ videoCardtoggleSound(); }
       $('#'+container).css("left",'');
       //videoSlideResize $('#'+container).addClass('videoFullScreen');
-      if($("#"+id).get(0).paused) { $("#"+id).get(0).play(); $('#'+container).removeClass('videoPlay'); }
-      else { $("#"+id).get(0).pause();  $('#'+container).addClass('videoPlay'); }
+      if($("#"+id).get(0).paused) { $("#"+id).get(0).play(); $('#'+playButton).css('opacity', '0');  $('#'+fullScreenButton).css('opacity', '1'); }
+      else { $("#"+id).get(0).pause();  $('#'+playButton).css('opacity', '1');  $('#'+fullScreenButton).css('opacity', '0'); }
       $("#"+id).on("ended", function() {
+        $('#'+container).removeClass("videoSlideResizeOut videoSlideResize");
         if(boolsound == 1)videoCardtoggleSound();
-        $('#'+container).addClass('videoPlay');
-        $('#'+container).removeClass('videoFullScreen');
+        $('#'+playButton).css('opacity', '1');
+        $('#'+fullScreenButton).css('opacity', '0');
       });
+    };
+    $scope.fullScreenVideoSlide = function(id, style){
+      $('#'+id).css("right",'');
+      if($("#"+id).hasClass( style )) $("#"+id).removeClass(style);
+      else $("#"+id).addClass(style);
     }
     //-------FUNCTIONS --------------------
     $scope.upTo = function(value, music, notes) {
@@ -547,6 +553,7 @@ angular.module('smcApp')
     };
 
     $scope.prevFoto = function(id,value){
+      $('.slideimg'+id).removeClass("videoSlideResizeOut videoSlideResize");
       if(value==undefined) var desp = '-110%';
       else var desp = '-'+value;
       var firstPhoto = $('.slideimg'+id).first();
@@ -554,11 +561,10 @@ angular.module('smcApp')
     };
 
     $scope.nextFoto = function(id, value){
+      $('.slideimg'+id).removeClass("videoSlideResizeOut videoSlideResize");
       if(value==undefined) var desp = '110%';
       else var desp = value;
       var firstPhoto = $('.slideimg'+id).last();
-      console.log(firstPhoto);
-      //$("#"+firstPhoto[0].childNodes[1].id).get(0).play();
       firstPhoto.attr('autoplay','autoplay');
       TweenMax.to(firstPhoto, 0.1, {left: desp, repeatDelay:0.1, repeat:1, yoyo:true, onRepeat:function(){$('#fotoGroup'+id).prepend(firstPhoto);if(firstPhoto[0].childNodes[1].id) {  if(videoCardToogleSound == 0) $("#"+firstPhoto[0].childNodes[1].id).get(0).play(); };}, ease: Power4.easeOut});
 
