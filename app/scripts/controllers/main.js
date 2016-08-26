@@ -144,12 +144,12 @@ angular.module('smcApp')
       .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['videoCloud',false,false,false,false,'4/0/1471877017204.mp4', 'videoCloud', 'videoCloudInside'] })
       .to(".mouseIcon", 0.2, {bottom: '-150px', ease: Power0.easeOut})
       .to("#page2",0.4,{ right: '100%', ease: Power0.easeNone},"+=1")
-      .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['videoMarco',false,false,false,true,'3/9/1471877013293.mp4', 'fullScreenVideo', 'fullScreenVideoEnter'] })
+      .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['videomarco',false,false,false,true,'3/9/1471877013293.mp4', 'resumeVideoBox', 'resumeVideoBoxEnter'] })
       .to("", 0.1, { onReverseComplete: stopVideo })
       .to("", 0.1, { onReverseComplete: updateTitle, onReverseCompleteParams: [1] })
       .addPause()
       .to("", 0.1, { onStart: stopVideo })
-      .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['videoMarco',false,false,false,false,'3/9/1471877013293.mp4', 'fullScreenVideo', 'fullScreenVideoEnter'] })
+      .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['videomarco',false,false,false,false,'3/9/1471877013293.mp4', 'resumeVideoBox', 'resumeVideoBoxEnter'] })
       //EPISODE 4
       .add("prologo2Add")
       .to("", 0.1, { onStart: updateTitle, onStartParams: [2] })
@@ -447,10 +447,10 @@ angular.module('smcApp')
       //EPISODE 19
       .add("CB2")
       .to("", 0.1, { onStart: updateTitle, onStartParams: [18] })
-      .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['resume',300,322,322,false,'7/5/1471877240757.mp4', 'videoCloud', 'videoCloudInside'] })
       .to("#page18",0.4,{ right: '0%', ease: Power0.easeNone})
       .staggerFrom($("#page18").children(),0.6, animationFromPattern, staggerFromVelocity)
       .to(".cita61",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=0.2")
+      .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['resume',300,322,322,false,'7/5/1471877240757.mp4', 'videoCloud', 'videoCloudInside'] })
       .to("", 0.1, { onReverseComplete: stopVideo })
       .addPause()
       .to("", 0.1, { onStart: stopVideo })
@@ -644,11 +644,11 @@ angular.module('smcApp')
     //}
 
     function videoPlay(videoType, timer, duration, breakpoint, continueBeforeStop, id, class1, class2){
+       player.src({ type: 'video/mp4', src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/'+id });
        console.log('continue before Stop?: ', continueBeforeStop, videoType);
        fullScreenVideoStatus = true;
        player.pause();
        $('#videoGeneral').removeClass('videoClass fullScreenVideo resumeVideoBox videoCloud videoCloud2');
-       player.src({ type: 'video/mp4', src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/'+id });
        if(class1 == 'videoCloud') { var scaleValue = 0.6; $('#burbleBig').addClass('burbleBig'); $('#burbleMed').addClass('burbleMed'); $('#burbleSmall').addClass('burbleSmall'); }
        else if(class1 == 'videoCloud2') { var scaleValue = 0.6; $('#burbleBig').addClass('burbleBig2'); $('#burbleMed').addClass('burbleMed2'); $('#burbleSmall').addClass('burbleSmall2'); }
        else var scaleValue = 1;
@@ -663,14 +663,14 @@ angular.module('smcApp')
          player.off('timeupdate');
          player.breakpoint = false;
          player.on('timeupdate', function() {
-           if (!player.breakpoint && (player.currentTime() == breakpoint-3) ){
+           if (!player.breakpoint && (player.currentTime() == breakpoint-3)){
              console.log('cumple timeupdate antes:', player.breakpoint, player.currentTime());
              TweenMax.to($('#videoContainer'), 3, { opacity: 0, scale: 0, ease: Power4.easeOut });
            }
            if (!player.breakpoint && (player.currentTime() >= breakpoint) ){
              console.log('cumple timeupdate:', player.breakpoint, player.currentTime());
              player.breakpoint = true;
-             stopVideo();
+             if(class2 != 'videoCloudInside') stopVideo();
              if(continueBeforeStop == true) tl.play();
              fullScreenVideoStatus = false;
            }
@@ -682,7 +682,7 @@ angular.module('smcApp')
            if(continueBeforeStop == true){ tl.play(); }
            if(soundEpilogo && boolsound == 1){ soundEpilogo.fade(0,1,2000); }
            fullScreenVideoStatus = false;
-           player.src({ type: 'video/youtube', src: '' });
+           //player.src({ type: 'video/youtube', src: '' });
          })
        }
     };
