@@ -158,6 +158,7 @@ angular.module('smcApp')
       .to(".age2",0.3,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"-=0.3")
       .staggerFrom($("#page3").children(),0.6, animationFromPattern, staggerFromVelocity)
       .addPause()
+      .to("", 0.1, { onStart: stopVideoToolTip, onStartParams: ['slideVideoHavana', 'slideVideoContainerHavana', 'playButtonHavana', '' ] })
       .staggerTo($("#page3").children(),0.6, animationToPattern, staggerToVelocity)
       .to("", 0.1, { onReverseComplete: updateTitle, onReverseCompleteParams: [2] })
       //EPISODE 5
@@ -178,6 +179,7 @@ angular.module('smcApp')
       .to(".cita12",1,{  transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1")
       //.to("", 0.1, { onReverseComplete: stopVideo })
       .addPause()
+      .to("", 0.1, { onStart: stopVideoToolTip, onStartParams: ['slideVideoNY', 'slideVideoContainerNY', 'playButtonNY', 'fullScreenButtonNY' ] })
       //.to("", 0.1, { onStart: stopVideo })
       .staggerTo($("#page4").children(),0.6, animationToPattern, staggerToVelocity)
       //.to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['onlySound',false,false,false,false,'3/4/1461774869043.mp4','',''] })
@@ -238,16 +240,16 @@ angular.module('smcApp')
       .staggerFrom($("#page7").children(),0.6, animationFromPattern, staggerFromVelocity)
       .to(".cita15",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1")
       //.to("", 0.1, { onReverseComplete: stopVideo })
-      .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['videoCloud',false,false,false,true,'2/5/1471877148752.mp4', 'videoCloud', 'videoCloudInside'] })
+      .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['videoCloud',false,false,false,true,'2/5/1471877148752.mp4', 'videoCloud', 'videoCloudInside', true] })
       .to("", 0.1, { onReverseComplete: stopVideo })
       .addPause()
-      .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['videoCloud',false,false,false,false,'6/9/1471876985396.mp4', 'videoCloud', 'videoCloudInside'] })
+      .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['videoCloud',false,false,false,false,'6/9/1471876985396.mp4', 'videoCloud', 'videoCloudInside', true] })
       .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['videoCloud',false,false,false,true,'2/4/1471877146842.mp4', 'videoCloud', 'videoCloudInside'] })
       .addPause()
       .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['videoCloud',false,false,false,true,'2/4/1471877146842.mp4', 'videoCloud', 'videoCloudInside'] })
-      .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['videoCloud',false,false,false,true,'6/9/1471876985396.mp4', 'videoCloud', 'videoCloudInside'] })
+      .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['videoCloud',false,false,false,true,'6/9/1471876985396.mp4', 'videoCloud', 'videoCloudInside', true] })
       .addPause()
-      .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['videoCloud',false,false,false,false,'2/5/1471877148752.mp4', 'videoCloud', 'videoCloudInside'] })
+      .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['videoCloud',false,false,false,false,'2/5/1471877148752.mp4', 'videoCloud', 'videoCloudInside', true] })
       //.to("", 0.1, { onStart: stopVideo })
       .to("", 0.1, { onStart: stopVideo })
       .staggerTo($("#page7").children(),0.6, animationToPattern, staggerToVelocity)
@@ -308,13 +310,13 @@ angular.module('smcApp')
       .add("CC4")
       .to("", 0.1, { onStart: updateTitle, onStartParams: [10] })
       .to("#page10",0.4,{ right: '0%', ease: Back.easeInOut.config(1)},"-=0.4")
-      .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['videoCloud',false,false,false,true,'4/0/1471877055304.mp4', 'videoCloud2', 'videoCloudInside'] })
+      .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['videoCloud',false,false,false,true,'4/0/1471877055304.mp4', 'videoCloud2', 'videoCloudInside', true] })
       .to("", 0.1, { onReverseComplete: stopVideo })
       .addPause()
       .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['videoCloud',false,false,false,true,'3/4/1471877070743.mp4', 'videoCloud2', 'videoCloudInside'] })
-      .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['videoCloud',false,false,false,true,'3/4/1461774869043.mp4', 'videoCloud2', 'videoCloudInside'] })
+      .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['videoCloud',false,false,false,true,'3/4/1471877070743.mp4', 'videoCloud2', 'videoCloudInside'] })
       .addPause()
-      .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['videoCloud',false,false,false,true,'4/0/1471877055304.mp4', 'videoCloud2', 'videoCloudInside'] })
+      .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['videoCloud',false,false,false,true,'4/0/1471877055304.mp4', 'videoCloud2', 'videoCloudInside', true] })
       .to("", 0.1, { onStart: stopVideo })
       .to("", 0.1, { onReverseComplete: updateTitle, onReverseCompleteParams: [10] })
       .to(".blurEffect5", 2, { opacity: '0', ease: Back.easeOut.config(1)},"+=2")
@@ -353,6 +355,7 @@ angular.module('smcApp')
       .staggerFrom($("#page12").children(),0.6, animationFromPattern, staggerToVelocity)
       .to(".cita42",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1")
       .addPause()
+      .to("", 0.1, { onStart: stopVideoToolTip, onStartParams: ['slideVideoLorraine', 'slideVideoContainerLorraine', 'playButtonLorraine', 'fullScreenButtonLorraine' ] })
       .staggerTo($("#page12").children(),0.6, animationToPattern, staggerToVelocity)
       .to("#page12",0.4,{ right: '100%', ease: Power0.easeNone})
       .to("", 0.1, { onReverseComplete: updateTitle, onReverseCompleteParams: [12] })
@@ -397,6 +400,7 @@ angular.module('smcApp')
       .staggerFrom($("#page14").children(),0.6, animationFromPattern, staggerFromVelocity)
       .to(".cita51",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=0.5")
       .addPause()
+      .to("", 0.1, { onStart: stopVideoToolTip, onStartParams: ['slideVideoAbbe', 'slideVideoContainerAbbe', 'playButtonAbbe', 'fullScreenButtonAbbe' ] })
       .staggerTo($("#page14").children(),0.6, animationToPattern, staggerToVelocity)
       .to("#page14",0.4,{ right: '100%', ease: Power0.easeNone})
       .to("", 0.1, { onReverseComplete: playSound, onReverseCompleteParams: [playListOrder[7]] })
@@ -450,11 +454,11 @@ angular.module('smcApp')
       .to("#page18",0.4,{ right: '0%', ease: Power0.easeNone})
       .staggerFrom($("#page18").children(),0.6, animationFromPattern, staggerFromVelocity)
       .to(".cita61",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=0.2")
-      .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['resume',300,322,322,false,'7/5/1471877240757.mp4', 'videoCloud', 'videoCloudInside'] })
+      .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['resume',300,322,322,false,'7/5/1471877240757.mp4', 'videoCloud', 'videoCloudInside'] },"+=1")
       .to("", 0.1, { onReverseComplete: stopVideo })
       .addPause()
       .to("", 0.1, { onStart: stopVideo })
-      .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['resume',300,322,322,false,'7/5/1471877240757.mp4', 'videoCloud', 'videoCloudInside'] })
+      .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['resume',300,322,322,false,'7/5/1471877240757.mp4', 'videoCloud', 'videoCloudInside'] },"+=1")
       .staggerTo($("#page18").children(),0.6, animationToPattern, staggerToVelocity)
       .to(".blurEffect8",0.2,{ filter: 'blur(0px)',webkitFilter: 'blur(0px)', ease: Power0.easeNone})
       .to(".lasv8", 0.3, {opacity: '0', ease: Back.easeOut.config(1)},"+=1")
@@ -515,15 +519,30 @@ angular.module('smcApp')
       if(boolsound == 1){ videoCardtoggleSound(); }
       $('#'+container).css("left",'');
       //videoSlideResize $('#'+container).addClass('videoFullScreen');
-      if($("#"+id).get(0).paused) { $("#"+id).get(0).play(); $('#'+playButton).css('opacity', '0');  $('#'+fullScreenButton).css('opacity', '1'); }
-      else { $("#"+id).get(0).pause();  $('#'+playButton).css('opacity', '1');  $('#'+fullScreenButton).css('opacity', '0'); }
-      $("#"+id).on("ended", function() {
-        $('#'+container).removeClass("videoSlideResizeOut videoSlideResize");
-        if(boolsound == 1)videoCardtoggleSound();
+      if($("#"+id).get(0).paused) {
+        if(id=='slideVideoHavana') { $("#videoToolTipContent").css( "opacity", "1" ); $("#toolTipText").css( "transform", "scale(1)" ); $("#toolTipInner").css( "transform", "translate3d(0,0,0)" );}
+        $("#"+id).get(0).play();
+        $('#'+playButton).css('opacity', '0');
+        $('#'+fullScreenButton).css('opacity', '1');
+      }
+      else {
+        $("#"+id).get(0).pause();
         $('#'+playButton).css('opacity', '1');
         $('#'+fullScreenButton).css('opacity', '0');
+        if(id=='slideVideoHavana') { $("#videoToolTipContent").css( "opacity", "" ); $("#toolTipText").css( "transform", "" ); $("#toolTipInner").css( "transform", "" );}
+      }
+      $("#"+id).on("ended", function() {
+        stopVideoToolTip(id,container, playButton, fullScreenButton);
       });
     };
+    function stopVideoToolTip(id, container, playButton, fullScreenButton){
+      $("#"+id).get(0).pause();
+      $("#videoToolTipContent").css( "opacity", "" ); $("#toolTipText").css( "transform", "" ); $("#toolTipInner").css( "transform", "" );
+      $('#'+container).removeClass("videoSlideResizeOut videoSlideResize");
+      if(boolsound == 1)videoCardtoggleSound();
+      $('#'+playButton).css('opacity', '1');
+      $('#'+fullScreenButton).css('opacity', '0');
+    }
     $scope.fullScreenVideoSlide = function(id, style){
       $('#'+id).css("right",'');
       if($("#"+id).hasClass( style )) $("#"+id).removeClass(style);
@@ -643,16 +662,16 @@ angular.module('smcApp')
     //   $scope.playVideo(videoType, timer, duration, breakpoint, continueBeforeStop, id, class1, class2);
     //}
 
-    function videoPlay(videoType, timer, duration, breakpoint, continueBeforeStop, id, class1, class2){
+    function videoPlay(videoType, timer, duration, breakpoint, continueBeforeStop, id, class1, class2, changeAudio){
        player.src({ type: 'video/mp4', src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/'+id });
-       console.log('continue before Stop?: ', continueBeforeStop, videoType);
        fullScreenVideoStatus = true;
        player.pause();
        $('#videoGeneral').removeClass('videoClass fullScreenVideo resumeVideoBox videoCloud videoCloud2');
        if(class1 == 'videoCloud') { var scaleValue = 0.6; $('#burbleBig').addClass('burbleBig'); $('#burbleMed').addClass('burbleMed'); $('#burbleSmall').addClass('burbleSmall'); }
        else if(class1 == 'videoCloud2') { var scaleValue = 0.6; $('#burbleBig').addClass('burbleBig2'); $('#burbleMed').addClass('burbleMed2'); $('#burbleSmall').addClass('burbleSmall2'); }
        else var scaleValue = 1;
-       if(soundEpilogo && boolsound == 1) soundEpilogo.fade(1,0,2000);
+      console.log('volumen: ', soundEpilogo.volume);
+       if(soundEpilogo && boolsound == 1 && soundEpilogo.volume() > 0 ) soundEpilogo.fade(1,0,2000);
        $('#videoGeneral').addClass(class1);
        $('#GeneralVideo').addClass("video-js vjs-default-skin " + class2);
        if(videoType!='onlySound') TweenMax.to($('#videoContainer'), 0.5, { opacity: 1, scale: scaleValue, ease: Power4.easeOut });
@@ -680,7 +699,7 @@ angular.module('smcApp')
          player.on("ended", function(){
            console.log('continue before Stop Inside ended?: ', continueBeforeStop, videoType);
            if(continueBeforeStop == true){ tl.play(); }
-           if(soundEpilogo && boolsound == 1){ soundEpilogo.fade(0,1,2000); }
+           if(soundEpilogo && boolsound == 1 && !changeAudio){ soundEpilogo.fade(0,1,2000); }
            fullScreenVideoStatus = false;
            //player.src({ type: 'video/youtube', src: '' });
          })
