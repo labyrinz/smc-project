@@ -98,17 +98,219 @@ body {
 
 .topMenu{
   width: 100%;
-  height: 75px;
+  height: 55px;
   position: absolute;
-  top: 0%;
-  left:0;
+  top: 0;
+  left: 0;
   background: #000; /* For browsers that do not support gradients */
   background: -moz-linear-gradient(top,  rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
   background: -webkit-linear-gradient(top,  rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
   background: linear-gradient(to bottom,  rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
   z-index: 100000;
+
+  .logo{
+    height: 45px;
+    width: 50px;
+    overflow: auto;
+    padding: 15px 0 0 15px;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    .img{
+      height: 30px;
+    }
+
+  }
+
+  .menuIcons{
+    height: 45px;
+    width: 120px;
+    overflow: auto;
+    padding: 15px 15px 0 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    $color: #f6f7f7;
+    $size: 30px;
+
+    #nav-icon {
+      width: $size;
+      height: $size;
+      position: relative;
+      float: right;
+      margin: 0px 10px 0 0;
+      -webkit-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+      -webkit-transition: .5s ease-in-out;
+      -moz-transition: .5s ease-in-out;
+      -o-transition: .5s ease-in-out;
+      transition: .5s ease-in-out;
+      cursor: pointer;
+    }
+
+    #nav-icon span {
+      display: block;
+      position: absolute;
+      height: 4px;
+      width: 100%;
+      background: $color;
+      border-radius: 9px;
+      opacity: 1;
+      left: 0;
+      -webkit-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+      -webkit-transition: .25s ease-in-out;
+      -moz-transition: .25s ease-in-out;
+      -o-transition: .25s ease-in-out;
+      transition: .25s ease-in-out;
+    }
+
+    #nav-icon span:nth-child(1) {
+      top: 4px;
+    }
+
+    #nav-icon span:nth-child(2),#nav-icon span:nth-child(3) {
+      top: 13px;
+    }
+
+    #nav-icon span:nth-child(4) {
+      top: 22px;
+    }
+
+    #nav-icon.open span:nth-child(1) {
+      top: 13px;
+      width: 0%;
+      left: 50%;
+    }
+
+    #nav-icon.open span:nth-child(2) {
+      -webkit-transform: rotate(45deg);
+      -moz-transform: rotate(45deg);
+      -o-transform: rotate(45deg);
+      transform: rotate(45deg);
+    }
+
+    #nav-icon.open span:nth-child(3) {
+      -webkit-transform: rotate(-45deg);
+      -moz-transform: rotate(-45deg);
+      -o-transform: rotate(-45deg);
+      transform: rotate(-45deg);
+    }
+
+    #nav-icon.open span:nth-child(4) {
+      top: 13px;
+      width: 0%;
+      left: 50%;
+    }
+
+    $border: $size / 20;
+
+    .sound {
+      width: $size;
+      height: $size;
+      position: relative;
+      cursor: pointer;
+      display: inline-block;
+      float: right;
+
+      &--icon {
+        color: $color;
+        width: 75%;
+        height: 100%;
+        line-height: 100%;
+        font-size: $size;
+        display: block;
+        margin: auto;
+      }
+
+      &--wave {
+        position: absolute;
+        border: $border solid transparent;
+        border-right: $border solid $color;
+        border-radius: 50%;
+        transition: all 200ms;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+
+        &_one {
+          width: 50%;
+          height: 50%;
+        }
+
+        &_two {
+          width: 75%;
+          height: 75%;
+        }
+      }
+
+      &-mute .sound--wave {
+        border-radius: 0;
+        width: 50%;
+        height: 50%;
+        border-width: 0 $border 0 0;
+
+        &_one {
+          transform:
+            rotate(45deg)
+            translate3d(0, -50%, 0);
+        }
+
+        &_two {
+          transform:
+            rotate(-45deg)
+            translate3d(0, 50%, 0);
+        }
+      }
+    }
+
+  }
+
+
 }
+
+/* SVG Icons */
+
+.si-icons span {
+display: inline-block;
+width: 30px;
+height: 30px;
+margin: 0px 10px;
+cursor: pointer;
+background-repeat: no-repeat;
+background-position: center center;
+float: right;
+}
+
+.si-icons-hover span {
+width: 128px;
+height: 128px;
+margin: 50px 40px;
+}
+
+.si-icon-volume{
+
+}
+
+/* Fallback for browsers that don't support SVG - Generated with http://iconizr.com/ */
+
+.no-svg .si-icon-hamburger, .no-svg .si-icon-hamburger-cross { background-image: url('../images/png/hamburger.png') }
+.no-svg .si-icon-play { background-image: url('../images/png/play.png') }
+.no-svg .si-icon-plus, .no-svg .si-icon-plus-cross { background-image: url('../images/png/plus.png') }
+.no-svg .si-icon-volume { background-image: url('../images/png/volume.png') }
+.no-svg .si-icon-zoom { background-image: url('../images/png/zoom.png') }
+
+
+
 
 .iconos{
   position: absolute;
@@ -3496,7 +3698,7 @@ img.infoAdvice{
     padding: 140px 40px;
     -webkit-transform: translate3d(0, 100%, 0);
     transform: translate3d(0, 100%, 0);
-    webkit-transition: -webkit-transform 0.3s;
+    -webkit-transition: -webkit-transform 0.3s;
     transition: transform 0.3s;
   }
 
@@ -3526,36 +3728,6 @@ img.infoAdvice{
 
 }
 
-  /* SVG Icons */
-
-.si-icons span {
-  display: inline-block;
-  width: 64px;
-  height: 64px;
-  margin: 10px 10px;
-  cursor: pointer;
-  background-repeat: no-repeat;
-  background-position: center center;
-}
-
-.si-icons-hover span {
-  width: 128px;
-  height: 128px;
-  margin: 50px 40px;
-}
-
-.si-icon-volume{
-  position: absolute;
-  right: 0;
-}
-
-/* Fallback for browsers that don't support SVG - Generated with http://iconizr.com/ */
-
-.no-svg .si-icon-hamburger, .no-svg .si-icon-hamburger-cross { background-image: url('../images/png/hamburger.png') }
-.no-svg .si-icon-play { background-image: url('../images/png/play.png') }
-.no-svg .si-icon-plus, .no-svg .si-icon-plus-cross { background-image: url('../images/png/plus.png') }
-.no-svg .si-icon-volume { background-image: url('../images/png/volume.png') }
-.no-svg .si-icon-zoom { background-image: url('../images/png/zoom.png') }
 
 
 /* Title retro effect */

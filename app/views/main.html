@@ -24,9 +24,26 @@
     </div>
   </div>
   <div class="cita1 cita100"> {{ CatText.cita100 }} <span id="cita100suma"></span><span class="plusInfoCita" value="100"> [+]</span></div>
-  <div class="topMenu si-icons si-icons-default">
-    <span class="si-icon si-icon-hamburger-cross" data-icon-name="hamburgerCross" id="trigger-overlay"></span>
-    <span class="si-icon si-icon-volume" data-icon-name="volume"></span>
+  <div class="topMenu">
+    <div class="logo">
+      <img src="images/svg/tv3.svg" alt="TV3" />
+    </div>
+    <div class="menuIcons si-icons si-icons-default">
+      <!--span class="si-icon si-icon-hamburger-cross" data-icon-name="hamburgerCross"></span-->
+      <div id="nav-icon"  class="trigger-overlay">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="sound">
+        <div class="sound--icon fa fa-volume-off"></div>
+        <div class="sound--wave sound--wave_one"></div>
+        <div class="sound--wave sound--wave_two"></div>
+      </div>
+      <!--span class="si-icon si-icon-volume" data-icon-name="volume"></span-->
+    </div>
+
   </div>
   <div id="back9" class="back9 backIlustration">
     <img class="barc1 blurEffect9" src="images/back/barcelona/batllo.png"/>
@@ -971,6 +988,3 @@
   </div>
   <div class="coverTransitions"></div>
 </div>
-
-
-
