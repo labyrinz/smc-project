@@ -112,6 +112,8 @@ angular.module('smcApp')
       .to(".pentagramBack",0.2,{ bottom: '0%', ease: Power0.easeNone},"-=0.2")
       .to(".pentagramNotesGroup",0.2,{ bottom: '2%', ease: Power0.easeNone},"-=0.2")
       .to(".age1",0.3,{ transform: 'rotateX(0deg)',  ease: Bounce.easeOut})
+      .to(".chihuahua",0.3,{ transform: 'rotateX(0deg)',  ease: Bounce.easeOut})
+      .to("", 0.1, { onStart: updateAnec, onStartParams: [1] })
       .to("", 0.1, { onReverseComplete: ninoAnimation })
       .staggerFrom($("#page1").children(),0.6, animationFromPattern, staggerFromVelocity)
       .to(".cita11",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=0.2")
@@ -147,12 +149,14 @@ angular.module('smcApp')
       .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['videomarco',false,false,false,true,'3/9/1471877013293.mp4', 'resumeVideoBox', 'resumeVideoBoxEnter'] })
       .to("", 0.1, { onReverseComplete: stopVideo })
       .to("", 0.1, { onReverseComplete: updateTitle, onReverseCompleteParams: [1] })
+      .to("", 0.1, { onStart: updateAnec, onStartParams: [2] })
       .addPause()
       .to("", 0.1, { onStart: stopVideo })
       .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['videomarco',false,false,false,false,'3/9/1471877013293.mp4', 'resumeVideoBox', 'resumeVideoBoxEnter'] })
       //EPISODE 4
       .add("prologo2Add")
       .to("", 0.1, { onStart: updateTitle, onStartParams: [2] })
+      .to("", 0.1, { onStart: updateAnec, onStartParams: [3] })
       .to("#page3",0.4,{ right: '0%', ease: Power0.easeNone})
       .to(".age1",0.3,{ transform: 'rotateX(90deg)', ease: Bounce.easeOut})
       .to(".age2",0.3,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"-=0.3")
@@ -554,7 +558,7 @@ angular.module('smcApp')
       TweenMax.to(".mouseIcon", 0.2, {bottom: '-150px', ease: Power0.easeOut});
       TweenMax.to(".coverTransitions", 0.1, { scale: 1, ease: Power4.easeOut });
       TweenMax.to(".coverTransitions", 0.6, { opacity: 1, ease: Power4.easeOut, delay: 0.2 });
-      if ($("div.overlay").hasClass("open")) $("#trigger-overlay").click();
+      if ($("div.overlay").hasClass("open")) $(".trigger-overlay").click();
       setTimeout(function(){
         stopVideo();
         controlSound();
@@ -655,6 +659,10 @@ angular.module('smcApp')
       else $(".currentDetails h4").html('');
     }
 
+    function updateAnec(id){
+      triggerAnec.attr("data-anecdota", id);
+    }
+
     //----------------------------------------------
     //------ vIDEO & AUDIO -------------------------
 
@@ -740,6 +748,7 @@ angular.module('smcApp')
     function toggleSound(){
       boolsound = boolsound ? 0 : 1;
       player.volume(boolsound);
+      soundBttn.toggleClass('sound-mute');
       if(!fullScreenVideoStatus)soundEpilogo.volume(boolsound);
     }
     function videoCardtoggleSound(){
@@ -864,10 +873,14 @@ angular.module('smcApp')
     // MENU
 
     var container = $( 'div.container' ),
-      triggerBttn = $( '#trigger-overlay' ),
-      soundBttn = $( '.si-icon-volume'),
+      container2 = $( 'div.container2' ),
+      triggerBttn = $( '.trigger-overlay' ),
+      triggerAnec = $( '.trigger-anecdota' ),
+      soundBttn = $( '.sound'),
       overlay = $( 'div.overlay' ),
+      overlayAnec = $( 'div.overlay-anecdota' ),
       closeBttn = $( 'button.overlay-close'),
+      closeAnecBttn = $( 'button.overlay-anecdota-close'),
       transEndEventNames = {
         'WebkitTransition': 'webkitTransitionEnd',
         'MozTransition': 'transitionend',
@@ -881,6 +894,7 @@ angular.module('smcApp')
     function toggleOverlay() {
         if( overlay.hasClass( 'open' ) ) {
           overlay.removeClass( 'open' );
+          triggerBttn.removeClass( 'open' );
           container.removeClass( 'overlay-open' );
           overlay.addClass( 'close' );
           var onEndTransitionFn = function( ev ) {
@@ -900,20 +914,47 @@ angular.module('smcApp')
         }
         else if( !overlay.hasClass( 'close' )) {
           overlay.addClass( 'open' );
+          triggerBttn.addClass( 'open' );
           container.addClass( 'overlay-open' );
         }
     }
 
+    function toggleAnec(id) {
+        if (id) overlayAnec.load( "/views/anecdotas.html #anec"+id );
+        if( overlayAnec.hasClass( 'open' ) ) {
+          overlayAnec.removeClass( 'open' );
+          triggerAnec.removeClass( 'open' );
+          container2.removeClass( 'overlay-open' );
+          overlayAnec.addClass( 'close' );
+          var onEndTransitionFn = function( ev ) {
+            overlayAnec.removeClass( 'close' );
+          };
+          if( support.transitions ) {
+            try{
+              overlayAnec.on(transEndEventName, function(){onEndTransitionFn()})
+              //overlay.addEventListener( transEndEventName, onEndTransitionFn );
+            } catch(ex){
+              onEndTransitionFn();
+            }
+          }
+          else {
+            onEndTransitionFn();
+          }
+        }
+        else if( !overlayAnec.hasClass( 'close' )) {
+          overlayAnec.addClass( 'open' );
+          triggerAnec.addClass( 'open' );
+          container2.addClass( 'overlay-open' );
+        }
+    }
+
     triggerBttn.on( 'click', function(){toggleOverlay()} );
+    triggerAnec.on( 'click', function(){
+                                var anecId = $(this).attr("data-anecdota");
+                                toggleAnec(anecId)
+                             });
     soundBttn.on( 'click', function(){ toggleSound()} );
     //closeBttn.on( 'click', function(){toggleOverlay()} );
-
-    (function() {
-      // initialize icons
-      [].slice.call( document.querySelectorAll( '.si-icons-default > .si-icon' ) ).forEach( function( el ) {
-        var svgicon = new svgIcon( el, svgIconConfig );
-      } );
-    })();
 
 
   });
