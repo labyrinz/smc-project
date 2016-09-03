@@ -18,6 +18,7 @@
             <li><div ng-click="upTo('AL1',7,14)">5. {{ menuText.abbe }} <span>(1952-1964)</span></div></li>
             <li><div ng-click="upTo('CB1',9,17)">6. {{ menuText.charo }} <span>(1966-1978)</span></div></li>
             <li><div ng-click="upTo('EP1',10,19)">7. {{ menuText.epi }} <span>(1978-1990)</span></div></li>
+            <li><div ng-click="loadCredits()">{{ menuText.credits }}</div></li>
           </div>
         </ul>
       </nav>
@@ -66,7 +67,8 @@
     <img class="barc6 blurEffect9" src="images/back/barcelona/copa2.png"/>
     <img class="barc7 blurEffect9" src="images/back/barcelona/hojas1.png"/>
     <img class="barc8 blurEffect9" src="images/back/barcelona/hojas2.png"/>
-    <div id="textoFin" class="texto1 textoFin highlightText">Cugat va morir a Barcelona el 27 d'octubre de 1990.</div>
+    <div id="texto7-barc" class="texto1 texto7-barc highlightText"> {{ generalText.text7 }}</div>
+    <div id="textoFin" class="texto1 textoFin highlightText">{{ generalText.textoFin }}</div>
   </div>
   <div id="back8" class="back8 backIlustration">
     <img class="lasv1 blurEffect8" src="images/back/lasvegas/fondo.png"/>
@@ -121,7 +123,7 @@
     <img class="cub1 blurEffect2" src="images/back/cuba/coches.png"/>
   </div>
   <div id="back1" class="back1 backIlustration">
-    <div id="texto11" class="texto1 texto11 highlightText">Xavier Cugat va néixer a Girona l'1 de gener de 1900.</div>
+    <div id="texto11" class="texto1 texto11 highlightText">{{ generalText.texto11 }}</div>
     <img class="ed4 blurEffect1" src="images/back/inf/rioc.png"/>
     <img class="ed1 blurEffect1" src="images/back/inf/ed1c.png"/>
     <img class="ed2 blurEffect1" src="images/back/inf/ed2c.png"/>
@@ -664,6 +666,7 @@
     </div>
     <!--EPISODE 7 EPILOGO-->
     <div id="page19" class="back color0 page19">
+
       <div class="cita6 cita62"> {{ CatText.cita62 }} <span id="cita62suma"> </span> {{ CatText.cita62Post }} <span class="plusInfoCita" value="62">[+]</span></div>
       <div class="pic cb09">
         <img src="images/sanjulian.jpg" class="pic-image" alt="Pic"/>
@@ -1001,7 +1004,7 @@
     <div id="burbleSmall" class=""></div>
   </div>
   <div class="mouseIcon">
-    <div id="controlIcon" class=""></div>
+    <div id="controlIcon" class="hvr-wobble-vertical"></div>
     <p>{{ controlText }}</p>
   </div>
   <div class="coverTransitions"></div>
