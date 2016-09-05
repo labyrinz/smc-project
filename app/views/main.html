@@ -199,14 +199,14 @@
             </span>
         </div>
         <div class="pic prol02 img slideimg31">
-          <img src="images/BCN_02.jpg" class="pic-image" alt="Pic"/>
+          <img src="images/BNC_002_Album2_Cugat-violin.jpg" class="pic-image" alt="Pic"/>
           <img src="images/infoIcon.svg" class="infoAdvice"/>
             <span class="pic-caption bottom-to-top">
               <p> {{ photoText.prol02 }} </p>
             </span>
         </div>
         <div class="pic prol03 img slideimg31">
-          <img src="images/prel_08.jpg" class="pic-image" alt="Pic"/>
+          <img src="images/BNC_001_Album1_Cugat-violin.jpg" class="pic-image" alt="Pic"/>
           <img src="images/infoIcon.svg" class="infoAdvice"/>
             <span class="pic-caption bottom-to-top">
               <p> {{ photoText.prol03 }} </p>
@@ -717,6 +717,10 @@
     <div class="pentagramImage">
       <img class="pentagramRect" src="images/penta-recto-mini.svg"/>
       <img class="claveSol" src="images/clavesol.png"/>
+      <div class="instruction-pentagram">
+        <img src="images/instructions-arrow.png" alt="" />
+        <span>Haz clic sobre las notas para recorrer la vida de Xavier, desde su infancia hasta su vejez</span>
+      </div>
     </div>
 
     <div class="agesImageGroup">
@@ -730,6 +734,10 @@
       <img class="trigger-anecdota chihuahua hvr-buzz-out"
                 src="images/chihuahua.png"
                 data-anecdota="1" />
+      <div class="instruction-anecdota">
+        <img src="images/instructions-arrow.png" alt="" />
+        <span>Haz clic cuando veas aparecer al chihuahua, podrás conocer todo tipo de anécdotas curiosas acerca de Cugui</span>
+      </div>
     </div>
 
     <div class="pentagramNotesGroup">
@@ -1004,7 +1012,12 @@
     <div id="burbleSmall" class=""></div>
   </div>
   <div class="mouseIcon">
-    <div id="controlIcon" class="hvr-wobble-vertical"></div>
+    <!--div id="controlIcon" class="hvr-wobble-vertical"></div-->
+    <div class="scroll-downs">
+      <div class="mousey">
+        <div class="scroller"></div>
+      </div>
+    </div>
     <p>{{ controlText }}</p>
   </div>
   <div class="coverTransitions"></div>
