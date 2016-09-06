@@ -1515,13 +1515,19 @@ img.infoAdvice{
   position: absolute;
   top: -25%;
   left: 20%;
-  height: 170%;
+  img{
+    max-height: 400px;
+  }
 }
 .prol03{
   position: absolute;
-  top: 2%;
+  top: 0;
   left: 9%;
-  width: 80%;
+  /*width: 80%;*/
+  max-height: 400px;
+  img{
+    max-height: 400px;
+  }
 }
 .prol04{
   position: absolute;
@@ -2186,52 +2192,64 @@ img.infoAdvice{
   position: absolute;
   top:20%;
   left:10%;
-  height: 110%;
   cursor: pointer;
+  img{
+    max-width: 400px;
+  }
 }
 .cc34{
   position: absolute;
   top: 10%;
   left: 5%;
-  height: 130%;
-  width: 85%;
   cursor: pointer;
+  img{
+    max-width: 400px;
+  }
 }
 .cc35{
   position: absolute;
   top:5%;
   left:10%;
-  height: 110%;
   cursor: pointer;
+  img{
+    max-width: 400px;
+  }
 }
 .cc36{
   position: absolute;
   top: -6%;
   left: 13%;
-  height: 150%;
   cursor: pointer;
+  img{
+    max-height: 400px;
+  }
 }
 .cc37{
   position: absolute;
   top:27%;
   left:15%;
-  height: 110%;
   cursor: pointer;
+  img{
+    max-width: 400px;
+  }
 }
 .cc38{
   position: absolute;
   top: 0%;
   left: 6%;
-  height: 100%;
   cursor: pointer;
+  img{
+    max-width: 400px;
+  }
 }
 .cc39{
   position: absolute;
   top: -6%;
   left: 15%;
-  height: 170%;
-  width: 70%;
   cursor: pointer;
+  img{
+    max-height: 400px;
+  }
 }
 .cc21Video{
   position: absolute;
@@ -2514,29 +2532,38 @@ img.infoAdvice{
 }
 .la6{
   position: absolute;
-  height: 40%;
-  right: 65%;
+  right: 75%;
+  margin-right: -5% !important;
   top: 15%;
   cursor: pointer;
+  max-width: 25%;
+  img{
+    max-width: 25%;
+  }
 }
 .la7{
   position: absolute;
-  height: 40%;
-  right: 15%;
+  right: 5%;
   top: 15%;
   cursor: pointer;
+  max-width: 25%;
+  img{
+    max-width: 25%;
+  }
  }
 .la9{
   position: absolute;
-  height: 40%;
-  width: 23%;
-  right: 40%;
+  right: 50%;
+  margin-right: -13% !important;
+  cursor: pointer;
+  margin-right: 12%;
   top: 16%;
+  max-width: 25%;
+  img{
+    max-width: 100%;
+  }
 }
-.la9 img{
-  width: 100%;
-  height: 100%;
-}
+
 .la31Video{
   position: absolute;
   top: 10%;
@@ -2671,15 +2698,20 @@ img.infoAdvice{
   position: absolute;
   top: 15%;
   left: 20%;
-  height: 100%;
+  img{
+    max-width: 350px;
+  }
 }
 .al12{
   position: absolute;
   top: -25%;
   left: 11%;
-  width: 80%;
-  height: 160%;
+  /*width: 80%;*/
   cursor: pointer;
+  img{
+    max-height: 400px;
+  }
+
 }
 .teLoDijoAdela{
   position: absolute;
@@ -2716,63 +2748,75 @@ img.infoAdvice{
 }
 .al21{
   position: absolute;
-  height: 155%;
   left: -4%;
   top: -20%;
   cursor: pointer;
+  img{
+    max-height: 400px;
+  }
 }
 .al22{
   position: absolute;
-  height: 120%;
   left: -10%;
   top: -5%;
   cursor: pointer;
+  img{
+    max-height: 400px;
+  }
 }
 .al23{
   position: absolute;
-  width: 80%;
-  height: 130%;
   left: 5%;
   top: -15%;
   cursor: pointer;
+  img{
+    max-height: 400px;
+  }
 }
 .al24{
   position: absolute;
-  width: 80%;
-  height: 145%;
   left: 5%;
   top: -10%;
   cursor: pointer;
+  img{
+    max-height: 400px;
+  }
 }
 .al25{
   position: absolute;
-  height: 190%;
   left: 15%;
-  top: -35%;
+  top: -25%;
   cursor: pointer;
+  img{
+    max-height: 400px;
+  }
 }
 .al26{
   position: absolute;
-  width: 80%;
-  height: 160%;
   left: 12%;
   top: -30%;
   cursor: pointer;
+  img{
+    max-height: 400px;
+  }
 }
 .al27{
   position: absolute;
-  height: 170%;
   left: 13%;
   top: -20%;
   cursor: pointer;
+  img{
+    max-height: 400px;
+  }
 }
 .al28{
   position: absolute;
-  width: 100%;
-  height: 160%;
   left: -5%;
   top: -20%;
   cursor: pointer;
+  img{
+    max-height: 400px;
+  }
 }
 .citaAddonAl{
   position: absolute;
@@ -2809,41 +2853,46 @@ img.infoAdvice{
 //DIAPOSITIVA 17
 .al31{
   position: absolute;
-  width: 80%;
-  height: 160%;
   left: 10%;
   top: -30%;
   cursor: pointer;
+  img{
+    max-height: 400px;
+  }
 }
 .al32{
   position: absolute;
-  width: 90%;
-  height: 90%;
   left: -7%;
   top: 10%;
+  img{
+    max-width: 400px;
+  }
 }
 .al33{
   position: absolute;
-  width: 90%;
-  height: 110%;
   left: -10%;
   top: 5%;
   cursor: pointer;
+  img{
+    max-width: 400px;
+  }
 }
 .al34{
   position: absolute;
-  width: 80%;
-  height: 120%;
   left: 0%;
   top: -15%;
+  img{
+    max-width: 400px;
+  }
 }
 .al35{
   position: absolute;
-  width: 85%;
-  height: 100%;
   left: -6%;
   top: -5%;
   cursor: pointer;
+  img{
+    max-width: 400px;
+  }
 }
 .cita54{
   bottom: 20%;
@@ -3059,48 +3108,57 @@ img.infoAdvice{
 }
 .cb06{
   position: absolute;
-  width: 80%;
   left: 5%;
   top: 10%;
-  height: 100%;
+  img{
+    max-width: 350px;
+  }
 }
 .cb07{
   position: absolute;
-  width: 80%;
   left: 0%;
   top: 5%;
-  height: 100%;
+  img{
+    max-width: 350px;
+  }
  }
 .cb08{
   position: absolute;
-  width: 80%;
   left: 5%;
   top: -6%;
-  height: 100%;
+  img{
+    max-width: 350px;
+  }
 }
 .cb09{
   position: absolute;
-  width: 20%;
-  right: 70%;
   top: 5%;
   z-index: 996;
+  right: 62%;
   cursor: pointer;
+  img{
+    max-height: 250px;
+  }
 }
 
 .cb20{
   position: absolute;
-  width: 80%;
+
   left: 7%;
   top: 10%;
-  height: 100%;
+  img{
+    max-width: 350px;
+  }
 }
 
 .cb21{
   position: absolute;
-  width: 80%;
+
   left: 0%;
   top: 15%;
-  height: 100%;
+  img{
+    max-width: 350px;
+  }
 }
 
 .cb22{
@@ -3680,7 +3738,7 @@ img.infoAdvice{
 
 .contextual{
   position: absolute;
-  bottom: 30%;
+  bottom: 20%;
   right: 20%;
   z-index: 999;
 
@@ -3802,9 +3860,17 @@ img.infoAdvice{
 
 }
 
+img.extraPhoto{
+  height: 200px;
+  float: left;
+  margin-right: 1em;
+  margin-left: 0em;
+}
+
+
 .contextual2{
   position: absolute;
-  bottom: 20%;
+  bottom: 12%;
   left: 30%;
   margin: auto;
   z-index: 998;
