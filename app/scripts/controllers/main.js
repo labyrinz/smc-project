@@ -483,16 +483,16 @@ angular.module('smcApp')
       .to("", 0.1, { onReverseComplete: updateTitle, onReverseCompleteParams: [17] })
       //EPISODE 19
       .add("CB2")
+      .to("#page18",0.4,{ right: '0%', ease: Power0.easeNone})
       .to("", 0.1, { onStart: updateTitle, onStartParams: [18] })
       .to("", 0.1, { onStart: updateAnec, onStartParams: [15] })
-      .to("#page18",0.4,{ right: '0%', ease: Power0.easeNone})
       .staggerFrom($("#page18").children(),0.6, animationFromPattern, staggerFromVelocity)
-      .to(".cita61",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=0.2")
+      .to(".cita61",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut})
       .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['resume',300,322,322,false,'7/5/1471877240757.mp4', 'videoCloud', 'videoCloudInside'] })
       .to("", 0.1, { onReverseComplete: stopVideo })
       .addPause()
       .to("", 0.1, { onStart: stopVideo })
-      .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['resume',300,322,322,false,'7/5/1471877240757.mp4', 'videoCloud', 'videoCloudInside'] },"+=1")
+      .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['resume',300,322,322,false,'7/5/1471877240757.mp4', 'videoCloud', 'videoCloudInside'] })
       .staggerTo($("#page18").children(),0.6, animationToPattern, staggerToVelocity)
       .to(".blurEffect8",0.2,{ filter: 'blur(0px)',webkitFilter: 'blur(0px)', ease: Power0.easeNone})
       .to(".lasv8", 0.3, {opacity: '0', ease: Back.easeOut.config(1)},"+=1")
@@ -717,6 +717,8 @@ angular.module('smcApp')
        player.src({ type: 'video/mp4', src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/'+id });
        fullScreenVideoStatus = true;
        player.pause();
+       if(class1 == 'resumeVideoBox') $('#videoContainer').css("z-index", 999);
+       else $('#videoContainer').css("z-index", "");
        $('#videoGeneral').removeClass('videoClass fullScreenVideo resumeVideoBox videoCloud videoCloud2');
        if(class1 == 'videoCloud') { var scaleValue = 0.6; $('#burbleBig').addClass('burbleBig'); $('#burbleMed').addClass('burbleMed'); $('#burbleSmall').addClass('burbleSmall'); }
        else if(class1 == 'videoCloud2') { var scaleValue = 0.6; $('#burbleBig').addClass('burbleBig2'); $('#burbleMed').addClass('burbleMed2'); $('#burbleSmall').addClass('burbleSmall2'); }
