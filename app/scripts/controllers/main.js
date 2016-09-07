@@ -683,7 +683,7 @@ angular.module('smcApp')
       //videoSlideResize $('#'+container).addClass('videoFullScreen');
       if($("#"+id).get(0).paused) {
         if(boolsound == soundVolume && soundEpilogo.volume() > 0 ) soundEpilogo.fade(soundVolume,0.01,2000);
-        if(id=='slideVideoHavana') { $("#videoToolTipContent").css( "opacity", "1" ); $("#toolTipText").css( "transform", "scale(1)" ); $("#toolTipInner").css( "transform", "translate3d(0,0,0)" );}
+        if(id=='slideVideoCC2') { $("#videoToolTipContent").css( "opacity", "1" ); $("#toolTipText").css( "transform", "scale(1)" ); $("#toolTipInner").css( "transform", "translate3d(0,0,0)" );}
         $("#"+id).get(0).play();
         $('#'+playButton).css('opacity', '0');
         $('#'+fullScreenButton).css('opacity', '1');
@@ -693,7 +693,7 @@ angular.module('smcApp')
         $("#"+id).get(0).pause();
         $('#'+playButton).css('opacity', '1');
         $('#'+fullScreenButton).css('opacity', '0');
-        if(id=='slideVideoHavana') { $("#videoToolTipContent").css( "opacity", "" ); $("#toolTipText").css( "transform", "" ); $("#toolTipInner").css( "transform", "" );}
+        if(id=='slideVideoCC2') { $("#videoToolTipContent").css( "opacity", "" ); $("#toolTipText").css( "transform", "" ); $("#toolTipInner").css( "transform", "" );}
       }
       $("#"+id).on("ended", function() {
         stopVideoToolTip(id,container, playButton, fullScreenButton);
