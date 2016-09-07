@@ -745,6 +745,9 @@ margin: 50px 40px;
 .noteImgNegra{
   width: 10px;
 }
+.noteImgBlanca{
+  width: 10px;
+}
 .noteImgSilen{
   width: 15px;
 }
@@ -755,19 +758,25 @@ margin: 50px 40px;
   width: 15px;
 }
 .linePent1{
-  margin-top: 0%;
+  margin-bottom: -5px;
+}
+.linePent1b{
+  margin-bottom: 2px;
 }
 .linePent2{
-  margin-top: -25%;
+  margin-bottom: 8px;
 }
 .linePent3{
-  margin-top: -50%;
+  margin-bottom: 16px;
+}
+.linePentSilence{
+  margin-bottom: 13px;
 }
 .linePent4{
-  margin-top: -75%;
+  margin-bottom: 24px;
 }
 .linePent5{
-  margin-top: -100%;
+  margin-bottom: 32px;
 }
 .agesImageGroup, .chihuahuaContainer{
   position: absolute;
