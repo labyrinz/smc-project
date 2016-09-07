@@ -645,7 +645,7 @@ margin: 50px 40px;
   position: absolute;
   height: 120px;
   bottom: 0;
-  z-index: 992;
+  z-index: 997;
 }
 
 .currentDetails{
@@ -1604,10 +1604,16 @@ img.infoAdvice{
 }
 .prol05{
   position: absolute;
-  top:20%;
-  right: 3%;
-  height:50%;
-  z-index: 989;
+  top: 0%;
+  left: 3%;
+  height: 140%;
+  /* z-index: 989; */
+}
+.prol06{
+  position: absolute;
+  top: 11%;
+  left: 13%;
+  height: 120%;
 }
 .cita12{
   bottom: 30%;

@@ -14,9 +14,9 @@ angular.module('smcApp')
     var body = $('body');
     var totalWords = [];
     var fullScreenVideoStatus = false;
-    var soundEpilogo = false;
-    var boolsound = 1;
-    var videoCardToogleSound = 1;
+    var boolsound = 0.5;
+    var videoCardToogleSound = 0.5;
+    var soundVolume = 0.5;
     var languajeOpen = false;
 
     var playListOrder = ['BeginTheBeguine','ElManisero','TICOTICO','Siboney','MyShawl','JungleRhumba','perfidia','QuizasQuizasQuizas','ParaVigomevoy','YoTeAmoMucho','Tabu']
@@ -35,6 +35,7 @@ angular.module('smcApp')
     $scope.menuText = languajeCT.menu;
 
     totalWords[12] = $scope.CatText.cita12Plus.split(" ");
+    totalWords[21] = $scope.CatText.cita21Plus.split(" ");
     totalWords[41] = $scope.CatText.cita41Plus.split(" ");
     totalWords[42] = $scope.CatText.cita42Plus.split(" ");
     totalWords[51] = $scope.CatText.cita51Plus.split(" ");
@@ -48,6 +49,11 @@ angular.module('smcApp')
     //---------------------------
     //----SOUND TRACKS -----
 
+    var soundEpilogo = new Howl({
+      urls: ['audio/TICOTICO.mp3'],
+      loop: true,
+      volume: 0
+    });
     //-----------------------
     //---------VIDEOS--------
 
@@ -195,10 +201,10 @@ angular.module('smcApp')
       .to("", 0.1, { onReverseComplete: updateTitle, onReverseCompleteParams: [3] })
       //EPISODE 6
       .add("RR1")
-      .to("#page4",0.4,{ right: '100%', ease: Back.easeInOut.config(1)})
-      .to("", 0.1, { onStart: updateTitle, onStartParams: [4] })
       .to("", 0.1, { onStart: playSound, onStartParams: [playListOrder[1]] })
-      .to("#page5",0.4,{ right: '0%', ease: Back.easeInOut.config(1)})
+      .to("", 0.1, { onStart: updateTitle, onStartParams: [4] })
+      .to("#page4",0.4,{ right: '100%', ease: Back.easeInOut.config(1)})
+      .to("#page5",0.4,{ right: '0%', ease: Back.easeInOut.config(1)},"+=0.5")
       .to("", 0.1, { onStart: videoPlay, onStartParams: ['resume',38.5,89,55, true, '7/5/1471877240757.mp4', 'resumeVideoBox', 'resumeVideoBoxEnter']})
       .to("", 0.1, { onReverseComplete: stopVideo })
       .addPause()
@@ -429,15 +435,15 @@ angular.module('smcApp')
       .to("", 0.1, { onReverseComplete: updateTitle, onReverseCompleteParams: [14] })
       //EPISODE 16
       .add("Al2")
+      .to("", 0.1, { onStart: playSound, onStartParams:[playListOrder[8]]})
       .to(".chihuahua",0.3,{ transform: 'rotateX(0deg)',  ease: Bounce.easeOut})
       .to("", 0.1, { onStart: updateTitle, onStartParams: [15] })
       .to("", 0.1, { onStart: updateAnec, onStartParams: [10] })
-      .to("", 0.1, { onStart: playSound, onStartParams:[playListOrder[8]]})
-      .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['videoCloud',266.5,297,297,false,'2/7/1471877144972.mp4', 'videoCloud', 'videoCloudInside'] })
       .to("#page15",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
       .to(".blurEffect8",0.2,{ filter: 'blur(8px)', webkitFilter: 'blur(8px)', ease: Power0.easeNone})
       .staggerFrom($("#page15").children(),0.6, animationFromPattern, staggerFromVelocity)
       .to(".cita53",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1")
+      .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['videoCloud',266.5,297,297,false,'2/7/1471877144972.mp4', 'videoCloud', 'videoCloudInside'] })
       .to("", 0.1, { onReverseComplete: stopVideo })
       .addPause()
       .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['videoCloud',266.5,297,297,false,'2/7/1471877144972.mp4', 'videoCloud', 'videoCloudInside'] })
@@ -483,7 +489,7 @@ angular.module('smcApp')
       .to("#page18",0.4,{ right: '0%', ease: Power0.easeNone})
       .staggerFrom($("#page18").children(),0.6, animationFromPattern, staggerFromVelocity)
       .to(".cita61",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=0.2")
-      .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['resume',300,322,322,false,'7/5/1471877240757.mp4', 'videoCloud', 'videoCloudInside'] },"+=1")
+      .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['resume',300,322,322,false,'7/5/1471877240757.mp4', 'videoCloud', 'videoCloudInside'] })
       .to("", 0.1, { onReverseComplete: stopVideo })
       .addPause()
       .to("", 0.1, { onStart: stopVideo })
@@ -539,49 +545,14 @@ angular.module('smcApp')
       .to(".textoFin",3,{  transform: 'scale(1)', opacity: '1', ease: Power4.easeOut},"+=2")
       .to(".textoFin",3,{ top: '0', ease: Power4.easeOut},"+=2")
       .to(".ep15",3,{ opacity: '1', ease: Power4.easeOut},"-=3")
-      .to(".blurEffect9",6,{ onStart:function(){soundEpilogo.fade(1,0,6000)},opacity: '0', ease: Power4.easeOut},"-=6")
+      .to(".blurEffect9",6,{ onStart:function(){soundEpilogo.fade(soundVolume,0,6000)},opacity: '0', ease: Power4.easeOut},"-=6")
       //.to(".chihuahua",0.3,{ transform: 'rotateX(90deg)',  ease: Bounce.easeOut})
-      .to(".age4",3,{ onReverseComplete: function(){soundEpilogo.fade(0,1,3000)}, opacity: '0', ease: Power4.easeOut},"-=6")
+      .to(".age4",3,{ onReverseComplete: function(){soundEpilogo.fade(0,soundVolume,3000)}, opacity: '0', ease: Power4.easeOut},"-=6")
       .addPause();
 
     tl.play();
-    //setTimeout(playTimeLine, 15000);
-    /* setTimeout(drawFace, 5000);*/
 
     //------------------------------------
-    $scope.playVideoSlide = function(id, container, playButton, fullScreenButton){
-      if(boolsound == 1){ videoCardtoggleSound(); }
-      $('#'+container).css("left",'');
-      //videoSlideResize $('#'+container).addClass('videoFullScreen');
-      if($("#"+id).get(0).paused) {
-        if(id=='slideVideoHavana') { $("#videoToolTipContent").css( "opacity", "1" ); $("#toolTipText").css( "transform", "scale(1)" ); $("#toolTipInner").css( "transform", "translate3d(0,0,0)" );}
-        $("#"+id).get(0).play();
-        $('#'+playButton).css('opacity', '0');
-        $('#'+fullScreenButton).css('opacity', '1');
-      }
-      else {
-        $("#"+id).get(0).pause();
-        $('#'+playButton).css('opacity', '1');
-        $('#'+fullScreenButton).css('opacity', '0');
-        if(id=='slideVideoHavana') { $("#videoToolTipContent").css( "opacity", "" ); $("#toolTipText").css( "transform", "" ); $("#toolTipInner").css( "transform", "" );}
-      }
-      $("#"+id).on("ended", function() {
-        stopVideoToolTip(id,container, playButton, fullScreenButton);
-      });
-    };
-    function stopVideoToolTip(id, container, playButton, fullScreenButton){
-      $("#"+id).get(0).pause();
-      $("#videoToolTipContent").css( "opacity", "" ); $("#toolTipText").css( "transform", "" ); $("#toolTipInner").css( "transform", "" );
-      $('#'+container).removeClass("videoSlideResizeOut videoSlideResize");
-      if(boolsound == 1)videoCardtoggleSound();
-      $('#'+playButton).css('opacity', '1');
-      $('#'+fullScreenButton).css('opacity', '0');
-    }
-    $scope.fullScreenVideoSlide = function(id, style){
-      $('#'+id).css("right",'');
-      if($("#"+id).hasClass( style )) $("#"+id).removeClass(style);
-      else $("#"+id).addClass(style);
-    }
     //-------FUNCTIONS --------------------
     $scope.upTo = function(value, music, notes) {
       console.log('notes: ', notes,music);
@@ -593,8 +564,6 @@ angular.module('smcApp')
         stopVideo();
         controlSound();
         updateTitle(notes);
-        //if(music) { console.log('entra musica: ', playListOrder[music]); playSound(playListOrder[music]); }
-        //else { if(soundEpilogo)soundEpilogo.stop(); }
         playSound(playListOrder[music]);
         stopNinoAnimation();
         if(value=='inicio') { videoPlay("intro", false, false, false, true, "3/4/1461774869043.mp4", "videoClass", "introVideoFull"); }
@@ -710,6 +679,40 @@ angular.module('smcApp')
     //function videoPlay(videoType, timer, duration, breakpoint, continueBeforeStop, id, class1, class2){
     //   $scope.playVideo(videoType, timer, duration, breakpoint, continueBeforeStop, id, class1, class2);
     //}
+    $scope.playVideoSlide = function(id, container, playButton, fullScreenButton){
+      $('#'+container).css("left",'');
+      //videoSlideResize $('#'+container).addClass('videoFullScreen');
+      if($("#"+id).get(0).paused) {
+        if(boolsound == soundVolume && soundEpilogo.volume() > 0 ) soundEpilogo.fade(soundVolume,0.01,2000);
+        if(id=='slideVideoHavana') { $("#videoToolTipContent").css( "opacity", "1" ); $("#toolTipText").css( "transform", "scale(1)" ); $("#toolTipInner").css( "transform", "translate3d(0,0,0)" );}
+        $("#"+id).get(0).play();
+        $('#'+playButton).css('opacity', '0');
+        $('#'+fullScreenButton).css('opacity', '1');
+      }
+      else {
+        if(boolsound == soundVolume && soundEpilogo.volume() > 0 ) soundEpilogo.fade(0.01,soundVolume,2000);
+        $("#"+id).get(0).pause();
+        $('#'+playButton).css('opacity', '1');
+        $('#'+fullScreenButton).css('opacity', '0');
+        if(id=='slideVideoHavana') { $("#videoToolTipContent").css( "opacity", "" ); $("#toolTipText").css( "transform", "" ); $("#toolTipInner").css( "transform", "" );}
+      }
+      $("#"+id).on("ended", function() {
+        stopVideoToolTip(id,container, playButton, fullScreenButton);
+      });
+    };
+    function stopVideoToolTip(id, container, playButton, fullScreenButton){
+      $("#"+id).get(0).pause();
+      $("#videoToolTipContent").css( "opacity", "" ); $("#toolTipText").css( "transform", "" ); $("#toolTipInner").css( "transform", "" );
+      $('#'+container).removeClass("videoSlideResizeOut videoSlideResize");
+      if(boolsound == soundVolume && soundEpilogo.volume() > 0 ) soundEpilogo.fade(0.01, soundVolume,2000);
+      $('#'+playButton).css('opacity', '1');
+      $('#'+fullScreenButton).css('opacity', '0');
+    }
+    $scope.fullScreenVideoSlide = function(id, style){
+      $('#'+id).css("right",'');
+      if($("#"+id).hasClass( style )) $("#"+id).removeClass(style);
+      else $("#"+id).addClass(style);
+    }
 
     function videoPlay(videoType, timer, duration, breakpoint, continueBeforeStop, id, class1, class2, changeAudio){
        player.src({ type: 'video/mp4', src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/'+id });
@@ -719,11 +722,11 @@ angular.module('smcApp')
        if(class1 == 'videoCloud') { var scaleValue = 0.6; $('#burbleBig').addClass('burbleBig'); $('#burbleMed').addClass('burbleMed'); $('#burbleSmall').addClass('burbleSmall'); }
        else if(class1 == 'videoCloud2') { var scaleValue = 0.6; $('#burbleBig').addClass('burbleBig2'); $('#burbleMed').addClass('burbleMed2'); $('#burbleSmall').addClass('burbleSmall2'); }
        else var scaleValue = 1;
-      console.log('volumen: ', soundEpilogo.volume);
-       if(soundEpilogo && boolsound == 1 && soundEpilogo.volume() > 0 ) soundEpilogo.fade(1,0,2000);
+       console.log('volumen: ', soundEpilogo.volume());
+       if(boolsound == soundVolume && soundEpilogo.volume() > 0)soundEpilogo.fade(soundVolume,0,1000);
        $('#videoGeneral').addClass(class1);
        $('#GeneralVideo').addClass("video-js vjs-default-skin " + class2);
-       if(videoType!='onlySound') TweenMax.to($('#videoContainer'), 0.5, { opacity: 1, scale: scaleValue, ease: Power4.easeOut });
+       TweenMax.to($('#videoContainer'), 0.5, { opacity: 1, scale: scaleValue, ease: Power4.easeOut });
        player.play();
        if(videoType == 'resume'){
          player.currentTime(timer);
@@ -748,9 +751,8 @@ angular.module('smcApp')
          player.on("ended", function(){
            console.log('continue before Stop Inside ended?: ', continueBeforeStop, videoType);
            if(continueBeforeStop == true){ tl.play(); }
-           if(soundEpilogo && boolsound == 1 && !changeAudio){ soundEpilogo.fade(0,1,2000); }
+           if(boolsound == soundVolume && !changeAudio){ soundEpilogo.fade(0,soundVolume,2000); }
            fullScreenVideoStatus = false;
-           //player.src({ type: 'video/youtube', src: '' });
          })
        }
     };
@@ -760,7 +762,7 @@ angular.module('smcApp')
       $('#burbleMed').removeClass('burbleMed burbleMed2');
       $('#burbleSmall').removeClass('burbleSmall burbleSmall2');
       TweenMax.to($('#videoContainer'), 0.5, { opacity: 0, scale: 0, ease: Power4.easeOut });
-      if(soundEpilogo){ if(soundEpilogo.volume() < 1 && boolsound == 1) soundEpilogo.fade(0,1,2000); }
+      if(soundEpilogo.volume() < soundVolume && boolsound == soundVolume) soundEpilogo.fade(0,soundVolume,2000);
       fullScreenVideoStatus = false;
       player.off("ended");
       player.pause();
@@ -768,13 +770,14 @@ angular.module('smcApp')
     //-------SOUND --------------
     function controlSound(){
       player.pause();
-      if(soundEpilogo) soundEpilogo.fade(1,0,2000);
+      soundEpilogo.fade(soundVolume,0,2000);
     }
 
     function playSound(url){
-      if(soundEpilogo ){ if(soundEpilogo.volume() > 0) soundEpilogo.fade(1,0,2000); }
+      console.log('sound enter');
+      if(soundEpilogo.volume() > 0) soundEpilogo.fade(soundVolume,0,1000);
       setTimeout(function(){
-        if(soundEpilogo) soundEpilogo.stop();
+        soundEpilogo.stop();
         soundEpilogo = new Howl({
           urls: ['audio/'+url+'.mp3'],
           loop: true,
@@ -783,19 +786,14 @@ angular.module('smcApp')
           }
         });
         soundEpilogo.play();
-        if(soundEpilogo && !fullScreenVideoStatus  && boolsound == 1){ soundEpilogo.fade(0,1,2000); }
+        if(boolsound == soundVolume){ soundEpilogo.fade(0,soundVolume,1000); }
       }, 500)
     }
     function toggleSound(){
-      boolsound = boolsound ? 0 : 1;
+      boolsound = boolsound ? 0 : soundVolume;
       player.volume(boolsound);
       soundBttn.toggleClass('sound-mute');
       if(!fullScreenVideoStatus)soundEpilogo.volume(boolsound);
-    }
-    function videoCardtoggleSound(){
-      videoCardToogleSound = videoCardToogleSound ? 0 : 1;
-      player.volume(videoCardToogleSound);
-      if(!fullScreenVideoStatus)soundEpilogo.volume(videoCardToogleSound);
     }
 
     //--------------------------------------------------------------------
