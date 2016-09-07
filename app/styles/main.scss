@@ -2147,17 +2147,40 @@ img.infoAdvice{
 }
 .cc31{
   position: absolute;
-  top:10%;
-  right:10%;
-  height: 40%;
-  z-index: 990;
+  top: -25%;
+  left: 15%;
+  cursor: pointer;
+  height: 110%;
+  img{
+    max-width: 400px;
+  }
 }
 .cc32{
   position: absolute;
-  top:35%;
-  right:20%;
-  height: 40%;
-  z-index: 990;
+  top: -6%;
+  left: 13%;
+  cursor: pointer;
+  img{
+    max-height: 400px;
+  }
+}
+.cc33{
+  position: absolute;
+  top:27%;
+  left:15%;
+  cursor: pointer;
+  img{
+    max-width: 400px;
+  }
+}
+.cc34{
+  position: absolute;
+  top: 0%;
+  left: 6%;
+  cursor: pointer;
+  img{
+    max-width: 400px;
+  }
 }
 .citaCc1{
   width: 40%;
@@ -2186,32 +2209,6 @@ img.infoAdvice{
 }
 //FIN DIAPOSITIVA 8
 // DIAPOSITIVA 9
-.texto33{
-  right: 60%;
-  top:20%;
-}
-.texto34{
-  right: 10%;
-  top:50%;
-}
-.cc33{
-  position: absolute;
-  top:20%;
-  left:10%;
-  cursor: pointer;
-  img{
-    max-width: 400px;
-  }
-}
-.cc34{
-  position: absolute;
-  top: 10%;
-  left: 5%;
-  cursor: pointer;
-  img{
-    max-width: 400px;
-  }
-}
 .cc35{
   position: absolute;
   top:5%;

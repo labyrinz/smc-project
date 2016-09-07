@@ -14,9 +14,8 @@ angular.module('smcApp')
     var body = $('body');
     var totalWords = [];
     var fullScreenVideoStatus = false;
-    var boolsound = 0.5;
-    var videoCardToogleSound = 0.5;
-    var soundVolume = 0.5;
+    var boolsound = 0.4;
+    var soundVolume = boolsound;
     var languajeOpen = false;
 
     var playListOrder = ['BeginTheBeguine','ElManisero','TICOTICO','Siboney','MyShawl','JungleRhumba','perfidia','QuizasQuizasQuizas','ParaVigomevoy','YoTeAmoMucho','Tabu']
@@ -791,7 +790,7 @@ angular.module('smcApp')
     }
     function toggleSound(){
       boolsound = boolsound ? 0 : soundVolume;
-      player.volume(boolsound);
+      player.volume(3*boolsound);
       soundBttn.toggleClass('sound-mute');
       if(!fullScreenVideoStatus)soundEpilogo.volume(boolsound);
     }
@@ -999,6 +998,7 @@ angular.module('smcApp')
           overlayAnec.load( uri );
         }
         if( overlayAnec.hasClass( 'open' ) ) {
+          soundEpilogo.volume(soundVolume);
           overlayAnec.removeClass( 'open' );
           triggerAnec.removeClass( 'open' );
           container2.removeClass( 'overlay-open' );
@@ -1019,6 +1019,7 @@ angular.module('smcApp')
           }
         }
         else if( !overlayAnec.hasClass( 'close' )) {
+          soundEpilogo.volume(0.1);
           overlayAnec.addClass( 'open' );
           triggerAnec.addClass( 'open' );
           container2.addClass( 'overlay-open' );

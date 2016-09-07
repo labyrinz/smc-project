@@ -360,15 +360,37 @@
     <!--EPISODE 3 CARMEN CASTILLO-->
     <div id="page8" class="back color0 page8">
       <h2 class="title retro">Carmen Castillo</h2>
-      <img class="cc31 img" src="images/CC1.jpg"/>
-      <!--<img class="cc32 img" src="images/CC2.png"/>-->
-      <div class="pic cc32 img">
-        <img src="images/CC2.png" class="pic-image" alt="Pic"/>
-        <img src="images/infoIcon.svg" class="infoAdvice"/>
+      <div id="fotoGroup63" class="prelGroup">
+        <div class="cc31 img slideimg63">
+          <img src="images/anecdotas/CC1-Carmen01.jpg"/>
+        </div>
+        <div class="cc32 img slideimg63">
+          <img src="images/anecdotas/CC1-Carmen02.jpg"/>
+        </div>
+        <div class="cc33 img slideimg63">
+          <img src="images/CC1.jpg"/>
+        </div>
+        <div class="pic cc34 img slideimg63">
+          <img src="images/CC2.png" class="pic-image" alt="Pic"/>
+          <img src="images/infoIcon.svg" class="infoAdvice"/>
             <span class="pic-caption bottom-to-top">
-              <p> {{ photoText.cc31 }} </p>
+              <p>{{ photoText.cc31 }}</p>
             </span>
+        </div>
+        <div>
+          <img ng-click="prevFoto('63','90%')" class="arrowPrev arrowPrev3" src="images/arrow-left-3.svg"/>
+          <img ng-click="nextFoto('63','110%')" class="arrowNext arrowNext3" src="images/arrow-left-3.svg"/>
+        </div>
       </div>
+      <!--<img class="cc31 img" src="images/CC1.jpg"/>-->
+      <!--<img class="cc32 img" src="images/CC2.png"/>-->
+      <!--<div class="pic cc32 img">-->
+        <!--<img src="images/CC2.png" class="pic-image" alt="Pic"/>-->
+        <!--<img src="images/infoIcon.svg" class="infoAdvice"/>-->
+            <!--<span class="pic-caption bottom-to-top">-->
+              <!--<p> {{ photoText.cc31 }} </p>-->
+            <!--</span>-->
+      <!--</div>-->
       <div class="textoGeneral"> {{ generalText.text3 }} </div>
     </div>
     <div id="page9" class="back color0 page9">
