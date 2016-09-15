@@ -282,6 +282,12 @@ body {
     }
   }
 
+  .share{
+    color: $color;
+    font-size: 22px;
+  }
+
+
 }
 
 /* SVG Icons */
@@ -3533,6 +3539,29 @@ img.infoAdvice{
     footer{
       margin-top: 35px;
       text-align: right;
+    }
+
+    .produccio img {
+      max-height: 65px;
+      margin: 10px;
+    }
+
+    img.logo-small {
+        max-height: 70px;
+        margin: 5px 0;
+    }
+
+    .logos-credits {
+        clear: both;
+        overflow: auto;
+        text-align: center;
+    }
+
+    .logos-credits img {
+      max-height: 70px;
+      /* float: left; */
+      margin: 10px 20px;
+      /*display: block;*/
     }
 
   }
