@@ -118,6 +118,7 @@ var languajeCT = {
   'text5': "El 1954, Cugat debuta amb la seva orquestra a la Plaça Monumental de Barcelona.",
   'text6': "Descubridor de Rita Hayworth",
   'text7': "L'any 1971 torna a Catalunya i el seu ideal era tenir una casa estudi a la Costa Brava on poder mirar el mar i dibuixar.",
+  'text8': "Fes scroll per descobrir més vídeos sobre Xavier Cugat del fons documental de TV3",
   'textoFin': "Cugat va morir a Barcelona el 27 d'octubre de 1990."
 }
 };

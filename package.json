@@ -1,7 +1,9 @@
 {
   "name": "smc",
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "videojs-playlist-ui": "^3.0.0"
+  },
   "repository": {},
   "devDependencies": {
     "grunt": "~0.4.5",

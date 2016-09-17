@@ -1369,6 +1369,26 @@ img.infoAdvice{
   right: 54%;
   border-radius: 40px;
 }
+
+.lastVideos {
+  position: absolute;
+  width: 20%;
+  color: #1a1a1a;
+  background: #f4f4f4;
+  top: 40%;
+  text-align: center;
+  padding: 10px;
+  border: 1px solid #f3f3f3;
+  margin: 0 10%;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 999;
+}
+.lastVideos:hover{
+  background: #f1f1f1;
+  color: #000;
+}
+
 .texto1{
   z-index: 997;
   color: #FFFFFF;
@@ -3283,13 +3303,13 @@ img.infoAdvice{
 }
 .ep15{
   position: absolute;
-  width: 30%;
-  right: 0;
-  top: 0;
+  height: 70%;
+  right: 0 !important;
+  top: 20%;
   left: 0;
   bottom: 0;
-  margin: auto;
-  opacity:0;
+  margin: 0 auto;
+  opacity: 0;
   z-index: 999;
 }
 .ep12Video{
@@ -3478,18 +3498,18 @@ img.infoAdvice{
   height: 100%;
 
   section{
-    -webkit-columns: 3 350px;
-    -moz-columns: 3 350px;
-    columns: 3 350px;
+    -webkit-columns: 2 350px;
+    -moz-columns: 2 350px;
+    columns: 2 350px;
     -webkit-column-gap: 2.5em;
     -moz-column-gap: 2.5em;
     column-gap: 2.5em;
-    -moz-column-fill: auto;
-    column-fill: auto;
+    /*-moz-column-fill: auto;
+    column-fill: auto;*/
     padding: 30px 50px;
     color: #f3f3f3;
     min-height: 100%;
-    max-width: 1200px;
+    max-width: 1024px;
     margin: 0 auto;
 
     h4{
@@ -4679,7 +4699,10 @@ a ,a:hover,
 }
 
 .vjs-playlist .vjs-playlist-thumbnail-placeholder {
-    height: 75px;
+  height: 75px;
+}
+.vjs-fullscreen {
+  position: absolute;
 }
 
 .playlist-components {

@@ -542,16 +542,17 @@ angular.module('smcApp')
       .to("", 0.1, { onStart: updateAnec, onStartParams: [16] })
       .to("#page20",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
       .staggerFrom($("#page20").children(),0.6, animationFromPattern, staggerFromVelocity)
-      .to(".textoFin",3,{  transform: 'scale(1)', opacity: '1', ease: Power4.easeOut},"+=2")
-      .to(".textoFin",3,{ top: '0', ease: Power4.easeOut},"+=2")
-      .to(".ep15",3,{ opacity: '1', ease: Power4.easeOut},"-=3")
+      .to(".textoFin",2,{  transform: 'scale(1)', opacity: '1', ease: Power4.easeOut},"+=2")
+      .to(".textoFin",2,{ top: '0', ease: Power4.easeOut},"+=2")
+      .to(".ep15",2,{ opacity: '1', ease: Power4.easeOut},"-=3")
+      .to(".lastVideos",3,{ opacity: '1', ease: Power4.easeOut},"-=3")
       .to(".blurEffect9",6,{ onStart:function(){soundEpilogo.fade(soundVolume,0,6000)},opacity: '0', ease: Power4.easeOut},"-=6")
       //.to(".chihuahua",0.3,{ transform: 'rotateX(90deg)',  ease: Bounce.easeOut})
       .to(".age4",3,{ onReverseComplete: function(){soundEpilogo.fade(0,soundVolume,3000)}, opacity: '0', ease: Power4.easeOut},"-=6")
       .addPause()
       .staggerTo($("#page20").children(),0.6, animationToPattern, staggerToVelocity)
+      .to(".textoFin",0.4,{  transform: 'scale(0)', opacity: '0', ease: Power4.easeOut},"+=2")
       .to("#page20",0.4,{ right: '100%', ease: Power0.easeNone})
-      .to(".textoFin",1,{  transform: 'scale(0)', opacity: '0', ease: Power4.easeOut},"+=2")
       .to("", 0.1, { onReverseComplete: updateTitle, onReverseCompleteParams: [20] })
       //EXTRA
       .add("PLAYLIST")
@@ -790,6 +791,7 @@ angular.module('smcApp')
     //-------SOUND --------------
     function controlSound(){
       player.pause();
+      playlistPlayer.pause();
       soundEpilogo.fade(soundVolume,0,2000);
     }
 
@@ -812,6 +814,7 @@ angular.module('smcApp')
     function toggleSound(){
       boolsound = boolsound ? 0 : soundVolume;
       player.volume(3*boolsound);
+      playlistPlayer.volume(3*boolsound);
       soundBttn.toggleClass('sound-mute');
       if(!fullScreenVideoStatus)soundEpilogo.volume(boolsound);
     }
@@ -847,7 +850,7 @@ angular.module('smcApp')
       console.log(direction);
       if(direction == 'reverse'){
         var viaje1 = $('#viaje1Svg').drawsvg({
-          duration: 8000,
+          duration: 6000,
           easing: 'linear',
           reverse: true,
           callback: function() {
@@ -857,7 +860,7 @@ angular.module('smcApp')
       }
       else {
         var viaje1 = $('#viaje1Svg').drawsvg({
-          duration: 8000,
+          duration: 6000,
           easing: 'linear',
           reverse: false,
           callback: function() {
@@ -978,6 +981,7 @@ angular.module('smcApp')
       container2 = $( 'div.container2' ),
       triggerBttn = $( '.trigger-overlay' ),
       triggerAnec = $( '.trigger-anecdota' ),
+      lastVideosBttn = $( '.lastVideos' ),
       scrollBttn = $( '.mouseIcon'),
       soundBttn = $( '.sound'),
       shareBttn = $( '.fa-share'),
@@ -1055,7 +1059,7 @@ angular.module('smcApp')
           }
         }
         else if( !overlayAnec.hasClass( 'close' )) {
-          soundEpilogo.volume(0.1);
+          //soundEpilogo.volume(0.1);
           overlayAnec.addClass( 'open' );
           triggerAnec.addClass( 'open' );
           container2.addClass( 'overlay-open' );
@@ -1073,6 +1077,7 @@ angular.module('smcApp')
                              });
     soundBttn.on( 'click', function(){ toggleSound()} );
     scrollBttn.on( 'click', function(){ tl.play()} );
+    lastVideosBttn.on( 'click', function(){ tl.play()} );
     shareBttn.on( 'click', function(){ toggleShare()} );
     //closeBttn.on( 'click', function(){toggleOverlay()} );
 
@@ -1197,6 +1202,7 @@ angular.module('smcApp')
         type: 'video/mp4'
       }]
       }]);
+      playlistPlayer.playlist.autoadvance(0);
 
 
   });
