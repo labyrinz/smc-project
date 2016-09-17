@@ -13,7 +13,8 @@ angular
     'ngCookies',
     'ngResource',
     'ngRoute',
-    'ngSanitize'
+    'ngSanitize',
+    '720kb.socialshare'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -28,4 +29,30 @@ angular
       .otherwise({
         redirectTo: '/'
       });
-  });
+  })
+  .config(['socialshareConfProvider', function configApp(socialshareConfProvider) {
+
+    socialshareConfProvider.configure([
+      {
+        'provider': 'twitter',
+        'conf': {
+          'url': 'http://tv3.cat/xaviercugat',
+          'text': 'Sexe, Maraques i Chichuahues: La increïble vida de Xavier Cugat',
+          'via': '',
+          'hashtags': 'XavierCugatTV3',
+          'trigger': 'click',
+          'popupHeight': 800,
+          'popupWidth' : 400
+        }
+      },
+      {
+        'provider': 'facebook',
+        'conf': {
+          'url': 'http://tv3.cat/xaviercugat',
+          'trigger': 'click',
+          'popupHeight': 800,
+          'popupWidth' : 400
+        }
+      }
+    ]);
+  }]);

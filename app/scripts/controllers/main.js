@@ -57,6 +57,7 @@ angular.module('smcApp')
     //---------VIDEOS--------
 
     var player = videojs('GeneralVideo');
+    var playlistPlayer = videojs('video')
 
     var viaje1 = $('#viaje1Svg').drawsvg();
 
@@ -78,7 +79,7 @@ angular.module('smcApp')
 
 
     var tl = new TimelineMax({repeat:0});
-    var cugatNino = new TimelineMax({repeat:-1});
+    var cugatNino = new TimelineMax({repeat:0});//-1});
 
     tl
     //EPISODE 1
@@ -159,7 +160,7 @@ angular.module('smcApp')
       .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['videomarco',false,false,false,true,'3/9/1471877013293.mp4', 'resumeVideoBox', 'resumeVideoBoxEnter'] })
       .to("", 0.1, { onReverseComplete: stopVideo })
       .to("", 0.1, { onReverseComplete: updateTitle, onReverseCompleteParams: [1] })
-      .to("", 0.1, { onStart: updateAnec, onStartParams: [2] })
+      //.to("", 0.1, { onStart: updateAnec, onStartParams: [2] })
       .addPause()
       .to("", 0.1, { onStart: stopVideo })
       .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['videomarco',false,false,false,false,'3/9/1471877013293.mp4', 'resumeVideoBox', 'resumeVideoBoxEnter'] })
@@ -167,8 +168,8 @@ angular.module('smcApp')
       .add("prologo2Add")
       .to("", 0.1, { onStart: updateTitle, onStartParams: [2] })
       .to("#page3",0.4,{ right: '0%', ease: Power0.easeNone})
-      .to(".age1",0.3,{ transform: 'rotateX(90deg)', ease: Bounce.easeOut})
       .to(".chihuahua",0.3,{ transform: 'rotateX(90deg)',  ease: Bounce.easeOut})
+      .to(".age1",0.3,{ transform: 'rotateX(90deg)', ease: Bounce.easeOut})
       .to(".age2",0.3,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"-=0.3")
       .staggerFrom($("#page3").children(),0.6, animationFromPattern, staggerFromVelocity)
       .addPause()
@@ -547,6 +548,17 @@ angular.module('smcApp')
       .to(".blurEffect9",6,{ onStart:function(){soundEpilogo.fade(soundVolume,0,6000)},opacity: '0', ease: Power4.easeOut},"-=6")
       //.to(".chihuahua",0.3,{ transform: 'rotateX(90deg)',  ease: Bounce.easeOut})
       .to(".age4",3,{ onReverseComplete: function(){soundEpilogo.fade(0,soundVolume,3000)}, opacity: '0', ease: Power4.easeOut},"-=6")
+      .addPause()
+      .staggerTo($("#page20").children(),0.6, animationToPattern, staggerToVelocity)
+      .to("#page20",0.4,{ right: '100%', ease: Power0.easeNone})
+      .to(".textoFin",1,{  transform: 'scale(0)', opacity: '0', ease: Power4.easeOut},"+=2")
+      .to("", 0.1, { onReverseComplete: updateTitle, onReverseCompleteParams: [20] })
+      //EXTRA
+      .add("PLAYLIST")
+      .to("",0.1, { onStart: setVideoPlaylist, onStartParams: [] })
+      .to(".chihuahua",0.3,{ transform: 'rotateX(90deg)',  ease: Bounce.easeOut})
+      .to("#page21",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
+      .staggerFrom($("#page21").children(),0.6, animationFromPattern, staggerFromVelocity)
       .addPause();
 
     tl.play();
@@ -555,6 +567,7 @@ angular.module('smcApp')
     //-------FUNCTIONS --------------------
     $scope.upTo = function(value, music, notes) {
       console.log('notes: ', notes,music);
+      setStopScroll(false);
       TweenMax.to(".mouseIcon", 0.2, {bottom: '-150px', ease: Power0.easeOut});
       TweenMax.to(".coverTransitions", 0.1, { scale: 1, ease: Power4.easeOut });
       TweenMax.to(".coverTransitions", 0.6, { opacity: 1, ease: Power4.easeOut, delay: 0.2 });
@@ -569,7 +582,7 @@ angular.module('smcApp')
         else { player.pause(); }
         tl.play(value);
       },500);
-      TweenMax.to(".coverTransitions", 7, {opacity: 0, ease: Power4.easeOut, delay: 3});
+      TweenMax.to(".coverTransitions", 3, {opacity: 0, ease: Power4.easeOut, delay: 3});
       TweenMax.to(".coverTransitions", 0.1, {scale: 0, ease: Power4.easeOut, delay: 7});
     };
 
@@ -670,6 +683,12 @@ angular.module('smcApp')
 
     $scope.loadCredits = function(){
       toggleAnec("credits")
+    }
+
+    function setVideoPlaylist(){
+      //demoModule.init();
+      setStopScroll(true);
+      playlistPlayer.playlistUi();
     }
 
     //----------------------------------------------
@@ -850,10 +869,22 @@ angular.module('smcApp')
       console.log('viaje1: ', viaje1);
     }
 
+    function setStopScroll(value){
+      if (false == value) playlistPlayer.pause();
+      stopScroll = value;
+    }
+
+    function canScroll(){
+        var canscroll = !overlayAnec.hasClass( 'open' )
+                        && !overlay.hasClass( 'open' )
+                        && !stopScroll;
+        return canscroll;
+    }
+
     //----------MOUSE CONTROLS --------
 
     $(window).bind('mousewheel DOMMouseScroll', function(event){
-      if (!overlayAnec.hasClass( 'open' ) && !overlay.hasClass( 'open' )){ // If overlay layers are opened
+      if (canScroll()){ // If overlay layers are opened
         event.preventDefault();
         TweenMax.to('.additional', 0.2, {opacity: 0, scale:0, ease:Back.easeOut});
         if(event.type != 'mousedown'){
@@ -874,7 +905,7 @@ angular.module('smcApp')
     //---------- KEYBOARD CONTROLS --------
 
     $(window).bind('keydown', function(event){
-      if (!overlayAnec.hasClass( 'open' ) && !overlay.hasClass( 'open' )){ // If overlay layers are opened
+      if (canScroll()){ // If overlay layers are opened
         event.preventDefault();
         TweenMax.to('.additional', 0.2, {opacity: 0, scale:0, ease:Back.easeOut});
         var keyCode = event.keyCode || event.which;
@@ -915,7 +946,7 @@ angular.module('smcApp')
       yDown = evt.touches[0].clientY;
     };
     function handleTouchMove(evt) {
-      if (!overlayAnec.hasClass( 'open' ) && !overlay.hasClass( 'open' )){ // If overlay layers are opened
+      if (canScroll()){ // If overlay layers are opened
         if ( ! xDown || ! yDown ) { return; }
         var xUp = evt.touches[0].clientX;
         var yUp = evt.touches[0].clientY;
@@ -923,17 +954,17 @@ angular.module('smcApp')
         var yDiff = yDown - yUp;
         if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {
           if ( xDiff > 0 ) {
-            //tl.play();
+            tl.play();
           } else {
-            //tl.reverse();
+            tl.reverse();
           }
         } else {
           if ( yDiff > 0 ) {
             /* up swipe */
-            tl.play();
+            //tl.play();
           } else {
             /* down swipe */
-            tl.reverse();
+            //tl.reverse();
           }
         }
         xDown = null;
@@ -949,6 +980,8 @@ angular.module('smcApp')
       triggerAnec = $( '.trigger-anecdota' ),
       scrollBttn = $( '.mouseIcon'),
       soundBttn = $( '.sound'),
+      shareBttn = $( '.fa-share'),
+      socialshare = $( '.socialshare-buttons'),
       overlay = $( 'div.overlay' ),
       overlayAnec = $( 'div.overlay-anecdota' ),
       closeBttn = $( 'button.overlay-close'),
@@ -961,7 +994,8 @@ angular.module('smcApp')
         'transition': 'transitionend'
       },
       transEndEventName = transEndEventNames[ Modernizr.prefixed( 'transition' ) ],
-      support = { transitions : Modernizr.csstransitions };
+      support = { transitions : Modernizr.csstransitions },
+      stopScroll = false;
 
     function toggleOverlay() {
         if( overlay.hasClass( 'open' ) ) {
@@ -1028,6 +1062,10 @@ angular.module('smcApp')
         }
     }
 
+    function toggleShare() {
+      socialshare.toggle();
+    }
+
     triggerBttn.on( 'click', function(){toggleOverlay()} );
     triggerAnec.on( 'click', function(){
                                 var anecId = $(this).attr("data-anecdota");
@@ -1035,7 +1073,130 @@ angular.module('smcApp')
                              });
     soundBttn.on( 'click', function(){ toggleSound()} );
     scrollBttn.on( 'click', function(){ tl.play()} );
+    shareBttn.on( 'click', function(){ toggleShare()} );
     //closeBttn.on( 'click', function(){toggleOverlay()} );
+
+    playlistPlayer.playlist([{
+      name: 'Xavier Cugat, l´exemple de català que fa les Amèriques',
+      sources: [{
+        src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/3/4/1461774869043.mp4',
+        type: 'video/mp4'
+      }]
+      }, {
+      name: 'Funeral de Xavier Cugat a Girona',
+      sources: [{
+        src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/6/3/1461774874836.mp4',
+        type: 'video/mp4'
+      }]
+      }, {
+      name: 'Duo Dinámico i Xavier Cugat a "Així és la Vida"',
+      sources: [{
+        src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/7/0/1461774930607.mp4',
+        type: 'video/mp4'
+      }]
+      }, {
+      name: 'Barcelona: Saló Cugat a l´Hotel Ritz',
+      sources: [{
+        src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/1/1/1461775019711.mp4',
+        type: 'video/mp4'
+      }]
+      }, {
+      name: 'Entrevista a Xavier Cugat en el programa "La Parada"',
+      sources: [{
+        src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/0/2/1461775122220.mp4',
+        type: 'video/mp4'
+      }]
+      }, {
+      name: 'Xavier Cugat rep la Medalla d´Or de Girona',
+      sources: [{
+        src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/7/5/1461775125157.mp4',
+        type: 'video/mp4'
+      }]
+      }, {
+      name: 'Xavier Cugat celebra el seu 89 aniversari a Lloret de Mar',
+      sources: [{
+        src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/6/4/1461775142046.mp4',
+        type: 'video/mp4'
+      }]
+      }, {
+      name: 'Xavier Cugat acomiada el programa de Cap d´Any dins del seu Rolls Royce',
+      sources: [{
+        src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/2/8/1461775199482.mp4',
+        type: 'video/mp4'
+      }]
+      }, {
+      name: 'Xavier Cugat presenta Cugat Visió, al Cap d´Any del 1986',
+      sources: [{
+        src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/1/1/1461775231711.mp4',
+        type: 'video/mp4'
+      }]
+      }, {
+      name: '"La casa dels famosos": Xavier Cugat',
+      sources: [{
+        src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/3/9/1461775408593.mp4',
+        type: 'video/mp4'
+      }]
+      }, {
+      name: 'Xavier Cugat parla del contracte de Frank Sinatra per cantar a l´estadi Bernabéu',
+      sources: [{
+        src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/2/8/1461775415182.mp4',
+        type: 'video/mp4'
+      }]
+      }, {
+      name: 'Especial Cap d´Any 1986 Xavier Cugat',
+      sources: [{
+        src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/3/1/1461775420413.mp4',
+        type: 'video/mp4'
+      }]
+      }, {
+      name: 'Entrevista a Xavier Cugat a l´"Angel Casas Show"',
+      sources: [{
+        src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/4/6/1461775537164.mp4',
+        type: 'video/mp4'
+      }]
+      }, {
+      name: 'Xavier Cugat rep la Medalla d´Or de Barcelona',
+      sources: [{
+        src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/3/0/1461775539903.mp4',
+        type: 'video/mp4'
+      }]
+      }, {
+      name: 'Entrevista a Xavier Cugat, amb motiu de l´elaboració d´un programa homenatge',
+      sources: [{
+        src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/1/9/1461775596991.mp4',
+        type: 'video/mp4'
+      }]
+      }, {
+      name: 'Pasqual Maragall visita a l´hospital el músic Xavier Cugat',
+      sources: [{
+        src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/0/4/1461775621340.mp4',
+        type: 'video/mp4'
+      }]
+      }, {
+      name: 'Xavier Cugat dirigeix l´orquestra de l´"Àngel Casas Show"',
+      sources: [{
+        src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/8/0/1461775849008.mp4',
+        type: 'video/mp4'
+      }]
+      }, {
+      name: 'Futbol: Girona-Martinenc. Xavier Cugat recull la Medalla d´Or de Girona',
+      sources: [{
+        src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/4/6/1461776013164.mp4',
+        type: 'video/mp4'
+      }]
+      }, {
+      name: 'Xavier Cugat anuncia el seu casament',
+      sources: [{
+        src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/6/8/1461776045386.mp4',
+        type: 'video/mp4'
+      }]
+      }, {
+      name: 'Xavier Cugat parla del cas Dalí',
+      sources: [{
+        src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/1/1/1461776102311.mp4',
+        type: 'video/mp4'
+      }]
+      }]);
 
 
   });
