@@ -18,6 +18,11 @@ angular.module('smcApp')
     var soundVolume = boolsound;
     var languajeOpen = false;
 
+    // Mobile features
+    var isMobile = false;
+    var mainContainer = $( '#mainContainer' ),
+        disclaimerMobile = $( '.disclaimerMobile' );
+
     var playListOrder = ['BeginTheBeguine','ElManisero','TICOTICO','Siboney','MyShawl','JungleRhumba','perfidia','QuizasQuizasQuizas','ParaVigomevoy','YoTeAmoMucho','Tabu']
     var introLetters = $("#quote h2").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"introLetters"});
     var introLettersSubtitle = $("#quote h3 span.subtitle").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"introLettersSubtitle"});
@@ -84,6 +89,7 @@ angular.module('smcApp')
     tl
     //EPISODE 1
       .add("inicio")
+      .to("",0.1, { onStart: controlSound, onStartParams: [] })
       .to("", 0.1, { onStart: videoPlay, onStartParams: ["intro", false, false, false, true, "0/0/1471877157700.mp4", "videoClass", "introVideoFull"]})
       .to(".videoCover", 3, {css:{opacity: '0.2'}, delay: 2, ease: Power0.easeOut})
       .staggerFrom(introWords, 0.6, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.2]}, ease: Back.easeOut.config(0.8)}, 0.1)
@@ -140,14 +146,14 @@ angular.module('smcApp')
       .to(".ed3", 0.5, {left: '-10%', ease: Power2.easeIn},"scrollGer")
       .to(".ed4", 0.5, {left: '-15%', ease: Power2.easeIn},"scrollGer")
       .to("#page2",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
-      .from(".mapSvgClassTop", 1, {scale: 0, onComplete: initViaje, onCompleteParams: ['play'], ease: Back.easeOut })
-      .to(".mapSvgClassTop", 4, {width: '250%', top: '-60%', left: '-25%' , ease: Power2.easeIn},"+=1")
+      .from(".mapSvgClassTop", .3, {scale: 0.5, onComplete: initViaje, onCompleteParams: ['play'], ease: Back.easeOut })
+      .to(".mapSvgClassTop", 1, {width: '6200px', top: '-1240px', left: '-2320px' , ease: Power2.easeIn},"+=1")
       .to(".cub1", 0.5, {top: '0%', ease: Power0.easeNone},"cuba1")
       .to(".ed1", 0.5, {top: '120%', onReverseComplete: ninoAnimation, ease: Power2.easeIn})
       .to(".ed2", 0.5, {top: '120%', ease: Power2.easeIn})
       .to(".ed3", 0.5, {top: '120%', ease: Power2.easeIn},"-=1")
       .to(".ed4", 0.5, {top: '120%', ease: Power2.easeIn})
-      .to(".mapSvgClassTop", 2, {width: '800%', top: '-385%', left: '-140%', ease: Power2.easeIn},"-=1.2")
+      .to(".mapSvgClassTop", 2, {width: '6200px', top: '-1390px', left: '-1100px', ease: Power2.easeIn},"-=1.2")
       .to("", 0.1, { onReverseComplete: initViaje, onReverseCompleteParams: ['reverse'] })
       .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['videoCloud',false,false,false,true,'4/0/1471877017204.mp4', 'videoCloud', 'videoCloudInside'] })
       .to(".mouseIcon", 0.5, {bottom: '150px', ease: Bounce.easeOut, onComplete: updateScrollBttn},"+=0.5")
@@ -850,7 +856,7 @@ angular.module('smcApp')
       console.log(direction);
       if(direction == 'reverse'){
         var viaje1 = $('#viaje1Svg').drawsvg({
-          duration: 6000,
+          duration: 8000,
           easing: 'linear',
           reverse: true,
           callback: function() {
@@ -860,7 +866,7 @@ angular.module('smcApp')
       }
       else {
         var viaje1 = $('#viaje1Svg').drawsvg({
-          duration: 6000,
+          duration: 8000,
           easing: 'linear',
           reverse: false,
           callback: function() {
@@ -932,10 +938,13 @@ angular.module('smcApp')
     //--------TOUCH CONTROLS------
 
     if (window.DeviceOrientationEvent && /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-      //$('#controlIcon').addClass('iconSpace2');
+      $('.mouseIcon').addClass('iconSpace2');
+      isMobile = true;
+      checkDisclaimer();
       $scope.controlText = 'continua';//'deslizar para continuar';
     }
     else {
+      isMobile = false;
       //$('#controlIcon').addClass('iconSpace');
       $scope.controlText = 'continua';//'scroll para continuar';
     }
@@ -1038,7 +1047,7 @@ angular.module('smcApp')
           overlayAnec.load( uri );
         }
         if( overlayAnec.hasClass( 'open' ) ) {
-          soundEpilogo.volume(soundVolume);
+          //soundEpilogo.volume(soundVolume);
           overlayAnec.removeClass( 'open' );
           triggerAnec.removeClass( 'open' );
           container2.removeClass( 'overlay-open' );
@@ -1068,6 +1077,15 @@ angular.module('smcApp')
 
     function toggleShare() {
       socialshare.toggle();
+    }
+
+    function checkDisclaimer(){
+      if ( isMobile && ($(window).width() < 1024) && ($(window).height() < 1024) ) {
+        mainContainer.hide();
+        tl.stop();
+        controlSound();
+        disclaimerMobile.show();
+      }
     }
 
     triggerBttn.on( 'click', function(){toggleOverlay()} );

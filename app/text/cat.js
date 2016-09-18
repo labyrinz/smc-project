@@ -111,6 +111,7 @@ var languajeCT = {
   'instructionPentagram': "Fes clic sobre les notes musicals per recórrer la vida d'en Xavier, des de la seva infància fins a la seva vellesa",
   'instructionLastVideos': "Fes scroll per descobrir més vídeos sobre Xavier Cugat del fons documental de TV3",
   'instructionInfo': "Fes clic aquí per conèixer més detalls sobre un moment en particular de la vida de Cugat",
+  'mobileDisclaimer': "Malauradament, aquest documental interactiu no està dissenyat per a dispositius mòbils. Gaudeix millor de l'univers de Xavier Cugat des del teu ordinador o tablet. T'esperem!",
   'texto11': "Xavier Cugat va néixer a Girona l'1 de gener de 1900.",
   'text1': "Entre 1915 y 1918  lidera su primera formación musical y empieza su periplo amoroso con su primera mujer: RITA MONTANER",
   'text2': "L'any 1945 Cugat i Frank Sinatra varem gravar un senzill amb un parell de boleros lents: 'My Shawl' i 'Stars in your eyes'",
@@ -118,7 +119,6 @@ var languajeCT = {
   'text5': "El 1954, Cugat debuta amb la seva orquestra a la Plaça Monumental de Barcelona.",
   'text6': "Descubridor de Rita Hayworth",
   'text7': "L'any 1971 torna a Catalunya i el seu ideal era tenir una casa estudi a la Costa Brava on poder mirar el mar i dibuixar.",
-  'text8': "Fes scroll per descobrir més vídeos sobre Xavier Cugat del fons documental de TV3",
   'textoFin': "Cugat va morir a Barcelona el 27 d'octubre de 1990."
 }
 };

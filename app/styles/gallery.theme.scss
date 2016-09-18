@@ -8,7 +8,7 @@
 	position: relative;
 
   .item { overflow: hidden; text-align: center; margin: 0;}
-	.controls { position: absolute; bottom: 0; width: 100%; text-align: center; }
+	.controls { position: absolute; top: 0; width: 100%; text-align: center; }
 
 	img{
 		max-width: 100%;
@@ -21,12 +21,12 @@
 	  width: 100%;
 	  left: 0;
 	  padding: 5px 10px 10px;
-	  background-color: rgba(50,50,50,.4);
+	  background-color: rgba(0,0,0,.7);
 	}
 
 	.control-button {
 		display: inline-block; margin: 0 .02em;
-		font-size: 3em;
+		font-size: 1em;
 
 		@extend %inactive-button;
 
