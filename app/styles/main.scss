@@ -298,9 +298,11 @@ body {
     display: none;
     border: 1px solid #f3f3f3;
     margin-top: 10px;
-    padding: 5px;
+    padding: 3px;
     border-radius: 3px;
     position: relative;
+    width: 75px;
+    background: #f4f4f4;
   }
   .socialshare-buttons:before{
     display: block;
@@ -314,8 +316,21 @@ body {
     border-width: 0 5px 8.7px 5px;
     border-color: transparent transparent #f3f3f3 transparent;
   }
-  .socialshare-buttons a.btn{
-    margin-bottom: 5px;
+  .socialshare-buttons .btn{
+    border-radius: 30px;
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+    display: inline-block;
+    padding: 2.5px;
+    background: #000;
+    color: #f4f4f4;
+  }
+  .socialshare-buttons a.btn{ // Twitter
+    background-color: #1DA1F5;
+  }
+  .socialshare-buttons button.btn{ // Facebook
+    background-color: #3b5998;
   }
 
 
@@ -4698,13 +4713,13 @@ a ,a:hover,
       -moz-box-sizing: border-box;
       -ms-box-sizing: border-box;
       box-sizing: border-box;
-      width:100%;
+      //width:100%;
       padding:5px 2%;
       display: block;
   }
   .btn.btn-medium {
       padding:9.5px 2%;
-      font-size:14.5px;
+      font-size: 22px;
   }
   .btn.btn-large {
       padding:14px 2%;
