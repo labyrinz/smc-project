@@ -4796,7 +4796,9 @@ a ,a:hover,
   position: absolute;
 }
 .vjs-playlist .vjs-playlist-name {
-    line-height: 1.3em;
+    line-height: 1.1em;
+    font-size: .9em;
+    text-shadow: none !important;
 }
 
 span.vjs-playlist-now-playing {
@@ -4894,8 +4896,8 @@ span.vjs-up-next-text {
 .vjs-playlist .vjs-playlist-title-container {
     position: absolute;
     bottom: 0;
-    padding: .5rem .8rem;
-    text-shadow: none;
+    padding: .3rem .5rem;
+    text-shadow: none !important;
     /* text-shadow: 1px 1px 2px black, -1px 1px 2px black, 1px -1px 2px black, -1px -1px 2px black; */
 }
 
