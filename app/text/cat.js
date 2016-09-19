@@ -11,7 +11,8 @@ var languajeCT = {
     'abbe': "Abbe Lane",
     'charo': "Charo Baeza",
     'epi': "Epíleg",
-    'credits': "Crèdits"
+    'credits': "Crèdits",
+    'doculineal': "Veure el documental complet"
   },
   'CatText': {
     'cita11': "De Girona recordo molt poc, si no és la intimitat d’aquella plaça on passava llargues hores del dia i que em semblava meva.",

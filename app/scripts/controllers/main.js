@@ -692,6 +692,10 @@ angular.module('smcApp')
       toggleAnec("credits")
     }
 
+    $scope.viewDoc = function(){
+      window.open("http://www.ccma.cat/tv3/documentals/xavier-cugat/", "_blank", "");
+    }
+
     function setVideoPlaylist(){
       //demoModule.init();
       setStopScroll(true);
