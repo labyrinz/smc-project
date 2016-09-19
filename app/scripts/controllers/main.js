@@ -745,7 +745,6 @@ angular.module('smcApp')
     }
 
     function videoPlay(videoType, timer, duration, breakpoint, continueBeforeStop, id, class1, class2, changeAudio){
-       player.src({ type: 'video/mp4', src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/'+id });
        fullScreenVideoStatus = true;
        player.pause();
        if(class1 == 'resumeVideoBox') $('#videoContainer').css("z-index", 999);
@@ -754,33 +753,31 @@ angular.module('smcApp')
        if(class1 == 'videoCloud') { var scaleValue = 0.6; $('#burbleBig').addClass('burbleBig'); $('#burbleMed').addClass('burbleMed'); $('#burbleSmall').addClass('burbleSmall'); }
        else if(class1 == 'videoCloud2') { var scaleValue = 0.6; $('#burbleBig').addClass('burbleBig2'); $('#burbleMed').addClass('burbleMed2'); $('#burbleSmall').addClass('burbleSmall2'); }
        else var scaleValue = 1;
-       console.log('volumen: ', soundEpilogo.volume());
        if(boolsound == soundVolume && soundEpilogo.volume() > 0) soundEpilogo.fade(soundVolume,0,1000);
        else soundEpilogo.volume(0);
        $('#videoGeneral').addClass(class1);
        $('#GeneralVideo').addClass("video-js vjs-default-skin " + class2);
        TweenMax.to($('#videoContainer'), 0.5, { opacity: 1, scale: scaleValue, ease: Power4.easeOut });
-       player.play();
+       player.src({ type: 'video/mp4', src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/'+id });
        if(videoType == 'resume'){
          player.currentTime(timer);
-         player.play();
          player.off('timeupdate');
          player.breakpoint = false;
          player.on('timeupdate', function() {
            if (!player.breakpoint && (player.currentTime() == breakpoint-3)){
-             console.log('cumple timeupdate antes:', player.breakpoint, player.currentTime());
              TweenMax.to($('#videoContainer'), 3, { opacity: 0, scale: 0, ease: Power4.easeOut });
            }
            if (!player.breakpoint && (player.currentTime() >= breakpoint) ){
-             console.log('cumple timeupdate:', player.breakpoint, player.currentTime());
              player.breakpoint = true;
              if(class2 != 'videoCloudInside') stopVideo();
              if(continueBeforeStop == true) tl.play();
              fullScreenVideoStatus = false;
            }
          });
+         player.play();
        }
        else {
+         player.play();
          player.on("ended", function(){
            console.log('continue before Stop Inside ended?: ', continueBeforeStop, videoType);
            if(continueBeforeStop == true){ tl.play(); }
