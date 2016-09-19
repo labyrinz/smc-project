@@ -8,7 +8,7 @@
       <nav>
         <ul>
           <div class="nav-column">
-            <li><div ng-click="upTo('inicio',0,'intro')">{{ menuText.ini }}</div></li>
+            <li><div ng-click="upTo('inicio','none','intro')">{{ menuText.ini }}</div></li>
             <li><div ng-click="upTo('prologo1',0,0)">1. {{ menuText.pro }} <span>(1900-1918)</span></div></li>
             <li><div ng-click="upTo('RR1',1,4)">2. {{ menuText.rita }} <span>(1918-1920)</span></div></li>
             <li><div ng-click="upTo('CC1',3,7)">3. {{ menuText.carmen }} <span>(1929-1946)</span></div></li>
@@ -793,7 +793,7 @@
 
     <div class="pentagramImage">
       <img class="pentagramRect" src="images/penta-recto-mini.svg"/>
-      <img class="claveSol" src="images/clavesol.png"/>
+      <img class="claveSol" src="images/clavesol.png" ng-click="upTo('inicio','none','intro')"/>
       <div class="instruction-pentagram">
         <img src="images/instructions-arrow.png" alt="" />
         <span>{{generalText.instructionPentagram}}</span>
@@ -819,7 +819,7 @@
 
     <div class="pentagramNotesGroup">
       <div class="pentagramNotes">
-      <span class="tooltip tooltip-effect-4" ng-click="upTo('prologo1',0,0)">
+      <span class="tooltip tooltip-effect-4" >
         <span class="tooltip-item">
           <img class="noteImgTrioNegra linePent1" src="images/notes/nota_trio_negras.png"/>
         </span>

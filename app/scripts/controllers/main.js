@@ -89,7 +89,7 @@ angular.module('smcApp')
     tl
     //EPISODE 1
       .add("inicio")
-      .to("",0.1, { onStart: controlSound, onStartParams: [] })
+      //.to("",0.1, { onStart: controlSound, onStartParams: [] })
       .to("", 0.1, { onStart: videoPlay, onStartParams: ["intro", false, false, false, true, "0/0/1471877157700.mp4", "videoClass", "introVideoFull"]})
       .to(".videoCover", 3, {css:{opacity: '0.2'}, delay: 2, ease: Power0.easeOut})
       .staggerFrom(introWords, 0.6, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.2]}, ease: Back.easeOut.config(0.8)}, 0.1)
@@ -353,10 +353,10 @@ angular.module('smcApp')
       .to("", 0.1, { onReverseComplete: playSound, onReverseCompleteParams: [playListOrder[3]] })
       //EPISODE 12
       .add("LA1")
+      .to("", 0.1, { onStart: playSound, onStartParams: [playListOrder[4]] })
       .to(".chihuahua",0.3,{ transform: 'rotateX(0deg)',  ease: Bounce.easeOut})
       .to("", 0.1, { onStart: updateTitle, onStartParams: [11] })
       .to("", 0.1, { onStart: updateAnec, onStartParams: [9] })
-      .to("", 0.1, { onStart: playSound, onStartParams: [playListOrder[4]] })
       .to(".age3",0.3,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut})
       .to(".chi4", 0.3, { opacity: '1', ease: Bounce.easeOut })
       .to(".chi2", 1, { opacity: '1', ease: Power4.easeOut })
@@ -585,8 +585,9 @@ angular.module('smcApp')
         updateTitle(notes);
         playSound(playListOrder[music]);
         stopNinoAnimation();
-        if(value=='inicio') { videoPlay("intro", false, false, false, true, "3/4/1461774869043.mp4", "videoClass", "introVideoFull"); }
-        else { player.pause(); }
+        player.pause();
+        //if(value=='inicio') { videoPlay("intro", false, false, false, true, "3/4/1461774869043.mp4", "videoClass", "introVideoFull"); }
+        //else {  }
         tl.play(value);
       },500);
       TweenMax.to(".coverTransitions", 3, {opacity: 0, ease: Power4.easeOut, delay: 3});
@@ -598,7 +599,7 @@ angular.module('smcApp')
       if(value==undefined) var desp = '-110%';
       else var desp = '-'+value;
       var firstPhoto = $('.slideimg'+id).first();
-      TweenMax.to(firstPhoto, 0.1, {left: desp, repeatDelay:0.1, repeat:1, yoyo:true, onRepeat:function(){$('#fotoGroup'+id).append(firstPhoto); if(firstPhoto[0].childNodes[1].id) {  if(videoCardToogleSound == 0) $("#"+firstPhoto[0].childNodes[1].id).get(0).play(); };}, ease: Power4.easeOut});
+      TweenMax.to(firstPhoto, 0.05, {left: desp, repeatDelay:0.05, repeat:1, yoyo:true, onRepeat:function(){$('#fotoGroup'+id).append(firstPhoto); if(firstPhoto[0].childNodes[1].id) {  if(videoCardToogleSound == 0) $("#"+firstPhoto[0].childNodes[1].id).get(0).play(); };}, ease: Power4.easeOut});
     };
 
     $scope.nextFoto = function(id, value){
@@ -607,7 +608,7 @@ angular.module('smcApp')
       else var desp = value;
       var firstPhoto = $('.slideimg'+id).last();
       firstPhoto.attr('autoplay','autoplay');
-      TweenMax.to(firstPhoto, 0.1, {left: desp, repeatDelay:0.1, repeat:1, yoyo:true, onRepeat:function(){$('#fotoGroup'+id).prepend(firstPhoto);if(firstPhoto[0].childNodes[1].id) {  if(videoCardToogleSound == 0) $("#"+firstPhoto[0].childNodes[1].id).get(0).play(); };}, ease: Power4.easeOut});
+      TweenMax.to(firstPhoto, 0.05, {left: desp, repeatDelay:0.05, repeat:1, yoyo:true, onRepeat:function(){$('#fotoGroup'+id).prepend(firstPhoto);if(firstPhoto[0].childNodes[1].id) {  if(videoCardToogleSound == 0) $("#"+firstPhoto[0].childNodes[1].id).get(0).play(); };}, ease: Power4.easeOut});
 
     };
 
@@ -750,7 +751,8 @@ angular.module('smcApp')
        else if(class1 == 'videoCloud2') { var scaleValue = 0.6; $('#burbleBig').addClass('burbleBig2'); $('#burbleMed').addClass('burbleMed2'); $('#burbleSmall').addClass('burbleSmall2'); }
        else var scaleValue = 1;
        console.log('volumen: ', soundEpilogo.volume());
-       if(boolsound == soundVolume && soundEpilogo.volume() > 0)soundEpilogo.fade(soundVolume,0,1000);
+       if(boolsound == soundVolume && soundEpilogo.volume() > 0) soundEpilogo.fade(soundVolume,0,1000);
+       else soundEpilogo.volume(0);
        $('#videoGeneral').addClass(class1);
        $('#GeneralVideo').addClass("video-js vjs-default-skin " + class2);
        TweenMax.to($('#videoContainer'), 0.5, { opacity: 1, scale: scaleValue, ease: Power4.easeOut });
