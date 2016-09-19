@@ -573,7 +573,6 @@ angular.module('smcApp')
     //------------------------------------
     //-------FUNCTIONS --------------------
     $scope.upTo = function(value, music, notes) {
-      console.log('notes: ', notes,music);
       setStopScroll(false);
       TweenMax.to(".mouseIcon", 0.2, {bottom: '-150px', ease: Power0.easeOut});
       TweenMax.to(".coverTransitions", 0.1, { scale: 1, ease: Power4.easeOut });
@@ -581,11 +580,11 @@ angular.module('smcApp')
       if ($("div.overlay").hasClass("open")) $(".trigger-overlay").click();
       setTimeout(function(){
         stopVideo();
-        controlSound();
+        //controlSound();
         updateTitle(notes);
-        playSound(playListOrder[music]);
+        //playSound(playListOrder[music]);
         stopNinoAnimation();
-        player.pause();
+        if(!player.paused()) player.pause();
         //if(value=='inicio') { videoPlay("intro", false, false, false, true, "3/4/1461774869043.mp4", "videoClass", "introVideoFull"); }
         //else {  }
         tl.play(value);
@@ -746,7 +745,7 @@ angular.module('smcApp')
 
     function videoPlay(videoType, timer, duration, breakpoint, continueBeforeStop, id, class1, class2, changeAudio){
        fullScreenVideoStatus = true;
-       player.pause();
+       if(!player.paused())player.pause();
        if(class1 == 'resumeVideoBox') $('#videoContainer').css("z-index", 999);
        else $('#videoContainer').css("z-index", "");
        $('#videoGeneral').removeClass('videoClass fullScreenVideo resumeVideoBox videoCloud videoCloud2');
