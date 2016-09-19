@@ -18,7 +18,10 @@
             <li><div ng-click="upTo('AL1',7,14)">5. {{ menuText.abbe }} <span>(1952-1964)</span></div></li>
             <li><div ng-click="upTo('CB1',9,17)">6. {{ menuText.charo }} <span>(1966-1978)</span></div></li>
             <li><div ng-click="upTo('EP1',10,19)">7. {{ menuText.epi }} <span>(1978-1990)</span></div></li>
-            <li><div ng-click="loadCredits()">{{ menuText.credits }}</div></li>
+          </div>
+          <div class="nav-extra">
+            <li><div ng-click="loadCredits()"><i class="fa fa-list" aria-hidden="true"></i> {{ menuText.credits }}</div></li>
+            <li><div ng-click="viewDoc()"><i class="fa fa-film" aria-hidden="true"></i> {{ menuText.doculineal }}</div></li>
           </div>
         </ul>
       </nav>
@@ -61,12 +64,12 @@
           <a class="btn btn-medium center-content color-black radius3 bg-white"
             socialshare
             socialshare-provider="twitter">
-            <i class="fa fa-twitter"></i> Twitter
+            <i class="fa fa-twitter"></i>
           </a>
           <button class="btn btn-medium center-content color-black radius3 bg-white"
             socialshare
             socialshare-provider="facebook">
-             <i class="fa fa-facebook"></i> Facebook
+             <i class="fa fa-facebook"></i>
           </button>
         </div>
       </div>
@@ -770,7 +773,7 @@
       <div class="video-holder centered">
         <video id="video" class="video-js vjs-default-skin vjs-big-play-centered"
                      controls preload="auto" width="60%" height=""
-                     data-setup=""
+                     data-setup='{"languages":{"ca":{"Now Playing":"Reproduïnt ara", "Up Next":"Següent vídeo"}}}'
                      poster="">
         </video>
         <div class="playlist-components">

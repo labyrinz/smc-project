@@ -298,9 +298,11 @@ body {
     display: none;
     border: 1px solid #f3f3f3;
     margin-top: 10px;
-    padding: 5px;
+    padding: 3px;
     border-radius: 3px;
     position: relative;
+    width: 75px;
+    background: #f4f4f4;
   }
   .socialshare-buttons:before{
     display: block;
@@ -314,8 +316,21 @@ body {
     border-width: 0 5px 8.7px 5px;
     border-color: transparent transparent #f3f3f3 transparent;
   }
-  .socialshare-buttons a.btn{
-    margin-bottom: 5px;
+  .socialshare-buttons .btn{
+    border-radius: 30px;
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+    display: inline-block;
+    padding: 2.5px;
+    background: #000;
+    color: #f4f4f4;
+  }
+  .socialshare-buttons a.btn{ // Twitter
+    background-color: #1DA1F5;
+  }
+  .socialshare-buttons button.btn{ // Facebook
+    background-color: #3b5998;
   }
 
 
@@ -3481,6 +3496,7 @@ img.infoAdvice{
   display: inline-block;
   height: 100%;
   position: relative;
+  max-width: 800px;
 }
 .overlay ul .nav-column{
   float: left;
@@ -3520,6 +3536,21 @@ img.infoAdvice{
   background-color: #1d82b3;
 }
 
+.overlay ul div.nav-extra{
+  float: right;
+  width: 100%;
+  min-width: 400px;
+  max-width: 400px;
+  padding-top: 30px;
+}
+.overlay ul div.nav-extra li{
+  max-width: 400px;
+  font-style: italic;
+}
+.overlay ul div.nav-extra li div{
+  font-size: 20px;
+}
+
 /* Effects */
 
 .container {
@@ -3541,9 +3572,12 @@ img.infoAdvice{
     -webkit-columns: 2 400px;
     -moz-columns: 2 400px;
     columns: 2 400px;
-    -webkit-column-gap: 2.5em;
-    -moz-column-gap: 2.5em;
-    column-gap: 2.5em;
+    -webkit-column-gap: 1em;
+    -moz-column-gap: 1em;
+    column-gap: 1em;
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid;
     /*-moz-column-fill: auto;
     column-fill: auto;*/
     padding: 30px 50px 30px;
@@ -3564,6 +3598,10 @@ img.infoAdvice{
 
     a{
       color: #f4f4f4;
+    }
+
+    .extra-gap{
+      margin-bottom: 100px;
     }
 
     /* Anecdotas styles */
@@ -3592,12 +3630,16 @@ img.infoAdvice{
       font-family: Georgia, serif;
       /* font-size: 18px; */
       font-style: italic;
-      width: 100%;
+      /*width: 100%;*/
       margin: 0.7em;
-      padding: 0.25em 0 .25em 20px;
+      padding: 0.25em 0 1em 20px;
       line-height: 1.3;
       position: relative;
       color: #eee;
+      display: block;
+      -webkit-column-break-inside: avoid;
+      page-break-inside: avoid;
+      break-inside: avoid;
     }
 
     blockquote:before {
@@ -3605,7 +3647,7 @@ img.infoAdvice{
       content: "\201C";
       font-size: 80px;
       position: absolute;
-      left: -20px;
+      left: -15px;
       top: -20px;
       color: #7a7a7a;
     }
@@ -3627,7 +3669,8 @@ img.infoAdvice{
     columns: 1 400px;
     /* padding: 50px 100px; */
     margin: 0 auto;
-    max-width: 650px;
+    max-width: 750px;
+    text-align: center;
 
     h5 {
         font-size: 1.4em;
@@ -3637,6 +3680,9 @@ img.infoAdvice{
     dt {
         margin-top: 15px;
         font-weight: 700;
+    }
+    dd{
+      margin: 0;
     }
 
     footer{
@@ -3650,7 +3696,7 @@ img.infoAdvice{
     }
 
     img.logo-small {
-        max-height: 70px;
+        max-height: 60px;
         margin: 5px 0;
     }
 
@@ -3661,7 +3707,7 @@ img.infoAdvice{
     }
 
     .logos-credits img {
-      max-height: 70px;
+      max-height: 60px;
       /* float: left; */
       margin: 10px 20px;
       /*display: block;*/
@@ -4668,13 +4714,13 @@ a ,a:hover,
       -moz-box-sizing: border-box;
       -ms-box-sizing: border-box;
       box-sizing: border-box;
-      width:100%;
+      //width:100%;
       padding:5px 2%;
       display: block;
   }
   .btn.btn-medium {
       padding:9.5px 2%;
-      font-size:14.5px;
+      font-size: 22px;
   }
   .btn.btn-large {
       padding:14px 2%;
@@ -4730,7 +4776,7 @@ a ,a:hover,
 }
 .centered {width: 100%}
 #video {
-  border-radius: 8px;
+  border-radius: 3px;
   width: 60%;
   min-height: 300px;
 }
@@ -4744,10 +4790,20 @@ a ,a:hover,
 }
 
 .vjs-playlist .vjs-playlist-thumbnail-placeholder {
-  height: 75px;
+  height: 71px;
 }
 .vjs-fullscreen {
   position: absolute;
+}
+.vjs-playlist .vjs-playlist-name {
+    line-height: 1.3em;
+}
+
+span.vjs-playlist-now-playing {
+    font-weight: bold;
+}
+span.vjs-up-next-text {
+    font-style: italic;
 }
 
 .playlist-components {
@@ -4764,13 +4820,29 @@ a ,a:hover,
     padding: 10px;
     height: 36px;
 }
+.vjs-big-play-button:before {
+    position: absolute;
+    margin-top: 17px;
+    font-size: 70px;
+    height: 50px;
+}
+.video-holder .vjs-big-play-button {
+    left: 50%;
+    width: 80px;
+    margin-left: -50px;
+    height: 80px;
+    top: 50%;
+    margin-top: -40px;
+    border-radius: 100px;
+    /* border: 1px solid #969696; */
+}
 
 .playlist {
     height: 100%;
     width: 100%;
     overflow-y: auto;
     color: #c0c0c0;
-    border-radius: 8px;
+    border-radius: 3px;
     display: block;
     margin: -2px 0 0 0;
     padding: 0;
@@ -4818,6 +4890,14 @@ a ,a:hover,
 .playlist .number {padding-right: 10px; display: none}
 .playlist .poster {display: none}
 .playlist .title {padding-left: 0}
+
+.vjs-playlist .vjs-playlist-title-container {
+    position: absolute;
+    bottom: 0;
+    padding: .5rem .8rem;
+    text-shadow: none;
+    /* text-shadow: 1px 1px 2px black, -1px 1px 2px black, 1px -1px 2px black, -1px -1px 2px black; */
+}
 
 /* Device orientation message */
 
