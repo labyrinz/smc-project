@@ -33,7 +33,6 @@ module.exports = function(config) {
       'bower_components/topojson/topojson.js',
       'bower_components/classie/classie.js',
       'bower_components/video.js/dist/video.js',
-      'bower_components/videojs-youtube/dist/Youtube.min.js',
       'bower_components/videojs-playlist/dist/videojs-playlist.min.js',
       'bower_components/angular-socialshare/dist/angular-socialshare.min.js',
       'bower_components/angular-mocks/angular-mocks.js',

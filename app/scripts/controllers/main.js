@@ -83,8 +83,8 @@ angular.module('smcApp')
     TweenMax.set(".scrollIcon, .hiddenCanvas, .dinamycText, .ageTitle, .napFace, .addon1, .prel01", {visibility:"visible"});
 
 
-    var tl = new TimelineMax({repeat:0});
-    var cugatNino = new TimelineMax({repeat:0});//-1});
+    var tl = new TimelineMax({repeat:0, force3D: true });
+    var cugatNino = new TimelineMax({repeat:0, force3D: true });//-1});
 
     tl
     //EPISODE 1
