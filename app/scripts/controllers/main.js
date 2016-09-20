@@ -80,11 +80,11 @@ angular.module('smcApp')
     var staggerFromVelocity = 0.05;
     var staggerToVelocity = 0.03;
 
-    TweenMax.set(".scrollIcon, .hiddenCanvas, .dinamycText, .ageTitle, .napFace, .addon1, .prel01", {visibility:"visible", force3D: true});
+    TweenMax.set(".scrollIcon, .hiddenCanvas, .dinamycText, .ageTitle, .napFace, .addon1, .prel01", {visibility:"visible", autoRound:false});
 
 
-    var tl = new TimelineMax({repeat:0, force3D: true });
-    var cugatNino = new TimelineMax({repeat:0, force3D: true });//-1});
+    var tl = new TimelineMax({repeat:0, autoRound:false});
+    var cugatNino = new TimelineMax({repeat:0, autoRound:false});//-1});
 
     tl
     //EPISODE 1
@@ -574,9 +574,9 @@ angular.module('smcApp')
     //-------FUNCTIONS --------------------
     $scope.upTo = function(value, music, notes) {
       setStopScroll(false);
-      TweenMax.to(".mouseIcon", 0.2, {bottom: '-150px', force3D: true, ease: Power0.easeOut});
-      TweenMax.to(".coverTransitions", 0.1, { scale: 1, force3D: true, ease: Power4.easeOut });
-      TweenMax.to(".coverTransitions", 0.6, { opacity: 1, force3D: true, ease: Power4.easeOut, delay: 0.2 });
+      TweenMax.to(".mouseIcon", 0.2, {bottom: '-150px', ease: Power0.easeOut, autoRound:false});
+      TweenMax.to(".coverTransitions", 0.1, { scale: 1, ease: Power4.easeOut, autoRound:false });
+      TweenMax.to(".coverTransitions", 0.6, { opacity: 1, ease: Power4.easeOut, delay: 0.2, autoRound:false });
       if ($("div.overlay").hasClass("open")) $(".trigger-overlay").click();
       setTimeout(function(){
         stopVideo();
@@ -589,8 +589,8 @@ angular.module('smcApp')
         //else {  }
         tl.play(value);
       },500);
-      TweenMax.to(".coverTransitions", 3, {opacity: 0, force3D: true, ease: Power4.easeOut, delay: 3});
-      TweenMax.to(".coverTransitions", 0.1, {scale: 0, force3D: true, ease: Power4.easeOut, delay: 7});
+      TweenMax.to(".coverTransitions", 3, {opacity: 0, ease: Power4.easeOut, delay: 3, autoRound:false});
+      TweenMax.to(".coverTransitions", 0.1, {scale: 0, ease: Power4.easeOut, delay: 7, autoRound:false});
     };
 
     $scope.prevFoto = function(id,value){
@@ -598,7 +598,7 @@ angular.module('smcApp')
       if(value==undefined) var desp = '-110%';
       else var desp = '-'+value;
       var firstPhoto = $('.slideimg'+id).first();
-      TweenMax.to(firstPhoto, 0.05, {left: desp, repeatDelay:0.05, repeat:1, yoyo:true, onRepeat:function(){$('#fotoGroup'+id).append(firstPhoto); if(firstPhoto[0].childNodes[1].id) {  if(videoCardToogleSound == 0) $("#"+firstPhoto[0].childNodes[1].id).get(0).play(); };}, force3D: true, ease: Power4.easeOut});
+      TweenMax.to(firstPhoto, 0.05, {left: desp, repeatDelay:0.05, autoRound:false, repeat:1, yoyo:true, onRepeat:function(){$('#fotoGroup'+id).append(firstPhoto); if(firstPhoto[0].childNodes[1].id) {  if(videoCardToogleSound == 0) $("#"+firstPhoto[0].childNodes[1].id).get(0).play(); };}, ease: Power4.easeOut});
     };
 
     $scope.nextFoto = function(id, value){
@@ -607,7 +607,7 @@ angular.module('smcApp')
       else var desp = value;
       var firstPhoto = $('.slideimg'+id).last();
       firstPhoto.attr('autoplay','autoplay');
-      TweenMax.to(firstPhoto, 0.05, {left: desp, repeatDelay:0.05, repeat:1, yoyo:true, onRepeat:function(){$('#fotoGroup'+id).prepend(firstPhoto);if(firstPhoto[0].childNodes[1].id) {  if(videoCardToogleSound == 0) $("#"+firstPhoto[0].childNodes[1].id).get(0).play(); };}, force3D: true, ease: Power4.easeOut});
+      TweenMax.to(firstPhoto, 0.05, {left: desp, repeatDelay:0.05, autoRound:false, repeat:1, yoyo:true, onRepeat:function(){$('#fotoGroup'+id).prepend(firstPhoto);if(firstPhoto[0].childNodes[1].id) {  if(videoCardToogleSound == 0) $("#"+firstPhoto[0].childNodes[1].id).get(0).play(); };}, ease: Power4.easeOut});
 
     };
 
@@ -616,18 +616,18 @@ angular.module('smcApp')
       if($('.plusInfoO'+val).css('opacity')==1){
         $('.plusInfoC'+val).css('opacity','1');
         $('.plusInfoO'+val).css('opacity','0');
-        TweenMax.to(target, 0.3, {opacity: 1, scale:1, force3D: true, ease:Back.easeOut});
+        TweenMax.to(target, 0.3, {opacity: 1, scale:1, autoRound:false, ease:Back.easeOut});
       }
       else{
         $('.plusInfoC'+val).css('opacity','0');
         $('.plusInfoO'+val).css('opacity','1');
-        TweenMax.to(target, 0.3, {opacity: 0, scale:0, force3D: true, ease:Back.easeOut});
+        TweenMax.to(target, 0.3, {opacity: 0, scale:0, autoRound:false, ease:Back.easeOut});
       }
     };
     $scope.openLanguaje = function(){
       console.log(languajeOpen);
-      if(!languajeOpen) { languajeOpen = true; TweenMax.staggerTo(".lang", 0.3, { opacity: 1, scale:1, force3D: true, ease: Back.easeOut.config(0.8)}, 0.1); console.log('entra en false', languajeOpen ); }
-      else { TweenMax.staggerTo(".lang", 0.3, { opacity: 0, scale:0, force3D: true, ease: Back.easeOut.config(0.8)}, 0.1); languajeOpen = false; console.log('entra en true', languajeOpen ); }
+      if(!languajeOpen) { languajeOpen = true; TweenMax.staggerTo(".lang", 0.3, { opacity: 1, scale:1, autoRound:false, ease: Back.easeOut.config(0.8)}, 0.1); console.log('entra en false', languajeOpen ); }
+      else { TweenMax.staggerTo(".lang", 0.3, { opacity: 0, scale:0, autoRound:false, ease: Back.easeOut.config(0.8)}, 0.1); languajeOpen = false; console.log('entra en true', languajeOpen ); }
 
     }
     $scope.changeLenguaje = function(val){
@@ -756,7 +756,7 @@ angular.module('smcApp')
        else soundEpilogo.volume(0);
        $('#videoGeneral').addClass(class1);
        $('#GeneralVideo').addClass("video-js vjs-default-skin " + class2);
-       TweenMax.to($('#videoContainer'), 0.5, { opacity: 1, scale: scaleValue, force3D: true, ease: Power4.easeOut });
+       TweenMax.to($('#videoContainer'), 0.5, { opacity: 1, scale: scaleValue, ease: Power4.easeOut, autoRound:false });
        player.src({ type: 'video/mp4', src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/'+id });
        if(videoType == 'resume'){
          player.currentTime(timer);
@@ -764,7 +764,7 @@ angular.module('smcApp')
          player.breakpoint = false;
          player.on('timeupdate', function() {
            if (!player.breakpoint && (player.currentTime() == breakpoint-3)){
-             TweenMax.to($('#videoContainer'), 3, { opacity: 0, scale: 0, force3D: true, ease: Power4.easeOut });
+             TweenMax.to($('#videoContainer'), 3, { opacity: 0, scale: 0, ease: Power4.easeOut, autoRound:false });
            }
            if (!player.breakpoint && (player.currentTime() >= breakpoint) ){
              player.breakpoint = true;
@@ -790,7 +790,7 @@ angular.module('smcApp')
       $('#burbleBig').removeClass('burbleBig burbleBig2');
       $('#burbleMed').removeClass('burbleMed burbleMed2');
       $('#burbleSmall').removeClass('burbleSmall burbleSmall2');
-      TweenMax.to($('#videoContainer'), 0.5, { opacity: 0, scale: 0, force3D: true, ease: Power4.easeOut });
+      TweenMax.to($('#videoContainer'), 0.5, { opacity: 0, scale: 0, ease: Power4.easeOut, autoRound:false });
       if(soundEpilogo.volume() < soundVolume && boolsound == soundVolume) soundEpilogo.fade(0,soundVolume,2000);
       fullScreenVideoStatus = false;
       player.off("ended");
@@ -843,13 +843,13 @@ angular.module('smcApp')
         .play();
     };
     function stopNinoAnimation(){
-      TweenMax.to(".ed5",0.1, {top: '5%', left: "120%", transform: "rotate(0deg)", force3D: true, ease: Power0.easeNone});
+      TweenMax.to(".ed5",0.1, {top: '5%', left: "120%", transform: "rotate(0deg)", ease: Power0.easeNone, autoRound:false});
       cugatNino.pause();
     };
     function insertWords(variable,num){
       var elementToInsert = '<div class="wordStyle">'+variable+'</div>';
       $('#cita'+num+'suma').append(elementToInsert);
-      TweenMax.from(elementToInsert, 0.1, {opacity: 0, y:-40, transformOrigin:"0% 50% -50", force3D: true, ease: Power2.easeOut});
+      TweenMax.from(elementToInsert, 0.1, {opacity: 0, y:-40, transformOrigin:"0% 50% -50", ease: Power2.easeOut, autoRound:false});
     }
     function deleteWords(variable){
       $(variable).remove();
@@ -897,7 +897,7 @@ angular.module('smcApp')
     $(window).bind('mousewheel DOMMouseScroll', function(event){
       if (canScroll()){ // If overlay layers are opened
         event.preventDefault();
-        TweenMax.to('.additional', 0.2, {opacity: 0, scale:0, force3D: true, ease:Back.easeOut});
+        TweenMax.to('.additional', 0.2, {opacity: 0, scale:0, ease:Back.easeOut, autoRound:false});
         if(event.type != 'mousedown'){
           if (event.originalEvent.wheelDelta > 0 || event.originalEvent.detail < 0) {
             tl.reverse();
@@ -914,7 +914,7 @@ angular.module('smcApp')
     $(window).bind('keydown', function(event){
       if (canScroll()){ // If overlay layers are opened
         event.preventDefault();
-        TweenMax.to('.additional', 0.2, {opacity: 0, scale:0, force3D: true, ease:Back.easeOut});
+        TweenMax.to('.additional', 0.2, {opacity: 0, scale:0, ease:Back.easeOut, autoRound:false});
         var keyCode = event.keyCode || event.which;
   			switch (keyCode) {
   				case 37:

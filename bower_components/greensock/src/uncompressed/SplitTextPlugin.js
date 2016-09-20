@@ -1,5 +1,3 @@
- ///////////////////////////////      PLUGIN         //////////////////////////////
-
 (function($){
 
 	$.fn.splitText = function(options){
