@@ -36,7 +36,7 @@ angular
       {
         'provider': 'twitter',
         'conf': {
-          'url': 'http://tv3.cat/xaviercugat',
+          'url': 'http://www.ccma.cat/tv3/documentals/xavier-cugat/',
           'text': 'Sexe, Maraques i Chichuahues: La increïble vida de Xavier Cugat',
           'via': '',
           'hashtags': 'XavierCugatTV3',
@@ -48,7 +48,7 @@ angular
       {
         'provider': 'facebook',
         'conf': {
-          'url': 'http://tv3.cat/xaviercugat',
+          'url': 'http://www.ccma.cat/tv3/documentals/xavier-cugat/',
           'trigger': 'click',
           'popupHeight': 800,
           'popupWidth' : 400
