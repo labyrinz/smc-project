@@ -901,13 +901,9 @@ angular.module('smcApp')
         if(event.type != 'mousedown'){
           if (event.originalEvent.wheelDelta > 0 || event.originalEvent.detail < 0) {
             tl.reverse();
-            //if(fullScreenVideoStatus) stopVideo();
-            //fullScreenVideoStatus = false;
           }
           else {
             tl.play();
-            //if(fullScreenVideoStatus) stopVideo();
-            //fullScreenVideoStatus= false;
           }
         }
       }
@@ -956,10 +952,12 @@ angular.module('smcApp')
     var xDown = null;
     var yDown = null;
     function handleTouchStart(evt) {
+      evt.preventDefault();
       xDown = evt.touches[0].clientX;
       yDown = evt.touches[0].clientY;
     };
     function handleTouchMove(evt) {
+      evt.preventDefault();
       if (canScroll()){ // If overlay layers are opened
         if ( ! xDown || ! yDown ) { return; }
         var xUp = evt.touches[0].clientX;
