@@ -995,7 +995,7 @@ angular.module('smcApp')
       lastVideosBttn = $( '.lastVideos' ),
       scrollBttn = $( '.mouseIcon'),
       soundBttn = $( '.sound'),
-      shareBttn = $( '.fa-share'),
+      shareBttn = $( '.fa-share-alt'),
       socialshare = $( '.socialshare-buttons'),
       overlay = $( 'div.overlay' ),
       overlayAnec = $( 'div.overlay-anecdota' ),
@@ -1052,6 +1052,7 @@ angular.module('smcApp')
           //soundEpilogo.volume(soundVolume);
           overlayAnec.removeClass( 'open' );
           triggerAnec.removeClass( 'open' );
+          //$('.trigger-anecdota.anecButton').css("opacity", 0);
           container2.removeClass( 'overlay-open' );
           overlayAnec.addClass( 'close' );
           var onEndTransitionFn = function( ev ) {
@@ -1073,6 +1074,7 @@ angular.module('smcApp')
           //soundEpilogo.volume(0.1);
           overlayAnec.addClass( 'open' );
           triggerAnec.addClass( 'open' );
+          //$('.trigger-anecdota.anecButton').css("opacity", 0);
           container2.addClass( 'overlay-open' );
         }
     }

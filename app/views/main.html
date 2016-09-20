@@ -47,7 +47,7 @@
       <img src="images/svg/tv3.svg" alt="TV3" />
     </div>
     <div class="menuIcons">
-      <div id="nav-icon"  class="trigger-overlay">
+      <div id="nav-icon"  class="trigger-overlay anecButton">
         <span></span>
         <span></span>
         <span></span>
@@ -59,7 +59,7 @@
         <div class="sound--wave sound--wave_two"></div>
       </div>
       <div class="share">
-        <div class="fa fa-share" aria-hidden="true"></div>
+        <div class="fa fa-share-alt" aria-hidden="true"></div>
         <div class="socialshare-buttons">
           <a class="btn btn-medium center-content color-black radius3 bg-white"
             socialshare
@@ -189,7 +189,7 @@
       </div>
     </div>
     <div id="page2" class="back color0 page2">
-      <h2 class="title retro">Viatge a Cuba -1904</h2>
+      <h2 class="title retro">Viatge a Cuba - 1904</h2>
       <div class="mapSvgContainer">
         <img class="mapSvgClassTop" src="images/mapWorld.svg"/>
         <svg class="mapSvgClassTop" version="1.1" id="viaje1Svg" x="0px" y="0px" viewBox="0 0 950 620" enable-background="new 0 0 950 620" xml:space="preserve">
@@ -320,7 +320,7 @@
       <div class="cita2 cita21"> {{ CatText.cita21 }} <span id="cita21suma"> </span><span class="plusInfoCita" value="21">[+]</span></div>
     </div>
     <div id="page6" class="back color0 page6">
-      <h2 class="title retro">Berlin - 1919</h2>
+      <h2 class="title retro">Berlín - 1919</h2>
       <div class="cita1 cita14"> {{ CatText.cita14 }} </div>
       <div class="contextual">
         <a class="tooltip" href="#" onclick="return false;">
@@ -346,6 +346,7 @@
           <img src="images/infoIcon.svg" class="infoAdvice"/>
             <span class="pic-caption bottom-to-top">
               <p> {{ photoText.rm16 }} </p>
+              <p> {{ photoText.rm16b }} </p>
             </span>
         </div>
         <div class="pic rm15 img slideimg61">
@@ -724,7 +725,7 @@
     </div>
     <!--EPISODE 7 EPILOGO-->
     <div id="page19" class="back color0 page19">
-
+      <h2 class="title retro">BARCELONA – 1971</h2>
       <div class="cita6 cita62"> {{ CatText.cita62 }} <span id="cita62suma"> </span> {{ CatText.cita62Post }} <span class="plusInfoCita" value="62">[+]</span></div>
       <div class="pic cb09">
         <img src="images/sanjulian.jpg" class="pic-image" alt="Pic"/>
@@ -888,7 +889,7 @@
         </span>
         <span class="tooltip-content clearfix">
           <span class="tooltip-text">
-            <strong>1919</strong> - BERLIN - Rita Montaner
+            <strong>1919</strong> - BERLÍN - Rita Montaner
           </span>
         </span>
       </span>
@@ -1080,10 +1081,10 @@
       <video
         id="GeneralVideo"
         class=""
-        poster="none.jpg"
-        autoplay
+        preload="none"
+        poster=""
         width="100%" height="100%"
-        data-setup='{"controls":"controls", "poster": "none.jpg"}'
+        data-setup='{"controls":"controls"}'
         >
         <source src="" type='video/mp4' />
       </video>
