@@ -614,13 +614,17 @@ angular.module('smcApp')
     $scope.openCloseAddInfo = function(val){
       var target = '.ad'+val;
       if($('.plusInfoO'+val).css('opacity')==1){
-        $('.plusInfoC'+val).css('opacity','1');
-        $('.plusInfoO'+val).css('opacity','0');
+        TweenMax.set($('.plusInfoC'+val), {opacity: 1});
+        TweenMax.set($('.plusInfoO'+val), {opacity: 0});
+        //$('.plusInfoC'+val).css('opacity','1');
+        //$('.plusInfoO'+val).css('opacity','0');
         TweenMax.to(target, 0.3, {opacity: 1, scale:1, autoRound:false, ease:Back.easeOut});
       }
       else{
-        $('.plusInfoC'+val).css('opacity','0');
-        $('.plusInfoO'+val).css('opacity','1');
+        TweenMax.set($('.plusInfoC'+val), {opacity: 0});
+        TweenMax.set($('.plusInfoO'+val), {opacity: 1});
+        //$('.plusInfoC'+val).css('opacity','0');
+        //$('.plusInfoO'+val).css('opacity','1');
         TweenMax.to(target, 0.3, {opacity: 0, scale:0, autoRound:false, ease:Back.easeOut});
       }
     };
@@ -709,21 +713,41 @@ angular.module('smcApp')
     //   $scope.playVideo(videoType, timer, duration, breakpoint, continueBeforeStop, id, class1, class2);
     //}
     $scope.playVideoSlide = function(id, container, playButton, fullScreenButton){
-      $('#'+container).css("left",'');
+
+      TweenMax.set($('#'+container), {left: ''});
+      //$('#'+container).css("left",'');
       //videoSlideResize $('#'+container).addClass('videoFullScreen');
       if($("#"+id).get(0).paused) {
         if(boolsound == soundVolume && soundEpilogo.volume() > 0 ) soundEpilogo.fade(soundVolume,0.01,2000);
-        if(id=='slideVideoCC2') { $("#videoToolTipContent").css( "opacity", "1" ); $("#toolTipText").css( "transform", "scale(1)" ); $("#toolTipInner").css( "transform", "translate3d(0,0,0)" );}
+        if(id=='slideVideoCC2') {
+          TweenMax.set($("#videoToolTipContent"), {opacity: 1});
+          TweenMax.set($("#toolTipText"), { scale: 1 });
+          TweenMax.set($("#toolTipInner"), {transform: 'translate3d(0,0,0)' });
+          //$("#videoToolTipContent").css( "opacity", "1" );
+          //$("#toolTipText").css( "transform", "scale(1)" );
+          //$("#toolTipInner").css( "transform", "translate3d(0,0,0)" );
+        }
         $("#"+id).get(0).play();
-        $('#'+playButton).css('opacity', '0');
-        $('#'+fullScreenButton).css('opacity', '1');
+        TweenMax.set($('#'+playButton), {opacity: 0});
+        TweenMax.set($('#'+fullScreenButton), {opacity: 1});
+        //$('#'+playButton).css('opacity', '0');
+        //$('#'+fullScreenButton).css('opacity', '1');
       }
       else {
         if(boolsound == soundVolume && soundEpilogo.volume() > 0 ) soundEpilogo.fade(0.01,soundVolume,2000);
         $("#"+id).get(0).pause();
-        $('#'+playButton).css('opacity', '1');
-        $('#'+fullScreenButton).css('opacity', '0');
-        if(id=='slideVideoCC2') { $("#videoToolTipContent").css( "opacity", "" ); $("#toolTipText").css( "transform", "" ); $("#toolTipInner").css( "transform", "" );}
+        TweenMax.set($('#'+playButton), {opacity: 1});
+        TweenMax.set($('#'+fullScreenButton), {opacity: 0});
+        //$('#'+playButton).css('opacity', '1');
+        //$('#'+fullScreenButton).css('opacity', '0');
+        if(id=='slideVideoCC2') {
+          TweenMax.set($("#videoToolTipContent"), {opacity: ''});
+          TweenMax.set($("#toolTipText"), { scale: '' });
+          TweenMax.set($("#toolTipInner"), {transform: '' });
+          //$("#videoToolTipContent").css( "opacity", "" );
+          //$("#toolTipText").css( "transform", "" );
+          //$("#toolTipInner").css( "transform", "" );
+        }
       }
       $("#"+id).on("ended", function() {
         stopVideoToolTip(id,container, playButton, fullScreenButton);
@@ -731,14 +755,17 @@ angular.module('smcApp')
     };
     function stopVideoToolTip(id, container, playButton, fullScreenButton){
       $("#"+id).get(0).pause();
-      $("#videoToolTipContent").css( "opacity", "" ); $("#toolTipText").css( "transform", "" ); $("#toolTipInner").css( "transform", "" );
+      TweenMax.set($("#videoToolTipContent"), {opacity: ''});
+      TweenMax.set($("#toolTipText"), { scale: '' });
+      TweenMax.set($("#toolTipInner"), {transform: '' });
       $('#'+container).removeClass("videoSlideResizeOut videoSlideResize");
       if(boolsound == soundVolume && soundEpilogo.volume() > 0 ) soundEpilogo.fade(0.01, soundVolume,2000);
-      $('#'+playButton).css('opacity', '1');
-      $('#'+fullScreenButton).css('opacity', '0');
+      TweenMax.set($('#'+playButton), {opacity: 1});
+      TweenMax.set($('#'+fullScreenButton), {opacity: 0});
     }
     $scope.fullScreenVideoSlide = function(id, style){
-      $('#'+id).css("right",'');
+      TweenMax.set($('#'+id), {right: ''});
+      //$('#'+id).css("right",'');
       if($("#"+id).hasClass( style )) $("#"+id).removeClass(style);
       else $("#"+id).addClass(style);
     }
@@ -746,8 +773,8 @@ angular.module('smcApp')
     function videoPlay(videoType, timer, duration, breakpoint, continueBeforeStop, id, class1, class2, changeAudio){
        fullScreenVideoStatus = true;
        if(!player.paused())player.pause();
-       if(class1 == 'resumeVideoBox') $('#videoContainer').css("z-index", 999);
-       else $('#videoContainer').css("z-index", "");
+       if(class1 == 'resumeVideoBox') TweenMax.set($('#videoContainer'), {zIndex: 999}); //$('#videoContainer').css("z-index", 999);
+       else TweenMax.set($('#videoContainer'), {zIndex: ''}); //$('#videoContainer').css("z-index", "");
        $('#videoGeneral').removeClass('videoClass fullScreenVideo resumeVideoBox videoCloud videoCloud2');
        if(class1 == 'videoCloud') { var scaleValue = 0.6; $('#burbleBig').addClass('burbleBig'); $('#burbleMed').addClass('burbleMed'); $('#burbleSmall').addClass('burbleSmall'); }
        else if(class1 == 'videoCloud2') { var scaleValue = 0.6; $('#burbleBig').addClass('burbleBig2'); $('#burbleMed').addClass('burbleMed2'); $('#burbleSmall').addClass('burbleSmall2'); }
