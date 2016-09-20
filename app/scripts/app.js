@@ -48,7 +48,7 @@ angular
       {
         'provider': 'facebook',
         'conf': {
-          'url': 'http://www.ccma.cat/tv3/documentals/xavier-cugat/',
+          'url': 'http://xaviercugat.ccma.cat/',
           'trigger': 'click',
           'popupHeight': 800,
           'popupWidth' : 400
