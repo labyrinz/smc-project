@@ -35,7 +35,6 @@ module.exports = function(config) {
       'bower_components/video.js/dist/video.js',
       'bower_components/videojs-playlist/dist/videojs-playlist.min.js',
       'bower_components/angular-socialshare/dist/angular-socialshare.min.js',
-      'bower_components/jquery-mobile-bower/js/jquery.mobile-1.4.5.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'app/scripts/**/*.js',

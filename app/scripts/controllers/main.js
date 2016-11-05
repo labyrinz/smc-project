@@ -106,25 +106,28 @@ angular.module('smcApp')
     totalWords[100] = $scope.CatText.cita100Plus.split(" ");
 
     //---------------------------
-    //----SOUND TRACKS -----
 
-    var soundEpilogo = new Howl({
-      urls: ['audio/TICOTICO.mp3'],
-      loop: true,
-      volume: 0
-    });
-    //-----------------------
-    //---------VIDEOS--------
-
-    var player = videojs('GeneralVideo');
-    var playlistPlayer = videojs('video')
-
-    var viaje1 = $('#viaje1Svg').drawsvg();
-
-    //-----------------------
     //-----TIMELINE ---------
 
     if( !isMobile && isSafari) {
+
+      //----SOUND TRACKS -----
+
+      var soundEpilogo = new Howl({
+        urls: ['audio/TICOTICO.mp3'],
+        loop: true,
+        volume: 0
+      });
+
+      //-----------------------
+      //---------VIDEOS--------
+
+      var player = videojs('GeneralVideo');
+      var playlistPlayer = videojs('video');
+
+      var viaje1 = $('#viaje1Svg').drawsvg();
+
+      //-----------------------
 
       console.log('version pc');
       var animationFromPattern = { scale: '0', right: '-20%', ease: Back.easeInOut.config(1)};
@@ -652,7 +655,7 @@ angular.module('smcApp')
       if(value==undefined) var desp = '-110%';
       else var desp = '-'+value;
       var firstPhoto = $('.slideimg'+id).first();
-      TweenMax.to(firstPhoto, 0.05, {left: desp, repeatDelay:0.05, autoRound:false, repeat:1, yoyo:true, onRepeat:function(){$('#fotoGroup'+id).append(firstPhoto); if(firstPhoto[0].childNodes[1].id) {  if(videoCardToogleSound == 0) $("#"+firstPhoto[0].childNodes[1].id).get(0).play(); };}, ease: Power4.easeOut});
+      TweenMax.to(firstPhoto, 0.05, {left: desp, repeatDelay:0.05, autoRound:false, repeat:1, yoyo:true, onRepeat:function(){$('#fotoGroup'+id).append(firstPhoto); if(firstPhoto[0].childNodes[1].id) {  /*if(videoCardToogleSound == 0)*/ $("#"+firstPhoto[0].childNodes[1].id).get(0).play(); };}, ease: Power4.easeOut});
     };
 
     $scope.nextFoto = function(id, value){
@@ -661,7 +664,7 @@ angular.module('smcApp')
       else var desp = value;
       var firstPhoto = $('.slideimg'+id).last();
       firstPhoto.attr('autoplay','autoplay');
-      TweenMax.to(firstPhoto, 0.05, {left: desp, repeatDelay:0.05, autoRound:false, repeat:1, yoyo:true, onRepeat:function(){$('#fotoGroup'+id).prepend(firstPhoto);if(firstPhoto[0].childNodes[1].id) {  if(videoCardToogleSound == 0) $("#"+firstPhoto[0].childNodes[1].id).get(0).play(); };}, ease: Power4.easeOut});
+      TweenMax.to(firstPhoto, 0.05, {left: desp, repeatDelay:0.05, autoRound:false, repeat:1, yoyo:true, onRepeat:function(){$('#fotoGroup'+id).prepend(firstPhoto); if(firstPhoto[0].childNodes[1].id) {  /*if(videoCardToogleSound == 0)*/ $("#"+firstPhoto[0].childNodes[1].id).get(0).play(); };}, ease: Power4.easeOut});
 
     };
 
@@ -789,7 +792,7 @@ angular.module('smcApp')
       });
     };
     function stopVideoToolTip(id, container, playButton, fullScreenButton){
-      $("#"+id).get(0).pause();
+      //$("#"+id).get(0).pause();
       $("#videoToolTipContent").css( "opacity", "" );
       $("#toolTipText").css( "transform", "" );
       $("#toolTipInner").css( "transform", "" );
@@ -1060,6 +1063,8 @@ angular.module('smcApp')
                 var nextPage = page + 1;
                 $("#page"+page).addClass('prevPage');
                 $("#page"+nextPage).addClass('nextPage');
+                //$("#page"+nextPage).css('display', 'block');
+                //setTimeout(function(){ $("#page"+page).css('display', 'none'); $("#page"+nextPage).addClass('nextPage'); },500);
                 prepareSlide(nextPage);
                 page += 1;
               }

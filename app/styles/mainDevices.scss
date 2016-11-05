@@ -5,7 +5,8 @@ and (-webkit-min-device-pixel-ratio: 2) {
 
   .page1, .page2, .page3, .page4, .page5, .page6, .page7, .page8, .page9, .page10, .page11, .page12, .page13, .page14, .page15, .page16, .page17, .page18, .page19, .page20, .page21{
     opacity: 0;
-    display: none;
+    right: 0%;
+    //display: none;
   }
 
   .back1{z-index: 978; opacity: 0; -webkit-transition: opacity 1s ease-in-out;}
