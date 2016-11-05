@@ -1,14 +1,55 @@
 'use strict';
 
-/**
- * @ngdoc function
- * @name smcApp.controller:MainCtrl
- * @description
- * # MainCtrl
- * Controller of the smcApp
- */
+ angular.module('smcApp').factory( 'session', function GetSession($http, $q){
+     var defer = $q.defer();
+
+     var urlNekudo = "http://geoip.nekudo.com/api";
+     var urlFreegeoip = "http://freegeoip.net/json/";
+     var country = "ES";
+
+     $.getJSON( urlFreegeoip, {} )
+       .done(function( json ) {
+         console.log( "Country: " + json.country_code );
+         if (country == json.country_code){
+           defer.resolve('done');
+         } else {
+           defer.reject();
+         }
+       })
+       .fail(function( jqxhr, textStatus, error ) {
+         var err = textStatus + ", " + error;
+         console.log( "Request Failed: " + err );
+         $.getJSON( urlNekudo, {} )
+           .done(function( json ) {
+             console.log( "Country (second attemp): " + json.country.code );
+             if (country == json.country.code){
+               defer.resolve('done');
+             } else {
+               defer.reject();
+             }
+           })
+           .fail(function( jqxhr, textStatus, error ) {
+             var err = textStatus + ", " + error;
+             console.log( "Request Failed (second attemp): " + err );
+             defer.reject();
+         });
+     });
+
+     return defer.promise;
+ } );
+
+ /**
+  * @ngdoc function
+  * @name smcApp.controller:MainCtrl
+  * @description
+  * # MainCtrl
+  * Controller of the smcApp
+  */
+
 angular.module('smcApp')
-  .controller('MainCtrl', function ($scope) {
+  .controller('MainCtrl', function ($scope, session) {
+    session.then( function() {
+
 
     //--- GLOBAL VARIABLES ----
     var body = $('body');
@@ -1322,5 +1363,5 @@ angular.module('smcApp')
       }]);
       playlistPlayer.playlist.autoadvance(0);
 
-
+    });
   });
