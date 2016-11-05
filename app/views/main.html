@@ -1,10 +1,6 @@
 <div id="mainContainer">
   <div class="container">
     <div class="overlay overlay-contentscale">
-      <!--<img class="LanguajeSel" ng-click="openLanguaje()" src="images/cataluna.png"/>-->
-      <!--<img class="espana lang" ng-click="changeLenguaje(SP)" src="images/espana.png"/>-->
-      <!--<img class="cataluna lang" ng-click="changeLenguaje(CT)" src="images/cataluna.png"/>-->
-      <!--<img class="england lang" ng-click="changeLenguaje(ENG)" src="images/england.jpg"/>-->
       <nav>
         <ul>
           <div class="nav-column">
@@ -380,20 +376,31 @@
     <div id="page8" class="back color0 page8">
       <h2 class="title retro">Carmen Castillo</h2>
       <div id="fotoGroup63" class="prelGroup">
-        <div class="cc31 img slideimg63">
-          <img src="images/anecdotas/CC1-Carmen01.jpg"/>
+        <!--<div class="cc31 img slideimg63">-->
+          <!--<img src="images/anecdotas/CC1-Carmen01.jpg"/>-->
+        <!--</div>-->
+        <div class="pic cc31 img slideimg63">
+          <img src="images/anecdotas/CC1-Carmen01.jpg" class="pic-image" alt="Pic"/>
+          <img src="images/infoIcon.svg" class="infoAdvice"/>
+            <span class="pic-caption bottom-to-top">
+              <p>{{ photoText.cc31 }}</p>
+            </span>
         </div>
-        <div class="cc32 img slideimg63">
-          <img src="images/anecdotas/CC1-Carmen02.jpg"/>
+        <div class="pic cc32 img slideimg63">
+          <img src="images/anecdotas/CC1-Carmen02.jpg" class="pic-image" alt="Pic"/>
+          <img src="images/infoIcon.svg" class="infoAdvice"/>
+            <span class="pic-caption bottom-to-top">
+              <p>{{ photoText.cc32 }}</p>
+            </span>
         </div>
-        <!--div class="cc33 img slideimg63">
-          <img src="images/CC1.jpg"/>
-        </div-->
+        <!--<div class="cc32 img slideimg63">-->
+          <!--<img src="images/anecdotas/CC1-Carmen02.jpg"/>-->
+        <!--</div>-->
         <div class="pic cc34 img slideimg63">
           <img src="images/CC2.png" class="pic-image" alt="Pic"/>
           <img src="images/infoIcon.svg" class="infoAdvice"/>
             <span class="pic-caption bottom-to-top">
-              <p>{{ photoText.cc31 }}</p>
+              <p>{{ photoText.cc34 }}</p>
             </span>
         </div>
         <div>
@@ -568,6 +575,13 @@
           </video>
           <div id="playButtonAbbe" class="playButton" ng-click="playVideoSlide('slideVideoAbbe', 'slideVideoContainerAbbe', 'playButtonAbbe', 'fullScreenButtonAbbe')"></div>
           <div id="fullScreenButtonAbbe" class="fullScreenButton" ng-click="fullScreenVideoSlide('slideVideoContainerAbbe', 'videoSlideResize')"></div>
+        </div>
+        <div id="slideVideoContainerAbbe2" class="teLoDijoAdela2 img slideimg81" style="background: black">
+          <video id="slideVideoAbbe2" width="100%" height="100%" ng-click="playVideoSlide('slideVideoAbbe2', 'slideVideoContainerAbbe2')">
+            <source src="https://youtu.be/iP0DyEHqnm4" type="video/mp4">
+          </video>
+          <div id="playButtonAbbe2" class="playButton" ng-click="playVideoSlide('slideVideoAbbe2', 'slideVideoContainerAbbe2', 'playButtonAbbe2', 'fullScreenButtonAbbe2')"></div>
+          <div id="fullScreenButtonAbbe2" class="fullScreenButton" ng-click="fullScreenVideoSlide('slideVideoContainerAbbe2', 'videoSlideResize')"></div>
         </div>
         <div class="al11 img slideimg81">
           <img src="images/AL3.jpg" class="pic-image" alt="Pic"/>
@@ -919,7 +933,7 @@
       </span>
       </div>
       <div class="pentagramNotes">
-      <span class="tooltip tooltip-effect-4" ng-click="upTo('CC3',3,8)">
+      <span class="tooltip tooltip-effect-4" ng-click="upTo('CC2',3,8)">
         <span class="tooltip-item">
           <img class="noteImgCor linePent2" src="images/notes/nota_corchea.png"/>
         </span>
@@ -931,7 +945,7 @@
       </span>
       </div>
       <div class="pentagramNotes">
-      <span class="tooltip tooltip-effect-4" ng-click="upTo('CC2',3,9)">
+      <span class="tooltip tooltip-effect-4" ng-click="upTo('CC3',3,9)">
         <span class="tooltip-item">
           <img class="noteImgCor linePent2" src="images/notes/nota_corchea.png"/>
         </span>
