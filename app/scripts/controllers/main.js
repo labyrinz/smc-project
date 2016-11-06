@@ -952,15 +952,35 @@ angular.module('smcApp')
     }
     function playNarracion(url){
       console.log('narracion enter');
+      var locContainer = $("#loc");
       if(soundEpilogo.volume() > 0) soundEpilogo.fade(soundVolume,0.1,1000);
       setTimeout(function(){
         soundNarracion.stop();
+        var progress = {};
         soundNarracion = new Howl({
           urls: ['audio/loc/'+url+'.mp3'],
           autoplay: false,
           loop: false,
           volume: 0,
+          onload: function() {
+            console.log(this._duration)
+            locContainer.removeClass("inactive")
+            locContainer.addClass("comment-anim")
+            progress = new ProgressBar.Circle("#loc", {
+              strokeWidth: 10,
+              easing: 'linear',
+              duration: this._duration*1000,
+              color: '#f2f2f2',
+              trailColor: '#eee',
+              trailWidth: 1,
+              svgStyle: null
+            });
+            progress.animate(1.0);
+          },
           onend: function() {
+            locContainer.addClass("inactive")
+            locContainer.removeClass("comment-anim")
+            progress.destroy();
             if( player.paused() ) soundEpilogo.fade(0.1,soundVolume,1000);
           }
         });
