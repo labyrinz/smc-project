@@ -164,6 +164,13 @@
               <p> {{ photoText.prel02 }} </p>
             </span>
         </div>
+        <div id="slideVideoContainerProl" class="prol11Video img slideimg1" style="background: black">
+          <video id="slideVideoProl" width="100%" height="100%">
+            <source src="videos/Cugat1rasgos-PlazaAceite.mp4" type="video/mp4">
+          </video>
+          <div id="playButtonProl" class="playButton" ng-click="playVideoSlide('slideVideoProl', 'slideVideoContainerProl', 'playButtonProl', 'fullScreenButtonProl')"></div>
+          <div id="fullScreenButtonProl" class="fullScreenButton" ng-click="fullScreenVideoSlide('slideVideoContainerProl', 'videoSlideResize')"></div>
+        </div>
         <div class="pic prel03 img slideimg1">
           <img src="images/prel_03_old.jpg" class="pic-image" alt="Pic"/>
           <img src="images/infoIcon.svg" class="infoAdvice"/>
@@ -655,6 +662,23 @@
           <img ng-click="nextFoto('73')" class="arrowNext arrowNext2" src="images/arrow-left-3.svg"/>
         </div>
       </div>
+      <div class="contextual2">
+        <a id="videoToolTipAB2" class="tooltip" href="#" onclick="return false;">
+          <img src="images/more-button.svg" alt="" class="infoIcon"/>
+            <span id="videoToolTipContentAB2" class="tooltip-content">
+              <span id="toolTipTextAB2" class="tooltip-text">
+                <span id="toolTipInnerAB2" class="tooltip-inner" style="padding: 145px 80px;">
+                    <div id="slideVideoContainerAB2" class="ContextualVideo videoPlay" style="background: black">
+                      <video id="slideVideoAB2" width="100%" height="100%">
+                        <source src="videos/Cugat3ragos-Mafia.mp4" type="video/mp4">
+                      </video>
+                      <div id="playButtonAB2" class="playButton" ng-click="playVideoSlide('slideVideoAB2', 'slideVideoContainerAB2', 'playButtonAB2', '')"></div>
+                    </div>
+                </span>
+              </span>
+            </span>
+        </a>
+      </div>
       <div class="cita5 cita53"> {{ CatText.cita53 }} <span id="cita53suma"></span><span class="plusInfoCita" value="53">[+]</span></div>
     </div>
     <div id="page16" class="back color0 page16">
@@ -767,6 +791,13 @@
             <span class="pic-caption bottom-to-top">
               <p> {{ photoText.cb21 }} </p>
             </span>
+        </div>
+        <div id="slideVideoContainerE1" class="prol11Video img slideimg101" style="background: black">
+          <video id="slideVideoE1" width="100%" height="100%">
+            <source src="videos/CugatSobreLaPintura.mp4" type="video/mp4">
+          </video>
+          <div id="playButtonE1" class="playButton" ng-click="playVideoSlide('slideVideoE1', 'slideVideoContainerE1', 'playButtonE1', 'fullScreenButtonE1')"></div>
+          <div id="fullScreenButtonE1" class="fullScreenButton" ng-click="fullScreenVideoSlide('slideVideoContainerE1', 'videoSlideResize')"></div>
         </div>
         <div>
           <img ng-click="prevFoto('101')" class="arrowPrev arrowPrev2" src="images/arrow-left-3.svg"/>

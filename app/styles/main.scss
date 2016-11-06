@@ -1447,6 +1447,18 @@ img.infoAdvice{
     width: 100%;
   }
 }
+.prol11Video{
+  position: absolute;
+  top: 20%;
+  left: 8%;
+  width: 90%;
+  height: 90%;
+  border: solid 5px white;
+  cursor: pointer;
+  background-image: url('http://img.youtube.com/vi/APqdZiVo3hs/hqdefault.jpg');
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
 .cita1{
   position: absolute;
   //font-family: 'Dancing Script', cursive;
