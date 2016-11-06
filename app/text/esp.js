@@ -42,7 +42,7 @@ var languajeSP = {
    'cita62Post': "No quiero ni espero un palacio, solo un lugar para trabajar y salir de este Beverly Hills que ya no soporto.",
    'cita63':"",
    'cita63Plus': "",
-   'Cita100':"Durante semanas enteras traté inútilmente de conseguir una cita con Carmen. Cuando le pedía el teléfono, me daba números falsos.",
+   'cita100': "Durante semanas enteras traté inútilmente de conseguir una cita con Carmen. Cuando le pedía el teléfono, me daba números falsos.",
    'cita100Plus': "Le pregunté cuál era la razón de su comportamiento: Carmen me explicó que, en el fondo de su corazón, creía que si nuestra relación continuaba terminaría en matrimonio, y ella no estaba dispuesta a abandonar su carrera. Su respuesta me produjo angustia, pues todavía no sabía que me encontraba ante uno de esos seres humanos, los actores y actrices de Hollywood, cuya preocupación exclusiva era su propia carrera artística. Aún así, me dije: me casaré con esta muchacha."
  },
 'photoText': {

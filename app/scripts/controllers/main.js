@@ -76,11 +76,11 @@ angular.module('smcApp')
     var introWordsSubtitle = $(".introLettersSubtitle");
     var introWordsName = $(".introLettersName");
 
-    $scope.CatText = languajeCT.CatText;
-    $scope.photoText = languajeCT.photoText;
-    $scope.tooltipText = languajeCT.tooltipText;
-    $scope.generalText = languajeCT.text;
-    $scope.menuText = languajeCT.menu;
+    $scope.CatText = languajeSP.CatText;
+    $scope.photoText = languajeSP.photoText;
+    $scope.tooltipText = languajeSP.tooltipText;
+    $scope.generalText = languajeSP.text;
+    $scope.menuText = languajeSP.menu;
 
     if (window.DeviceOrientationEvent && /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
       $('.mouseIcon').addClass('iconSpace2');
