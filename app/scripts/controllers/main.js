@@ -1331,126 +1331,138 @@ angular.module('smcApp')
     //closeBttn.on( 'click', function(){toggleOverlay()} );
 
     playlistPlayer.playlist([{
-      name: 'Xavier Cugat, l´exemple de català que fa les Amèriques',
+      name: 'Entrevista completa a Xavier Cugat en el programa “La luna” (1989)',
       sources: [{
-        src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/3/4/1461774869043.mp4',
+        src: 'http://mvod.lvlt.rtve.es/resources/TE_NGVA/mp4/2/9/1466417568692.mp4',
         type: 'video/mp4'
       }]
       }, {
-      name: 'Funeral de Xavier Cugat a Girona',
+      name: 'Xavier Cugat con Julia Otero en el programa “La luna” (1989).',
       sources: [{
-        src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/6/3/1461774874836.mp4',
+        src: '',
         type: 'video/mp4'
       }]
       }, {
-      name: 'Duo Dinámico i Xavier Cugat a "Així és la Vida"',
+      name: 'Cugui continúa repasando su carrera',
       sources: [{
-        src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/7/0/1461774930607.mp4',
+        src: '',
         type: 'video/mp4'
       }]
       }, {
-      name: 'Barcelona: Saló Cugat a l´Hotel Ritz',
+      name: 'Xavier Cugat y su chihuahua con Julia Otero en el programa “La luna” (1989)',
       sources: [{
-        src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/1/1/1461775019711.mp4',
+        src: '',
         type: 'video/mp4'
       }]
       }, {
-      name: 'Entrevista a Xavier Cugat en el programa "La Parada"',
+      name: 'Xavier Cugat desvela detalles sobre su vida en "Verdad o mentira” de 1983',
       sources: [{
-        src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/0/2/1461775122220.mp4',
+        src: 'http://mvod.lvlt.rtve.es/resources/TE_NGVA/mp4/8/2/1466417752028.mp4',
         type: 'video/mp4'
       }]
       }, {
-      name: 'Xavier Cugat rep la Medalla d´Or de Girona',
+      name: '¿Es Xavier Cugat también un mago?',
       sources: [{
-        src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/7/5/1461775125157.mp4',
+        src: '',
         type: 'video/mp4'
       }]
       }, {
-      name: 'Xavier Cugat celebra el seu 89 aniversari a Lloret de Mar',
+      name: '¿Es verdad que fue nombrado jefe de una tribu india?',
       sources: [{
-        src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/6/4/1461775142046.mp4',
+        src: '',
         type: 'video/mp4'
       }]
       }, {
-      name: 'Xavier Cugat acomiada el programa de Cap d´Any dins del seu Rolls Royce',
+      name: 'Cugat narra su relación con Frank Sinatra',
       sources: [{
-        src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/2/8/1461775199482.mp4',
+        src: '',
         type: 'video/mp4'
       }]
       }, {
-      name: 'Xavier Cugat presenta Cugat Visió, al Cap d´Any del 1986',
+      name: 'Cugui desvela sus inicios con el gran Caruso',
       sources: [{
-        src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/1/1/1461775231711.mp4',
+        src: '',
         type: 'video/mp4'
       }]
       }, {
-      name: '"La casa dels famosos": Xavier Cugat',
+      name: 'Programa de entretenimiento en el que el público realiza preguntas variadas a Xavier Cugat (1972).',
       sources: [{
-        src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/3/9/1461775408593.mp4',
+        src: 'http://mvod.lvlt.rtve.es/resources/TE_NGVA/mp4/1/7/1466589118771.mp4',
         type: 'video/mp4'
       }]
       }, {
-      name: 'Xavier Cugat parla del contracte de Frank Sinatra per cantar a l´estadi Bernabéu',
+      name: 'Sus comienzos',
       sources: [{
-        src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/2/8/1461775415182.mp4',
+        src: '',
         type: 'video/mp4'
       }]
       }, {
-      name: 'Especial Cap d´Any 1986 Xavier Cugat',
+      name: 'Sus mujeres y EEUU',
       sources: [{
-        src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/3/1/1461775420413.mp4',
+        src: '',
         type: 'video/mp4'
       }]
       }, {
-      name: 'Entrevista a Xavier Cugat a l´"Angel Casas Show"',
+      name: 'Sus curiosidades más personales',
       sources: [{
-        src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/4/6/1461775537164.mp4',
+        src: '4',
         type: 'video/mp4'
       }]
       }, {
-      name: 'Xavier Cugat rep la Medalla d´Or de Barcelona',
+      name: 'Entrevista de Xavier Cugat con Mónica Randall para el programa “Rasgos”.',
       sources: [{
-        src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/3/0/1461775539903.mp4',
+        src: 'http://mvod.lvlt.rtve.es/resources/TE_NGVA/mp4/9/4/1467728998149.mp4',
         type: 'video/mp4'
       }]
       }, {
-      name: 'Entrevista a Xavier Cugat, amb motiu de l´elaboració d´un programa homenatge',
+      name: 'Cugat repasa sus recuerdos desde su nacimiento y vida en Cuba',
       sources: [{
-        src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/1/9/1461775596991.mp4',
+        src: '',
         type: 'video/mp4'
       }]
       }, {
-      name: 'Pasqual Maragall visita a l´hospital el músic Xavier Cugat',
+      name: 'Su llegada a EE UU y (casi) todas las mujeres de su vida',
       sources: [{
-        src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/0/4/1461775621340.mp4',
+        src: '',
         type: 'video/mp4'
       }]
       }, {
-      name: 'Xavier Cugat dirigeix l´orquestra de l´"Àngel Casas Show"',
+      name: 'Cugat, el hombre de negocios',
       sources: [{
-        src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/8/0/1461775849008.mp4',
+        src: '',
         type: 'video/mp4'
       }]
       }, {
-      name: 'Futbol: Girona-Martinenc. Xavier Cugat recull la Medalla d´Or de Girona',
+      name: 'el debut de Nina en el Un, dos, tres, presentada y apadrinada por Cugat.',
       sources: [{
-        src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/4/6/1461776013164.mp4',
+        src: 'http://mvod.lvlt.rtve.es/resources/TE_NGVA/mp4/7/5/1411576524757.mp4',
         type: 'video/mp4'
       }]
       }, {
-      name: 'Xavier Cugat anuncia el seu casament',
+      name: 'Xavier Cugat pasea por la plaza D´Oli (Barcelona), el lugar donde nació',
       sources: [{
-        src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/6/8/1461776045386.mp4',
+        src: 'videos/cugat.mp4',
         type: 'video/mp4'
       }]
       }, {
-      name: 'Xavier Cugat parla del cas Dalí',
+      name: 'Entrevista desde el hospital a Xavier Cugat',
       sources: [{
-        src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/1/1/1461776102311.mp4',
+        src: 'videos/cugat2bata.mp4',
         type: 'video/mp4'
       }]
-      }]);
+      }, {
+      name: 'Entrevista a Xavier Cugat en el Hotel Ritz',
+      sources: [{
+        src: 'videos/cugatCuadros.mp4',
+        type: 'video/mp4'
+      }]
+    }, {
+      name: 'Xavier Cugat cumple 80 años',
+      sources: [{
+        src: 'videos/cugatNodo.mp4',
+        type: 'video/mp4'
+      }]
+    }]);
       playlistPlayer.playlist.autoadvance(0);
 
     });
