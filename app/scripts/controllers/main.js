@@ -1,6 +1,6 @@
 'use strict';
 
- angular.module('smcApp').factory( 'session', function GetSession($http, $q){
+ /*angular.module('smcApp').factory( 'session', function GetSession($http, $q){
      var defer = $q.defer();
 
      var urlNekudo = "http://geoip.nekudo.com/api";
@@ -36,7 +36,7 @@
      });
 
      return defer.promise;
- } );
+ } );*/
 
  /**
   * @ngdoc function
@@ -47,8 +47,8 @@
   */
 
 angular.module('smcApp')
-  .controller('MainCtrl', function ($scope, session) {
-    session.then( function() {
+  .controller('MainCtrl', function ($scope) {
+    //session.then( function() {
 
 
     //--- GLOBAL VARIABLES ----
@@ -115,14 +115,14 @@ angular.module('smcApp')
       //----SOUND TRACKS -----
 
       var soundEpilogo = new Howl({
-        urls: [''],
+        urls: [],
         autoplay: false,
         loop: true,
         volume: 0
       });
 
       var soundNarracion = new Howl({
-        urls: [''],
+        urls: [],
         autoplay: false,
         loop: true,
         volume: 0
@@ -649,7 +649,7 @@ angular.module('smcApp')
         .to(".blurEffect9",6,{ onStart:function(){soundEpilogo.fade(soundVolume,0,6000)},opacity: '0', ease: Power4.easeOut},"-=6")
         //.to(".chihuahua",0.3,{ transform: 'rotateX(90deg)',  ease: Bounce.easeOut})
         .to(".age4",3,{ onReverseComplete: function(){soundEpilogo.fade(0,soundVolume,3000)}, opacity: '0', ease: Power4.easeOut},"-=6")
-        .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['11-narracion-e1'] }, '+=1')
+        .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['12-narracion-e2'] }, '+=1')
         .to(".mouseIcon", 0.5, {bottom: '100px', ease: Bounce.easeOut, onComplete: updateScrollBttn}, '+=1')
         .addPause()
         .to(".mouseIcon", 0.2, {bottom: '-150px', ease: Power0.easeOut})
@@ -1441,5 +1441,5 @@ angular.module('smcApp')
       }]);
       playlistPlayer.playlist.autoadvance(0);
 
-    });
+    //});
   });
