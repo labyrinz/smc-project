@@ -86,12 +86,12 @@ angular.module('smcApp')
       $('.mouseIcon').addClass('iconSpace2');
       isMobile = true;
       checkDisclaimer();
-      $scope.controlText = 'continua';//'deslizar para continuar';
+      $scope.controlText = 'continuar';//'deslizar para continuar';
     }
     else {
       isMobile = false;
       //$('#controlIcon').addClass('iconSpace');
-      $scope.controlText = 'continua';//'scroll para continuar';
+      $scope.controlText = 'continuar';//'scroll para continuar';
     }
 
     totalWords[12] = $scope.CatText.cita12Plus.split(" ");
