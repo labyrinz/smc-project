@@ -3,8 +3,8 @@
  angular.module('smcApp').factory( 'session', function GetSession($http, $q){
      var defer = $q.defer();
 
-     var urlNekudo = "http://geoip.nekudo.com/api";
-     var urlFreegeoip = "http://freegeoip.net/json/";
+     var urlNekudo = "https://geoip.nekudo.com/api";
+     var urlFreegeoip = "https://freegeoip.net/json/";
      var country = "ES";
 
      $.getJSON( urlFreegeoip, {} )
