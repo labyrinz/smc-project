@@ -198,7 +198,7 @@ angular.module('smcApp')
         .to("", 0.1, { onReverseComplete: ninoAnimation })
         .staggerFrom($("#page1").children(),0.6, animationFromPattern, staggerFromVelocity)
         .to(".cita11",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=0.2")
-        .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['01-narracion-p1'] })
+        .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['01-narracion-p1', false] })
         .addPause()
         .to("", 0.1, { onReverseComplete: updateTitle, onReverseCompleteParams: [0] })
         .to("", 0.1, { onComplete: stopNinoAnimation })
@@ -245,7 +245,7 @@ angular.module('smcApp')
         .to(".age1",0.3,{ transform: 'rotateX(90deg)', ease: Bounce.easeOut})
         .to(".age2",0.3,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"-=0.3")
         .staggerFrom($("#page3").children(),0.6, animationFromPattern, staggerFromVelocity)
-        .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['02-narracion-p2'] })
+        .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['02-narracion-p2', false] })
         .addPause()
         .to("", 0.1, { onStart: stopVideoToolTip, onStartParams: ['slideVideoHavana', 'slideVideoContainerHavana', 'playButtonHavana', '' ] })
         .staggerTo($("#page3").children(),0.6, animationToPattern, staggerToVelocity)
@@ -266,7 +266,7 @@ angular.module('smcApp')
         .to("#page4",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
         .staggerFrom($("#page4").children(),0.6, animationFromPattern, staggerFromVelocity)
         .to(".cita12",1,{  transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1")
-        .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['03-narracion-p3'] })
+        .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['03-narracion-p3', false] })
         //.to("", 0.1, { onReverseComplete: stopVideo })
         .addPause()
         .to("", 0.1, { onStart: stopVideoToolTip, onStartParams: ['slideVideoNY', 'slideVideoContainerNY', 'playButtonNY', 'fullScreenButtonNY' ] })
@@ -287,7 +287,7 @@ angular.module('smcApp')
         .to("", 0.1, { onStart: stopVideo })
         .staggerFrom($("#page5").children(),0.6, animationFromPattern, staggerFromVelocity)
         .to(".cita21",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=0.5")
-        .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['04-narracion-rm1'] })
+        .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['04-narracion-rm1', false] })
         .addPause()
         //EPISODE 7
         .staggerTo($("#page5").children(),0.6, animationToPattern, staggerToVelocity)
@@ -377,7 +377,7 @@ angular.module('smcApp')
         .to(".carn5", 2, {top: '-50%', ease: Power4.easeOut},"-=2")
         .to(".carn6", 2, {top: '-50%', ease: Power4.easeOut},"-=2")
         .to(".cita100",1,{ scale:'1',transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=0.5")
-        .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['05-narracion-cc1'] })
+        .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['05-narracion-cc1', false] })
         .to(".mouseIcon", 0.5, {bottom: '100px', ease: Bounce.easeOut, onComplete: updateScrollBttn}, '+=1')
         .addPause()
         .to(".mouseIcon", 0.2, {bottom: '-150px', ease: Power0.easeOut})
@@ -427,7 +427,7 @@ angular.module('smcApp')
         .to(".mouseIcon", 0.2, {bottom: '-150px', ease: Power0.easeOut})
         .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['videoCloud',false,false,false,true,'4/0/1471877055304.mp4', 'videoCloud2', 'videoCloudInside', true, "tv3"] })
         .to("", 0.1, { onStart: stopVideo })
-        .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['06-narracion-cc3'] },'+=1')
+        .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['06-narracion-cc3', false] },'+=1')
         .to(".mouseIcon", 0.5, {bottom: '100px', ease: Bounce.easeOut, onComplete: updateScrollBttn}, '+=1')
         .addPause()
         .to(".mouseIcon", 0.2, {bottom: '-150px', ease: Power0.easeOut})
@@ -465,12 +465,11 @@ angular.module('smcApp')
         .to("", 0.1, { onStart: updateTitle, onStartParams: [12] })
         .to("", 0.1, { onStart: updateAnec, onStartParams: [8] })
         .to("", 0.1, { onComplete: playSound, onCompleteParams: [playListOrder[5]] })
-        //.staggerTo($("#page11").children(),0.6, animationToPattern, staggerToVelocity)
         .to("#page12",0.4,{ right: '0%', ease: Power0.easeNone})
         .to(".blurEffect7",0.2,{ filter: 'blur(8px)',webkitFilter: 'blur(8px)', ease: Power0.easeNone},"+=1")
         .staggerFrom($("#page12").children(),0.6, animationFromPattern, staggerToVelocity)
         .to(".cita42",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1")
-        .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['07-narracion-la2'] })
+        .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['07-narracion-la2', false] })
         .addPause()
         .to("", 0.1, { onStart: stopVideoToolTip, onStartParams: ['slideVideoLorraine', 'slideVideoContainerLorraine', 'playButtonLorraine', 'fullScreenButtonLorraine' ] })
         .staggerTo($("#page12").children(),0.6, animationToPattern, staggerToVelocity)
@@ -518,7 +517,7 @@ angular.module('smcApp')
         .to("", 0.1, { onStart: stopVideo })
         .staggerFrom($("#page14").children(),0.6, animationFromPattern, staggerFromVelocity)
         .to(".cita51",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=0.5")
-        .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['08-narracion-al1'] })
+        .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['08-narracion-al1', false] })
         .addPause()
         .to("", 0.1, { onStart: stopVideoToolTip, onStartParams: ['slideVideoAbbe', 'slideVideoContainerAbbe', 'playButtonAbbe', 'fullScreenButtonAbbe' ,"tv3"] })
         .staggerTo($("#page14").children(),0.6, animationToPattern, staggerToVelocity)
@@ -552,7 +551,7 @@ angular.module('smcApp')
         .to("#page16",0.4,{ right: '0%', ease: Power0.easeNone})
         .staggerFrom($("#page16").children(),0.6, animationFromPattern, staggerFromVelocity)
         .to(".cita56",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1")
-        .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['09-narracion-al3'] })
+        .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['09-narracion-al3', false] })
         .addPause()
         .staggerTo($("#page16").children(),0.6, animationToPattern, staggerToVelocity)
         .to("#page16",0.4,{ right: '100%', ease: Power0.easeNone})
@@ -586,7 +585,7 @@ angular.module('smcApp')
         .to("", 0.1, { onReverseComplete: stopVideo })
         .addPause()
         .to("", 0.1, { onStart: stopVideo })
-        .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['10-narracion-cb2'] }, '+=1')
+        .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['10-narracion-cb2', false] }, '+=1')
         .to(".mouseIcon", 0.5, {bottom: '100px', ease: Bounce.easeOut, onComplete: updateScrollBttn}, '+=1')
         .addPause()
         .to(".mouseIcon", 0.2, {bottom: '-150px', ease: Power0.easeOut})
@@ -629,7 +628,7 @@ angular.module('smcApp')
         .to("#texto7-barc",1,{ transform: 'scale(0)', opacity: '0', ease: Power4.easeOut},"+=0.2")
         .staggerFrom($("#page19").children(),0.6, animationFromPattern, staggerFromVelocity)
         .to(".cita62",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1")
-        .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['11-narracion-e1'] }, '+=1')
+        .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['11-narracion-e1', false] }, '+=1')
         .addPause()
         .staggerTo($("#page19").children(),0.6, animationToPattern, staggerToVelocity)
         .to("#page19",0.4,{ right: '100%', ease: Power0.easeNone})
@@ -640,6 +639,7 @@ angular.module('smcApp')
         .to("", 0.1, { onStart: updateAnec, onStartParams: [16] })
         .to("#page20",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
         .staggerFrom($("#page20").children(),0.6, animationFromPattern, staggerFromVelocity)
+        .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['12-narracion-e2', true] }, '+=1')
         .to(".textoFin",2,{  transform: 'scale(1)', opacity: '1', ease: Power4.easeOut},"+=2")
         .to(".textoFin",2,{ top: '0', ease: Power4.easeOut},"+=2")
         .to(".ep15",2,{ opacity: '1', ease: Power4.easeOut},"-=3")
@@ -647,7 +647,6 @@ angular.module('smcApp')
         .to(".blurEffect9",6,{ onStart:function(){soundEpilogo.fade(soundVolume,0,6000)},opacity: '0', ease: Power4.easeOut},"-=6")
         //.to(".chihuahua",0.3,{ transform: 'rotateX(90deg)',  ease: Bounce.easeOut})
         .to(".age4",3,{ onReverseComplete: function(){soundEpilogo.fade(0,soundVolume,3000)}, opacity: '0', ease: Power4.easeOut},"-=6")
-        .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['12-narracion-e2'] }, '+=1')
         .to(".mouseIcon", 0.5, {bottom: '100px', ease: Bounce.easeOut, onComplete: updateScrollBttn}, '+=1')
         .addPause()
         .to(".mouseIcon", 0.2, {bottom: '-150px', ease: Power0.easeOut})
@@ -670,6 +669,7 @@ angular.module('smcApp')
     //-------FUNCTIONS --------------------
     $scope.upTo = function(value, music, notes) {
       setStopScroll(false);
+      stopNarracion();
       TweenMax.to(".mouseIcon", 0.2, {bottom: '-150px', ease: Power0.easeOut, autoRound:false});
       TweenMax.to(".coverTransitions", 0.1, { scale: 1, ease: Power4.easeOut, autoRound:false });
       TweenMax.to(".coverTransitions", 0.6, { opacity: 1, ease: Power4.easeOut, delay: 0.2, autoRound:false });
@@ -806,7 +806,8 @@ angular.module('smcApp')
 
     $scope.playVideoSlide = function(id, container, playButton, fullScreenButton){
       TweenMax.set($('#'+container), {left: ''});
-      if($("#"+id).get(0).paused) {
+      TweenMax.set($('#'+container), {right: ''});
+      if( $("#"+id).get(0).paused ) {
         videoCardToogleSound = 0;
         if(boolsound == soundVolume && soundEpilogo.volume() > 0 ) soundEpilogo.fade(soundVolume,0.01,2000);
         if(boolsound == soundVolume && soundNarracion.volume() > 0 ) soundNarracion.fade(soundVolume,0.01,2000);
@@ -820,7 +821,6 @@ angular.module('smcApp')
           $("#toolTipTextAB2").css( "transform", "scale(1)" );
           $("#toolTipInnerAB2").css( "transform", "translate3d(0,0,0)" );
         }
-        console.log($("#"+id).get(0).paused);
         $("#"+id).get(0).play();
         TweenMax.set($('#'+playButton), {opacity: 0});
         TweenMax.set($('#'+fullScreenButton), {opacity: 1});
@@ -950,7 +950,7 @@ angular.module('smcApp')
         if( boolsound == soundVolume && soundNarracion.volume() == 0 ){ soundEpilogo.fade(0,soundVolume,1000); }
       }, 500)
     }
-    function playNarracion(url){
+    function playNarracion(url, continueBefore){
       console.log('narracion enter');
       var locContainer = $("#loc");
       if(soundEpilogo.volume() > 0) soundEpilogo.fade(soundVolume,0.1,1000);
@@ -981,12 +981,21 @@ angular.module('smcApp')
             locContainer.addClass("inactive")
             locContainer.removeClass("comment-anim")
             progress.destroy();
-            if( player.paused() ) soundEpilogo.fade(0.1,soundVolume,1000);
+            soundNarracion.volume(0);
+            if( player.paused() && videoCardToogleSound == 1 && boolsound == soundVolume && !continueBefore ) soundEpilogo.fade(0.1,soundVolume,1000);
           }
         });
         soundNarracion.play();
-        if(boolsound == soundVolume){ soundNarracion.fade( 0, soundVolume + 0.2, 1000 ); }
+        if(boolsound == soundVolume && videoCardToogleSound == 1){ soundNarracion.fade( 0, soundVolume + 0.2, 1000 ); }
       }, 500)
+    }
+    function stopNarracion(){
+      var locContainer = $("#loc");
+      soundNarracion.stop();
+      locContainer.addClass("inactive");
+      locContainer.removeClass("comment-anim");
+      soundNarracion.volume(0);
+      if( player.paused() && videoCardToogleSound == 1 && boolsound == soundVolume ) soundEpilogo.fade(0.1,soundVolume,1000);
     }
     function toggleSound(){
       boolsound = boolsound ? 0 : soundVolume;
@@ -1147,6 +1156,7 @@ angular.module('smcApp')
     $(window).bind('mousewheel DOMMouseScroll', function(event){
       if (canScroll()){ // If overlay layers are opened
         event.preventDefault();
+        if(soundNarracion.volume() > 0) stopNarracion();
         TweenMax.to('.additional', 0.2, {opacity: 0, scale:0, ease:Back.easeOut, autoRound:false});
         if(event.type != 'mousedown'){
           if (event.originalEvent.wheelDelta > 0 || event.originalEvent.detail < 0) {
@@ -1359,20 +1369,20 @@ angular.module('smcApp')
       }, {
       name: 'Xavier Cugat con Julia Otero en el programa “La luna” (1989).',
       sources: [{
-        src: '',
-        type: 'video/mp4'
+        src: 'https://www.youtube.com/watch?v=WM9v8yVszF8',
+        type: 'video/youtube'
       }]
       }, {
       name: 'Cugui continúa repasando su carrera',
       sources: [{
-        src: '',
-        type: 'video/mp4'
+        src: 'https://www.youtube.com/watch?v=GzAnW2EpbgY',
+        type: 'video/youtube'
       }]
       }, {
       name: 'Xavier Cugat y su chihuahua con Julia Otero en el programa “La luna” (1989)',
       sources: [{
-        src: '',
-        type: 'video/mp4'
+        src: 'https://www.youtube.com/watch?v=Tspqgl4aajs',
+        type: 'video/youtube'
       }]
       }, {
       name: 'Xavier Cugat desvela detalles sobre su vida en "Verdad o mentira” de 1983',
@@ -1383,26 +1393,26 @@ angular.module('smcApp')
       }, {
       name: '¿Es Xavier Cugat también un mago?',
       sources: [{
-        src: '',
-        type: 'video/mp4'
+        src: 'https://www.youtube.com/watch?v=dXtHp_rEgVA',
+        type: 'video/youtube'
       }]
       }, {
       name: '¿Es verdad que fue nombrado jefe de una tribu india?',
       sources: [{
-        src: '',
-        type: 'video/mp4'
+        src: 'https://www.youtube.com/watch?v=KV5qhM9r90Y',
+        type: 'video/youtube'
       }]
       }, {
       name: 'Cugat narra su relación con Frank Sinatra',
       sources: [{
-        src: '',
-        type: 'video/mp4'
+        src: 'https://www.youtube.com/watch?v=EySYESxtMYg',
+        type: 'video/youtube'
       }]
       }, {
       name: 'Cugui desvela sus inicios con el gran Caruso',
       sources: [{
-        src: '',
-        type: 'video/mp4'
+        src: 'https://www.youtube.com/watch?v=hC8FxSSouY4',
+        type: 'video/youtube'
       }]
       }, {
       name: 'Programa de entretenimiento en el que el público realiza preguntas variadas a Xavier Cugat (1972).',
@@ -1413,20 +1423,20 @@ angular.module('smcApp')
       }, {
       name: 'Sus comienzos',
       sources: [{
-        src: '',
-        type: 'video/mp4'
+        src: 'https://www.youtube.com/watch?v=7LMZ-RCDvXA',
+        type: 'video/youtube'
       }]
       }, {
       name: 'Sus mujeres y EEUU',
       sources: [{
-        src: '',
-        type: 'video/mp4'
+        src: 'https://www.youtube.com/watch?v=z7pqniWBYf4',
+        type: 'video/youtube'
       }]
       }, {
       name: 'Sus curiosidades más personales',
       sources: [{
-        src: '4',
-        type: 'video/mp4'
+        src: 'https://www.youtube.com/watch?v=1n4BLvpflJc',
+        type: 'video/youtube'
       }]
       }, {
       name: 'Entrevista de Xavier Cugat con Mónica Randall para el programa “Rasgos”.',
@@ -1437,20 +1447,20 @@ angular.module('smcApp')
       }, {
       name: 'Cugat repasa sus recuerdos desde su nacimiento y vida en Cuba',
       sources: [{
-        src: '',
-        type: 'video/mp4'
+        src: 'https://www.youtube.com/watch?v=4esIIbi2ao0',
+        type: 'video/youtube'
       }]
       }, {
       name: 'Su llegada a EE UU y (casi) todas las mujeres de su vida',
       sources: [{
-        src: '',
-        type: 'video/mp4'
+        src: 'https://www.youtube.com/watch?v=Zvs0BSB4H_E',
+        type: 'video/youtube'
       }]
       }, {
       name: 'Cugat, el hombre de negocios',
       sources: [{
-        src: '',
-        type: 'video/mp4'
+        src: 'https://www.youtube.com/watch?v=UrVFLqTjCBs',
+        type: 'video/youtube'
       }]
       }, {
       name: 'el debut de Nina en el Un, dos, tres, presentada y apadrinada por Cugat.',
