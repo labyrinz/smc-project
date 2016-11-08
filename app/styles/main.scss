@@ -26,6 +26,19 @@ body, html{
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-track {
+  background-color: #eaeaea;
+  border-left: 1px solid #ccc;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #aaa;
+}
 
 .img{
   -webkit-box-shadow: 0px 0px 15px 2px rgba(0,0,0,.55);
@@ -4742,6 +4755,7 @@ span.vjs-up-next-text {
 }
 .vjs-mouse.vjs-playlist{
   font-size: 16px;
+  overflow-x: hidden;
 }
 
 /* Device orientation message */
