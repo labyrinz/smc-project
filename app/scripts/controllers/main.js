@@ -76,9 +76,57 @@ angular.module('smcApp')
     var introWordsSubtitle = $(".introLettersSubtitle");
     var introWordsName = $(".introLettersName");
 
-    $scope.imagesArrayEmpty = null;
+    var imagesSlideOut = [
+      {image1: 'null', image2: 'null', image3: 'null'},
+      {image1: 'null', image2: 'null', image3: 'null', video1: 'null'},
+      {image1: 'null', image2: 'null', video1: 'null'},
+      {image1: 'null', image2: 'null', image3: 'null'},
+      {image1: 'null', image2: 'null', image3: 'null', image4: 'null'},
+      {image1: 'null', image2: 'null', image3: 'null'},
+      {image1: 'null', image2: 'null', image3: 'null', video1: 'null'},
+      {image1: 'null', image2: 'null'},
+      {image1: 'null', image2: 'null', image3: 'null', image4: 'null', video1: 'null'},
+      {image1: 'null', image2: 'null', image3: 'null', image4: 'null'},
+      {image1: 'null', image2: 'null', image3: 'null', video1: 'null', video2: 'null'},
+      {image1: 'null', image2: 'null', image3: 'null', image4: 'null', image5: 'null', video1: 'null'},
+      {image1: 'null', image2: 'null', image3: 'null', image4: 'null', image5: 'null', image6: 'null'},
+      {image1: 'null', image2: 'null'},
+      {image1: 'null', image2: 'null'},
+      {image1: 'null', image2: 'null', image3: 'null', image4: 'null', image5: 'null', image6: 'null'},
+      {image1: 'null'}
+    ];
 
-    $scope.imagesSlide1 = {image1: 'images/prel_05.jpg', image2: 'images/prel_03_old.jpg', image3: 'images/prel_0.jpg'};
+    var imagesSlideIn = [
+      {image1: 'images/prel_05.jpg', image2: 'images/prel_03_old.jpg', image3: 'images/prel_0.jpg'},
+      {image1: 'images/prel_06.jpg', image2: 'images/BNC_002_Album2_Cugat-violin.jpg', image3: 'images/BNC_001_Album1_Cugat-violin.jpg', video1: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/7/1/1471877098717.mp4'},
+      {image1: 'images/prel_12.jpg', image2: 'images/WA_Caricature.jpg', video1: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/5/0/1471877015205.mp4'},
+      {image1: 'images/RM1.jpg', image2: 'images/RM2.jpg', image3: 'images/RM3.jpg'},
+      {image1: 'images/RM8.jpg', image2: 'images/RM7.jpg', image3: 'images/RM10.jpg', image4: 'images/RM11.jpg'},
+      {image1: 'images/anecdotas/CC1-Carmen01.jpg', image2: 'images/anecdotas/CC1-Carmen02.jpg', image3: 'images/CC2.png'},
+      {image1: 'images/CC_BCN_19.jpg', image2: 'images/CC5.jpg', image3: 'images/CC4_1.jpg', video1: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/1/4/1471876987041.mp4'},
+      {image1: 'images/LA1-Lorraine.jpg', image2: 'images/lorraine12.jpg'},
+      {image1: 'images/LA7.jpg', image2: 'images/LA6.jpg', image3: 'images/LA21N.jpg', image4: 'images/LA22N.jpg', video1: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/0/6/1471876980460.mp4'},
+      {image1: 'images/LA3-Sinatra.jpg', image2: 'images/LA3-Columbia.jpg', image3: 'images/LA3-Cugat.jpg', image4: 'images/cugatPipa.jpg'},
+      {image1: 'images/AL3.jpg', image2: 'images/AL32.jpg', image3: 'images/Abbe1.jpg', video1: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/8/1/1471877050018.mp4', video2: 'videos/videoplayback.mp4'},
+      {image1: 'images/AL1.jpg', image2: 'images/AL33.jpg', image3: 'images/AL6.jpg', image4: 'images/AL34.jpg', image5: 'images/AL35.jpg', video1: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/0/6/1471876980460.mp4'},
+      {image1: 'images/AL21.jpg', image2: 'images/AL9.jpg', image3: 'images/AL22.png', image4: 'images/AL8.jpg', image5: 'images/AL11.jpg'},
+      {image1: 'images/cb15.jpg', image2: 'images/CB11.png'},
+      {image1: 'images/CuguiCharo.jpg', image2: 'images/CB_BCN_14.jpg'},
+      {image1: 'images/sanjulian.jpg', image2: 'images/BCN_01_ep.png', image3: 'images/BNC_002_ep.png', image4: 'images/BNC_003_ep.png', image5: 'images/caricatura1.jpg', image6: 'images/caricatura2.jpg'},
+      {image1: 'images/cugatPipa.jpg'}
+    ];
+
+    $scope.imageSlide = imagesSlideOut.slice();
+
+    $scope.back1 = { image1:'images/back/inf/ed1c.png', image2: 'images/back/inf/ed2c.png', image3: 'images/back/inf/ed3c.png', image4: 'images/back/inf/rioc.png', image5: 'images/back/inf/niño.png' };
+    $scope.back2 = { image1:'images/back/cuba/cuba.png', image2: 'images/back/cuba/coches.png' };
+    $scope.back3 = { image1:'images/back/nuevaYork/nyCarret.png', image2: 'images/back/nuevaYork/nyLetreros.png', image3: 'images/back/nuevaYork/nyPuente.png', image4: 'images/back/nuevaYork/nyCielo.png', image5: 'images/back/nuevaYork/nyCoche1.png', image6: 'images/back/nuevaYork/nyCoche2.png', image7: 'images/back/nuevaYork/nyCoche3.png' };
+    $scope.back4 = { image1:'images/back/berlin/berlinColor.png' };
+    $scope.back5 = { image1:'images/back/carnie/palco.png', image2: 'images/back/carnie/luces.png', image3: 'images/back/carnie/escenario.png', image4: 'images/back/carnie/publico1.png', image5: 'images/back/carnie/publico2.png', image6: 'images/back/carnie/cugat.png' };
+    $scope.back6 = { image1:'images/back/hollywood/hollywoodMontanas.png', image2: 'images/back/hollywood/hollywoodCielo.png', image3: 'images/back/hollywood/hollywoodRocas.png', image4: 'images/back/hollywood/hollywoodArboles.png', image5: 'images/back/hollywood/hollywoodNubes.png', image6: 'images/back/hollywood/hollywoodSol.png', image7: 'images/back/hollywood/hollywoodLetrero.png' };
+    $scope.back7 = { image1:'images/back/chicago/edificios.png', image2: 'images/back/chicago/letreros.gif', image3: 'images/back/chicago/lucesEdificios.png', image4: 'images/back/chicago/coche1.png', image5: 'images/back/chicago/coche2.png' };
+    $scope.back8 = { image1:'images/back/lasvegas/fondo.png', image2: 'images/back/lasvegas/edificiosFondo.png', image3: 'images/back/lasvegas/edificioCaesar.png', image4: 'images/back/lasvegas/cartelFlamingo.png', image5: 'images/back/lasvegas/cartelmotel.png', image6: 'images/back/lasvegas/lucesCaesar.png', image7: 'images/back/lasvegas/lucesFlamingo.png', image8: 'images/back/lasvegas/lucesMotel.png', image9: 'images/back/lasvegas/bombillasFlamingo.png', image10: 'images/back/lasvegas/coches.png' };
+    $scope.back9 = { image1:'images/back/barcelona/batllo.png', image2: 'images/back/barcelona/cugat.png', image3: 'images/back/barcelona/coche.png', image4: 'images/back/barcelona/troncos.png', image5: 'images/back/barcelona/copa1.png', image6: 'images/back/barcelona/copa2.png', image7: 'images/back/barcelona/hojas1.png', image8: 'images/back/barcelona/hojas2.png' };
 
     $scope.CatText = languajeCT.CatText;
     $scope.photoText = languajeCT.photoText;
@@ -111,6 +159,8 @@ angular.module('smcApp')
     totalWords[100] = $scope.CatText.cita100Plus.split(" ");
 
     //---------------------------
+
+    $scope.imageSlide[0] =  imagesSlideIn[0];
 
     //-----TIMELINE ---------
 
@@ -213,6 +263,7 @@ angular.module('smcApp')
         .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['videoCloud',false,false,false,true,'4/0/1471877017204.mp4', 'videoCloud', 'videoCloudInside'] })
         .to(".mouseIcon", 0.5, {bottom: '150px', ease: Bounce.easeOut, onComplete: updateScrollBttn},"+=0.5")
         .to("", 0.1, { onReverseComplete: stopVideo })
+        .to("", 0.1, { onComplete: loadSlideContent, onCompleteParams: [1, 'play'] })
         .addPause()
         .to("", 0.1, { onStart: stopVideo })
         .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['videoCloud',false,false,false,false,'4/0/1471877017204.mp4', 'videoCloud', 'videoCloudInside'] })
@@ -233,6 +284,7 @@ angular.module('smcApp')
         .to(".age1",0.3,{ transform: 'rotateX(90deg)', ease: Bounce.easeOut})
         .to(".age2",0.3,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"-=0.3")
         .staggerFrom($("#page3").children(),0.6, animationFromPattern, staggerFromVelocity)
+        .to("", 0.1, { onComplete: loadSlideContent, onCompleteParams: [1, 'play'] })
         .addPause()
         .to("", 0.1, { onStart: stopVideoToolTip, onStartParams: ['slideVideoHavana', 'slideVideoContainerHavana', 'playButtonHavana', '' ] })
         .staggerTo($("#page3").children(),0.6, animationToPattern, staggerToVelocity)
@@ -253,6 +305,7 @@ angular.module('smcApp')
         .to("#page4",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
         .staggerFrom($("#page4").children(),0.6, animationFromPattern, staggerFromVelocity)
         .to(".cita12",1,{  transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1")
+        .to("", 0.1, { onComplete: loadSlideContent, onCompleteParams: [2, 'play'] })
         //.to("", 0.1, { onReverseComplete: stopVideo })
         .addPause()
         .to("", 0.1, { onStart: stopVideoToolTip, onStartParams: ['slideVideoNY', 'slideVideoContainerNY', 'playButtonNY', 'fullScreenButtonNY' ] })
@@ -273,6 +326,7 @@ angular.module('smcApp')
         .to("", 0.1, { onStart: stopVideo })
         .staggerFrom($("#page5").children(),0.6, animationFromPattern, staggerFromVelocity)
         .to(".cita21",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=0.5")
+        .to("", 0.1, { onComplete: loadSlideContent, onCompleteParams: [3, 'play'] })
         .addPause()
         //EPISODE 7
         .staggerTo($("#page5").children(),0.6, animationToPattern, staggerToVelocity)
@@ -295,6 +349,7 @@ angular.module('smcApp')
         //.to(".blurEffect4",0.2,{ filter: 'blur(8px)',webkitFilter: 'blur(8px)', ease: Power0.easeNone},"+=1")
         .staggerFrom($("#page6").children(),0.6, animationFromPattern, staggerFromVelocity)
         .to(".cita14",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1")
+        .to("", 0.1, { onComplete: loadSlideContent, onCompleteParams: [4, 'play'] })
         .addPause()
         .staggerTo($("#page6").children(),0.6, animationToPattern, staggerToVelocity)
         .to("#page6",0.4,{ right: '100%', ease: Back.easeInOut.config(1)})
@@ -320,6 +375,7 @@ angular.module('smcApp')
         //.to("", 0.1, { onReverseComplete: stopVideo })
         .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['videoCloud',false,false,false,true,'2/5/1471877148752.mp4', 'videoCloud', 'videoCloudInside', true] })
         .to(".mouseIcon", 0.5, {bottom: '150px', ease: Bounce.easeOut, onComplete: updateScrollBttn},"+=0.5")
+        .to("", 0.1, { onComplete: loadSlideContent, onCompleteParams: [5, 'play'] })
         .to("", 0.1, { onReverseComplete: stopVideo })
         .addPause()
         .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['videoCloud',false,false,false,false,'6/9/1471876985396.mp4', 'videoCloud', 'videoCloudInside', true] })
@@ -376,6 +432,7 @@ angular.module('smcApp')
         .to("", 0.1, { onStart: stopVideo })
         .to("#page8",0.4,{ right: '0%', ease: Back.easeInOut.config(1)},"-=0.4")
         .staggerFrom($("#page8").children(),0.6, animationFromPattern, staggerFromVelocity)
+        .to("", 0.1, { onComplete: loadSlideContent, onCompleteParams: [6, 'play'] })
         .addPause()
         .staggerTo($("#page8").children(),0.6, animationToPattern, staggerToVelocity)
         .to("#page8",0.4,{ right: '100%', ease: Back.easeInOut.config(1)})
@@ -387,6 +444,7 @@ angular.module('smcApp')
         .to("#page9",0.4,{ right: '0%', ease: Back.easeInOut.config(1)})
         .staggerFrom($("#page9").children(),0.6, animationFromPattern, staggerFromVelocity)
         .to(".cita91",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1")
+        .to("", 0.1, { onComplete: loadSlideContent, onCompleteParams: [7, 'play'] })
         .addPause()
         .staggerTo($("#page9").children(),0.6, animationToPattern, staggerToVelocity)
         .to("#page9",0.4,{ right: '100%', ease: Back.easeInOut.config(1)})
@@ -431,6 +489,7 @@ angular.module('smcApp')
         .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams:['resume',132,138,138, true, '7/5/1471877240757.mp4', 'resumeVideoBox', 'resumeVideoBoxEnter'] })
         .staggerFrom($("#page11").children(),0.6, animationFromPattern, staggerFromVelocity)
         .to(".cita41",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1")
+        .to("", 0.1, { onComplete: loadSlideContent, onCompleteParams: [8, 'play'] })
         .addPause()
         .staggerTo($("#page11").children(),0.6, animationToPattern, staggerFromVelocity)
         .to("", 0.1, { onReverseComplete: updateTitle, onReverseCompleteParams: [11] })
@@ -446,6 +505,7 @@ angular.module('smcApp')
         .to(".blurEffect7",0.2,{ filter: 'blur(8px)',webkitFilter: 'blur(8px)', ease: Power0.easeNone},"+=1")
         .staggerFrom($("#page12").children(),0.6, animationFromPattern, staggerToVelocity)
         .to(".cita42",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1")
+        .to("", 0.1, { onComplete: loadSlideContent, onCompleteParams: [9, 'play'] })
         .addPause()
         .to("", 0.1, { onStart: stopVideoToolTip, onStartParams: ['slideVideoLorraine', 'slideVideoContainerLorraine', 'playButtonLorraine', 'fullScreenButtonLorraine' ] })
         .staggerTo($("#page12").children(),0.6, animationToPattern, staggerToVelocity)
@@ -459,6 +519,7 @@ angular.module('smcApp')
         .to("", 0.1, { onComplete: playSound, onCompleteParams: [playListOrder[6]] })
         .to("#page13",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
         .staggerFrom($("#page13").children(),0.6, animationFromPattern, staggerFromVelocity)
+        .to("", 0.1, { onComplete: loadSlideContent, onCompleteParams: [10, 'play'] })
         .addPause()
         .staggerTo($("#page13").children(),0.6, animationToPattern, staggerToVelocity)
         .to(".blurEffect7",0.2,{ filter: 'blur(0px)',webkitFilter: 'blur(0px)', ease: Power0.easeNone},"+=1")
@@ -493,6 +554,7 @@ angular.module('smcApp')
         .to("", 0.1, { onStart: stopVideo })
         .staggerFrom($("#page14").children(),0.6, animationFromPattern, staggerFromVelocity)
         .to(".cita51",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=0.5")
+        .to("", 0.1, { onComplete: loadSlideContent, onCompleteParams: [11, 'play'] })
         .addPause()
         .to("", 0.1, { onStart: stopVideoToolTip, onStartParams: ['slideVideoAbbe', 'slideVideoContainerAbbe', 'playButtonAbbe', 'fullScreenButtonAbbe' ] })
         .staggerTo($("#page14").children(),0.6, animationToPattern, staggerToVelocity)
@@ -526,6 +588,7 @@ angular.module('smcApp')
         .to("#page16",0.4,{ right: '0%', ease: Power0.easeNone})
         .staggerFrom($("#page16").children(),0.6, animationFromPattern, staggerFromVelocity)
         .to(".cita56",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1")
+        .to("", 0.1, { onComplete: loadSlideContent, onCompleteParams: [12, 'play'] })
         .addPause()
         .staggerTo($("#page16").children(),0.6, animationToPattern, staggerToVelocity)
         .to("#page16",0.4,{ right: '100%', ease: Power0.easeNone})
@@ -543,6 +606,7 @@ angular.module('smcApp')
         .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams:['resume',266.5,301.5,301.5, false, '7/5/1471877240757.mp4', 'resumeVideoBox', 'resumeVideoBoxEnter']})
         .staggerFrom($("#page17").children(),0.6, animationFromPattern, staggerFromVelocity)
         .to(".cita60",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=0.5")
+        .to("", 0.1, { onComplete: loadSlideContent, onCompleteParams: [13, 'play'] })
         .addPause()
         .staggerTo($("#page17").children(),0.6, animationToPattern, staggerToVelocity)
         .to("#page17",0.4,{ right: '100%', ease: Power0.easeNone})
@@ -557,6 +621,7 @@ angular.module('smcApp')
         .to(".cita61",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut})
         .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['resume',300,322,322,false,'7/5/1471877240757.mp4', 'videoCloud', 'videoCloudInside'] })
         .to("", 0.1, { onReverseComplete: stopVideo })
+        .to("", 0.1, { onComplete: loadSlideContent, onCompleteParams: [14, 'play'] })
         .addPause()
         .to("", 0.1, { onStart: stopVideo })
         .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['resume',300,322,322,false,'7/5/1471877240757.mp4', 'videoCloud', 'videoCloudInside'] })
@@ -719,6 +784,22 @@ angular.module('smcApp')
       }
     });
     //------ TITLE ----------
+
+    function loadSlideContent(index, direction){
+      for (var i in imagesSlideOut[index+1]) {
+        console.log(i,': ',imagesSlideOut[index+1][i] );
+      }
+      $scope.$apply(function() {
+        if( direction == 'play' ){
+          $scope.imageSlide[index+1] = imagesSlideIn[index+1];
+          $scope.imageSlide[index-1] = imagesSlideOut[index-1];
+        }
+        else if( direction == 'reverse' ){
+          $scope.imageSlide[index+2] = imagesSlideIn[index+2];
+          if( index > 1 ) $scope.imageSlide[index-2] = imagesSlideOut[index+2];
+        }
+      });
+    };
 
     function updateTitle(index){
       if(index!='intro'){
@@ -1036,7 +1117,7 @@ angular.module('smcApp')
           if (event.originalEvent.wheelDelta > 0 || event.originalEvent.detail < 0) {
             if( !isMobile && isSafari ) tl.reverse();
             else{
-              if(page > 0) {
+                if(page > 0) {
                 var prevPage = page - 1;
                 $("#page"+page).removeClass('nextPage');
                 $("#page"+prevPage).removeClass('prevPage').addClass('nextPage');
@@ -1089,12 +1170,13 @@ angular.module('smcApp')
 
     //--------TOUCH CONTROLS------
 
-    $(document).on("swipeleft",function(){
+    $scope.onSwipeLeft = function(ev) {
       tl.play();
-    });
-    $(document).on("swiperight",function(){
-      tl.reverse()
-    });
+    };
+
+    $scope.onSwipeRight = function(ev) {
+      tl.reverse();
+    };
 
     //------------------------------------
     // MENU
@@ -1336,40 +1418,5 @@ angular.module('smcApp')
     //  }]
     //  }]);
     //  playlistPlayer.playlist.autoadvance(0);
-
-      //var page1 = '  <div id="page1" class="back color0 page1">'
-      //  +'<h2 class="title retro">Girona - 1900</h2>'
-      //  +'<div id="cita11" class="cita1 cita11">'+ $scope.CatText.cita11 +'</div>'
-      //  +'<div id="fotoGroup1" class="prelGroup">'
-      //  +'<div class="pic prel02 img slideimg1">'
-      //  +'<img src="images/prel_05.jpg" class="pic-image" alt="Pic"/>'
-      //  +'<img src="images/infoIcon.svg" class="infoAdvice"/>'
-      //  +'<span class="pic-caption bottom-to-top">'
-      //  +'<p>'+ $scope.photoText.prel02  +'</p>'
-      //  +'</span>'
-      //  +'</div>'
-      //  +'<div class="pic prel03 img slideimg1">'
-      //  +'<img src="images/prel_03_old.jpg" class="pic-image" alt="Pic"/>'
-      //  +'<img src="images/infoIcon.svg" class="infoAdvice"/>'
-      //  +'<span class="pic-caption bottom-to-top">'
-      //  +'<p>'+ $scope.photoText.prel03 +' </p>'
-      //  +'</span>'
-      //  +'</div>'
-      //  +'<div class="pic prel04 img slideimg1">'
-      //  +'<img src="images/prel_0.jpg" class="pic-image" alt="Pic"/>'
-      //  +'<img src="images/infoIcon.svg" class="infoAdvice"/>'
-      //  +'<span class="pic-caption bottom-to-top">'
-      //  +'<p>'+ $scope.photoText.prel04 +' </p>'
-      //  +'</span>'
-      //  +'</div>'
-      //  +'<div>'
-      //  +'<img onclick='+prevFoto("1") +'class="arrowPrev arrowPrev1" src="images/arrow-left-3.svg"/>'
-      //  +'<img onclick='+nextFoto("1") +'class="arrowNext arrowNext1" src="images/arrow-left-3.svg"/>'
-      //  +'</div>'
-      //  +'</div>'
-      //  +'</div>';
-      //
-      //var myEl = angular.element( document.querySelector( '#pagesContainer' ) );
-      //myEl.append(page1);
     });
   });
