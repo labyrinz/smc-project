@@ -76,6 +76,10 @@ angular.module('smcApp')
     var introWordsSubtitle = $(".introLettersSubtitle");
     var introWordsName = $(".introLettersName");
 
+    $scope.imagesArrayEmpty = null;
+
+    $scope.imagesSlide1 = {image1: 'images/prel_05.jpg', image2: 'images/prel_03_old.jpg', image3: 'images/prel_0.jpg'};
+
     $scope.CatText = languajeCT.CatText;
     $scope.photoText = languajeCT.photoText;
     $scope.tooltipText = languajeCT.tooltipText;
@@ -109,8 +113,6 @@ angular.module('smcApp')
     //---------------------------
 
     //-----TIMELINE ---------
-
-    if( !isMobile && isSafari) {
 
       //----SOUND TRACKS -----
 
@@ -630,7 +632,6 @@ angular.module('smcApp')
         .addPause();
 
       tl.play();
-    }
 
     //------------------------------------
     //-------FUNCTIONS --------------------
@@ -655,7 +656,7 @@ angular.module('smcApp')
       TweenMax.to(".coverTransitions", 0.1, {scale: 0, ease: Power4.easeOut, delay: 7, autoRound:false});
     };
 
-    $scope.prevFoto = function(id,value){
+    function prevFoto(id,value){
       $('.slideimg'+id).removeClass("videoSlideResizeOut videoSlideResize");
       if(value==undefined) var desp = '-110%';
       else var desp = '-'+value;
@@ -663,7 +664,7 @@ angular.module('smcApp')
       TweenMax.to(firstPhoto, 0.05, {left: desp, repeatDelay:0.05, autoRound:false, repeat:1, yoyo:true, onRepeat:function(){$('#fotoGroup'+id).append(firstPhoto); if(firstPhoto[0].childNodes[1].id) {  if(videoCardToogleSound == 0) $("#"+firstPhoto[0].childNodes[1].id).get(0).play(); };}, ease: Power4.easeOut});
     };
 
-    $scope.nextFoto = function(id, value){
+    function nextFoto(id, value){
       $('.slideimg'+id).removeClass("videoSlideResizeOut videoSlideResize");
       if(value==undefined) var desp = '110%';
       else var desp = value;
@@ -1111,30 +1112,10 @@ angular.module('smcApp')
     //--------TOUCH CONTROLS------
 
     $(document).on("swipeleft",function(){
-      if( !isMobile && isSafari ) tl.play();
-      else {
-        if (page < 21) {
-          var nextPage = page + 1;
-          $("#page" + page).addClass('prevPage');
-          $("#page" + nextPage).addClass('nextPage');
-          $('.videoCover').css('opacity', '0');
-          prepareSlide(page);
-          page += 1;
-        }
-      }
+      tl.play();
     });
     $(document).on("swiperight",function(){
-      if( !isMobile && isSafari ) tl.reverse();
-      else{
-        if(page > 0) {
-          var prevPage = page -1;
-          $("#page"+page).removeClass('nextPage');
-          $("#page"+prevPage).removeClass('prevPage').addClass('nextPage');
-          $('.videoCover').css('opacity','0');
-          prepareSlide(page);
-          page -=1;
-        }
-      }
+      tl.reverse()
     });
 
     //------------------------------------
@@ -1255,128 +1236,162 @@ angular.module('smcApp')
     shareBttn.on( 'click', function(){ toggleShare()} );
     //closeBttn.on( 'click', function(){toggleOverlay()} );
 
-    playlistPlayer.playlist([{
-      name: 'Xavier Cugat, l´exemple de català que fa les Amèriques',
-      sources: [{
-        src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/3/4/1461774869043.mp4',
-        type: 'video/mp4'
-      }]
-      }, {
-      name: 'Funeral de Xavier Cugat a Girona',
-      sources: [{
-        src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/6/3/1461774874836.mp4',
-        type: 'video/mp4'
-      }]
-      }, {
-      name: 'Duo Dinámico i Xavier Cugat a "Així és la Vida"',
-      sources: [{
-        src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/7/0/1461774930607.mp4',
-        type: 'video/mp4'
-      }]
-      }, {
-      name: 'Barcelona: Saló Cugat a l´Hotel Ritz',
-      sources: [{
-        src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/1/1/1461775019711.mp4',
-        type: 'video/mp4'
-      }]
-      }, {
-      name: 'Entrevista a Xavier Cugat en el programa "La Parada"',
-      sources: [{
-        src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/0/2/1461775122220.mp4',
-        type: 'video/mp4'
-      }]
-      }, {
-      name: 'Xavier Cugat rep la Medalla d´Or de Girona',
-      sources: [{
-        src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/7/5/1461775125157.mp4',
-        type: 'video/mp4'
-      }]
-      }, {
-      name: 'Xavier Cugat celebra el seu 89 aniversari a Lloret de Mar',
-      sources: [{
-        src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/6/4/1461775142046.mp4',
-        type: 'video/mp4'
-      }]
-      }, {
-      name: 'Xavier Cugat acomiada el programa de Cap d´Any dins del seu Rolls Royce',
-      sources: [{
-        src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/2/8/1461775199482.mp4',
-        type: 'video/mp4'
-      }]
-      }, {
-      name: 'Xavier Cugat presenta Cugat Visió, al Cap d´Any del 1986',
-      sources: [{
-        src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/1/1/1461775231711.mp4',
-        type: 'video/mp4'
-      }]
-      }, {
-      name: '"La casa dels famosos": Xavier Cugat',
-      sources: [{
-        src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/3/9/1461775408593.mp4',
-        type: 'video/mp4'
-      }]
-      }, {
-      name: 'Xavier Cugat parla del contracte de Frank Sinatra per cantar a l´estadi Bernabéu',
-      sources: [{
-        src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/2/8/1461775415182.mp4',
-        type: 'video/mp4'
-      }]
-      }, {
-      name: 'Especial Cap d´Any 1986 Xavier Cugat',
-      sources: [{
-        src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/3/1/1461775420413.mp4',
-        type: 'video/mp4'
-      }]
-      }, {
-      name: 'Entrevista a Xavier Cugat a l´"Angel Casas Show"',
-      sources: [{
-        src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/4/6/1461775537164.mp4',
-        type: 'video/mp4'
-      }]
-      }, {
-      name: 'Xavier Cugat rep la Medalla d´Or de Barcelona',
-      sources: [{
-        src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/3/0/1461775539903.mp4',
-        type: 'video/mp4'
-      }]
-      }, {
-      name: 'Entrevista a Xavier Cugat, amb motiu de l´elaboració d´un programa homenatge',
-      sources: [{
-        src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/1/9/1461775596991.mp4',
-        type: 'video/mp4'
-      }]
-      }, {
-      name: 'Pasqual Maragall visita a l´hospital el músic Xavier Cugat',
-      sources: [{
-        src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/0/4/1461775621340.mp4',
-        type: 'video/mp4'
-      }]
-      }, {
-      name: 'Xavier Cugat dirigeix l´orquestra de l´"Àngel Casas Show"',
-      sources: [{
-        src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/8/0/1461775849008.mp4',
-        type: 'video/mp4'
-      }]
-      }, {
-      name: 'Futbol: Girona-Martinenc. Xavier Cugat recull la Medalla d´Or de Girona',
-      sources: [{
-        src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/4/6/1461776013164.mp4',
-        type: 'video/mp4'
-      }]
-      }, {
-      name: 'Xavier Cugat anuncia el seu casament',
-      sources: [{
-        src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/6/8/1461776045386.mp4',
-        type: 'video/mp4'
-      }]
-      }, {
-      name: 'Xavier Cugat parla del cas Dalí',
-      sources: [{
-        src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/1/1/1461776102311.mp4',
-        type: 'video/mp4'
-      }]
-      }]);
-      playlistPlayer.playlist.autoadvance(0);
+    //playlistPlayer.playlist([{
+    //  name: 'Xavier Cugat, l´exemple de català que fa les Amèriques',
+    //  sources: [{
+    //    src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/3/4/1461774869043.mp4',
+    //    type: 'video/mp4'
+    //  }]
+    //  }, {
+    //  name: 'Funeral de Xavier Cugat a Girona',
+    //  sources: [{
+    //    src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/6/3/1461774874836.mp4',
+    //    type: 'video/mp4'
+    //  }]
+    //  }, {
+    //  name: 'Duo Dinámico i Xavier Cugat a "Així és la Vida"',
+    //  sources: [{
+    //    src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/7/0/1461774930607.mp4',
+    //    type: 'video/mp4'
+    //  }]
+    //  }, {
+    //  name: 'Barcelona: Saló Cugat a l´Hotel Ritz',
+    //  sources: [{
+    //    src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/1/1/1461775019711.mp4',
+    //    type: 'video/mp4'
+    //  }]
+    //  }, {
+    //  name: 'Entrevista a Xavier Cugat en el programa "La Parada"',
+    //  sources: [{
+    //    src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/0/2/1461775122220.mp4',
+    //    type: 'video/mp4'
+    //  }]
+    //  }, {
+    //  name: 'Xavier Cugat rep la Medalla d´Or de Girona',
+    //  sources: [{
+    //    src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/7/5/1461775125157.mp4',
+    //    type: 'video/mp4'
+    //  }]
+    //  }, {
+    //  name: 'Xavier Cugat celebra el seu 89 aniversari a Lloret de Mar',
+    //  sources: [{
+    //    src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/6/4/1461775142046.mp4',
+    //    type: 'video/mp4'
+    //  }]
+    //  }, {
+    //  name: 'Xavier Cugat acomiada el programa de Cap d´Any dins del seu Rolls Royce',
+    //  sources: [{
+    //    src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/2/8/1461775199482.mp4',
+    //    type: 'video/mp4'
+    //  }]
+    //  }, {
+    //  name: 'Xavier Cugat presenta Cugat Visió, al Cap d´Any del 1986',
+    //  sources: [{
+    //    src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/1/1/1461775231711.mp4',
+    //    type: 'video/mp4'
+    //  }]
+    //  }, {
+    //  name: '"La casa dels famosos": Xavier Cugat',
+    //  sources: [{
+    //    src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/3/9/1461775408593.mp4',
+    //    type: 'video/mp4'
+    //  }]
+    //  }, {
+    //  name: 'Xavier Cugat parla del contracte de Frank Sinatra per cantar a l´estadi Bernabéu',
+    //  sources: [{
+    //    src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/2/8/1461775415182.mp4',
+    //    type: 'video/mp4'
+    //  }]
+    //  }, {
+    //  name: 'Especial Cap d´Any 1986 Xavier Cugat',
+    //  sources: [{
+    //    src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/3/1/1461775420413.mp4',
+    //    type: 'video/mp4'
+    //  }]
+    //  }, {
+    //  name: 'Entrevista a Xavier Cugat a l´"Angel Casas Show"',
+    //  sources: [{
+    //    src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/4/6/1461775537164.mp4',
+    //    type: 'video/mp4'
+    //  }]
+    //  }, {
+    //  name: 'Xavier Cugat rep la Medalla d´Or de Barcelona',
+    //  sources: [{
+    //    src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/3/0/1461775539903.mp4',
+    //    type: 'video/mp4'
+    //  }]
+    //  }, {
+    //  name: 'Entrevista a Xavier Cugat, amb motiu de l´elaboració d´un programa homenatge',
+    //  sources: [{
+    //    src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/1/9/1461775596991.mp4',
+    //    type: 'video/mp4'
+    //  }]
+    //  }, {
+    //  name: 'Pasqual Maragall visita a l´hospital el músic Xavier Cugat',
+    //  sources: [{
+    //    src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/0/4/1461775621340.mp4',
+    //    type: 'video/mp4'
+    //  }]
+    //  }, {
+    //  name: 'Xavier Cugat dirigeix l´orquestra de l´"Àngel Casas Show"',
+    //  sources: [{
+    //    src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/8/0/1461775849008.mp4',
+    //    type: 'video/mp4'
+    //  }]
+    //  }, {
+    //  name: 'Futbol: Girona-Martinenc. Xavier Cugat recull la Medalla d´Or de Girona',
+    //  sources: [{
+    //    src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/4/6/1461776013164.mp4',
+    //    type: 'video/mp4'
+    //  }]
+    //  }, {
+    //  name: 'Xavier Cugat anuncia el seu casament',
+    //  sources: [{
+    //    src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/6/8/1461776045386.mp4',
+    //    type: 'video/mp4'
+    //  }]
+    //  }, {
+    //  name: 'Xavier Cugat parla del cas Dalí',
+    //  sources: [{
+    //    src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/1/1/1461776102311.mp4',
+    //    type: 'video/mp4'
+    //  }]
+    //  }]);
+    //  playlistPlayer.playlist.autoadvance(0);
 
+      var page1 = '  <div id="page1" class="back color0 page1">'
+        +'<h2 class="title retro">Girona - 1900</h2>'
+        +'<div id="cita11" class="cita1 cita11">'+ $scope.CatText.cita11 +'</div>'
+        +'<div id="fotoGroup1" class="prelGroup">'
+        +'<div class="pic prel02 img slideimg1">'
+        +'<img src="images/prel_05.jpg" class="pic-image" alt="Pic"/>'
+        +'<img src="images/infoIcon.svg" class="infoAdvice"/>'
+        +'<span class="pic-caption bottom-to-top">'
+        +'<p>'+ $scope.photoText.prel02  +'</p>'
+        +'</span>'
+        +'</div>'
+        +'<div class="pic prel03 img slideimg1">'
+        +'<img src="images/prel_03_old.jpg" class="pic-image" alt="Pic"/>'
+        +'<img src="images/infoIcon.svg" class="infoAdvice"/>'
+        +'<span class="pic-caption bottom-to-top">'
+        +'<p>'+ $scope.photoText.prel03 +' </p>'
+        +'</span>'
+        +'</div>'
+        +'<div class="pic prel04 img slideimg1">'
+        +'<img src="images/prel_0.jpg" class="pic-image" alt="Pic"/>'
+        +'<img src="images/infoIcon.svg" class="infoAdvice"/>'
+        +'<span class="pic-caption bottom-to-top">'
+        +'<p>'+ $scope.photoText.prel04 +' </p>'
+        +'</span>'
+        +'</div>'
+        +'<div>'
+        +'<img onclick='+prevFoto("1") +'class="arrowPrev arrowPrev1" src="images/arrow-left-3.svg"/>'
+        +'<img onclick='+nextFoto("1") +'class="arrowNext arrowNext1" src="images/arrow-left-3.svg"/>'
+        +'</div>'
+        +'</div>'
+        +'</div>';
+
+      var myEl = angular.element( document.querySelector( '#pagesContainer' ) );
+      myEl.append(page1);
     });
   });
