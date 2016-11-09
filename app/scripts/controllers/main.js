@@ -652,7 +652,7 @@ angular.module('smcApp')
       TweenMax.to(".coverTransitions", 0.1, {scale: 0, ease: Power4.easeOut, delay: 7, autoRound:false});
     };
 
-    function prevFoto(id,value){
+    $scope.prevFoto = function(id,value){
       $('.slideimg'+id).removeClass("videoSlideResizeOut videoSlideResize");
       if(value==undefined) var desp = '-110%';
       else var desp = '-'+value;
@@ -660,7 +660,7 @@ angular.module('smcApp')
       TweenMax.to(firstPhoto, 0.05, {left: desp, repeatDelay:0.05, autoRound:false, repeat:1, yoyo:true, onRepeat:function(){$('#fotoGroup'+id).append(firstPhoto); if(firstPhoto[0].childNodes[1].id) {  if(videoCardToogleSound == 0) $("#"+firstPhoto[0].childNodes[1].id).get(0).play(); };}, ease: Power4.easeOut});
     };
 
-    function nextFoto(id, value){
+     $scope.nextFoto = function(id, value){
       $('.slideimg'+id).removeClass("videoSlideResizeOut videoSlideResize");
       if(value==undefined) var desp = '110%';
       else var desp = value;
