@@ -142,7 +142,6 @@ angular.module('smcApp')
 
 
       var tl = new TimelineMax({repeat:0, autoRound:false});
-      var cugatNino = new TimelineMax({repeat:0, autoRound:false});//-1});
 
       tl
         //EPISODE 1
@@ -166,10 +165,10 @@ angular.module('smcApp')
         .add("prologo1")
         .to("", 0.1, { onComplete: playSound, onCompleteParams: [playListOrder[0]] })
         .to("", 0.1, { onComplete: updateTitle, onCompleteParams: [0] })
-        .to(".ed1", 0.5, { left: '0%', onReverseComplete: stopNinoAnimation, ease: Bounce.easeOut})
+        .to(".ed1", 0.5, { left: '0%', ease: Bounce.easeOut})
         .to(".ed2", 0.5, { top: '0%', ease: Bounce.easeOut})
         .to(".ed3", 0.5, { left: '0%', ease: Bounce.easeOut},"-=1")
-        .to(".ed4", 0.5, { transform: 'rotateX(0deg)', onComplete: ninoAnimation, force3D:true, ease: Back.easeOut.config(1)})
+        .to(".ed4", 0.5, { transform: 'rotateX(0deg)', force3D:true, ease: Back.easeOut.config(1)})
         .to(".texto11",2,{ transform: 'scale(1)', opacity: '1', ease: Power4.easeOut},"+=1")
         .to(".mouseIcon", 0.5, {bottom: '150px', ease: Bounce.easeOut, onComplete: updateScrollBttn},"+=0.5")
         .to(".chihuahua",0.3,{ transform: 'rotateX(0deg)',  ease: Bounce.easeOut})
@@ -187,12 +186,10 @@ angular.module('smcApp')
         .to(".pentagramNotesGroup",0.2,{ bottom: '2%', ease: Power0.easeNone},"-=0.2")
         .to(".instruction-pentagram",0.3,{ transform: 'rotateX(0deg)',  ease: Bounce.easeOut})
         .to(".age1",0.3,{ transform: 'rotateX(0deg)',  ease: Bounce.easeOut})
-        .to("", 0.1, { onReverseComplete: ninoAnimation })
         .staggerFrom($("#page1").children(),0.6, animationFromPattern, staggerFromVelocity)
         .to(".cita11",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=0.2")
         .addPause()
         .to("", 0.1, { onReverseComplete: updateTitle, onReverseCompleteParams: [0] })
-        .to("", 0.1, { onComplete: stopNinoAnimation })
         .to(".instruction-pentagram",0.3,{ transform: 'rotateX(-90deg)',  ease: Bounce.easeOut})
         .staggerTo($("#page1").children(),0.6, animationToPattern, staggerToVelocity)
         //EPISODE 3
@@ -207,7 +204,7 @@ angular.module('smcApp')
         .from(".mapSvgClassTop", .3, {scale: 0.5, onComplete: initViaje, onCompleteParams: ['play'], ease: Back.easeOut })
         .to(".mapSvgClassTop", 1, {width: '6200px', top: '-1240px', left: '-2320px' , ease: Power2.easeIn},"+=1")
         .to(".cub1", 0.5, {top: '0%', ease: Power0.easeNone},"cuba1")
-        .to(".ed1", 0.5, {top: '120%', onReverseComplete: ninoAnimation, ease: Power2.easeIn})
+        .to(".ed1", 0.5, {top: '120%', ease: Power2.easeIn})
         .to(".ed2", 0.5, {top: '120%', ease: Power2.easeIn})
         .to(".ed3", 0.5, {top: '120%', ease: Power2.easeIn},"-=1")
         .to(".ed4", 0.5, {top: '120%', ease: Power2.easeIn})
@@ -646,7 +643,6 @@ angular.module('smcApp')
         //controlSound();
         updateTitle(notes);
         if(value == 'inicio' || value == 'prologo2' || value == 'prologo2Add' || value == 'prologo3' || value == 'RR2' || value == 'CC3' || value == 'CB1' || value == 'CB2' || value == 'EP2' ) playSound(playListOrder[music]);
-        stopNinoAnimation();
         if(!player.paused()) player.pause();
         //if(value=='inicio') { videoPlay("intro", false, false, false, true, "3/4/1461774869043.mp4", "videoClass", "introVideoFull"); }
         //else {  }
@@ -904,24 +900,6 @@ angular.module('smcApp')
     }
 
     //--------------------------------------------------------------------
-
-    function ninoAnimation(){
-      cugatNino
-        .set(".ed5", {top: '5%', left: "120%", transform: "rotate(0deg)"})
-        .to(".ed5", 1, {left: '20%', ease: Power0.easeNone})
-        .to(".ed5", 3, {left: '-14%', transform: "rotate(5deg)", top: '-7%', ease: Power0.easeNone})
-        .to(".ed5", 1, {left: '-25%',  top: '-10%', ease: Power0.easeNone})
-        .to(".ed5", 3, {left: '-150%',transform: "rotate(0deg)", top: '-7%', ease: Power0.easeNone})
-        .to(".ed5", 0.1, {transform: "rotateY(180deg)", ease: Power0.easeNone})
-        .to(".ed5", 5, {left: '25%', top: '-7%', ease: Power0.easeNone})
-        .to(".ed5", 3, {left: '65%', top: '3%', ease: Power0.easeNone})
-        .to(".ed5", 3, {left: '150%', top: '3%', ease: Power0.easeNone})
-        .play();
-    };
-    function stopNinoAnimation(){
-      TweenMax.to(".ed5",0.1, {top: '5%', left: "120%", transform: "rotate(0deg)", ease: Power0.easeNone, autoRound:false});
-      cugatNino.pause();
-    };
     function insertWords(variable,num){
       var elementToInsert = '<div class="wordStyle">'+variable+'</div>';
       $('#cita'+num+'suma').append(elementToInsert);
@@ -1359,39 +1337,39 @@ angular.module('smcApp')
     //  }]);
     //  playlistPlayer.playlist.autoadvance(0);
 
-      var page1 = '  <div id="page1" class="back color0 page1">'
-        +'<h2 class="title retro">Girona - 1900</h2>'
-        +'<div id="cita11" class="cita1 cita11">'+ $scope.CatText.cita11 +'</div>'
-        +'<div id="fotoGroup1" class="prelGroup">'
-        +'<div class="pic prel02 img slideimg1">'
-        +'<img src="images/prel_05.jpg" class="pic-image" alt="Pic"/>'
-        +'<img src="images/infoIcon.svg" class="infoAdvice"/>'
-        +'<span class="pic-caption bottom-to-top">'
-        +'<p>'+ $scope.photoText.prel02  +'</p>'
-        +'</span>'
-        +'</div>'
-        +'<div class="pic prel03 img slideimg1">'
-        +'<img src="images/prel_03_old.jpg" class="pic-image" alt="Pic"/>'
-        +'<img src="images/infoIcon.svg" class="infoAdvice"/>'
-        +'<span class="pic-caption bottom-to-top">'
-        +'<p>'+ $scope.photoText.prel03 +' </p>'
-        +'</span>'
-        +'</div>'
-        +'<div class="pic prel04 img slideimg1">'
-        +'<img src="images/prel_0.jpg" class="pic-image" alt="Pic"/>'
-        +'<img src="images/infoIcon.svg" class="infoAdvice"/>'
-        +'<span class="pic-caption bottom-to-top">'
-        +'<p>'+ $scope.photoText.prel04 +' </p>'
-        +'</span>'
-        +'</div>'
-        +'<div>'
-        +'<img onclick='+prevFoto("1") +'class="arrowPrev arrowPrev1" src="images/arrow-left-3.svg"/>'
-        +'<img onclick='+nextFoto("1") +'class="arrowNext arrowNext1" src="images/arrow-left-3.svg"/>'
-        +'</div>'
-        +'</div>'
-        +'</div>';
-
-      var myEl = angular.element( document.querySelector( '#pagesContainer' ) );
-      myEl.append(page1);
+      //var page1 = '  <div id="page1" class="back color0 page1">'
+      //  +'<h2 class="title retro">Girona - 1900</h2>'
+      //  +'<div id="cita11" class="cita1 cita11">'+ $scope.CatText.cita11 +'</div>'
+      //  +'<div id="fotoGroup1" class="prelGroup">'
+      //  +'<div class="pic prel02 img slideimg1">'
+      //  +'<img src="images/prel_05.jpg" class="pic-image" alt="Pic"/>'
+      //  +'<img src="images/infoIcon.svg" class="infoAdvice"/>'
+      //  +'<span class="pic-caption bottom-to-top">'
+      //  +'<p>'+ $scope.photoText.prel02  +'</p>'
+      //  +'</span>'
+      //  +'</div>'
+      //  +'<div class="pic prel03 img slideimg1">'
+      //  +'<img src="images/prel_03_old.jpg" class="pic-image" alt="Pic"/>'
+      //  +'<img src="images/infoIcon.svg" class="infoAdvice"/>'
+      //  +'<span class="pic-caption bottom-to-top">'
+      //  +'<p>'+ $scope.photoText.prel03 +' </p>'
+      //  +'</span>'
+      //  +'</div>'
+      //  +'<div class="pic prel04 img slideimg1">'
+      //  +'<img src="images/prel_0.jpg" class="pic-image" alt="Pic"/>'
+      //  +'<img src="images/infoIcon.svg" class="infoAdvice"/>'
+      //  +'<span class="pic-caption bottom-to-top">'
+      //  +'<p>'+ $scope.photoText.prel04 +' </p>'
+      //  +'</span>'
+      //  +'</div>'
+      //  +'<div>'
+      //  +'<img onclick='+prevFoto("1") +'class="arrowPrev arrowPrev1" src="images/arrow-left-3.svg"/>'
+      //  +'<img onclick='+nextFoto("1") +'class="arrowNext arrowNext1" src="images/arrow-left-3.svg"/>'
+      //  +'</div>'
+      //  +'</div>'
+      //  +'</div>';
+      //
+      //var myEl = angular.element( document.querySelector( '#pagesContainer' ) );
+      //myEl.append(page1);
     });
   });
