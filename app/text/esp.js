@@ -12,7 +12,8 @@ var languajeSP = {
    'charo': "Charo Baeza",
    'epi': "Epílogo",
    'credits': "Créditos",
-   'doculineal': "Ver el documental completo"
+   'doculineal': "Ver el documental completo",
+   'postcards': "Crear una postal de recuerdo"
  },
  'CatText': {
    'cita11': "De Girona recuerdo muy poco, excepto la intimidad de aquella plaza donde pasaba largas horas y que se me antojaba mía.",
@@ -116,7 +117,7 @@ var languajeSP = {
  'instructionLastVideos': "Haz scroll para descubrir más vídeos sobre Xavier Cugat del fondo documental de RTVE",
  'instructionInfo': "Haz clic aquí para conocer más detalles sobre un momento en particular de la vida de Cugat",
  'mobileDisclaimer': "Lo sentimos, este documental interactivo no está diseñado para dispositivos móviles. Disfruta mejor del univeso de Xavier Cugat desde tu ordenador o tablet. ¡Te esperamos!",
- 'texto11': "Xavier Cugat nace en Gerona el 1 de enero de 1900.",
+ 'texto11': "Xavier Cugat nace en Girona el 1 de enero de 1900.",
  'text1': "Entre 1915 y 1918  lidera su primera formación musical y empieza su periplo amoroso con su primera mujer: RITA MONTANER",
  'text2': "En el año 1945, Cugat y Frank Sinatra graban un sencillo y dos boleros lentos: 'My Shawl' y 'Stars in your eyes'.",
  'text4': "Cugat se lleva a Charo a trabajar a los Estados Unidos y, finalmente, se casa con ella en 1966. Sería su quinto y último matrimonio.",
