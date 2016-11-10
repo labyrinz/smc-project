@@ -60,6 +60,7 @@ angular.module('smcApp')
     var languajeOpen = false;
     var page = 0;
     var videoCardToogleSound = 1;
+    var progress;
 
     // Mobile features
     var isMobile = false;
@@ -150,7 +151,6 @@ angular.module('smcApp')
 
 
       var tl = new TimelineMax({repeat:0, autoRound:false});
-      var cugatNino = new TimelineMax({repeat:0, autoRound:false});//-1});
 
       tl
         //EPISODE 1
@@ -174,10 +174,11 @@ angular.module('smcApp')
         .add("prologo1")
         .to("", 0.1, { onComplete: playSound, onCompleteParams: [playListOrder[0]] })
         .to("", 0.1, { onComplete: updateTitle, onCompleteParams: [0] })
-        .to(".ed1", 0.5, { left: '0%', onReverseComplete: stopNinoAnimation, ease: Bounce.easeOut})
+        .to(".ed1", 0.5, { left: '0%', ease: Bounce.easeOut})
         .to(".ed2", 0.5, { top: '0%', ease: Bounce.easeOut})
         .to(".ed3", 0.5, { left: '0%', ease: Bounce.easeOut},"-=1")
-        .to(".ed4", 0.5, { transform: 'rotateX(0deg)', onComplete: ninoAnimation, force3D:true, ease: Back.easeOut.config(1)})
+        .to(".ed4", 0.5, { transform: 'rotateX(0deg)', force3D:true, ease: Back.easeOut.config(1)})
+        .to(".ed5", 0.5, { left: '0%', ease: Bounce.easeOut},"-=1")
         .to(".texto11",2,{ transform: 'scale(1)', opacity: '1', ease: Power4.easeOut},"+=1")
         .to(".mouseIcon", 0.5, {bottom: '150px', ease: Bounce.easeOut, onComplete: updateScrollBttn},"+=0.5")
         .to(".chihuahua",0.3,{ transform: 'rotateX(0deg)',  ease: Bounce.easeOut})
@@ -195,13 +196,11 @@ angular.module('smcApp')
         .to(".pentagramNotesGroup",0.2,{ bottom: '2%', ease: Power0.easeNone},"-=0.2")
         .to(".instruction-pentagram",0.3,{ transform: 'rotateX(0deg)',  ease: Bounce.easeOut})
         .to(".age1",0.3,{ transform: 'rotateX(0deg)',  ease: Bounce.easeOut})
-        .to("", 0.1, { onReverseComplete: ninoAnimation })
         .staggerFrom($("#page1").children(),0.6, animationFromPattern, staggerFromVelocity)
         .to(".cita11",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=0.2")
         .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['01-narracion-p1', false] })
         .addPause()
         .to("", 0.1, { onReverseComplete: updateTitle, onReverseCompleteParams: [0] })
-        .to("", 0.1, { onComplete: stopNinoAnimation })
         .to(".instruction-pentagram",0.3,{ transform: 'rotateX(-90deg)',  ease: Bounce.easeOut})
         .staggerTo($("#page1").children(),0.6, animationToPattern, staggerToVelocity)
         //EPISODE 3
@@ -216,10 +215,11 @@ angular.module('smcApp')
         .from(".mapSvgClassTop", .3, {scale: 0.5, onComplete: initViaje, onCompleteParams: ['play'], ease: Back.easeOut })
         .to(".mapSvgClassTop", 1, {width: '6200px', top: '-1240px', left: '-2320px' , ease: Power2.easeIn},"+=1")
         .to(".cub1", 0.5, {top: '0%', ease: Power0.easeNone},"cuba1")
-        .to(".ed1", 0.5, {top: '120%', onReverseComplete: ninoAnimation, ease: Power2.easeIn})
+        .to(".ed1", 0.5, {top: '120%', ease: Power2.easeIn})
         .to(".ed2", 0.5, {top: '120%', ease: Power2.easeIn})
         .to(".ed3", 0.5, {top: '120%', ease: Power2.easeIn},"-=1")
         .to(".ed4", 0.5, {top: '120%', ease: Power2.easeIn})
+        .to(".ed5", 0.5, {left: '-120%', ease: Bounce.easeOut},"-=1")
         .to(".mapSvgClassTop", 2, {width: '6200px', top: '-1390px', left: '-1100px', ease: Power2.easeIn},"-=1.2")
         .to("", 0.1, { onReverseComplete: initViaje, onReverseCompleteParams: ['reverse'] })
         .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['videoCloud',false,false,false,true,'4/0/1471877017204.mp4', 'videoCloud', 'videoCloudInside',false,"tv3"] })
@@ -534,7 +534,7 @@ angular.module('smcApp')
         .to(".blurEffect8",0.2,{ filter: 'blur(8px)', webkitFilter: 'blur(8px)', ease: Power0.easeNone})
         .staggerFrom($("#page15").children(),0.6, animationFromPattern, staggerFromVelocity)
         .to(".cita53",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1")
-        .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['videoCloud',266.5,297,297,false,'2/7/1471877144972.mp4', 'videoCloud', 'videoCloudInside',false,"tv3"] })
+        .to("", 2.5, { onComplete: videoPlay, onCompleteParams: ['videoCloud',266.5,297,297,false,'2/7/1471877144972.mp4', 'videoCloud', 'videoCloudInside',false,"tv3"] })
         .to("", 0.1, { onReverseComplete: stopVideo })
         .addPause()
         .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['videoCloud',266.5,297,297,false,'2/7/1471877144972.mp4', 'videoCloud', 'videoCloudInside',false,"tv3"] })
@@ -678,8 +678,9 @@ angular.module('smcApp')
         stopVideo();
         //controlSound();
         updateTitle(notes);
-        if(value == 'inicio' || value == 'prologo2' || value == 'prologo2Add' || value == 'prologo3' || value == 'RR2' || value == 'CC3' || value == 'CB1' || value == 'CB2' || value == 'EP2' ) playSound(playListOrder[music]);
-        stopNinoAnimation();
+        setTimeout(function(){
+          if(value == 'inicio' || value == 'prologo2' || value == 'prologo2Add' || value == 'prologo3' || value == 'RR2' || value == 'CC3' || value == 'CB1' || value == 'CB2' || value == 'EP2' ) playSound(playListOrder[music]);
+        },1000)
         if(!player.paused()) player.pause();
         soundNarracion.pause();
         //if(value=='inicio') { videoPlay("intro", false, false, false, true, "3/4/1461774869043.mp4", "videoClass", "introVideoFull"); }
@@ -947,7 +948,7 @@ angular.module('smcApp')
           }
         });
         soundEpilogo.play();
-        if( boolsound == soundVolume && soundNarracion.volume() == 0 ){ soundEpilogo.fade(0,soundVolume,1000); }
+        if( boolsound == soundVolume && soundNarracion.volume() == 0 && player.paused() ){ soundEpilogo.fade(0,soundVolume,1000); }
       }, 500)
     }
     function playNarracion(url, continueBefore){
@@ -956,7 +957,7 @@ angular.module('smcApp')
       if(soundEpilogo.volume() > 0) soundEpilogo.fade(soundVolume,0.1,1000);
       setTimeout(function(){
         soundNarracion.stop();
-        var progress = {};
+        progress = {};
         soundNarracion = new Howl({
           urls: ['audio/loc/'+url+'.mp3'],
           autoplay: false,
@@ -991,7 +992,7 @@ angular.module('smcApp')
     }
     function stopNarracion(){
       var locContainer = $("#loc");
-      soundNarracion.stop();
+      if( progress != undefined ) progress.destroy();
       locContainer.addClass("inactive");
       locContainer.removeClass("comment-anim");
       soundNarracion.volume(0);
@@ -1008,23 +1009,6 @@ angular.module('smcApp')
 
     //--------------------------------------------------------------------
 
-    function ninoAnimation(){
-      cugatNino
-        .set(".ed5", {top: '5%', left: "120%", transform: "rotate(0deg)"})
-        .to(".ed5", 1, {left: '20%', ease: Power0.easeNone})
-        .to(".ed5", 3, {left: '-14%', transform: "rotate(5deg)", top: '-7%', ease: Power0.easeNone})
-        .to(".ed5", 1, {left: '-25%',  top: '-10%', ease: Power0.easeNone})
-        .to(".ed5", 3, {left: '-150%',transform: "rotate(0deg)", top: '-7%', ease: Power0.easeNone})
-        .to(".ed5", 0.1, {transform: "rotateY(180deg)", ease: Power0.easeNone})
-        .to(".ed5", 5, {left: '25%', top: '-7%', ease: Power0.easeNone})
-        .to(".ed5", 3, {left: '65%', top: '3%', ease: Power0.easeNone})
-        .to(".ed5", 3, {left: '150%', top: '3%', ease: Power0.easeNone})
-        .play();
-    };
-    function stopNinoAnimation(){
-      TweenMax.to(".ed5",0.1, {top: '5%', left: "120%", transform: "rotate(0deg)", ease: Power0.easeNone, autoRound:false});
-      cugatNino.pause();
-    };
     function insertWords(variable,num){
       var elementToInsert = '<div class="wordStyle">'+variable+'</div>';
       $('#cita'+num+'suma').append(elementToInsert);
