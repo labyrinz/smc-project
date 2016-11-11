@@ -49,25 +49,26 @@
 angular.module('smcApp')
   .controller('MainCtrl', function ($scope, session) {
 
-    try{
-      var introLetters = $("#quote h2").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"introLetters"});
-      var introLettersSubtitle = $("#quote h3 span.subtitle").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"introLettersSubtitle"});
-      var introLettersName = $("#quote h3 span.cugat-name").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"introLettersName"});
-    } catch(err){
-      console.log(err)
-    }
+    //try{
+    //  var introLetters = $("#quote h2").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"introLetters"});
+    //  var introLettersSubtitle = $("#quote h3 span.subtitle").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"introLettersSubtitle"});
+    //  var introLettersName = $("#quote h3 span.cugat-name").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"introLettersName"});
+    //} catch(err){
+    //  console.log(err)
+    //}
 
-    var introWords = $(".introLetters");
-    var introWordsSubtitle = $(".introLettersSubtitle");
-    var introWordsName = $(".introLettersName");
-
-    var eardAdvice;
+    var introLetters, introLettersSubtitle, introLettersName, introWords, introWordsSubtitle, introWordsName, player, playlistPlayer, viaje1, eardAdvice;
 
     //---------VIDEOS--------
 
+    var introLetters = $("#quote h2").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"introLetters"});
+    var introLettersSubtitle = $("#quote h3 span.subtitle").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"introLettersSubtitle"});
+    var introLettersName = $("#quote h3 span.cugat-name").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"introLettersName"});
+    var introWords = $(".introLetters");
+    var introWordsSubtitle = $(".introLettersSubtitle");
+    var introWordsName = $(".introLettersName");
     var player = videojs('GeneralVideo');
     var playlistPlayer = videojs('video');
-
     var viaje1 = $('#viaje1Svg').drawsvg();
 
     //-----------------------
@@ -209,6 +210,8 @@ angular.module('smcApp')
         .to(".cita11",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=0.2")
         .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['01-narracion-p1', false] })
         .addPause()
+        .to("", 0.1, { onComplete: stopNarracion })
+        .to("", 0.1, { onStart: stopVideoToolTip, onStartParams: ['slideVideoProl', 'slideVideoContainerProl', 'playButtonProl', '' ] })
         .to("", 0.1, { onReverseComplete: updateTitle, onReverseCompleteParams: [0] })
         .to(".instruction-pentagram",0.3,{ transform: 'rotateX(-90deg)',  ease: Bounce.easeOut})
         .staggerTo($("#page1").children(),0.6, animationToPattern, staggerToVelocity)
@@ -256,6 +259,7 @@ angular.module('smcApp')
         .staggerFrom($("#page3").children(),0.6, animationFromPattern, staggerFromVelocity)
         .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['02-narracion-p2', false] })
         .addPause()
+        .to("", 0.1, { onComplete: stopNarracion })
         .to("", 0.1, { onStart: stopVideoToolTip, onStartParams: ['slideVideoHavana', 'slideVideoContainerHavana', 'playButtonHavana', '' ] })
         .staggerTo($("#page3").children(),0.6, animationToPattern, staggerToVelocity)
         .to("", 0.1, { onReverseComplete: updateTitle, onReverseCompleteParams: [2] })
@@ -278,6 +282,7 @@ angular.module('smcApp')
         .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['03-narracion-p3', false] })
         //.to("", 0.1, { onReverseComplete: stopVideo })
         .addPause()
+        .to("", 0.1, { onComplete: stopNarracion })
         .to("", 0.1, { onStart: stopVideoToolTip, onStartParams: ['slideVideoNY', 'slideVideoContainerNY', 'playButtonNY', 'fullScreenButtonNY' ] })
         //.to("", 0.1, { onStart: stopVideo })
         .staggerTo($("#page4").children(),0.6, animationToPattern, staggerToVelocity)
@@ -299,6 +304,7 @@ angular.module('smcApp')
         .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['04-narracion-rm1', false] })
         .addPause()
         //EPISODE 7
+        .to("", 0.1, { onComplete: stopNarracion })
         .staggerTo($("#page5").children(),0.6, animationToPattern, staggerToVelocity)
         .to("#page5",0.4,{ right: '100%', ease: Back.easeInOut.config(1)})
         .to("#page6",0.4,{ right: '0%', ease: Back.easeInOut.config(1)},"-=0.4")
@@ -373,10 +379,19 @@ angular.module('smcApp')
         .to("", 0.1, { onReverseComplete: playSound, onReverseCompleteParams: [playListOrder[2]] })
         //EPISODE 9
         .add("CC1")
-        .to("", 0.1, { onStart: updateTitle, onStartParams: [7] })
-        .to("", 0.1, { onStart: updateAnec, onStartParams: [5] })
         .to("", 0.1, { onComplete: playSound, onCompleteParams: [playListOrder[3]] })
+        .to("", 0.1, { onStart: updateTitle, onStartParams: [7] })
+        .to("", 0.1, { onStart: updateAnec, onStartParams: [6] })
         .to(".age2",0.3,{ transform: 'rotateX(90deg)', ease: Bounce.easeOut})
+        .to("", 0.1, { onStart: videoPlay, onStartParams: ['resume',101,112,112, true, 'RESUMENCUGATv3ESP.m4v', 'resumeVideoBox', 'resumeVideoBoxEnter',false,"tve"]})
+        .to("", 0.1, { onReverseComplete: stopVideo })
+        .addPause()
+        .to("", 0.1, { onReverseComplete: updateTitle, onReverseCompleteParams: [7] })
+        .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['resume',101,112,112, true, 'RESUMENCUGATv3ESP.m4v', 'resumeVideoBox', 'resumeVideoBoxEnter',false,"tve"]})
+        .to("", 0.1, { onStart: stopVideo })
+        .add("CC2")
+        .to("", 0.1, { onStart: updateTitle, onStartParams: [8] })
+        .to("", 0.1, { onStart: updateAnec, onStartParams: [5] })
         .to(".carn2", 4, { opacity: '1', ease: RoughEase.ease.config({ template: Power0.easeNone, strength: 2, points: 20, taper: "none", randomize: true, clamp: false})})
         .to(".carn1", 2, {opacity: '1', ease: Back.easeOut.config(1)},"-=2")
         .to(".carn1", 2, {top: '-50%', ease: Power4.easeOut})
@@ -389,18 +404,9 @@ angular.module('smcApp')
         .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['05-narracion-cc1', false] })
         .to(".mouseIcon", 0.5, {bottom: '100px', ease: Bounce.easeOut, onComplete: updateScrollBttn}, '+=1')
         .addPause()
+        .to("", 0.1, { onComplete: stopNarracion })
         .to(".mouseIcon", 0.2, {bottom: '-150px', ease: Power0.easeOut})
         .to(".cita100",1,{ scale:'0',transform: 'rotateX(90deg)', ease: Bounce.easeOut},"+=0.5")
-        .to("", 0.1, { onReverseComplete: updateTitle, onReverseCompleteParams: [7] })
-        .add("CC2")
-        .to("", 0.1, { onStart: updateTitle, onStartParams: [8] })
-        .to("", 0.1, { onStart: updateAnec, onStartParams: [6] })
-        .to("", 0.1, { onStart: videoPlay, onStartParams: ['resume',101,112,112, true, 'RESUMENCUGATv3ESP.m4v', 'resumeVideoBox', 'resumeVideoBoxEnter',false,"tve"]})
-        .to("", 0.1, { onReverseComplete: stopVideo })
-        .addPause()
-        .to("", 0.1, { onComplete: playSound, onCompleteParams: [playListOrder[3]] })
-        .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['resume',101,112,112, true, 'RESUMENCUGATv3ESP.m4v', 'resumeVideoBox', 'resumeVideoBoxEnter',false,"tve"]})
-        .to("", 0.1, { onStart: stopVideo })
         .to("#page8",0.4,{ right: '0%', ease: Back.easeInOut.config(1)},"-=0.4")
         .staggerFrom($("#page8").children(),0.6, animationFromPattern, staggerFromVelocity)
         .addPause()
@@ -439,6 +445,7 @@ angular.module('smcApp')
         .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['06-narracion-cc3', false] },'+=1')
         .to(".mouseIcon", 0.5, {bottom: '100px', ease: Bounce.easeOut, onComplete: updateScrollBttn}, '+=1')
         .addPause()
+        .to("", 0.1, { onComplete: stopNarracion })
         .to(".mouseIcon", 0.2, {bottom: '-150px', ease: Power0.easeOut})
         .to("", 0.1, { onReverseComplete: updateTitle, onReverseCompleteParams: [10] })
         .to(".blurEffect5", 2, { opacity: '0', ease: Back.easeOut.config(1)},"+=2")
@@ -446,19 +453,19 @@ angular.module('smcApp')
         .to("", 0.1, { onReverseComplete: playSound, onReverseCompleteParams: [playListOrder[3]] })
         //EPISODE 12
         .add("LA1")
-        .to("", 0.1, { onStart: playSound, onStartParams: [playListOrder[4]] })
         .to(".chihuahua",0.3,{ transform: 'rotateX(0deg)',  ease: Bounce.easeOut})
         .to("", 0.1, { onStart: updateTitle, onStartParams: [11] })
         .to("", 0.1, { onStart: updateAnec, onStartParams: [9] })
+        .to("", 0.1, { onStart: videoPlay, onStartParams:['resume',132,138,138, true, 'RESUMENCUGATv3ESP.m4v', 'resumeVideoBox', 'resumeVideoBoxEnter', false, "tve"]})
+        .to("", 2, { onStart: playSound, onStartParams: [playListOrder[4]] }, "+=2")
+        .to("", 0.1, { onReverseComplete: stopVideo})
+        .addPause()
         .to(".age3",0.3,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut})
         .to(".chi4", 0.3, { opacity: '1', ease: Bounce.easeOut })
         .to(".chi2", 1, { opacity: '1', ease: Power4.easeOut })
         .to(".chi1", 4, { opacity: '1', ease: Power0.easeNone },"+=1")
         .to(".chi5", 1, { left: '0', ease: Power4.easeOut })
         .to(".chi6", 1, { left: '0', ease: Power4.easeOut })
-        .to("", 0.1, { onStart: videoPlay, onStartParams:['resume',132,138,138, true, 'RESUMENCUGATv3ESP.m4v', 'resumeVideoBox', 'resumeVideoBoxEnter', false, "tve"]})
-        .to("", 0.1, { onReverseComplete: stopVideo})
-        .addPause()
         .to("", 0.1, { onStart: stopVideo })
         .to("#page11",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
         .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams:['resume',132,138,138, true, 'RESUMENCUGATv3ESP.m4v', 'resumeVideoBox', 'resumeVideoBoxEnter', false, "tve"] })
@@ -480,6 +487,7 @@ angular.module('smcApp')
         .to(".cita42",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1")
         .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['07-narracion-la2', false] })
         .addPause()
+        .to("", 0.1, { onComplete: stopNarracion })
         .to("", 0.1, { onStart: stopVideoToolTip, onStartParams: ['slideVideoLorraine', 'slideVideoContainerLorraine', 'playButtonLorraine', 'fullScreenButtonLorraine' ] })
         .staggerTo($("#page12").children(),0.6, animationToPattern, staggerToVelocity)
         .to("#page12",0.4,{ right: '100%', ease: Power0.easeNone})
@@ -528,7 +536,9 @@ angular.module('smcApp')
         .to(".cita51",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=0.5")
         .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['08-narracion-al1', false] })
         .addPause()
+        .to("", 0.1, { onComplete: stopNarracion })
         .to("", 0.1, { onStart: stopVideoToolTip, onStartParams: ['slideVideoAbbe', 'slideVideoContainerAbbe', 'playButtonAbbe', 'fullScreenButtonAbbe' ,"tve"] })
+        .to("", 0.1, { onStart: stopVideoToolTip, onStartParams: ['slideVideoAbbe2', 'slideVideoContainerAbbe2', 'playButtonAbbe2', 'fullScreenButtonAbbe2', "tve" ] })
         .staggerTo($("#page14").children(),0.6, animationToPattern, staggerToVelocity)
         .to("#page14",0.4,{ right: '100%', ease: Power0.easeNone})
         .to("", 0.1, { onReverseComplete: playSound, onReverseCompleteParams: [playListOrder[7]] })
@@ -562,6 +572,7 @@ angular.module('smcApp')
         .to(".cita56",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1")
         .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['09-narracion-al3', false] })
         .addPause()
+        .to("", 0.1, { onComplete: stopNarracion })
         .staggerTo($("#page16").children(),0.6, animationToPattern, staggerToVelocity)
         .to("#page16",0.4,{ right: '100%', ease: Power0.easeNone})
         //.to(".chihuahua",0.3,{ transform: 'rotateX(90deg)',  ease: Bounce.easeOut})
@@ -597,6 +608,7 @@ angular.module('smcApp')
         .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['10-narracion-cb2', false] }, '+=1')
         .to(".mouseIcon", 0.5, {bottom: '100px', ease: Bounce.easeOut, onComplete: updateScrollBttn}, '+=1')
         .addPause()
+        .to("", 0.1, { onComplete: stopNarracion })
         .to(".mouseIcon", 0.2, {bottom: '-150px', ease: Power0.easeOut})
         .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['resume',300,322,322,false,'RESUMENCUGATv3ESP.m4v', 'videoCloud', 'videoCloudInside',false,"tve"] })
         .staggerTo($("#page18").children(),0.6, animationToPattern, staggerToVelocity)
@@ -639,6 +651,7 @@ angular.module('smcApp')
         .to(".cita62",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1")
         .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['11-narracion-e1', false] }, '+=1')
         .addPause()
+        .to("", 0.1, { onComplete: stopNarracion })
         .staggerTo($("#page19").children(),0.6, animationToPattern, staggerToVelocity)
         .to("#page19",0.4,{ right: '100%', ease: Power0.easeNone})
         .to("", 0.1, { onReverseComplete: updateTitle, onReverseCompleteParams: [19] })
@@ -658,6 +671,7 @@ angular.module('smcApp')
         .to(".age4",3,{ onReverseComplete: function(){soundEpilogo.fade(0,soundVolume,3000)}, opacity: '0', ease: Power4.easeOut},"-=6")
         .to(".mouseIcon", 0.5, {bottom: '100px', ease: Bounce.easeOut, onComplete: updateScrollBttn}, '+=1')
         .addPause()
+        .to("", 0.1, { onComplete: stopNarracion })
         .to(".mouseIcon", 0.2, {bottom: '-150px', ease: Power0.easeOut})
         .staggerTo($("#page20").children(),0.6, animationToPattern, staggerToVelocity)
         .to(".textoFin",0.4,{  transform: 'scale(0)', opacity: '0', ease: Power4.easeOut},"+=2")
@@ -870,7 +884,7 @@ angular.module('smcApp')
       });
     };
     function stopVideoToolTip(id, container, playButton, fullScreenButton){
-      //$("#"+id).get(0).pause();
+      $("#"+id).get(0).pause();
       $("#videoToolTipContent").css( "opacity", "" );
       $("#toolTipText").css( "transform", "" );
       $("#toolTipInner").css( "transform", "" );
@@ -975,7 +989,7 @@ angular.module('smcApp')
     function playNarracion(url, continueBefore){
       console.log('narracion enter');
       var locContainer = $("#loc");
-      if(soundEpilogo.volume() > 0) soundEpilogo.fade(soundVolume,0.1,1000);
+      if(soundEpilogo.volume() > 0) soundEpilogo.fade(soundVolume,0.05,1000);
       setTimeout(function(){
         soundNarracion.stop();
         progress = {};
@@ -985,9 +999,9 @@ angular.module('smcApp')
           loop: false,
           volume: 0,
           onload: function() {
-            console.log(this._duration)
-            locContainer.removeClass("inactive")
-            locContainer.addClass("comment-anim")
+            console.log(this._duration);
+            locContainer.removeClass("inactive");
+            locContainer.addClass("comment-anim");
             progress = new ProgressBar.Circle("#loc", {
               strokeWidth: 10,
               easing: 'linear',
@@ -1004,7 +1018,7 @@ angular.module('smcApp')
             locContainer.removeClass("comment-anim")
             progress.destroy();
             soundNarracion.volume(0);
-            if( player.paused() && videoCardToogleSound == 1 && boolsound == soundVolume && !continueBefore ) soundEpilogo.fade(0.1,soundVolume,1000);
+            if( player.paused() && videoCardToogleSound == 1 && boolsound == soundVolume && !continueBefore ) soundEpilogo.fade(0.05,soundVolume,1000);
           }
         });
         soundNarracion.play();
