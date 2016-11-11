@@ -57,6 +57,8 @@ angular.module('smcApp')
     var introWordsSubtitle = $(".introLettersSubtitle");
     var introWordsName = $(".introLettersName");
 
+    var eardAdvice;
+
     //---------VIDEOS--------
 
     var player = videojs('GeneralVideo');
@@ -72,7 +74,7 @@ angular.module('smcApp')
     var body = $('body');
     var totalWords = [];
     var fullScreenVideoStatus = false;
-    var boolsound = 0.4;
+    var boolsound = 0.3;
     var soundVolume = boolsound;
     var languajeOpen = false;
     var page = 0;
@@ -157,7 +159,8 @@ angular.module('smcApp')
       tl
         //EPISODE 1
         .add("inicio")
-        //.to("",0.1, { onStart: controlSound, onStartParams: [] })
+        .to("#page0",0.5,{ scale: '1', ease: Back.easeIn.config(1)})
+        .to(".topMenu",0.5,{ top: '0%', ease: Back.easeIn.config(1)})
         .to("", 0.1, { onStart: videoPlay, onStartParams: ["intro", false, false, false, true, "0/0/1471877157700.mp4", "videoClass", "introVideoFull",false,"tv3"]})
         .to(".videoCover", 3, {css:{opacity: '0.2'}, delay: 2, ease: Power0.easeOut},"+=2")
         .staggerFrom(introWords, 0.6, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.2]}, ease: Back.easeOut.config(0.8)}, 0.1)
@@ -664,7 +667,7 @@ angular.module('smcApp')
         .staggerFrom($("#page21").children(),0.6, animationFromPattern, staggerFromVelocity)
         .addPause();
 
-      tl.play();
+      tl.pause();
     }
 
     //------------------------------------
@@ -905,7 +908,7 @@ angular.module('smcApp')
            if (!player.breakpoint && (player.currentTime() >= breakpoint) ){
              player.breakpoint = true;
              if(class2 != 'videoCloudInside') stopVideo();
-             if(continueBeforeStop == true) tl.play();
+             if(continueBeforeStop == true && eardAdvice ) tl.play();
              fullScreenVideoStatus = false;
            }
          });
@@ -915,7 +918,7 @@ angular.module('smcApp')
          player.play();
          player.on("ended", function(){
            console.log('continue before Stop Inside ended?: ', continueBeforeStop, videoType);
-           if(continueBeforeStop == true){ tl.play(); }
+           if(continueBeforeStop == true && eardAdvice ){ tl.play(); }
            if(boolsound == soundVolume && !changeAudio){ soundEpilogo.fade(0,soundVolume,2000); }
            fullScreenVideoStatus = false;
          })
@@ -1154,7 +1157,7 @@ angular.module('smcApp')
         TweenMax.to('.additional', 0.2, {opacity: 0, scale:0, ease:Back.easeOut, autoRound:false});
         if(event.type != 'mousedown'){
           if (event.originalEvent.wheelDelta > 0 || event.originalEvent.detail < 0) {
-            if( !isMobile && isSafari ) tl.reverse();
+            if( !isMobile && isSafari && eardAdvice ) tl.reverse();
             else{
               if(page > 0) {
                 var prevPage = page - 1;
@@ -1166,7 +1169,7 @@ angular.module('smcApp')
             }
           }
           else {
-            if( !isMobile && isSafari ) tl.play();
+            if( !isMobile && isSafari && eardAdvice ) tl.play();
             else{
               if(page < 21) {
                 var nextPage = page + 1;
@@ -1192,16 +1195,16 @@ angular.module('smcApp')
         var keyCode = event.keyCode || event.which;
   			switch (keyCode) {
   				case 37:
-  					tl.reverse();
+            if( eardAdvice )tl.reverse();
   					break;
           case 38:
-  					tl.reverse();
+            if( eardAdvice )tl.reverse();
   					break;
   				case 39:
-  					tl.play();
+  					if( eardAdvice ) tl.play();
   					break;
           case 40:
-  					tl.play();
+  					if( eardAdvice ) tl.play();
   					break;
   			}
       }
@@ -1210,7 +1213,7 @@ angular.module('smcApp')
     //--------TOUCH CONTROLS------
 
     $(document).on("swipeleft",function(){
-      if( !isMobile && isSafari ) tl.play();
+      if( !isMobile && isSafari && eardAdvice ) tl.play();
       else {
         if (page < 21) {
           var nextPage = page + 1;
@@ -1223,7 +1226,7 @@ angular.module('smcApp')
       }
     });
     $(document).on("swiperight",function(){
-      if( !isMobile && isSafari ) tl.reverse();
+      if( !isMobile && isSafari && eardAdvice ) tl.reverse();
       else{
         if(page > 0) {
           var prevPage = page -1;
@@ -1235,6 +1238,13 @@ angular.module('smcApp')
         }
       }
     });
+
+   $scope.startWebDoc = function(){
+     $("#eardAdviceId").css('opacity', 1);
+     setTimeout(function(){ $("#eardAdviceId").css('display', 'none'); }, 1100);
+     eardAdvice = true;
+     tl.play();
+   }
 
     //------------------------------------
     // MENU
@@ -1349,8 +1359,8 @@ angular.module('smcApp')
                                 toggleAnec(anecId)
                              });
     soundBttn.on( 'click', function(){ toggleSound()} );
-    scrollBttn.on( 'click', function(){ tl.play()} );
-    lastVideosBttn.on( 'click', function(){ tl.play()} );
+    scrollBttn.on( 'click', function(){ if( eardAdvice ) tl.play()} );
+    lastVideosBttn.on( 'click', function(){ if( eardAdvice ) tl.play()} );
     shareBttn.on( 'click', function(){ toggleShare()} );
     //closeBttn.on( 'click', function(){toggleOverlay()} );
 
