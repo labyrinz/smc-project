@@ -798,8 +798,8 @@ angular.module('smcApp')
       window.open("http://www.ccma.cat/tv3/documentals/xavier-cugat/", "_blank", "");
     }
     $scope.viewPostcards = function(){
-
-      window.open("../postcards/", "_self", "");
+      var path = window.location.pathname;
+      window.open(path+"postcards/", "_self", "");
     }
 
     function setVideoPlaylist(){
