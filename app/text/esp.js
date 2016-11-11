@@ -13,7 +13,8 @@ var languajeSP = {
    'epi': "Epílogo",
    'credits': "Créditos",
    'doculineal': "Ver el documental completo",
-   'postcards': "Crear una postal de recuerdo"
+   'postcards': "Crear una postal de recuerdo",
+   'extras': "Ver contenido extra",
  },
  'CatText': {
    'cita11': "De Girona recuerdo muy poco, excepto la intimidad de aquella plaza donde pasaba largas horas y que se me antojaba mía.",

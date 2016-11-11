@@ -49,9 +49,13 @@
 angular.module('smcApp')
   .controller('MainCtrl', function ($scope, session) {
 
-    var introLetters = $("#quote h2").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"introLetters"});
-    var introLettersSubtitle = $("#quote h3 span.subtitle").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"introLettersSubtitle"});
-    var introLettersName = $("#quote h3 span.cugat-name").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"introLettersName"});
+    try{
+      var introLetters = $("#quote h2").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"introLetters"});
+      var introLettersSubtitle = $("#quote h3 span.subtitle").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"introLettersSubtitle"});
+      var introLettersName = $("#quote h3 span.cugat-name").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"introLettersName"});
+    } catch(err){
+      console.log(err)
+    }
 
     var introWords = $(".introLetters");
     var introWordsSubtitle = $(".introLettersSubtitle");
@@ -795,7 +799,15 @@ angular.module('smcApp')
     }
 
     $scope.viewDoc = function(){
-      window.open("http://www.ccma.cat/tv3/documentals/xavier-cugat/", "_blank", "");
+      //window.open("http://www.ccma.cat/tv3/documentals/xavier-cugat/", "_blank", "");
+    }
+    $scope.viewExtras = function(){
+      try{
+        soundEpilogo.stop();
+      } catch (err){
+        console.log(err)
+      }
+      $scope.upTo('PLAYLIST',10,20);
     }
     $scope.viewPostcards = function(){
       var path = window.location.pathname;
