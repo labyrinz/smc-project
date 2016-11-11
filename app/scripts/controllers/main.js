@@ -49,28 +49,22 @@
 angular.module('smcApp')
   .controller('MainCtrl', function ($scope, session) {
 
-    //try{
-    //  var introLetters = $("#quote h2").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"introLetters"});
-    //  var introLettersSubtitle = $("#quote h3 span.subtitle").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"introLettersSubtitle"});
-    //  var introLettersName = $("#quote h3 span.cugat-name").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"introLettersName"});
-    //} catch(err){
-    //  console.log(err)
-    //}
-
-    var introLetters, introLettersSubtitle, introLettersName, introWords, introWordsSubtitle, introWordsName, player, playlistPlayer, viaje1, eardAdvice;
+    try{
+      var introLetters = $("#quote h2").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"introLetters"});
+      var introLettersSubtitle = $("#quote h3 span.subtitle").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"introLettersSubtitle"});
+      var introLettersName = $("#quote h3 span.cugat-name").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"introLettersName"});
+      var viaje1 = $('#viaje1Svg').drawsvg();
+    } catch(err){
+      console.log(err)
+    }
 
     //---------VIDEOS--------
-
-    var introLetters = $("#quote h2").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"introLetters"});
-    var introLettersSubtitle = $("#quote h3 span.subtitle").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"introLettersSubtitle"});
-    var introLettersName = $("#quote h3 span.cugat-name").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"introLettersName"});
     var introWords = $(".introLetters");
     var introWordsSubtitle = $(".introLettersSubtitle");
     var introWordsName = $(".introLettersName");
     var player = videojs('GeneralVideo');
     var playlistPlayer = videojs('video');
-    var viaje1 = $('#viaje1Svg').drawsvg();
-
+    var eardAdvice;
     //-----------------------
 
     session.then( function() {
