@@ -13,7 +13,7 @@ var languajeSP = {
    'epi': "Epílogo",
    'credits': "Créditos",
    'doculineal': "Ver el documental completo",
-   'postcards': "Crear una postal de recuerdo",
+   'postcards': "Envía una postal de recuerdo",
    'extras': "Ver contenido extra",
  },
  'CatText': {
@@ -115,7 +115,8 @@ var languajeSP = {
  'name': "Xavier Cugat",
  'instructionAnecdota': "Haz clic cuando veas aparecer al chihuahua, podrás conocer todo tipo de anécdotas curiosas acerca de Cugui",
  'instructionPentagram': "Haz click sobre las notas musicales para recorrer la vida de Xavier, desde su infancia hasta su vejez",
- 'instructionLastVideos': "Haz scroll para descubrir más vídeos sobre Xavier Cugat del fondo documental de RTVE",
+ //'instructionLastVideos': "Haz scroll para descubrir más vídeos sobre Xavier Cugat del fondo documental de RTVE",
+ 'instructionLastVideos': "Descubre más vídeos sobre Cugat",
  'instructionInfo': "Haz clic aquí para conocer más detalles sobre un momento en particular de la vida de Cugat",
  'mobileDisclaimer': "Lo sentimos, este documental interactivo no está diseñado para dispositivos móviles. Disfruta mejor del univeso de Xavier Cugat desde tu ordenador o tablet. ¡Te esperamos!",
  'texto11': "Xavier Cugat nace en Girona el 1 de enero de 1900.",

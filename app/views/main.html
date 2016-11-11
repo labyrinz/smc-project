@@ -1,6 +1,10 @@
 <div id="eardAdviceId" class="eardAdvice">
-  <img src=""/>
-  <div class="eardAdviceText">Te ecomendamos el uso de auriculares para disfrutar de una experiencia completa.</div>
+  <div class="eardAdviceText">
+    <div class="headphonesIcon">
+      <i class="fa fa-headphones" aria-hidden="true"></i>
+    </div>
+    Te ecomendamos el uso de auriculares para disfrutar de una experiencia completa.
+  </div>
   <div class="eardAdviceBoton" ng-click="startWebDoc()"> Continuar </div>
 </div>
 <div id="mainContainer">
@@ -740,11 +744,19 @@
       <div class="textoGeneral"> {{ generalText.text7 }} </div>
     </div>
     <div id="page20" class="back color0 page20">
-      <img class="ep15" src="{{ imageSlide[16].image1 }}"/>
-      <div class="lastVideos radius3">
-        {{ generalText.instructionLastVideos }}
-        <br>
-        <i class="fa fa-chevron-down" aria-hidden="true"></i>
+      <div class="ep15 lastImage">
+          <img class="ep15Img" src="{{ imageSlide[16].image1 }}"/>
+      </div>
+      <div class="lastButtons">
+        <div class="lastButton lastVideos radius3" ng-click="viewExtras()">
+          <i class="fa fa-film" aria-hidden="true"></i> {{ generalText.instructionLastVideos }}
+        </div>
+        <div class="lastButton linealDoc radius3">
+          <i class="fa fa-youtube-play" aria-hidden="true"></i> {{ menuText.doculineal }}
+        </div>
+        <div class="lastButton sendPostcard radius3" ng-click="viewPostcards()">
+          <i class="fa fa-picture-o" aria-hidden="true"></i> {{ menuText.postcards }}
+        </div>
       </div>
     </div>
     <div id="page21" class="back color0 page21">
