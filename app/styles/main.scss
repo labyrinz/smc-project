@@ -76,11 +76,15 @@ body, html{
     /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
 
     .img{
-      height: 30px;
+      height: 100%;
     }
 
   }
 
+}
+
+.logo img {
+  height: 100%;
 }
 
 .menuIcons{
