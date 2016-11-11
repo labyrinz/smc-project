@@ -104,7 +104,7 @@ angular.module('smcApp')
       {image1: 'images/AL1.jpg', image2: 'images/AL33.jpg', image3: 'images/AL6.jpg', image4: 'images/AL34.jpg', image5: 'images/AL35.jpg', video1: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/0/6/1471876980460.mp4'},
       {image1: 'images/AL21.jpg', image2: 'images/AL9.jpg', image3: 'images/AL22.png', image4: 'images/AL8.jpg', image5: 'images/AL11.jpg'},
       {image1: 'images/cb15.jpg', image2: 'images/CB11.png'},
-      {image1: 'images/CuguiCharo.jpg', image2: 'images/CB_BCN_14.jpg'},
+      {image1: 'images/CB1.jpg', image2: 'images/CuguiCharo.jpg', image3: 'images/CB_BCN_14.jpg'},
       {image1: 'images/sanjulian.jpg', image2: 'images/BCN_01_ep.png', image3: 'images/BNC_002_ep.png', image4: 'images/BNC_003_ep.png', image5: 'images/caricatura1.jpg', image6: 'images/caricatura2.jpg'},
       {image1: 'images/cugatPipa.jpg'}
     ];
