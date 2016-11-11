@@ -1595,23 +1595,70 @@ img.infoAdvice{
   border-radius: 40px;
 }
 
-.lastVideos {
-  position: absolute;
-  width: 25%;
-  color: #1a1a1a;
-  background: #f4f4f4;
-  bottom: 25%;
-  text-align: center;
-  padding: 5px;
-  border: 1px solid #f3f3f3;
-  opacity: 0;
-  cursor: pointer;
-  z-index: 999;
-  right: 5% !important;
+#page20{
+  background-color: #111;
 }
-.lastVideos:hover{
-  background: #f1f1f1;
-  color: #000;
+.lastButtons{
+
+  position: absolute;
+  width: 100%;
+  padding: 0 100px;
+  opacity: 0;
+  bottom: 150px;
+  z-index: 999;
+  text-align: center;
+  right: 0;
+
+  .lastButton{
+    margin: 10px 0;
+    display: inline-block;
+    width: 30%;
+
+    i{
+      font-size: 2em;
+      display: block;
+    }
+  }
+
+  .lastVideos {
+    color: #1a1a1a;
+    background: #f4f4f4;
+    text-align: center;
+    padding: 5px;
+    border: 1px solid #f3f3f3;
+    cursor: pointer;
+  }
+  .lastVideos:hover{
+    background: #f1f1f1;
+    color: #000;
+  }
+
+  .sendPostcard {
+    color: #1a1a1a;
+    background: #f4f4f4;
+    //text-align: left;
+    padding: 5px;
+    border: 1px solid #f3f3f3;
+    cursor: pointer;
+  }
+  .sendPostcard:hover{
+    background: #f1f1f1;
+    color: #000;
+  }
+
+  .linealDoc {
+    color: #1a1a1a;
+    background: #f4f4f4;
+    //text-align: left;
+    padding: 5px;
+    border: 1px solid #f3f3f3;
+    opacity: .4;
+    //cursor: pointer;
+  }
+  .linealDoc:hover{
+    //background: #f1f1f1;
+    //color: #000;
+  }
 }
 
 .texto1{
@@ -3309,14 +3356,19 @@ img.infoAdvice{
 }
 .ep15{
   position: absolute;
-  height: 50%;
+  /* height: 50%; */
   right: 0 !important;
-  top: 25%;
+  top: 150px;
   left: 0;
-  bottom: 0;
+  bottom: 250px;
   margin: 0 auto;
   opacity: 0;
   z-index: 999;
+  text-align: center;
+
+  .ep15Img{
+    height: 100%;
+  }
 }
 .ep12Video{
   position: absolute;
@@ -4714,16 +4766,19 @@ button {
 
 /* Vídeo playlist */
 
-
+#page21{
+  background: #000;
+}
 .video-holder, .video-holder * {box-sizing: border-box !important}
 .video-holder {
-  background: #1b1b1b;
+  //background: #1b1b1b;
   padding: 10px;
   position: relative;
-  max-width: 1024px;
+  //max-width: 1024px;
   height: 70%;
-  top: 15%;
-  z-index: 999;
+  top: 90px;
+  //bottom: 120px;
+  z-index: 997;
   margin: 0 auto;
 }
 .centered {width: 100%}
@@ -4922,7 +4977,7 @@ span.vjs-up-next-text {
   transition: opacity 1s ease-in-out;
 }
 .eardAdviceText{
-  height: 30px;
+  height: 340px;
   position: absolute;
   top: 0;
   left: 0;
@@ -4932,6 +4987,10 @@ span.vjs-up-next-text {
   text-align: center;
   font-size: 15px;
   font-weight: bold;
+
+  .headphonesIcon{
+    font-size: 7em;
+  }
 }
 .eardAdviceBoton{
   position: absolute;
