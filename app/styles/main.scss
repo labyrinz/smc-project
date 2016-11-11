@@ -4949,3 +4949,10 @@ span.vjs-up-next-text {
   color: #000000;
   cursor: pointer;
 }
+.hideEardAdvise{
+  opacity: 1;
+  -webkit-transition: opacity 1s ease-in-out;
+  -moz-transition: opacity 1s ease-in-out;
+  -o-transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out;
+}

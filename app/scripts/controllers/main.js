@@ -343,7 +343,7 @@ angular.module('smcApp')
         .to("", 0.1, { onStart: updateTitle, onStartParams: [4] })
         .to("#page4",0.4,{ right: '100%', ease: Back.easeInOut.config(1)})
         .to("#page5",0.4,{ right: '0%', ease: Back.easeInOut.config(1)},"+=0.5")
-        .to("", 0.1, { onStart: videoPlay, onStartParams: ['resume',38.5,85,55, true, 'RESUMENCUGATv3ESP.m4v', 'resumeVideoBox', 'resumeVideoBoxEnter',false,"tve"]})
+        .to("", 0.1, { onStart: videoPlay, onStartParams: ['resume',38.5,80,50, true, 'RESUMENCUGATv3ESP.m4v', 'resumeVideoBox', 'resumeVideoBoxEnter',false,"tve"]})
         .to("", 0.1, { onReverseComplete: playSound, onReverseCompleteParams: [playListOrder[0]] })
         .to("", 0.1, { onReverseComplete: stopVideo })
         .to("", 2, { onStart: playSound, onStartParams: [playListOrder[1]] }, "+=2")
@@ -743,6 +743,7 @@ angular.module('smcApp')
         .to("", 0.1, { onReverseComplete: updateTitle, onReverseCompleteParams: [20] })
         //EXTRA
         .add("PLAYLIST")
+        .to("", 0.1, { onComplete: stopNarracion })
         .to("",0.1, { onStart: setVideoPlaylist, onStartParams: [] })
         .to(".chihuahua",0.3,{ transform: 'rotateX(90deg)',  ease: Bounce.easeOut})
         .to("#page21",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
@@ -755,6 +756,7 @@ angular.module('smcApp')
     //------------------------------------
     //-------FUNCTIONS --------------------
     $scope.upTo = function(value, music, notes) {
+      console.log(notes);
       if( currentVideoSlidePlaying != undefined ) stopVideoToolTip( currentVideoSlidePlaying.ID, currentVideoSlidePlaying.conto, currentVideoSlidePlaying.playB, currentVideoSlidePlaying.fullS );
       loadSlideContent(notes, 'jump');
       setStopScroll(false);
@@ -765,15 +767,13 @@ angular.module('smcApp')
       if ($("div.overlay").hasClass("open")) $(".trigger-overlay").click();
       setTimeout(function(){
         stopVideo();
-        //controlSound();
         updateTitle(notes);
         setTimeout(function(){
           if(value == 'inicio' || value == 'prologo2' || value == 'prologo2Add' || value == 'prologo3' || value == 'RR2' || value == 'CC3' || value == 'CB1' || value == 'CB2' || value == 'EP2' ) playSound(playListOrder[music]);
+          else if( value == 'PLAYLIST' ) { soundEpilogo.fade(soundVolume,0,2000); };
         },1000)
         if(!player.paused()) player.pause();
         soundNarracion.pause();
-        //if(value=='inicio') { videoPlay("intro", false, false, false, true, "3/4/1461774869043.mp4", "videoClass", "introVideoFull"); }
-        //else {  }
         tl.play(value);
       },500);
       TweenMax.to(".coverTransitions", 3, {opacity: 0, ease: Power4.easeOut, delay: 3, autoRound:false});
@@ -1355,10 +1355,12 @@ angular.module('smcApp')
       }
     });
     $scope.startWebDoc = function(){
-       $("#eardAdviceId").css('opacity', 1);
-       setTimeout(function(){ $("#eardAdviceId").css('display', 'none'); }, 1100);
+       $("#eardAdviceId").addClass('hideEardAdvise');
+       setTimeout(function(){
+         $("#eardAdviceId").css('display', 'none');
+         tl.play();
+       }, 2000);
        eardAdvice = true;
-       tl.play();
     };
 
     //------------------------------------
