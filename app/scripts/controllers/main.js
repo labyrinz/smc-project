@@ -65,6 +65,7 @@ angular.module('smcApp')
     var player = videojs('GeneralVideo');
     var playlistPlayer = videojs('video');
     var eardAdvice;
+    var currentSlideActive = 0;
     //-----------------------
 
     session.then( function() {
@@ -85,8 +86,61 @@ angular.module('smcApp')
     var isSafari = navigator.userAgent.indexOf("Safari") > -1;
     var mainContainer = $( '#mainContainer' ),
         disclaimerMobile = $( '.disclaimerMobile' );
+    var currentVideoSlidePlaying;
 
-    var playListOrder = ['BeginTheBeguine','ElManisero','TICOTICO','Siboney','MyShawl','JungleRhumba','perfidia','QuizasQuizasQuizas','ParaVigomevoy','YoTeAmoMucho','Tabu']
+    var playListOrder = ['BeginTheBeguine','ElManisero','TICOTICO','Siboney','MyShawl','JungleRhumba','perfidia','QuizasQuizasQuizas','ParaVigomevoy','YoTeAmoMucho','Tabu'];
+
+    var imagesSlideOut = [
+      {image1: 'null', image2: 'null', image3: 'null'},
+      {image1: 'null', image2: 'null', image3: 'null', video1: 'null'},
+      {image1: 'null', image2: 'null', video1: 'null'},
+      {image1: 'null', image2: 'null', image3: 'null'},
+      {image1: 'null', image2: 'null', image3: 'null', image4: 'null'},
+      {image1: 'null', image2: 'null', image3: 'null'},
+      {image1: 'null', image2: 'null', image3: 'null', video1: 'null'},
+      {image1: 'null', image2: 'null'},
+      {image1: 'null', image2: 'null', image3: 'null', image4: 'null', video1: 'null'},
+      {image1: 'null', image2: 'null', image3: 'null', image4: 'null'},
+      {image1: 'null', image2: 'null', image3: 'null', video1: 'null', video2: 'null'},
+      {image1: 'null', image2: 'null', image3: 'null', image4: 'null', image5: 'null', video1: 'null'},
+      {image1: 'null', image2: 'null', image3: 'null', image4: 'null', image5: 'null', image6: 'null'},
+      {image1: 'null', image2: 'null'},
+      {image1: 'null', image2: 'null'},
+      {image1: 'null', image2: 'null', image3: 'null', image4: 'null', image5: 'null', image6: 'null'},
+      {image1: 'null'}
+    ];
+
+    var imagesSlideIn = [
+      {image1: 'images/prel_05.jpg', image2: 'images/prel_03_old.jpg', image3: 'images/prel_0.jpg'},
+      {image1: 'images/prel_06.jpg', image2: 'images/BNC_002_Album2_Cugat-violin.jpg', image3: 'images/BNC_001_Album1_Cugat-violin.jpg', video1: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/7/1/1471877098717.mp4'},
+      {image1: 'images/prel_12.jpg', image2: 'images/WA_Caricature.jpg', video1: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/5/0/1471877015205.mp4'},
+      {image1: 'images/RM1.jpg', image2: 'images/RM2.jpg', image3: 'images/RM3.jpg'},
+      {image1: 'images/RM8.jpg', image2: 'images/RM7.jpg', image3: 'images/RM10.jpg', image4: 'images/RM11.jpg'},
+      {image1: 'images/anecdotas/CC1-Carmen01.jpg', image2: 'images/anecdotas/CC1-Carmen02.jpg', image3: 'images/CC2.png'},
+      {image1: 'images/CC_BCN_19.jpg', image2: 'images/CC5.jpg', image3: 'images/CC4_1.jpg', video1: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/1/4/1471876987041.mp4'},
+      {image1: 'images/LA1-Lorraine.jpg', image2: 'images/lorraine12.jpg'},
+      {image1: 'images/LA7.jpg', image2: 'images/LA6.jpg', image3: 'images/LA21N.jpg', image4: 'images/LA22N.jpg', video1: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/0/6/1471876980460.mp4'},
+      {image1: 'images/LA3-Sinatra.jpg', image2: 'images/LA3-Columbia.jpg', image3: 'images/LA3-Cugat.jpg', image4: 'images/cugatPipa.jpg'},
+      {image1: 'images/AL3.jpg', image2: 'images/AL32.jpg', image3: 'images/Abbe1.jpg', video1: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/8/1/1471877050018.mp4', video2: 'videos/videoplayback.mp4'},
+      {image1: 'images/AL1.jpg', image2: 'images/AL33.jpg', image3: 'images/AL6.jpg', image4: 'images/AL34.jpg', image5: 'images/AL35.jpg', video1: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/0/6/1471876980460.mp4'},
+      {image1: 'images/AL21.jpg', image2: 'images/AL9.jpg', image3: 'images/AL22.png', image4: 'images/AL8.jpg', image5: 'images/AL11.jpg'},
+      {image1: 'images/cb15.jpg', image2: 'images/CB11.png'},
+      {image1: 'images/CB1.jpg', image2: 'images/CuguiCharo.jpg', image3: 'images/CB_BCN_14.jpg'},
+      {image1: 'images/sanjulian.jpg', image2: 'images/BCN_01_ep.png', image3: 'images/BNC_002_ep.png', image4: 'images/BNC_003_ep.png', image5: 'images/caricatura1.jpg', image6: 'images/caricatura2.jpg'},
+      {image1: 'images/cugatPipa.jpg'}
+    ];
+
+    $scope.imageSlide = imagesSlideIn.slice();
+
+    $scope.back1 = { image1:'images/back/inf/ed1c.png', image2: 'images/back/inf/ed2c.png', image3: 'images/back/inf/ed3c.png', image4: 'images/back/inf/rioc.png', image5: 'images/back/inf/niño.png' };
+    $scope.back2 = { image1:'images/back/cuba/cuba.png', image2: 'images/back/cuba/coches.png' };
+    $scope.back3 = { image1:'images/back/nuevaYork/nyCarret.png', image2: 'images/back/nuevaYork/nyLetreros.png', image3: 'images/back/nuevaYork/nyPuente.png', image4: 'images/back/nuevaYork/nyCielo.png', image5: 'images/back/nuevaYork/nyCoche1.png', image6: 'images/back/nuevaYork/nyCoche2.png', image7: 'images/back/nuevaYork/nyCoche3.png' };
+    $scope.back4 = { image1:'images/back/berlin/berlinColor.png' };
+    $scope.back5 = { image1:'images/back/carnie/palco.png', image2: 'images/back/carnie/luces.png', image3: 'images/back/carnie/escenario.png', image4: 'images/back/carnie/publico1.png', image5: 'images/back/carnie/publico2.png', image6: 'images/back/carnie/cugat.png' };
+    $scope.back6 = { image1:'images/back/hollywood/hollywoodMontanas.png', image2: 'images/back/hollywood/hollywoodCielo.png', image3: 'images/back/hollywood/hollywoodRocas.png', image4: 'images/back/hollywood/hollywoodArboles.png', image5: 'images/back/hollywood/hollywoodNubes.png', image6: 'images/back/hollywood/hollywoodSol.png', image7: 'images/back/hollywood/hollywoodLetrero.png' };
+    $scope.back7 = { image1:'images/back/chicago/edificios.png', image2: 'images/back/chicago/letreros.gif', image3: 'images/back/chicago/lucesEdificios.png', image4: 'images/back/chicago/coche1.png', image5: 'images/back/chicago/coche2.png' };
+    $scope.back8 = { image1:'images/back/lasvegas/fondo.png', image2: 'images/back/lasvegas/edificiosFondo.png', image3: 'images/back/lasvegas/edificioCaesar.png', image4: 'images/back/lasvegas/cartelFlamingo.png', image5: 'images/back/lasvegas/cartelmotel.png', image6: 'images/back/lasvegas/lucesCaesar.png', image7: 'images/back/lasvegas/lucesFlamingo.png', image8: 'images/back/lasvegas/lucesMotel.png', image9: 'images/back/lasvegas/bombillasFlamingo.png', image10: 'images/back/lasvegas/coches.png' };
+    $scope.back9 = { image1:'images/back/barcelona/batllo.png', image2: 'images/back/barcelona/cugat.png', image3: 'images/back/barcelona/coche.png', image4: 'images/back/barcelona/troncos.png', image5: 'images/back/barcelona/copa1.png', image6: 'images/back/barcelona/copa2.png', image7: 'images/back/barcelona/hojas1.png', image8: 'images/back/barcelona/hojas2.png' };
 
     $scope.CatText = languajeSP.CatText;
     $scope.photoText = languajeSP.photoText;
@@ -107,7 +161,8 @@ angular.module('smcApp')
     }
 
     //---------------------------
-
+    $scope.imageSlide[0] =  imagesSlideIn[0];
+    $scope.imageSlide[1] =  imagesSlideIn[1];
     //-----TIMELINE ---------
 
     if( !isMobile && isSafari) {
@@ -252,6 +307,7 @@ angular.module('smcApp')
         .to(".age2",0.3,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"-=0.3")
         .staggerFrom($("#page3").children(),0.6, animationFromPattern, staggerFromVelocity)
         .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['02-narracion-p2', false] })
+        .to("", 2, { onComplete: loadSlideContent, onCompleteParams: [1, 'play'] })
         .addPause()
         .to("", 0.1, { onComplete: stopNarracion })
         .to("", 0.1, { onStart: stopVideoToolTip, onStartParams: ['slideVideoHavana', 'slideVideoContainerHavana', 'playButtonHavana', '' ] })
@@ -275,6 +331,7 @@ angular.module('smcApp')
         .to(".cita12",1,{  transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1")
         .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['03-narracion-p3', false] })
         //.to("", 0.1, { onReverseComplete: stopVideo })
+        .to("", 2, { onComplete: loadSlideContent, onCompleteParams: [2, 'play'] })
         .addPause()
         .to("", 0.1, { onComplete: stopNarracion })
         .to("", 0.1, { onStart: stopVideoToolTip, onStartParams: ['slideVideoNY', 'slideVideoContainerNY', 'playButtonNY', 'fullScreenButtonNY' ] })
@@ -283,19 +340,20 @@ angular.module('smcApp')
         .to("", 0.1, { onReverseComplete: updateTitle, onReverseCompleteParams: [3] })
         //EPISODE 6
         .add("RR1")
-        .to("", 0.1, { onStart: playSound, onStartParams: [playListOrder[1]] })
         .to("", 0.1, { onStart: updateTitle, onStartParams: [4] })
         .to("#page4",0.4,{ right: '100%', ease: Back.easeInOut.config(1)})
         .to("#page5",0.4,{ right: '0%', ease: Back.easeInOut.config(1)},"+=0.5")
         .to("", 0.1, { onStart: videoPlay, onStartParams: ['resume',38.5,89,55, true, 'RESUMENCUGATv3ESP.m4v', 'resumeVideoBox', 'resumeVideoBoxEnter',false,"tve"]})
         .to("", 0.1, { onReverseComplete: playSound, onReverseCompleteParams: [playListOrder[0]] })
         .to("", 0.1, { onReverseComplete: stopVideo })
+        .to("", 2, { onStart: playSound, onStartParams: [playListOrder[1]] }, "+=2")
         .addPause()
         .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['resume',38.5,89,55, true, 'RESUMENCUGATv3ESP.m4v', 'resumeVideoBox', 'resumeVideoBoxEnter',false,"tve"]})
         .to("", 0.1, { onStart: stopVideo })
         .staggerFrom($("#page5").children(),0.6, animationFromPattern, staggerFromVelocity)
         .to(".cita21",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=0.5")
         .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['04-narracion-rm1', false] })
+        .to("", 2, { onComplete: loadSlideContent, onCompleteParams: [3, 'play'] })
         .addPause()
         //EPISODE 7
         .to("", 0.1, { onComplete: stopNarracion })
@@ -320,6 +378,7 @@ angular.module('smcApp')
         .staggerFrom($("#page6").children(),0.6, animationFromPattern, staggerFromVelocity)
         .to(".cita14",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1")
         .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['videoCloud',false,false,false,false,'Cugat2rasgos-Musica.mp4', 'videoCloud', 'videoCloudInside',false,"tve"] })
+        .to("", 2, { onComplete: loadSlideContent, onCompleteParams: [4, 'play'] })
         .addPause()
         .to("", 0.1, { onStart: stopVideo })
         .staggerTo($("#page6").children(),0.6, animationToPattern, staggerToVelocity)
@@ -349,9 +408,9 @@ angular.module('smcApp')
         .to(".mouseIcon", 0.5, {bottom: '100px', ease: Bounce.easeOut, onComplete: updateScrollBttn}, '+=1')
         .addPause()
         .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['videoCloud',false,false,false,false,'RM3CLIP1.m4v', 'videoCloud', 'videoCloudInside', true,"tve"] })
-        .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['videoCloud',false,false,false,true,'RM3Clip3ESP.m4v', 'videoCloud', 'videoCloudInside',false,"tve"] })
+        .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['videoCloud',false,false,false,false,'RM3Clip3ESP.m4v', 'videoCloud', 'videoCloudInside',false,"tve"] })
         .addPause()
-        .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['videoCloud',false,false,false,true,'RM3Clip3ESP.m4v', 'videoCloud', 'videoCloudInside',false,"tve"] })
+        .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['videoCloud',false,false,false,false,'RM3Clip3ESP.m4v', 'videoCloud', 'videoCloudInside',false,"tve"] })
         .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['videoCloud',false,false,false,true,'RM3CLIP1.m4v', 'videoCloud', 'videoCloudInside', true,"tve"] })
         .addPause()
         .to(".mouseIcon", 0.2, {bottom: '-150px', ease: Power0.easeOut})
@@ -384,6 +443,7 @@ angular.module('smcApp')
         .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['resume',101,112,112, true, 'RESUMENCUGATv3ESP.m4v', 'resumeVideoBox', 'resumeVideoBoxEnter',false,"tve"]})
         .to("", 0.1, { onStart: stopVideo })
         .add("CC2")
+        .to("", 2, { onComplete: loadSlideContent, onCompleteParams: [5, 'play'] })
         .to("", 0.1, { onStart: updateTitle, onStartParams: [8] })
         .to("", 0.1, { onStart: updateAnec, onStartParams: [5] })
         .to(".carn2", 4, { opacity: '1', ease: RoughEase.ease.config({ template: Power0.easeNone, strength: 2, points: 20, taper: "none", randomize: true, clamp: false})})
@@ -407,6 +467,7 @@ angular.module('smcApp')
         .staggerTo($("#page8").children(),0.6, animationToPattern, staggerToVelocity)
         .to("#page8",0.4,{ right: '100%', ease: Back.easeInOut.config(1)})
         .to("", 0.1, { onReverseComplete: updateTitle, onReverseCompleteParams: [8] })
+        .to("", 2, { onComplete: loadSlideContent, onCompleteParams: [6, 'play'] })
         //EPISODE 10
         .add("CC3")
         .to("", 0.1, { onStart: updateTitle, onStartParams: [9] })
@@ -438,6 +499,7 @@ angular.module('smcApp')
         .to("", 0.1, { onStart: stopVideo })
         .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['06-narracion-cc3', false] },'+=1')
         .to(".mouseIcon", 0.5, {bottom: '100px', ease: Bounce.easeOut, onComplete: updateScrollBttn}, '+=1')
+        .to("", 2, { onComplete: loadSlideContent, onCompleteParams: [7, 'play'] })
         .addPause()
         .to("", 0.1, { onComplete: stopNarracion })
         .to(".mouseIcon", 0.2, {bottom: '-150px', ease: Power0.easeOut})
@@ -480,6 +542,7 @@ angular.module('smcApp')
         .staggerFrom($("#page12").children(),0.6, animationFromPattern, staggerToVelocity)
         .to(".cita42",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1")
         .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['07-narracion-la2', false] })
+        .to("", 2, { onComplete: loadSlideContent, onCompleteParams: [8, 'play'] })
         .addPause()
         .to("", 0.1, { onComplete: stopNarracion })
         .to("", 0.1, { onStart: stopVideoToolTip, onStartParams: ['slideVideoLorraine', 'slideVideoContainerLorraine', 'playButtonLorraine', 'fullScreenButtonLorraine' ] })
@@ -494,6 +557,7 @@ angular.module('smcApp')
         .to("", 0.1, { onComplete: playSound, onCompleteParams: [playListOrder[6]] })
         .to("#page13",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
         .staggerFrom($("#page13").children(),0.6, animationFromPattern, staggerFromVelocity)
+        .to("", 2, { onComplete: loadSlideContent, onCompleteParams: [9, 'play'] })
         .addPause()
         .staggerTo($("#page13").children(),0.6, animationToPattern, staggerToVelocity)
         .to(".blurEffect7",0.2,{ filter: 'blur(0px)',webkitFilter: 'blur(0px)', ease: Power0.easeNone},"+=1")
@@ -529,6 +593,7 @@ angular.module('smcApp')
         .staggerFrom($("#page14").children(),0.6, animationFromPattern, staggerFromVelocity)
         .to(".cita51",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=0.5")
         .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['08-narracion-al1', false] })
+        .to("", 2, { onComplete: loadSlideContent, onCompleteParams: [10, 'play'] })
         .addPause()
         .to("", 0.1, { onComplete: stopNarracion })
         .to("", 0.1, { onStart: stopVideoToolTip, onStartParams: ['slideVideoAbbe', 'slideVideoContainerAbbe', 'playButtonAbbe', 'fullScreenButtonAbbe' ,"tve"] })
@@ -549,6 +614,7 @@ angular.module('smcApp')
         .to(".cita53",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1")
         .to("", 2.5, { onComplete: videoPlay, onCompleteParams: ['videoCloud',266.5,297,297,false,'AL2clip1ESP.m4v', 'videoCloud', 'videoCloudInside',false,"tve"] })
         .to("", 0.1, { onReverseComplete: stopVideo })
+        .to("", 2, { onComplete: loadSlideContent, onCompleteParams: [11, 'play'] })
         .addPause()
         .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['videoCloud',266.5,297,297,false,'AL2clip1ESP.m4v', 'videoCloud', 'videoCloudInside',false,"tve"] })
         .to("", 0.1, { onStart: stopVideo })
@@ -565,6 +631,7 @@ angular.module('smcApp')
         .staggerFrom($("#page16").children(),0.6, animationFromPattern, staggerFromVelocity)
         .to(".cita56",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1")
         .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['09-narracion-al3', false] })
+        .to("", 2, { onComplete: loadSlideContent, onCompleteParams: [12, 'play'] })
         .addPause()
         .to("", 0.1, { onComplete: stopNarracion })
         .staggerTo($("#page16").children(),0.6, animationToPattern, staggerToVelocity)
@@ -583,6 +650,7 @@ angular.module('smcApp')
         .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams:['resume',266.5,301.5,301.5, false, 'RESUMENCUGATv3ESP.m4v', 'resumeVideoBox', 'resumeVideoBoxEnter',false,"tve"]})
         .staggerFrom($("#page17").children(),0.6, animationFromPattern, staggerFromVelocity)
         .to(".cita60",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=0.5")
+        .to("", 2, { onComplete: loadSlideContent, onCompleteParams: [13, 'play'] })
         .addPause()
         .staggerTo($("#page17").children(),0.6, animationToPattern, staggerToVelocity)
         .to("#page17",0.4,{ right: '100%', ease: Power0.easeNone})
@@ -597,6 +665,7 @@ angular.module('smcApp')
         .to(".cita61",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut})
         .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['resume',300,322,322,false,'RESUMENCUGATv3ESP.m4v', 'videoCloud', 'videoCloudInside',false,"tve"] })
         .to("", 0.1, { onReverseComplete: stopVideo })
+        .to("", 2, { onComplete: loadSlideContent, onCompleteParams: [14, 'play'] })
         .addPause()
         .to("", 0.1, { onStart: stopVideo })
         .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['10-narracion-cb2', false] }, '+=1')
@@ -644,6 +713,7 @@ angular.module('smcApp')
         .staggerFrom($("#page19").children(),0.6, animationFromPattern, staggerFromVelocity)
         .to(".cita62",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1")
         .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['11-narracion-e1', false] }, '+=1')
+        .to("", 2, { onComplete: loadSlideContent, onCompleteParams: [15, 'play'] })
         .addPause()
         .to("", 0.1, { onComplete: stopNarracion })
         .staggerTo($("#page19").children(),0.6, animationToPattern, staggerToVelocity)
@@ -685,6 +755,8 @@ angular.module('smcApp')
     //------------------------------------
     //-------FUNCTIONS --------------------
     $scope.upTo = function(value, music, notes) {
+      if( currentVideoSlidePlaying != undefined ) stopVideoToolTip( currentVideoSlidePlaying.ID, currentVideoSlidePlaying.conto, currentVideoSlidePlaying.playB, currentVideoSlidePlaying.fullS );
+      loadSlideContent(notes, 'jump');
       setStopScroll(false);
       stopNarracion();
       TweenMax.to(".mouseIcon", 0.2, {bottom: '-150px', ease: Power0.easeOut, autoRound:false});
@@ -777,6 +849,26 @@ angular.module('smcApp')
       }
     });
     //------ TITLE ----------
+    function loadSlideContent(index, direction){
+      //$scope.$apply(function() {
+      //  if (direction == 'jump'){
+      //    $scope.imageSlide[currentSlideActive+1] = imagesSlideOut[currentSlideActive+1];
+      //    $scope.imageSlide[currentSlideActive] = imagesSlideOut[currentSlideActive];
+      //    $scope.imageSlide[currentSlideActive-1] = imagesSlideOut[currentSlideActive-1];
+      //    $scope.imageSlide[index] = imagesSlideIn[index];
+      //    $scope.imageSlide[index] = imagesSlideIn[index];
+      //  }
+      //  if( direction == 'play' ){
+      //    $scope.imageSlide[index+1] = imagesSlideIn[index+1];
+      //    $scope.imageSlide[index-1] = imagesSlideOut[index-1];
+      //  }
+      //  else if( direction == 'reverse' ){
+      //    $scope.imageSlide[index+2] = imagesSlideIn[index+2];
+      //    if( index > 1 ) $scope.imageSlide[index-2] = imagesSlideOut[index+2];
+      //  }
+      //});
+      //currentSlideActive = index;
+    };
 
     function updateTitle(index){
       if(index!='intro'){
@@ -835,6 +927,7 @@ angular.module('smcApp')
     //------ vIDEO & AUDIO -------------------------
 
     $scope.playVideoSlide = function(id, container, playButton, fullScreenButton){
+      currentVideoSlidePlaying = { ID: id, conto: container, playB: playButton, fullS: fullScreenButton };
       TweenMax.set($('#'+container), {left: ''});
       TweenMax.set($('#'+container), {right: ''});
       if( $("#"+id).get(0).paused ) {
@@ -874,6 +967,7 @@ angular.module('smcApp')
       }
       $("#"+id).on("ended", function() {
         stopVideoToolTip(id,container, playButton, fullScreenButton);
+        currentVideoSlidePlaying = undefined;
         videoCardToogleSound = 1;
       });
     };
@@ -891,6 +985,7 @@ angular.module('smcApp')
       if(boolsound == soundVolume && soundNarracion.volume() > 0 ) soundNarracion.fade(0.01, soundVolume,2000);
       TweenMax.set($('#'+playButton), {opacity: 1});
       TweenMax.set($('#'+fullScreenButton), {opacity: 0});
+      currentVideoSlidePlaying = undefined;
     }
     $scope.fullScreenVideoSlide = function(id, style){
       TweenMax.set($('#'+id), {left: ''});
@@ -1022,11 +1117,11 @@ angular.module('smcApp')
     function stopNarracion(){
       try{
         var locContainer = $("#loc");
-        if( progress != undefined ) progress.destroy();
         locContainer.addClass("inactive");
         locContainer.removeClass("comment-anim");
         soundNarracion.volume(0);
-        if( player.paused() && videoCardToogleSound == 1 && boolsound == soundVolume ) soundEpilogo.fade(0.1,soundVolume,1000);
+        if( progress != undefined ) progress.destroy();
+        if( player.paused() && videoCardToogleSound == 1 && boolsound == soundVolume ) soundEpilogo.fade(0.05,soundVolume,1000);
       } catch (Err){
           console.log(Err)
       }
@@ -1258,13 +1353,12 @@ angular.module('smcApp')
         }
       }
     });
-
-   $scope.startWebDoc = function(){
-     $("#eardAdviceId").css('opacity', 1);
-     setTimeout(function(){ $("#eardAdviceId").css('display', 'none'); }, 1100);
-     eardAdvice = true;
-     tl.play();
-   }
+    $scope.startWebDoc = function(){
+       $("#eardAdviceId").css('opacity', 1);
+       setTimeout(function(){ $("#eardAdviceId").css('display', 'none'); }, 1100);
+       eardAdvice = true;
+       tl.play();
+    };
 
     //------------------------------------
     // MENU
