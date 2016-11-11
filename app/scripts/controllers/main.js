@@ -797,6 +797,10 @@ angular.module('smcApp')
     $scope.viewDoc = function(){
       window.open("http://www.ccma.cat/tv3/documentals/xavier-cugat/", "_blank", "");
     }
+    $scope.viewPostcards = function(){
+
+      window.open("../postcards/", "_self", "");
+    }
 
     function setVideoPlaylist(){
       //demoModule.init();
@@ -993,12 +997,16 @@ angular.module('smcApp')
       }, 500)
     }
     function stopNarracion(){
-      var locContainer = $("#loc");
-      if( progress != undefined ) progress.destroy();
-      locContainer.addClass("inactive");
-      locContainer.removeClass("comment-anim");
-      soundNarracion.volume(0);
-      if( player.paused() && videoCardToogleSound == 1 && boolsound == soundVolume ) soundEpilogo.fade(0.1,soundVolume,1000);
+      try{
+        var locContainer = $("#loc");
+        if( progress != undefined ) progress.destroy();
+        locContainer.addClass("inactive");
+        locContainer.removeClass("comment-anim");
+        soundNarracion.volume(0);
+        if( player.paused() && videoCardToogleSound == 1 && boolsound == soundVolume ) soundEpilogo.fade(0.1,soundVolume,1000);
+      } catch (Err){
+          console.log(Err)
+      }
     }
     function toggleSound(){
       boolsound = boolsound ? 0 : soundVolume;
