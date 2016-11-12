@@ -67,6 +67,11 @@ angular.module('smcApp')
     var eardAdvice;
     var currentSlideActive = 0;
     $("#slideVideoAbbe2").prop("volume", 0.1);
+    $("#videoGeneral").hover(function(){
+      $('.resizeMeButton').css("opacity", "1");
+    }, function(){
+      $('.resizeMeButton').css("opacity", "0.3");
+    });
     //-----------------------
 
     session.then( function() {
@@ -772,7 +777,7 @@ angular.module('smcApp')
         stopVideo();
         updateTitle(notes);
         setTimeout(function(){
-          if(value == 'inicio' || value == 'prologo2' || value == 'prologo2Add' || value == 'prologo3' || value == 'RR2' || value == 'CC3' || value == 'CB1' || value == 'CB2' || value == 'EP2' ) playSound(playListOrder[music]);
+          if( value == 'inicio' || value == 'prologo2' || value == 'prologo2Add' || value == 'prologo3' || value == 'RR2' || value == 'CC3' || value == 'CB1' || value == 'CB2' || value == 'EP2' ) playSound(playListOrder[music]);
           else if( value == 'PLAYLIST' ) { soundEpilogo.fade(soundVolume,0,2000); };
         },1000)
         if(!player.paused()) player.pause();
@@ -1011,8 +1016,8 @@ angular.module('smcApp')
     function videoPlay(videoType, timer, duration, breakpoint, continueBeforeStop, id, class1, class2, changeAudio, videoResource){
        fullScreenVideoStatus = true;
        if(!player.paused()) player.pause();
-       if(class1 == 'resumeVideoBox') TweenMax.set($('#videoContainer'), {zIndex: 999}); //$('#videoContainer').css("z-index", 999);
-       else TweenMax.set($('#videoContainer'), {zIndex: ''}); //$('#videoContainer').css("z-index", "");
+       if(class1 == 'resumeVideoBox') TweenMax.set($('#videoContainer'), {zIndex: 999});
+       else TweenMax.set($('#videoContainer'), {zIndex: ''});
        $('#videoGeneral').removeClass('videoClass fullScreenVideo resumeVideoBox videoCloud videoCloud2 videoCloudFull videoCloud2Full');
        if(class1 == 'videoCloud') { var scaleValue = 0.6; $('#burbleBig').addClass('burbleBig'); $('#burbleMed').addClass('burbleMed'); $('#burbleSmall').addClass('burbleSmall'); $(".resizeMeButton").css('display', 'block'); }
        else if(class1 == 'videoCloud2') { var scaleValue = 0.6; $('#burbleBig').addClass('burbleBig2'); $('#burbleMed').addClass('burbleMed2'); $('#burbleSmall').addClass('burbleSmall2'); $(".resizeMeButton").css('display', 'block'); }

@@ -928,7 +928,8 @@ body, html{
   display: block;
   width: 25px;
   height: 25px;
-  background: transparent url(../images/fullScreen.png) no-repeat center center;
+  background: transparent url(../images/fullScreen2.png) no-repeat center center;
+  background-size: 20px 20px;
   content: '';
   position: absolute;
   right: 10px;
@@ -1079,12 +1080,14 @@ body, html{
   display: none;
   width: 80px;
   height: 80px;
-  background: transparent url(../images/fullScreenCloud.png) no-repeat center center;
+  background: transparent url(../images/fullScreen2.png) no-repeat center center;
   content: '';
   position: absolute;
-  right: 10px;
-  bottom: 50px;
-  opacity: 1;
+  right: 0;
+  left: 0;
+  bottom: 16px;
+  margin: auto;
+  opacity: 0.3;
   background-size: 30px 30px;
   -webkit-transition: opacity 0.2s;
   transition: opacity 0.2s;
