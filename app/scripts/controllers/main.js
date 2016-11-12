@@ -348,7 +348,7 @@ angular.module('smcApp')
         .to("", 0.1, { onStart: updateTitle, onStartParams: [4] })
         .to("#page4",0.4,{ right: '100%', ease: Back.easeInOut.config(1)})
         .to("#page5",0.4,{ right: '0%', ease: Back.easeInOut.config(1)},"+=0.5")
-        .to("", 0.1, { onStart: videoPlay, onStartParams: ['resume',38.5,80,94.5, true, 'RESUMENCUGATv3ESP.m4v', 'resumeVideoBox', 'resumeVideoBoxEnter',false,"tve"]})
+        .to("", 0.1, { onStart: videoPlay, onStartParams: ['resume', true, 'introRM.mp4', 'resumeVideoBox', 'resumeVideoBoxEnter',false,"tve"]})
         .to("", 0.1, { onReverseComplete: playSound, onReverseCompleteParams: [playListOrder[0]] })
         .to("", 0.1, { onReverseComplete: stopVideo })
         .to("", 2, { onStart: playSound, onStartParams: [playListOrder[1]] }, "+=2")
@@ -440,7 +440,7 @@ angular.module('smcApp')
         .to("", 0.1, { onStart: updateTitle, onStartParams: [7] })
         .to("", 0.1, { onStart: updateAnec, onStartParams: [6] })
         .to(".age2",0.3,{ transform: 'rotateX(90deg)', ease: Bounce.easeOut})
-        .to("", 0.1, { onStart: videoPlay, onStartParams: ['resume',101,112,112, true, 'RESUMENCUGATv3ESP.m4v', 'resumeVideoBox', 'resumeVideoBoxEnter',false,"tve"]})
+        .to("", 0.1, { onStart: videoPlay, onStartParams: ['resume', true, 'introCC.mp4', 'resumeVideoBox', 'resumeVideoBoxEnter',false,"tve"]})
         .to("", 0.1, { onReverseComplete: stopVideo })
         .to("", 2, { onComplete: playSound, onCompleteParams: [playListOrder[3]] }, "+=2")
         .addPause()
@@ -517,7 +517,7 @@ angular.module('smcApp')
         .to(".chihuahua",0.3,{ transform: 'rotateX(0deg)',  ease: Bounce.easeOut})
         .to("", 0.1, { onStart: updateTitle, onStartParams: [11] })
         .to("", 0.1, { onStart: updateAnec, onStartParams: [9] })
-        .to("", 0.1, { onStart: videoPlay, onStartParams:['resume',132,138,138, true, 'RESUMENCUGATv3ESP.m4v', 'resumeVideoBox', 'resumeVideoBoxEnter', false, "tve"]})
+        .to("", 0.1, { onStart: videoPlay, onStartParams:['resume', true, 'introLA.mp4', 'resumeVideoBox', 'resumeVideoBoxEnter', false, "tve"]})
         .to("", 2, { onStart: playSound, onStartParams: [playListOrder[4]] }, "+=2")
         .to("", 0.1, { onReverseComplete: stopVideo})
         .addPause()
@@ -590,10 +590,10 @@ angular.module('smcApp')
         .to(".lasv7", 0.3, {opacity: '1', ease: Back.easeOut.config(1)})
         .to(".lasv8", 0.3, {opacity: '1', ease: Back.easeOut.config(1)})
         .to(".lasv9", 0.3, {opacity: '1', ease: Back.easeOut.config(1)})
-        .to("", 0.1, { onStart: videoPlay, onStartParams:['resume',189.5,200,199.5, true, 'RESUMENCUGATv3ESP.m4v', 'resumeVideoBox', 'resumeVideoBoxEnter',false,"tve"]})
+        .to("", 0.1, { onStart: videoPlay, onStartParams:['resume', true, 'introAL.mp4', 'resumeVideoBox', 'resumeVideoBoxEnter',false,"tve"]})
         .to("", 0.1, { onReverseComplete: stopVideo})
         .addPause()
-        .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams:['resume',189,200,200, true, 'RESUMENCUGATv3ESP.m4v', 'resumeVideoBox', 'resumeVideoBoxEnter',false,"tve"]})
+        .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams:['resume', true, 'introAL.mp4', 'resumeVideoBox', 'resumeVideoBoxEnter',false,"tve"]})
         .to("", 0.1, { onStart: stopVideo })
         .staggerFrom($("#page14").children(),0.6, animationFromPattern, staggerFromVelocity)
         .to(".cita51",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=0.5")
@@ -648,11 +648,11 @@ angular.module('smcApp')
         .to("", 0.1, { onStart: updateTitle, onStartParams: [17] })
         .to("", 0.1, { onStart: updateAnec, onStartParams: [12] })
         .to("#page17",0.4,{ right: '0%', ease: Power0.easeNone})
-        .to("", 0.1, { onStart: videoPlay, onStartParams:['resume',266.5,297,295.5, true, 'RESUMENCUGATv3ESP.m4v', 'resumeVideoBox', 'resumeVideoBoxEnter',false,"tve"]})
+        .to("", 0.1, { onStart: videoPlay, onStartParams:['resume', true, 'introCB.mp4', 'resumeVideoBox', 'resumeVideoBoxEnter',false,"tve"]})
         .to("", 0.1, { onReverseComplete: stopVideo })
         .addPause()
         .to("", 0.1, { onStart: stopVideo })
-        .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams:['resume',266.5,301.5,295.5, false, 'RESUMENCUGATv3ESP.m4v', 'resumeVideoBox', 'resumeVideoBoxEnter',false,"tve"]})
+        .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams:['resume', false, 'introCB.mp4', 'resumeVideoBox', 'resumeVideoBoxEnter',false,"tve"]})
         .staggerFrom($("#page17").children(),0.6, animationFromPattern, staggerFromVelocity)
         .to(".cita60",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=0.5")
         .to("", 2, { onComplete: loadSlideContent, onCompleteParams: [13, 'play'] })
@@ -1031,32 +1031,14 @@ angular.module('smcApp')
        TweenMax.to($('#videoContainer'), 0.5, { opacity: 1, scale: scaleValue, ease: Power4.easeOut, autoRound:false });
        if( videoResource == 'tv3' ) player.src({ type: 'video/mp4', src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/'+id });
        else if( videoResource == 'tve' ) player.src({ type: 'video/mp4', src: 'http://origin-proyectos-lab-externos.rtve.es/webdocs/xavier-cugat/videos/'+id });
-       if(videoType == 'resume'){
-         player.currentTime(timer);
-         player.off('timeupdate');
-         player.breakpoint = false;
-         player.on('timeupdate', function() {
-           if (!player.breakpoint && (player.currentTime() == breakpoint-3)){
-             TweenMax.to($('#videoContainer'), 3, { opacity: 0, scale: 0, ease: Power4.easeOut, autoRound:false });
-           }
-           if (!player.breakpoint && (player.currentTime() >= breakpoint) ){
-             player.breakpoint = true;
-             if(class2 != 'videoCloudInside') stopVideo();
-             if(continueBeforeStop == true && eardAdvice ) tl.play();
-             fullScreenVideoStatus = false;
-           }
-         });
-         player.play();
-       }
-       else {
-         player.play();
-         player.on("ended", function(){
-           console.log('continue before Stop Inside ended?: ', continueBeforeStop, videoType);
-           if(continueBeforeStop == true && eardAdvice ){ tl.play(); }
-           if(boolsound == soundVolume && !changeAudio){ soundEpilogo.fade(0,soundVolume,2000); }
-           fullScreenVideoStatus = false;
-         })
-       }
+
+       player.play();
+       player.on("ended", function(){
+         console.log('continue before Stop Inside ended?: ', continueBeforeStop, videoType);
+         if(continueBeforeStop == true && eardAdvice ){ tl.play(); }
+         if(boolsound == soundVolume && !changeAudio){ soundEpilogo.fade(0,soundVolume,2000); }
+         fullScreenVideoStatus = false;
+       })
     };
 
     function stopVideo(){
