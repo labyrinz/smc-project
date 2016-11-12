@@ -37,7 +37,7 @@ angular
         'provider': 'twitter',
         'conf': {
           'url': 'http://lab.rtve.es/webdocs/xavier-cugat/',
-          'text': 'Sexo, Maracas y Chichuahuas: La increíble vida de Xavier Cugat',
+          'text': 'Sexo, Maracas y Chihuahuas: La increíble vida de Xavier Cugat',
           'via': '',
           'hashtags': 'XavierCugatRTVE',
           'trigger': 'click',

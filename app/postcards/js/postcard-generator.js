@@ -1,7 +1,8 @@
 var canvas = document.getElementById('postcardcanvas');
 ctx = canvas.getContext('2d');
+var isGenerated = true;
 
-var deviceWidth = window.innerWidth;;
+var deviceWidth = window.innerWidth;
 // canvasWidth = Math.min(680, deviceWidth-20);
 // canvasHeight = Math.min(480, deviceWidth-20);
 canvasWidth = Math.min(855, deviceWidth-20);
@@ -240,7 +241,7 @@ function doTransform() {
       wrapText(ctx, text, x, y, maxWidth, lineHeight);
 
       // Draw the text
-      var text = "lab.rtve.es/xaviercugat";
+      var text = "lab.rtve.es/webdocs/xavier-cugat";
       //text = text.toUpperCase();
       x = widthFront + 135;
       y = 295;
@@ -277,41 +278,42 @@ function doTransform() {
   );
 }
 
-function dataURItoBlob(dataURI) {
-    // convert base64/URLEncoded data component to raw binary data held in a string
-    var byteString;
-    if (dataURI.split(',')[0].indexOf('base64') >= 0)
-        byteString = atob(dataURI.split(',')[1]);
-    else
-        byteString = unescape(dataURI.split(',')[1]);
-    // separate out the mime component
-    var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
-    // write the bytes of the string to a typed array
-    var ia = new Uint8Array(byteString.length);
-    for (var i = 0; i < byteString.length; i++) {
-        ia[i] = byteString.charCodeAt(i);
+var currentImg = "";
+function postCanvasToURL(button, success, fail) {
+    //console.log("entro en postCanvasToURL")
+    var l = Ladda.create(button);
+    l.start();
+    if (!isGenerated){
+      var img = $('#postcardcanvas')[0].toDataURL("image/jpeg",0.7);
+      var byteString;
+      if (img.split(',')[0].indexOf('base64') >= 0)
+          byteString = atob(img.split(',')[1]);
+      else
+          byteString = unescape(img.split(',')[1]);
+
+      img = img.replace("data:image/jpeg;base64,", "");
+      $.ajax({
+        url: "https://55kesmchrh.execute-api.eu-west-1.amazonaws.com/beta/postcards",
+        type: 'POST',
+        data: '{"data":"'+img+'"}',
+        dataType: 'json',
+        crossDomain: true,
+        contentType: 'application/json'
+      }).done(function(result) {
+          currentImg = result.url;
+          isGenerated = true;
+          l.stop();
+          success(result.url)
+      }).fail(function(error) {
+          fail(error);
+      }).always(function(){
+          l.stop();
+      });
+
+    } else {
+      l.stop();
+      success(currentImg);
     }
-    return new Blob([ia], {type:mimeString});
-}
-
-function postCanvasToURL() {
-
-    var img = $('#postcardcanvas')[0].toDataURL();
-    var byteString;
-    if (img.split(',')[0].indexOf('base64') >= 0)
-        byteString = atob(img.split(',')[1]);
-    else
-        byteString = unescape(img.split(',')[1]);
-
-    console.log(img);
-    //console.log(byteString);
-
-    // $.ajax({
-    //   url: "https://y9iwfo2nzk.execute-api.eu-west-1.amazonaws.com/dev/",
-    //   context: document.body
-    // }).done(function() {
-    //   $( this ).addClass( "done" );
-    // });
 
 //     curl -X POST -H "Content-Type: application/json" -d '{
 //     "width": 64,
@@ -345,40 +347,37 @@ function postCanvasToURL() {
 	  // });
 }
 
-function shareOnTwitter(){
-  console.log("Sharing on twitter...");
-
-  //postCanvasToURL
-
+function getMessage(){
+  var text = "Acabo de estar en #"+city.replace(" ","")+" con #XavierCugatRTVE, ¡qué pasada! Viaja tú también en http://lab.rtve.es/webdocs/xavier-cugat #XavierCugatRTVE"
+  console.log(text)
+  return text;
 }
 
-function shareOnFacebook(){
-    // var data = $('#postcardcanvas')[0].toDataURL("image/png");
-    // try {
-    //     blob = dataURItoBlob(data);
-    // } catch (e) {
-    //     console.log(e);
-    // }
-    // FB.getLoginStatus(function (response) {
-    //     console.log(response);
-    //     if (response.status === "connected") {
-    //         postImageToFacebook(response.authResponse.accessToken, "Canvas to Facebook/Twitter", "image/png", blob, window.location.href);
-    //     } else if (response.status === "not_authorized") {
-    //         FB.login(function (response) {
-    //             postImageToFacebook(response.authResponse.accessToken, "Canvas to Facebook/Twitter", "image/png", blob, window.location.href);
-    //         }, {scope: "publish_actions"});
-    //     } else {
-    //         FB.login(function (response) {
-    //             postImageToFacebook(response.authResponse.accessToken, "Canvas to Facebook/Twitter", "image/png", blob, window.location.href);
-    //         }, {scope: "publish_actions"});
-    //     }
-    // });
+function sendTweet(){
+  // var input_msg = getMessage();
+  // var msg = "?text=" + encodeURIComponent(input_msg);
+  // var tag = encodeURIComponent(" #anl4u.com");
+  // var msg_tag = msg + tag;
+  //
+  // var width  = 575,
+  // height = 430,
+  // left   = ($(window).width()  - width)  / 2,
+  // top    = ($(window).height() - height) / 2,
+  // url    = this.value + msg_tag,
+  // opts   = 'status=1' +
+  // ',width='  + width  +
+  // ',height=' + height +
+  // ',top='    + top    +
+  // ',left='   + left;
+  //
+  // window.open(url, 'twitter', opts);
 }
-
 
 $("#generateButton").click(function(){
   console.log("generating...");
   doTransform();
+  isGenerated = false;
+  currentImg = "";
   switchStep();
 })
 
@@ -387,15 +386,56 @@ $("#editPostcard").click(function(){
 })
 
 $("#shareTwitter").click(function(){
-  console.log("share on Twitter");
-  //Acabo de estar en #LaHabana con #XavierCugatTVE, ¡qué pasada! Viaja tú también en xaviercugat.rtve.es
-  shareOnTwitter()
-})
+  console.log("share on Twitter clicked");
+  //Acabo de estar en #LaHabana con #XavierCugatTVE, ¡qué pasada! Viaja tú también en http://lab.rtve.es/webdocs/xavier-cugat #XavierCugatRTVE
+  // postCanvasToURL(this,
+  //   function(data){
+  //     console.log(data)
+  //   },
+  //   function(error){
+  //     console.log(error)
+  //   }
+  // );
+
+  X2miETg6oe4OvtTvA8qlsluY3AkgJv35glVWA7mj3B8zUOKr80
+  var img = $('#postcardcanvas')[0].toDataURL();
+  var file = dataURItoBlob(img);
+  var tweetText = $('#tweetText').text();
+  var urlInteractivo = "http://lab.rtve.es/webdocs/xavier-cugat";
+
+  OAuth.popup("twitter").then(function(result) {
+      var data = new FormData();
+      data.append('status', tweetText + " " + urlInteractivo +" #xaviercugat");
+      data.append('media[]', file, 'postcard.png');
+
+      return result.post('/1.1/statuses/update_with_media.json', {
+          data: data,
+          cache:false,
+          processData: false,
+          contentType: false
+      });
+  }).done(function(data){
+      var str = JSON.stringify(data, null, 2);
+      console.log("Success (Twitter) " + str);
+  }).fail(function(e){
+      var errorTxt = JSON.stringify(e, null, 2)
+      console.log("Error (Twitter) " + errorTxt);
+      console.log(e);
+  });
+
+});
 
 $("#shareFacebook").click(function(){
-  console.log("share on Facebook");
+  console.log("share on Facebook clicked");
   //Acabo de estar en #LaHabana con #XavierCugatTVE, ¡qué pasada! Viaja tú también en xaviercugat.rtve.es
-  shareOnFacebook()
+  postCanvasToURL(this,
+    function(data){
+      console.log(data)
+    },
+    function(error){
+      console.log(error)
+    }
+  );
 })
 
 $("#carousel-cities .carousel-control").click(function(){
@@ -412,18 +452,6 @@ $("#carousel-cities .carousel-control").click(function(){
 // Trigger the imageLoader function when a file has been selected
 //var fileInput = document.getElementById('fileInput');
 //fileInput.addEventListener('change', imageLoader, false);
-
-function imageLoader() {
-  var reader = new FileReader();
-  reader.onload = function(event) {
-    img = new Image();
-    img.onload = function(){
-      ctx.drawImage(img,0,0);
-    }
-    img.src = reader.result;
-  }
-  reader.readAsDataURL(fileInput.files[0]);
- }
 
  // Download image from canvas feature
  document.getElementById('downloadPostcard').addEventListener('click', function() {

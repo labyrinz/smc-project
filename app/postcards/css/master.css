@@ -4,6 +4,7 @@ body{
   background: #017fe0;
   color: white;
   font-family: 'Open Sans', sans-serif;
+  outline: none;
 }
 
 canvas{
@@ -91,7 +92,6 @@ textarea.form-control {
   opacity: 1;
 }
 
-
 .extraHidden{
   display: none;
 }
@@ -99,6 +99,7 @@ textarea.form-control {
 #shareTwitter, #shareFacebook{
   border-radius: 50%;
   padding: 10px 14px;
+  outline: none;
 }
 #shareFacebook{
   padding: 10px 17px;
