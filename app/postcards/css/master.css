@@ -104,3 +104,15 @@ textarea.form-control {
 #shareFacebook{
   padding: 10px 17px;
 }
+
+.modal{
+  color: #111;
+}
+
+.modal #twitterPostcard, .modal #facebookPostcard{
+  width: 100%;
+}
+
+#successMsg, #errorMsg{
+  display: none;
+}

@@ -20,6 +20,7 @@
         }
       });
     </script>
+    <script src="js/oauth.min.js"></script>
     <script src="js/spin.min.js"></script>
     <script src="js/ladda.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Open+Sans:300,400,700" rel="stylesheet">
@@ -170,8 +171,8 @@
             </p>
           </div>
           <div class="carrousel">
-            <textarea id="customText" class="form-control" onkeyup="countChar(this)">Estuve aquí y me acordé de ti.</textarea>
-            <div class="chars text-right">20</div>
+            <textarea id="customText" class="form-control" onkeyup="countChar(this,'.charsMsg')" maxlength="140">Estuve aquí y me acordé de ti.</textarea>
+            <div class="chars charsMsg text-right">20</div>
           </div>
         </div>
       </div>
@@ -223,12 +224,76 @@
         </div>
       </div>
 
-      <!--div class="row">
-        <img id="result" src="" alt="" />
-      </div-->
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1 text-center">
+          <div id="successMsg" class="alert alert-success alert-dismissible fade in" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            ¡<strong>Enhorabuena</strong>, se ha compartido tu Cuguipostal! .
+          </div>
+          <div id="errorMsg" class="alert alert-warning alert-dismissible fade in" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            ¡guau! Parece que algo no funciona bien, nuestro equipo de chihuahuas está intentando resolverlo.
+          </div>
+        </div>
+      </div>
 
       </div>
 
+    </div>
+
+    <div class="modal fade" id="twitterSharing" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Envía la postal a tus amigos en Twitter</h4>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="twitterText">Tu mensaje:</label>
+              <textarea id="twitterText" class="form-control" onkeyup="countChar(this,'.charsTwitter')" maxlength="140"></textarea>
+              <div class="chars charsTwitter text-right">20</div>
+            </div>
+            <div class="form-group">
+              <label for="twitterPostcard">Tu postal:</label>
+              <img id="twitterPostcard" src="" alt="Tu postal para enviar a Twitter" />
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            <button id="sendConfirmationTwitter" type="button" class="btn btn-primary" data-style="expand-left">¡Compartir postal en Twitter!</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="facebookSharing" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Envía la postal a tus amigos en Facebook</h4>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="facebookText">Tu mensaje:</label>
+              <textarea id="facebookText" class="form-control" maxlength="300"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="facebookPostcard">Tu postal:</label>
+              <img id="facebookPostcard" src="" alt="Tu postal para enviar a Facebook" />
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            <button id="sendConfirmationFacebook" type="button" class="btn btn-primary" data-style="expand-left">¡Compartir postal en Facebook!</button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="extraHidden">
