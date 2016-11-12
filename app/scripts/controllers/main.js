@@ -66,6 +66,7 @@ angular.module('smcApp')
     var playlistPlayer = videojs('video');
     var eardAdvice;
     var currentSlideActive = 0;
+    $("#slideVideoAbbe2").prop("volume", 0.1);
     //-----------------------
 
     session.then( function() {
@@ -161,8 +162,7 @@ angular.module('smcApp')
     }
 
     //---------------------------
-    $scope.imageSlide[0] =  imagesSlideIn[0];
-    $scope.imageSlide[1] =  imagesSlideIn[1];
+    //$scope.imageSlide[0] =  imagesSlideIn[0];
     //-----TIMELINE ---------
 
     if( !isMobile && isSafari) {
@@ -220,7 +220,7 @@ angular.module('smcApp')
         .staggerFrom(introWords, 0.6, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.2]}, ease: Back.easeOut.config(0.8)}, 0.1)
         .staggerFrom(introWordsSubtitle, 0.6, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.2]}, ease: Back.easeOut.config(0.8)}, 0.1)
         .staggerFrom(introWordsName, 0.6, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.2]}, ease: Back.easeOut.config(0.8)}, 0.1)
-        .to(".mouseIcon", 0.5, {bottom: '150px', ease: Bounce.easeOut, onComplete: updateScrollBttn})
+        .to(".mouseIcon", 0.5, {bottom: '100px', ease: Bounce.easeOut, onComplete: updateScrollBttn})
         .addPause()
         .to(".mouseIcon", 0.2, {bottom: '-150px', ease: Power0.easeOut})
         .staggerTo(introWords, 0.2, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.2]}, ease: Back.easeOut.config(0.8)}, 0.1)
@@ -239,7 +239,7 @@ angular.module('smcApp')
         .to(".ed4", 0.5, { transform: 'rotateX(0deg)', force3D:true, ease: Back.easeOut.config(1)})
         .to(".ed5", 0.5, { left: '0%', ease: Bounce.easeOut},"-=1")
         .to(".texto11",2,{ transform: 'scale(1)', opacity: '1', ease: Power4.easeOut},"+=1")
-        .to(".mouseIcon", 0.5, {bottom: '150px', ease: Bounce.easeOut, onComplete: updateScrollBttn},"+=0.5")
+        .to(".mouseIcon", 0.5, {bottom: '100px', ease: Bounce.easeOut, onComplete: updateScrollBttn},"+=0.5")
         .to(".chihuahua",0.3,{ transform: 'rotateX(0deg)',  ease: Bounce.easeOut})
         .to(".instruction-anecdota",0.3,{ transform: 'rotateX(0deg)',  ease: Bounce.easeOut})
         .to("", 0.1, { onStart: updateAnec, onStartParams: [1] })
@@ -251,13 +251,13 @@ angular.module('smcApp')
         .to(".pentagramRect",0.2,{ bottom: '1%', ease: Power0.easeNone})
         .to(".currentDetails",0.2,{ top: '0px', ease: Power0.easeNone},"-=0.2")
         .to(".claveSol",0.2,{ bottom: '0', ease: Power0.easeNone},"-=0.2")
+        .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['01-narracion-p1', false] })
         .to(".pentagramBack",0.2,{ bottom: '0%', ease: Power0.easeNone},"-=0.2")
         .to(".pentagramNotesGroup",0.2,{ bottom: '2%', ease: Power0.easeNone},"-=0.2")
         .to(".instruction-pentagram",0.3,{ transform: 'rotateX(0deg)',  ease: Bounce.easeOut})
         .to(".age1",0.3,{ transform: 'rotateX(0deg)',  ease: Bounce.easeOut})
         .staggerFrom($("#page1").children(),0.6, animationFromPattern, staggerFromVelocity)
         .to(".cita11",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=0.2")
-        .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['01-narracion-p1', false] })
         .addPause()
         .to("", 0.1, { onComplete: stopNarracion })
         .to("", 0.1, { onStart: stopVideoToolTip, onStartParams: ['slideVideoProl', 'slideVideoContainerProl', 'playButtonProl', '' ] })
@@ -283,8 +283,8 @@ angular.module('smcApp')
         .to(".ed5", 0.5, {left: '-120%', ease: Bounce.easeOut},"-=1")
         .to(".mapSvgClassTop", 2, {width: '6200px', top: '-1390px', left: '-1100px', ease: Power2.easeIn},"-=1.2")
         .to("", 0.1, { onReverseComplete: initViaje, onReverseCompleteParams: ['reverse'] })
-        .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['videoCloud',false,false,false,true,'p1clip1ESP.m4v', 'videoCloud', 'videoCloudInside',false,"tve"] })
-        .to(".mouseIcon", 0.5, {bottom: '150px', ease: Bounce.easeOut, onComplete: updateScrollBttn},"+=0.5")
+        .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['videoCloud',false,false,false,false,'p1clip1ESP.m4v', 'videoCloud', 'videoCloudInside',false,"tve"] })
+        .to(".mouseIcon", 0.5, {bottom: '100px', ease: Bounce.easeOut, onComplete: updateScrollBttn},"+=0.5")
         .to("", 0.1, { onReverseComplete: stopVideo })
         .addPause()
         .to("", 0.1, { onStart: stopVideo })
@@ -300,6 +300,7 @@ angular.module('smcApp')
         .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['videomarco',false,false,false,false,'P2Clip1.m4v', 'resumeVideoBox', 'resumeVideoBoxEnter',false,"tve"] })
         //EPISODE 4
         .add("prologo2Add")
+        .to("", 2, { onComplete: loadSlideContent, onCompleteParams: [1, 'play'] })
         .to("", 0.1, { onStart: updateTitle, onStartParams: [2] })
         .to("#page3",0.4,{ right: '0%', ease: Power0.easeNone})
         .to(".chihuahua",0.3,{ transform: 'rotateX(90deg)',  ease: Bounce.easeOut})
@@ -307,7 +308,6 @@ angular.module('smcApp')
         .to(".age2",0.3,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"-=0.3")
         .staggerFrom($("#page3").children(),0.6, animationFromPattern, staggerFromVelocity)
         .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['02-narracion-p2', false] })
-        .to("", 2, { onComplete: loadSlideContent, onCompleteParams: [1, 'play'] })
         .addPause()
         .to("", 0.1, { onComplete: stopNarracion })
         .to("", 0.1, { onStart: stopVideoToolTip, onStartParams: ['slideVideoHavana', 'slideVideoContainerHavana', 'playButtonHavana', '' ] })
@@ -343,12 +343,12 @@ angular.module('smcApp')
         .to("", 0.1, { onStart: updateTitle, onStartParams: [4] })
         .to("#page4",0.4,{ right: '100%', ease: Back.easeInOut.config(1)})
         .to("#page5",0.4,{ right: '0%', ease: Back.easeInOut.config(1)},"+=0.5")
-        .to("", 0.1, { onStart: videoPlay, onStartParams: ['resume',38.5,80,50, true, 'RESUMENCUGATv3ESP.m4v', 'resumeVideoBox', 'resumeVideoBoxEnter',false,"tve"]})
+        .to("", 0.1, { onStart: videoPlay, onStartParams: ['resume',38.5,80,94.5, true, 'RESUMENCUGATv3ESP.m4v', 'resumeVideoBox', 'resumeVideoBoxEnter',false,"tve"]})
         .to("", 0.1, { onReverseComplete: playSound, onReverseCompleteParams: [playListOrder[0]] })
         .to("", 0.1, { onReverseComplete: stopVideo })
         .to("", 2, { onStart: playSound, onStartParams: [playListOrder[1]] }, "+=2")
         .addPause()
-        .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['resume',38.5,89,55, true, 'RESUMENCUGATv3ESP.m4v', 'resumeVideoBox', 'resumeVideoBoxEnter',false,"tve"]})
+        .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['resume',38.5,89,94.5, true, 'RESUMENCUGATv3ESP.m4v', 'resumeVideoBox', 'resumeVideoBoxEnter',false,"tve"]})
         .to("", 0.1, { onStart: stopVideo })
         .staggerFrom($("#page5").children(),0.6, animationFromPattern, staggerFromVelocity)
         .to(".cita21",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=0.5")
@@ -467,7 +467,6 @@ angular.module('smcApp')
         .staggerTo($("#page8").children(),0.6, animationToPattern, staggerToVelocity)
         .to("#page8",0.4,{ right: '100%', ease: Back.easeInOut.config(1)})
         .to("", 0.1, { onReverseComplete: updateTitle, onReverseCompleteParams: [8] })
-        .to("", 2, { onComplete: loadSlideContent, onCompleteParams: [6, 'play'] })
         //EPISODE 10
         .add("CC3")
         .to("", 0.1, { onStart: updateTitle, onStartParams: [9] })
@@ -475,6 +474,7 @@ angular.module('smcApp')
         .to("#page9",0.4,{ right: '0%', ease: Back.easeInOut.config(1)})
         .staggerFrom($("#page9").children(),0.6, animationFromPattern, staggerFromVelocity)
         .to(".cita91",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1")
+        .to("", 2, { onComplete: loadSlideContent, onCompleteParams: [6, 'play'] })
         .addPause()
         .staggerTo($("#page9").children(),0.6, animationToPattern, staggerToVelocity)
         .to("#page9",0.4,{ right: '100%', ease: Back.easeInOut.config(1)})
@@ -585,7 +585,7 @@ angular.module('smcApp')
         .to(".lasv7", 0.3, {opacity: '1', ease: Back.easeOut.config(1)})
         .to(".lasv8", 0.3, {opacity: '1', ease: Back.easeOut.config(1)})
         .to(".lasv9", 0.3, {opacity: '1', ease: Back.easeOut.config(1)})
-        .to("", 0.1, { onStart: videoPlay, onStartParams:['resume',189,200,200, true, 'RESUMENCUGATv3ESP.m4v', 'resumeVideoBox', 'resumeVideoBoxEnter',false,"tve"]})
+        .to("", 0.1, { onStart: videoPlay, onStartParams:['resume',189.5,200,199.5, true, 'RESUMENCUGATv3ESP.m4v', 'resumeVideoBox', 'resumeVideoBoxEnter',false,"tve"]})
         .to("", 0.1, { onReverseComplete: stopVideo})
         .addPause()
         .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams:['resume',189,200,200, true, 'RESUMENCUGATv3ESP.m4v', 'resumeVideoBox', 'resumeVideoBoxEnter',false,"tve"]})
@@ -643,11 +643,11 @@ angular.module('smcApp')
         .to("", 0.1, { onStart: updateTitle, onStartParams: [17] })
         .to("", 0.1, { onStart: updateAnec, onStartParams: [12] })
         .to("#page17",0.4,{ right: '0%', ease: Power0.easeNone})
-        .to("", 0.1, { onStart: videoPlay, onStartParams:['resume',266.5,297,297, true, 'RESUMENCUGATv3ESP.m4v', 'resumeVideoBox', 'resumeVideoBoxEnter',false,"tve"]})
+        .to("", 0.1, { onStart: videoPlay, onStartParams:['resume',266.5,297,295.5, true, 'RESUMENCUGATv3ESP.m4v', 'resumeVideoBox', 'resumeVideoBoxEnter',false,"tve"]})
         .to("", 0.1, { onReverseComplete: stopVideo })
         .addPause()
         .to("", 0.1, { onStart: stopVideo })
-        .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams:['resume',266.5,301.5,301.5, false, 'RESUMENCUGATv3ESP.m4v', 'resumeVideoBox', 'resumeVideoBoxEnter',false,"tve"]})
+        .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams:['resume',266.5,301.5,295.5, false, 'RESUMENCUGATv3ESP.m4v', 'resumeVideoBox', 'resumeVideoBoxEnter',false,"tve"]})
         .staggerFrom($("#page17").children(),0.6, animationFromPattern, staggerFromVelocity)
         .to(".cita60",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=0.5")
         .to("", 2, { onComplete: loadSlideContent, onCompleteParams: [13, 'play'] })
@@ -986,23 +986,34 @@ angular.module('smcApp')
       TweenMax.set($('#'+playButton), {opacity: 1});
       TweenMax.set($('#'+fullScreenButton), {opacity: 0});
       currentVideoSlidePlaying = undefined;
-    }
+    };
     $scope.fullScreenVideoSlide = function(id, style){
       TweenMax.set($('#'+id), {left: ''});
       //$('#'+id).css("right",'');
       if($("#"+id).hasClass( style )) $("#"+id).removeClass(style);
       else $("#"+id).addClass(style);
-    }
+    };
+
+    $scope.resizeVideoCloud = function(){
+      if($("#videoGeneral").hasClass( 'videoCloud' ) ) {
+        if($("#videoGeneral").hasClass( 'videoCloudFull' )) $("#videoGeneral").removeClass('videoCloudFull');
+        else $("#videoGeneral").addClass('videoCloudFull');
+      }
+      if($("#videoGeneral").hasClass( 'videoCloud2' ) ) {
+        if($("#videoGeneral").hasClass( 'videoCloud2Full' )) $("#videoGeneral").removeClass('videoCloud2Full');
+        else $("#videoGeneral").addClass('videoCloud2Full');
+      }
+    };
 
     function videoPlay(videoType, timer, duration, breakpoint, continueBeforeStop, id, class1, class2, changeAudio, videoResource){
        fullScreenVideoStatus = true;
        if(!player.paused()) player.pause();
        if(class1 == 'resumeVideoBox') TweenMax.set($('#videoContainer'), {zIndex: 999}); //$('#videoContainer').css("z-index", 999);
        else TweenMax.set($('#videoContainer'), {zIndex: ''}); //$('#videoContainer').css("z-index", "");
-       $('#videoGeneral').removeClass('videoClass fullScreenVideo resumeVideoBox videoCloud videoCloud2');
-       if(class1 == 'videoCloud') { var scaleValue = 0.6; $('#burbleBig').addClass('burbleBig'); $('#burbleMed').addClass('burbleMed'); $('#burbleSmall').addClass('burbleSmall'); }
-       else if(class1 == 'videoCloud2') { var scaleValue = 0.6; $('#burbleBig').addClass('burbleBig2'); $('#burbleMed').addClass('burbleMed2'); $('#burbleSmall').addClass('burbleSmall2'); }
-       else var scaleValue = 1;
+       $('#videoGeneral').removeClass('videoClass fullScreenVideo resumeVideoBox videoCloud videoCloud2 videoCloudFull videoCloud2Full');
+       if(class1 == 'videoCloud') { var scaleValue = 0.6; $('#burbleBig').addClass('burbleBig'); $('#burbleMed').addClass('burbleMed'); $('#burbleSmall').addClass('burbleSmall'); $(".resizeMeButton").css('display', 'block'); }
+       else if(class1 == 'videoCloud2') { var scaleValue = 0.6; $('#burbleBig').addClass('burbleBig2'); $('#burbleMed').addClass('burbleMed2'); $('#burbleSmall').addClass('burbleSmall2'); $(".resizeMeButton").css('display', 'block'); }
+       else { var scaleValue = 1; $(".resizeMeButton").css('display', 'none'); }
        if(boolsound == soundVolume && soundEpilogo.volume() > 0) soundEpilogo.fade(soundVolume,0,1000);
        else soundEpilogo.volume(0);
        if(boolsound == soundVolume && soundNarracion.volume() > 0) soundNarracion.fade(soundVolume,0,1000);

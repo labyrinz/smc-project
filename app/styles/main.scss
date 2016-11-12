@@ -958,8 +958,23 @@ body, html{
   overflow: hidden;
   border-radius: 1000px;
   border: solid 10px white;
-  //  -webkit-clip-path: polygon(74px 113px,38px 135px,10px 171px,5px 207px,11px 234px,32px 262px,66px 303px,99px 315px,132px 318px,152px 313px,162px 340px,184px 378px,213px 400px,238px 414px,378px 416px,582px 420px,745px 415px,782px 395px,800px 374px,807px 339px,841px 327px,891px 300px,932px 269px,944px 245px,942px 208px,933px 188px,919px 165px,893px 145px,847px 126px,822px 120px,800px 77px,710px 36px,631px 12px,548px 6px,417px 5px,300px 4px,213px 20px,148px 49px,119px 76px,96px 115px);
+  -webkit-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+  -moz-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+  -o-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+  transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
 }
+.videoCloudFull {
+   width: 100%;
+   height: 100%;
+   top: -40%;
+   right: -30%;
+   z-index: 999;
+   border-radius: 160px;
+  -webkit-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+  -moz-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+  -o-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+  transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+ }
 .videoCloud2{
   width: 50%;
   height: 50%;
@@ -970,7 +985,20 @@ body, html{
   overflow: hidden;
   border-radius: 1000px;
   border: solid 10px white;
-  //  -webkit-clip-path: polygon(74px 113px,38px 135px,10px 171px,5px 207px,11px 234px,32px 262px,66px 303px,99px 315px,132px 318px,152px 313px,162px 340px,184px 378px,213px 400px,238px 414px,378px 416px,582px 420px,745px 415px,782px 395px,800px 374px,807px 339px,841px 327px,891px 300px,932px 269px,944px 245px,942px 208px,933px 188px,919px 165px,893px 145px,847px 126px,822px 120px,800px 77px,710px 36px,631px 12px,548px 6px,417px 5px,300px 4px,213px 20px,148px 49px,119px 76px,96px 115px);
+  -webkit-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+  -moz-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+  -o-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+  transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+}
+.videoCloud2Full {
+  width: 100%;
+  height: 100%;
+  border-radius: 160px;
+  z-index: 999;
+  -webkit-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+  -moz-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+  -o-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+  transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
 }
 .burbleBig{
   height: 80px;
@@ -1045,6 +1073,21 @@ body, html{
   -moz-transform: scale(0);
   -o-transform: scale(0);
   transform: scale(0);
+}
+.resizeMeButton{
+  cursor: pointer;
+  display: none;
+  width: 80px;
+  height: 80px;
+  background: transparent url(../images/fullScreen.png) no-repeat center center;
+  content: '';
+  position: absolute;
+  right: 10px;
+  bottom: 50px;
+  opacity: 1;
+  background-size: 30px 30px;
+  -webkit-transition: opacity 0.2s;
+  transition: opacity 0.2s;
 }
 //--------------------------------
 //-----DINAMYC TEXT --------------
