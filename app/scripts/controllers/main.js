@@ -92,23 +92,23 @@ angular.module('smcApp')
     var playListOrder = ['BeginTheBeguine','ElManisero','TICOTICO','Siboney','MyShawl','JungleRhumba','perfidia','QuizasQuizasQuizas','ParaVigomevoy','YoTeAmoMucho','Tabu'];
 
     var imagesSlideOut = [
-      {image1: 'null', image2: 'null', image3: 'null'},
-      {image1: 'null', image2: 'null', image3: 'null', video1: 'null'},
-      {image1: 'null', image2: 'null', video1: 'null'},
-      {image1: 'null', image2: 'null', image3: 'null'},
-      {image1: 'null', image2: 'null', image3: 'null', image4: 'null'},
-      {image1: 'null', image2: 'null', image3: 'null'},
-      {image1: 'null', image2: 'null', image3: 'null', video1: 'null'},
-      {image1: 'null', image2: 'null'},
-      {image1: 'null', image2: 'null', image3: 'null', image4: 'null', video1: 'null'},
-      {image1: 'null', image2: 'null', image3: 'null', image4: 'null'},
-      {image1: 'null', image2: 'null', image3: 'null', video1: 'null', video2: 'null'},
-      {image1: 'null', image2: 'null', image3: 'null', image4: 'null', image5: 'null', video1: 'null'},
-      {image1: 'null', image2: 'null', image3: 'null', image4: 'null', image5: 'null', image6: 'null'},
-      {image1: 'null', image2: 'null'},
-      {image1: 'null', image2: 'null'},
-      {image1: 'null', image2: 'null', image3: 'null', image4: 'null', image5: 'null', image6: 'null'},
-      {image1: 'null'}
+      {image1: '', image2: '', image3: ''},
+      {image1: '', image2: '', image3: '', video1: ''},
+      {image1: '', image2: '', video1: ''},
+      {image1: '', image2: '', image3: ''},
+      {image1: '', image2: '', image3: '', image4: ''},
+      {image1: '', image2: '', image3: ''},
+      {image1: '', image2: '', image3: '', video1: ''},
+      {image1: '', image2: ''},
+      {image1: '', image2: '', image3: '', image4: '', video1: ''},
+      {image1: '', image2: '', image3: '', image4: ''},
+      {image1: '', image2: '', image3: '', video1: '', video2: ''},
+      {image1: '', image2: '', image3: '', image4: '', image5: '', video1: ''},
+      {image1: '', image2: '', image3: '', image4: '', image5: '', image6: ''},
+      {image1: '', image2: ''},
+      {image1: '', image2: ''},
+      {image1: '', image2: '', image3: '', image4: '', image5: '', image6: ''},
+      {image1: ''}
     ];
 
     var imagesSlideIn = [
@@ -165,7 +165,7 @@ angular.module('smcApp')
     //$scope.imageSlide[0] =  imagesSlideIn[0];
     //-----TIMELINE ---------
 
-    if( !isMobile && isSafari) {
+    if( !isMobile ) {
       console.log('version pc');
 
       totalWords[12] = $scope.CatText.cita12Plus.split(" ");
@@ -183,14 +183,14 @@ angular.module('smcApp')
       //----SOUND TRACKS -----
 
       var soundEpilogo = new Howl({
-        urls: [],
+        urls: ['audio/TICOTICO.mp3'],
         autoplay: false,
         loop: true,
         volume: 0
       });
 
       var soundNarracion = new Howl({
-        urls: [],
+        urls: ['audio/loc/01-narracion-p1.mp3'],
         autoplay: false,
         loop: true,
         volume: 0
@@ -1287,7 +1287,7 @@ angular.module('smcApp')
         TweenMax.to('.additional', 0.2, {opacity: 0, scale:0, ease:Back.easeOut, autoRound:false});
         if(event.type != 'mousedown'){
           if (event.originalEvent.wheelDelta > 0 || event.originalEvent.detail < 0) {
-            if( !isMobile && isSafari && eardAdvice ) tl.reverse();
+            if( !isMobile && eardAdvice ) tl.reverse();
             else{
               if(page > 0) {
                 var prevPage = page - 1;
@@ -1299,7 +1299,7 @@ angular.module('smcApp')
             }
           }
           else {
-            if( !isMobile && isSafari && eardAdvice ) tl.play();
+            if( !isMobile && eardAdvice ) tl.play();
             else{
               if(page < 21) {
                 var nextPage = page + 1;
@@ -1343,7 +1343,7 @@ angular.module('smcApp')
     //--------TOUCH CONTROLS------
 
     $(document).on("swipeleft",function(){
-      if( !isMobile && isSafari && eardAdvice ) tl.play();
+      if( !isMobile && eardAdvice ) tl.play();
       else {
         if (page < 21) {
           var nextPage = page + 1;
@@ -1356,7 +1356,7 @@ angular.module('smcApp')
       }
     });
     $(document).on("swiperight",function(){
-      if( !isMobile && isSafari && eardAdvice ) tl.reverse();
+      if( !isMobile && eardAdvice ) tl.reverse();
       else{
         if(page > 0) {
           var prevPage = page -1;
@@ -1369,6 +1369,7 @@ angular.module('smcApp')
       }
     });
     $scope.startWebDoc = function(){
+      console.log('inicia webDoc');
        $("#eardAdviceId").addClass('hideEardAdvise');
        setTimeout(function(){
          $("#eardAdviceId").css('display', 'none');
