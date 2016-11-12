@@ -83,7 +83,7 @@ var languajeSP = {
  'la8': "Otro cartel de 'Escuela de sirenas', George Sidney, 1944.",
  'la10': 'Cartel de "En una isla contigo". Richard Thorpe, 1948.',
  'la6': "En 1940 graba, con el cantante Miguelito Valdés, la canción ‘Perfidia’, que se convertiría en un gran éxito.",
- 'al12': "Cuando se casa por cuarta vez, Cugat ya tiene 52 años, mientras que ella tiene 20. Su verdadero nombre.",
+ 'al12': "Cuando se casa por cuarta vez, Cugat ya tiene 52 años, mientras que ella tiene 20.",
  'al23': "“Abbe Lane tenía una gran personalidad. A pesar de no ser latina, en Italia la llamaban ‘la reina del cha-cha-chá’. Era bonita, sexy y simpática”.",
  'al24': "“Su familia era muy modesta, casi pobre. Los padres, su hermano y ella dormían en un solo cuarto. La empecé a vestir a mi gusto y fue progresando con gran rapidez”",
  'al26': "“Hoy se acerca a los 50 [actualmente, Abbe Lane tiene 83 años] y gana entre 35.000 y 40.000 dólares a la semana en Las Vegas, aún con el nombre que adquirió viajando como una trotamundos con mi espectáculo”.",
