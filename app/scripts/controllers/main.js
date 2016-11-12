@@ -66,11 +66,32 @@ angular.module('smcApp')
     var playlistPlayer = videojs('video');
     var eardAdvice;
     var currentSlideActive = 0;
+
     $("#slideVideoAbbe2").prop("volume", 0.1);
+    $("#slideVideoAB2").prop("volume", 1);
     $("#videoGeneral").hover(function(){
       $('.resizeMeButton').css("opacity", "1");
     }, function(){
       $('.resizeMeButton').css("opacity", "0.3");
+    });
+    $("#videoToolTipAB2").hover(function(){
+      $('#videoToolTipContentAB2').css("opacity", "1");
+      $('#videoToolTipContentAB2').css("transform", "scale(1)");
+    }, function(){
+      if(!$("#videoToolTipContentAB2").hasClass( 'tooltipVideoFixed' )){
+        $('#videoToolTipContentAB2').css("opacity", "0");
+        $('#videoToolTipContentAB2').css("transform", "scale(0)");
+      }
+    });
+    $("#videoToolTipCC2").hover(function(){
+      $('#videoToolTipContentCC2').css("opacity", "1");
+      $('#videoToolTipContentCC2').css("transform", "scale(1)");
+    }, function(){
+      if(!$("#videoToolTipContentCC2").hasClass( 'tooltipVideoFixed' )){
+        $('#videoToolTipContentCC2').css("opacity", "0");
+        $('#videoToolTipContentCC2').css("transform", "scale(0)");
+        $('#videoToolTipContentCC2').removeClass('tooltipVideoFixed');
+      }
     });
     //-----------------------
 
@@ -577,6 +598,7 @@ angular.module('smcApp')
         .to("", 0.1, { onReverseComplete: playSound, onReverseCompleteParams: [playListOrder[6]] })
         //EPISODE 15
         .add("AL1")
+        .to("", 0.1, { onStart: videoPlay, onStartParams:['resume', true, 'introAL.mp4', 'resumeVideoBox', 'resumeVideoBoxEnter',false,"local"]})
         .to("", 0.1, { onStart: updateTitle, onStartParams: [14] })
         .to("", 0.1, { onStart: playSound, onStartParams:[playListOrder[7]]})
         .to("#page14",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
@@ -590,7 +612,6 @@ angular.module('smcApp')
         .to(".lasv7", 0.3, {opacity: '1', ease: Back.easeOut.config(1)})
         .to(".lasv8", 0.3, {opacity: '1', ease: Back.easeOut.config(1)})
         .to(".lasv9", 0.3, {opacity: '1', ease: Back.easeOut.config(1)})
-        .to("", 0.1, { onStart: videoPlay, onStartParams:['resume', true, 'introAL.mp4', 'resumeVideoBox', 'resumeVideoBoxEnter',false,"local"]})
         .to("", 0.1, { onReverseComplete: stopVideo})
         .addPause()
         .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams:['resume', true, 'introAL.mp4', 'resumeVideoBox', 'resumeVideoBoxEnter',false,"local"]})
@@ -668,7 +689,7 @@ angular.module('smcApp')
         .to("", 0.1, { onStart: updateAnec, onStartParams: [15] })
         .staggerFrom($("#page18").children(),0.6, animationFromPattern, staggerFromVelocity)
         .to(".cita61",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut})
-        .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['resume',false,'charo2.mp4', 'videoCloud', 'videoCloudInside',false,"tve"] })
+        .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['resume',false,'charo2.mp4', 'videoCloud', 'videoCloudInside',false,"local"] })
         .to("", 0.1, { onReverseComplete: stopVideo })
         .to("", 2, { onComplete: loadSlideContent, onCompleteParams: [14, 'play'] })
         .addPause()
@@ -678,7 +699,7 @@ angular.module('smcApp')
         .addPause()
         .to("", 0.1, { onComplete: stopNarracion })
         .to(".mouseIcon", 0.2, {bottom: '-150px', ease: Power0.easeOut})
-        .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['resume',false,'charo2.mp4', 'videoCloud', 'videoCloudInside',false,"tve"] })
+        .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['resume',false,'charo2.mp4', 'videoCloud', 'videoCloudInside',false,"local"] })
         .staggerTo($("#page18").children(),0.6, animationToPattern, staggerToVelocity)
         .to(".blurEffect8",0.2,{ filter: 'blur(0px)',webkitFilter: 'blur(0px)', ease: Power0.easeNone})
         .to(".lasv8", 0.3, {opacity: '0', ease: Back.easeOut.config(1)},"+=1")
@@ -794,7 +815,7 @@ angular.module('smcApp')
       if(value==undefined) var desp = '-110%';
       else var desp = '-'+value;
       var firstPhoto = $('.slideimg'+id).first();
-      TweenMax.to(firstPhoto, 0.05, {left: desp, repeatDelay:0.05, autoRound:false, repeat:1, yoyo:true, onRepeat:function(){$('#fotoGroup'+id).append(firstPhoto); if(firstPhoto[0].childNodes[1].id) {  if(videoCardToogleSound == 0) { $("#"+firstPhoto[0].childNodes[1].id).get(0).play();} };}, ease: Power4.easeOut});
+      TweenMax.to(firstPhoto, 0.05, {left: desp, repeatDelay:0.05, autoRound:false, repeat:1, yoyo:true, onRepeat:function(){$('#fotoGroup'+id).append(firstPhoto);}, ease: Power4.easeOut});
     };
 
     $scope.nextFoto = function(id, value){
@@ -804,7 +825,7 @@ angular.module('smcApp')
       else var desp = value;
       var firstPhoto = $('.slideimg'+id).last();
       firstPhoto.attr('autoplay','autoplay');
-      TweenMax.to(firstPhoto, 0.05, {left: desp, repeatDelay:0.05, autoRound:false, repeat:1, yoyo:true, onRepeat:function(){$('#fotoGroup'+id).prepend(firstPhoto); if(firstPhoto[0].childNodes[1].id) {  if(videoCardToogleSound == 0) { $("#"+firstPhoto[0].childNodes[1].id).get(0).play();} };}, ease: Power4.easeOut});
+      TweenMax.to(firstPhoto, 0.05, {left: desp, repeatDelay:0.05, autoRound:false, repeat:1, yoyo:true, onRepeat:function(){$('#fotoGroup'+id).prepend(firstPhoto);}, ease: Power4.easeOut});
 
     };
 
@@ -941,19 +962,13 @@ angular.module('smcApp')
       currentVideoSlidePlaying = { ID: id, conto: container, playB: playButton, fullS: fullScreenButton };
       TweenMax.set($('#'+container), {left: ''});
       TweenMax.set($('#'+container), {right: ''});
+      if( !player.paused() ) player.pause();
       if( $("#"+id).get(0).paused ) {
         videoCardToogleSound = 0;
         if(boolsound == soundVolume && soundEpilogo.volume() > 0 ) soundEpilogo.fade(soundVolume,0.01,2000);
         if(boolsound == soundVolume && soundNarracion.volume() > 0 ) soundNarracion.fade(soundVolume,0.01,2000);
-        if( id=='slideVideoCC2') {
-          $("#videoToolTipContent").css( "opacity", "1" );
-          $("#toolTipText").css( "transform", "scale(1)" );
-          $("#toolTipInner").css( "transform", "translate3d(0,0,0)" );
-        }
-        if( id=='slideVideoAB2' ) {
-          $("#videoToolTipContentAB2").css( "opacity", "1" );
-          $("#toolTipTextAB2").css( "transform", "scale(1)" );
-          $("#toolTipInnerAB2").css( "transform", "translate3d(0,0,0)" );
+        if( id=='slideVideoAB2' || id=='slideVideoCC2' ) {
+          $('#'+container).addClass('tooltipVideoFixed');
         }
         $("#"+id).get(0).play();
         TweenMax.set($('#'+playButton), {opacity: 0});
@@ -965,15 +980,8 @@ angular.module('smcApp')
         $("#"+id).get(0).pause();
         TweenMax.set($('#'+playButton), {opacity: 1});
         TweenMax.set($('#'+fullScreenButton), {opacity: 0});
-        if( id=='slideVideoCC2' ) {
-          $("#videoToolTipContent").css( "opacity", "" );
-          $("#toolTipText").css( "transform", "" );
-          $("#toolTipInner").css( "transform", "" );
-        }
-        if( id=='slideVideoAB2' ) {
-          $("#videoToolTipContentAB2").css( "opacity", "" );
-          $("#toolTipTextAB2").css( "transform", "" );
-          $("#toolTipInnerAB2").css( "transform", "" );
+        if( id=='slideVideoAB2' || id=='slideVideoCC2' ) {
+          $('#'+container).removeClass('tooltipVideoFixed');
         }
       }
       $("#"+id).on("ended", function() {
@@ -984,13 +992,8 @@ angular.module('smcApp')
     };
     function stopVideoToolTip(id, container, playButton, fullScreenButton){
       $("#"+id).get(0).pause();
-      $("#videoToolTipContent").css( "opacity", "" );
-      $("#toolTipText").css( "transform", "" );
-      $("#toolTipInner").css( "transform", "" );
-      $("#videoToolTipContentAB2").css( "opacity", "" );
-      $("#toolTipTextAB2").css( "transform", "" );
-      $("#toolTipInnerAB2").css( "transform", "" );
-      $('#'+container).removeClass("videoSlideResizeOut videoSlideResize");
+      $('#'+container).removeClass("videoSlideResizeOut videoSlideResize tooltipVideoFixed");
+      if( player.paused() ) player.play();
       videoCardToogleSound = 1;
       if(boolsound == soundVolume && soundEpilogo.volume() > 0 ) soundEpilogo.fade(0.01, soundVolume,2000);
       if(boolsound == soundVolume && soundNarracion.volume() > 0 ) soundNarracion.fade(0.01, soundVolume,2000);
@@ -999,10 +1002,11 @@ angular.module('smcApp')
       currentVideoSlidePlaying = undefined;
     };
     $scope.fullScreenVideoSlide = function(id, style){
+      console.log(id, style);
       TweenMax.set($('#'+id), {left: ''});
       //$('#'+id).css("right",'');
-      if($("#"+id).hasClass( style )) $("#"+id).removeClass(style);
-      else $("#"+id).addClass(style);
+      if($("#"+id).hasClass( style )) { $("#"+id).removeClass(style);  setTimeout(function(){ $(".contextualVideoSlide").css('z-index', '') },500); }
+      else { $("#"+id).addClass(style); $(".contextualVideoSlide").css('z-index', '999'); }
     };
 
     $scope.resizeVideoCloud = function(){

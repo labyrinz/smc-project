@@ -419,21 +419,16 @@
           <img ng-click="nextFoto('62','110%')" class="arrowNext arrowNext3" src="images/arrow-left-3.svg"/>
         </div>
       </div>
-      <div class="contextual2">
-        <a id="videoToolTip" class="tooltip" href="#" onclick="return false;">
-          <img src="images/more-button.svg" alt="" class="infoIcon"/>
-            <span id="videoToolTipContent" class="tooltip-content">
-              <span id="toolTipText" class="tooltip-text">
-                <span id="toolTipInner" class="tooltip-inner" style="padding: 145px 80px;">
-                    <div id="slideVideoContainerCC2" class="ContextualVideo videoPlay" style="background: black">
-                    <video id="slideVideoCC2" width="100%" height="100%" class="vid">
-                      <source src="videos/cc2Clip2.mp4" type="video/mp4">
-                    </video>
-                    <div id="playButtonCC2" class="playButton" ng-click="playVideoSlide('slideVideoCC2', 'slideVideoContainerCC2', 'playButtonCC2', '')"></div>
-                  </div>
-                </span>
-              </span>
-            </span>
+      <div class="contextualVideoSlide">
+        <a id="videoToolTipCC2" class="tooltipVideo" href="#" onclick="return false;">
+          <img id="tooltipImageCC2" src="images/more-button.svg" alt="" class="infoIcon"/>
+          <div id="videoToolTipContentCC2" class="tooltipNormalSize">
+            <video id="slideVideoCC2" width="100%" height="100%" class="vid">
+              <source src="videos/cc2clip2.mp4" type="video/mp4">
+            </video>
+            <div id="playButtonCC2" class="playButton" ng-click="playVideoSlide('slideVideoCC2', 'videoToolTipContentCC2', 'playButtonCC2', 'fullScreenButtonCC2')"></div>
+            <div id="fullScreenButtonCC2" class="fullScreenButton" ng-click="fullScreenVideoSlide('videoToolTipContentCC2', 'tooltipFullSize')"></div>
+          </div>
         </a>
       </div>
     </div>
@@ -612,22 +607,16 @@
           <img ng-click="nextFoto('73')" class="arrowNext arrowNext2" src="images/arrow-left-3.svg"/>
         </div>
       </div>
-      <div class="contextual2">
-        <a id="videoToolTipAB2" class="tooltip" href="#" onclick="return false;">
-          <img src="images/more-button.svg" alt="" class="infoIcon"/>
-            <span id="videoToolTipContentAB2" class="tooltip-content">
-              <span id="toolTipTextAB2" class="tooltip-text">
-                <span id="toolTipInnerAB2" class="tooltip-inner" style="padding: 145px 80px;">
-                    <div id="slideVideoContainerAB2" class="ContextualVideo videoPlay" style="background: black">
-                      <video id="slideVideoAB2" width="100%" height="100%" class="vid">
-                        <source src="http://origin-proyectos-lab-externos.rtve.es/webdocs/xavier-cugat/videos/Cugat3ragos-Mafia.mp4" type="video/mp4">
-                      </video>
-                      <div id="playButtonAB2" class="playButton" ng-click="playVideoSlide('slideVideoAB2', 'slideVideoContainerAB2', 'playButtonAB2', '')"></div>
-                      <div id="fullScreenButtonAB2" class="fullScreenButton" ng-click="fullScreenVideoSlide('slideVideoContainerAB2', 'videoSlideResize')"></div>
-                    </div>
-                </span>
-              </span>
-            </span>
+      <div class="contextualVideoSlide">
+        <a id="videoToolTipAB2" class="tooltipVideo" href="#" onclick="return false;">
+          <img id="tooltipImage" src="images/more-button.svg" alt="" class="infoIcon"/>
+           <div id="videoToolTipContentAB2" class="tooltipNormalSize">
+              <video id="slideVideoAB2" width="100%" height="100%" class="vid">
+                <source src="http://origin-proyectos-lab-externos.rtve.es/webdocs/xavier-cugat/videos/Cugat3ragos-Mafia.mp4" type="video/mp4">
+              </video>
+              <div id="playButtonAB2" class="playButton" ng-click="playVideoSlide('slideVideoAB2', 'videoToolTipContentAB2', 'playButtonAB2', 'fullScreenButtonAB2')"></div>
+              <div id="fullScreenButtonAB2" class="fullScreenButton" ng-click="fullScreenVideoSlide('videoToolTipContentAB2', 'tooltipFullSize')"></div>
+           </div>
         </a>
       </div>
       <div class="cita5 cita53"> {{ CatText.cita53 }} <span id="cita53suma"></span><span class="plusInfoCita" value="53">[+]</span></div>
