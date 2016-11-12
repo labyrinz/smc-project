@@ -1,14 +1,15 @@
 <div id="eardAdviceId" class="eardAdvice">
-  <div class="chihuahua">
-    <img src="images/king-of-rumba.png" alt="" />
-  </div>
   <div class="eardAdviceText">
+    <div class="chihuahua">
+      <img src="images/king-of-rumba.png" alt="" />
+    </div>
     <div class="headphonesIcon">
       <i class="fa fa-headphones" aria-hidden="true"></i>
     </div>
     Te ecomendamos el uso de auriculares para disfrutar de una experiencia completa.
+    <div class="eardAdviceBoton" ng-click="startWebDoc()"> Continuar </div>
   </div>
-  <div class="eardAdviceBoton" ng-click="startWebDoc()"> Continuar </div>
+
 </div>
 <div id="mainContainer">
   <div class="container">
@@ -763,18 +764,32 @@
       </div>
     </div>
     <div id="page21" class="back color0 page21">
-      <div class="video-holder centered">
+      <!--div class="video-holder centered">
         <video id="video" class="video-js vjs-default-skin vjs-big-play-centered"
                      controls preload="auto" width="60%" height=""
                      data-setup='{"techOrder": ["html5", "flash", "youtube"], "languages":{"es":{"Now Playing":"Reproducir ahora", "Up Next":"siguiente vídeo"}}}'
                      poster="images/poster.jpg">
         </video>
-        <div class="playlist-components">
-          <div class="playlist vjs-playlist">
-            <!--ul></ul-->
-          </div>
+        <div class="playlist-container  preview-player-dimensions vjs-fluid">
+          <ol class="vjs-playlist"></ol>
         </div>
+      </div-->
+      <div class="flex-container">
+        <section class="main-preview-player video-holder centered">
+          <!--video id="preview-player" class="video-js vjs-fluid" controls preload="auto" crossorigin="anonymous">
+            <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
+          </video-->
+          <video id="video" class="video-js vjs-default-skin vjs-big-play-centered"
+                       controls preload="auto" crossorigin="anonymous" width="60%" height=""
+                       data-setup='{"techOrder": ["html5", "flash", "youtube"], "languages":{"es":{"Now Playing":"Reproducir ahora", "Up Next":"Siguiente vídeo"}}}'
+                       poster="images/king-of-rumba.png">
+          </video>
+          <div class="playlist-container  preview-player-dimensions vjs-fluid">
+            <ol class="vjs-playlist"></ol>
+          </div>
+        </section>
       </div>
+
     </div>
 
   </div>
