@@ -1243,6 +1243,14 @@ body, html{
   left:0;
   opacity: 0;
 }
+.ed1Dev{
+   width: 110%;
+   height: 100%;
+   position: absolute;
+   top: 0;
+   left:0;
+   opacity: 1;
+ }
 //.ed2{
 //  width: 110%;
 //  height: 100%;
@@ -1308,6 +1316,14 @@ body, html{
   -o-transform-origin: 0% 0%;
   transform-origin: 0% 0%;
 }
+.cub1Dev{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 1;
+}
 .ny1, .ny2, .ny3, .ny4{
   position: absolute;
   top:-150%;
@@ -1342,6 +1358,14 @@ body, html{
   -o-transform-origin: 100% 60%;
   transform-origin: 100% 60%;
 }
+.nyDev{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 1;
+}
 .ber1{
   position: absolute;
   top:0;
@@ -1358,6 +1382,14 @@ body, html{
   -ms-transform-origin: 0% 0%;
   -o-transform-origin: 0% 0%;
   transform-origin: 0% 0%;
+}
+.ber1Dev{
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
 }
 .carn1{
   position: absolute;
@@ -1403,6 +1435,14 @@ body, html{
   width: 100%;
   height: 170%;
 }
+.carn1Dev{
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity:0;
+}
 .holly1, .holly2, .holly3, .holly4{
   width: 100%;
   height: 100%;
@@ -1442,6 +1482,14 @@ body, html{
   left: 0;
   opacity: 0;
 }
+.holly1Dev{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0%;
+  left: 0;
+  opacity: 0;
+}
 .chi1{
   position: absolute;
   top:0;
@@ -1471,6 +1519,14 @@ body, html{
   left: 150%;
   width: 100%;
   height: 100%;
+}
+.chi1Dev{
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
 }
 .lasv1, .lasv6, .lasv7, .lasv8, .lasv9{
   width: 100%;
@@ -1964,7 +2020,7 @@ img.infoAdvice{
 .p31Video{
   position: absolute;
   top: 20%;
-  right: 55%;
+  left: 15%;
   margin: auto;
   z-index: 991;
   width: 30%;

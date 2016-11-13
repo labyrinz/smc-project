@@ -15,7 +15,8 @@ angular
     'ngRoute',
     'ngSanitize',
     '720kb.socialshare',
-    'ngTouch'
+    'ngTouch',
+    'ng.deviceDetector'
   ])
   .config(function ($routeProvider) {
     $routeProvider
