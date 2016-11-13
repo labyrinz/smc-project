@@ -35,7 +35,7 @@
   <body ng-app="smcApp">
     <div ng-view=""></div>
     </div>
-    <script type="text/javascript" src="//www.rtve.es/js/mushrooms/rtve_mushroom.js"></script>
+    <!--script type="text/javascript" src="//www.rtve.es/js/mushrooms/rtve_mushroom.js"></script-->
     <script src="https://use.fontawesome.com/3ba186c8d6.js"></script>
 
     <!-- build:js(.) scripts/vendor.js -->
@@ -63,9 +63,11 @@
     <!-- endbuild -->
 
     <!-- build:js({.tmp,app}) scripts/extra.js -->
+    <script src="js/SplitTextPlugin.js"></script>
+    <script src="js/geocheck.js"></script>
+    <script src="text/esp.js"></script>
     <script src="js/modernizr.js"></script>
     <script src="js/videojs-playlist-ui.min.js"></script>
-    <script src="text/esp.js"></script>
     <!-- endbuild -->
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->

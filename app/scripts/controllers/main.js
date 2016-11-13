@@ -8,53 +8,8 @@
  * Controller of the smcApp
  */
 
- angular.module('smcApp')
-   .factory( 'session', function GetSession($http, $q){
-     var defer = $q.defer();
-
-     var urlNekudo = "https://geoip.nekudo.com/api";
-     var urlFreegeoip = "https://freegeoip.net/json/";
-     var country = "ES";
-
-     $.getJSON( urlFreegeoip, {} )
-       .done(function( json ) {
-         console.log( "Country: " + json.country_code );
-         if (country == json.country_code){
-           defer.resolve('done');
-         } else {
-           defer.reject();
-         }
-       })
-       .fail(function( jqxhr, textStatus, error ) {
-         var err = textStatus + ", " + error;
-         console.log( "Request Failed: " + err );
-         $.getJSON( urlNekudo, {} )
-           .done(function( json ) {
-             console.log( "Country (second attemp): " + json.country.code );
-             if (country == json.country.code){
-               defer.resolve('done');
-             } else {
-               defer.reject();
-             }
-           })
-           .fail(function( jqxhr, textStatus, error ) {
-             var err = textStatus + ", " + error;
-             console.log( "Request Failed (second attemp): " + err );
-             defer.reject();
-         });
-     });
-
-     return defer.promise;
- });
 angular.module('smcApp')
-  .controller('MainCtrl', function ($scope, session) {
-
-    var conexioAuth = false;
-
-    session.then( function() {
-      conexioAuth = true
-    });
-
+  .controller('MainCtrl', function ($scope) {
     try{
       var introLetters = $("#quote h2").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"introLetters"});
       var introLettersSubtitle = $("#quote h3 span.subtitle").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"introLettersSubtitle"});
@@ -161,7 +116,7 @@ angular.module('smcApp')
       {image1: 'images/cugatPipa.jpg'}
     ];
 
-    $scope.imageSlide = $scope.imagesSlideOut.slice();
+    $scope.imageSlide = $scope.imagesSlideIn.slice();
 
     $scope.back1 = { image1:'images/back/inf/ed1c.png', image2: 'images/back/inf/ed2c.png', image3: 'images/back/inf/ed3c.png', image4: 'images/back/inf/rioc.png', image5: 'images/back/inf/niño.png' };
     $scope.back2 = { image1:'images/back/cuba/cuba.png', image2: 'images/back/cuba/coches.png' };
@@ -1080,16 +1035,16 @@ angular.module('smcApp')
             console.log(this._duration);
             locContainer.removeClass("inactive");
             locContainer.addClass("comment-anim");
-            //progress = new ProgressBar.Circle("#loc", {
-            //  strokeWidth: 10,
-            //  easing: 'linear',
-            //  duration: this._duration*1000,
-            //  color: '#f2f2f2',
-            //  trailColor: '#eee',
-            //  trailWidth: 1,
-            //  svgStyle: null
-            //});
-            //progress.animate(1.0);
+            progress = new ProgressBar.Circle("#loc", {
+             strokeWidth: 10,
+             easing: 'linear',
+             duration: this._duration*1000,
+             color: '#f2f2f2',
+             trailColor: '#eee',
+             trailWidth: 1,
+             svgStyle: null
+            });
+            progress.animate(1.0);
           },
           onend: function() {
             locContainer.addClass("inactive")
@@ -1136,26 +1091,30 @@ angular.module('smcApp')
     }
     function initViaje(direction){
       console.log(direction);
-      if(direction == 'reverse'){
-        viaje1 = $('#viaje1Svg').drawsvg({
-          duration: 8000,
-          easing: 'linear',
-          reverse: true,
-          callback: function() {
-          }
-        });
-        viaje1.drawsvg('animate');
-      }
-      else {
-        viaje1 = $('#viaje1Svg').drawsvg({
-          duration: 8000,
-          easing: 'linear',
-          reverse: false,
-          callback: function() {
-            //console.log('dibujo terminado');
-          }
-        });
-        viaje1.drawsvg('animate');
+      try{
+        if(direction == 'reverse'){
+          viaje1 = $('#viaje1Svg').drawsvg({
+            duration: 8000,
+            easing: 'linear',
+            reverse: true,
+            callback: function() {
+            }
+          });
+          viaje1.drawsvg('animate');
+        }
+        else {
+          viaje1 = $('#viaje1Svg').drawsvg({
+            duration: 8000,
+            easing: 'linear',
+            reverse: false,
+            callback: function() {
+              //console.log('dibujo terminado');
+            }
+          });
+          viaje1.drawsvg('animate');
+        }
+      } catch(err){
+        console.log("initViaje: drawSvg not loaded")
       }
       console.log('viaje1: ', viaje1);
     }
@@ -1354,7 +1313,6 @@ angular.module('smcApp')
     //  }
     //});
     $scope.startWebDoc = function(){
-      if( conexioAuth == true ){
         console.log('inicia webDoc');
         $("#eardAdviceId").addClass('hideEardAdvise');
         setTimeout(function(){
@@ -1362,7 +1320,6 @@ angular.module('smcApp')
           tl.play();
         }, 2000);
         eardAdvice = true;
-      }
     };
 
     //------------------------------------
