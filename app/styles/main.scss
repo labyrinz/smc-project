@@ -5160,6 +5160,7 @@ span.vjs-up-next-text {
 }
 .eardAdviceText{
   height: 500px;
+  max-width: 400px;
   position: absolute;
   top: 0;
   left: 0;
@@ -5168,14 +5169,20 @@ span.vjs-up-next-text {
   margin: auto;
   text-align: center;
   font-size: 15px;
-  font-weight: bold;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-family: 'Open Sans', sans-serif;
+
+  .welcomeMessage{
+    margin-bottom: 20px;
+  }
 
   .headphonesIcon{
-    font-size: 7em;
+    font-size: 6em;
     i {
       display: block;
-      margin: 10px;
-      height: 95px;
+      margin: 20px;
+      height: 75px;
     }
   }
 }
@@ -5193,6 +5200,7 @@ span.vjs-up-next-text {
   width: 120px;
   text-align: center;
   color: #000000;
+  font-weight: bold;
   cursor: pointer;
   text-transform: uppercase;
 }
