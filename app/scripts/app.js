@@ -14,7 +14,8 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    '720kb.socialshare'
+    '720kb.socialshare',
+    'ngTouch'
   ])
   .config(function ($routeProvider) {
     $routeProvider

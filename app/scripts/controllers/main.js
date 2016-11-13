@@ -1222,67 +1222,38 @@ angular.module('smcApp')
         if(event.type != 'mousedown'){
           if (event.originalEvent.wheelDelta > 0 || event.originalEvent.detail < 0) {
             if( !isMobile && eardAdvice ) tl.reverse();
-            else{
-              if(page > 0) {
-                var prevPage = page - 1;
-                $("#page"+page).removeClass('nextPage');
-                $("#page"+prevPage).removeClass('prevPage').addClass('nextPage');
-                prepareSlide(prevPage);
-                page -= 1;
-              }
-            }
           }
           else {
             if( !isMobile && eardAdvice ) tl.play();
-            else{
-              if(page < 21) {
-                var nextPage = page + 1;
-                $("#page"+page).addClass('prevPage');
-                $("#page"+nextPage).addClass('nextPage');
-                //$("#page"+nextPage).css('display', 'block');
-                //setTimeout(function(){ $("#page"+page).css('display', 'none'); $("#page"+nextPage).addClass('nextPage'); },500);
-                prepareSlide(nextPage);
-                page += 1;
-              }
-            }
           }
         }
       }
     });
-
-    //---------- KEYBOARD CONTROLS --------
-
-    $(window).bind('keydown', function(event){
-      if (canScroll()){ // If overlay layers are opened
-        event.preventDefault();
-        TweenMax.to('.additional', 0.2, {opacity: 0, scale:0, ease:Back.easeOut, autoRound:false});
-        var keyCode = event.keyCode || event.which;
-  			switch (keyCode) {
-  				case 37:
-            if( eardAdvice )tl.reverse();
-  					break;
-          case 38:
-            if( eardAdvice )tl.reverse();
-  					break;
-  				case 39:
-  					if( eardAdvice ) tl.play();
-  					break;
-          case 40:
-  					if( eardAdvice ) tl.play();
-  					break;
-  			}
-      }
-    });
-
     //--------TOUCH CONTROLS------
 
     $scope.onSwipeLeft = function(ev) {
-      tl.play();
+      if( isMobile && eardAdvice ) tl.play();
+      //if(page < 21) {
+      //  var nextPage = page + 1;
+      //  $("#page"+page).addClass('prevPage');
+      //  $("#page"+nextPage).addClass('nextPage');
+      //  //$("#page"+nextPage).css('display', 'block');
+      //  //setTimeout(function(){ $("#page"+page).css('display', 'none'); $("#page"+nextPage).addClass('nextPage'); },500);
+      //  prepareSlide(nextPage);
+      //  page += 1;
+      //}
       alert('swipe left');
     };
 
     $scope.onSwipeRight = function(ev) {
-      tl.reverse();
+      if( isMobile && eardAdvice ) tl.reverse();
+      //if(page > 0) {
+      //  var prevPage = page - 1;
+      //  $("#page"+page).removeClass('nextPage');
+      //  $("#page"+prevPage).removeClass('prevPage').addClass('nextPage');
+      //  prepareSlide(prevPage);
+      //  page -= 1;
+      //}
       alert('swipe right');
     };
 
@@ -1312,6 +1283,31 @@ angular.module('smcApp')
     //    }
     //  }
     //});
+
+    //---------- KEYBOARD CONTROLS --------
+
+    $(window).bind('keydown', function(event){
+      if (canScroll()){ // If overlay layers are opened
+        event.preventDefault();
+        TweenMax.to('.additional', 0.2, {opacity: 0, scale:0, ease:Back.easeOut, autoRound:false});
+        var keyCode = event.keyCode || event.which;
+  			switch (keyCode) {
+  				case 37:
+            if( eardAdvice )tl.reverse();
+  					break;
+          case 38:
+            if( eardAdvice )tl.reverse();
+  					break;
+  				case 39:
+  					if( eardAdvice ) tl.play();
+  					break;
+          case 40:
+  					if( eardAdvice ) tl.play();
+  					break;
+  			}
+      }
+    });
+
     $scope.startWebDoc = function(){
         console.log('inicia webDoc');
         $("#eardAdviceId").addClass('hideEardAdvise');
