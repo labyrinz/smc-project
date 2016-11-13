@@ -77,6 +77,7 @@ angular.module('smcApp')
 
     if (window.DeviceOrientationEvent && /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
       $('.mouseIcon').addClass('iconSpace2');
+      $('.keyboardIcon').hide();
       isMobile = true;
       $scope.mobile = true;
       checkDisclaimer();
@@ -207,8 +208,10 @@ angular.module('smcApp')
         .staggerFrom(introWords, 0.6, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.2]}, ease: Back.easeOut.config(0.8)}, 0.1)
         .staggerFrom(introWordsSubtitle, 0.6, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.2]}, ease: Back.easeOut.config(0.8)}, 0.1)
         .staggerFrom(introWordsName, 0.6, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.2]}, ease: Back.easeOut.config(0.8)}, 0.1)
-        .to(".mouseIcon", 0.5, {bottom: '100px', ease: Bounce.easeOut, onComplete: updateScrollBttn})
+        .to(".mouseIcon", 0.5, {bottom: '100px', ease: Bounce.easeIn, onComplete: updateScrollBttn})
+        .to(".keyboardIcon", 0.5, {bottom: '90px', ease: Bounce.easeIn})
         .addPause()
+        .to(".keyboardIcon", 0.2, {bottom: '-150px', ease: Bounce.easeOut})
         .to(".mouseIcon", 0.2, {bottom: '-150px', ease: Power0.easeOut})
         .staggerTo(introWords, 0.2, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.2]}, ease: Back.easeOut.config(0.8)}, 0.1)
         .staggerTo(introWordsSubtitle, 0.2, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.2]}, ease: Back.easeOut.config(0.8)}, 0.1)
