@@ -10,6 +10,7 @@
 
 angular.module('smcApp')
   .controller('MainCtrl', function ($scope) {
+
     try{
       var introLetters = $("#quote h2").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"introLetters"});
       var introLettersSubtitle = $("#quote h3 span.subtitle").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"introLettersSubtitle"});
@@ -74,6 +75,19 @@ angular.module('smcApp')
         disclaimerMobile = $( '.disclaimerMobile' );
     var currentVideoSlidePlaying;
 
+    if (window.DeviceOrientationEvent && /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+      $('.mouseIcon').addClass('iconSpace2');
+      isMobile = true;
+      $scope.mobile = true;
+      checkDisclaimer();
+      $scope.controlText = 'continuar';//'deslizar para continuar';
+    }
+    else {
+      isMobile = false;
+      $scope.mobile = false;
+      //$('#controlIcon').addClass('iconSpace');
+      $scope.controlText = 'continuar';//'scroll para continuar';
+    }
     var playListOrder = ['BeginTheBeguine','ElManisero','TICOTICO','Siboney','MyShawl','JungleRhumba','perfidia','QuizasQuizasQuizas','ParaVigomevoy','YoTeAmoMucho','Tabu'];
 
     $scope.imagesSlideOut = [
@@ -133,18 +147,6 @@ angular.module('smcApp')
     $scope.tooltipText = languajeSP.tooltipText;
     $scope.generalText = languajeSP.text;
     $scope.menuText = languajeSP.menu;
-
-    if (window.DeviceOrientationEvent && /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-      $('.mouseIcon').addClass('iconSpace2');
-      isMobile = true;
-      checkDisclaimer();
-      $scope.controlText = 'continuar';//'deslizar para continuar';
-    }
-    else {
-      isMobile = false;
-      //$('#controlIcon').addClass('iconSpace');
-      $scope.controlText = 'continuar';//'scroll para continuar';
-    }
 
     //---------------------------
     //$scope.imageSlide[0] =  imagesSlideIn[0];
@@ -1232,7 +1234,8 @@ angular.module('smcApp')
     //--------TOUCH CONTROLS------
 
     $scope.onSwipeLeft = function(ev) {
-      if( isMobile && eardAdvice ) tl.play();
+      //if( eardAdvice ) { alert('swipe left inside'); tl.play(); }
+      alert('swipe left inside'); tl.play();
       //if(page < 21) {
       //  var nextPage = page + 1;
       //  $("#page"+page).addClass('prevPage');
@@ -1242,11 +1245,11 @@ angular.module('smcApp')
       //  prepareSlide(nextPage);
       //  page += 1;
       //}
-      alert('swipe left');
     };
 
     $scope.onSwipeRight = function(ev) {
-      if( isMobile && eardAdvice ) tl.reverse();
+      //if( eardAdvice ) { alert('swipe right'); tl.reverse(); }
+      alert('swipe right'); tl.reverse();
       //if(page > 0) {
       //  var prevPage = page - 1;
       //  $("#page"+page).removeClass('nextPage');
@@ -1254,35 +1257,7 @@ angular.module('smcApp')
       //  prepareSlide(prevPage);
       //  page -= 1;
       //}
-      alert('swipe right');
     };
-
-    //$(document).on("swipeleft",function(){
-    //  if( !isMobile && eardAdvice ) tl.play();
-    //  else {
-    //    if (page < 21) {
-    //      var nextPage = page + 1;
-    //      $("#page" + page).addClass('prevPage');
-    //      $("#page" + nextPage).addClass('nextPage');
-    //      $('.videoCover').css('opacity', '0');
-    //      prepareSlide(page);
-    //      page += 1;
-    //    }
-    //  }
-    //});
-    //$(document).on("swiperight",function(){
-    //  if( !isMobile && eardAdvice ) tl.reverse();
-    //  else{
-    //    if(page > 0) {
-    //      var prevPage = page -1;
-    //      $("#page"+page).removeClass('nextPage');
-    //      $("#page"+prevPage).removeClass('prevPage').addClass('nextPage');
-    //      $('.videoCover').css('opacity','0');
-    //      prepareSlide(page);
-    //      page -=1;
-    //    }
-    //  }
-    //});
 
     //---------- KEYBOARD CONTROLS --------
 
@@ -1309,7 +1284,6 @@ angular.module('smcApp')
     });
 
     $scope.startWebDoc = function(){
-        console.log('inicia webDoc');
         $("#eardAdviceId").addClass('hideEardAdvise');
         setTimeout(function(){
           $("#eardAdviceId").css('display', 'none');
