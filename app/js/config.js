@@ -7,5 +7,9 @@ var config = {
   },
   local: {
     videos: 'https://smc-interactive.github.io/videos/'
+  },
+  doc: {
+    link: 0, // 0 = off, 1 = on
+    url: "http://www.ccma.cat/tv3/documentals/xavier-cugat/"
   }
 }

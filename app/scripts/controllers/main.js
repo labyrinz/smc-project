@@ -869,7 +869,8 @@ angular.module('smcApp')
     }
 
     $scope.viewDoc = function(){
-      //window.open("http://www.ccma.cat/tv3/documentals/xavier-cugat/", "_blank", "");
+      if (config.doc.link)
+        window.open(config.doc.url, "_blank", "");
     }
     $scope.viewExtras = function(){
       try{
@@ -1056,7 +1057,9 @@ angular.module('smcApp')
           onend: function() {
             locContainer.addClass("inactive")
             locContainer.removeClass("comment-anim")
-            //progress.destroy();
+            try{
+              progress.destroy();
+            } catch (err){}
             soundNarracion.volume(0);
             if( player.paused() && videoCardToogleSound == 1 && boolsound == soundVolume && !continueBefore ) soundEpilogo.fade(0.05,soundVolume,1000);
           }

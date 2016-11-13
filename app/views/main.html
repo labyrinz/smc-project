@@ -1,7 +1,7 @@
 <div id="eardAdviceId" class="eardAdvice">
   <div class="eardAdviceText">
     <div class="welcomeMessage">
-       ¡Bienvenido a "Sexo, maracas y chihuahuas", el documental interactivo sobre Xavier Cugat! 
+       ¡Bienvenido a "Sexo, maracas y chihuahuas", el documental interactivo sobre Xavier Cugat!
     </div>
     <div class="chihuahua">
       <img ng-src="images/king-of-rumba.png" alt="" />
@@ -33,7 +33,7 @@
           <div class="nav-extra">
             <li><div ng-click="loadCredits()"><i class="fa fa-list" aria-hidden="true"></i> {{ menuText.credits }}</div></li>
             <li><div ng-click="viewExtras()"><i class="fa fa-film" aria-hidden="true"></i> {{ menuText.extras }}</div></li>
-            <!--li><div ng-click="viewDoc()"><i class="fa fa-film" aria-hidden="true"></i> {{ menuText.doculineal }}</div></li-->
+            <li><div ng-click="viewDoc()"><i class="fa fa-youtube-play" aria-hidden="true"></i> {{ menuText.doculineal }}</div></li>
             <li><div ng-click="viewPostcards()"><i class="fa fa-picture-o" aria-hidden="true"></i> {{ menuText.postcards }}</div></li>
           </div>
         </ul>
@@ -747,7 +747,7 @@
         <!--<div class="lastButton lastVideos radius3" ng-click="viewExtras()">-->
           <!--<i class="fa fa-film" aria-hidden="true"></i> {{ generalText.instructionLastVideos }}-->
         <!--</div>-->
-        <!--<div class="lastButton linealDoc radius3">-->
+        <!--<div class="lastButton linealDoc radius3" ng-click="viewDoc()">-->
           <!--<i class="fa fa-youtube-play" aria-hidden="true"></i> {{ menuText.doculineal }}-->
         <!--</div>-->
         <!--<div class="lastButton sendPostcard radius3" ng-click="viewPostcards()">-->
