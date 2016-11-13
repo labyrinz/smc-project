@@ -67,6 +67,7 @@ angular.module('smcApp')
     var page = 0;
     var videoCardToogleSound = 1;
     var progress;
+    $scope.currentBack = 'inf';
     $scope.mobileBack = 0;
     $scope.mobilePage = 0;
 
@@ -509,16 +510,7 @@ angular.module('smcApp')
         .to("", 0.1, { onStart: updateTitle, onStartParams: [14] })
         .to("", 0.1, { onStart: playSound, onStartParams:[playListOrder[7]]})
         .to("#page14",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
-        .to(".lasv1", 0.3, {opacity: '1', ease: Back.easeOut.config(1)})
-        .to(".lasv2", 0.3, {top:'0%', ease: Bounce.easeOut})
-        .to(".lasv3", 0.3, {top:'0%', ease: Bounce.easeOut})
-        .to(".lasv10", 0.3, {top:'0%', ease: Bounce.easeOut})
-        .to(".lasv4", 0.3, {transform: 'rotate(0deg)', ease: Back.easeOut.config(1)})
-        .to(".lasv5", 0.3, {transform: 'rotate(0deg)', ease: Back.easeOut.config(1)})
-        .to(".lasv6", 0.3, {opacity: '1', ease: Back.easeOut.config(1)})
-        .to(".lasv7", 0.3, {opacity: '1', ease: Back.easeOut.config(1)})
-        .to(".lasv8", 0.3, {opacity: '1', ease: Back.easeOut.config(1)})
-        .to(".lasv9", 0.3, {opacity: '1', ease: Back.easeOut.config(1)})
+        .to("", 0.1, { onStart: lasVAnim })
         .to("", 0.1, { onReverseComplete: stopVideo})
         .addPause()
         .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams:['resume', true, 'introAL.mp4', 'resumeVideoBox', 'resumeVideoBoxEnter',false,"local"]})
@@ -604,17 +596,8 @@ angular.module('smcApp')
         .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['resume',false,'charo2.mp4', 'videoCloud', 'videoCloudInside',false,"local"] })
         .staggerTo($("#page18").children(),0.6, animationToPattern, staggerToVelocity)
         .to(".blurEffect8",0.2,{ filter: 'blur(0px)',webkitFilter: 'blur(0px)', ease: Power0.easeNone})
-        .to(".lasv8", 0.3, {opacity: '0', ease: Back.easeOut.config(1)},"+=1")
-        .to(".lasv9", 0.3, {opacity: '0', ease: Back.easeOut.config(1)})
-        .to(".lasv6", 0.3, {opacity: '0', ease: Back.easeOut.config(1)})
-        .to(".lasv7", 0.3, {opacity: '0', ease: Back.easeOut.config(1)})
-        .to(".lasv5", 0.3, {transform: 'rotate(180deg)', ease: Back.easeOut.config(1)})
-        .to(".lasv4", 0.3, {transform: 'rotate(180deg)', ease: Back.easeOut.config(1)})
-        .to(".lasv10", 0.3, {top:'-150%', ease: Bounce.easeOut})
-        .to(".lasv3", 0.3, {top:'-1500%', ease: Bounce.easeOut})
-        .to(".lasv2", 0.3, {top:'-150%', ease: Bounce.easeOut})
-        .to(".lasv1", 0.3, {opacity: '0', ease: Back.easeOut.config(1)})
-        .to("#page18",0.4,{ right: '100%', ease: Power0.easeNone})
+        .to("", 0.1, { onStart: lasVAnimOff })
+        .to("#page18",0.4,{ right: '100%', ease: Power0.easeNone}, "+=1")
         .to("", 0.1, { onReverseComplete: playSound, onReverseCompleteParams: [playListOrder[9]] })
         .to("", 0.1, { onReverseComplete: updateTitle, onReverseCompleteParams: [18] })
         //EPISODE 20
@@ -623,21 +606,11 @@ angular.module('smcApp')
         .to("", 0.1, { onStart: updateAnec, onStartParams: [13] })
         .to("", 0.1, { onStart: playSound, onStartParams:[playListOrder[10]]})
         .to(".age3",0.3,{ transform: 'rotateX(90deg)', ease: Bounce.easeOut})
-        .to(".barc1", 3, { opacity: '1', ease: Power4.easeIn})
-        .to("#texto7-barc",2,{ transform: 'scale(1)', opacity: '1', ease: Power4.easeOut},"+=1")
-        .to(".barc4", 0.3, {transform: 'scale(1)', ease: Power2.easeIn})
-        .to(".barc5", 0.3, {transform: 'scale(1)', ease: Power2.easeIn})
-        .to(".barc6", 0.3, {transform: 'scale(1)', ease: Power2.easeIn})
-        .to(".barc7", 0.3, {transform: 'scale(1)', ease: Power2.easeIn})
-        .to(".barc8", 0.3, {transform: 'scale(1)', ease: Power2.easeIn})
-        .to(".barc2", 4, {left: '33%', ease: Power4.easeIn})
-        .to(".barc3", 4, {left: '0%', ease: Power4.easeIn},"-=4")
-        .to(".barc2", 2, {left: '30%', transform: 'scale(0.7)', top: '0%',  ease: Power4.easeIn})
-        .to(".barc2", 4, {left: '0%', transform: 'scale(1)',  ease: Power4.easeIn})
-        .to(".barc2", 4, {opacity: '0',  ease: Power4.easeIn})
-        .to(".age4",0.3,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"-=0.3")
-        .to("#page19",0.4,{ right: '0%', ease: Power0.easeNone})
+        .to("#texto7-barc",2,{ transform: 'scale(1)', opacity: '1', ease: Power4.easeOut})
+        .to("", 0.1, { onStart: bcnAnim })
         .to("#texto7-barc",1,{ transform: 'scale(0)', opacity: '0', ease: Power4.easeOut},"+=0.2")
+        .to(".age4",0.3,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=6")
+        .to("#page19",0.4,{ right: '0%', ease: Power0.easeNone})
         .staggerFrom($("#page19").children(),0.6, animationFromPattern, staggerFromVelocity)
         .to(".cita62",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1")
         .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['11-narracion-e1', false] }, '+=1')
@@ -657,7 +630,7 @@ angular.module('smcApp')
         .to(".textoFin",2,{ top: '0', ease: Power4.easeOut},"+=2")
         .to(".ep15",2,{ opacity: '1', ease: Power4.easeOut},"-=3")
         .to(".lastButtons",3,{ opacity: '1', ease: Power4.easeOut},"-=3")
-        .to(".blurEffect9",6,{ opacity: '0', ease: Power4.easeOut},"-=6")
+        .to("", 0.1, { onStart: bcnAnimOff })
         .to(".age4",3,{ opacity: '0', ease: Power4.easeOut},"-=6")
         .to("", 5, { onStart:function(){soundEpilogo.fade(soundVolume,0,60000)} })
         .to("", 5, { onReverseComplete: function(){soundEpilogo.fade(0,soundVolume,3000)} })
@@ -685,7 +658,22 @@ angular.module('smcApp')
     //-------FUNCTIONS --------------------
 
     $scope.upTo = function(value, music, notes) {
-      console.log(notes);
+      if( $scope.currentBack = 'inf' ) edAnimOff();
+      if( $scope.currentBack = 'cuba' ) cubaAnimOff();
+      if( $scope.currentBack = 'ny' ) newYorkAnimOff();
+      if( $scope.currentBack = 'holly' ) hollyAnimOff();
+      if( $scope.currentBack = 'carn' ) carnAnimOff();
+      if( $scope.currentBack = 'bcn' ) bcnAnimOff
+      if( $scope.currentBack = 'berlin' ) berAnimOff();
+      if( $scope.currentBack = 'chicago' ) chiAnimOff();
+      if( $scope.currentBack = 'lasVegas' ) lasVAnimOff();
+      if( value == 'prologo2Add' ) cubaAnim();
+      if( value == 'RR1' ) newYorkAnim();
+      if( value == 'CC3' ) carnAnim();
+      if( value == 'CC3' || value == 'CC4' ) carnAnim();
+      if( value == 'LA2' || value == 'LA3' ) chiAnim();
+      if( value == 'AL2' || value == 'AL3' || value == 'CB1' || value == 'CB2' ) lasVAnim();
+      
       if( currentVideoSlidePlaying != undefined ) stopVideoToolTip( currentVideoSlidePlaying.ID, currentVideoSlidePlaying.conto, currentVideoSlidePlaying.playB, currentVideoSlidePlaying.fullS );
       setStopScroll(false);
       stopNarracion();
@@ -789,6 +777,7 @@ angular.module('smcApp')
           .to(".ed1Dev", 1, {opacity: '1', ease: Bounce.easeOut})
           .play();
       }
+      $scope.currentBack = 'inf';
     }
     function edAnimOff() {
       if ($scope.mobile == 'pc') {
@@ -813,6 +802,7 @@ angular.module('smcApp')
             .to(".cub1Dev", 1, {opacity: '1', ease: Bounce.easeOut})
             .play();
         }
+      $scope.currentBack = 'cuba';
     }
     function cubaAnimOff(){
       if( $scope.mobile == 'pc' ) {
@@ -843,6 +833,7 @@ angular.module('smcApp')
           .to(".nyDev", 0.5, {opacity: '1', ease: Power0.easeNone})
           .play();
       }
+      $scope.currentBack = 'ny';
     }
     function newYorkAnimOff(){
       if( $scope.mobile == 'pc' ){
@@ -873,6 +864,8 @@ angular.module('smcApp')
           .to(".ber1Dev", 1, {opacity: '0', ease: Bounce.easeOut})
           .play();
       }
+
+      $scope.currentBack = 'berlin';
     }
     function berAnimOff(){
       if( $scope.mobile == 'pc' ) {
@@ -903,6 +896,7 @@ angular.module('smcApp')
           .to(".holly1Dev", 1, {opacity: '1', ease: Bounce.easeOut})
           .play();
       }
+      $scope.currentBack = 'holly';
     }
     function hollyAnimOff(){
       if( $scope.mobile == 'pc' ) {
@@ -941,6 +935,7 @@ angular.module('smcApp')
           .to(".carn1Dev", 1, {opacity: '1', ease: Bounce.easeOut})
           .play();
       }
+      $scope.currentBack = 'carn';
     }
     function carnAnimOff(){
       if( $scope.mobile == 'pc' ) {
@@ -976,6 +971,7 @@ angular.module('smcApp')
           .to(".chi1Dev", 1, {opacity: '1', ease: Bounce.easeOut})
           .play();
       }
+      $scope.currentBack = 'chicago';
     }
     function chiAnimOff(){
       if( $scope.mobile == 'pc' ) {
@@ -990,6 +986,85 @@ angular.module('smcApp')
       if( $scope.mobile == 'device' ){
         new TimelineMax({repeat: 0, autoRound: false})
           .to(".chi1Dev", 1, {opacity: '0', ease: Bounce.easeOut})
+          .play();
+      }
+    }
+    function lasVAnim(){
+      if( $scope.mobile == 'pc' ) {
+        new TimelineMax({repeat: 0, autoRound: false})
+          .to(".lasv1", 0.3, {opacity: '1', ease: Back.easeOut.config(1)})
+          .to(".lasv2", 0.3, {top:'0%', ease: Bounce.easeOut})
+          .to(".lasv3", 0.3, {top:'0%', ease: Bounce.easeOut})
+          .to(".lasv10", 0.3, {top:'0%', ease: Bounce.easeOut})
+          .to(".lasv4", 0.3, {transform: 'rotate(0deg)', ease: Back.easeOut.config(1)})
+          .to(".lasv5", 0.3, {transform: 'rotate(0deg)', ease: Back.easeOut.config(1)})
+          .to(".lasv6", 0.3, {opacity: '1', ease: Back.easeOut.config(1)})
+          .to(".lasv7", 0.3, {opacity: '1', ease: Back.easeOut.config(1)})
+          .to(".lasv8", 0.3, {opacity: '1', ease: Back.easeOut.config(1)})
+          .to(".lasv9", 0.3, {opacity: '1', ease: Back.easeOut.config(1)})
+          .play();
+      }
+      if( $scope.mobile == 'device' ){
+        new TimelineMax({repeat: 0, autoRound: false})
+          .to(".lasv1Dev", 1, {opacity: '1', ease: Bounce.easeOut})
+          .play();
+      }
+      $scope.currentBack = 'lasVegas';
+    }
+    function lasVAnimOff(){
+      if( $scope.mobile == 'pc' ) {
+        new TimelineMax({repeat: 0, autoRound: false})
+          .to(".lasv8", 0.3, {opacity: '0', ease: Back.easeOut.config(1)},"+=1")
+          .to(".lasv9", 0.3, {opacity: '0', ease: Back.easeOut.config(1)})
+          .to(".lasv6", 0.3, {opacity: '0', ease: Back.easeOut.config(1)})
+          .to(".lasv7", 0.3, {opacity: '0', ease: Back.easeOut.config(1)})
+          .to(".lasv5", 0.3, {transform: 'rotate(180deg)', ease: Back.easeOut.config(1)})
+          .to(".lasv4", 0.3, {transform: 'rotate(180deg)', ease: Back.easeOut.config(1)})
+          .to(".lasv10", 0.3, {top:'-150%', ease: Bounce.easeOut})
+          .to(".lasv3", 0.3, {top:'-1500%', ease: Bounce.easeOut})
+          .to(".lasv2", 0.3, {top:'-150%', ease: Bounce.easeOut})
+          .to(".lasv1", 0.3, {opacity: '0', ease: Back.easeOut.config(1)})
+          .play();
+      }
+      if( $scope.mobile == 'device' ){
+        new TimelineMax({repeat: 0, autoRound: false})
+          .to(".lasv1Dev", 1, {opacity: '0', ease: Bounce.easeOut})
+          .play();
+      }
+    }
+    function bcnAnim(){
+      if( $scope.mobile == 'pc' ) {
+        new TimelineMax({repeat: 0, autoRound: false})
+          .to(".blurEffect9",0.1,{ opacity: '1', ease: Power4.easeOut})
+          .to(".barc1", 3, { opacity: '1', ease: Power4.easeIn})
+          .to(".barc4", 0.3, {transform: 'scale(1)', ease: Power2.easeIn})
+          .to(".barc5", 0.3, {transform: 'scale(1)', ease: Power2.easeIn})
+          .to(".barc6", 0.3, {transform: 'scale(1)', ease: Power2.easeIn})
+          .to(".barc7", 0.3, {transform: 'scale(1)', ease: Power2.easeIn})
+          .to(".barc8", 0.3, {transform: 'scale(1)', ease: Power2.easeIn})
+          .to(".barc2", 4, {left: '33%', ease: Power4.easeIn})
+          .to(".barc3", 4, {left: '0%', ease: Power4.easeIn},"-=4")
+          .to(".barc2", 2, {left: '30%', transform: 'scale(0.7)', top: '0%',  ease: Power4.easeIn})
+          .to(".barc2", 4, {left: '0%', transform: 'scale(1)',  ease: Power4.easeIn})
+          .to(".barc2", 4, {opacity: '0',  ease: Power4.easeIn})
+          .play();
+      }
+      if( $scope.mobile == 'device' ){
+        new TimelineMax({repeat: 0, autoRound: false})
+          .to(".barc1Dev", 1, {opacity: '1', ease: Bounce.easeOut})
+          .play();
+      }
+      $scope.currentBack = 'bcn';
+    }
+    function bcnAnimOff(){
+      if( $scope.mobile == 'pc' ) {
+        new TimelineMax({repeat: 0, autoRound: false})
+          .to(".blurEffect9",6,{ opacity: '0', ease: Power4.easeOut})
+          .play();
+      }
+      if( $scope.mobile == 'device' ){
+        new TimelineMax({repeat: 0, autoRound: false})
+          .to(".lasv1Dev", 1, {opacity: '0', ease: Bounce.easeOut})
           .play();
       }
     }
@@ -1136,7 +1211,7 @@ angular.module('smcApp')
        if( videoResource == 'tv3' ) player.src({ type: 'video/mp4', src: config.tv3.videos+id });
        else if( videoResource == 'tve' ) player.src({ type: 'video/mp4', src: config.tve.videos+id });
        else if( videoResource == 'local' ) player.src({ type: 'video/mp4', src: config.local.videos+id });
-       player.play();
+       if( currentVideoSlidePlaying == undefined ) player.play();
        player.on("ended", function(){
          console.log('video ended');
          if(continueBeforeStop == true && eardAdvice ){ tl.play(); }
