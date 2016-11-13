@@ -73,6 +73,27 @@ angular.module('smcApp')
     var eardAdvice;
     var currentSlideActive = 0;
 
+    var page0Slide = function(){
+      this.baraja0 =
+          '<div class="pic prel02 img slideimg1">'
+            +'<img ng-src="{{ imageSlide[0].image1 }}" class="pic-image" alt="Pic"/>'
+            +'<span class="pic-caption bottom-to-top">'
+              +'<p> {{ photoText.prel02 }} </p>'
+            +'</span>'
+          +'</div>'
+          +'<div class="pic prel03 img slideimg1">'
+            +'<img ng-src="{{ imageSlide[0].image2 }}" class="pic-image" alt="Pic"/>'
+            +'<span class="pic-caption bottom-to-top">'
+             +'<p> {{ photoText.prel03 }} </p>'
+            +'</span>'
+          +'</div>'
+          +'<div class="pic prel04 img slideimg1">'
+          +'<img ng-src="{{ imageSlide[0].image3 }}" class="pic-image" alt="Pic"/>'
+         + '<span class="pic-caption bottom-to-top">'
+            +'<p> {{ photoText.prel04 }} </p>'
+           +'</span>';
+    }
+
     $("#slideVideoAbbe2").prop("volume", 0.1);
     $("#slideVideoAB2").prop("volume", 1);
     $("#videoGeneral").hover(function(){
@@ -122,23 +143,23 @@ angular.module('smcApp')
     var playListOrder = ['BeginTheBeguine','ElManisero','TICOTICO','Siboney','MyShawl','JungleRhumba','perfidia','QuizasQuizasQuizas','ParaVigomevoy','YoTeAmoMucho','Tabu'];
 
     $scope.imagesSlideOut = [
-      {image1: undefined, image2: undefined, image3: undefined},
-      {image1: undefined, image2: undefined, image3: undefined, video1: undefined},
-      {image1: undefined, image2: undefined, video1: undefined},
-      {image1: undefined, image2: undefined, image3: undefined},
-      {image1: undefined, image2: undefined, image3: undefined, image4: undefined},
-      {image1: undefined, image2: undefined, image3: undefined},
-      {image1: undefined, image2: undefined, image3: undefined, video1: undefined},
-      {image1: undefined, image2: undefined},
-      {image1: undefined, image2: undefined, image3: undefined, image4: undefined, video1: undefined},
-      {image1: undefined, image2: undefined, image3: undefined, image4: undefined},
-      {image1: undefined, image2: undefined, image3: undefined, video1: undefined, video2: undefined},
-      {image1: undefined, image2: undefined, image3: undefined, image4: undefined, image5: undefined, video1: undefined},
-      {image1: undefined, image2: undefined, image3: undefined, image4: undefined, image5: undefined, image6: undefined},
-      {image1: undefined, image2: undefined},
-      {image1: undefined, image2: undefined},
-      {image1: undefined, image2: undefined, image3: undefined, image4: undefined, image5: undefined, image6: undefined},
-      {image1: undefined}
+      {image1: '', image2: '', image3: ''},
+      {image1: '', image2: '', image3: '', video1: ''},
+      {image1: '', image2: '', video1: ''},
+      {image1: '', image2: '', image3: ''},
+      {image1: '', image2: '', image3: '', image4: ''},
+      {image1: '', image2: '', image3: ''},
+      {image1: '', image2: '', image3: '', video1: ''},
+      {image1: '', image2: ''},
+      {image1: '', image2: '', image3: '', image4: '', video1: ''},
+      {image1: '', image2: '', image3: '', image4: ''},
+      {image1: '', image2: '', image3: '', video1: '', video2: ''},
+      {image1: '', image2: '', image3: '', image4: '', image5: '', video1: ''},
+      {image1: '', image2: '', image3: '', image4: '', image5: '', image6: ''},
+      {image1: '', image2: ''},
+      {image1: '', image2: ''},
+      {image1: '', image2: '', image3: '', image4: '', image5: '', image6: ''},
+      {image1: ''}
     ];
 
     $scope.imagesSlideIn = [
@@ -161,7 +182,7 @@ angular.module('smcApp')
       {image1: 'images/cugatPipa.jpg'}
     ];
 
-    $scope.imageSlide = $scope.imagesSlideIn.slice();
+    $scope.imageSlide = $scope.imagesSlideOut.slice();
 
     $scope.back1 = { image1:'images/back/inf/ed1c.png', image2: 'images/back/inf/ed2c.png', image3: 'images/back/inf/ed3c.png', image4: 'images/back/inf/rioc.png', image5: 'images/back/inf/niño.png' };
     $scope.back2 = { image1:'images/back/cuba/cuba.png', image2: 'images/back/cuba/coches.png' };
@@ -884,14 +905,10 @@ angular.module('smcApp')
     });
     //------ TITLE ----------
     function loadSlideContent(index, direction){
-      //$scope.$apply(function() {
-      //  $scope.imageSlide = $scope.imagesSlideOut;
-      //  $scope.imageSlide[index] = $scope.imagesSlideIn[index];
-      //
-      //  $scope.$watch('imageSlide', function() {
-      //    alert('hey, myVar has changed!');
-      //  });
-      //});
+      $scope.$apply(function() {
+        $scope.imageSlide = $scope.imagesSlideOut;
+        $scope.imageSlide[index] = $scope.imagesSlideIn[index];
+      });
     };
 
     function updateTitle(index){
@@ -955,8 +972,8 @@ angular.module('smcApp')
 
     $scope.playVideoSlide = function(id, container, playButton, fullScreenButton){
       currentVideoSlidePlaying = { ID: id, conto: container, playB: playButton, fullS: fullScreenButton };
-      TweenMax.set($('#'+container), {left: undefined});
-      TweenMax.set($('#'+container), {right: undefined});
+      TweenMax.set($('#'+container), {left: ''});
+      TweenMax.set($('#'+container), {right: ''});
       if( !player.paused() ) player.pause();
       if( $("#"+id).get(0).paused ) {
         videoCardToogleSound = 0;
@@ -998,7 +1015,7 @@ angular.module('smcApp')
     };
     $scope.fullScreenVideoSlide = function(id, style){
       console.log(id, style);
-      TweenMax.set($('#'+id), {left: undefined});
+      TweenMax.set($('#'+id), {left: ''});
       //$('#'+id).css("right",'');
       if($("#"+id).hasClass( style )) { $("#"+id).removeClass(style);  setTimeout(function(){ $(".contextualVideoSlide").css('z-index', '') },500); }
       else { $("#"+id).addClass(style); $(".contextualVideoSlide").css('z-index', '999'); }
@@ -1019,7 +1036,7 @@ angular.module('smcApp')
        fullScreenVideoStatus = true;
        if(!player.paused()) player.pause();
        if(class1 == 'resumeVideoBox') TweenMax.set($('#videoContainer'), {zIndex: 999});
-       else TweenMax.set($('#videoContainer'), {zIndex: undefined});
+       else TweenMax.set($('#videoContainer'), {zIndex: ''});
        $('#videoGeneral').removeClass('videoClass fullScreenVideo resumeVideoBox videoCloud videoCloud2 videoCloudFull videoCloud2Full');
        if(class1 == 'videoCloud') { var scaleValue = 0.6; $('#burbleBig').addClass('burbleBig'); $('#burbleMed').addClass('burbleMed'); $('#burbleSmall').addClass('burbleSmall'); $(".resizeMeButton").css('display', 'block'); }
        else if(class1 == 'videoCloud2') { var scaleValue = 0.6; $('#burbleBig').addClass('burbleBig2'); $('#burbleMed').addClass('burbleMed2'); $('#burbleSmall').addClass('burbleSmall2'); $(".resizeMeButton").css('display', 'block'); }
@@ -1052,7 +1069,7 @@ angular.module('smcApp')
       fullScreenVideoStatus = false;
       player.off("ended");
       player.pause();
-      player.src({ type: undefined, src: undefined });
+      player.src({ type: '', src: '' });
     }
     //-------SOUND --------------
     function controlSound(){
