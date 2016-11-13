@@ -73,27 +73,6 @@ angular.module('smcApp')
     var eardAdvice;
     var currentSlideActive = 0;
 
-    var page0Slide = function(){
-      this.baraja0 =
-          '<div class="pic prel02 img slideimg1">'
-            +'<img ng-src="{{ imageSlide[0].image1 }}" class="pic-image" alt="Pic"/>'
-            +'<span class="pic-caption bottom-to-top">'
-              +'<p> {{ photoText.prel02 }} </p>'
-            +'</span>'
-          +'</div>'
-          +'<div class="pic prel03 img slideimg1">'
-            +'<img ng-src="{{ imageSlide[0].image2 }}" class="pic-image" alt="Pic"/>'
-            +'<span class="pic-caption bottom-to-top">'
-             +'<p> {{ photoText.prel03 }} </p>'
-            +'</span>'
-          +'</div>'
-          +'<div class="pic prel04 img slideimg1">'
-          +'<img ng-src="{{ imageSlide[0].image3 }}" class="pic-image" alt="Pic"/>'
-         + '<span class="pic-caption bottom-to-top">'
-            +'<p> {{ photoText.prel04 }} </p>'
-           +'</span>';
-    }
-
     $("#slideVideoAbbe2").prop("volume", 0.1);
     $("#slideVideoAB2").prop("volume", 1);
     $("#videoGeneral").hover(function(){
@@ -182,7 +161,7 @@ angular.module('smcApp')
       {image1: 'images/cugatPipa.jpg'}
     ];
 
-    $scope.imageSlide = $scope.imagesSlideOut.slice();
+    $scope.imageSlide = $scope.imagesSlideIn.slice();
 
     $scope.back1 = { image1:'images/back/inf/ed1c.png', image2: 'images/back/inf/ed2c.png', image3: 'images/back/inf/ed3c.png', image4: 'images/back/inf/rioc.png', image5: 'images/back/inf/niño.png' };
     $scope.back2 = { image1:'images/back/cuba/cuba.png', image2: 'images/back/cuba/coches.png' };
@@ -284,11 +263,7 @@ angular.module('smcApp')
         .add("prologo1")
         .to("", 0.1, { onComplete: playSound, onCompleteParams: [playListOrder[0]] })
         .to("", 0.1, { onComplete: updateTitle, onCompleteParams: [0] })
-        .to(".ed1", 0.5, { left: '0%', ease: Bounce.easeOut})
-        .to(".ed2", 0.5, { top: '0%', ease: Bounce.easeOut})
-        .to(".ed3", 0.5, { left: '0%', ease: Bounce.easeOut},"-=1")
-        .to(".ed4", 0.5, { transform: 'rotateX(0deg)', force3D:true, ease: Back.easeOut.config(1)})
-        .to(".ed5", 0.5, { left: '0%', ease: Bounce.easeOut},"-=1")
+        .to(".ed1", 0.5, { opacity: '1', ease: Bounce.easeOut})
         .to(".texto11",2,{ transform: 'scale(1)', opacity: '1', ease: Power4.easeOut},"+=1")
         .to(".mouseIcon", 0.5, {bottom: '100px', ease: Bounce.easeOut, onComplete: updateScrollBttn},"+=0.5")
         .to(".chihuahua",0.3,{ transform: 'rotateX(0deg)',  ease: Bounce.easeOut})
@@ -321,18 +296,11 @@ angular.module('smcApp')
         .to("#page1",0.4,{ right: '100%', ease: Power0.easeNone})
         .to("", 0.1, { onStart: updateTitle, onStartParams: [1] })
         .to("", 0.1, { onStart: updateAnec, onStartParams: [2] })
-        .to(".ed2", 0.5, {left: '-5%', ease: Power2.easeIn},"scrollGer")
-        .to(".ed3", 0.5, {left: '-10%', ease: Power2.easeIn},"scrollGer")
-        .to(".ed4", 0.5, {left: '-15%', ease: Power2.easeIn},"scrollGer")
         .to("#page2",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
         .from(".mapSvgClassTop", .3, {scale: 0.5, onComplete: initViaje, onCompleteParams: ['play'], ease: Back.easeOut })
         .to(".mapSvgClassTop", 1, {width: '6200px', top: '-1240px', left: '-2320px' , ease: Power2.easeIn},"+=1")
         .to(".cub1", 0.5, {top: '0%', ease: Power0.easeNone},"cuba1")
-        .to(".ed1", 0.5, {top: '120%', ease: Power2.easeIn})
-        .to(".ed2", 0.5, {top: '120%', ease: Power2.easeIn})
-        .to(".ed3", 0.5, {top: '120%', ease: Power2.easeIn},"-=1")
-        .to(".ed4", 0.5, {top: '120%', ease: Power2.easeIn})
-        .to(".ed5", 0.5, {left: '-120%', ease: Bounce.easeOut},"-=1")
+        .to(".ed1", 0.5, {opacity: '0', ease: Power2.easeIn})
         .to(".mapSvgClassTop", 2, {width: '6200px', top: '-1390px', left: '-1100px', ease: Power2.easeIn},"-=1.2")
         .to("", 0.1, { onReverseComplete: initViaje, onReverseCompleteParams: ['reverse'] })
         .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['videoCloud',false,'p1clip1ESP.m4v', 'videoCloud', 'videoCloudInside',false,"tve"] })
@@ -905,10 +873,10 @@ angular.module('smcApp')
     });
     //------ TITLE ----------
     function loadSlideContent(index, direction){
-      $scope.$apply(function() {
-        $scope.imageSlide = $scope.imagesSlideOut;
-        $scope.imageSlide[index] = $scope.imagesSlideIn[index];
-      });
+      //$scope.$apply(function() {
+      //  $scope.imageSlide = $scope.imagesSlideOut;
+      //  $scope.imageSlide[index] = $scope.imagesSlideIn[index];
+      //});
     };
 
     function updateTitle(index){
@@ -1016,7 +984,7 @@ angular.module('smcApp')
     $scope.fullScreenVideoSlide = function(id, style){
       console.log(id, style);
       TweenMax.set($('#'+id), {left: ''});
-      //$('#'+id).css("right",'');
+      $('#'+id).css("right",'');
       if($("#"+id).hasClass( style )) { $("#"+id).removeClass(style);  setTimeout(function(){ $(".contextualVideoSlide").css('z-index', '') },500); }
       else { $("#"+id).addClass(style); $(".contextualVideoSlide").css('z-index', '999'); }
     };
