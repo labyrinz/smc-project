@@ -8,52 +8,10 @@
  * Controller of the smcApp
  */
 
- angular.module('smcApp')
-   .factory( 'session', function GetSession($http, $q){
-     var defer = $q.defer();
-
-     var urlNekudo = "https://geoip.nekudo.com/api";
-     var urlFreegeoip = "https://freegeoip.net/json/";
-     var country = "ES";
-
-     $.getJSON( urlFreegeoip, {} )
-       .done(function( json ) {
-         console.log( "Country: " + json.country_code );
-         if (country == json.country_code){
-           defer.resolve('done');
-         } else {
-           defer.reject();
-         }
-       })
-       .fail(function( jqxhr, textStatus, error ) {
-         var err = textStatus + ", " + error;
-         console.log( "Request Failed: " + err );
-         $.getJSON( urlNekudo, {} )
-           .done(function( json ) {
-             console.log( "Country (second attemp): " + json.country.code );
-             if (country == json.country.code){
-               defer.resolve('done');
-             } else {
-               defer.reject();
-             }
-           })
-           .fail(function( jqxhr, textStatus, error ) {
-             var err = textStatus + ", " + error;
-             console.log( "Request Failed (second attemp): " + err );
-             defer.reject();
-         });
-     });
-
-     return defer.promise;
- });
 angular.module('smcApp')
-  .controller('MainCtrl', function ($scope, session) {
+  .controller('MainCtrl', function ($scope) {
 
-    var conexioAuth = false;
-
-    session.then( function() {
-      conexioAuth = true
-    });
+    //var conexioAuth = false;
 
     try{
       var introLetters = $("#quote h2").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"introLetters"});
@@ -999,7 +957,7 @@ angular.module('smcApp')
     $scope.fullScreenVideoSlide = function(id, style){
       console.log(id, style);
       TweenMax.set($('#'+id), {left: undefined});
-      //$('#'+id).css("right",'');
+      $('#'+id).css("right",'');
       if($("#"+id).hasClass( style )) { $("#"+id).removeClass(style);  setTimeout(function(){ $(".contextualVideoSlide").css('z-index', '') },500); }
       else { $("#"+id).addClass(style); $(".contextualVideoSlide").css('z-index', '999'); }
     };
@@ -1095,16 +1053,16 @@ angular.module('smcApp')
             console.log(this._duration);
             locContainer.removeClass("inactive");
             locContainer.addClass("comment-anim");
-            //progress = new ProgressBar.Circle("#loc", {
-            //  strokeWidth: 10,
-            //  easing: 'linear',
-            //  duration: this._duration*1000,
-            //  color: '#f2f2f2',
-            //  trailColor: '#eee',
-            //  trailWidth: 1,
-            //  svgStyle: null
-            //});
-            //progress.animate(1.0);
+            progress = new ProgressBar.Circle("#loc", {
+             strokeWidth: 10,
+             easing: 'linear',
+             duration: this._duration*1000,
+             color: '#f2f2f2',
+             trailColor: '#eee',
+             trailWidth: 1,
+             svgStyle: null
+            });
+            progress.animate(1.0);
           },
           onend: function() {
             locContainer.addClass("inactive")
@@ -1151,26 +1109,30 @@ angular.module('smcApp')
     }
     function initViaje(direction){
       console.log(direction);
-      if(direction == 'reverse'){
-        viaje1 = $('#viaje1Svg').drawsvg({
-          duration: 8000,
-          easing: 'linear',
-          reverse: true,
-          callback: function() {
-          }
-        });
-        viaje1.drawsvg('animate');
-      }
-      else {
-        viaje1 = $('#viaje1Svg').drawsvg({
-          duration: 8000,
-          easing: 'linear',
-          reverse: false,
-          callback: function() {
-            //console.log('dibujo terminado');
-          }
-        });
-        viaje1.drawsvg('animate');
+      try{
+        if(direction == 'reverse'){
+          viaje1 = $('#viaje1Svg').drawsvg({
+            duration: 8000,
+            easing: 'linear',
+            reverse: true,
+            callback: function() {
+            }
+          });
+          viaje1.drawsvg('animate');
+        }
+        else {
+          viaje1 = $('#viaje1Svg').drawsvg({
+            duration: 8000,
+            easing: 'linear',
+            reverse: false,
+            callback: function() {
+              //console.log('dibujo terminado');
+            }
+          });
+          viaje1.drawsvg('animate');
+        }
+      } catch(err){
+        console.log("initViaje: drawSvg not loaded")
       }
       console.log('viaje1: ', viaje1);
     }
@@ -1359,7 +1321,7 @@ angular.module('smcApp')
       }
     });
     $scope.startWebDoc = function(){
-      if( conexioAuth == true ){
+      //if( conexioAuth == true ){
         console.log('inicia webDoc');
         $("#eardAdviceId").addClass('hideEardAdvise');
         setTimeout(function(){
@@ -1367,7 +1329,7 @@ angular.module('smcApp')
           tl.play();
         }, 2000);
         eardAdvice = true;
-      }
+      //}
     };
 
     //------------------------------------
