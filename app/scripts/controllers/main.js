@@ -161,7 +161,7 @@ angular.module('smcApp')
       {image1: 'images/cugatPipa.jpg'}
     ];
 
-    $scope.imageSlide = $scope.imagesSlideIn.slice();
+    $scope.imageSlide = $scope.imagesSlideOut.slice();
 
     $scope.back1 = { image1:'images/back/inf/ed1c.png', image2: 'images/back/inf/ed2c.png', image3: 'images/back/inf/ed3c.png', image4: 'images/back/inf/rioc.png', image5: 'images/back/inf/niño.png' };
     $scope.back2 = { image1:'images/back/cuba/cuba.png', image2: 'images/back/cuba/coches.png' };
@@ -1317,32 +1317,42 @@ angular.module('smcApp')
 
     //--------TOUCH CONTROLS------
 
-    $(document).on("swipeleft",function(){
-      if( !isMobile && eardAdvice ) tl.play();
-      else {
-        if (page < 21) {
-          var nextPage = page + 1;
-          $("#page" + page).addClass('prevPage');
-          $("#page" + nextPage).addClass('nextPage');
-          $('.videoCover').css('opacity', '0');
-          prepareSlide(page);
-          page += 1;
-        }
-      }
-    });
-    $(document).on("swiperight",function(){
-      if( !isMobile && eardAdvice ) tl.reverse();
-      else{
-        if(page > 0) {
-          var prevPage = page -1;
-          $("#page"+page).removeClass('nextPage');
-          $("#page"+prevPage).removeClass('prevPage').addClass('nextPage');
-          $('.videoCover').css('opacity','0');
-          prepareSlide(page);
-          page -=1;
-        }
-      }
-    });
+    $scope.onSwipeLeft = function(ev) {
+      tl.play();
+      alert('swipe left');
+    };
+
+    $scope.onSwipeRight = function(ev) {
+      tl.reverse();
+      alert('swipe right');
+    };
+
+    //$(document).on("swipeleft",function(){
+    //  if( !isMobile && eardAdvice ) tl.play();
+    //  else {
+    //    if (page < 21) {
+    //      var nextPage = page + 1;
+    //      $("#page" + page).addClass('prevPage');
+    //      $("#page" + nextPage).addClass('nextPage');
+    //      $('.videoCover').css('opacity', '0');
+    //      prepareSlide(page);
+    //      page += 1;
+    //    }
+    //  }
+    //});
+    //$(document).on("swiperight",function(){
+    //  if( !isMobile && eardAdvice ) tl.reverse();
+    //  else{
+    //    if(page > 0) {
+    //      var prevPage = page -1;
+    //      $("#page"+page).removeClass('nextPage');
+    //      $("#page"+prevPage).removeClass('prevPage').addClass('nextPage');
+    //      $('.videoCover').css('opacity','0');
+    //      prepareSlide(page);
+    //      page -=1;
+    //    }
+    //  }
+    //});
     $scope.startWebDoc = function(){
       if( conexioAuth == true ){
         console.log('inicia webDoc');

@@ -10,7 +10,7 @@
     <div class="eardAdviceBoton" ng-click="startWebDoc()"> Continuar </div>
   </div>
 </div>
-<div id="mainContainer">
+<div id="mainContainer" ng-swipe-left="onSwipeLeft()" ng-swipe-right="onSwipeRight()">
   <div class="container">
     <div class="overlay overlay-contentscale">
       <nav>
@@ -87,70 +87,70 @@
     </div>
 
   </div>
-  <div id="back9" class="back9 backIlustration">
-    <img class="barc1 blurEffect9" ng-src="images/back/barcelona/batllo.png"/>
-    <img class="barc2 blurEffect9" ng-src="images/back/barcelona/cugat.png"/>
-    <img class="barc3 blurEffect9" ng-src="images/back/barcelona/coche.png"/>
-    <img class="barc4 blurEffect9" ng-src="images/back/barcelona/troncos.png"/>
-    <img class="barc5 blurEffect9" ng-src="images/back/barcelona/copa1.png"/>
-    <img class="barc6 blurEffect9" ng-src="images/back/barcelona/copa2.png"/>
-    <img class="barc7 blurEffect9" ng-src="images/back/barcelona/hojas1.png"/>
-    <img class="barc8 blurEffect9" ng-src="images/back/barcelona/hojas2.png"/>
-    <div id="texto7-barc" class="texto1 texto7-barc highlightText"> {{ generalText.text7 }}</div>
-    <div id="textoFin" class="texto1 textoFin highlightText">{{ generalText.textoFin }}</div>
-  </div>
-  <div id="back8" class="back8 backIlustration">
-    <img class="lasv1 blurEffect8" ng-src="images/back/lasvegas/fondo.png"/>
-    <img class="lasv2 blurEffect8" ng-src="images/back/lasvegas/edificiosFondo.png"/>
-    <img class="lasv3 blurEffect8" ng-src="images/back/lasvegas/edificioCaesar.png"/>
-    <img class="lasv4 blurEffect8" ng-src="images/back/lasvegas/cartelFlamingo.png"/>
-    <img class="lasv5 blurEffect8" ng-src="images/back/lasvegas/cartelmotel.png"/>
-    <img class="lasv6 blurEffect8" ng-src="images/back/lasvegas/lucesCaesar.png"/>
-    <img class="lasv7 blurEffect8" ng-src="images/back/lasvegas/lucesFlamingo.png"/>
-    <img class="lasv8 blurEffect8" ng-src="images/back/lasvegas/lucesMotel.png"/>
-    <img class="lasv9 blurEffect8" ng-src="images/back/lasvegas/bombillasFlamingo.png"/>
-    <img class="lasv10 blurEffect8" ng-src="images/back/lasvegas/coches.png"/>
-  </div>
-  <div id="back7" class="back7 backIlustration">
-    <img class="chi1 blurEffect7" ng-src="images/back/chicago/edificios.png"/>
-    <img class="chi2 blurEffect7" ng-src="images/back/chicago/letreros.gif"/>
-    <img class="chi4 blurEffect7" ng-src="images/back/chicago/lucesEdificios.png"/>
-    <img class="chi5 blurEffect7" ng-src="images/back/chicago/coche1.png"/>
-    <img class="chi6 blurEffect7" ng-src="images/back/chicago/coche2.png"/>
-  </div>
-  <div id="back6" class="back6 backIlustration">
-    <img class="holly2 blurEffect6" ng-src="images/back/hollywood/hollywoodCielo.png"/>
-    <img class="holly6 blurEffect6" ng-src="images/back/hollywood/hollywoodSol.png"/>
-    <img class="holly1 blurEffect6" ng-src="images/back/hollywood/hollywoodMontanas.png"/>
-    <img class="holly3 blurEffect6" ng-src="images/back/hollywood/hollywoodRocas.png"/>
-    <img class="holly4 blurEffect6" ng-src="images/back/hollywood/hollywoodArboles.png"/>
-    <img class="holly5" ng-src="images/back/hollywood/hollywoodNubes.png"/>
-    <img class="holly7 blurEffect6" ng-src="images/back/hollywood/hollywoodLetrero.png"/>
-  </div>
-  <div id="back5" class="back5 backIlustration">
-    <img class="carn1 blurEffect5" ng-src="images/back/carnie/palco.png"/>
-    <img class="carn2 blurEffect5" ng-src="images/back/carnie/luces.png"/>
-    <img class="carn3 blurEffect5" ng-src="images/back/carnie/escenario.png"/>
-    <img class="carn4 blurEffect5" ng-src="images/back/carnie/publico1.png"/>
-    <img class="carn5 blurEffect5" ng-src="images/back/carnie/publico2.png"/>
-    <img class="carn6 blurEffect5" ng-src="images/back/carnie/cugat.png"/>
-  </div>
-  <div id="back4" class="back4 backIlustration">
-    <img class="ber1 blurEffect4" ng-src="images/back/berlin/berlinColor.png"/>
-  </div>
-  <div id="back3" class="back3 backIlustration">
-    <img class="ny4 blurEffect3" ng-src="images/back/nuevaYork/nyCielo.png"/>
-    <img class="ny1 blurEffect3" ng-src="images/back/nuevaYork/nyCarret.png"/>
-    <img class="ny7 blurEffect3" ng-src="images/back/nuevaYork/nyCoche3.png"/>
-    <img class="ny3 blurEffect3" ng-src="images/back/nuevaYork/nyPuente.png"/>
-    <img class="ny6 blurEffect3" ng-src="images/back/nuevaYork/nyCoche2.png"/>
-    <img class="ny5 blurEffect3" ng-src="images/back/nuevaYork/nyCoche1.png"/>
-    <img class="ny2 blurEffect3" ng-src="images/back/nuevaYork/nyLetreros.png"/>
-  </div>
-  <div id="back2" class="back2 backIlustration">
-    <img class="cub1 blurEffect2" ng-src="images/back/cuba/cuba.png"/>
-    <img class="cub1 blurEffect2" ng-src="images/back/cuba/coches.png"/>
-  </div>
+  <!--<div id="back9" class="back9 backIlustration">-->
+    <!--<img class="barc1 blurEffect9" ng-src="images/back/barcelona/batllo.png"/>-->
+    <!--<img class="barc2 blurEffect9" ng-src="images/back/barcelona/cugat.png"/>-->
+    <!--<img class="barc3 blurEffect9" ng-src="images/back/barcelona/coche.png"/>-->
+    <!--<img class="barc4 blurEffect9" ng-src="images/back/barcelona/troncos.png"/>-->
+    <!--<img class="barc5 blurEffect9" ng-src="images/back/barcelona/copa1.png"/>-->
+    <!--<img class="barc6 blurEffect9" ng-src="images/back/barcelona/copa2.png"/>-->
+    <!--<img class="barc7 blurEffect9" ng-src="images/back/barcelona/hojas1.png"/>-->
+    <!--<img class="barc8 blurEffect9" ng-src="images/back/barcelona/hojas2.png"/>-->
+    <!--<div id="texto7-barc" class="texto1 texto7-barc highlightText"> {{ generalText.text7 }}</div>-->
+    <!--<div id="textoFin" class="texto1 textoFin highlightText">{{ generalText.textoFin }}</div>-->
+  <!--</div>-->
+  <!--<div id="back8" class="back8 backIlustration">-->
+    <!--<img class="lasv1 blurEffect8" ng-src="images/back/lasvegas/fondo.png"/>-->
+    <!--<img class="lasv2 blurEffect8" ng-src="images/back/lasvegas/edificiosFondo.png"/>-->
+    <!--<img class="lasv3 blurEffect8" ng-src="images/back/lasvegas/edificioCaesar.png"/>-->
+    <!--<img class="lasv4 blurEffect8" ng-src="images/back/lasvegas/cartelFlamingo.png"/>-->
+    <!--<img class="lasv5 blurEffect8" ng-src="images/back/lasvegas/cartelmotel.png"/>-->
+    <!--<img class="lasv6 blurEffect8" ng-src="images/back/lasvegas/lucesCaesar.png"/>-->
+    <!--<img class="lasv7 blurEffect8" ng-src="images/back/lasvegas/lucesFlamingo.png"/>-->
+    <!--<img class="lasv8 blurEffect8" ng-src="images/back/lasvegas/lucesMotel.png"/>-->
+    <!--<img class="lasv9 blurEffect8" ng-src="images/back/lasvegas/bombillasFlamingo.png"/>-->
+    <!--<img class="lasv10 blurEffect8" ng-src="images/back/lasvegas/coches.png"/>-->
+  <!--</div>-->
+  <!--<div id="back7" class="back7 backIlustration">-->
+    <!--<img class="chi1 blurEffect7" ng-src="images/back/chicago/edificios.png"/>-->
+    <!--<img class="chi2 blurEffect7" ng-src="images/back/chicago/letreros.gif"/>-->
+    <!--<img class="chi4 blurEffect7" ng-src="images/back/chicago/lucesEdificios.png"/>-->
+    <!--<img class="chi5 blurEffect7" ng-src="images/back/chicago/coche1.png"/>-->
+    <!--<img class="chi6 blurEffect7" ng-src="images/back/chicago/coche2.png"/>-->
+  <!--</div>-->
+  <!--<div id="back6" class="back6 backIlustration">-->
+    <!--<img class="holly2 blurEffect6" ng-src="images/back/hollywood/hollywoodCielo.png"/>-->
+    <!--<img class="holly6 blurEffect6" ng-src="images/back/hollywood/hollywoodSol.png"/>-->
+    <!--<img class="holly1 blurEffect6" ng-src="images/back/hollywood/hollywoodMontanas.png"/>-->
+    <!--<img class="holly3 blurEffect6" ng-src="images/back/hollywood/hollywoodRocas.png"/>-->
+    <!--<img class="holly4 blurEffect6" ng-src="images/back/hollywood/hollywoodArboles.png"/>-->
+    <!--<img class="holly5" ng-src="images/back/hollywood/hollywoodNubes.png"/>-->
+    <!--<img class="holly7 blurEffect6" ng-src="images/back/hollywood/hollywoodLetrero.png"/>-->
+  <!--</div>-->
+  <!--<div id="back5" class="back5 backIlustration">-->
+    <!--<img class="carn1 blurEffect5" ng-src="images/back/carnie/palco.png"/>-->
+    <!--<img class="carn2 blurEffect5" ng-src="images/back/carnie/luces.png"/>-->
+    <!--<img class="carn3 blurEffect5" ng-src="images/back/carnie/escenario.png"/>-->
+    <!--<img class="carn4 blurEffect5" ng-src="images/back/carnie/publico1.png"/>-->
+    <!--<img class="carn5 blurEffect5" ng-src="images/back/carnie/publico2.png"/>-->
+    <!--<img class="carn6 blurEffect5" ng-src="images/back/carnie/cugat.png"/>-->
+  <!--</div>-->
+  <!--<div id="back4" class="back4 backIlustration">-->
+    <!--<img class="ber1 blurEffect4" ng-src="images/back/berlin/berlinColor.png"/>-->
+  <!--</div>-->
+  <!--<div id="back3" class="back3 backIlustration">-->
+    <!--<img class="ny4 blurEffect3" ng-src="images/back/nuevaYork/nyCielo.png"/>-->
+    <!--<img class="ny1 blurEffect3" ng-src="images/back/nuevaYork/nyCarret.png"/>-->
+    <!--<img class="ny7 blurEffect3" ng-src="images/back/nuevaYork/nyCoche3.png"/>-->
+    <!--<img class="ny3 blurEffect3" ng-src="images/back/nuevaYork/nyPuente.png"/>-->
+    <!--<img class="ny6 blurEffect3" ng-src="images/back/nuevaYork/nyCoche2.png"/>-->
+    <!--<img class="ny5 blurEffect3" ng-src="images/back/nuevaYork/nyCoche1.png"/>-->
+    <!--<img class="ny2 blurEffect3" ng-src="images/back/nuevaYork/nyLetreros.png"/>-->
+  <!--</div>-->
+  <!--<div id="back2" class="back2 backIlustration">-->
+    <!--<img class="cub1 blurEffect2" ng-src="images/back/cuba/cuba.png"/>-->
+    <!--<img class="cub1 blurEffect2" ng-src="images/back/cuba/coches.png"/>-->
+  <!--</div>-->
   <div id="back1" class="back1 backIlustration">
     <div id="texto11" class="texto1 texto11 highlightText">{{ generalText.texto11 }}</div>
     <!--<img class="ed4 blurEffect1" ng-src="images/back/inf/rioc.png"/>-->
