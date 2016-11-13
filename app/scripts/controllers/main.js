@@ -1432,169 +1432,26 @@ angular.module('smcApp')
     })
     $(window).resize()
 
-    playlistPlayer.playlist([{
-      name: 'Entrevista completa a Xavier Cugat en el programa “La luna” (1989)',
+    playlistPlayer.playlist([
+      {
+      name: 'El debut de Nina en el Un, dos, tres, presentada y apadrinada por Cugat.',
       sources: [{
-        src: 'http://mvod.lvlt.rtve.es/resources/TE_NGVA/mp4/2/9/1466417568692.mp4',
+        src: 'http://mvod.lvlt.rtve.es/resources/TE_NGVA/mp4/7/5/1411576524757.mp4',
         type: 'video/mp4'
       }],
       poster: 'images/king-of-rumba.jpg',
       thumbnail: [
         {
-          srcset: 'images/thumb/1466417568692.jpg',
+          srcset: 'images/thumb/1411576524757.jpg',
           type: 'image/jpeg',
           media: '(min-width: 350px;)'
         },
         {
-          src: 'images/thumb/1466417568692.jpg'
+          src: 'images/thumb/1411576524757.jpg'
         }
       ],
-      duration: 3245
+      duration: 141
       }, {
-      // name: 'Xavier Cugat con Julia Otero en el programa “La luna” (1989).',
-      // sources: [{
-      //   src: 'https://www.youtube.com/watch?v=WM9v8yVszF8',
-      //   type: 'video/youtube'
-      // }],
-      // poster: 'images/king-of-rumba.jpg',
-      // thumbnail: [
-      //   {
-      //     srcset: 'images/thumb/king-of-rumba.jpg',
-      //     type: 'image/jpeg',
-      //     media: '(min-width: 350px;)'
-      //   },
-      //   {
-      //     src: 'images/thumb/king-of-rumba.jpg'
-      //   }
-      // ],
-      // duration: 45
-      // }, {
-      // name: 'Cugui continúa repasando su carrera',
-      // sources: [{
-      //   src: 'https://www.youtube.com/watch?v=GzAnW2EpbgY',
-      //   type: 'video/youtube'
-      // }],
-      // poster: 'images/king-of-rumba.jpg',
-      // thumbnail: [
-      //   {
-      //     srcset: 'images/thumb/king-of-rumba.jpg',
-      //     type: 'image/jpeg',
-      //     media: '(min-width: 350px;)'
-      //   },
-      //   {
-      //     src: 'images/thumb/king-of-rumba.jpg'
-      //   }
-      // ],
-      // duration: 45
-      // }, {
-      // name: 'Xavier Cugat y su chihuahua con Julia Otero en el programa “La luna” (1989)',
-      // sources: [{
-      //   src: 'https://www.youtube.com/watch?v=Tspqgl4aajs',
-      //   type: 'video/youtube'
-      // }],
-      // poster: 'images/king-of-rumba.jpg',
-      // thumbnail: [
-      //   {
-      //     srcset: 'images/thumb/king-of-rumba.jpg',
-      //     type: 'image/jpeg',
-      //     media: '(min-width: 350px;)'
-      //   },
-      //   {
-      //     src: 'images/thumb/king-of-rumba.jpg'
-      //   }
-      // ],
-      // duration: 45
-      // }, {
-      name: 'Xavier Cugat desvela detalles sobre su vida en "Verdad o mentira” de 1983',
-      sources: [{
-        src: 'http://mvod.lvlt.rtve.es/resources/TE_NGVA/mp4/8/2/1466417752028.mp4',
-        type: 'video/mp4'
-      }],
-      poster: 'images/king-of-rumba.jpg',
-      thumbnail: [
-        {
-          srcset: 'images/thumb/1466417752028.jpg',
-          type: 'image/jpeg',
-          media: '(min-width: 350px;)'
-        },
-        {
-          src: 'images/thumb/1466417752028.jpg'
-        }
-      ],
-      duration: 2489
-      }, {
-      // name: '¿Es Xavier Cugat también un mago?',
-      // sources: [{
-      //   src: 'https://www.youtube.com/watch?v=dXtHp_rEgVA',
-      //   type: 'video/youtube'
-      // }],
-      // poster: 'images/king-of-rumba.jpg',
-      // thumbnail: [
-      //   {
-      //     srcset: 'images/thumb/king-of-rumba.jpg',
-      //     type: 'image/jpeg',
-      //     media: '(min-width: 350px;)'
-      //   },
-      //   {
-      //     src: 'images/thumb/king-of-rumba.jpg'
-      //   }
-      // ],
-      // duration: 45
-      // }, {
-      // name: '¿Es verdad que fue nombrado jefe de una tribu india?',
-      // sources: [{
-      //   src: 'https://www.youtube.com/watch?v=KV5qhM9r90Y',
-      //   type: 'video/youtube'
-      // }],
-      // poster: 'images/king-of-rumba.jpg',
-      // thumbnail: [
-      //   {
-      //     srcset: 'images/thumb/king-of-rumba.jpg',
-      //     type: 'image/jpeg',
-      //     media: '(min-width: 350px;)'
-      //   },
-      //   {
-      //     src: 'images/thumb/king-of-rumba.jpg'
-      //   }
-      // ],
-      // duration: 45
-      // }, {
-      // name: 'Cugat narra su relación con Frank Sinatra',
-      // sources: [{
-      //   src: 'https://www.youtube.com/watch?v=EySYESxtMYg',
-      //   type: 'video/youtube'
-      // }],
-      // poster: 'images/king-of-rumba.jpg',
-      // thumbnail: [
-      //   {
-      //     srcset: 'images/thumb/king-of-rumba.jpg',
-      //     type: 'image/jpeg',
-      //     media: '(min-width: 350px;)'
-      //   },
-      //   {
-      //     src: 'images/thumb/king-of-rumba.jpg'
-      //   }
-      // ],
-      // duration: 45
-      // }, {
-      // name: 'Cugui desvela sus inicios con el gran Caruso',
-      // sources: [{
-      //   src: 'https://www.youtube.com/watch?v=hC8FxSSouY4',
-      //   type: 'video/youtube'
-      // }],
-      // poster: 'images/king-of-rumba.jpg',
-      // thumbnail: [
-      //   {
-      //     srcset: 'images/thumb/king-of-rumba.jpg',
-      //     type: 'image/jpeg',
-      //     media: '(min-width: 350px;)'
-      //   },
-      //   {
-      //     src: 'images/thumb/king-of-rumba.jpg'
-      //   }
-      // ],
-      // duration: 45
-      // }, {
       name: 'Programa de entretenimiento en el que el público realiza preguntas variadas a Xavier Cugat (1972).',
       sources: [{
         src: 'http://mvod.lvlt.rtve.es/resources/TE_NGVA/mp4/1/7/1466589118771.mp4',
@@ -1613,60 +1470,6 @@ angular.module('smcApp')
       ],
       duration: 1814
       }, {
-      // name: 'Sus comienzos',
-      // sources: [{
-      //   src: 'https://www.youtube.com/watch?v=7LMZ-RCDvXA',
-      //   type: 'video/youtube'
-      // }],
-      // poster: 'images/king-of-rumba.jpg',
-      // thumbnail: [
-      //   {
-      //     srcset: 'images/thumb/king-of-rumba.jpg',
-      //     type: 'image/jpeg',
-      //     media: '(min-width: 350px;)'
-      //   },
-      //   {
-      //     src: 'images/thumb/king-of-rumba.jpg'
-      //   }
-      // ],
-      // duration: 45
-      // }, {
-      // name: 'Sus mujeres y EEUU',
-      // sources: [{
-      //   src: 'https://www.youtube.com/watch?v=z7pqniWBYf4',
-      //   type: 'video/youtube'
-      // }],
-      // poster: 'images/king-of-rumba.jpg',
-      // thumbnail: [
-      //   {
-      //     srcset: 'images/thumb/king-of-rumba.jpg',
-      //     type: 'image/jpeg',
-      //     media: '(min-width: 350px;)'
-      //   },
-      //   {
-      //     src: 'images/thumb/king-of-rumba.jpg'
-      //   }
-      // ],
-      // duration: 45
-      // }, {
-      // name: 'Sus curiosidades más personales',
-      // sources: [{
-      //   src: 'https://www.youtube.com/watch?v=1n4BLvpflJc',
-      //   type: 'video/youtube'
-      // }],
-      // poster: 'images/king-of-rumba.jpg',
-      // thumbnail: [
-      //   {
-      //     srcset: 'images/thumb/king-of-rumba.jpg',
-      //     type: 'image/jpeg',
-      //     media: '(min-width: 350px;)'
-      //   },
-      //   {
-      //     src: 'images/thumb/king-of-rumba.jpg'
-      //   }
-      // ],
-      // duration: 45
-      // }, {
       name: 'Entrevista de Xavier Cugat con Mónica Randall para el programa “Rasgos”.',
       sources: [{
         src: 'http://mvod.lvlt.rtve.es/resources/TE_NGVA/mp4/9/4/1467728998149.mp4',
@@ -1685,81 +1488,45 @@ angular.module('smcApp')
       ],
       duration: 2443
       }, {
-      // name: 'Cugat repasa sus recuerdos desde su nacimiento y vida en Cuba',
-      // sources: [{
-      //   src: 'https://www.youtube.com/watch?v=4esIIbi2ao0',
-      //   type: 'video/youtube'
-      // }],
-      // poster: 'images/king-of-rumba.jpg',
-      // thumbnail: [
-      //   {
-      //     srcset: 'images/thumb/king-of-rumba.jpg',
-      //     type: 'image/jpeg',
-      //     media: '(min-width: 350px;)'
-      //   },
-      //   {
-      //     src: 'images/thumb/king-of-rumba.jpg'
-      //   }
-      // ],
-      // duration: 45
-      // }, {
-      // name: 'Su llegada a EE UU y (casi) todas las mujeres de su vida',
-      // sources: [{
-      //   src: 'https://www.youtube.com/watch?v=Zvs0BSB4H_E',
-      //   type: 'video/youtube'
-      // }],
-      // poster: 'images/king-of-rumba.jpg',
-      // thumbnail: [
-      //   {
-      //     srcset: 'images/thumb/king-of-rumba.jpg',
-      //     type: 'image/jpeg',
-      //     media: '(min-width: 350px;)'
-      //   },
-      //   {
-      //     src: 'images/thumb/king-of-rumba.jpg'
-      //   }
-      // ],
-      // duration: 45
-      // }, {
-      // name: 'Cugat, el hombre de negocios',
-      // sources: [{
-      //   src: 'https://www.youtube.com/watch?v=UrVFLqTjCBs',
-      //   type: 'video/youtube'
-      // }],
-      // poster: 'images/king-of-rumba.jpg',
-      // thumbnail: [
-      //   {
-      //     srcset: 'images/thumb/king-of-rumba.jpg',
-      //     type: 'image/jpeg',
-      //     media: '(min-width: 350px;)'
-      //   },
-      //   {
-      //     src: 'images/thumb/king-of-rumba.jpg'
-      //   }
-      // ],
-      // duration: 45
-      // }, {
-      name: 'el debut de Nina en el Un, dos, tres, presentada y apadrinada por Cugat.',
+      name: 'Entrevista completa a Xavier Cugat en el programa “La luna” (1989)',
       sources: [{
-        src: 'http://mvod.lvlt.rtve.es/resources/TE_NGVA/mp4/7/5/1411576524757.mp4',
+        src: 'http://mvod.lvlt.rtve.es/resources/TE_NGVA/mp4/2/9/1466417568692.mp4',
         type: 'video/mp4'
       }],
       poster: 'images/king-of-rumba.jpg',
       thumbnail: [
         {
-          srcset: 'images/thumb/1411576524757.jpg',
+          srcset: 'images/thumb/1466417568692.jpg',
           type: 'image/jpeg',
           media: '(min-width: 350px;)'
         },
         {
-          src: 'images/thumb/1411576524757.jpg'
+          src: 'images/thumb/1466417568692.jpg'
         }
       ],
-      duration: 141
+      duration: 3245
+      }, {
+      name: 'Xavier Cugat desvela detalles sobre su vida en "Verdad o mentira” de 1983',
+      sources: [{
+        src: 'http://mvod.lvlt.rtve.es/resources/TE_NGVA/mp4/8/2/1466417752028.mp4',
+        type: 'video/mp4'
+      }],
+      poster: 'images/king-of-rumba.jpg',
+      thumbnail: [
+        {
+          srcset: 'images/thumb/1466417752028.jpg',
+          type: 'image/jpeg',
+          media: '(min-width: 350px;)'
+        },
+        {
+          src: 'images/thumb/1466417752028.jpg'
+        }
+      ],
+      duration: 2489
       }, {
       name: 'Xavier Cugat pasea por la plaza D´Oli (Barcelona), el lugar donde nació',
       sources: [{
-        src: 'http://origin-proyectos-lab-externos.rtve.es/webdocs/xavier-cugat/videos/cugat.mp4',
+        src: config.tve.videos+'cugat.mp4',
         type: 'video/mp4'
       }],
       poster: 'images/king-of-rumba.jpg',
@@ -1777,7 +1544,7 @@ angular.module('smcApp')
       }, {
       name: 'Entrevista desde el hospital a Xavier Cugat',
       sources: [{
-        src: 'http://origin-proyectos-lab-externos.rtve.es/webdocs/xavier-cugat/videos/cugat2bata.mp4',
+        src: config.tve.videos+'cugat2bata.mp4',
         type: 'video/mp4'
       }],
       poster: 'images/king-of-rumba.jpg',
@@ -1795,7 +1562,7 @@ angular.module('smcApp')
       }, {
       name: 'Entrevista a Xavier Cugat en el Hotel Ritz',
       sources: [{
-        src: 'http://origin-proyectos-lab-externos.rtve.es/webdocs/xavier-cugat/videos/cugatCuadros.mp4',
+        src: config.tve.videos+'cugatCuadros.mp4',
         type: 'video/mp4'
       }],
       poster: 'images/king-of-rumba.jpg',
@@ -1813,7 +1580,7 @@ angular.module('smcApp')
       }, {
       name: 'Xavier Cugat cumple 80 años',
       sources: [{
-        src: 'http://origin-proyectos-lab-externos.rtve.es/webdocs/xavier-cugat/videos/cugatNodo.mp4',
+        src: config.tve.videos+'cugatNodo.mp4',
         type: 'video/mp4'
       }],
       poster: 'images/king-of-rumba.jpg',
