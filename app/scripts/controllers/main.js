@@ -265,7 +265,6 @@ angular.module('smcApp')
         .to(".mapSvgClassTop", 1, {width: '6200px', top: '-1240px', left: '-2320px' , ease: Power2.easeIn},"+=1")
         .to("", 1, { onStart: edAnimOff })
         .to("", 1, { onStart: cubaAnim }, "+=0.5")
-        .to(".ed1", 0.5, {opacity: '0', ease: Power2.easeIn})
         .to(".mapSvgClassTop", 2, {width: '6200px', top: '-1390px', left: '-1100px', ease: Power2.easeIn},"-=1.2")
         .to("", 0.1, { onReverseComplete: initViaje, onReverseCompleteParams: ['reverse'] })
         .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['videoCloud',false,'p1clip1ESP.mp4', 'videoCloud', 'videoCloudInside',false,"local"] })
@@ -658,6 +657,7 @@ angular.module('smcApp')
     //-------FUNCTIONS --------------------
 
     $scope.upTo = function(value, music, notes) {
+      berAnimOff();
       if( $scope.currentBack = 'inf' ) edAnimOff();
       if( $scope.currentBack = 'cuba' ) cubaAnimOff();
       if( $scope.currentBack = 'ny' ) newYorkAnimOff();
@@ -673,7 +673,7 @@ angular.module('smcApp')
       if( value == 'CC3' || value == 'CC4' ) carnAnim();
       if( value == 'LA2' || value == 'LA3' ) chiAnim();
       if( value == 'AL2' || value == 'AL3' || value == 'CB1' || value == 'CB2' ) lasVAnim();
-      
+
       if( currentVideoSlidePlaying != undefined ) stopVideoToolTip( currentVideoSlidePlaying.ID, currentVideoSlidePlaying.conto, currentVideoSlidePlaying.playB, currentVideoSlidePlaying.fullS );
       setStopScroll(false);
       stopNarracion();
@@ -807,7 +807,7 @@ angular.module('smcApp')
     function cubaAnimOff(){
       if( $scope.mobile == 'pc' ) {
         new TimelineMax({repeat: 0, autoRound: false})
-          .to(".cub1", 1, {top: '0%', ease: Bounce.easeOut})
+          .to(".cub1", 1, {top: '-120%', ease: Bounce.easeOut})
           .play();
       }
       if( $scope.mobile == 'device' ){
@@ -869,6 +869,7 @@ angular.module('smcApp')
     }
     function berAnimOff(){
       if( $scope.mobile == 'pc' ) {
+        console.log('entra en berlin anim');
         new TimelineMax({repeat: 0, autoRound: false})
           .to(".ber1", 1, {transform: 'rotateY(165deg)', ease: Bounce.easeOut})
           .play();
