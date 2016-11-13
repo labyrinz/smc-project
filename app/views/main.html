@@ -169,589 +169,589 @@
       </div>
     </div>
     <!--EPISODE 1 PROLOGO-->
-    <div id="page1" class="back color0 page1">
-      <h2 class="title retro">Girona - 1900</h2>
-      <div id="cita11" class="cita1 cita11"> {{ CatText.cita11 }} </div>
-      <div id="fotoGroup1" class="prelGroup">
-        <div class="pic prel02 img slideimg1">
-          <img ng-src="{{ imageSlide[0].image1 }}" class="pic-image" alt="Pic"/>
-            <span class="pic-caption bottom-to-top">
-              <p> {{ photoText.prel02 }} </p>
-            </span>
-        </div>
-        <div class="pic prel03 img slideimg1">
-          <img ng-src="{{ imageSlide[0].image2 }}" class="pic-image" alt="Pic"/>
-            <span class="pic-caption bottom-to-top">
-              <p> {{ photoText.prel03 }} </p>
-            </span>
-        </div>
-        <div class="pic prel04 img slideimg1">
-          <img ng-src="{{ imageSlide[0].image3 }}" class="pic-image" alt="Pic"/>
-            <span class="pic-caption bottom-to-top">
-                <p> {{ photoText.prel04 }} </p>
-            </span>
-        </div>
-        <div id="slideVideoContainerProl" class="prol11Video img slideimg1" style="background: black">
-          <video id="slideVideoProl" width="100%" height="100%" class="vid">
-            <source ng-src="http://origin-proyectos-lab-externos.rtve.es/webdocs/xavier-cugat/videos/Cugat1rasgos-PlazaAceite.mp4" type="video/mp4">
-          </video>
-          <div id="playButtonProl" class="playButton" ng-click="playVideoSlide('slideVideoProl', 'slideVideoContainerProl', 'playButtonProl', 'fullScreenButtonProl')"></div>
-          <div id="fullScreenButtonProl" class="fullScreenButton" ng-click="fullScreenVideoSlide('slideVideoContainerProl', 'videoSlideResize')"></div>
-        </div>
-        <div>
-          <img ng-click="prevFoto('1')" class="arrowPrev arrowPrev1" ng-src="images/arrow-left-3.svg"/>
-          <img ng-click="nextFoto('1')" class="arrowNext arrowNext1" ng-src="images/arrow-left-3.svg"/>
-        </div>
-      </div>
-    </div>
-    <div id="page2" class="back color0 page2">
-      <h2 class="title retro">Viaje a Cuba - 1904</h2>
-      <div class="mapSvgContainer">
-        <img class="mapSvgClassTop" ng-src="images/mapWorld.svg"/>
-        <svg class="mapSvgClassTop" version="1.1" id="viaje1Svg" x="0px" y="0px" viewBox="0 0 950 620" enable-background="new 0 0 950 620" xml:space="preserve">
-             <g class="viaje1Class">
-               <path fill="none" stroke="#68C8F2" stroke-width="2" stroke-miterlimit="10" stroke-dasharray="1.0021,1.0021" d="
-                    M458.829,213.181c4.401,1.819,14.877,3.917,9.012,9.061c-2.391,2.095-5.58,2.744-8.02,4.242c-2.607,1.603-4.662,3.303-7.34,4.666
-                    c-2.267,1.153-4.979,2.016-7.389,2.943c-3.229,1.244-5.657,2.542-9.333,2.89c-7.253,0.685-14.518,0.294-21.521,2.443
-                    c-3.875,1.188-7.592,0.836-11.77,1.411c-4.493,0.618-9.074,2.09-13.628,2.681c-8.021,1.042-15.207,2.303-22.988,4.417
-                    c-18.953,5.148-37.69,9.099-56.729,12.574c-12.612,2.302-24.373,5.697-36.958,7.309c-9.13,1.168-20.827-1.956-28.836,3.118"/>
-              <ellipse fill="#ffd85f" cx="242.375" cy="271.356" rx="2.875" ry="2.688"/>
-              <ellipse fill="#ffd85f" cx="458.55" cy="213.792" rx="2.875" ry="2.688"></ellipse>
-             </g>
-          </svg>
-      </div>
-    </div>
-    <div id="page3" class="back color0 page3">
-      <h2 class="title retro">La Habana - 1905</h2>
-      <div id="fotoGroup31" class="prelGroup">
-        <div class="pic prol01 img slideimg31">
-          <img ng-src="{{ imageSlide[1].image1 }}" class="pic-image" alt="Pic"/>
-            <span class="pic-caption bottom-to-top">
-              <p>{{ photoText.prol01 }} </p>
-              <p>{{ photoText.prol01b }} </p>
-            </span>
-        </div>
-        <div class="pic prol02 img slideimg31">
-          <img ng-src="{{ imageSlide[1].image2 }}" class="pic-image" alt="Pic"/>
-            <span class="pic-caption bottom-to-top">
-              <p> {{ photoText.prol02 }} </p>
-            </span>
-        </div>
-        <div class="pic prol03 img slideimg31">
-          <img ng-src="{{ imageSlide[1].image3 }}" class="pic-image" alt="Pic"/>
-            <span class="pic-caption bottom-to-top">
-              <p> {{ photoText.prol03 }} </p>
-            </span>
-        </div>
-        <div>
-          <img ng-click="prevFoto('31','65%')" class="arrowPrev" ng-src="images/arrow-left-3.svg"/>
-          <img ng-click="nextFoto('31','100%')" class="arrowNext" ng-src="images/arrow-left-3.svg"/>
-        </div>
-      </div>
-    </div>
-    <div id="page4" class="back color0 page4">
-      <h2 class="title retro">Nueva York - 1912</h2>
-      <div id="fotoGroup4" class="prelGroup">
-        <div class="pic prol05 img slideimg4">
-          <img ng-src="{{ imageSlide[2].image1 }}" class="pic-image" alt="Pic"/>
-            <span class="pic-caption bottom-to-top">
-              <p> {{ photoText.prol05 }} </p>
-              <p> {{ photoText.prol05b }} </p>
-            </span>
-        </div>
-        <div class="pic prol06 img slideimg4">
-          <img ng-src="{{ imageSlide[2].image2 }}" class="pic-image" alt="Pic"/>
-            <span class="pic-caption bottom-to-top">
-              <p> {{ photoText.prol06 }} </p>
-            </span>
-        </div>
-        <div>
-          <img ng-click="prevFoto('4','90%')" class="arrowPrev arrowPrev3" ng-src="images/arrow-left-3.svg"/>
-          <img ng-click="nextFoto('4','90%')" class="arrowNext arrowNext3" ng-src="images/arrow-left-3.svg"/>
-        </div>
-      </div>
-      <div class="cita12 cita1"><span id="cita12suma"> </span> {{ CatText.cita12 }} <span class="plusInfoCita" value="12">[+]</span></div>
-      <div id="slideVideoContainerNY" class="p31Video" style="background: black">
-        <video id="slideVideoNY" width="100%" height="100%"  class="vid">
-          <source ng-src="http://origin-proyectos-lab-externos.rtve.es/webdocs/xavier-cugat/videos/P3Clip1.m4v" type="video/mp4">
-        </video>
-        <div id="playButtonNY" class="playButton" ng-click="playVideoSlide('slideVideoNY', 'slideVideoContainerNY', 'playButtonNY', 'fullScreenButtonNY')"></div>
-        <div id="fullScreenButtonNY" class="fullScreenButton" ng-click="fullScreenVideoSlide('slideVideoContainerNY', 'videoSlideResizeOut')"></div>
-      </div>
-      <div class="textoGeneral"> {{ generalText.text1 }} </div>
-    </div>
-    <!--EPISODE 2 RITA MONTANER-->
-    <div id="page5" class="back color0 page5">
-      <h2 class="title retro">Rita Montaner</h2>
-      <div id="fotoGroup2" class="prelGroup">
-        <div class="pic rm11 img slideimg2">
-          <img ng-src="{{ imageSlide[3].image1 }}" class="pic-image" alt="Pic"/>
-            <span class="pic-caption bottom-to-top">
-              <p> {{ photoText.rm11 }} </p>
-            </span>
-        </div>
-        <div class="pic rm12 img slideimg2">
-          <img ng-src="{{ imageSlide[3].image2 }}" class="pic-image" alt="Pic"/>
-            <span class="pic-caption bottom-to-top">
-              <p> {{ photoText.rm12 }} </p>
-            </span>
-        </div>
-        <div class="pic rm13 img slideimg2">
-          <img ng-src="{{ imageSlide[3].image3 }}" class="pic-image" alt="Pic"/>
-            <span class="pic-caption bottom-to-top">
-              <p> {{ photoText.rm13 }} </p>
-            </span>
-        </div>
-        <div>
-          <img id="arrowPrev" ng-click="prevFoto('2')" class="arrowPrev" ng-src="images/arrow-left-3.svg"/>
-          <img id="arrowNext" ng-click="nextFoto('2')" class="arrowNext" ng-src="images/arrow-left-3.svg"/>
-        </div>
-      </div>
-      <!--<div class="cita2 cita21"> {{ CatText.cita21 }} </div>-->
-      <div class="cita2 cita21"> {{ CatText.cita21 }} <span id="cita21suma"> </span><span class="plusInfoCita" value="21">[+]</span></div>
-    </div>
-    <div id="page6" class="back color0 page6">
-      <h2 class="title retro">Berlín - 1919</h2>
-      <div class="cita1 cita14"> {{ CatText.cita14 }} </div>
-      <div class="contextual">
-        <a class="tooltip" href="#" onclick="return false;">
-          <img ng-src="images/more-button.svg" alt="" class="infoIcon"/>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <strong>1919 - </strong> {{ tooltipText.text2a }}
-                  <br><br> {{ tooltipText.text2b }}
-                </span>
-              </span>
-            </span>
-        </a>
-      </div>
-    </div>
-    <div id="page7" class="back color0 page7">
-      <div id="cita15" class="cita1 cita15"> {{ CatText.cita15 }} </div>
-      <h2 class="title retro">Los Angeles - 1921</h2>
-      <div id="fotoGroup61" class="prelGroup">
-        <div class="pic rm16 img slideimg61">
-          <img ng-src="{{ imageSlide[4].image1 }}" class="pic-image" alt="Pic"/>
-            <span class="pic-caption bottom-to-top">
-              <p> {{ photoText.rm16 }} </p>
-              <p> {{ photoText.rm16b }} </p>
-            </span>
-        </div>
-        <div class="pic rm15 img slideimg61">
-          <img ng-src="{{ imageSlide[4].image2 }}" class="pic-image" alt="Pic"/>
-            <span class="pic-caption bottom-to-top">
-              <p> {{ photoText.rm15 }} </p>
-            </span>
-        </div>
-        <div class="pic rm17 img slideimg61">
-          <img ng-src="{{ imageSlide[4].image3 }}" class="pic-image" alt="Pic"/>
-            <span class="pic-caption bottom-to-top">
-              <p> {{ photoText.rm17 }} </p>
-            </span>
-        </div>
-        <div class="pic rm18 img slideimg61">
-          <img ng-src="{{ imageSlide[4].image4 }}" class="pic-image" alt="Pic"/>
-            <span class="pic-caption bottom-to-top">
-              <p> {{ photoText.rm18 }} </p>
-            </span>
-        </div>
-        <div>
-          <img id="arrowPrev" ng-click="prevFoto('61')" class="arrowPrev" ng-src="images/arrow-left-3.svg"/>
-          <img id="arrowNext" ng-click="nextFoto('61')" class="arrowNext" ng-src="images/arrow-left-3.svg"/>
-        </div>
-      </div>
-    </div>
-    <!--EPISODE 3 CARMEN CASTILLO-->
-    <div id="page8" class="back color0 page8">
-      <h2 class="title retro">Carmen Castillo</h2>
-      <div id="fotoGroup63" class="prelGroup">
-        <div class="pic cc31 img slideimg63">
-          <img ng-src="{{ imageSlide[5].image1 }}" class="pic-image" alt="Pic"/>
-            <span class="pic-caption bottom-to-top">
-              <p>{{ photoText.cc31 }}</p>
-            </span>
-        </div>
-        <div class="pic cc32 img slideimg63">
-          <img ng-src="{{ imageSlide[5].image2 }}" class="pic-image" alt="Pic"/>
-            <span class="pic-caption bottom-to-top">
-              <p>{{ photoText.cc32 }}</p>
-            </span>
-        </div>
-        <div class="pic cc34 img slideimg63">
-          <img ng-src="{{ imageSlide[5].image3 }}" class="pic-image" alt="Pic"/>
-            <span class="pic-caption bottom-to-top">
-              <p>{{ photoText.cc34 }}</p>
-            </span>
-        </div>
-        <div>
-          <img ng-click="prevFoto('63','90%')" class="arrowPrev arrowPrev3" ng-src="images/arrow-left-3.svg"/>
-          <img ng-click="nextFoto('63','110%')" class="arrowNext arrowNext3" ng-src="images/arrow-left-3.svg"/>
-        </div>
-      </div>
-      <div class="textoGeneral"> {{ generalText.text3 }} </div>
-    </div>
-    <div id="page9" class="back color0 page9">
-      <h2 class="title retro">¿Descubridor de Rita Hayworth?</h2>
-      <h2 class="TextoGeneral">{{ generalText.text6 }}</h2>
-      <div id="fotoGroup62" class="prelGroup">
-        <div class="pic cc38 img slideimg62">
-          <img ng-src="{{ imageSlide[6].image1 }}" class="pic-image" alt="Pic"/>
-            <span class="pic-caption bottom-to-top">
-              <p> {{ photoText.cc38 }} </p>
-            </span>
-        </div>
-        <div class="pic cc35 img slideimg62">
-          <img ng-src="{{ imageSlide[6].image2 }}" class="pic-image" alt="Pic"/>
-            <span class="pic-caption bottom-to-top">
-              <p> {{ photoText.cc35 }} </p>
-            </span>
-        </div>
-        <div class="pic cc36 img slideimg62">
-          <img ng-src="{{ imageSlide[6].image3 }}" class="pic-image" alt="Pic"/>
-            <span class="pic-caption bottom-to-top">
-              <p>{{ photoText.cc36 }}</p>
-            </span>
-        </div>
-        <div>
-          <img ng-click="prevFoto('62','90%')" class="arrowPrev arrowPrev3" ng-src="images/arrow-left-3.svg"/>
-          <img ng-click="nextFoto('62','110%')" class="arrowNext arrowNext3" ng-src="images/arrow-left-3.svg"/>
-        </div>
-      </div>
-      <div class="contextualVideoSlide">
-        <a id="videoToolTipCC2" class="tooltipVideo" href="#" onclick="return false;">
-          <img id="tooltipImageCC2" ng-src="images/more-button.svg" alt="" class="infoIcon"/>
-          <div id="videoToolTipContentCC2" class="tooltipNormalSize">
-            <video id="slideVideoCC2" width="100%" height="100%" class="vid">
-              <source ng-src="videos/cc2clip2.mp4" type="video/mp4">
-            </video>
-            <div id="playButtonCC2" class="playButton" ng-click="playVideoSlide('slideVideoCC2', 'videoToolTipContentCC2', 'playButtonCC2', 'fullScreenButtonCC2')"></div>
-            <div id="fullScreenButtonCC2" class="fullScreenButton" ng-click="fullScreenVideoSlide('videoToolTipContentCC2', 'tooltipFullSize')"></div>
-          </div>
-        </a>
-      </div>
-    </div>
-    <div id="page10" class="back color0 page10">
-    </div>
-    <!--EPISODE 4 LORRAINE ALLEN-->
-    <div id="page11" class="back color0 page11">
-      <h2 class="title retro">Lorraine Allen</h2>
-      <img class="la1 img" ng-src="{{ imageSlide[7].image1 }}"/>
-      <div class="pic la2 img">
-        <img ng-src="{{ imageSlide[7].image2 }}" class="pic-image" alt="Pic"/>
-            <span class="pic-caption bottom-to-top">
-              <p> {{ photoText.la2 }} </p>
-            </span>
-      </div>
-      <div class="cita41 cita4"> {{ CatText.cita41 }} <span id="cita41suma"> </span> {{ CatText.cita41Post }} <span class="plusInfoCita" value="41">[+]</span></div>
-    </div>
-    <div id="page12" class="back color0 page12">
-      <h2 class="title retro">Chicago - 1947</h2>
-      <div class="cita4 cita42"> <span id="cita42suma"></span> {{ CatText.cita42 }}<span class="plusInfoCita" value="42">[+]</span></div>
-      <div id="fotoGroup87" class="prelGroup">
-        <div class="pic la10 img slideimg87">
-          <img ng-src="{{ imageSlide[8].image1 }}" class="pic-image" alt="Pic"/>
-            <span class="pic-caption bottom-to-top">
-              <p> {{ photoText.la10 }} </p>
-            </span>
-        </div>
-        <div class="pic la8 img slideimg87">
-          <img ng-src="{{ imageSlide[8].image2 }}" class="pic-image" alt="Pic"/>
-            <span class="pic-caption bottom-to-top">
-              <p> {{ photoText.la8 }} </p>
-            </span>
-        </div>
-        <div class="pic la5 img slideimg87">
-          <img ng-src="{{ imageSlide[8].image3 }}" class="pic-image" alt="Pic"/>
-            <span class="pic-caption bottom-to-top">
-              <p> {{ photoText.la5 }} </p>
-            </span>
-        </div>
-        <div class="pic la4 img slideimg87">
-          <img ng-src="{{ imageSlide[8].image4 }}" class="pic-image" alt="Pic"/>
-            <span class="pic-caption bottom-to-top">
-              <p> {{ photoText.la4a }} </p>
-              <p> {{ photoText.la4b }} </p>
-            </span>
-        </div>
-        <div id="slideVideoContainerLorraine" class="la21Video img slideimg87" style="background: black">
-          <video id="slideVideoLorraine" width="100%" height="100%" class="vid">
-            <source ng-src="http://origin-proyectos-lab-externos.rtve.es/webdocs/xavier-cugat/videos/LA2CLIP1.m4v" type="video/mp4">
-          </video>
-          <div id="playButtonLorraine" class="playButton" ng-click="playVideoSlide('slideVideoLorraine', 'slideVideoContainerLorraine', 'playButtonLorraine', 'fullScreenButtonLorraine')"></div>
-          <div id="fullScreenButtonLorraine" class="fullScreenButton" ng-click="fullScreenVideoSlide('slideVideoContainerLorraine', 'videoSlideResize')"></div>
-        </div>
-        <div>
-          <img ng-click="prevFoto('87')" class="arrowPrev arrowPrev2" ng-src="images/arrow-left-3.svg"/>
-          <img ng-click="nextFoto('87')" class="arrowNext arrowNext2" ng-src="images/arrow-left-3.svg"/>
-        </div>
-      </div>
-    </div>
-    <div id="page13" class="back color0 page13">
-      <div class="pic la7 img">
-        <img ng-src="{{ imageSlide[9].image1 }}" class="pic-image" alt="Pic"/>
-            <span class="pic-caption bottom-to-top">
-              <p><b>1940 - </b>Frank Sinatra</p>
-            </span>
-      </div>
-      <div class="pic la9 img">
-        <img ng-src="{{ imageSlide[9].image2 }}" class="" alt=""/>
-            <span class="pic-caption bottom-to-top">
-              <p>{{ photoText.la9 }} </p>
-            </span>
-      </div>
-      <div class="pic la6 img">
-        <img ng-src="{{ imageSlide[9].image3 }}" class="pic-image" alt="Pic"/>
-            <span class="pic-caption bottom-to-top">
-              <p><b>1940 - </b> {{ photoText.la6 }} </p>
-            </span>
-      </div>
-      <div class="contextual2">
-        <a class="tooltip" href="#" onclick="return false;">
-          <img ng-src="images/more-button.svg" alt="" class="infoIcon"/>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner" style="padding: 40px 40px 90px">
-                  <img ng-src="{{ imageSlide[9].image4 }}" class="extraPhoto" alt="" />
-                  <strong>1946 - </strong> {{ tooltipText.text4 }}
-                </span>
-              </span>
-            </span>
-        </a>
-      </div>
-      <div class="textoGeneral"> {{ generalText.text2 }} </div>
-    </div>
-    <!--EPISODE 5 ABBE LANE-->
-    <div id="page14" class="back color0 page14">
-      <h2 class="title retro">Abbe Lane</h2>
-      <div id="fotoGroup81" class="prelGroup">
-        <div class="al11 img slideimg81">
-          <img ng-src="{{ imageSlide[10].image1 }}" class="pic-image" alt="Pic"/>
-        </div>
-        <div class="pic al12 img slideimg81">
-          <img ng-src="{{ imageSlide[10].image2 }}" class="pic-image" alt="Pic"/>
-            <span class="pic-caption bottom-to-top">
-              <p> {{ photoText.al12 }} </p>
-            </span>
-        </div>
-        <div id="slideVideoContainerAbbe" class="teLoDijoAdela img slideimg81" style="background: black">
-          <video id="slideVideoAbbe" class="vid" width="100%" height="100%" ng-click="playVideoSlide('slideVideoAbbe', 'slideVideoContainerAbbe')">
-            <source ng-src="videos/AL1ESP.mp4" type="video/mp4">
-          </video>
-          <div id="playButtonAbbe" class="playButton" ng-click="playVideoSlide('slideVideoAbbe', 'slideVideoContainerAbbe', 'playButtonAbbe', 'fullScreenButtonAbbe')"></div>
-          <div id="fullScreenButtonAbbe" class="fullScreenButton" ng-click="fullScreenVideoSlide('slideVideoContainerAbbe', 'videoSlideResize')"></div>
-        </div>
-        <div id="slideVideoContainerAbbe2" class="teLoDijoAdela2 img slideimg81" style="background: black">
-          <video id="slideVideoAbbe2" class="vid" width="100%" height="100%" ng-click="playVideoSlide('slideVideoAbbe2', 'slideVideoContainerAbbe2')">
-            <source ng-src="http://origin-proyectos-lab-externos.rtve.es/webdocs/xavier-cugat/videos/videoplayback.mp4" type="video/mp4">
-          </video>
-          <div id="playButtonAbbe2" class="playButton" ng-click="playVideoSlide('slideVideoAbbe2', 'slideVideoContainerAbbe2', 'playButtonAbbe2', 'fullScreenButtonAbbe2')"></div>
-          <div id="fullScreenButtonAbbe2" class="fullScreenButton" ng-click="fullScreenVideoSlide('slideVideoContainerAbbe2', 'videoSlideResize')"></div>
-        </div>
-        <div>
-          <img ng-click="prevFoto('81')" class="arrowPrev" ng-src="images/arrow-left-3.svg"/>
-          <img ng-click="nextFoto('81')" class="arrowNext" ng-src="images/arrow-left-3.svg"/>
-        </div>
-      </div>
-      <div class="cita5 cita51"> {{ CatText.cita51 }} <span id="cita51suma"> </span><span class="plusInfoCita" value="51">[+]</span></div>
-      <div class="contextual2">
-        <a class="tooltip" href="#" onclick="return false;">
-          <img ng-src="images/more-button.svg" alt="" class="infoIcon"/>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <img ng-src="{{ imageSlide[10].image3 }}" class="extraPhoto" alt="" />
-                  {{ tooltipText.text5 }}
-                </span>
-              </span>
-            </span>
-        </a>
-      </div>
-    </div>
-    <div id="page15" class="back color0 page15">
-      <div id="fotoGroup73" class="prelGroup">
-        <div class="pic al26 img slideimg73">
-          <img ng-src="{{ imageSlide[11].image1 }}" class="pic-image" alt="Pic"/>
-            <span class="pic-caption bottom-to-top">
-               <p> {{ photoText.al26 }} </p>
-            </span>
-        </div>
-        <div class="pic al23 img slideimg73">
-          <img ng-src="{{ imageSlide[11].image2 }}" class="pic-image" alt="Pic"/>
-            <span class="pic-caption bottom-to-top">
-              <p> {{ photoText.al23 }} </p>
-            </span>
-        </div>
-        <div class="pic al28 img slideimg73">
-          <img ng-src="{{ imageSlide[11].image3 }}" class="pic-image" alt="Pic"/>
+    <!--<div id="page1" class="back color0 page1">-->
+      <!--<h2 class="title retro">Girona - 1900</h2>-->
+      <!--<div id="cita11" class="cita1 cita11"> {{ CatText.cita11 }} </div>-->
+      <!--<div id="fotoGroup1" class="prelGroup">-->
+        <!--<div class="pic prel02 img slideimg1">-->
+          <!--<img ng-src="{{ imageSlide[0].image1 }}" class="pic-image" alt="Pic"/>-->
+            <!--<span class="pic-caption bottom-to-top">-->
+              <!--<p> {{ photoText.prel02 }} </p>-->
+            <!--</span>-->
+        <!--</div>-->
+        <!--<div class="pic prel03 img slideimg1">-->
+          <!--<img ng-src="{{ imageSlide[0].image2 }}" class="pic-image" alt="Pic"/>-->
+            <!--<span class="pic-caption bottom-to-top">-->
+              <!--<p> {{ photoText.prel03 }} </p>-->
+            <!--</span>-->
+        <!--</div>-->
+        <!--<div class="pic prel04 img slideimg1">-->
+          <!--<img ng-src="{{ imageSlide[0].image3 }}" class="pic-image" alt="Pic"/>-->
+            <!--<span class="pic-caption bottom-to-top">-->
+                <!--<p> {{ photoText.prel04 }} </p>-->
+            <!--</span>-->
+        <!--</div>-->
+        <!--<div id="slideVideoContainerProl" class="prol11Video img slideimg1" style="background: black">-->
+          <!--<video id="slideVideoProl" width="100%" height="100%" class="vid">-->
+            <!--<source ng-src="http://origin-proyectos-lab-externos.rtve.es/webdocs/xavier-cugat/videos/Cugat1rasgos-PlazaAceite.mp4" type="video/mp4">-->
+          <!--</video>-->
+          <!--<div id="playButtonProl" class="playButton" ng-click="playVideoSlide('slideVideoProl', 'slideVideoContainerProl', 'playButtonProl', 'fullScreenButtonProl')"></div>-->
+          <!--<div id="fullScreenButtonProl" class="fullScreenButton" ng-click="fullScreenVideoSlide('slideVideoContainerProl', 'videoSlideResize')"></div>-->
+        <!--</div>-->
+        <!--<div>-->
+          <!--<img ng-click="prevFoto('1')" class="arrowPrev arrowPrev1" ng-src="images/arrow-left-3.svg"/>-->
+          <!--<img ng-click="nextFoto('1')" class="arrowNext arrowNext1" ng-src="images/arrow-left-3.svg"/>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+    <!--<div id="page2" class="back color0 page2">-->
+      <!--<h2 class="title retro">Viaje a Cuba - 1904</h2>-->
+      <!--<div class="mapSvgContainer">-->
+        <!--<img class="mapSvgClassTop" ng-src="images/mapWorld.svg"/>-->
+        <!--<svg class="mapSvgClassTop" version="1.1" id="viaje1Svg" x="0px" y="0px" viewBox="0 0 950 620" enable-background="new 0 0 950 620" xml:space="preserve">-->
+             <!--<g class="viaje1Class">-->
+               <!--<path fill="none" stroke="#68C8F2" stroke-width="2" stroke-miterlimit="10" stroke-dasharray="1.0021,1.0021" d="-->
+                    <!--M458.829,213.181c4.401,1.819,14.877,3.917,9.012,9.061c-2.391,2.095-5.58,2.744-8.02,4.242c-2.607,1.603-4.662,3.303-7.34,4.666-->
+                    <!--c-2.267,1.153-4.979,2.016-7.389,2.943c-3.229,1.244-5.657,2.542-9.333,2.89c-7.253,0.685-14.518,0.294-21.521,2.443-->
+                    <!--c-3.875,1.188-7.592,0.836-11.77,1.411c-4.493,0.618-9.074,2.09-13.628,2.681c-8.021,1.042-15.207,2.303-22.988,4.417-->
+                    <!--c-18.953,5.148-37.69,9.099-56.729,12.574c-12.612,2.302-24.373,5.697-36.958,7.309c-9.13,1.168-20.827-1.956-28.836,3.118"/>-->
+              <!--<ellipse fill="#ffd85f" cx="242.375" cy="271.356" rx="2.875" ry="2.688"/>-->
+              <!--<ellipse fill="#ffd85f" cx="458.55" cy="213.792" rx="2.875" ry="2.688"></ellipse>-->
+             <!--</g>-->
+          <!--</svg>-->
+      <!--</div>-->
+    <!--</div>-->
+    <!--<div id="page3" class="back color0 page3">-->
+      <!--<h2 class="title retro">La Habana - 1905</h2>-->
+      <!--<div id="fotoGroup31" class="prelGroup">-->
+        <!--<div class="pic prol01 img slideimg31">-->
+          <!--<img ng-src="{{ imageSlide[1].image1 }}" class="pic-image" alt="Pic"/>-->
+            <!--<span class="pic-caption bottom-to-top">-->
+              <!--<p>{{ photoText.prol01 }} </p>-->
+              <!--<p>{{ photoText.prol01b }} </p>-->
+            <!--</span>-->
+        <!--</div>-->
+        <!--<div class="pic prol02 img slideimg31">-->
+          <!--<img ng-src="{{ imageSlide[1].image2 }}" class="pic-image" alt="Pic"/>-->
+            <!--<span class="pic-caption bottom-to-top">-->
+              <!--<p> {{ photoText.prol02 }} </p>-->
+            <!--</span>-->
+        <!--</div>-->
+        <!--<div class="pic prol03 img slideimg31">-->
+          <!--<img ng-src="{{ imageSlide[1].image3 }}" class="pic-image" alt="Pic"/>-->
+            <!--<span class="pic-caption bottom-to-top">-->
+              <!--<p> {{ photoText.prol03 }} </p>-->
+            <!--</span>-->
+        <!--</div>-->
+        <!--<div>-->
+          <!--<img ng-click="prevFoto('31','65%')" class="arrowPrev" ng-src="images/arrow-left-3.svg"/>-->
+          <!--<img ng-click="nextFoto('31','100%')" class="arrowNext" ng-src="images/arrow-left-3.svg"/>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+    <!--<div id="page4" class="back color0 page4">-->
+      <!--<h2 class="title retro">Nueva York - 1912</h2>-->
+      <!--<div id="fotoGroup4" class="prelGroup">-->
+        <!--<div class="pic prol05 img slideimg4">-->
+          <!--<img ng-src="{{ imageSlide[2].image1 }}" class="pic-image" alt="Pic"/>-->
+            <!--<span class="pic-caption bottom-to-top">-->
+              <!--<p> {{ photoText.prol05 }} </p>-->
+              <!--<p> {{ photoText.prol05b }} </p>-->
+            <!--</span>-->
+        <!--</div>-->
+        <!--<div class="pic prol06 img slideimg4">-->
+          <!--<img ng-src="{{ imageSlide[2].image2 }}" class="pic-image" alt="Pic"/>-->
+            <!--<span class="pic-caption bottom-to-top">-->
+              <!--<p> {{ photoText.prol06 }} </p>-->
+            <!--</span>-->
+        <!--</div>-->
+        <!--<div>-->
+          <!--<img ng-click="prevFoto('4','90%')" class="arrowPrev arrowPrev3" ng-src="images/arrow-left-3.svg"/>-->
+          <!--<img ng-click="nextFoto('4','90%')" class="arrowNext arrowNext3" ng-src="images/arrow-left-3.svg"/>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="cita12 cita1"><span id="cita12suma"> </span> {{ CatText.cita12 }} <span class="plusInfoCita" value="12">[+]</span></div>-->
+      <!--<div id="slideVideoContainerNY" class="p31Video" style="background: black">-->
+        <!--<video id="slideVideoNY" width="100%" height="100%"  class="vid">-->
+          <!--<source ng-src="http://origin-proyectos-lab-externos.rtve.es/webdocs/xavier-cugat/videos/P3Clip1.m4v" type="video/mp4">-->
+        <!--</video>-->
+        <!--<div id="playButtonNY" class="playButton" ng-click="playVideoSlide('slideVideoNY', 'slideVideoContainerNY', 'playButtonNY', 'fullScreenButtonNY')"></div>-->
+        <!--<div id="fullScreenButtonNY" class="fullScreenButton" ng-click="fullScreenVideoSlide('slideVideoContainerNY', 'videoSlideResizeOut')"></div>-->
+      <!--</div>-->
+      <!--<div class="textoGeneral"> {{ generalText.text1 }} </div>-->
+    <!--</div>-->
+    <!--&lt;!&ndash;EPISODE 2 RITA MONTANER&ndash;&gt;-->
+    <!--<div id="page5" class="back color0 page5">-->
+      <!--<h2 class="title retro">Rita Montaner</h2>-->
+      <!--<div id="fotoGroup2" class="prelGroup">-->
+        <!--<div class="pic rm11 img slideimg2">-->
+          <!--<img ng-src="{{ imageSlide[3].image1 }}" class="pic-image" alt="Pic"/>-->
+            <!--<span class="pic-caption bottom-to-top">-->
+              <!--<p> {{ photoText.rm11 }} </p>-->
+            <!--</span>-->
+        <!--</div>-->
+        <!--<div class="pic rm12 img slideimg2">-->
+          <!--<img ng-src="{{ imageSlide[3].image2 }}" class="pic-image" alt="Pic"/>-->
+            <!--<span class="pic-caption bottom-to-top">-->
+              <!--<p> {{ photoText.rm12 }} </p>-->
+            <!--</span>-->
+        <!--</div>-->
+        <!--<div class="pic rm13 img slideimg2">-->
+          <!--<img ng-src="{{ imageSlide[3].image3 }}" class="pic-image" alt="Pic"/>-->
+            <!--<span class="pic-caption bottom-to-top">-->
+              <!--<p> {{ photoText.rm13 }} </p>-->
+            <!--</span>-->
+        <!--</div>-->
+        <!--<div>-->
+          <!--<img id="arrowPrev" ng-click="prevFoto('2')" class="arrowPrev" ng-src="images/arrow-left-3.svg"/>-->
+          <!--<img id="arrowNext" ng-click="nextFoto('2')" class="arrowNext" ng-src="images/arrow-left-3.svg"/>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--&lt;!&ndash;<div class="cita2 cita21"> {{ CatText.cita21 }} </div>&ndash;&gt;-->
+      <!--<div class="cita2 cita21"> {{ CatText.cita21 }} <span id="cita21suma"> </span><span class="plusInfoCita" value="21">[+]</span></div>-->
+    <!--</div>-->
+    <!--<div id="page6" class="back color0 page6">-->
+      <!--<h2 class="title retro">Berlín - 1919</h2>-->
+      <!--<div class="cita1 cita14"> {{ CatText.cita14 }} </div>-->
+      <!--<div class="contextual">-->
+        <!--<a class="tooltip" href="#" onclick="return false;">-->
+          <!--<img ng-src="images/more-button.svg" alt="" class="infoIcon"/>-->
+            <!--<span class="tooltip-content">-->
+              <!--<span class="tooltip-text">-->
+                <!--<span class="tooltip-inner">-->
+                  <!--<strong>1919 - </strong> {{ tooltipText.text2a }}-->
+                  <!--<br><br> {{ tooltipText.text2b }}-->
+                <!--</span>-->
+              <!--</span>-->
+            <!--</span>-->
+        <!--</a>-->
+      <!--</div>-->
+    <!--</div>-->
+    <!--<div id="page7" class="back color0 page7">-->
+      <!--<div id="cita15" class="cita1 cita15"> {{ CatText.cita15 }} </div>-->
+      <!--<h2 class="title retro">Los Angeles - 1921</h2>-->
+      <!--<div id="fotoGroup61" class="prelGroup">-->
+        <!--<div class="pic rm16 img slideimg61">-->
+          <!--<img ng-src="{{ imageSlide[4].image1 }}" class="pic-image" alt="Pic"/>-->
+            <!--<span class="pic-caption bottom-to-top">-->
+              <!--<p> {{ photoText.rm16 }} </p>-->
+              <!--<p> {{ photoText.rm16b }} </p>-->
+            <!--</span>-->
+        <!--</div>-->
+        <!--<div class="pic rm15 img slideimg61">-->
+          <!--<img ng-src="{{ imageSlide[4].image2 }}" class="pic-image" alt="Pic"/>-->
+            <!--<span class="pic-caption bottom-to-top">-->
+              <!--<p> {{ photoText.rm15 }} </p>-->
+            <!--</span>-->
+        <!--</div>-->
+        <!--<div class="pic rm17 img slideimg61">-->
+          <!--<img ng-src="{{ imageSlide[4].image3 }}" class="pic-image" alt="Pic"/>-->
+            <!--<span class="pic-caption bottom-to-top">-->
+              <!--<p> {{ photoText.rm17 }} </p>-->
+            <!--</span>-->
+        <!--</div>-->
+        <!--<div class="pic rm18 img slideimg61">-->
+          <!--<img ng-src="{{ imageSlide[4].image4 }}" class="pic-image" alt="Pic"/>-->
+            <!--<span class="pic-caption bottom-to-top">-->
+              <!--<p> {{ photoText.rm18 }} </p>-->
+            <!--</span>-->
+        <!--</div>-->
+        <!--<div>-->
+          <!--<img id="arrowPrev" ng-click="prevFoto('61')" class="arrowPrev" ng-src="images/arrow-left-3.svg"/>-->
+          <!--<img id="arrowNext" ng-click="nextFoto('61')" class="arrowNext" ng-src="images/arrow-left-3.svg"/>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+    <!--&lt;!&ndash;EPISODE 3 CARMEN CASTILLO&ndash;&gt;-->
+    <!--<div id="page8" class="back color0 page8">-->
+      <!--<h2 class="title retro">Carmen Castillo</h2>-->
+      <!--<div id="fotoGroup63" class="prelGroup">-->
+        <!--<div class="pic cc31 img slideimg63">-->
+          <!--<img ng-src="{{ imageSlide[5].image1 }}" class="pic-image" alt="Pic"/>-->
+            <!--<span class="pic-caption bottom-to-top">-->
+              <!--<p>{{ photoText.cc31 }}</p>-->
+            <!--</span>-->
+        <!--</div>-->
+        <!--<div class="pic cc32 img slideimg63">-->
+          <!--<img ng-src="{{ imageSlide[5].image2 }}" class="pic-image" alt="Pic"/>-->
+            <!--<span class="pic-caption bottom-to-top">-->
+              <!--<p>{{ photoText.cc32 }}</p>-->
+            <!--</span>-->
+        <!--</div>-->
+        <!--<div class="pic cc34 img slideimg63">-->
+          <!--<img ng-src="{{ imageSlide[5].image3 }}" class="pic-image" alt="Pic"/>-->
+            <!--<span class="pic-caption bottom-to-top">-->
+              <!--<p>{{ photoText.cc34 }}</p>-->
+            <!--</span>-->
+        <!--</div>-->
+        <!--<div>-->
+          <!--<img ng-click="prevFoto('63','90%')" class="arrowPrev arrowPrev3" ng-src="images/arrow-left-3.svg"/>-->
+          <!--<img ng-click="nextFoto('63','110%')" class="arrowNext arrowNext3" ng-src="images/arrow-left-3.svg"/>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="textoGeneral"> {{ generalText.text3 }} </div>-->
+    <!--</div>-->
+    <!--<div id="page9" class="back color0 page9">-->
+      <!--<h2 class="title retro">¿Descubridor de Rita Hayworth?</h2>-->
+      <!--<h2 class="TextoGeneral">{{ generalText.text6 }}</h2>-->
+      <!--<div id="fotoGroup62" class="prelGroup">-->
+        <!--<div class="pic cc38 img slideimg62">-->
+          <!--<img ng-src="{{ imageSlide[6].image1 }}" class="pic-image" alt="Pic"/>-->
+            <!--<span class="pic-caption bottom-to-top">-->
+              <!--<p> {{ photoText.cc38 }} </p>-->
+            <!--</span>-->
+        <!--</div>-->
+        <!--<div class="pic cc35 img slideimg62">-->
+          <!--<img ng-src="{{ imageSlide[6].image2 }}" class="pic-image" alt="Pic"/>-->
+            <!--<span class="pic-caption bottom-to-top">-->
+              <!--<p> {{ photoText.cc35 }} </p>-->
+            <!--</span>-->
+        <!--</div>-->
+        <!--<div class="pic cc36 img slideimg62">-->
+          <!--<img ng-src="{{ imageSlide[6].image3 }}" class="pic-image" alt="Pic"/>-->
+            <!--<span class="pic-caption bottom-to-top">-->
+              <!--<p>{{ photoText.cc36 }}</p>-->
+            <!--</span>-->
+        <!--</div>-->
+        <!--<div>-->
+          <!--<img ng-click="prevFoto('62','90%')" class="arrowPrev arrowPrev3" ng-src="images/arrow-left-3.svg"/>-->
+          <!--<img ng-click="nextFoto('62','110%')" class="arrowNext arrowNext3" ng-src="images/arrow-left-3.svg"/>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="contextualVideoSlide">-->
+        <!--<a id="videoToolTipCC2" class="tooltipVideo" href="#" onclick="return false;">-->
+          <!--<img id="tooltipImageCC2" ng-src="images/more-button.svg" alt="" class="infoIcon"/>-->
+          <!--<div id="videoToolTipContentCC2" class="tooltipNormalSize">-->
+            <!--<video id="slideVideoCC2" width="100%" height="100%" class="vid">-->
+              <!--<source ng-src="videos/cc2clip2.mp4" type="video/mp4">-->
+            <!--</video>-->
+            <!--<div id="playButtonCC2" class="playButton" ng-click="playVideoSlide('slideVideoCC2', 'videoToolTipContentCC2', 'playButtonCC2', 'fullScreenButtonCC2')"></div>-->
+            <!--<div id="fullScreenButtonCC2" class="fullScreenButton" ng-click="fullScreenVideoSlide('videoToolTipContentCC2', 'tooltipFullSize')"></div>-->
+          <!--</div>-->
+        <!--</a>-->
+      <!--</div>-->
+    <!--</div>-->
+    <!--<div id="page10" class="back color0 page10">-->
+    <!--</div>-->
+    <!--&lt;!&ndash;EPISODE 4 LORRAINE ALLEN&ndash;&gt;-->
+    <!--<div id="page11" class="back color0 page11">-->
+      <!--<h2 class="title retro">Lorraine Allen</h2>-->
+      <!--<img class="la1 img" ng-src="{{ imageSlide[7].image1 }}"/>-->
+      <!--<div class="pic la2 img">-->
+        <!--<img ng-src="{{ imageSlide[7].image2 }}" class="pic-image" alt="Pic"/>-->
+            <!--<span class="pic-caption bottom-to-top">-->
+              <!--<p> {{ photoText.la2 }} </p>-->
+            <!--</span>-->
+      <!--</div>-->
+      <!--<div class="cita41 cita4"> {{ CatText.cita41 }} <span id="cita41suma"> </span> {{ CatText.cita41Post }} <span class="plusInfoCita" value="41">[+]</span></div>-->
+    <!--</div>-->
+    <!--<div id="page12" class="back color0 page12">-->
+      <!--<h2 class="title retro">Chicago - 1947</h2>-->
+      <!--<div class="cita4 cita42"> <span id="cita42suma"></span> {{ CatText.cita42 }}<span class="plusInfoCita" value="42">[+]</span></div>-->
+      <!--<div id="fotoGroup87" class="prelGroup">-->
+        <!--<div class="pic la10 img slideimg87">-->
+          <!--<img ng-src="{{ imageSlide[8].image1 }}" class="pic-image" alt="Pic"/>-->
+            <!--<span class="pic-caption bottom-to-top">-->
+              <!--<p> {{ photoText.la10 }} </p>-->
+            <!--</span>-->
+        <!--</div>-->
+        <!--<div class="pic la8 img slideimg87">-->
+          <!--<img ng-src="{{ imageSlide[8].image2 }}" class="pic-image" alt="Pic"/>-->
+            <!--<span class="pic-caption bottom-to-top">-->
+              <!--<p> {{ photoText.la8 }} </p>-->
+            <!--</span>-->
+        <!--</div>-->
+        <!--<div class="pic la5 img slideimg87">-->
+          <!--<img ng-src="{{ imageSlide[8].image3 }}" class="pic-image" alt="Pic"/>-->
+            <!--<span class="pic-caption bottom-to-top">-->
+              <!--<p> {{ photoText.la5 }} </p>-->
+            <!--</span>-->
+        <!--</div>-->
+        <!--<div class="pic la4 img slideimg87">-->
+          <!--<img ng-src="{{ imageSlide[8].image4 }}" class="pic-image" alt="Pic"/>-->
+            <!--<span class="pic-caption bottom-to-top">-->
+              <!--<p> {{ photoText.la4a }} </p>-->
+              <!--<p> {{ photoText.la4b }} </p>-->
+            <!--</span>-->
+        <!--</div>-->
+        <!--<div id="slideVideoContainerLorraine" class="la21Video img slideimg87" style="background: black">-->
+          <!--<video id="slideVideoLorraine" width="100%" height="100%" class="vid">-->
+            <!--<source ng-src="http://origin-proyectos-lab-externos.rtve.es/webdocs/xavier-cugat/videos/LA2CLIP1.m4v" type="video/mp4">-->
+          <!--</video>-->
+          <!--<div id="playButtonLorraine" class="playButton" ng-click="playVideoSlide('slideVideoLorraine', 'slideVideoContainerLorraine', 'playButtonLorraine', 'fullScreenButtonLorraine')"></div>-->
+          <!--<div id="fullScreenButtonLorraine" class="fullScreenButton" ng-click="fullScreenVideoSlide('slideVideoContainerLorraine', 'videoSlideResize')"></div>-->
+        <!--</div>-->
+        <!--<div>-->
+          <!--<img ng-click="prevFoto('87')" class="arrowPrev arrowPrev2" ng-src="images/arrow-left-3.svg"/>-->
+          <!--<img ng-click="nextFoto('87')" class="arrowNext arrowNext2" ng-src="images/arrow-left-3.svg"/>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+    <!--<div id="page13" class="back color0 page13">-->
+      <!--<div class="pic la7 img">-->
+        <!--<img ng-src="{{ imageSlide[9].image1 }}" class="pic-image" alt="Pic"/>-->
+            <!--<span class="pic-caption bottom-to-top">-->
+              <!--<p><b>1940 - </b>Frank Sinatra</p>-->
+            <!--</span>-->
+      <!--</div>-->
+      <!--<div class="pic la9 img">-->
+        <!--<img ng-src="{{ imageSlide[9].image2 }}" class="" alt=""/>-->
+            <!--<span class="pic-caption bottom-to-top">-->
+              <!--<p>{{ photoText.la9 }} </p>-->
+            <!--</span>-->
+      <!--</div>-->
+      <!--<div class="pic la6 img">-->
+        <!--<img ng-src="{{ imageSlide[9].image3 }}" class="pic-image" alt="Pic"/>-->
+            <!--<span class="pic-caption bottom-to-top">-->
+              <!--<p><b>1940 - </b> {{ photoText.la6 }} </p>-->
+            <!--</span>-->
+      <!--</div>-->
+      <!--<div class="contextual2">-->
+        <!--<a class="tooltip" href="#" onclick="return false;">-->
+          <!--<img ng-src="images/more-button.svg" alt="" class="infoIcon"/>-->
+            <!--<span class="tooltip-content">-->
+              <!--<span class="tooltip-text">-->
+                <!--<span class="tooltip-inner" style="padding: 40px 40px 90px">-->
+                  <!--<img ng-src="{{ imageSlide[9].image4 }}" class="extraPhoto" alt="" />-->
+                  <!--<strong>1946 - </strong> {{ tooltipText.text4 }}-->
+                <!--</span>-->
+              <!--</span>-->
+            <!--</span>-->
+        <!--</a>-->
+      <!--</div>-->
+      <!--<div class="textoGeneral"> {{ generalText.text2 }} </div>-->
+    <!--</div>-->
+    <!--&lt;!&ndash;EPISODE 5 ABBE LANE&ndash;&gt;-->
+    <!--<div id="page14" class="back color0 page14">-->
+      <!--<h2 class="title retro">Abbe Lane</h2>-->
+      <!--<div id="fotoGroup81" class="prelGroup">-->
+        <!--<div class="al11 img slideimg81">-->
+          <!--<img ng-src="{{ imageSlide[10].image1 }}" class="pic-image" alt="Pic"/>-->
+        <!--</div>-->
+        <!--<div class="pic al12 img slideimg81">-->
+          <!--<img ng-src="{{ imageSlide[10].image2 }}" class="pic-image" alt="Pic"/>-->
+            <!--<span class="pic-caption bottom-to-top">-->
+              <!--<p> {{ photoText.al12 }} </p>-->
+            <!--</span>-->
+        <!--</div>-->
+        <!--<div id="slideVideoContainerAbbe" class="teLoDijoAdela img slideimg81" style="background: black">-->
+          <!--<video id="slideVideoAbbe" class="vid" width="100%" height="100%" ng-click="playVideoSlide('slideVideoAbbe', 'slideVideoContainerAbbe')">-->
+            <!--<source ng-src="videos/AL1ESP.mp4" type="video/mp4">-->
+          <!--</video>-->
+          <!--<div id="playButtonAbbe" class="playButton" ng-click="playVideoSlide('slideVideoAbbe', 'slideVideoContainerAbbe', 'playButtonAbbe', 'fullScreenButtonAbbe')"></div>-->
+          <!--<div id="fullScreenButtonAbbe" class="fullScreenButton" ng-click="fullScreenVideoSlide('slideVideoContainerAbbe', 'videoSlideResize')"></div>-->
+        <!--</div>-->
+        <!--<div id="slideVideoContainerAbbe2" class="teLoDijoAdela2 img slideimg81" style="background: black">-->
+          <!--<video id="slideVideoAbbe2" class="vid" width="100%" height="100%" ng-click="playVideoSlide('slideVideoAbbe2', 'slideVideoContainerAbbe2')">-->
+            <!--<source ng-src="http://origin-proyectos-lab-externos.rtve.es/webdocs/xavier-cugat/videos/videoplayback.mp4" type="video/mp4">-->
+          <!--</video>-->
+          <!--<div id="playButtonAbbe2" class="playButton" ng-click="playVideoSlide('slideVideoAbbe2', 'slideVideoContainerAbbe2', 'playButtonAbbe2', 'fullScreenButtonAbbe2')"></div>-->
+          <!--<div id="fullScreenButtonAbbe2" class="fullScreenButton" ng-click="fullScreenVideoSlide('slideVideoContainerAbbe2', 'videoSlideResize')"></div>-->
+        <!--</div>-->
+        <!--<div>-->
+          <!--<img ng-click="prevFoto('81')" class="arrowPrev" ng-src="images/arrow-left-3.svg"/>-->
+          <!--<img ng-click="nextFoto('81')" class="arrowNext" ng-src="images/arrow-left-3.svg"/>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="cita5 cita51"> {{ CatText.cita51 }} <span id="cita51suma"> </span><span class="plusInfoCita" value="51">[+]</span></div>-->
+      <!--<div class="contextual2">-->
+        <!--<a class="tooltip" href="#" onclick="return false;">-->
+          <!--<img ng-src="images/more-button.svg" alt="" class="infoIcon"/>-->
+            <!--<span class="tooltip-content">-->
+              <!--<span class="tooltip-text">-->
+                <!--<span class="tooltip-inner">-->
+                  <!--<img ng-src="{{ imageSlide[10].image3 }}" class="extraPhoto" alt="" />-->
+                  <!--{{ tooltipText.text5 }}-->
+                <!--</span>-->
+              <!--</span>-->
+            <!--</span>-->
+        <!--</a>-->
+      <!--</div>-->
+    <!--</div>-->
+    <!--<div id="page15" class="back color0 page15">-->
+      <!--<div id="fotoGroup73" class="prelGroup">-->
+        <!--<div class="pic al26 img slideimg73">-->
+          <!--<img ng-src="{{ imageSlide[11].image1 }}" class="pic-image" alt="Pic"/>-->
+            <!--<span class="pic-caption bottom-to-top">-->
+               <!--<p> {{ photoText.al26 }} </p>-->
+            <!--</span>-->
+        <!--</div>-->
+        <!--<div class="pic al23 img slideimg73">-->
+          <!--<img ng-src="{{ imageSlide[11].image2 }}" class="pic-image" alt="Pic"/>-->
+            <!--<span class="pic-caption bottom-to-top">-->
+              <!--<p> {{ photoText.al23 }} </p>-->
+            <!--</span>-->
+        <!--</div>-->
+        <!--<div class="pic al28 img slideimg73">-->
+          <!--<img ng-src="{{ imageSlide[11].image3 }}" class="pic-image" alt="Pic"/>-->
 
-            <span class="pic-caption bottom-to-top">
-               <p> {{ photoText.al28 }} </p>
-            </span>
-        </div>
-        <div class="pic al24 img slideimg73">
-          <img ng-src="{{ imageSlide[11].image4 }}" class="pic-image" alt="Pic"/>
-            <span class="pic-caption bottom-to-top">
-              <p> {{ photoText.al24 }} </p>
-            </span>
-        </div>
-        <div class="pic al25 img slideimg73">
-          <img ng-src="{{ imageSlide[11].image5 }}" class="pic-image" alt="Pic"/>
-            <span class="pic-caption bottom-to-top">
-               <p> {{ photoText.al25 }} </p>
-            </span>
-        </div>
-        <div>
-          <img ng-click="prevFoto('73')" class="arrowPrev arrowPrev2" ng-src="images/arrow-left-3.svg"/>
-          <img ng-click="nextFoto('73')" class="arrowNext arrowNext2" ng-src="images/arrow-left-3.svg"/>
-        </div>
-      </div>
-      <div class="contextualVideoSlide">
-        <a id="videoToolTipAB2" class="tooltipVideo" href="#" onclick="return false;">
-          <img id="tooltipImage" ng-src="images/more-button.svg" alt="" class="infoIcon"/>
-           <div id="videoToolTipContentAB2" class="tooltipNormalSize">
-              <video id="slideVideoAB2" width="100%" height="100%" class="vid">
-                <source ng-src="http://origin-proyectos-lab-externos.rtve.es/webdocs/xavier-cugat/videos/Cugat3ragos-Mafia.mp4" type="video/mp4">
-              </video>
-              <div id="playButtonAB2" class="playButton" ng-click="playVideoSlide('slideVideoAB2', 'videoToolTipContentAB2', 'playButtonAB2', 'fullScreenButtonAB2')"></div>
-              <div id="fullScreenButtonAB2" class="fullScreenButton" ng-click="fullScreenVideoSlide('videoToolTipContentAB2', 'tooltipFullSize')"></div>
-           </div>
-        </a>
-      </div>
-      <div class="cita5 cita53"> {{ CatText.cita53 }} <span id="cita53suma"></span><span class="plusInfoCita" value="53">[+]</span></div>
-    </div>
-    <div id="page16" class="back color0 page16">
-      <div class="cita5 cita56"> {{ CatText.cita56 }} </div>
-      <div id="fotoGroup75" class="prelGroup">
-        <div class="al32 img slideimg75">
-          <img ng-src="{{ imageSlide[12].image1 }}" class="pic-image" alt="Pic"/>
-        </div>
-        <div class="al34 img slideimg75">
-          <img ng-src="{{ imageSlide[12].image2 }}" class="pic-image" alt="Pic"/>
-        </div>
-        <div class="pic al33 img slideimg75">
-          <img ng-src="{{ imageSlide[12].image3 }}" class="pic-image" alt="Pic"/>
-            <span class="pic-caption bottom-to-top">
-              <p> {{ photoText.al33 }} </p>
-            </span>
-        </div>
-        <div class="pic al35 img slideimg75">
-          <img ng-src="{{ imageSlide[12].image4 }}" class="pic-image" alt="Pic"/>
-            <span class="pic-caption bottom-to-top">
-              <p> {{ photoText.al35 }} </p>
-            </span>
-        </div>
-        <div class="pic al31 img slideimg75">
-          <img ng-src="{{ imageSlide[12].image5 }}" class="pic-image" alt="Pic"/>
-            <span class="pic-caption bottom-to-top">
-                <p><b>1954 - </b> {{ photoText.al31 }} </p>
-            </span>
-        </div>
-        <div>
-          <img ng-click="prevFoto('75')" class="arrowPrev arrowPrev2" ng-src="images/arrow-left-3.svg"/>
-          <img ng-click="nextFoto('75')" class="arrowNext arrowNext2" ng-src="images/arrow-left-3.svg"/>
-        </div>
-      </div>
-      <div class="textoGeneral2"> {{ generalText.text5 }} </div>
-    </div>
-    <!--EPISODE 6 CHARO BAEZA-->
-    <div id="page17" class="back color0 page17">
-      <div class="pic cb15 img">
-        <img ng-src="{{ imageSlide[13].image1 }}" class="pic-image" alt="Pic"/>
-            <span class="pic-caption bottom-to-top">
-              <p> {{ photoText.cb15 }} </p>
-            </span>
-      </div>
-      <div class="pic cb11 img">
-        <img ng-src="{{ imageSlide[13].image2 }}" class="pic-image" alt="Pic"/>
-            <span class="pic-caption bottom-to-top">
-              <p> {{ photoText.cb11 }} </p>
-            </span>
-      </div>
-      <div id="cita60" class="cita6 cita60">{{ CatText.cita60 }}</div>
-    </div>
-    <div id="page18" class="back color0 page18">
-      <img id="cb01" class="cb01" ng-src="{{ imageSlide[14].image1 }}"/>
-      <div class="cita6 cita61"> {{ CatText.cita61 }} <span id="cita61suma"></span><span class="plusInfoCita" value="61">[+]</span></div>
-      <div id="fotoGroup71" class="prelGroup">
-        <div class="pic cb01 img slideimg71">
-          <img ng-src="{{ imageSlide[14].image2 }}" class="pic-image" alt="Pic"/>
-            <span class="pic-caption bottom-to-top">
-                <p><b>1965 - </b> {{ photoText.cb01 }} </p>
-            </span>
-        </div>
-        <div class="pic cb04 img slideimg71">
-          <img ng-src="{{ imageSlide[14].image3 }}" class="pic-image" alt="Pic"/>
-            <span class="pic-caption bottom-to-top">
-                <p><b>1965 - </b> {{ photoText.cb04 }} </p>
-            </span>
-        </div>
-        <div>
-          <img ng-click="prevFoto('71')" class="arrowPrev" ng-src="images/arrow-left-3.svg"/>
-          <img ng-click="nextFoto('71')" class="arrowNext" ng-src="images/arrow-left-3.svg"/>
-        </div>
-      </div>
-      <div class="textoGeneral2"> {{ generalText.text4 }} </div>
-    </div>
-    <!--EPISODE 7 EPILOGO-->
-    <div id="page19" class="back color0 page19">
-      <h2 class="title retro">BARCELONA – 1971</h2>
-      <div class="cita6 cita62"> {{ CatText.cita62 }} <span id="cita62suma"> </span> {{ CatText.cita62Post }} <span class="plusInfoCita" value="62">[+]</span></div>
-      <div class="pic cb09">
-        <img ng-src="{{ imageSlide[15].image1 }}" class="pic-image" alt="Pic"/>
-            <span class="pic-caption bottom-to-top">
-              <p>{{ photoText.cb09b }}</p>
-            </span>
-      </div>
-      <div id="fotoGroup101" class="prelGroup">
-        <div class="cb06 img slideimg101">
-          <img ng-src="{{ imageSlide[15].image2 }}" class="pic-image" alt="Pic"/>
-        </div>
-        <div class="cb07 img slideimg101">
-          <img ng-src="{{ imageSlide[15].image3 }}" class="pic-image" alt="Pic"/>
-        </div>
-        <div class="cb08 img slideimg101">
-          <img ng-src="{{ imageSlide[15].image4 }}" class="pic-image" alt="Pic"/>
-        </div>
-        <div class="cb20 img slideimg101">
-          <img ng-src="{{ imageSlide[15].image5 }}" class="pic-image" alt="Pic"/>
-        </div>
-        <div class="pic cb21 img slideimg101">
-          <img ng-src="{{ imageSlide[15].image6 }}" class="pic-image" alt="Pic"/>
-            <span class="pic-caption bottom-to-top">
-              <p> {{ photoText.cb21 }} </p>
-            </span>
-        </div>
-        <div id="slideVideoContainerE1" class="prol11Video img slideimg101" style="background: black">
-          <video id="slideVideoE1" width="100%" height="100%" class="vid">
-            <source ng-src="http://origin-proyectos-lab-externos.rtve.es/webdocs/xavier-cugat/videos/CugatSobreLaPintura.mp4" type="video/mp4">
-          </video>
-          <div id="playButtonE1" class="playButton" ng-click="playVideoSlide('slideVideoE1', 'slideVideoContainerE1', 'playButtonE1', 'fullScreenButtonE1')"></div>
-          <div id="fullScreenButtonE1" class="fullScreenButton" ng-click="fullScreenVideoSlide('slideVideoContainerE1', 'videoSlideResize')"></div>
-        </div>
-        <div>
-          <img ng-click="prevFoto('101')" class="arrowPrev arrowPrev2" ng-src="images/arrow-left-3.svg"/>
-          <img ng-click="nextFoto('101')" class="arrowNext arrowNext2" ng-src="images/arrow-left-3.svg"/>
-        </div>
-      </div>
-      <div class="textoGeneral"> {{ generalText.text7 }} </div>
-    </div>
-    <div id="page20" class="back color0 page20">
-      <div class="ep15 lastImage">
-          <img class="ep15Img" ng-src="{{ imageSlide[16].image1 }}"/>
-      </div>
-      <div class="lastButtons">
-        <div class="lastButton lastVideos radius3" ng-click="viewExtras()">
-          <i class="fa fa-film" aria-hidden="true"></i> {{ generalText.instructionLastVideos }}
-        </div>
-        <div class="lastButton linealDoc radius3">
-          <i class="fa fa-youtube-play" aria-hidden="true"></i> {{ menuText.doculineal }}
-        </div>
-        <div class="lastButton sendPostcard radius3" ng-click="viewPostcards()">
-          <i class="fa fa-picture-o" aria-hidden="true"></i> {{ menuText.postcards }}
-        </div>
-      </div>
-    </div>
+            <!--<span class="pic-caption bottom-to-top">-->
+               <!--<p> {{ photoText.al28 }} </p>-->
+            <!--</span>-->
+        <!--</div>-->
+        <!--<div class="pic al24 img slideimg73">-->
+          <!--<img ng-src="{{ imageSlide[11].image4 }}" class="pic-image" alt="Pic"/>-->
+            <!--<span class="pic-caption bottom-to-top">-->
+              <!--<p> {{ photoText.al24 }} </p>-->
+            <!--</span>-->
+        <!--</div>-->
+        <!--<div class="pic al25 img slideimg73">-->
+          <!--<img ng-src="{{ imageSlide[11].image5 }}" class="pic-image" alt="Pic"/>-->
+            <!--<span class="pic-caption bottom-to-top">-->
+               <!--<p> {{ photoText.al25 }} </p>-->
+            <!--</span>-->
+        <!--</div>-->
+        <!--<div>-->
+          <!--<img ng-click="prevFoto('73')" class="arrowPrev arrowPrev2" ng-src="images/arrow-left-3.svg"/>-->
+          <!--<img ng-click="nextFoto('73')" class="arrowNext arrowNext2" ng-src="images/arrow-left-3.svg"/>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="contextualVideoSlide">-->
+        <!--<a id="videoToolTipAB2" class="tooltipVideo" href="#" onclick="return false;">-->
+          <!--<img id="tooltipImage" ng-src="images/more-button.svg" alt="" class="infoIcon"/>-->
+           <!--<div id="videoToolTipContentAB2" class="tooltipNormalSize">-->
+              <!--<video id="slideVideoAB2" width="100%" height="100%" class="vid">-->
+                <!--<source ng-src="http://origin-proyectos-lab-externos.rtve.es/webdocs/xavier-cugat/videos/Cugat3ragos-Mafia.mp4" type="video/mp4">-->
+              <!--</video>-->
+              <!--<div id="playButtonAB2" class="playButton" ng-click="playVideoSlide('slideVideoAB2', 'videoToolTipContentAB2', 'playButtonAB2', 'fullScreenButtonAB2')"></div>-->
+              <!--<div id="fullScreenButtonAB2" class="fullScreenButton" ng-click="fullScreenVideoSlide('videoToolTipContentAB2', 'tooltipFullSize')"></div>-->
+           <!--</div>-->
+        <!--</a>-->
+      <!--</div>-->
+      <!--<div class="cita5 cita53"> {{ CatText.cita53 }} <span id="cita53suma"></span><span class="plusInfoCita" value="53">[+]</span></div>-->
+    <!--</div>-->
+    <!--<div id="page16" class="back color0 page16">-->
+      <!--<div class="cita5 cita56"> {{ CatText.cita56 }} </div>-->
+      <!--<div id="fotoGroup75" class="prelGroup">-->
+        <!--<div class="al32 img slideimg75">-->
+          <!--<img ng-src="{{ imageSlide[12].image1 }}" class="pic-image" alt="Pic"/>-->
+        <!--</div>-->
+        <!--<div class="al34 img slideimg75">-->
+          <!--<img ng-src="{{ imageSlide[12].image2 }}" class="pic-image" alt="Pic"/>-->
+        <!--</div>-->
+        <!--<div class="pic al33 img slideimg75">-->
+          <!--<img ng-src="{{ imageSlide[12].image3 }}" class="pic-image" alt="Pic"/>-->
+            <!--<span class="pic-caption bottom-to-top">-->
+              <!--<p> {{ photoText.al33 }} </p>-->
+            <!--</span>-->
+        <!--</div>-->
+        <!--<div class="pic al35 img slideimg75">-->
+          <!--<img ng-src="{{ imageSlide[12].image4 }}" class="pic-image" alt="Pic"/>-->
+            <!--<span class="pic-caption bottom-to-top">-->
+              <!--<p> {{ photoText.al35 }} </p>-->
+            <!--</span>-->
+        <!--</div>-->
+        <!--<div class="pic al31 img slideimg75">-->
+          <!--<img ng-src="{{ imageSlide[12].image5 }}" class="pic-image" alt="Pic"/>-->
+            <!--<span class="pic-caption bottom-to-top">-->
+                <!--<p><b>1954 - </b> {{ photoText.al31 }} </p>-->
+            <!--</span>-->
+        <!--</div>-->
+        <!--<div>-->
+          <!--<img ng-click="prevFoto('75')" class="arrowPrev arrowPrev2" ng-src="images/arrow-left-3.svg"/>-->
+          <!--<img ng-click="nextFoto('75')" class="arrowNext arrowNext2" ng-src="images/arrow-left-3.svg"/>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="textoGeneral2"> {{ generalText.text5 }} </div>-->
+    <!--</div>-->
+    <!--&lt;!&ndash;EPISODE 6 CHARO BAEZA&ndash;&gt;-->
+    <!--<div id="page17" class="back color0 page17">-->
+      <!--<div class="pic cb15 img">-->
+        <!--<img ng-src="{{ imageSlide[13].image1 }}" class="pic-image" alt="Pic"/>-->
+            <!--<span class="pic-caption bottom-to-top">-->
+              <!--<p> {{ photoText.cb15 }} </p>-->
+            <!--</span>-->
+      <!--</div>-->
+      <!--<div class="pic cb11 img">-->
+        <!--<img ng-src="{{ imageSlide[13].image2 }}" class="pic-image" alt="Pic"/>-->
+            <!--<span class="pic-caption bottom-to-top">-->
+              <!--<p> {{ photoText.cb11 }} </p>-->
+            <!--</span>-->
+      <!--</div>-->
+      <!--<div id="cita60" class="cita6 cita60">{{ CatText.cita60 }}</div>-->
+    <!--</div>-->
+    <!--<div id="page18" class="back color0 page18">-->
+      <!--<img id="cb01" class="cb01" ng-src="{{ imageSlide[14].image1 }}"/>-->
+      <!--<div class="cita6 cita61"> {{ CatText.cita61 }} <span id="cita61suma"></span><span class="plusInfoCita" value="61">[+]</span></div>-->
+      <!--<div id="fotoGroup71" class="prelGroup">-->
+        <!--<div class="pic cb01 img slideimg71">-->
+          <!--<img ng-src="{{ imageSlide[14].image2 }}" class="pic-image" alt="Pic"/>-->
+            <!--<span class="pic-caption bottom-to-top">-->
+                <!--<p><b>1965 - </b> {{ photoText.cb01 }} </p>-->
+            <!--</span>-->
+        <!--</div>-->
+        <!--<div class="pic cb04 img slideimg71">-->
+          <!--<img ng-src="{{ imageSlide[14].image3 }}" class="pic-image" alt="Pic"/>-->
+            <!--<span class="pic-caption bottom-to-top">-->
+                <!--<p><b>1965 - </b> {{ photoText.cb04 }} </p>-->
+            <!--</span>-->
+        <!--</div>-->
+        <!--<div>-->
+          <!--<img ng-click="prevFoto('71')" class="arrowPrev" ng-src="images/arrow-left-3.svg"/>-->
+          <!--<img ng-click="nextFoto('71')" class="arrowNext" ng-src="images/arrow-left-3.svg"/>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="textoGeneral2"> {{ generalText.text4 }} </div>-->
+    <!--</div>-->
+    <!--&lt;!&ndash;EPISODE 7 EPILOGO&ndash;&gt;-->
+    <!--<div id="page19" class="back color0 page19">-->
+      <!--<h2 class="title retro">BARCELONA – 1971</h2>-->
+      <!--<div class="cita6 cita62"> {{ CatText.cita62 }} <span id="cita62suma"> </span> {{ CatText.cita62Post }} <span class="plusInfoCita" value="62">[+]</span></div>-->
+      <!--<div class="pic cb09">-->
+        <!--<img ng-src="{{ imageSlide[15].image1 }}" class="pic-image" alt="Pic"/>-->
+            <!--<span class="pic-caption bottom-to-top">-->
+              <!--<p>{{ photoText.cb09b }}</p>-->
+            <!--</span>-->
+      <!--</div>-->
+      <!--<div id="fotoGroup101" class="prelGroup">-->
+        <!--<div class="cb06 img slideimg101">-->
+          <!--<img ng-src="{{ imageSlide[15].image2 }}" class="pic-image" alt="Pic"/>-->
+        <!--</div>-->
+        <!--<div class="cb07 img slideimg101">-->
+          <!--<img ng-src="{{ imageSlide[15].image3 }}" class="pic-image" alt="Pic"/>-->
+        <!--</div>-->
+        <!--<div class="cb08 img slideimg101">-->
+          <!--<img ng-src="{{ imageSlide[15].image4 }}" class="pic-image" alt="Pic"/>-->
+        <!--</div>-->
+        <!--<div class="cb20 img slideimg101">-->
+          <!--<img ng-src="{{ imageSlide[15].image5 }}" class="pic-image" alt="Pic"/>-->
+        <!--</div>-->
+        <!--<div class="pic cb21 img slideimg101">-->
+          <!--<img ng-src="{{ imageSlide[15].image6 }}" class="pic-image" alt="Pic"/>-->
+            <!--<span class="pic-caption bottom-to-top">-->
+              <!--<p> {{ photoText.cb21 }} </p>-->
+            <!--</span>-->
+        <!--</div>-->
+        <!--<div id="slideVideoContainerE1" class="prol11Video img slideimg101" style="background: black">-->
+          <!--<video id="slideVideoE1" width="100%" height="100%" class="vid">-->
+            <!--<source ng-src="http://origin-proyectos-lab-externos.rtve.es/webdocs/xavier-cugat/videos/CugatSobreLaPintura.mp4" type="video/mp4">-->
+          <!--</video>-->
+          <!--<div id="playButtonE1" class="playButton" ng-click="playVideoSlide('slideVideoE1', 'slideVideoContainerE1', 'playButtonE1', 'fullScreenButtonE1')"></div>-->
+          <!--<div id="fullScreenButtonE1" class="fullScreenButton" ng-click="fullScreenVideoSlide('slideVideoContainerE1', 'videoSlideResize')"></div>-->
+        <!--</div>-->
+        <!--<div>-->
+          <!--<img ng-click="prevFoto('101')" class="arrowPrev arrowPrev2" ng-src="images/arrow-left-3.svg"/>-->
+          <!--<img ng-click="nextFoto('101')" class="arrowNext arrowNext2" ng-src="images/arrow-left-3.svg"/>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="textoGeneral"> {{ generalText.text7 }} </div>-->
+    <!--</div>-->
+    <!--<div id="page20" class="back color0 page20">-->
+      <!--<div class="ep15 lastImage">-->
+          <!--<img class="ep15Img" ng-src="{{ imageSlide[16].image1 }}"/>-->
+      <!--</div>-->
+      <!--<div class="lastButtons">-->
+        <!--<div class="lastButton lastVideos radius3" ng-click="viewExtras()">-->
+          <!--<i class="fa fa-film" aria-hidden="true"></i> {{ generalText.instructionLastVideos }}-->
+        <!--</div>-->
+        <!--<div class="lastButton linealDoc radius3">-->
+          <!--<i class="fa fa-youtube-play" aria-hidden="true"></i> {{ menuText.doculineal }}-->
+        <!--</div>-->
+        <!--<div class="lastButton sendPostcard radius3" ng-click="viewPostcards()">-->
+          <!--<i class="fa fa-picture-o" aria-hidden="true"></i> {{ menuText.postcards }}-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
     <div id="page21" class="back color0 page21">
       <!--div class="video-holder centered">
         <video id="video" class="video-js vjs-default-skin vjs-big-play-centered"

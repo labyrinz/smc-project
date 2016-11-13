@@ -195,7 +195,7 @@ angular.module('smcApp')
     //$scope.imageSlide[0] =  imagesSlideIn[0];
     //-----TIMELINE ---------
 
-    if( !isMobile ) {
+    //if( !isMobile ) {
       console.log('version pc');
 
       totalWords[12] = $scope.CatText.cita12Plus.split(" ");
@@ -774,7 +774,7 @@ angular.module('smcApp')
         .addPause();
 
       tl.pause();
-    }
+    //}
 
     //------------------------------------
     //-------FUNCTIONS --------------------
