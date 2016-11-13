@@ -79,6 +79,7 @@ angular.module('smcApp')
 
     if (deviceDetector.device != 'unknown') {
       $('.mouseIcon').addClass('iconSpace2');
+      $('.keyboardIcon').hide();
       isMobile = true;
       console.log('is device');
       $scope.mobile = 'device';
@@ -206,13 +207,15 @@ angular.module('smcApp')
         .add("inicio")
         .to("#page0",0.5,{ scale: '1', ease: Back.easeIn.config(1)})
         .to(".topMenu",0.5,{ top: '0%', ease: Back.easeIn.config(1)})
-        .to("", 0.1, { onStart: videoPlay, onStartParams: ["intro", true, "0/0/1471877157700.mp4", "videoClass", "introVideoFull",false,"tv3"]})
+        .to("", 0.1, { onStart: videoPlay, onStartParams: ["intro", true, "1471877157700.mp4", "videoClass", "introVideoFull",false,"local"]})
         .to(".videoCover", 3, {css:{opacity: '0.2'}, delay: 2, ease: Power0.easeOut},"+=2")
         .staggerFrom(introWords, 0.6, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.2]}, ease: Back.easeOut.config(0.8)}, 0.1)
         .staggerFrom(introWordsSubtitle, 0.6, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.2]}, ease: Back.easeOut.config(0.8)}, 0.1)
         .staggerFrom(introWordsName, 0.6, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.2]}, ease: Back.easeOut.config(0.8)}, 0.1)
-        .to(".mouseIcon", 0.5, {bottom: '100px', ease: Bounce.easeOut, onComplete: updateScrollBttn})
+        .to(".mouseIcon", 0.5, {bottom: '100px', ease: Bounce.easeIn, onComplete: updateScrollBttn})
+        .to(".keyboardIcon", 0.5, {bottom: '90px', ease: Bounce.easeIn})
         .addPause()
+        .to(".keyboardIcon", 0.2, {bottom: '-150px', ease: Bounce.easeOut})
         .to(".mouseIcon", 0.2, {bottom: '-150px', ease: Power0.easeOut})
         .staggerTo(introWords, 0.2, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.2]}, ease: Back.easeOut.config(0.8)}, 0.1)
         .staggerTo(introWordsSubtitle, 0.2, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.2]}, ease: Back.easeOut.config(0.8)}, 0.1)
@@ -264,20 +267,20 @@ angular.module('smcApp')
         .to(".ed1", 0.5, {opacity: '0', ease: Power2.easeIn})
         .to(".mapSvgClassTop", 2, {width: '6200px', top: '-1390px', left: '-1100px', ease: Power2.easeIn},"-=1.2")
         .to("", 0.1, { onReverseComplete: initViaje, onReverseCompleteParams: ['reverse'] })
-        .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['videoCloud',false,'p1clip1ESP.m4v', 'videoCloud', 'videoCloudInside',false,"tve"] })
+        .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['videoCloud',false,'p1clip1ESP.mp4', 'videoCloud', 'videoCloudInside',false,"local"] })
         .to(".mouseIcon", 0.5, {bottom: '100px', ease: Bounce.easeOut, onComplete: updateScrollBttn},"+=0.5")
         .to("", 0.1, { onReverseComplete: stopVideo })
         .addPause()
         .to("", 0.1, { onStart: stopVideo })
-        .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['videoCloud',false,'p1Clip1ESP.m4v', 'videoCloud', 'videoCloudInside',false,"tve"] })
+        .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['videoCloud',false,'p1Clip1ESP.mp4', 'videoCloud', 'videoCloudInside',false,"local"] })
         .to(".mouseIcon", 0.2, {bottom: '-150px', ease: Power0.easeOut, onComplete: updateScrollBttn})
         .to("#page2",0.4,{ right: '100%', ease: Power0.easeNone},"+=1")
-        .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['videomarco',true,'P2Clip1.m4v', 'resumeVideoBox', 'resumeVideoBoxEnter',false,"tve"] })
+        .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['videomarco',true,'P2Clip1.mp4', 'resumeVideoBox', 'resumeVideoBoxEnter',false,"local"] })
         .to("", 0.1, { onReverseComplete: stopVideo })
         .to("", 0.1, { onReverseComplete: updateTitle, onReverseCompleteParams: [1] })
         .addPause()
         .to("", 0.1, { onStart: stopVideo })
-        .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['videomarco',false,'P2Clip1.m4v', 'resumeVideoBox', 'resumeVideoBoxEnter',false,"tve"] })
+        .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['videomarco',false,'P2Clip1.mp4', 'resumeVideoBox', 'resumeVideoBoxEnter',false,"local"] })
         //EPISODE 4
         .add("prologo2Add")
         .to("", 0.1, { onStart: updateTitle, onStartParams: [2] })
@@ -358,18 +361,18 @@ angular.module('smcApp')
         .staggerFrom($("#page7").children(),0.6, animationFromPattern, staggerFromVelocity)
         .to(".cita15",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1")
         //.to("", 0.1, { onReverseComplete: stopVideo })
-        .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['videoCloud',true,'RM3Clip2ESP.m4v', 'videoCloud', 'videoCloudInside', true, "tve"] })
+        .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['videoCloud',true,'RM3Clip2ESP.mp4', 'videoCloud', 'videoCloudInside', true, "local"] })
         .to("", 0.1, { onReverseComplete: stopVideo })
         .to(".mouseIcon", 0.5, {bottom: '100px', ease: Bounce.easeOut, onComplete: updateScrollBttn}, '+=1')
         .addPause()
-        .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['videoCloud',false,'RM3CLIP1.m4v', 'videoCloud', 'videoCloudInside', true,"tve"] })
-        .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['videoCloud',false,'RM3Clip3ESP.m4v', 'videoCloud', 'videoCloudInside',false,"tve"] })
+        .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['videoCloud',false,'RM3CLIP1.mp4', 'videoCloud', 'videoCloudInside', true,"local"] })
+        .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['videoCloud',false,'RM3Clip3ESP.mp4', 'videoCloud', 'videoCloudInside',false,"local"] })
         .addPause()
-        .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['videoCloud',false,'RM3Clip3ESP.m4v', 'videoCloud', 'videoCloudInside',false,"tve"] })
-        .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['videoCloud',true,'RM3CLIP1.m4v', 'videoCloud', 'videoCloudInside', true,"tve"] })
+        .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['videoCloud',false,'RM3Clip3ESP.mp4', 'videoCloud', 'videoCloudInside',false,"local"] })
+        .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['videoCloud',true,'RM3CLIP1.mp4', 'videoCloud', 'videoCloudInside', true,"local"] })
         .addPause()
         .to(".mouseIcon", 0.2, {bottom: '-150px', ease: Power0.easeOut})
-        .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['videoCloud',false,'RM3Clip2ESP.m4v', 'videoCloud', 'videoCloudInside', true,"tve"] })
+        .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['videoCloud',false,'RM3Clip2ESP.mp4', 'videoCloud', 'videoCloudInside', true,"local"] })
         //.to("", 0.1, { onStart: stopVideo })
         .to("", 0.1, { onStart: stopVideo })
         .staggerTo($("#page7").children(),0.6, animationToPattern, staggerToVelocity)
@@ -389,7 +392,7 @@ angular.module('smcApp')
         .to("", 2, { onComplete: playSound, onCompleteParams: [playListOrder[3]] }, "+=2")
         .addPause()
         .to("", 0.1, { onReverseComplete: updateTitle, onReverseCompleteParams: [7] })
-        .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['resume',101,112,112, true, 'RESUMENCUGATv3ESP.m4v', 'resumeVideoBox', 'resumeVideoBoxEnter',false,"local"]})
+        .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['resume',101,112,112, true, 'RESUMENCUGATv3ESP.mp4', 'resumeVideoBox', 'resumeVideoBoxEnter',false,"local"]})
         .to("", 0.1, { onStart: stopVideo })
         .add("CC2")
         .to("", 0.1, { onStart: updateTitle, onStartParams: [8] })
@@ -425,17 +428,17 @@ angular.module('smcApp')
         .to("", 0.1, { onStart: updateTitle, onStartParams: [10] })
         .to(".chihuahua",0.3,{ transform: 'rotateX(90deg)',  ease: Bounce.easeOut})
         .to("#page10",0.4,{ right: '0%', ease: Back.easeInOut.config(1)},"-=0.4")
-        .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['videoCloud',true,'cc3clip1ESP.m4v', 'videoCloud2', 'videoCloudInside', true, "tve"] })
+        .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['videoCloud',true,'cc3clip1ESP.mp4', 'videoCloud2', 'videoCloudInside', true, "local"] })
         .to("", 0.1, { onReverseComplete: stopVideo })
         .to(".mouseIcon", 0.5, {bottom: '100px', ease: Bounce.easeOut, onComplete: updateScrollBttn}, '+=1')
         .addPause()
         .to(".mouseIcon", 0.2, {bottom: '-150px', ease: Power0.easeOut})
-        .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['videoCloud',true,'CC3CLIP2def.m4v', 'videoCloud2', 'videoCloudInside', false, "tve"] })
-        .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['videoCloud',true,'CC3CLIP2def.m4v', 'videoCloud2', 'videoCloudInside', false, "tve"] })
+        .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['videoCloud',true,'CC3CLIP2def.mp4', 'videoCloud2', 'videoCloudInside', false, "local"] })
+        .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['videoCloud',true,'CC3CLIP2def.mp4', 'videoCloud2', 'videoCloudInside', false, "local"] })
         .to(".mouseIcon", 0.5, {bottom: '100px', ease: Bounce.easeOut, onComplete: updateScrollBttn}, '+=1')
         .addPause()
         .to(".mouseIcon", 0.2, {bottom: '-150px', ease: Power0.easeOut})
-        .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['videoCloud',true,'cc3clip1ESP.m4v', 'videoCloud2', 'videoCloudInside', true, "tve"] })
+        .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['videoCloud',true,'cc3clip1ESP.mp4', 'videoCloud2', 'videoCloudInside', true, "local"] })
         .to("", 0.1, { onStart: stopVideo })
         .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['06-narracion-cc3', false] },'+=1')
         .to(".mouseIcon", 0.5, {bottom: '100px', ease: Bounce.easeOut, onComplete: updateScrollBttn}, '+=1')
@@ -541,10 +544,10 @@ angular.module('smcApp')
         .to(".blurEffect8",0.2,{ filter: 'blur(8px)', webkitFilter: 'blur(8px)', ease: Power0.easeNone})
         .staggerFrom($("#page15").children(),0.6, animationFromPattern, staggerFromVelocity)
         .to(".cita53",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1")
-        .to("", 2.5, { onComplete: videoPlay, onCompleteParams: ['videoCloud',false,'AL2clip1ESP.m4v', 'videoCloud', 'videoCloudInside',false,"tve"] })
+        .to("", 2.5, { onComplete: videoPlay, onCompleteParams: ['videoCloud',false,'AL2clip1ESP.mp4', 'videoCloud', 'videoCloudInside',false,"local"] })
         .to("", 0.1, { onReverseComplete: stopVideo })
         .addPause()
-        .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['videoCloud',false,'AL2clip1ESP.m4v', 'videoCloud', 'videoCloudInside',false,"tve"] })
+        .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['videoCloud',false,'AL2clip1ESP.mp4', 'videoCloud', 'videoCloudInside',false,"local"] })
         .to("", 0.1, { onStart: stopVideo })
         .staggerTo($("#page15").children(),0.6, animationToPattern, staggerToVelocity)
         .to("#page15",0.4,{ right: '100%', ease: Power0.easeNone})
@@ -680,6 +683,7 @@ angular.module('smcApp')
 
     //------------------------------------
     //-------FUNCTIONS --------------------
+
     $scope.upTo = function(value, music, notes) {
       console.log(notes);
       if( currentVideoSlidePlaying != undefined ) stopVideoToolTip( currentVideoSlidePlaying.ID, currentVideoSlidePlaying.conto, currentVideoSlidePlaying.playB, currentVideoSlidePlaying.fullS );
@@ -1022,7 +1026,8 @@ angular.module('smcApp')
     }
 
     $scope.viewDoc = function(){
-      //window.open("http://www.ccma.cat/tv3/documentals/xavier-cugat/", "_blank", "");
+      if (config.doc.link)
+        window.open(config.doc.url, "_blank", "");
     }
     $scope.viewExtras = function(){
       try{
@@ -1112,6 +1117,7 @@ angular.module('smcApp')
     };
 
     function videoPlay(videoType, continueBeforeStop, id, class1, class2, changeAudio, videoResource){
+      try{
        fullScreenVideoStatus = true;
        if(!player.paused()) player.pause();
        if(class1 == 'resumeVideoBox') TweenMax.set($('#videoContainer'), {zIndex: 999});
@@ -1127,9 +1133,9 @@ angular.module('smcApp')
        $('#videoGeneral').addClass(class1);
        $('#GeneralVideo').addClass("video-js vjs-default-skin " + class2);
        TweenMax.to($('#videoContainer'), 0.5, { opacity: 1, scale: scaleValue, ease: Power4.easeOut, autoRound:false });
-       if( videoResource == 'tv3' ) player.src({ type: 'video/mp4', src: 'http://mp4-high-dwn.media.tv3.cat/g/tvcatalunya/'+id });
-       else if( videoResource == 'tve' ) player.src({ type: 'video/mp4', src: 'http://origin-proyectos-lab-externos.rtve.es/webdocs/xavier-cugat/videos/'+id });
-       else if( videoResource == 'local' ) player.src({ type: 'video/mp4', src: 'videos/'+id });
+       if( videoResource == 'tv3' ) player.src({ type: 'video/mp4', src: config.tv3.videos+id });
+       else if( videoResource == 'tve' ) player.src({ type: 'video/mp4', src: config.tve.videos+id });
+       else if( videoResource == 'local' ) player.src({ type: 'video/mp4', src: config.local.videos+id });
        player.play();
        player.on("ended", function(){
          console.log('video ended');
@@ -1137,6 +1143,9 @@ angular.module('smcApp')
          if(boolsound == soundVolume && !changeAudio){ soundEpilogo.fade(0,soundVolume,2000); }
          fullScreenVideoStatus = false;
        })
+     } catch (err){
+       console.log(err)
+     }
     };
 
     function stopVideo(){
@@ -1205,7 +1214,9 @@ angular.module('smcApp')
           onend: function() {
             locContainer.addClass("inactive");
             locContainer.removeClass("comment-anim");
-            progress.destroy();
+            try{
+              progress.destroy();
+            } catch (err){}
             soundNarracion.volume(0);
             if( player.paused() && videoCardToogleSound == 1 && boolsound == soundVolume && !continueBefore ) soundEpilogo.fade(0.05,soundVolume,1000);
           }
@@ -1365,7 +1376,7 @@ angular.module('smcApp')
         $("#eardAdviceId").addClass('hideEardAdvise');
         setTimeout(function(){
           $("#eardAdviceId").css('display', 'none');
-          tl.play();
+          tl.play()
         }, 2000);
         eardAdvice = true;
     };
@@ -1439,6 +1450,7 @@ angular.module('smcApp')
           triggerAnec.removeClass( 'open' );
           //$('.trigger-anecdota.anecButton').css("opacity", 0);
           container2.removeClass( 'overlay-open' );
+          container2.hide()
           overlayAnec.addClass( 'close' );
           var onEndTransitionFn = function( ev ) {
             overlayAnec.removeClass( 'close' );
@@ -1455,11 +1467,12 @@ angular.module('smcApp')
             onEndTransitionFn();
           }
         }
-        else if( !overlayAnec.hasClass( 'close' )) {
+        else {//if( overlayAnec.hasClass( 'close' )) {
           //soundEpilogo.volume(0.1);
           overlayAnec.addClass( 'open' );
           triggerAnec.addClass( 'open' );
           //$('.trigger-anecdota.anecButton').css("opacity", 0);
+          container2.show()
           container2.addClass( 'overlay-open' );
         }
     }
@@ -1470,10 +1483,11 @@ angular.module('smcApp')
 
     function checkDisclaimer(){
       if ( isMobile && ($(window).width() < 1024) && ($(window).height() < 1024) ) {
-        mainContainer.hide();
-        tl.stop();
-        controlSound();
-        disclaimerMobile.show();
+        location.href = "../mobile.html";
+        // mainContainer.hide();
+        // tl.stop();
+        // controlSound();
+        // disclaimerMobile.show();
       }
     }
 
@@ -1499,319 +1513,14 @@ angular.module('smcApp')
     })
     $(window).resize()
 
-    playlistPlayer.playlist([{
-      name: 'Entrevista completa a Xavier Cugat en el programa “La luna” (1989)',
-      sources: [{
-        src: 'http://mvod.lvlt.rtve.es/resources/TE_NGVA/mp4/2/9/1466417568692.mp4',
-        type: 'video/mp4'
-      }],
-      poster: '/images/king-of-rumba.jpg',
-      thumbnail: [
-        {
-          srcset: 'images/thumb/1466417568692.jpg',
-          type: 'image/jpeg',
-          media: '(min-width: 350px;)'
-        },
-        {
-          src: 'images/thumb/1466417568692.jpg'
-        }
-      ],
-      duration: 3245
-      }, {
-      // name: 'Xavier Cugat con Julia Otero en el programa “La luna” (1989).',
-      // sources: [{
-      //   src: 'https://www.youtube.com/watch?v=WM9v8yVszF8',
-      //   type: 'video/youtube'
-      // }],
-      // poster: '/images/king-of-rumba.jpg',
-      // thumbnail: [
-      //   {
-      //     srcset: 'images/thumb/king-of-rumba.jpg',
-      //     type: 'image/jpeg',
-      //     media: '(min-width: 350px;)'
-      //   },
-      //   {
-      //     src: 'images/thumb/king-of-rumba.jpg'
-      //   }
-      // ],
-      // duration: 45
-      // }, {
-      // name: 'Cugui continúa repasando su carrera',
-      // sources: [{
-      //   src: 'https://www.youtube.com/watch?v=GzAnW2EpbgY',
-      //   type: 'video/youtube'
-      // }],
-      // poster: '/images/king-of-rumba.jpg',
-      // thumbnail: [
-      //   {
-      //     srcset: 'images/thumb/king-of-rumba.jpg',
-      //     type: 'image/jpeg',
-      //     media: '(min-width: 350px;)'
-      //   },
-      //   {
-      //     src: 'images/thumb/king-of-rumba.jpg'
-      //   }
-      // ],
-      // duration: 45
-      // }, {
-      // name: 'Xavier Cugat y su chihuahua con Julia Otero en el programa “La luna” (1989)',
-      // sources: [{
-      //   src: 'https://www.youtube.com/watch?v=Tspqgl4aajs',
-      //   type: 'video/youtube'
-      // }],
-      // poster: '/images/king-of-rumba.jpg',
-      // thumbnail: [
-      //   {
-      //     srcset: 'images/thumb/king-of-rumba.jpg',
-      //     type: 'image/jpeg',
-      //     media: '(min-width: 350px;)'
-      //   },
-      //   {
-      //     src: 'images/thumb/king-of-rumba.jpg'
-      //   }
-      // ],
-      // duration: 45
-      // }, {
-      name: 'Xavier Cugat desvela detalles sobre su vida en "Verdad o mentira” de 1983',
-      sources: [{
-        src: 'http://mvod.lvlt.rtve.es/resources/TE_NGVA/mp4/8/2/1466417752028.mp4',
-        type: 'video/mp4'
-      }],
-      poster: '/images/king-of-rumba.jpg',
-      thumbnail: [
-        {
-          srcset: 'images/thumb/1466417752028.jpg',
-          type: 'image/jpeg',
-          media: '(min-width: 350px;)'
-        },
-        {
-          src: 'images/thumb/1466417752028.jpg'
-        }
-      ],
-      duration: 2489
-      }, {
-      // name: '¿Es Xavier Cugat también un mago?',
-      // sources: [{
-      //   src: 'https://www.youtube.com/watch?v=dXtHp_rEgVA',
-      //   type: 'video/youtube'
-      // }],
-      // poster: '/images/king-of-rumba.jpg',
-      // thumbnail: [
-      //   {
-      //     srcset: 'images/thumb/king-of-rumba.jpg',
-      //     type: 'image/jpeg',
-      //     media: '(min-width: 350px;)'
-      //   },
-      //   {
-      //     src: 'images/thumb/king-of-rumba.jpg'
-      //   }
-      // ],
-      // duration: 45
-      // }, {
-      // name: '¿Es verdad que fue nombrado jefe de una tribu india?',
-      // sources: [{
-      //   src: 'https://www.youtube.com/watch?v=KV5qhM9r90Y',
-      //   type: 'video/youtube'
-      // }],
-      // poster: '/images/king-of-rumba.jpg',
-      // thumbnail: [
-      //   {
-      //     srcset: 'images/thumb/king-of-rumba.jpg',
-      //     type: 'image/jpeg',
-      //     media: '(min-width: 350px;)'
-      //   },
-      //   {
-      //     src: 'images/thumb/king-of-rumba.jpg'
-      //   }
-      // ],
-      // duration: 45
-      // }, {
-      // name: 'Cugat narra su relación con Frank Sinatra',
-      // sources: [{
-      //   src: 'https://www.youtube.com/watch?v=EySYESxtMYg',
-      //   type: 'video/youtube'
-      // }],
-      // poster: '/images/king-of-rumba.jpg',
-      // thumbnail: [
-      //   {
-      //     srcset: 'images/thumb/king-of-rumba.jpg',
-      //     type: 'image/jpeg',
-      //     media: '(min-width: 350px;)'
-      //   },
-      //   {
-      //     src: 'images/thumb/king-of-rumba.jpg'
-      //   }
-      // ],
-      // duration: 45
-      // }, {
-      // name: 'Cugui desvela sus inicios con el gran Caruso',
-      // sources: [{
-      //   src: 'https://www.youtube.com/watch?v=hC8FxSSouY4',
-      //   type: 'video/youtube'
-      // }],
-      // poster: '/images/king-of-rumba.jpg',
-      // thumbnail: [
-      //   {
-      //     srcset: 'images/thumb/king-of-rumba.jpg',
-      //     type: 'image/jpeg',
-      //     media: '(min-width: 350px;)'
-      //   },
-      //   {
-      //     src: 'images/thumb/king-of-rumba.jpg'
-      //   }
-      // ],
-      // duration: 45
-      // }, {
-      name: 'Programa de entretenimiento en el que el público realiza preguntas variadas a Xavier Cugat (1972).',
-      sources: [{
-        src: 'http://mvod.lvlt.rtve.es/resources/TE_NGVA/mp4/1/7/1466589118771.mp4',
-        type: 'video/mp4'
-      }],
-      poster: '/images/king-of-rumba.jpg',
-      thumbnail: [
-        {
-          srcset: 'images/thumb/1466589118771.jpg',
-          type: 'image/jpeg',
-          media: '(min-width: 350px;)'
-        },
-        {
-          src: 'images/thumb/1466589118771.jpg'
-        }
-      ],
-      duration: 1814
-      }, {
-      // name: 'Sus comienzos',
-      // sources: [{
-      //   src: 'https://www.youtube.com/watch?v=7LMZ-RCDvXA',
-      //   type: 'video/youtube'
-      // }],
-      // poster: '/images/king-of-rumba.jpg',
-      // thumbnail: [
-      //   {
-      //     srcset: 'images/thumb/king-of-rumba.jpg',
-      //     type: 'image/jpeg',
-      //     media: '(min-width: 350px;)'
-      //   },
-      //   {
-      //     src: 'images/thumb/king-of-rumba.jpg'
-      //   }
-      // ],
-      // duration: 45
-      // }, {
-      // name: 'Sus mujeres y EEUU',
-      // sources: [{
-      //   src: 'https://www.youtube.com/watch?v=z7pqniWBYf4',
-      //   type: 'video/youtube'
-      // }],
-      // poster: '/images/king-of-rumba.jpg',
-      // thumbnail: [
-      //   {
-      //     srcset: 'images/thumb/king-of-rumba.jpg',
-      //     type: 'image/jpeg',
-      //     media: '(min-width: 350px;)'
-      //   },
-      //   {
-      //     src: 'images/thumb/king-of-rumba.jpg'
-      //   }
-      // ],
-      // duration: 45
-      // }, {
-      // name: 'Sus curiosidades más personales',
-      // sources: [{
-      //   src: 'https://www.youtube.com/watch?v=1n4BLvpflJc',
-      //   type: 'video/youtube'
-      // }],
-      // poster: '/images/king-of-rumba.jpg',
-      // thumbnail: [
-      //   {
-      //     srcset: 'images/thumb/king-of-rumba.jpg',
-      //     type: 'image/jpeg',
-      //     media: '(min-width: 350px;)'
-      //   },
-      //   {
-      //     src: 'images/thumb/king-of-rumba.jpg'
-      //   }
-      // ],
-      // duration: 45
-      // }, {
-      name: 'Entrevista de Xavier Cugat con Mónica Randall para el programa “Rasgos”.',
-      sources: [{
-        src: 'http://mvod.lvlt.rtve.es/resources/TE_NGVA/mp4/9/4/1467728998149.mp4',
-        type: 'video/mp4'
-      }],
-      poster: '/images/king-of-rumba.jpg',
-      thumbnail: [
-        {
-          srcset: 'images/thumb/1467728998149.jpg',
-          type: 'image/jpeg',
-          media: '(min-width: 350px;)'
-        },
-        {
-          src: 'images/thumb/1467728998149.jpg'
-        }
-      ],
-      duration: 2443
-      }, {
-      // name: 'Cugat repasa sus recuerdos desde su nacimiento y vida en Cuba',
-      // sources: [{
-      //   src: 'https://www.youtube.com/watch?v=4esIIbi2ao0',
-      //   type: 'video/youtube'
-      // }],
-      // poster: '/images/king-of-rumba.jpg',
-      // thumbnail: [
-      //   {
-      //     srcset: 'images/thumb/king-of-rumba.jpg',
-      //     type: 'image/jpeg',
-      //     media: '(min-width: 350px;)'
-      //   },
-      //   {
-      //     src: 'images/thumb/king-of-rumba.jpg'
-      //   }
-      // ],
-      // duration: 45
-      // }, {
-      // name: 'Su llegada a EE UU y (casi) todas las mujeres de su vida',
-      // sources: [{
-      //   src: 'https://www.youtube.com/watch?v=Zvs0BSB4H_E',
-      //   type: 'video/youtube'
-      // }],
-      // poster: '/images/king-of-rumba.jpg',
-      // thumbnail: [
-      //   {
-      //     srcset: 'images/thumb/king-of-rumba.jpg',
-      //     type: 'image/jpeg',
-      //     media: '(min-width: 350px;)'
-      //   },
-      //   {
-      //     src: 'images/thumb/king-of-rumba.jpg'
-      //   }
-      // ],
-      // duration: 45
-      // }, {
-      // name: 'Cugat, el hombre de negocios',
-      // sources: [{
-      //   src: 'https://www.youtube.com/watch?v=UrVFLqTjCBs',
-      //   type: 'video/youtube'
-      // }],
-      // poster: '/images/king-of-rumba.jpg',
-      // thumbnail: [
-      //   {
-      //     srcset: 'images/thumb/king-of-rumba.jpg',
-      //     type: 'image/jpeg',
-      //     media: '(min-width: 350px;)'
-      //   },
-      //   {
-      //     src: 'images/thumb/king-of-rumba.jpg'
-      //   }
-      // ],
-      // duration: 45
-      // }, {
-      name: 'el debut de Nina en el Un, dos, tres, presentada y apadrinada por Cugat.',
+    playlistPlayer.playlist([
+      {
+      name: 'El debut de Nina en el Un, dos, tres, presentada y apadrinada por Cugat.',
       sources: [{
         src: 'http://mvod.lvlt.rtve.es/resources/TE_NGVA/mp4/7/5/1411576524757.mp4',
         type: 'video/mp4'
       }],
-      poster: '/images/king-of-rumba.jpg',
+      poster: 'images/king-of-rumba.jpg',
       thumbnail: [
         {
           srcset: 'images/thumb/1411576524757.jpg',
@@ -1824,12 +1533,84 @@ angular.module('smcApp')
       ],
       duration: 141
       }, {
-      name: 'Xavier Cugat pasea por la plaza D´Oli (Barcelona), el lugar donde nació',
+      name: 'Programa de entretenimiento en el que el público realiza preguntas variadas a Xavier Cugat (1972).',
       sources: [{
-        src: 'http://origin-proyectos-lab-externos.rtve.es/webdocs/xavier-cugat/videos/cugat.mp4',
+        src: 'http://mvod.lvlt.rtve.es/resources/TE_NGVA/mp4/1/7/1466589118771.mp4',
         type: 'video/mp4'
       }],
-      poster: '/images/king-of-rumba.jpg',
+      poster: 'images/king-of-rumba.jpg',
+      thumbnail: [
+        {
+          srcset: 'images/thumb/1466589118771.jpg',
+          type: 'image/jpeg',
+          media: '(min-width: 350px;)'
+        },
+        {
+          src: 'images/thumb/1466589118771.jpg'
+        }
+      ],
+      duration: 1814
+      }, {
+      name: 'Entrevista de Xavier Cugat con Mónica Randall para el programa “Rasgos”.',
+      sources: [{
+        src: 'http://mvod.lvlt.rtve.es/resources/TE_NGVA/mp4/9/4/1467728998149.mp4',
+        type: 'video/mp4'
+      }],
+      poster: 'images/king-of-rumba.jpg',
+      thumbnail: [
+        {
+          srcset: 'images/thumb/1467728998149.jpg',
+          type: 'image/jpeg',
+          media: '(min-width: 350px;)'
+        },
+        {
+          src: 'images/thumb/1467728998149.jpg'
+        }
+      ],
+      duration: 2443
+      }, {
+      name: 'Entrevista completa a Xavier Cugat en el programa “La luna” (1989)',
+      sources: [{
+        src: 'http://mvod.lvlt.rtve.es/resources/TE_NGVA/mp4/2/9/1466417568692.mp4',
+        type: 'video/mp4'
+      }],
+      poster: 'images/king-of-rumba.jpg',
+      thumbnail: [
+        {
+          srcset: 'images/thumb/1466417568692.jpg',
+          type: 'image/jpeg',
+          media: '(min-width: 350px;)'
+        },
+        {
+          src: 'images/thumb/1466417568692.jpg'
+        }
+      ],
+      duration: 3245
+      }, {
+      name: 'Xavier Cugat desvela detalles sobre su vida en "Verdad o mentira” de 1983',
+      sources: [{
+        src: 'http://mvod.lvlt.rtve.es/resources/TE_NGVA/mp4/8/2/1466417752028.mp4',
+        type: 'video/mp4'
+      }],
+      poster: 'images/king-of-rumba.jpg',
+      thumbnail: [
+        {
+          srcset: 'images/thumb/1466417752028.jpg',
+          type: 'image/jpeg',
+          media: '(min-width: 350px;)'
+        },
+        {
+          src: 'images/thumb/1466417752028.jpg'
+        }
+      ],
+      duration: 2489
+      }, {
+      name: 'Xavier Cugat pasea por la plaza D´Oli (Barcelona), el lugar donde nació',
+      sources: [{
+        src: config.tve.videos+'cugat.mp4',
+        type: 'video/mp4'
+      }],
+      poster: 'images/king-of-rumba.jpg',
       thumbnail: [
         {
           srcset: 'images/thumb/cugat.jpg',
@@ -1844,10 +1625,10 @@ angular.module('smcApp')
       }, {
       name: 'Entrevista desde el hospital a Xavier Cugat',
       sources: [{
-        src: 'http://origin-proyectos-lab-externos.rtve.es/webdocs/xavier-cugat/videos/cugat2bata.mp4',
+        src: config.tve.videos+'cugat2bata.mp4',
         type: 'video/mp4'
       }],
-      poster: '/images/king-of-rumba.jpg',
+      poster: 'images/king-of-rumba.jpg',
       thumbnail: [
         {
           srcset: 'images/thumb/cugat2bata.jpg',
@@ -1862,10 +1643,10 @@ angular.module('smcApp')
       }, {
       name: 'Entrevista a Xavier Cugat en el Hotel Ritz',
       sources: [{
-        src: 'http://origin-proyectos-lab-externos.rtve.es/webdocs/xavier-cugat/videos/cugatCuadros.mp4',
+        src: config.tve.videos+'cugatCuadros.mp4',
         type: 'video/mp4'
       }],
-      poster: '/images/king-of-rumba.jpg',
+      poster: 'images/king-of-rumba.jpg',
       thumbnail: [
         {
           srcset: 'images/thumb/cugatCuadros.jpg',
@@ -1880,10 +1661,10 @@ angular.module('smcApp')
       }, {
       name: 'Xavier Cugat cumple 80 años',
       sources: [{
-        src: 'http://origin-proyectos-lab-externos.rtve.es/webdocs/xavier-cugat/videos/cugatNodo.mp4',
+        src: config.tve.videos+'cugatNodo.mp4',
         type: 'video/mp4'
       }],
-      poster: '/images/king-of-rumba.jpg',
+      poster: 'images/king-of-rumba.jpg',
       thumbnail: [
         {
           srcset: 'images/thumb/cugatNodo.jpg',

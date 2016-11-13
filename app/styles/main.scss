@@ -427,10 +427,31 @@ body, html{
   padding: 5px;
   border-radius: 110px;
   /*background: rgba(45, 45, 45, 0.7);*/
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.95);
   position: absolute;
   text-align: center;
   cursor: pointer;
+}
+.keyboardIcon{
+  position: absolute;
+  bottom: -150px;
+  left: 50%;
+  margin-left: 81px;
+  z-index: 999;
+  color: white;
+
+  .iconWrapper{
+    text-align: left;
+    max-width: 90px;
+    p{
+      text-transform: uppercase;
+      font-size: 0.8em;
+      margin: 0px;
+    }
+    img{
+      height: 55px;
+    }
+  }
 }
 .iconSpace{
   /*width: 100%;
@@ -1755,7 +1776,7 @@ img.infoAdvice{
     //text-align: left;
     padding: 5px;
     border: 1px solid #f3f3f3;
-    opacity: .4;
+    //opacity: .4;
     //cursor: pointer;
   }
   .linealDoc:hover{
@@ -3667,12 +3688,17 @@ img.infoAdvice{
 
 .container2{
   background: #111;
-  z-index: 999999;
+  z-index: 99999;
   -webkit-transition: -webkit-transform 0.5s;
   transition: transform 0.5s;
   overflow: auto;
   max-height: 250%;
   height: 100%;
+  display: none;
+
+  .menuIcons{
+    z-index: 10
+  }
 
   section{
     -webkit-columns: 2 400px;
@@ -5215,6 +5241,7 @@ span.vjs-up-next-text {
 }
 .eardAdviceText{
   height: 500px;
+  max-width: 400px;
   position: absolute;
   top: 0;
   left: 0;
@@ -5223,14 +5250,20 @@ span.vjs-up-next-text {
   margin: auto;
   text-align: center;
   font-size: 15px;
-  font-weight: bold;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-family: 'Open Sans', sans-serif;
+
+  .welcomeMessage{
+    margin-bottom: 20px;
+  }
 
   .headphonesIcon{
-    font-size: 7em;
+    font-size: 6em;
     i {
       display: block;
-      margin: 10px;
-      height: 95px;
+      margin: 20px;
+      height: 75px;
     }
   }
 }
@@ -5248,6 +5281,7 @@ span.vjs-up-next-text {
   width: 120px;
   text-align: center;
   color: #000000;
+  font-weight: bold;
   cursor: pointer;
   text-transform: uppercase;
 }

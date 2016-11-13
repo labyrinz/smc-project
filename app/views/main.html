@@ -1,5 +1,8 @@
 <div id="eardAdviceId" class="eardAdvice">
   <div class="eardAdviceText">
+    <div class="welcomeMessage">
+       ¡Bienvenido a "Sexo, maracas y chihuahuas", el documental interactivo sobre Xavier Cugat!
+    </div>
     <div class="chihuahua">
       <img ng-src="images/king-of-rumba.png" alt="" />
     </div>
@@ -29,8 +32,8 @@
           </div>
           <div class="nav-extra">
             <li><div ng-click="loadCredits()"><i class="fa fa-list" aria-hidden="true"></i> {{ menuText.credits }}</div></li>
-            <li><div ng-click="viewExtras()"><i class="fa fa-film" aria-hidden="true"></i> {{ menuText.extras }}</div></li>
-            <!--li><div ng-click="viewDoc()"><i class="fa fa-film" aria-hidden="true"></i> {{ menuText.doculineal }}</div></li-->
+            <li><div ng-click="viewExtras()"><i class="fa fa-youtube-play" aria-hidden="true"></i> {{ menuText.extras }}</div></li>
+            <li><div ng-click="viewDoc()"><i class="fa fa-film" aria-hidden="true"></i> {{ menuText.doculineal }}</div></li>
             <li><div ng-click="viewPostcards()"><i class="fa fa-picture-o" aria-hidden="true"></i> {{ menuText.postcards }}</div></li>
           </div>
         </ul>
@@ -1101,6 +1104,12 @@
       </div>
     </div>
     <p>{{ controlText }}</p>
+  </div>
+  <div class="keyboardIcon">
+    <div class="iconWrapper">
+      <img src="images/png/arrow-keys-2.png" alt="keyboard arrows" />
+      <p>{{ generalText.instructionKeyboard }}</p>
+    </div>
   </div>
   <div class="coverTransitions"></div>
 </div>
