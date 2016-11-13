@@ -1,6 +1,15 @@
 'use strict';
 
- angular.module('smcApp').factory( 'session', function GetSession($http, $q){
+/**
+ * @ngdoc function
+ * @name smcApp.controller:MainCtrl
+ * @description
+ * # MainCtrl
+ * Controller of the smcApp
+ */
+
+ angular.module('smcApp')
+   .factory( 'session', function GetSession($http, $q){
      var defer = $q.defer();
 
      var urlNekudo = "https://geoip.nekudo.com/api";
@@ -36,18 +45,15 @@
      });
 
      return defer.promise;
- } );
-
- /**
-  * @ngdoc function
-  * @name smcApp.controller:MainCtrl
-  * @description
-  * # MainCtrl
-  * Controller of the smcApp
-  */
-
+ });
 angular.module('smcApp')
   .controller('MainCtrl', function ($scope, session) {
+
+    var conexioAuth = false;
+
+    session.then( function() {
+      conexioAuth = true
+    });
 
     try{
       var introLetters = $("#quote h2").splitText({'type':'words','animation':'glowOnHover','useLite':true,'addClass':"introLetters"});
@@ -94,8 +100,6 @@ angular.module('smcApp')
       }
     });
     //-----------------------
-
-    session.then( function() {
 
     //--- GLOBAL VARIABLES ----
     var body = $('body');
@@ -991,9 +995,9 @@ angular.module('smcApp')
       });
     };
     function stopVideoToolTip(id, container, playButton, fullScreenButton){
-      $("#"+id).get(0).pause();
+      if( currentVideoSlidePlaying != undefined ) $("#"+currentVideoSlidePlaying.ID).get(0).pause();
       $('#'+container).removeClass("videoSlideResizeOut videoSlideResize tooltipVideoFixed");
-      if( player.paused() ) player.play();
+      if( !player.paused() ) player.pause();
       videoCardToogleSound = 1;
       if(boolsound == soundVolume && soundEpilogo.volume() > 0 ) soundEpilogo.fade(0.01, soundVolume,2000);
       if(boolsound == soundVolume && soundNarracion.volume() > 0 ) soundNarracion.fade(0.01, soundVolume,2000);
@@ -1057,6 +1061,7 @@ angular.module('smcApp')
       fullScreenVideoStatus = false;
       player.off("ended");
       player.pause();
+      player.src({ type: '', src: '' });
     }
     //-------SOUND --------------
     function controlSound(){
@@ -1099,21 +1104,21 @@ angular.module('smcApp')
             console.log(this._duration);
             locContainer.removeClass("inactive");
             locContainer.addClass("comment-anim");
-            progress = new ProgressBar.Circle("#loc", {
-              strokeWidth: 10,
-              easing: 'linear',
-              duration: this._duration*1000,
-              color: '#f2f2f2',
-              trailColor: '#eee',
-              trailWidth: 1,
-              svgStyle: null
-            });
-            progress.animate(1.0);
+            //progress = new ProgressBar.Circle("#loc", {
+            //  strokeWidth: 10,
+            //  easing: 'linear',
+            //  duration: this._duration*1000,
+            //  color: '#f2f2f2',
+            //  trailColor: '#eee',
+            //  trailWidth: 1,
+            //  svgStyle: null
+            //});
+            //progress.animate(1.0);
           },
           onend: function() {
             locContainer.addClass("inactive")
             locContainer.removeClass("comment-anim")
-            progress.destroy();
+            //progress.destroy();
             soundNarracion.volume(0);
             if( player.paused() && videoCardToogleSound == 1 && boolsound == soundVolume && !continueBefore ) soundEpilogo.fade(0.05,soundVolume,1000);
           }
@@ -1128,7 +1133,7 @@ angular.module('smcApp')
         locContainer.addClass("inactive");
         locContainer.removeClass("comment-anim");
         soundNarracion.volume(0);
-        if( progress != undefined ) progress.destroy();
+        //if( progress != undefined ) progress.destroy();
         if( player.paused() && videoCardToogleSound == 1 && boolsound == soundVolume ) soundEpilogo.fade(0.05,soundVolume,1000);
       } catch (Err){
           console.log(Err)
@@ -1156,7 +1161,7 @@ angular.module('smcApp')
     function initViaje(direction){
       console.log(direction);
       if(direction == 'reverse'){
-        var viaje1 = $('#viaje1Svg').drawsvg({
+        viaje1 = $('#viaje1Svg').drawsvg({
           duration: 8000,
           easing: 'linear',
           reverse: true,
@@ -1166,7 +1171,7 @@ angular.module('smcApp')
         viaje1.drawsvg('animate');
       }
       else {
-        var viaje1 = $('#viaje1Svg').drawsvg({
+        viaje1 = $('#viaje1Svg').drawsvg({
           duration: 8000,
           easing: 'linear',
           reverse: false,
@@ -1363,13 +1368,15 @@ angular.module('smcApp')
       }
     });
     $scope.startWebDoc = function(){
-      console.log('inicia webDoc');
-       $("#eardAdviceId").addClass('hideEardAdvise');
-       setTimeout(function(){
-         $("#eardAdviceId").css('display', 'none');
-         tl.play();
-       }, 2000);
-       eardAdvice = true;
+      if( conexioAuth == true ){
+        console.log('inicia webDoc');
+        $("#eardAdviceId").addClass('hideEardAdvise');
+        setTimeout(function(){
+          $("#eardAdviceId").css('display', 'none');
+          tl.play();
+        }, 2000);
+        eardAdvice = true;
+      }
     };
 
     //------------------------------------
@@ -1900,5 +1907,4 @@ angular.module('smcApp')
     }]);
       playlistPlayer.playlist.autoadvance(0);
 
-    });
   });
