@@ -67,7 +67,7 @@ angular.module('smcApp')
     var page = 0;
     var videoCardToogleSound = 1;
     var progress;
-    $scope.currentBack = 'inf';
+    var currentBack = 'inf';
     $scope.mobileBack = 0;
     $scope.mobilePage = 0;
 
@@ -653,20 +653,349 @@ angular.module('smcApp')
       tl.pause();
     //}
 
-    //------------------------------------
+    //------------------------------------ //------ Backs anim ----------
+
+    function edAnim() {
+      console.log('entra en inf');
+      if ($scope.mobile == 'pc') {
+        new TimelineMax({repeat: 0, autoRound: false})
+          .to(".ed1", 1, {opacity: '1', ease: Bounce.easeOut})
+          .play();
+      }
+      if ($scope.mobile == 'device') {
+        new TimelineMax({repeat: 0, autoRound: false})
+          .to(".ed1Dev", 1, {opacity: '1', ease: Bounce.easeOut})
+          .play();
+      }
+      currentBack = 'inf';
+    }
+    function edAnimOff() {
+      console.log('entra en inf off');
+      if ($scope.mobile == 'pc') {
+        new TimelineMax({repeat: 0, autoRound: false})
+          .to(".ed1", 1, {opacity: '0', ease: Bounce.easeOut})
+          .play();
+      }
+      if ($scope.mobile == 'device') {
+        new TimelineMax({repeat: 0, autoRound: false})
+          .to(".ed1Dev", 1, {opacity: '0', ease: Bounce.easeOut})
+          .play();
+      }
+      currentBack = undefined;
+    }
+    function cubaAnim(){
+      console.log('entra en cuba');
+      if( $scope.mobile == 'pc' ) {
+        new TimelineMax({repeat: 0, autoRound: false})
+          .to(".cub1", 1, {top: '0%', ease: Bounce.easeOut})
+          .play();
+      }
+      if( $scope.mobile == 'device' ){
+        new TimelineMax({repeat: 0, autoRound: false})
+          .to(".cub1Dev", 1, {opacity: '1', ease: Bounce.easeOut})
+          .play();
+      }
+      currentBack = 'cuba';
+    }
+    function cubaAnimOff(){
+      console.log('entra en cuba off');
+      if( $scope.mobile == 'pc' ) {
+        new TimelineMax({repeat: 0, autoRound: false})
+          .to(".cub1", 1, {top: '-120%', ease: Bounce.easeOut})
+          .play();
+      }
+      if( $scope.mobile == 'device' ){
+        new TimelineMax({repeat: 0, autoRound: false})
+          .to(".cub1Dev", 1, {opacity: '0', ease: Bounce.easeOut})
+          .play();
+      }
+      currentBack = undefined;
+    }
+    function newYorkAnim(){
+      console.log('entra en ny');
+      if( $scope.mobile == 'pc' ){
+        new TimelineMax({repeat:0, autoRound:false})
+          .to(".ny4", 0.2, { top: '0%', ease: Bounce.easeOut},"-=0.5")
+          .to(".ny3", 0.5, { top: '0%', ease: Bounce.easeOut},"-=0.2")
+          .to(".ny1", 0.5, { top: '0%', ease: Bounce.easeOut},"-=0.2")
+          .to(".ny2", 0.5, { top: '0%', ease: Bounce.easeOut},"-=0.2")
+          .to(".ny5", 0.8, { scale: '1', right: '0', ease: Power4.easeOut},"-=0.2")
+          .to(".ny6", 0.8, { scale: '1', right: '0', ease: Power4.easeOut},"-=0.2")
+          .to(".ny7", 0.8, { scale: '1', right: '0', ease: Power4.easeOut},"-=0.2")
+          .play();
+      }
+      if( $scope.mobile == 'device' ){
+        new TimelineMax({repeat:0, autoRound:false})
+          .to(".nyDev", 0.5, {opacity: '1', ease: Power0.easeNone})
+          .play();
+      }
+      currentBack = 'ny';
+    }
+    function newYorkAnimOff(){
+      console.log('entra en berlin ny off');
+      if( $scope.mobile == 'pc' ){
+        new TimelineMax({repeat:0, autoRound:false})
+          .to(".ny5", 0.5, {scale: '5', right: '200%', ease: Power4.easeIn})
+          .to(".ny6", 0.5, {scale: '5', right: '200%', ease: Power4.easeIn},"-=0.2")
+          .to(".ny7", 0.5, {scale: '5', right: '200%', ease: Power4.easeIn},"-=0.2")
+          .to(".ny3", 0.3, {transform: 'rotateY(165deg)', ease: Power2.easeIn})
+          .to(".ny1", 0.3, {transform: 'rotateY(165deg)', ease: Power2.easeIn})
+          .to(".ny2", 0.3, {transform: 'rotateY(165deg)', ease: Power2.easeIn})
+          .to(".ny4", 0.3, {transform: 'rotateY(165deg)', ease: Power2.easeIn})
+          .play();
+      }
+      if( $scope.mobile == 'device' ){
+        new TimelineMax({repeat:0, autoRound:false})
+          .to(".nyDev", 0.5, {opacity: '0', ease: Power0.easeNone})
+          .play();
+      }
+      currentBack = undefined;
+    }
+    function berAnim(){
+      console.log('entra en berlin anim');
+      if( $scope.mobile == 'pc' ) {
+        new TimelineMax({repeat: 0, autoRound: false})
+          .to(".ber1", 1, {transform: 'rotateY(0deg)', ease: Bounce.easeOut})
+          .play();
+      }
+      if( $scope.mobile == 'device' ){
+        new TimelineMax({repeat: 0, autoRound: false})
+          .to(".ber1Dev", 1, {opacity: '0', ease: Bounce.easeOut})
+          .play();
+      }
+      currentBack = 'berlin';
+    }
+    function berAnimOff(){
+      if( $scope.mobile == 'pc' ) {
+        console.log('entra en berlin anim off');
+        new TimelineMax({repeat: 0, autoRound: false})
+          .to(".ber1", 1, {transform: 'rotateY(165deg)', ease: Bounce.easeOut})
+          .play();
+      }
+      if( $scope.mobile == 'device' ){
+        new TimelineMax({repeat: 0, autoRound: false})
+          .to(".ber1Dev", 1, {opacity: '0', ease: Bounce.easeOut})
+          .play();
+      }
+      currentBack = undefined;
+    }
+    function hollyAnim(){
+      console.log('entra en holly');
+      if( $scope.mobile == 'pc' ) {
+        new TimelineMax({repeat: 0, autoRound: false})
+          .to(".holly2", 0.5, {transform: 'rotateX(0deg)', ease: Back.easeOut.config(1)})
+          .to(".holly1", 0.5, {transform: 'rotateX(0deg)', ease: Back.easeOut.config(1)},"-=0.2")
+          .to(".holly3", 0.5, {transform: 'rotateX(0deg)', ease: Back.easeOut.config(1)},"-=0.2")
+          .to(".holly4", 0.5, {transform: 'rotateX(0deg)', ease: Back.easeOut.config(1)},"-=0.2")
+          .to(".holly7", 0.5, {top: '0%', ease: Bounce.easeOut},"-=0.2")
+          .to(".holly6", 1, {top: '0%', ease: Power4.easeOut})
+          .to(".holly5", 0.2, {opacity: '1', ease: Power4.easeOut})
+          .play();
+      }
+      if( $scope.mobile == 'device' ){
+        new TimelineMax({repeat: 0, autoRound: false})
+          .to(".holly1Dev", 1, {opacity: '1', ease: Bounce.easeOut})
+          .play();
+      }
+      currentBack = 'holly';
+    }
+    function hollyAnimOff(){
+      console.log('entra en holly off');
+      if( $scope.mobile == 'pc' ) {
+        new TimelineMax({repeat: 0, autoRound: false})
+          .to(".holly2", 0.5, { transform: 'rotateX(165deg)', ease: Back.easeOut.config(1)},"-=0.5")
+          .to(".holly1", 0.5, {transform: 'rotateX(165deg)', ease: Back.easeOut.config(1)},"-=0.3")
+          .to(".holly3", 0.5, {transform: 'rotateX(165deg)', ease: Back.easeOut.config(1)},"-=0.3")
+          .to(".holly4", 0.5, {transform: 'rotateX(165deg)', ease: Back.easeOut.config(1)},"-=0.3")
+          .to(".holly7", 0.5, {top: '150%', ease: Bounce.easeOut},"-=0.3")
+          .to(".holly6", 0.5, {top: '-150%', ease: Power4.easeOut},"carmenCastillo")
+          .to(".holly5", 1, {opacity: '0', ease: Power4.easeOut})
+          .play();
+      }
+      if( $scope.mobile == 'device' ){
+        new TimelineMax({repeat: 0, autoRound: false})
+          .to(".holly1Dev", 1, {opacity: '0', ease: Bounce.easeOut})
+          .play();
+      }
+      currentBack = undefined;
+    }
+
+    function carnAnim(){
+      console.log('entra en carnegie');
+      if( $scope.mobile == 'pc' ) {
+        new TimelineMax({repeat: 0, autoRound: false})
+          .to(".carn2", 4, { opacity: '1', ease: RoughEase.ease.config({ template: Power0.easeNone, strength: 2, points: 20, taper: "none", randomize: true, clamp: false})})
+          .to(".carn1", 2, {opacity: '1', ease: Back.easeOut.config(1)},"-=2")
+          .to(".carn1", 2, {top: '-50%', ease: Power4.easeOut})
+          .to(".carn2", 2, {top: '-50%', ease: Power4.easeOut},"-=2")
+          .to(".carn3", 2, {top: '-50%', ease: Power4.easeOut},"-=2")
+          .to(".carn4", 2, {top: '-50%', ease: Power4.easeOut},"-=2")
+          .to(".carn5", 2, {top: '-50%', ease: Power4.easeOut},"-=2")
+          .to(".carn6", 2, {top: '-50%', ease: Power4.easeOut},"-=2")
+          .play();
+      }
+      if( $scope.mobile == 'device' ){
+        new TimelineMax({repeat: 0, autoRound: false})
+          .to(".carn1Dev", 1, {opacity: '1', ease: Bounce.easeOut})
+          .play();
+      }
+      currentBack = 'carn';
+    }
+    function carnAnimOff(){
+      console.log('entra en carnegie off');
+      if( $scope.mobile == 'pc' ) {
+        new TimelineMax({repeat: 0, autoRound: false})
+          .to(".carn2", 4, { opacity: '0', ease: RoughEase.ease.config({ template: Power0.easeNone, strength: 2, points: 20, taper: "none", randomize: true, clamp: false})})
+          .to(".carn1", 2, { opacity: '0', ease: Back.easeOut.config(1)},"-=2")
+          .to(".carn1", 2, { opacity: '0', ease: Power4.easeOut})
+          .to(".carn2", 2, { opacity: '0', ease: Power4.easeOut},"-=2")
+          .to(".carn3", 2, { opacity: '0', ease: Power4.easeOut},"-=2")
+          .to(".carn4", 2, { opacity: '0', ease: Power4.easeOut},"-=2")
+          .to(".carn5", 2, { opacity: '0', ease: Power4.easeOut},"-=2")
+          .to(".carn6", 2, { opacity: '0', ease: Power4.easeOut},"-=2")
+          .play();
+      }
+      if( $scope.mobile == 'device' ){
+        new TimelineMax({repeat: 0, autoRound: false})
+          .to(".carn1Dev", 1, {opacity: '0', ease: Bounce.easeOut})
+          .play();
+      }
+      currentBack = undefined;
+    }
+    function chiAnim(){
+      console.log('entra en chicago');
+      if( $scope.mobile == 'pc' ) {
+        new TimelineMax({repeat: 0, autoRound: false})
+          .to(".chi4", 0.3, { opacity: '1', ease: Bounce.easeOut })
+          .to(".chi2", 1, { opacity: '1', ease: Power4.easeOut })
+          .to(".chi1", 4, { opacity: '1', ease: Power0.easeNone },"+=1")
+          .to(".chi5", 1, { left: '0', ease: Power4.easeOut })
+          .to(".chi6", 1, { left: '0', ease: Power4.easeOut })
+          .play();
+      }
+      if( $scope.mobile == 'device' ){
+        new TimelineMax({repeat: 0, autoRound: false})
+          .to(".chi1Dev", 1, {opacity: '1', ease: Bounce.easeOut})
+          .play();
+      }
+      currentBack = 'chicago';
+    }
+    function chiAnimOff(){
+      console.log('entra en chicago off');
+      if( $scope.mobile == 'pc' ) {
+        new TimelineMax({repeat: 0, autoRound: false})
+          .to(".chi2", 0.3, {opacity: '0', ease: Back.easeOut.config(1)},"+=0.5")
+          .to(".chi4", 0.3, {opacity: '0', ease: Bounce.easeOut},"+=0.5")
+          .to(".chi5", 1, {left: '150%', ease:Power4.easeOut})
+          .to(".chi6", 1, {left: '-150%', ease: Power4.easeOut})
+          .to(".chi1", 0.3, {opacity: '0', ease: Back.easeOut.config(1)},"-=0.2")
+          .play();
+      }
+      if( $scope.mobile == 'device' ){
+        new TimelineMax({repeat: 0, autoRound: false})
+          .to(".chi1Dev", 1, {opacity: '0', ease: Bounce.easeOut})
+          .play();
+      }
+      currentBack = undefined;
+    }
+    function lasVAnim(){
+      console.log('entra en las vegas');
+      if( $scope.mobile == 'pc' ) {
+        new TimelineMax({repeat: 0, autoRound: false})
+          .to(".lasv1", 0.3, {opacity: '1', ease: Back.easeOut.config(1)})
+          .to(".lasv2", 0.3, {top:'0%', ease: Bounce.easeOut})
+          .to(".lasv3", 0.3, {top:'0%', ease: Bounce.easeOut})
+          .to(".lasv10", 0.3, {top:'0%', ease: Bounce.easeOut})
+          .to(".lasv4", 0.3, {transform: 'rotate(0deg)', ease: Back.easeOut.config(1)})
+          .to(".lasv5", 0.3, {transform: 'rotate(0deg)', ease: Back.easeOut.config(1)})
+          .to(".lasv6", 0.3, {opacity: '1', ease: Back.easeOut.config(1)})
+          .to(".lasv7", 0.3, {opacity: '1', ease: Back.easeOut.config(1)})
+          .to(".lasv8", 0.3, {opacity: '1', ease: Back.easeOut.config(1)})
+          .to(".lasv9", 0.3, {opacity: '1', ease: Back.easeOut.config(1)})
+          .play();
+      }
+      if( $scope.mobile == 'device' ){
+        new TimelineMax({repeat: 0, autoRound: false})
+          .to(".lasv1Dev", 1, {opacity: '1', ease: Bounce.easeOut})
+          .play();
+      }
+      currentBack = 'lasVegas';
+    }
+    function lasVAnimOff(){
+      console.log('entra en las vegas off');
+      if( $scope.mobile == 'pc' ) {
+        new TimelineMax({repeat: 0, autoRound: false})
+          .to(".lasv8", 0.3, {opacity: '0', ease: Back.easeOut.config(1)},"+=1")
+          .to(".lasv9", 0.3, {opacity: '0', ease: Back.easeOut.config(1)})
+          .to(".lasv6", 0.3, {opacity: '0', ease: Back.easeOut.config(1)})
+          .to(".lasv7", 0.3, {opacity: '0', ease: Back.easeOut.config(1)})
+          .to(".lasv5", 0.3, {transform: 'rotate(180deg)', ease: Back.easeOut.config(1)})
+          .to(".lasv4", 0.3, {transform: 'rotate(180deg)', ease: Back.easeOut.config(1)})
+          .to(".lasv10", 0.3, {top:'-150%', ease: Bounce.easeOut})
+          .to(".lasv3", 0.3, {top:'-1500%', ease: Bounce.easeOut})
+          .to(".lasv2", 0.3, {top:'-150%', ease: Bounce.easeOut})
+          .to(".lasv1", 0.3, {opacity: '0', ease: Back.easeOut.config(1)})
+          .play();
+      }
+      if( $scope.mobile == 'device' ){
+        new TimelineMax({repeat: 0, autoRound: false})
+          .to(".lasv1Dev", 1, {opacity: '0', ease: Bounce.easeOut})
+          .play();
+      }
+      currentBack = undefined;
+    }
+    function bcnAnim(){
+      console.log('entra en barcelona');
+      if( $scope.mobile == 'pc' ) {
+        new TimelineMax({repeat: 0, autoRound: false})
+          .to(".blurEffect9",0.1,{ opacity: '1', ease: Power4.easeOut})
+          .to(".barc1", 3, { opacity: '1', ease: Power4.easeIn})
+          .to(".barc4", 0.3, {transform: 'scale(1)', ease: Power2.easeIn})
+          .to(".barc5", 0.3, {transform: 'scale(1)', ease: Power2.easeIn})
+          .to(".barc6", 0.3, {transform: 'scale(1)', ease: Power2.easeIn})
+          .to(".barc7", 0.3, {transform: 'scale(1)', ease: Power2.easeIn})
+          .to(".barc8", 0.3, {transform: 'scale(1)', ease: Power2.easeIn})
+          .to(".barc2", 4, {left: '33%', ease: Power4.easeIn})
+          .to(".barc3", 4, {left: '0%', ease: Power4.easeIn},"-=4")
+          .to(".barc2", 2, {left: '30%', transform: 'scale(0.7)', top: '0%',  ease: Power4.easeIn})
+          .to(".barc2", 4, {left: '0%', transform: 'scale(1)',  ease: Power4.easeIn})
+          .to(".barc2", 4, {opacity: '0',  ease: Power4.easeIn})
+          .play();
+      }
+      if( $scope.mobile == 'device' ){
+        new TimelineMax({repeat: 0, autoRound: false})
+          .to(".barc1Dev", 1, {opacity: '1', ease: Bounce.easeOut})
+          .play();
+      }
+      currentBack = 'bcn';
+    }
+    function bcnAnimOff(){
+      console.log('entra en barcelona off');
+      if( $scope.mobile == 'pc' ) {
+        new TimelineMax({repeat: 0, autoRound: false})
+          .to(".blurEffect9",6,{ opacity: '0', ease: Power4.easeOut})
+          .play();
+      }
+      if( $scope.mobile == 'device' ){
+        new TimelineMax({repeat: 0, autoRound: false})
+          .to(".lasv1Dev", 1, {opacity: '0', ease: Bounce.easeOut})
+          .play();
+      }
+      currentBack = undefined;
+    }
     //-------FUNCTIONS --------------------
 
     $scope.upTo = function(value, music, notes) {
-      berAnimOff();
-      if( $scope.currentBack = 'inf' ) edAnimOff();
-      if( $scope.currentBack = 'cuba' ) cubaAnimOff();
-      if( $scope.currentBack = 'ny' ) newYorkAnimOff();
-      if( $scope.currentBack = 'holly' ) hollyAnimOff();
-      if( $scope.currentBack = 'carn' ) carnAnimOff();
-      if( $scope.currentBack = 'bcn' ) bcnAnimOff
-      if( $scope.currentBack = 'berlin' ) berAnimOff();
-      if( $scope.currentBack = 'chicago' ) chiAnimOff();
-      if( $scope.currentBack = 'lasVegas' ) lasVAnimOff();
+      console.log( 'value y back guardado: ', value, currentBack );
+      if( currentBack == 'inf' ) edAnimOff();
+      if( currentBack == 'cuba' ) cubaAnimOff();
+      if( currentBack == 'ny' ) newYorkAnimOff();
+      if( currentBack == 'holly' ) hollyAnimOff();
+      if( currentBack == 'carn' ) carnAnimOff();
+      if( currentBack == 'bcn' ) bcnAnimOff();
+      if( currentBack == 'berlin' ) berAnimOff();
+      if( currentBack == 'chicago' ) chiAnimOff();
+      if( currentBack == 'lasVegas' ) lasVAnimOff();
       if( value == 'prologo2Add' ) cubaAnim();
       if( value == 'RR1' ) newYorkAnim();
       if( value == 'CC3' ) carnAnim();
@@ -764,312 +1093,6 @@ angular.module('smcApp')
         });
       }
     });
-    //------ Backs anim ----------
-
-    function edAnim() {
-      if ($scope.mobile == 'pc') {
-        new TimelineMax({repeat: 0, autoRound: false})
-          .to(".ed1", 1, {opacity: '1', ease: Bounce.easeOut})
-          .play();
-      }
-      if ($scope.mobile == 'device') {
-        new TimelineMax({repeat: 0, autoRound: false})
-          .to(".ed1Dev", 1, {opacity: '1', ease: Bounce.easeOut})
-          .play();
-      }
-      $scope.currentBack = 'inf';
-    }
-    function edAnimOff() {
-      if ($scope.mobile == 'pc') {
-        new TimelineMax({repeat: 0, autoRound: false})
-          .to(".ed1", 1, {opacity: '0', ease: Bounce.easeOut})
-          .play();
-      }
-      if ($scope.mobile == 'device') {
-        new TimelineMax({repeat: 0, autoRound: false})
-          .to(".ed1Dev", 1, {opacity: '0', ease: Bounce.easeOut})
-          .play();
-      }
-    }
-    function cubaAnim(){
-        if( $scope.mobile == 'pc' ) {
-          new TimelineMax({repeat: 0, autoRound: false})
-            .to(".cub1", 1, {top: '0%', ease: Bounce.easeOut})
-            .play();
-        }
-        if( $scope.mobile == 'device' ){
-          new TimelineMax({repeat: 0, autoRound: false})
-            .to(".cub1Dev", 1, {opacity: '1', ease: Bounce.easeOut})
-            .play();
-        }
-      $scope.currentBack = 'cuba';
-    }
-    function cubaAnimOff(){
-      if( $scope.mobile == 'pc' ) {
-        new TimelineMax({repeat: 0, autoRound: false})
-          .to(".cub1", 1, {top: '-120%', ease: Bounce.easeOut})
-          .play();
-      }
-      if( $scope.mobile == 'device' ){
-        new TimelineMax({repeat: 0, autoRound: false})
-          .to(".cub1Dev", 1, {opacity: '0', ease: Bounce.easeOut})
-          .play();
-      }
-    }
-    function newYorkAnim(){
-      if( $scope.mobile == 'pc' ){
-        new TimelineMax({repeat:0, autoRound:false})
-          .to(".ny4", 0.2, { top: '0%', ease: Bounce.easeOut},"-=0.5")
-          .to(".ny3", 0.5, { top: '0%', ease: Bounce.easeOut},"-=0.2")
-          .to(".ny1", 0.5, { top: '0%', ease: Bounce.easeOut},"-=0.2")
-          .to(".ny2", 0.5, { top: '0%', ease: Bounce.easeOut},"-=0.2")
-          .to(".ny5", 0.8, { scale: '1', right: '0', ease: Power4.easeOut},"-=0.2")
-          .to(".ny6", 0.8, { scale: '1', right: '0', ease: Power4.easeOut},"-=0.2")
-          .to(".ny7", 0.8, { scale: '1', right: '0', ease: Power4.easeOut},"-=0.2")
-          .play();
-      }
-      if( $scope.mobile == 'device' ){
-        new TimelineMax({repeat:0, autoRound:false})
-          .to(".nyDev", 0.5, {opacity: '1', ease: Power0.easeNone})
-          .play();
-      }
-      $scope.currentBack = 'ny';
-    }
-    function newYorkAnimOff(){
-      if( $scope.mobile == 'pc' ){
-        new TimelineMax({repeat:0, autoRound:false})
-          .to(".ny5", 0.5, {scale: '5', right: '200%', ease: Power4.easeIn})
-          .to(".ny6", 0.5, {scale: '5', right: '200%', ease: Power4.easeIn},"-=0.2")
-          .to(".ny7", 0.5, {scale: '5', right: '200%', ease: Power4.easeIn},"-=0.2")
-          .to(".ny3", 0.3, {transform: 'rotateY(165deg)', ease: Power2.easeIn})
-          .to(".ny1", 0.3, {transform: 'rotateY(165deg)', ease: Power2.easeIn})
-          .to(".ny2", 0.3, {transform: 'rotateY(165deg)', ease: Power2.easeIn})
-          .to(".ny4", 0.3, {transform: 'rotateY(165deg)', ease: Power2.easeIn})
-          .play();
-      }
-      if( $scope.mobile == 'device' ){
-        new TimelineMax({repeat:0, autoRound:false})
-          .to(".nyDev", 0.5, {opacity: '0', ease: Power0.easeNone})
-          .play();
-      }
-    }
-    function berAnim(){
-      if( $scope.mobile == 'pc' ) {
-        new TimelineMax({repeat: 0, autoRound: false})
-          .to(".ber1", 1, {transform: 'rotateY(0deg)', ease: Bounce.easeOut})
-          .play();
-      }
-      if( $scope.mobile == 'device' ){
-        new TimelineMax({repeat: 0, autoRound: false})
-          .to(".ber1Dev", 1, {opacity: '0', ease: Bounce.easeOut})
-          .play();
-      }
-
-      $scope.currentBack = 'berlin';
-    }
-    function berAnimOff(){
-      if( $scope.mobile == 'pc' ) {
-        console.log('entra en berlin anim');
-        new TimelineMax({repeat: 0, autoRound: false})
-          .to(".ber1", 1, {transform: 'rotateY(165deg)', ease: Bounce.easeOut})
-          .play();
-      }
-      if( $scope.mobile == 'device' ){
-        new TimelineMax({repeat: 0, autoRound: false})
-          .to(".ber1Dev", 1, {opacity: '0', ease: Bounce.easeOut})
-          .play();
-      }
-    }
-    function hollyAnim(){
-      if( $scope.mobile == 'pc' ) {
-        new TimelineMax({repeat: 0, autoRound: false})
-          .to(".holly2", 0.5, {transform: 'rotateX(0deg)', ease: Back.easeOut.config(1)})
-          .to(".holly1", 0.5, {transform: 'rotateX(0deg)', ease: Back.easeOut.config(1)},"-=0.2")
-          .to(".holly3", 0.5, {transform: 'rotateX(0deg)', ease: Back.easeOut.config(1)},"-=0.2")
-          .to(".holly4", 0.5, {transform: 'rotateX(0deg)', ease: Back.easeOut.config(1)},"-=0.2")
-          .to(".holly7", 0.5, {top: '0%', ease: Bounce.easeOut},"-=0.2")
-          .to(".holly6", 1, {top: '0%', ease: Power4.easeOut})
-          .to(".holly5", 0.2, {opacity: '1', ease: Power4.easeOut})
-          .play();
-      }
-      if( $scope.mobile == 'device' ){
-        new TimelineMax({repeat: 0, autoRound: false})
-          .to(".holly1Dev", 1, {opacity: '1', ease: Bounce.easeOut})
-          .play();
-      }
-      $scope.currentBack = 'holly';
-    }
-    function hollyAnimOff(){
-      if( $scope.mobile == 'pc' ) {
-        new TimelineMax({repeat: 0, autoRound: false})
-          .to(".holly2", 0.5, { transform: 'rotateX(165deg)', ease: Back.easeOut.config(1)},"-=0.5")
-          .to(".holly1", 0.5, {transform: 'rotateX(165deg)', ease: Back.easeOut.config(1)},"-=0.3")
-          .to(".holly3", 0.5, {transform: 'rotateX(165deg)', ease: Back.easeOut.config(1)},"-=0.3")
-          .to(".holly4", 0.5, {transform: 'rotateX(165deg)', ease: Back.easeOut.config(1)},"-=0.3")
-          .to(".holly7", 0.5, {top: '150%', ease: Bounce.easeOut},"-=0.3")
-          .to(".holly6", 0.5, {top: '-150%', ease: Power4.easeOut},"carmenCastillo")
-          .to(".holly5", 1, {opacity: '0', ease: Power4.easeOut})
-          .play();
-      }
-      if( $scope.mobile == 'device' ){
-        new TimelineMax({repeat: 0, autoRound: false})
-          .to(".holly1Dev", 1, {opacity: '0', ease: Bounce.easeOut})
-          .play();
-      }
-    }
-
-    function carnAnim(){
-      if( $scope.mobile == 'pc' ) {
-        new TimelineMax({repeat: 0, autoRound: false})
-          .to(".carn2", 4, { opacity: '1', ease: RoughEase.ease.config({ template: Power0.easeNone, strength: 2, points: 20, taper: "none", randomize: true, clamp: false})})
-          .to(".carn1", 2, {opacity: '1', ease: Back.easeOut.config(1)},"-=2")
-          .to(".carn1", 2, {top: '-50%', ease: Power4.easeOut})
-          .to(".carn2", 2, {top: '-50%', ease: Power4.easeOut},"-=2")
-          .to(".carn3", 2, {top: '-50%', ease: Power4.easeOut},"-=2")
-          .to(".carn4", 2, {top: '-50%', ease: Power4.easeOut},"-=2")
-          .to(".carn5", 2, {top: '-50%', ease: Power4.easeOut},"-=2")
-          .to(".carn6", 2, {top: '-50%', ease: Power4.easeOut},"-=2")
-          .play();
-      }
-      if( $scope.mobile == 'device' ){
-        new TimelineMax({repeat: 0, autoRound: false})
-          .to(".carn1Dev", 1, {opacity: '1', ease: Bounce.easeOut})
-          .play();
-      }
-      $scope.currentBack = 'carn';
-    }
-    function carnAnimOff(){
-      if( $scope.mobile == 'pc' ) {
-        new TimelineMax({repeat: 0, autoRound: false})
-          .to(".carn2", 4, { opacity: '0', ease: RoughEase.ease.config({ template: Power0.easeNone, strength: 2, points: 20, taper: "none", randomize: true, clamp: false})})
-          .to(".carn1", 2, { opacity: '0', ease: Back.easeOut.config(1)},"-=2")
-          .to(".carn1", 2, { opacity: '0', ease: Power4.easeOut})
-          .to(".carn2", 2, { opacity: '0', ease: Power4.easeOut},"-=2")
-          .to(".carn3", 2, { opacity: '0', ease: Power4.easeOut},"-=2")
-          .to(".carn4", 2, { opacity: '0', ease: Power4.easeOut},"-=2")
-          .to(".carn5", 2, { opacity: '0', ease: Power4.easeOut},"-=2")
-          .to(".carn6", 2, { opacity: '0', ease: Power4.easeOut},"-=2")
-          .play();
-      }
-      if( $scope.mobile == 'device' ){
-        new TimelineMax({repeat: 0, autoRound: false})
-          .to(".carn1Dev", 1, {opacity: '0', ease: Bounce.easeOut})
-          .play();
-      }
-    }
-    function chiAnim(){
-      if( $scope.mobile == 'pc' ) {
-        new TimelineMax({repeat: 0, autoRound: false})
-          .to(".chi4", 0.3, { opacity: '1', ease: Bounce.easeOut })
-          .to(".chi2", 1, { opacity: '1', ease: Power4.easeOut })
-          .to(".chi1", 4, { opacity: '1', ease: Power0.easeNone },"+=1")
-          .to(".chi5", 1, { left: '0', ease: Power4.easeOut })
-          .to(".chi6", 1, { left: '0', ease: Power4.easeOut })
-          .play();
-      }
-      if( $scope.mobile == 'device' ){
-        new TimelineMax({repeat: 0, autoRound: false})
-          .to(".chi1Dev", 1, {opacity: '1', ease: Bounce.easeOut})
-          .play();
-      }
-      $scope.currentBack = 'chicago';
-    }
-    function chiAnimOff(){
-      if( $scope.mobile == 'pc' ) {
-        new TimelineMax({repeat: 0, autoRound: false})
-          .to(".chi2", 0.3, {opacity: '0', ease: Back.easeOut.config(1)},"+=0.5")
-          .to(".chi4", 0.3, {opacity: '0', ease: Bounce.easeOut},"+=0.5")
-          .to(".chi5", 1, {left: '150%', ease:Power4.easeOut})
-          .to(".chi6", 1, {left: '-150%', ease: Power4.easeOut})
-          .to(".chi1", 0.3, {opacity: '0', ease: Back.easeOut.config(1)},"-=0.2")
-          .play();
-      }
-      if( $scope.mobile == 'device' ){
-        new TimelineMax({repeat: 0, autoRound: false})
-          .to(".chi1Dev", 1, {opacity: '0', ease: Bounce.easeOut})
-          .play();
-      }
-    }
-    function lasVAnim(){
-      if( $scope.mobile == 'pc' ) {
-        new TimelineMax({repeat: 0, autoRound: false})
-          .to(".lasv1", 0.3, {opacity: '1', ease: Back.easeOut.config(1)})
-          .to(".lasv2", 0.3, {top:'0%', ease: Bounce.easeOut})
-          .to(".lasv3", 0.3, {top:'0%', ease: Bounce.easeOut})
-          .to(".lasv10", 0.3, {top:'0%', ease: Bounce.easeOut})
-          .to(".lasv4", 0.3, {transform: 'rotate(0deg)', ease: Back.easeOut.config(1)})
-          .to(".lasv5", 0.3, {transform: 'rotate(0deg)', ease: Back.easeOut.config(1)})
-          .to(".lasv6", 0.3, {opacity: '1', ease: Back.easeOut.config(1)})
-          .to(".lasv7", 0.3, {opacity: '1', ease: Back.easeOut.config(1)})
-          .to(".lasv8", 0.3, {opacity: '1', ease: Back.easeOut.config(1)})
-          .to(".lasv9", 0.3, {opacity: '1', ease: Back.easeOut.config(1)})
-          .play();
-      }
-      if( $scope.mobile == 'device' ){
-        new TimelineMax({repeat: 0, autoRound: false})
-          .to(".lasv1Dev", 1, {opacity: '1', ease: Bounce.easeOut})
-          .play();
-      }
-      $scope.currentBack = 'lasVegas';
-    }
-    function lasVAnimOff(){
-      if( $scope.mobile == 'pc' ) {
-        new TimelineMax({repeat: 0, autoRound: false})
-          .to(".lasv8", 0.3, {opacity: '0', ease: Back.easeOut.config(1)},"+=1")
-          .to(".lasv9", 0.3, {opacity: '0', ease: Back.easeOut.config(1)})
-          .to(".lasv6", 0.3, {opacity: '0', ease: Back.easeOut.config(1)})
-          .to(".lasv7", 0.3, {opacity: '0', ease: Back.easeOut.config(1)})
-          .to(".lasv5", 0.3, {transform: 'rotate(180deg)', ease: Back.easeOut.config(1)})
-          .to(".lasv4", 0.3, {transform: 'rotate(180deg)', ease: Back.easeOut.config(1)})
-          .to(".lasv10", 0.3, {top:'-150%', ease: Bounce.easeOut})
-          .to(".lasv3", 0.3, {top:'-1500%', ease: Bounce.easeOut})
-          .to(".lasv2", 0.3, {top:'-150%', ease: Bounce.easeOut})
-          .to(".lasv1", 0.3, {opacity: '0', ease: Back.easeOut.config(1)})
-          .play();
-      }
-      if( $scope.mobile == 'device' ){
-        new TimelineMax({repeat: 0, autoRound: false})
-          .to(".lasv1Dev", 1, {opacity: '0', ease: Bounce.easeOut})
-          .play();
-      }
-    }
-    function bcnAnim(){
-      if( $scope.mobile == 'pc' ) {
-        new TimelineMax({repeat: 0, autoRound: false})
-          .to(".blurEffect9",0.1,{ opacity: '1', ease: Power4.easeOut})
-          .to(".barc1", 3, { opacity: '1', ease: Power4.easeIn})
-          .to(".barc4", 0.3, {transform: 'scale(1)', ease: Power2.easeIn})
-          .to(".barc5", 0.3, {transform: 'scale(1)', ease: Power2.easeIn})
-          .to(".barc6", 0.3, {transform: 'scale(1)', ease: Power2.easeIn})
-          .to(".barc7", 0.3, {transform: 'scale(1)', ease: Power2.easeIn})
-          .to(".barc8", 0.3, {transform: 'scale(1)', ease: Power2.easeIn})
-          .to(".barc2", 4, {left: '33%', ease: Power4.easeIn})
-          .to(".barc3", 4, {left: '0%', ease: Power4.easeIn},"-=4")
-          .to(".barc2", 2, {left: '30%', transform: 'scale(0.7)', top: '0%',  ease: Power4.easeIn})
-          .to(".barc2", 4, {left: '0%', transform: 'scale(1)',  ease: Power4.easeIn})
-          .to(".barc2", 4, {opacity: '0',  ease: Power4.easeIn})
-          .play();
-      }
-      if( $scope.mobile == 'device' ){
-        new TimelineMax({repeat: 0, autoRound: false})
-          .to(".barc1Dev", 1, {opacity: '1', ease: Bounce.easeOut})
-          .play();
-      }
-      $scope.currentBack = 'bcn';
-    }
-    function bcnAnimOff(){
-      if( $scope.mobile == 'pc' ) {
-        new TimelineMax({repeat: 0, autoRound: false})
-          .to(".blurEffect9",6,{ opacity: '0', ease: Power4.easeOut})
-          .play();
-      }
-      if( $scope.mobile == 'device' ){
-        new TimelineMax({repeat: 0, autoRound: false})
-          .to(".lasv1Dev", 1, {opacity: '0', ease: Bounce.easeOut})
-          .play();
-      }
-    }
-
     function updateTitle(index){
       if(index!='intro'){
         var notes = $(".pentagramNotes");
