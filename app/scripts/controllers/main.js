@@ -646,7 +646,7 @@ angular.module('smcApp')
         .to("", 0.1, { onReverseComplete: stopVideo })
         .addPause()
         .to("", 0.1, { onStart: stopVideo })
-        .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['10-narracion-cb2', false] }, '+=1')
+        .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['10-narracion-cb2', false] })
         .to(".mouseIcon", 0.5, {bottom: '100px', ease: Bounce.easeOut, onComplete: updateScrollBttn}, '+=1')
         .addPause()
         .to("", 0.1, { onComplete: stopNarracion })
@@ -962,7 +962,7 @@ angular.module('smcApp')
        if( currentVideoSlidePlaying == undefined ) player.play();
        player.on("ended", function(){
          console.log('video ended');
-         if(continueBeforeStop == true && eardAdvice ){ nextSlide() }
+         if(continueBeforeStop == true && eardAdvice ){ tl.play(); }
          if(boolsound == soundVolume && !changeAudio && soundNarracion.volume() == 0 ){ soundEpilogo.fade(0,soundVolume,2000); }
          fullScreenVideoStatus = false;
        })
@@ -1317,8 +1317,8 @@ angular.module('smcApp')
                                 toggleAnec(anecId)
                              });
     soundBttn.on( 'click', function(){ toggleSound()} );
-    scrollBttn.on( 'click', function(){ if( eardAdvice ) nextSlide()} );
-    lastVideosBttn.on( 'click', function(){ if( eardAdvice ) nextSlide()} );
+    scrollBttn.on( 'click', function(){ if( eardAdvice ) tl.play();} );
+    lastVideosBttn.on( 'click', function(){ if( eardAdvice ) tl.play();} );
     shareBttn.on( 'click', function(){ toggleShare()} );
     //closeBttn.on( 'click', function(){toggleOverlay()} );
 
