@@ -69,7 +69,7 @@ angular.module('smcApp')
     var progress;
     var currentBack = 'inf';
     $scope.mobileBack = 0;
-    $scope.mobilePage = 0;
+    $scope.mobilePage = -1;
 
     // Mobile features
     var isMobile = false;
@@ -155,10 +155,7 @@ angular.module('smcApp')
     $scope.menuText = languajeSP.menu;
 
     //---------------------------
-    //$scope.imageSlide[0] =  imagesSlideIn[0];
     //-----TIMELINE ---------
-
-      console.log('version pc');
 
       totalWords[12] = $scope.CatText.cita12Plus.split(" ");
       totalWords[21] = $scope.CatText.cita21Plus.split(" ");
@@ -669,7 +666,8 @@ angular.module('smcApp')
       tl.pause();
     //}
 
-    //------------------------------------ //------ Backs anim ----------
+    //------------------------------------
+    // ------ Backs anim ----------
 
     function edAnim() {
       console.log('entra en inf');
@@ -1430,11 +1428,15 @@ angular.module('smcApp')
         if(event.type != 'mousedown'){
           if (event.originalEvent.wheelDelta > 0 || event.originalEvent.detail < 0) {
             if( !isMobile && eardAdvice ) tl.reverse();
-            console.log("Llevaríamos mobileBack: "+ (--counterTest) )
+            console.log("Llevaríamos mobileBack: "+ (--counterTest) );
+            $scope.mobilePage = counterTest;
+            console.log('mobile page: ', $scope.mobilePage);
           }
           else {
             if( !isMobile && eardAdvice ) tl.play();
-            console.log("Llevaríamos mobileBack: "+ (++counterTest) )
+            console.log("Llevaríamos mobileBack: "+ (++counterTest) );
+            $scope.mobilePage = counterTest;
+            console.log('mobile page: ', $scope.mobilePage);
           }
         }
       }
@@ -1442,33 +1444,17 @@ angular.module('smcApp')
     //--------TOUCH CONTROLS------
 
     $scope.onSwipeLeft = function(ev) {
-      //if( eardAdvice ) { alert('swipe left inside'); tl.play(); }
-      //alert('swipe left inside');
+      //if( eardAdvice )
       tl.play();
-      $scope.mobileBack +=1;
-      //if(page < 21) {
-      //  var nextPage = page + 1;
-      //  $("#page"+page).addClass('prevPage');
-      //  $("#page"+nextPage).addClass('nextPage');
-      //  //$("#page"+nextPage).css('display', 'block');
-      //  //setTimeout(function(){ $("#page"+page).css('display', 'none'); $("#page"+nextPage).addClass('nextPage'); },500);
-      //  prepareSlide(nextPage);
-      //  page += 1;
-      //}
+      //$scope.mobileBack +=1;
+      $scope.mobilePage +=1;
     };
 
     $scope.onSwipeRight = function(ev) {
-      //if( eardAdvice ) { alert('swipe right'); tl.reverse(); }
-      //alert('swipe right');
+      //if( eardAdvice )
       tl.reverse();
-      $scope.mobileBack -=1;
-      //if(page > 0) {
-      //  var prevPage = page - 1;
-      //  $("#page"+page).removeClass('nextPage');
-      //  $("#page"+prevPage).removeClass('prevPage').addClass('nextPage');
-      //  prepareSlide(prevPage);
-      //  page -= 1;
-      //}
+      //$scope.mobileBack -=1;
+      $scope.mobilePage -=1;
     };
 
     //---------- KEYBOARD CONTROLS --------
