@@ -1429,7 +1429,7 @@ angular.module('smcApp')
       }, {
       name: 'Xavier Cugat pasea por la plaza D´Oli (Barcelona), el lugar donde nació',
       sources: [{
-        src: config.tve.videos+'cugat.mp4',
+        src: config.local.videos+'cugat.mp4',
         type: 'video/mp4'
       }],
       poster: 'images/king-of-rumba.jpg',
@@ -1447,7 +1447,7 @@ angular.module('smcApp')
       }, {
       name: 'Entrevista desde el hospital a Xavier Cugat',
       sources: [{
-        src: config.tve.videos+'cugat2bata.mp4',
+        src: config.local.videos+'cugat2bata.mp4',
         type: 'video/mp4'
       }],
       poster: 'images/king-of-rumba.jpg',
@@ -1465,7 +1465,7 @@ angular.module('smcApp')
       }, {
       name: 'Entrevista a Xavier Cugat en el Hotel Ritz',
       sources: [{
-        src: config.tve.videos+'cugatCuadros.mp4',
+        src: config.local.videos+'cugatCuadros.mp4',
         type: 'video/mp4'
       }],
       poster: 'images/king-of-rumba.jpg',
@@ -1483,7 +1483,7 @@ angular.module('smcApp')
       }, {
       name: 'Xavier Cugat cumple 80 años',
       sources: [{
-        src: config.tve.videos+'cugatNodo.mp4',
+        src: config.local.videos+'cugatNodo.mp4',
         type: 'video/mp4'
       }],
       poster: 'images/king-of-rumba.jpg',
