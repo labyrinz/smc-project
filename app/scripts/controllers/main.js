@@ -189,6 +189,7 @@ angular.module('smcApp')
 
       //-----------------------
 
+
       var animationFromPattern = { scale: '0', right: '-20%', ease: Back.easeInOut.config(1)};
       var animationToPattern = { scale: '0', opacity: '0', ease: Back.easeInOut.config(1)};
       var staggerFromVelocity = 0.05;
@@ -1125,21 +1126,121 @@ angular.module('smcApp')
 
     $scope.upTo = function(value, music, notes) {
       console.log( 'value y back guardado: ', value, currentBack );
-      if( currentBack == 'inf' ) edAnimOff();
-      if( currentBack == 'cuba' ) cubaAnimOff();
-      if( currentBack == 'ny' ) newYorkAnimOff();
-      if( currentBack == 'holly' ) hollyAnimOff();
-      if( currentBack == 'carn' ) carnAnimOff();
-      if( currentBack == 'bcn' ) bcnAnimOff();
-      if( currentBack == 'berlin' ) berAnimOff();
-      if( currentBack == 'chicago' ) chiAnimOff();
-      if( currentBack == 'lasVegas' ) lasVAnimOff();
-      if( value == 'prologo2Add' ) cubaAnim();
-      if( value == 'RR1' ) newYorkAnim();
-      if( value == 'CC3' ) carnAnim();
-      if( value == 'CC3' || value == 'CC4' ) carnAnim();
-      if( value == 'LA2' || value == 'LA3' ) chiAnim();
-      if( value == 'AL2' || value == 'AL3' || value == 'CB1' || value == 'CB2' ) lasVAnim();
+
+      function checkAnimOff(){
+        if( currentBack == 'inf' ){ edAnimOff();}
+        else if( currentBack == 'cuba' ){ cubaAnimOff();}
+        else if( currentBack == 'ny' ){ newYorkAnimOff();}
+        else if( currentBack == 'holly' ){ hollyAnimOff();}
+        else if( currentBack == 'carn' ){ carnAnimOff();}
+        else if( currentBack == 'bcn' ){ bcnAnimOff();}
+        else if( currentBack == 'berlin' ){ berAnimOff();}
+        else if( currentBack == 'chicago' ){ chiAnimOff();}
+        else if( currentBack == 'lasVegas' ){ lasVAnimOff();}
+      }
+
+      switch (value) {
+        case 'prologo1':
+          if( currentBack != 'cuba' ){
+            checkAnimOff(); cubaAnim();
+          }
+          $scope.mobilePage = 2;
+          break;
+        case 'prologo2':
+          if( currentBack != 'cuba' ){
+            checkAnimOff(); cubaAnim();
+          }
+          $scope.mobilePage = 3;
+          break;
+        case 'prologo2Add':
+          if( currentBack != 'cuba' ){
+            checkAnimOff(); cubaAnim();
+          }
+          $scope.mobilePage = 5;
+          break;
+        case 'prologo3':
+          if( currentBack != 'cuba' ){
+            checkAnimOff(); cubaAnim();
+          }
+          $scope.mobilePage = 6;
+          break;
+        case 'RR1':
+          if( currentBack != 'ny' ){
+            checkAnimOff(); newYorkAnim();
+          }
+          $scope.mobilePage = 8;
+          break;
+        case 'RR2':
+          if( currentBack != 'ny' ){
+            checkAnimOff(); newYorkAnim();
+          }
+          $scope.mobilePage = 9;
+          break;
+        case 'RR3':
+          if( currentBack != 'ny' ){
+            checkAnimOff(); newYorkAnim();
+          }
+          $scope.mobilePage = 10;
+          break;
+        case 'CC1':
+          if( currentBack != 'carn' ){ checkAnimOff(); carnAnim(); }
+          $scope.mobilePage = 12
+          break;
+        case 'CC2':
+          if( currentBack != 'carn' ){ checkAnimOff(); carnAnim(); }
+          $scope.mobilePage = 13
+          break;
+        case 'CC3':
+          if( currentBack != 'carn' ){ checkAnimOff(); carnAnim(); }
+          $scope.mobilePage = 17
+          break;
+        // case 'CC4':
+        //   if( currentBack != 'carn' ){ checkAnimOff(); carnAnim(); }
+        //   $scope.mobilePage = 19
+        //   break;
+        case 'LA1':
+          if( currentBack != 'chicago' ){ checkAnimOff(); chiAnim(); }
+          $scope.mobilePage = 19
+          break;
+        case 'LA2':
+          if( currentBack != 'chicago' ){ checkAnimOff(); chiAnim(); }
+          $scope.mobilePage = 20
+          break;
+        case 'LA3':
+          if( currentBack != 'chicago' ){ checkAnimOff(); chiAnim(); }
+          $scope.mobilePage = 21
+          break;
+        case 'AL1':
+          if( currentBack != 'lasVegas' ){ checkAnimOff(); lasVAnim(); }
+          $scope.mobilePage = 23
+          break;
+        case 'AL2':
+          if( currentBack != 'lasVegas' ){ checkAnimOff(); lasVAnim(); }
+          $scope.mobilePage = 24
+          break;
+        case 'AL3':
+          if( currentBack != 'lasVegas' ){ checkAnimOff(); lasVAnim(); }
+          $scope.mobilePage = 25
+          break;
+        case 'CB1':
+          if( currentBack != 'lasVegas' ){ checkAnimOff(); lasVAnim(); }
+          $scope.mobilePage = 27
+          break;
+        case 'CB2':
+          if( currentBack != 'lasVegas' ){ checkAnimOff(); lasVAnim(); }
+          $scope.mobilePage = 28
+          break;
+        case 'EP1':
+          if( currentBack != 'bcn' ){ checkAnimOff(); bcnAnim(); }
+          $scope.mobilePage = 30
+          break;
+        case 'EP2':
+          if( currentBack != 'bcn' ){ checkAnimOff(); bcnAnim(); }
+          $scope.mobilePage = 31
+          break;
+        default:
+          break;
+      }
 
       if( currentVideoSlidePlaying != undefined ) stopVideoToolTip( currentVideoSlidePlaying.ID, currentVideoSlidePlaying.conto, currentVideoSlidePlaying.playB, currentVideoSlidePlaying.fullS );
       setStopScroll(false);
@@ -1148,16 +1249,20 @@ angular.module('smcApp')
       TweenMax.to(".coverTransitions", 0.1, { scale: 1, ease: Power4.easeOut, autoRound:false });
       TweenMax.to(".coverTransitions", 0.6, { opacity: 1, ease: Power4.easeOut, delay: 0.2, autoRound:false });
       if ($("div.overlay").hasClass("open")) $(".trigger-overlay").click();
+
       setTimeout(function(){
         stopVideo();
         updateTitle(notes);
         setTimeout(function(){
           if( value == 'inicio' || value == 'prologo2' || value == 'prologo2Add' || value == 'prologo3' || value == 'RR2' || value == 'CC3' || value == 'CB1' || value == 'CB2' || value == 'EP2' ) playSound(playListOrder[music]);
-          else if( value == 'PLAYLIST' ) { soundEpilogo.fade(soundVolume,0,2000); };
+          case 'PLAYLIST' ) { soundEpilogo.fade(soundVolume,0,2000); };
         },1000)
+
         if(!player.paused()) player.pause();
+
         soundNarracion.pause();
         tl.play(value);
+
       },500);
       TweenMax.to(".coverTransitions", 3, {opacity: 0, ease: Power4.easeOut, delay: 3, autoRound:false});
       TweenMax.to(".coverTransitions", 0.1, {scale: 0, ease: Power4.easeOut, delay: 7, autoRound:false});
