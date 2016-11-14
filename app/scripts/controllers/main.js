@@ -913,8 +913,9 @@ angular.module('smcApp')
         TweenMax.set($('#'+fullScreenButton), {opacity: 1});
       }
       else {
-        if(boolsound == soundVolume && progress == undefined) soundEpilogo.fade(0.01,soundVolume,1000);
-        else if( boolsound == soundVolume && progress != undefined ) soundNarracion.fade(0.01, soundVolume + 0.3, 1000);
+        console.log('boolsound: ', boolsound, soundVolume, progress);
+        if( boolsound == soundVolume && progress == undefined) { console.log('entra aqui'); soundEpilogo.fade(0.01,soundVolume,1000); }
+        if( boolsound == soundVolume && progress != undefined ) soundNarracion.fade(0.01, soundVolume + 0.3, 1000);
         videoCardToogleSound = 1;
         $("#"+id).get(0).pause();
         TweenMax.set($('#'+playButton), {opacity: 1});
@@ -1073,6 +1074,7 @@ angular.module('smcApp')
             try{
               progress.destroy();
               soundNarracion.unload();
+              progress = undefined;
             } catch (err){}
             soundNarracion.fade(soundNarracion.volume(),0,1000);
             if( player.paused() && videoCardToogleSound == 1 && boolsound == soundVolume && !continueBefore ) { console.log('sube musica de fondo'); soundEpilogo.fade(0.01,soundVolume,1000); }
@@ -1091,6 +1093,7 @@ angular.module('smcApp')
           progress.destroy();
           soundNarracion.stop();
           soundNarracion.unload();
+          progress = undefined;
         } catch (err){}
         if( player.paused() && videoCardToogleSound == 1 && boolsound == soundVolume ) soundEpilogo.fade(0.01,soundVolume,1000);
       } catch (Err){
