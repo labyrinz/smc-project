@@ -28,6 +28,7 @@ angular.module('smcApp')
     var playlistPlayer = videojs('video');
     var eardAdvice = true;
     var currentSlideActive = 0;
+    var videoSlideToPaused;
 
     $("#slideVideoAbbe2").prop("volume", 0.1);
     $("#slideVideoAB2").prop("volume", 1);
@@ -323,12 +324,11 @@ angular.module('smcApp')
         .add("RR1")
         .to("", 0.1, { onStart: videoPlay, onStartParams: ['resume', true, 'introRM.mp4', 'resumeVideoBox', 'resumeVideoBoxEnter',false,"local"]})
         .to("", 0.1, { onStart: updateTitle, onStartParams: [4] })
-        .to("#page4",0.4,{ right: '100%', ease: Back.easeInOut.config(1)})
-        .to("#page5",0.4,{ right: '0%', ease: Back.easeInOut.config(1)},"+=0.5")
+        .to("#page4",0.1,{ right: '100%', ease: Back.easeInOut.config(1)})
+        .to("#page5",0.1,{ right: '0%', ease: Back.easeInOut.config(1)},"+=0.5")
         .to("", 0.1, { onReverseComplete: playSound, onReverseCompleteParams: [playListOrder[0]] })
         .to("", 0.1, { onReverseComplete: stopVideo })
-        .to("", 2, { onStart: playSound, onStartParams: [playListOrder[1]] }, "+=2")
-        .to("", 2, { onComplete: loadSlideContent, onCompleteParams: [3, 'play'] })
+        .to("", 2, { onStart: playSound, onStartParams: [playListOrder[1]] })
         .addPause()
         .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['resume', true, 'introRM.mp4', 'resumeVideoBox', 'resumeVideoBoxEnter',false,"local"]})
         .to("", 0.1, { onStart: stopVideo })
@@ -757,14 +757,32 @@ angular.module('smcApp')
     };
 
     $scope.prevFoto = function(id,value){
-      document.querySelector('#slideVideoAB2').pause();
-      document.querySelector('#slideVideoAbbe').pause();
-      document.querySelector('#slideVideoAbbe2').pause();
       $('.slideimg'+id).removeClass("videoSlideResizeOut videoSlideResize");
       if(value==undefined) var desp = '-110%';
       else var desp = '-'+value;
       var firstPhoto = $('.slideimg'+id).first();
-      TweenMax.to(firstPhoto, 0.05, {left: desp, repeatDelay:0.05, autoRound:false, repeat:1, yoyo:true, onRepeat:function(){ $('#fotoGroup'+id).append(firstPhoto);}, ease: Power4.easeOut});
+      var lastPhoto = $('.slideimg'+id).last();
+      if(lastPhoto[0].id != ""){
+        if(videoCardToogleSound == 0) {
+          $("#"+lastPhoto[0].childNodes[1].id).get(0).pause();
+          if( boolsound == soundVolume && progress == undefined ) { soundEpilogo.fade(0.01,soundVolume,1000); }
+          if( boolsound == soundVolume && progress != undefined ){ soundNarracion.fade( 0, soundVolume + 0.3, 1000 ); }
+          TweenMax.set($('#'+lastPhoto[0].childNodes[3].id), {opacity: 1});
+          TweenMax.set($('#'+lastPhoto[0].childNodes[5].id), {opacity: 0});
+          videoCardToogleSound = 1;
+        }
+      }
+      console.log(firstPhoto);
+      TweenMax.to(firstPhoto, 0.05, {
+        left: desp,
+        repeatDelay:0.05,
+        autoRound:false,
+        repeat:1,
+        yoyo:true,
+        onRepeat:function(){
+          $('#fotoGroup'+id).append(firstPhoto);},
+        ease: Power4.easeOut
+      });
     };
 
     $scope.nextFoto = function(id, value){
@@ -772,6 +790,17 @@ angular.module('smcApp')
       if(value==undefined) var desp = '110%';
       else var desp = value;
       var firstPhoto = $('.slideimg'+id).last();
+      console.log(firstPhoto);
+      if(firstPhoto[0].id != ""){
+        if(videoCardToogleSound == 0) {
+          $("#"+firstPhoto[0].childNodes[1].id).get(0).pause();
+          if( boolsound == soundVolume && progress == undefined ) { soundEpilogo.fade(0.01,soundVolume,1000); }
+          if( boolsound == soundVolume && progress != undefined ){ soundNarracion.fade( 0, soundVolume + 0.3, 1000 ); }
+          TweenMax.set($('#'+firstPhoto[0].childNodes[3].id), {opacity: 1});
+          TweenMax.set($('#'+firstPhoto[0].childNodes[5].id), {opacity: 0});
+          videoCardToogleSound = 1;
+        }
+      }
       firstPhoto.attr('autoplay','autoplay');
       TweenMax.to(firstPhoto, 0.05, {left: desp, repeatDelay:0.05, autoRound:false, repeat:1, yoyo:true, onRepeat:function(){$('#fotoGroup'+id).prepend(firstPhoto);}, ease: Power4.easeOut});
 
@@ -867,10 +896,11 @@ angular.module('smcApp')
     //------ vIDEO & AUDIO -------------------------
 
     $scope.playVideoSlide = function(id, container, playButton, fullScreenButton){
+      if( currentVideoSlidePlaying != undefined){ $("#"+currentVideoSlidePlaying.ID).get(0).paused }
+      if( !player.paused() ) player.pause();
       currentVideoSlidePlaying = { ID: id, conto: container, playB: playButton, fullS: fullScreenButton };
       TweenMax.set($('#'+container), {left: ''});
       TweenMax.set($('#'+container), {right: ''});
-      if( !player.paused() ) player.pause();
       if( $("#"+id).get(0).paused ) {
         videoCardToogleSound = 0;
         if(boolsound == soundVolume && soundEpilogo.volume() > 0 ) soundEpilogo.fade(soundVolume, 0 ,1000);
@@ -960,7 +990,6 @@ angular.module('smcApp')
        console.log(err)
      }
     };
-
     function stopVideo(){
       $('#burbleBig').removeClass('burbleBig burbleBig2');
       $('#burbleMed').removeClass('burbleMed burbleMed2');
@@ -998,7 +1027,7 @@ angular.module('smcApp')
     function playNarracion(url, continueBefore){
       console.log('narracion enter');
       var locContainer = $("#loc");
-      soundEpilogo.fade(soundVolume,0.01,1000);
+      soundEpilogo.fade(soundVolume, 0.01, 1000);
       setTimeout(function(){
         soundNarracion.stop();
         soundNarracion.unload();
