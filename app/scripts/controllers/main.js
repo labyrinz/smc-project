@@ -944,7 +944,7 @@ angular.module('smcApp')
       console.log(id, style);
       TweenMax.set($('#'+id), {left: ''});
       $('#'+id).css("right",'');
-      if($("#"+id).hasClass( style )) { $("#"+id).removeClass(style);  setTimeout(function(){ $(".contextualVideoSlide").css('z-index', '') },500); }
+      if($("#"+id).hasClass( style )) { $("#"+id).removeClass(style);  setTimeout(function(){ $(".contextualVideoSlide").css('z-index', '') },1000); }
       else { $("#"+id).addClass(style); $(".contextualVideoSlide").css('z-index', '999'); }
     };
 
