@@ -1094,11 +1094,7 @@ angular.module('smcApp')
           .to(".barc6", 0.3, {transform: 'scale(1)', ease: Power2.easeIn})
           .to(".barc7", 0.3, {transform: 'scale(1)', ease: Power2.easeIn})
           .to(".barc8", 0.3, {transform: 'scale(1)', ease: Power2.easeIn})
-          .to(".barc2", 4, {left: '33%', ease: Power4.easeIn})
           .to(".barc3", 4, {left: '0%', ease: Power4.easeIn},"-=4")
-          .to(".barc2", 2, {left: '30%', transform: 'scale(0.7)', top: '0%',  ease: Power4.easeIn})
-          .to(".barc2", 4, {left: '0%', transform: 'scale(1)',  ease: Power4.easeIn})
-          .to(".barc2", 4, {opacity: '0',  ease: Power4.easeIn})
           .play();
       }
       if( $scope.mobile == 'device' ){
@@ -1144,55 +1140,95 @@ angular.module('smcApp')
           if( currentBack != 'cuba' ){
             checkAnimOff(); cubaAnim();
           }
-          $scope.mobilePage = 2;
+          setTimeout(function () {
+            $scope.$apply(function () {
+              $scope.mobilePage = 1;
+            });
+          }, 2000);
           break;
         case 'prologo2':
           if( currentBack != 'cuba' ){
             checkAnimOff(); cubaAnim();
           }
-          $scope.mobilePage = 3;
+          setTimeout(function () {
+            $scope.$apply(function () {
+              $scope.mobilePage = 2;
+            });
+          }, 2000);
           break;
         case 'prologo2Add':
           if( currentBack != 'cuba' ){
             checkAnimOff(); cubaAnim();
           }
-          $scope.mobilePage = 5;
+          setTimeout(function () {
+            $scope.$apply(function () {
+              $scope.mobilePage = 4;
+            });
+          }, 2000);
           break;
         case 'prologo3':
           if( currentBack != 'cuba' ){
             checkAnimOff(); cubaAnim();
           }
-          $scope.mobilePage = 6;
+          setTimeout(function () {
+            $scope.$apply(function () {
+              $scope.mobilePage = 5;
+            });
+          }, 2000);
           break;
         case 'RR1':
           if( currentBack != 'ny' ){
             checkAnimOff(); newYorkAnim();
           }
-          $scope.mobilePage = 8;
+          setTimeout(function () {
+            $scope.$apply(function () {
+              $scope.mobilePage = 7;
+            });
+          }, 2000);
           break;
         case 'RR2':
           if( currentBack != 'berlin' ){
             checkAnimOff(); berAnimOff();
           }
-          $scope.mobilePage = 9;
+          setTimeout(function () {
+            $scope.$apply(function () {
+              $scope.mobilePage = 8;
+            });
+          }, 2000);
           break;
         case 'RR3':
           if( currentBack != 'holly' ){
             checkAnimOff(); hollyAnimOff();
           }
-          $scope.mobilePage = 10;
+          setTimeout(function () {
+            $scope.$apply(function () {
+              $scope.mobilePage = 9;
+            });
+          }, 2000);
           break;
         case 'CC1':
           if( currentBack != 'carn' ){ checkAnimOff(); carnAnim(); }
-          $scope.mobilePage = 12
+          setTimeout(function () {
+            $scope.$apply(function () {
+              $scope.mobilePage = 13;
+            });
+          }, 2000);
           break;
         case 'CC2':
           if( currentBack != 'carn' ){ checkAnimOff(); carnAnim(); }
-          $scope.mobilePage = 13
+          setTimeout(function () {
+            $scope.$apply(function () {
+              $scope.mobilePage = 14;
+            });
+          }, 2000);
           break;
         case 'CC3':
           if( currentBack != 'carn' ){ checkAnimOff(); carnAnim(); }
-          $scope.mobilePage = 17
+          setTimeout(function () {
+            $scope.$apply(function () {
+              $scope.mobilePage = 15;
+            });
+          }, 2000);
           break;
         // case 'CC4':
         //   if( currentBack != 'carn' ){ checkAnimOff(); carnAnim(); }
@@ -1200,43 +1236,83 @@ angular.module('smcApp')
         //   break;
         case 'LA1':
           if( currentBack != 'chicago' ){ checkAnimOff(); chiAnim(); }
-          $scope.mobilePage = 19
+          setTimeout(function () {
+            $scope.$apply(function () {
+              $scope.mobilePage = 19;
+            });
+          }, 2000);
           break;
         case 'LA2':
           if( currentBack != 'chicago' ){ checkAnimOff(); chiAnim(); }
-          $scope.mobilePage = 20
+          setTimeout(function () {
+            $scope.$apply(function () {
+              $scope.mobilePage = 20;
+            });
+          }, 2000);
           break;
         case 'LA3':
           if( currentBack != 'chicago' ){ checkAnimOff(); chiAnim(); }
-          $scope.mobilePage = 21
+          setTimeout(function () {
+            $scope.$apply(function () {
+              $scope.mobilePage = 21;
+            });
+          }, 2000);
           break;
         case 'AL1':
           if( currentBack != 'lasVegas' ){ checkAnimOff(); lasVAnim(); }
-          $scope.mobilePage = 23
+          setTimeout(function () {
+            $scope.$apply(function () {
+              $scope.mobilePage = 24;
+            });
+          }, 2000);
           break;
         case 'AL2':
           if( currentBack != 'lasVegas' ){ checkAnimOff(); lasVAnim(); }
-          $scope.mobilePage = 24
+          setTimeout(function () {
+            $scope.$apply(function () {
+              $scope.mobilePage = 25;
+            });
+          }, 2000);
           break;
         case 'AL3':
           if( currentBack != 'lasVegas' ){ checkAnimOff(); lasVAnim(); }
-          $scope.mobilePage = 25
+          setTimeout(function () {
+            $scope.$apply(function () {
+              $scope.mobilePage = 26;
+            });
+          }, 2000);
           break;
         case 'CB1':
           if( currentBack != 'lasVegas' ){ checkAnimOff(); lasVAnim(); }
-          $scope.mobilePage = 27
+          setTimeout(function () {
+            $scope.$apply(function () {
+              $scope.mobilePage = 28;
+            });
+          }, 2000);
           break;
         case 'CB2':
           if( currentBack != 'lasVegas' ){ checkAnimOff(); lasVAnim(); }
-          $scope.mobilePage = 28
+          setTimeout(function () {
+            $scope.$apply(function () {
+              $scope.mobilePage = 30;
+            });
+          }, 2000);
           break;
         case 'EP1':
           if( currentBack != 'bcn' ){ checkAnimOff(); bcnAnim(); }
-          $scope.mobilePage = 30
+          setTimeout(function () {
+            $scope.$apply(function () {
+              $scope.mobilePage = 32;
+            });
+          }, 2000);
           break;
         case 'EP2':
           if( currentBack != 'bcn' ){ checkAnimOff(); bcnAnim(); }
-          $scope.mobilePage = 31
+          setTimeout(function () {
+            $scope.$apply(function () {
+              $scope.mobilePage = 33;
+            });
+          }, 2000);
           break;
         default:
           break;
