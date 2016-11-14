@@ -932,7 +932,7 @@ angular.module('smcApp')
     function stopVideoToolTip(id, container, playButton, fullScreenButton){
       if( currentVideoSlidePlaying != undefined ) $("#"+currentVideoSlidePlaying.ID).get(0).pause();
       $('#'+container).removeClass("videoSlideResizeOut videoSlideResize tooltipVideoFixed");
-      if( player.paused() ) player.play();
+      //if( player.paused() ) player.play();
       videoCardToogleSound = 1;
       if(boolsound == soundVolume && progress == undefined ) soundEpilogo.fade(0.01, soundVolume,2000);
       if(boolsound == soundVolume && progress != undefined ) soundNarracion.fade(0.01, soundVolume,2000);
