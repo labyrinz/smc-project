@@ -68,8 +68,6 @@ angular.module('smcApp')
     var videoCardToogleSound = 1;
     var progress;
     var currentBack = 'inf';
-    $scope.mobileBack = 0;
-    $scope.mobilePage = 0;
 
     // Mobile features
     var isMobile = false;
@@ -206,41 +204,32 @@ angular.module('smcApp')
         .add("inicio")
         .to("#page0",0.5,{ scale: '1', ease: Back.easeIn.config(1)})
         .to(".topMenu",0.5,{ top: '0%', ease: Back.easeIn.config(1)})
-        .to("", 0.1, { onStart: videoPlay, onStartParams: ["intro", true, "1471877157700.mp4", "videoClass", "introVideoFull",false,"local"]})
-        .to(".videoCover", 1, {css:{opacity: '0.2'}, delay: 2, ease: Power0.easeOut})
+        .to("", 0.1, { onStart: videoPlay, onStartParams: ["intro", true, "0/0/1471877157700.mp4", "videoClass", "introVideoFull",false,"tv3"]})
+        .to(".videoCover", 3, {css:{opacity: '0.2'}, delay: 2, ease: Power0.easeOut},"+=2")
         .staggerFrom(introWords, 0.6, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.2]}, ease: Back.easeOut.config(0.8)}, 0.1)
         .staggerFrom(introWordsSubtitle, 0.6, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.2]}, ease: Back.easeOut.config(0.8)}, 0.1)
         .staggerFrom(introWordsName, 0.6, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.2]}, ease: Back.easeOut.config(0.8)}, 0.1)
-        .to(".mouseIcon", 0.5, {bottom: '100px', ease: Bounce.easeIn, onComplete: updateScrollBttn})
-        .to(".keyboardIcon", 0.5, {bottom: '90px', ease: Bounce.easeIn})
-
-              .to("",0.1,{ onComplete: unblockScroll })
-              .addPause()
-              .to("",0.1,{ onReverseComplete: unblockScroll })
-
-        .to(".keyboardIcon", 0.2, {bottom: '-150px', ease: Bounce.easeOut})
+        .to(".mouseIcon", 0.5, {bottom: '100px', ease: Bounce.easeOut, onComplete: updateScrollBttn})
+        .addPause()
         .to(".mouseIcon", 0.2, {bottom: '-150px', ease: Power0.easeOut})
         .staggerTo(introWords, 0.2, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.2]}, ease: Back.easeOut.config(0.8)}, 0.1)
         .staggerTo(introWordsSubtitle, 0.2, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.2]}, ease: Back.easeOut.config(0.8)}, 0.1)
         .staggerTo(introWordsName, 0.2, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.2]}, ease: Back.easeOut.config(0.8)}, 0.1)
         .to("#page0",0.5,{ scale: '0', ease: Back.easeIn.config(1)})
-        .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ["intro", false, "1471877157700.mp4", "videoClass", "introVideoFull",false,"local"]})
+        .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ["intro", false, "0/0/1471877157700.mp4", "videoClass", "introVideoFull",false,"tv3"]})
         .to("", 0.1, { onStart: stopVideo })
         //EPISODE 2
         .add("prologo1")
-        .to("", 2, { onComplete: edAnim })
         .to("", 0.1, { onComplete: playSound, onCompleteParams: [playListOrder[0]] })
         .to("", 0.1, { onComplete: updateTitle, onCompleteParams: [0] })
+        .to(".ed1", 0.5, { opacity: '1', ease: Bounce.easeOut})
         .to(".texto11",2,{ transform: 'scale(1)', opacity: '1', ease: Power4.easeOut},"+=1")
         .to(".mouseIcon", 0.5, {bottom: '100px', ease: Bounce.easeOut, onComplete: updateScrollBttn},"+=0.5")
         .to(".chihuahua",0.3,{ transform: 'rotateX(0deg)',  ease: Bounce.easeOut})
         .to(".instruction-anecdota",0.3,{ transform: 'rotateX(0deg)',  ease: Bounce.easeOut})
         .to("", 0.1, { onStart: updateAnec, onStartParams: [1] })
-
-              .to("",0.1,{ onComplete: unblockScroll })
-              .addPause()
-              .to("",0.1,{ onReverseComplete: unblockScroll })
-
+        .addPause()
+        .to("", 0.1, { onComplete: loadSlideContent, onCompleteParams: [0, 'play'] })
         .to(".mouseIcon", 0.2, {bottom: '-150px', ease: Power0.easeOut})
         .to(".instruction-anecdota",0.3,{ transform: 'rotateX(-90deg)',  ease: Bounce.easeOut})
         .to(".texto11",1.5,{ transform: 'scale(0)', opacity: '0', ease: Power4.easeOut},"+=0.2")
@@ -255,11 +244,7 @@ angular.module('smcApp')
         .to(".age1",0.3,{ transform: 'rotateX(0deg)',  ease: Bounce.easeOut})
         .staggerFrom($("#page1").children(),0.6, animationFromPattern, staggerFromVelocity)
         .to(".cita11",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=0.2")
-
-              .to("",0.1,{ onComplete: unblockScroll })
-              .addPause()
-              .to("",0.1,{ onReverseComplete: unblockScroll })
-
+        .addPause()
         .to("", 0.1, { onComplete: stopNarracion })
         .to("", 0.1, { onStart: stopVideoToolTip, onStartParams: ['slideVideoProl', 'slideVideoContainerProl', 'playButtonProl', '' ] })
         .to("", 0.1, { onReverseComplete: updateTitle, onReverseCompleteParams: [0] })
@@ -273,163 +258,154 @@ angular.module('smcApp')
         .to("#page2",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
         .from(".mapSvgClassTop", .3, {scale: 0.5, onComplete: initViaje, onCompleteParams: ['play'], ease: Back.easeOut })
         .to(".mapSvgClassTop", 1, {width: '6200px', top: '-1240px', left: '-2320px' , ease: Power2.easeIn},"+=1")
-        .to("", 1, { onStart: edAnimOff })
-        .to("", 1, { onStart: cubaAnim }, "-=0.5")
+        .to(".cub1", 0.5, {top: '0%', ease: Power0.easeNone},"cuba1")
+        .to(".ed1", 0.5, {opacity: '0', ease: Power2.easeIn})
         .to(".mapSvgClassTop", 2, {width: '6200px', top: '-1390px', left: '-1100px', ease: Power2.easeIn},"-=1.2")
         .to("", 0.1, { onReverseComplete: initViaje, onReverseCompleteParams: ['reverse'] })
-        .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['videoCloud',false,'p1clip1ESP.mp4', 'videoCloud', 'videoCloudInside',false,"local"] })
+        .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['videoCloud',false,'p1clip1ESP.m4v', 'videoCloud', 'videoCloudInside',false,"tve"] })
         .to(".mouseIcon", 0.5, {bottom: '100px', ease: Bounce.easeOut, onComplete: updateScrollBttn},"+=0.5")
         .to("", 0.1, { onReverseComplete: stopVideo })
-
-              .to("",0.1,{ onComplete: unblockScroll })
-              .addPause()
-              .to("",0.1,{ onReverseComplete: unblockScroll })
-
+        .addPause()
         .to("", 0.1, { onStart: stopVideo })
-        .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['videoCloud',false,'p1clip1ESP.mp4', 'videoCloud', 'videoCloudInside',false,"local"] })
+        .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['videoCloud',false,'p1Clip1ESP.m4v', 'videoCloud', 'videoCloudInside',false,"tve"] })
         .to(".mouseIcon", 0.2, {bottom: '-150px', ease: Power0.easeOut, onComplete: updateScrollBttn})
         .to("#page2",0.4,{ right: '100%', ease: Power0.easeNone},"+=1")
-        .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['videomarco',true,'P2Clip1.mp4', 'resumeVideoBox', 'resumeVideoBoxEnter',false,"local"] })
+        .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['videomarco',true,'P2Clip1.m4v', 'resumeVideoBox', 'resumeVideoBoxEnter',false,"tve"] })
         .to("", 0.1, { onReverseComplete: stopVideo })
         .to("", 0.1, { onReverseComplete: updateTitle, onReverseCompleteParams: [1] })
-
-              .to("",0.1,{ onComplete: unblockScroll })
-              .addPause()
-              .to("",0.1,{ onReverseComplete: unblockScroll })
-
+        //.to("", 0.1, { onStart: updateAnec, onStartParams: [2] })
+        .addPause()
         .to("", 0.1, { onStart: stopVideo })
-        .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['videomarco',false,'P2Clip1.mp4', 'resumeVideoBox', 'resumeVideoBoxEnter',false,"local"] })
+        .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['videomarco',false,'P2Clip1.m4v', 'resumeVideoBox', 'resumeVideoBoxEnter',false,"tve"] })
         //EPISODE 4
         .add("prologo2Add")
-        .to("", 2, { onStart: updateTitle, onStartParams: [2] })
+        .to("", 2, { onComplete: loadSlideContent, onCompleteParams: [1, 'play'] })
+        .to("", 0.1, { onStart: updateTitle, onStartParams: [2] })
         .to("#page3",0.4,{ right: '0%', ease: Power0.easeNone})
         .to(".chihuahua",0.3,{ transform: 'rotateX(90deg)',  ease: Bounce.easeOut})
-        .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['02-narracion-p2', false] })
         .to(".age1",0.3,{ transform: 'rotateX(90deg)', ease: Bounce.easeOut})
         .to(".age2",0.3,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"-=0.3")
         .staggerFrom($("#page3").children(),0.6, animationFromPattern, staggerFromVelocity)
-
-              .to("",0.1,{ onComplete: unblockScroll })
-              .addPause()
-              .to("",0.1,{ onReverseComplete: unblockScroll })
-
+        .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['02-narracion-p2', false] })
+        .addPause()
         .to("", 0.1, { onComplete: stopNarracion })
         .to("", 0.1, { onStart: stopVideoToolTip, onStartParams: ['slideVideoHavana', 'slideVideoContainerHavana', 'playButtonHavana', '' ] })
         .staggerTo($("#page3").children(),0.6, animationToPattern, staggerToVelocity)
         .to("", 0.1, { onReverseComplete: updateTitle, onReverseCompleteParams: [2] })
-        .to("", 1, { onStart: cubaAnimOff })
         //EPISODE 5
         .add("prologo3")
-        .to("", 0.1, { onStart: newYorkAnim })
+        .to("", 2, { onComplete: loadSlideContent, onCompleteParams: [2, 'play'] })
+        .to(".cub1", 0.5, { transform: 'rotateY(165deg)', ease: Power2.easeIn})
         .to("#page3",0.4,{ right: '100%', ease: Power0.easeNone})
         .to("", 0.1, { onStart: updateTitle, onStartParams: [3] })
-        .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['03-narracion-p3', false] })
-        .to("#page4",0.4,{ right: '0%', ease: Power0.easeNone},"+=2")
+        //.to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['onlySound',false,false,false,false,'3/4/1461774869043.mp4','',''] })
+        .to(".ny4", 0.2, { top: '0%', ease: Bounce.easeOut},"-=0.5")
+        .to(".ny3", 0.5, { top: '0%', ease: Bounce.easeOut},"-=0.2")
+        .to(".ny1", 0.5, { top: '0%', ease: Bounce.easeOut},"-=0.2")
+        .to(".ny2", 0.5, { top: '0%', ease: Bounce.easeOut},"-=0.2")
+        .to(".ny5", 0.8, { scale: '1', right: '0', ease: Power4.easeOut},"-=0.2")
+        .to(".ny6", 0.8, { scale: '1', right: '0', ease: Power4.easeOut},"-=0.2")
+        .to(".ny7", 0.8, { scale: '1', right: '0', ease: Power4.easeOut},"-=0.2")
+        .to("#page4",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
         .staggerFrom($("#page4").children(),0.6, animationFromPattern, staggerFromVelocity)
         .to(".cita12",1,{  transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1")
+        .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['03-narracion-p3', false] })
         //.to("", 0.1, { onReverseComplete: stopVideo })
-
-              .to("",0.1,{ onComplete: unblockScroll })
-              .addPause()
-              .to("",0.1,{ onReverseComplete: unblockScroll })
-
+        .addPause()
         .to("", 0.1, { onComplete: stopNarracion })
         .to("", 0.1, { onStart: stopVideoToolTip, onStartParams: ['slideVideoNY', 'slideVideoContainerNY', 'playButtonNY', 'fullScreenButtonNY' ] })
+        //.to("", 0.1, { onStart: stopVideo })
         .staggerTo($("#page4").children(),0.6, animationToPattern, staggerToVelocity)
         .to("", 0.1, { onReverseComplete: updateTitle, onReverseCompleteParams: [3] })
         //EPISODE 6
         .add("RR1")
         .to("", 0.1, { onStart: videoPlay, onStartParams: ['resume', true, 'introRM.mp4', 'resumeVideoBox', 'resumeVideoBoxEnter',false,"local"]})
         .to("", 0.1, { onStart: updateTitle, onStartParams: [4] })
-        .to("#page4",0.1,{ right: '100%', ease: Back.easeInOut.config(1)})
-        .to("#page5",0.4,{ right: '0%', ease: Back.easeInOut.config(1)},"+=0.1")
+        .to("#page4",0.4,{ right: '100%', ease: Back.easeInOut.config(1)})
+        .to("#page5",0.4,{ right: '0%', ease: Back.easeInOut.config(1)},"+=0.5")
         .to("", 0.1, { onReverseComplete: playSound, onReverseCompleteParams: [playListOrder[0]] })
         .to("", 0.1, { onReverseComplete: stopVideo })
-        .to("", 0.1, { onStart: playSound, onStartParams: [playListOrder[1]] },"+=0.5")
-
-              .to("",0.1,{ onComplete: unblockScroll })
-              .addPause()
-              .to("",0.1,{ onReverseComplete: unblockScroll })
-
+        .to("", 2, { onStart: playSound, onStartParams: [playListOrder[1]] }, "+=2")
+        .to("", 2, { onComplete: loadSlideContent, onCompleteParams: [3, 'play'] })
+        .addPause()
         .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['resume', true, 'introRM.mp4', 'resumeVideoBox', 'resumeVideoBoxEnter',false,"local"]})
         .to("", 0.1, { onStart: stopVideo })
-        .to("", 2, { onComplete: playNarracion, onCompleteParams: ['04-narracion-rm1', false] },"+=1")
         .staggerFrom($("#page5").children(),0.6, animationFromPattern, staggerFromVelocity)
         .to(".cita21",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=0.5")
-
-              .to("",0.1,{ onComplete: unblockScroll })
-              .addPause()
-              .to("",0.1,{ onReverseComplete: unblockScroll })
-
+        .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['04-narracion-rm1', false] })
+        .addPause()
         //EPISODE 7
         .to("", 0.1, { onComplete: stopNarracion })
         .staggerTo($("#page5").children(),0.6, animationToPattern, staggerToVelocity)
         .to("#page5",0.4,{ right: '100%', ease: Back.easeInOut.config(1)})
         .to("#page6",0.4,{ right: '0%', ease: Back.easeInOut.config(1)},"-=0.4")
         //.to(".blurEffect3",0.2,{ filter: 'blur(0px)',webkitFilter: 'blur(0px)', ease: Power0.easeNone},"+=1")
+        .to(".ny5", 0.5, {scale: '5', right: '200%', ease: Power4.easeIn})
+        .to(".ny6", 0.5, {scale: '5', right: '200%', ease: Power4.easeIn},"-=0.2")
+        .to(".ny7", 0.5, {scale: '5', right: '200%', ease: Power4.easeIn},"-=0.2")
+        .to(".ny3", 0.3, {transform: 'rotateY(165deg)', ease: Power2.easeIn})
+        .to(".ny1", 0.3, {transform: 'rotateY(165deg)', ease: Power2.easeIn})
+        .to(".ny2", 0.3, {transform: 'rotateY(165deg)', ease: Power2.easeIn})
+        .to(".ny4", 0.3, {transform: 'rotateY(165deg)', ease: Power2.easeIn})
         .to("", 0.1, { onReverseComplete: updateTitle, onReverseCompleteParams: [4] })
-        .to("", 1, { onComplete: newYorkAnimOff })
-        .to(".chihuahua",0.3,{ transform: 'rotateX(0deg)',  ease: Bounce.easeOut},"+=1")
+        .to(".chihuahua",0.3,{ transform: 'rotateX(0deg)',  ease: Bounce.easeOut})
         .add("RR2")
-        .to("", 1, { onComplete: berAnim })
+        .to(".ber1", 0.3, {transform: 'rotateY(0deg)', ease: Back.easeOut.config(1)})
         .to("", 0.1, { onStart: updateTitle, onStartParams: [5] })
         .to("", 0.1, { onStart: updateAnec, onStartParams: [3] })
         //.to(".blurEffect4",0.2,{ filter: 'blur(8px)',webkitFilter: 'blur(8px)', ease: Power0.easeNone},"+=1")
         .staggerFrom($("#page6").children(),0.6, animationFromPattern, staggerFromVelocity)
         .to(".cita14",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1")
         .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['videoCloud',false,'Cugat2rasgos-Musica.mp4', 'videoCloud', 'videoCloudInside',false,"tve"] })
-
-              .to("",0.1,{ onComplete: unblockScroll })
-              .addPause()
-              .to("",0.1,{ onReverseComplete: unblockScroll })
-
+        .addPause()
         .to("", 0.1, { onStart: stopVideo })
         .staggerTo($("#page6").children(),0.6, animationToPattern, staggerToVelocity)
         .to("#page6",0.4,{ right: '100%', ease: Back.easeInOut.config(1)})
-        .to("", 0.1, { onComplete: berAnimOff })
+        .to(".ber1", 0.3, {transform: 'rotateY(165deg)', ease: Back.easeOut.config(1)})
         .to("", 0.1, { onReverseComplete: playSound, onReverseCompleteParams: [playListOrder[1]] })
         .to("", 0.1, { onReverseComplete: updateTitle, onReverseCompleteParams: [5] })
         //EPISODE 8
         .add("RR3")
-        .to("", 0.1, { onStart: hollyAnim })
+        .to("", 2, { onComplete: loadSlideContent, onCompleteParams: [4, 'play'] })
         .to("", 0.1, { onStart: playSound, onStartParams: [playListOrder[2]] })
         .to("", 0.1, { onStart: updateTitle, onStartParams: [6] })
         .to("", 0.1, { onStart: updateAnec, onStartParams: [4] })
-        .to("#page7",0.2,{ right: '0%', ease: Back.easeInOut.config(1)},"+=2")
+        .to(".holly2", 0.5, {transform: 'rotateX(0deg)', ease: Back.easeOut.config(1)})
+        .to(".holly1", 0.5, {transform: 'rotateX(0deg)', ease: Back.easeOut.config(1)},"-=0.2")
+        .to(".holly3", 0.5, {transform: 'rotateX(0deg)', ease: Back.easeOut.config(1)},"-=0.2")
+        .to(".holly4", 0.5, {transform: 'rotateX(0deg)', ease: Back.easeOut.config(1)},"-=0.2")
+        .to(".holly7", 0.5, {top: '0%', ease: Bounce.easeOut},"-=0.2")
+        .to(".holly6", 1, {top: '0%', ease: Power4.easeOut})
+        .to(".holly5", 0.2, {opacity: '1', ease: Power4.easeOut})
+        .to("#page7",0.2,{ right: '0%', ease: Back.easeInOut.config(1)},"-=0.4")
         .staggerFrom($("#page7").children(),0.6, animationFromPattern, staggerFromVelocity)
         .to(".cita15",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1")
         //.to("", 0.1, { onReverseComplete: stopVideo })
-        .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['videoCloud',true,'RM3Clip2ESP.mp4', 'videoCloud', 'videoCloudInside', true, "local"] })
+        .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['videoCloud',true,'RM3Clip2ESP.m4v', 'videoCloud', 'videoCloudInside', true, "tve"] })
         .to("", 0.1, { onReverseComplete: stopVideo })
         .to(".mouseIcon", 0.5, {bottom: '100px', ease: Bounce.easeOut, onComplete: updateScrollBttn}, '+=1')
-
-              .to("",0.1,{ onComplete: unblockScroll })
-              .addPause()
-              .to("",0.1,{ onReverseComplete: unblockScroll })
-
-        .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['videoCloud',false,'RM3CLIP1.mp4', 'videoCloud', 'videoCloudInside', true,"local"] })
-        .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['videoCloud',false,'RM3Clip3ESP.mp4', 'videoCloud', 'videoCloudInside',false,"local"] })
-
-              .to("",0.1,{ onComplete: unblockScroll })
-              .addPause()
-              .to("",0.1,{ onReverseComplete: unblockScroll })
-
-        .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['videoCloud',false,'RM3Clip3ESP.mp4', 'videoCloud', 'videoCloudInside',false,"local"] })
-        .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['videoCloud',true,'RM3CLIP1.mp4', 'videoCloud', 'videoCloudInside', true,"local"] })
-
-              .to("",0.1,{ onComplete: unblockScroll })
-              .addPause()
-              .to("",0.1,{ onReverseComplete: unblockScroll })
-
+        .addPause()
+        .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['videoCloud',false,'RM3CLIP1.m4v', 'videoCloud', 'videoCloudInside', true,"tve"] })
+        .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['videoCloud',false,'RM3Clip3ESP.m4v', 'videoCloud', 'videoCloudInside',false,"tve"] })
+        .addPause()
+        .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['videoCloud',false,'RM3Clip3ESP.m4v', 'videoCloud', 'videoCloudInside',false,"tve"] })
+        .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['videoCloud',true,'RM3CLIP1.m4v', 'videoCloud', 'videoCloudInside', true,"tve"] })
+        .addPause()
         .to(".mouseIcon", 0.2, {bottom: '-150px', ease: Power0.easeOut})
-        .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['videoCloud',false,'RM3Clip2ESP.mp4', 'videoCloud', 'videoCloudInside', true,"local"] })
+        .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['videoCloud',false,'RM3Clip2ESP.m4v', 'videoCloud', 'videoCloudInside', true,"tve"] })
         //.to("", 0.1, { onStart: stopVideo })
         .to("", 0.1, { onStart: stopVideo })
         .staggerTo($("#page7").children(),0.6, animationToPattern, staggerToVelocity)
         .to("#page7",0.4,{ right: '100%', ease: Back.easeInOut.config(1)})
         //.to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['onlyAudio',false,false,false,false,'3/4/1461774869043.mp4','',''] })
-        .to("", 0.1, { onComplete: hollyAnimOff })
-        .to("", 0.1, { onReverseComplete: updateTitle, onReverseCompleteParams: [6]},"+=2")
+        .to(".holly2", 0.5, { transform: 'rotateX(165deg)', ease: Back.easeOut.config(1)},"-=0.5")
+        .to(".holly1", 0.5, {transform: 'rotateX(165deg)', ease: Back.easeOut.config(1)},"-=0.3")
+        .to(".holly3", 0.5, {transform: 'rotateX(165deg)', ease: Back.easeOut.config(1)},"-=0.3")
+        .to(".holly4", 0.5, {transform: 'rotateX(165deg)', ease: Back.easeOut.config(1)},"-=0.3")
+        .to(".holly7", 0.5, {top: '150%', ease: Bounce.easeOut},"-=0.3")
+        .to(".holly6", 0.5, {top: '-150%', ease: Power4.easeOut},"carmenCastillo")
+        .to(".holly5", 1, {opacity: '0', ease: Power4.easeOut})
+        .to("", 0.1, { onReverseComplete: updateTitle, onReverseCompleteParams: [6] })
         .to("", 0.1, { onStart: updateAnec, onStartParams: [7] })
         .to("", 0.1, { onReverseComplete: playSound, onReverseCompleteParams: [playListOrder[2]] })
         //EPISODE 9
@@ -439,52 +415,45 @@ angular.module('smcApp')
         .to(".age2",0.3,{ transform: 'rotateX(90deg)', ease: Bounce.easeOut})
         .to("", 0.1, { onStart: videoPlay, onStartParams: ['resume', true, 'introCC.mp4', 'resumeVideoBox', 'resumeVideoBoxEnter',false,"local"]})
         .to("", 0.1, { onReverseComplete: stopVideo })
-        .to("", 0.1, { onComplete: playSound, onCompleteParams: [playListOrder[3]] }, "+=1")
-
-              .to("",0.1,{ onComplete: unblockScroll })
-              .addPause()
-              .to("",0.1,{ onReverseComplete: unblockScroll })
-
+        .to("", 2, { onComplete: playSound, onCompleteParams: [playListOrder[3]] }, "+=2")
+        .addPause()
         .to("", 0.1, { onReverseComplete: updateTitle, onReverseCompleteParams: [7] })
-        .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['resume', true, 'introCC.mp4', 'resumeVideoBox', 'resumeVideoBoxEnter',false,"local"]})
+        .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['resume',101,112,112, true, 'RESUMENCUGATv3ESP.m4v', 'resumeVideoBox', 'resumeVideoBoxEnter',false,"local"]})
         .to("", 0.1, { onStart: stopVideo })
         .add("CC2")
         .to("", 0.1, { onStart: updateTitle, onStartParams: [8] })
         .to("", 0.1, { onStart: updateAnec, onStartParams: [5] })
-        .to("", 0.1, { onStart: carnAnim })
-        .to(".cita100",1,{ scale:'1',transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=3")
+        .to(".carn2", 4, { opacity: '1', ease: RoughEase.ease.config({ template: Power0.easeNone, strength: 2, points: 20, taper: "none", randomize: true, clamp: false})})
+        .to(".carn1", 2, {opacity: '1', ease: Back.easeOut.config(1)},"-=2")
+        .to(".carn1", 2, {top: '-50%', ease: Power4.easeOut})
+        .to(".carn2", 2, {top: '-50%', ease: Power4.easeOut},"-=2")
+        .to(".carn3", 2, {top: '-50%', ease: Power4.easeOut},"-=2")
+        .to(".carn4", 2, {top: '-50%', ease: Power4.easeOut},"-=2")
+        .to(".carn5", 2, {top: '-50%', ease: Power4.easeOut},"-=2")
+        .to(".carn6", 2, {top: '-50%', ease: Power4.easeOut},"-=2")
+        .to(".cita100",1,{ scale:'1',transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=0.5")
         .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['05-narracion-cc1', false] })
         .to(".mouseIcon", 0.5, {bottom: '100px', ease: Bounce.easeOut, onComplete: updateScrollBttn}, '+=1')
-
-              .to("",0.1,{ onComplete: unblockScroll })
-              .addPause()
-              .to("",0.1,{ onReverseComplete: unblockScroll })
-
+        .addPause()
         .to("", 0.1, { onComplete: stopNarracion })
+        .to("", 0.1, { onComplete: loadSlideContent, onCompleteParams: [5, 'play'] })
         .to(".mouseIcon", 0.2, {bottom: '-150px', ease: Power0.easeOut})
         .to(".cita100",1,{ scale:'0',transform: 'rotateX(90deg)', ease: Bounce.easeOut},"+=0.5")
         .to("#page8",0.4,{ right: '0%', ease: Back.easeInOut.config(1)},"-=0.4")
         .staggerFrom($("#page8").children(),0.6, animationFromPattern, staggerFromVelocity)
-
-              .to("",0.1,{ onComplete: unblockScroll })
-              .addPause()
-              .to("",0.1,{ onReverseComplete: unblockScroll })
-
+        .addPause()
         .staggerTo($("#page8").children(),0.6, animationToPattern, staggerToVelocity)
         .to("#page8",0.4,{ right: '100%', ease: Back.easeInOut.config(1)})
         .to("", 0.1, { onReverseComplete: updateTitle, onReverseCompleteParams: [8] })
         //EPISODE 10
         .add("CC3")
+        .to("", 2, { onComplete: loadSlideContent, onCompleteParams: [6, 'play'] })
         .to("", 0.1, { onStart: updateTitle, onStartParams: [9] })
         .to("", 0.1, { onStart: updateAnec, onStartParams: [7] })
         .to("#page9",0.4,{ right: '0%', ease: Back.easeInOut.config(1)})
         .staggerFrom($("#page9").children(),0.6, animationFromPattern, staggerFromVelocity)
         .to(".cita91",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1")
-
-              .to("",0.1,{ onComplete: unblockScroll })
-              .addPause()
-              .to("",0.1,{ onReverseComplete: unblockScroll })
-
+        .addPause()
         .staggerTo($("#page9").children(),0.6, animationToPattern, staggerToVelocity)
         .to("#page9",0.4,{ right: '100%', ease: Back.easeInOut.config(1)})
         .to("", 0.1, { onReverseComplete: updateTitle, onReverseCompleteParams: [9] })
@@ -494,33 +463,21 @@ angular.module('smcApp')
         .to("", 0.1, { onStart: updateTitle, onStartParams: [10] })
         .to(".chihuahua",0.3,{ transform: 'rotateX(90deg)',  ease: Bounce.easeOut})
         .to("#page10",0.4,{ right: '0%', ease: Back.easeInOut.config(1)},"-=0.4")
-        .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['videoCloud',true,'cc3clip1ESP.mp4', 'videoCloud2', 'videoCloudInside', true, "local"] })
+        .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['videoCloud',true,'cc3clip1ESP.m4v', 'videoCloud2', 'videoCloudInside', true, "tve"] })
         .to("", 0.1, { onReverseComplete: stopVideo })
         .to(".mouseIcon", 0.5, {bottom: '100px', ease: Bounce.easeOut, onComplete: updateScrollBttn}, '+=1')
-
-                .to("",0.1,{ onComplete: unblockScroll })
-                .addPause()
-                .to("",0.1,{ onReverseComplete: unblockScroll })
-
+        .addPause()
         .to(".mouseIcon", 0.2, {bottom: '-150px', ease: Power0.easeOut})
-        .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['videoCloud',true,'CC3CLIP2def.mp4', 'videoCloud2', 'videoCloudInside', false, "local"] })
-        .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['videoCloud',true,'CC3CLIP2def.mp4', 'videoCloud2', 'videoCloudInside', false, "local"] })
+        .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['videoCloud',true,'CC3CLIP2def.m4v', 'videoCloud2', 'videoCloudInside', false, "tve"] })
+        .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['videoCloud',true,'CC3CLIP2def.m4v', 'videoCloud2', 'videoCloudInside', false, "tve"] })
         .to(".mouseIcon", 0.5, {bottom: '100px', ease: Bounce.easeOut, onComplete: updateScrollBttn}, '+=1')
-
-                .to("",0.1,{ onComplete: unblockScroll })
-                .addPause()
-                .to("",0.1,{ onReverseComplete: unblockScroll })
-
+        .addPause()
         .to(".mouseIcon", 0.2, {bottom: '-150px', ease: Power0.easeOut})
-        .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['videoCloud',true,'cc3clip1ESP.mp4', 'videoCloud2', 'videoCloudInside', true, "local"] })
+        .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['videoCloud',true,'cc3clip1ESP.m4v', 'videoCloud2', 'videoCloudInside', true, "tve"] })
         .to("", 0.1, { onStart: stopVideo })
         .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['06-narracion-cc3', false] },'+=1')
         .to(".mouseIcon", 0.5, {bottom: '100px', ease: Bounce.easeOut, onComplete: updateScrollBttn}, '+=1')
-
-                .to("",0.1,{ onComplete: unblockScroll })
-                .addPause()
-                .to("",0.1,{ onReverseComplete: unblockScroll })
-
+        .addPause()
         .to("", 0.1, { onComplete: stopNarracion })
         .to(".mouseIcon", 0.2, {bottom: '-150px', ease: Power0.easeOut})
         .to("", 0.1, { onReverseComplete: updateTitle, onReverseCompleteParams: [10] })
@@ -535,30 +492,27 @@ angular.module('smcApp')
         .to("", 0.1, { onStart: videoPlay, onStartParams:['resume', true, 'introLA.mp4', 'resumeVideoBox', 'resumeVideoBoxEnter', false, "local"]})
         .to("", 2, { onStart: playSound, onStartParams: [playListOrder[4]] }, "+=2")
         .to("", 0.1, { onReverseComplete: stopVideo})
-
-                .to("",0.1,{ onComplete: unblockScroll })
-                .addPause()
-                .to("",0.1,{ onReverseComplete: unblockScroll })
-
+        .to("", 2, { onComplete: loadSlideContent, onCompleteParams: [7, 'play'] })
+        .addPause()
         .to("", 0.1, { onStart: stopVideo })
         .to(".age3",0.3,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut})
-        .to("", 0.1, { onStart: carnAnimOff })
-        .to("", 0.1, { onStart: chiAnim }, "+=5")
+        .to(".chi4", 0.3, { opacity: '1', ease: Bounce.easeOut })
+        .to(".chi2", 1, { opacity: '1', ease: Power4.easeOut })
+        .to(".chi1", 4, { opacity: '1', ease: Power0.easeNone },"+=1")
+        .to(".chi5", 1, { left: '0', ease: Power4.easeOut })
+        .to(".chi6", 1, { left: '0', ease: Power4.easeOut })
         .to("#page11",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
         .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams:['resume', true, 'introLA.mp4', 'resumeVideoBox', 'resumeVideoBoxEnter', false, "local"] })
         .staggerFrom($("#page11").children(),0.6, animationFromPattern, staggerFromVelocity)
         .to(".cita41",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1")
-
-                .to("",0.1,{ onComplete: unblockScroll })
-                .addPause()
-                .to("",0.1,{ onReverseComplete: unblockScroll })
-
+        .addPause()
         .staggerTo($("#page11").children(),0.6, animationToPattern, staggerFromVelocity)
         .to("", 0.1, { onReverseComplete: updateTitle, onReverseCompleteParams: [11] })
         .to("", 0.1, { onReverseComplete: playSound, onReverseCompleteParams: [playListOrder[4]] })
         .to("#page11",0.4,{ right: '100%', ease: Back.easeIn})
         //EPISODE 13
         .add("LA2")
+        .to("", 2, { onComplete: loadSlideContent, onCompleteParams: [8, 'play'] })
         .to("", 0.1, { onStart: updateTitle, onStartParams: [12] })
         .to("", 0.1, { onStart: updateAnec, onStartParams: [8] })
         .to("", 0.1, { onComplete: playSound, onCompleteParams: [playListOrder[5]] })
@@ -567,11 +521,7 @@ angular.module('smcApp')
         .staggerFrom($("#page12").children(),0.6, animationFromPattern, staggerToVelocity)
         .to(".cita42",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1")
         .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['07-narracion-la2', false] })
-
-                .to("",0.1,{ onComplete: unblockScroll })
-                .addPause()
-                .to("",0.1,{ onReverseComplete: unblockScroll })
-
+        .addPause()
         .to("", 0.1, { onComplete: stopNarracion })
         .to("", 0.1, { onStart: stopVideoToolTip, onStartParams: ['slideVideoLorraine', 'slideVideoContainerLorraine', 'playButtonLorraine', 'fullScreenButtonLorraine' ] })
         .staggerTo($("#page12").children(),0.6, animationToPattern, staggerToVelocity)
@@ -580,46 +530,49 @@ angular.module('smcApp')
         .to("", 0.1, { onReverseComplete: playSound, onReverseCompleteParams: [playListOrder[5]] })
         //EPISODE 14
         .add("LA3")
+        .to("", 2, { onComplete: loadSlideContent, onCompleteParams: [9, 'play'] })
         .to("", 0.1, { onStart: updateTitle, onStartParams: [13] })
         .to("", 0.1, { onStart: updateAnec, onStartParams: ["9b"] })
         .to("", 0.1, { onComplete: playSound, onCompleteParams: [playListOrder[6]] })
         .to("#page13",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
         .staggerFrom($("#page13").children(),0.6, animationFromPattern, staggerFromVelocity)
-
-                .to("",0.1,{ onComplete: unblockScroll })
-                .addPause()
-                .to("",0.1,{ onReverseComplete: unblockScroll })
-
+        .addPause()
         .staggerTo($("#page13").children(),0.6, animationToPattern, staggerToVelocity)
         .to(".blurEffect7",0.2,{ filter: 'blur(0px)',webkitFilter: 'blur(0px)', ease: Power0.easeNone},"+=1")
-        .to("", 0.1, { onStart: chiAnimOff })
+        .to(".chi2", 0.3, {opacity: '0', ease: Back.easeOut.config(1)},"+=0.5")
+        .to(".chi4", 0.3, {opacity: '0', ease: Bounce.easeOut},"+=0.5")
+        .to(".chi5", 1, {left: '150%', ease:Power4.easeOut})
+        .to(".chi6", 1, {left: '-150%', ease: Power4.easeOut})
+        .to(".chi1", 0.3, {opacity: '0', ease: Back.easeOut.config(1)},"-=0.2")
         .to("#page13",0.4,{ right: '100%', ease: Power0.easeNone})
         .to(".chihuahua",0.3,{ transform: 'rotateX(90deg)',  ease: Bounce.easeOut})
         .to("", 0.1, { onReverseComplete: updateTitle, onReverseCompleteParams: [13] })
         .to("", 0.1, { onReverseComplete: playSound, onReverseCompleteParams: [playListOrder[6]] })
         //EPISODE 15
         .add("AL1")
+        .to("", 2, { onComplete: loadSlideContent, onCompleteParams: [10, 'play'] })
         .to("", 0.1, { onStart: videoPlay, onStartParams:['resume', true, 'introAL.mp4', 'resumeVideoBox', 'resumeVideoBoxEnter',false,"local"]})
         .to("", 0.1, { onStart: updateTitle, onStartParams: [14] })
         .to("", 0.1, { onStart: playSound, onStartParams:[playListOrder[7]]})
         .to("#page14",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
-        .to("", 0.1, { onStart: lasVAnim })
+        .to(".lasv1", 0.3, {opacity: '1', ease: Back.easeOut.config(1)})
+        .to(".lasv2", 0.3, {top:'0%', ease: Bounce.easeOut})
+        .to(".lasv3", 0.3, {top:'0%', ease: Bounce.easeOut})
+        .to(".lasv10", 0.3, {top:'0%', ease: Bounce.easeOut})
+        .to(".lasv4", 0.3, {transform: 'rotate(0deg)', ease: Back.easeOut.config(1)})
+        .to(".lasv5", 0.3, {transform: 'rotate(0deg)', ease: Back.easeOut.config(1)})
+        .to(".lasv6", 0.3, {opacity: '1', ease: Back.easeOut.config(1)})
+        .to(".lasv7", 0.3, {opacity: '1', ease: Back.easeOut.config(1)})
+        .to(".lasv8", 0.3, {opacity: '1', ease: Back.easeOut.config(1)})
+        .to(".lasv9", 0.3, {opacity: '1', ease: Back.easeOut.config(1)})
         .to("", 0.1, { onReverseComplete: stopVideo})
-
-                .to("",0.1,{ onComplete: unblockScroll })
-                .addPause()
-                .to("",0.1,{ onReverseComplete: unblockScroll })
-
+        .addPause()
         .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams:['resume', true, 'introAL.mp4', 'resumeVideoBox', 'resumeVideoBoxEnter',false,"local"]})
         .to("", 0.1, { onStart: stopVideo })
         .staggerFrom($("#page14").children(),0.6, animationFromPattern, staggerFromVelocity)
         .to(".cita51",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=0.5")
         .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['08-narracion-al1', false] })
-
-                .to("",0.1,{ onComplete: unblockScroll })
-                .addPause()
-                .to("",0.1,{ onReverseComplete: unblockScroll })
-
+        .addPause()
         .to("", 0.1, { onComplete: stopNarracion })
         .to("", 0.1, { onStart: stopVideoToolTip, onStartParams: ['slideVideoAbbe', 'slideVideoContainerAbbe', 'playButtonAbbe', 'fullScreenButtonAbbe' ,"tve"] })
         .to("", 0.1, { onStart: stopVideoToolTip, onStartParams: ['slideVideoAbbe2', 'slideVideoContainerAbbe2', 'playButtonAbbe2', 'fullScreenButtonAbbe2', "tve" ] })
@@ -629,6 +582,7 @@ angular.module('smcApp')
         .to("", 0.1, { onReverseComplete: updateTitle, onReverseCompleteParams: [14] })
         //EPISODE 16
         .add("Al2")
+        .to("", 2, { onComplete: loadSlideContent, onCompleteParams: [11, 'play'] })
         .to("", 0.1, { onStart: playSound, onStartParams:[playListOrder[8]]})
         .to(".chihuahua",0.3,{ transform: 'rotateX(0deg)',  ease: Bounce.easeOut})
         .to("", 0.1, { onStart: updateTitle, onStartParams: [15] })
@@ -637,14 +591,10 @@ angular.module('smcApp')
         .to(".blurEffect8",0.2,{ filter: 'blur(8px)', webkitFilter: 'blur(8px)', ease: Power0.easeNone})
         .staggerFrom($("#page15").children(),0.6, animationFromPattern, staggerFromVelocity)
         .to(".cita53",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1")
-        .to("", 2.5, { onComplete: videoPlay, onCompleteParams: ['videoCloud',false,'AL2clip1ESP.mp4', 'videoCloud', 'videoCloudInside',false,"local"] })
+        .to("", 2.5, { onComplete: videoPlay, onCompleteParams: ['videoCloud',false,'AL2clip1ESP.m4v', 'videoCloud', 'videoCloudInside',false,"tve"] })
         .to("", 0.1, { onReverseComplete: stopVideo })
-
-                .to("",0.1,{ onComplete: unblockScroll })
-                .addPause()
-                .to("",0.1,{ onReverseComplete: unblockScroll })
-
-        .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['videoCloud',false,'AL2clip1ESP.mp4', 'videoCloud', 'videoCloudInside',false,"local"] })
+        .addPause()
+        .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['videoCloud',false,'AL2clip1ESP.m4v', 'videoCloud', 'videoCloudInside',false,"tve"] })
         .to("", 0.1, { onStart: stopVideo })
         .staggerTo($("#page15").children(),0.6, animationToPattern, staggerToVelocity)
         .to("#page15",0.4,{ right: '100%', ease: Power0.easeNone})
@@ -652,6 +602,7 @@ angular.module('smcApp')
         .to("", 0.1, { onReverseComplete: updateTitle, onReverseCompleteParams: [15] })
         //EPISODE 17
         .add("AL3")
+        .to("", 2, { onComplete: loadSlideContent, onCompleteParams: [12, 'play'] })
         .to("", 0.1, { onStart: updateTitle, onStartParams: [16] })
         .to("", 0.1, { onStart: updateAnec, onStartParams: [11] })
         .to("", 0.1, { onStart: playSound, onStartParams:[playListOrder[9]]})
@@ -659,11 +610,7 @@ angular.module('smcApp')
         .staggerFrom($("#page16").children(),0.6, animationFromPattern, staggerFromVelocity)
         .to(".cita56",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1")
         .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['09-narracion-al3', false] })
-
-                .to("",0.1,{ onComplete: unblockScroll })
-                .addPause()
-                .to("",0.1,{ onReverseComplete: unblockScroll })
-
+        .addPause()
         .to("", 0.1, { onComplete: stopNarracion })
         .staggerTo($("#page16").children(),0.6, animationToPattern, staggerToVelocity)
         .to("#page16",0.4,{ right: '100%', ease: Power0.easeNone})
@@ -671,31 +618,25 @@ angular.module('smcApp')
         .to("", 0.1, { onReverseComplete: updateTitle, onReverseCompleteParams: [16] })
         //EPISODE 18
         .add("CB1")
+        .to("", 2, { onComplete: loadSlideContent, onCompleteParams: [13, 'play'] })
         .to("", 0.1, { onStart: updateTitle, onStartParams: [17] })
         .to("", 0.1, { onStart: updateAnec, onStartParams: [12] })
         .to("#page17",0.4,{ right: '0%', ease: Power0.easeNone})
         .to("", 0.1, { onStart: videoPlay, onStartParams:['resume', true, 'introCB.mp4', 'resumeVideoBox', 'resumeVideoBoxEnter',false,"local"]})
         .to("", 0.1, { onReverseComplete: stopVideo })
-
-                .to("",0.1,{ onComplete: unblockScroll })
-                .addPause()
-                .to("",0.1,{ onReverseComplete: unblockScroll })
-
+        .addPause()
         .to("", 0.1, { onStart: stopVideo })
         .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams:['resume', false, 'introCB.mp4', 'resumeVideoBox', 'resumeVideoBoxEnter',false,"local"]})
         .staggerFrom($("#page17").children(),0.6, animationFromPattern, staggerFromVelocity)
         .to(".cita60",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=0.5")
-
-                .to("",0.1,{ onComplete: unblockScroll })
-                .addPause()
-                .to("",0.1,{ onReverseComplete: unblockScroll })
-
+        .addPause()
         .staggerTo($("#page17").children(),0.6, animationToPattern, staggerToVelocity)
         .to("#page17",0.4,{ right: '100%', ease: Power0.easeNone})
         .to(".chihuahua",0.3,{ transform: 'rotateX(0deg)',  ease: Bounce.easeOut})
         .to("", 0.1, { onReverseComplete: updateTitle, onReverseCompleteParams: [17] })
         //EPISODE 19
         .add("CB2")
+        .to("", 0.1, { onComplete: loadSlideContent, onCompleteParams: [14, 'play'] })
         .to("", 0.1, { onStart: updateTitle, onStartParams: [18] })
         .to("", 0.1, { onStart: updateAnec, onStartParams: [15] })
         .to("#page18",0.4,{ right: '0%', ease: Power0.easeNone})
@@ -703,53 +644,62 @@ angular.module('smcApp')
         .to(".cita61",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut})
         .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['resume',false,'charo2.mp4', 'videoCloud', 'videoCloudInside',false,"local"] })
         .to("", 0.1, { onReverseComplete: stopVideo })
-
-                .to("",0.1,{ onComplete: unblockScroll })
-                .addPause()
-                .to("",0.1,{ onReverseComplete: unblockScroll })
-
+        .addPause()
         .to("", 0.1, { onStart: stopVideo })
-        .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['10-narracion-cb2', false] }, '+=2')
+        .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['10-narracion-cb2', false] }, '+=1')
         .to(".mouseIcon", 0.5, {bottom: '100px', ease: Bounce.easeOut, onComplete: updateScrollBttn}, '+=1')
-
-                .to("",0.1,{ onComplete: unblockScroll })
-                .addPause()
-                .to("",0.1,{ onReverseComplete: unblockScroll })
-
+        .addPause()
         .to("", 0.1, { onComplete: stopNarracion })
         .to(".mouseIcon", 0.2, {bottom: '-150px', ease: Power0.easeOut})
         .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['resume',false,'charo2.mp4', 'videoCloud', 'videoCloudInside',false,"local"] })
         .staggerTo($("#page18").children(),0.6, animationToPattern, staggerToVelocity)
         .to(".blurEffect8",0.2,{ filter: 'blur(0px)',webkitFilter: 'blur(0px)', ease: Power0.easeNone})
-        .to("", 0.1, { onStart: lasVAnimOff })
-        .to("#page18",0.4,{ right: '100%', ease: Power0.easeNone}, "+=1")
+        .to(".lasv8", 0.3, {opacity: '0', ease: Back.easeOut.config(1)},"+=1")
+        .to(".lasv9", 0.3, {opacity: '0', ease: Back.easeOut.config(1)})
+        .to(".lasv6", 0.3, {opacity: '0', ease: Back.easeOut.config(1)})
+        .to(".lasv7", 0.3, {opacity: '0', ease: Back.easeOut.config(1)})
+        .to(".lasv5", 0.3, {transform: 'rotate(180deg)', ease: Back.easeOut.config(1)})
+        .to(".lasv4", 0.3, {transform: 'rotate(180deg)', ease: Back.easeOut.config(1)})
+        .to(".lasv10", 0.3, {top:'-150%', ease: Bounce.easeOut})
+        .to(".lasv3", 0.3, {top:'-1500%', ease: Bounce.easeOut})
+        .to(".lasv2", 0.3, {top:'-150%', ease: Bounce.easeOut})
+        .to(".lasv1", 0.3, {opacity: '0', ease: Back.easeOut.config(1)})
+        .to("#page18",0.4,{ right: '100%', ease: Power0.easeNone})
         .to("", 0.1, { onReverseComplete: playSound, onReverseCompleteParams: [playListOrder[9]] })
         .to("", 0.1, { onReverseComplete: updateTitle, onReverseCompleteParams: [18] })
         //EPISODE 20
         .add("EP1")
+        .to("", 0.1, { onComplete: loadSlideContent, onCompleteParams: [15, 'play'] })
         .to("", 0.1, { onStart: updateTitle, onStartParams: [19] })
         .to("", 0.1, { onStart: updateAnec, onStartParams: [13] })
         .to("", 0.1, { onStart: playSound, onStartParams:[playListOrder[10]]})
         .to(".age3",0.3,{ transform: 'rotateX(90deg)', ease: Bounce.easeOut})
-        .to("#texto7-barc",2,{ transform: 'scale(1)', opacity: '1', ease: Power4.easeOut})
-        .to("", 0.1, { onStart: bcnAnim })
-        .to("#texto7-barc",1,{ transform: 'scale(0)', opacity: '0', ease: Power4.easeOut},"+=0.2")
-        .to(".age4",0.3,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=6")
+        .to(".barc1", 3, { opacity: '1', ease: Power4.easeIn})
+        .to("#texto7-barc",2,{ transform: 'scale(1)', opacity: '1', ease: Power4.easeOut},"+=1")
+        .to(".barc4", 0.3, {transform: 'scale(1)', ease: Power2.easeIn})
+        .to(".barc5", 0.3, {transform: 'scale(1)', ease: Power2.easeIn})
+        .to(".barc6", 0.3, {transform: 'scale(1)', ease: Power2.easeIn})
+        .to(".barc7", 0.3, {transform: 'scale(1)', ease: Power2.easeIn})
+        .to(".barc8", 0.3, {transform: 'scale(1)', ease: Power2.easeIn})
+        .to(".barc2", 4, {left: '33%', ease: Power4.easeIn})
+        .to(".barc3", 4, {left: '0%', ease: Power4.easeIn},"-=4")
+        .to(".barc2", 2, {left: '30%', transform: 'scale(0.7)', top: '0%',  ease: Power4.easeIn})
+        .to(".barc2", 4, {left: '0%', transform: 'scale(1)',  ease: Power4.easeIn})
+        .to(".barc2", 4, {opacity: '0',  ease: Power4.easeIn})
+        .to(".age4",0.3,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"-=0.3")
         .to("#page19",0.4,{ right: '0%', ease: Power0.easeNone})
+        .to("#texto7-barc",1,{ transform: 'scale(0)', opacity: '0', ease: Power4.easeOut},"+=0.2")
         .staggerFrom($("#page19").children(),0.6, animationFromPattern, staggerFromVelocity)
         .to(".cita62",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1")
         .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['11-narracion-e1', false] }, '+=1')
-
-                .to("",0.1,{ onComplete: unblockScroll })
-                .addPause()
-                .to("",0.1,{ onReverseComplete: unblockScroll })
-
+        .addPause()
         .to("", 0.1, { onComplete: stopNarracion })
         .staggerTo($("#page19").children(),0.6, animationToPattern, staggerToVelocity)
         .to("#page19",0.4,{ right: '100%', ease: Power0.easeNone})
         .to("", 0.1, { onReverseComplete: updateTitle, onReverseCompleteParams: [19] })
         //EPISODE 21
         .add("EP2")
+        .to("", 0.1, { onComplete: loadSlideContent, onCompleteParams: [16, 'play'] })
         .to("", 0.1, { onStart: updateTitle, onStartParams: [20] })
         .to("", 0.1, { onStart: updateAnec, onStartParams: [16] })
         .to("#page20",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
@@ -759,15 +709,13 @@ angular.module('smcApp')
         .to(".textoFin",2,{ top: '0', ease: Power4.easeOut},"+=2")
         .to(".ep15",2,{ opacity: '1', ease: Power4.easeOut},"-=3")
         .to(".lastButtons",3,{ opacity: '1', ease: Power4.easeOut},"-=3")
-        .to("", 0.1, { onStart: bcnAnimOff })
+        .to(".blurEffect9",6,{ opacity: '0', ease: Power4.easeOut},"-=6")
         .to(".age4",3,{ opacity: '0', ease: Power4.easeOut},"-=6")
         .to("", 5, { onStart:function(){soundEpilogo.fade(soundVolume,0,60000)} })
         .to("", 5, { onReverseComplete: function(){soundEpilogo.fade(0,soundVolume,3000)} })
-
-                .to("",0.1,{ onComplete: unblockScroll })
-                .addPause()
-                .to("",0.1,{ onReverseComplete: unblockScroll })
-
+        //.to(".chihuahua",0.3,{ transform: 'rotateX(90deg)',  ease: Bounce.easeOut})
+        //.to(".mouseIcon", 0.5, {bottom: '100px', ease: Bounce.easeOut, onComplete: updateScrollBttn}, '+=1')
+        .addPause()
         .to("", 0.1, { onComplete: stopNarracion })
         //.to(".mouseIcon", 0.2, {bottom: '-150px', ease: Power0.easeOut})
         .staggerTo($("#page20").children(),0.6, animationToPattern, staggerToVelocity)
@@ -782,563 +730,39 @@ angular.module('smcApp')
         .to(".chihuahua",0.3,{ transform: 'rotateX(90deg)',  ease: Bounce.easeOut})
         .to("#page21",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
         .staggerFrom($("#page21").children(),0.6, animationFromPattern, staggerFromVelocity)
-
-                .to("",0.1,{ onComplete: unblockScroll })
-                .addPause()
-                .to("",0.1,{ onReverseComplete: unblockScroll })
-
+        .addPause();
 
       tl.pause();
     //}
 
-    //------------------------------------
-    // ------ Backs anim ----------
-
-    function edAnim() {
-      console.log('entra en inf');
-      if ($scope.mobile == 'pc') {
-        new TimelineMax({repeat: 0, autoRound: false})
-          .to(".ed1", 1, {opacity: '1', ease: Bounce.easeOut})
-          .play();
-      }
-      if ($scope.mobile == 'device') {
-        new TimelineMax({repeat: 0, autoRound: false})
-          .to(".ed1Dev", 1, {opacity: '1', ease: Bounce.easeOut})
-          .play();
-      }
-      currentBack = 'inf';
-    }
-    function edAnimOff() {
-      console.log('entra en inf off');
-      if ($scope.mobile == 'pc') {
-        new TimelineMax({repeat: 0, autoRound: false})
-          .to(".ed1", 1, {opacity: '0', ease: Bounce.easeOut})
-          .play();
-      }
-      if ($scope.mobile == 'device') {
-        new TimelineMax({repeat: 0, autoRound: false})
-          .to(".ed1Dev", 1, {opacity: '0', ease: Bounce.easeOut})
-          .play();
-      }
-      currentBack = undefined;
-    }
-    function cubaAnim(){
-      console.log('entra en cuba');
-      if( $scope.mobile == 'pc' ) {
-        new TimelineMax({repeat: 0, autoRound: false})
-          .to(".cub1", 1, {top: '0%', ease: Bounce.easeOut})
-          .play();
-      }
-      if( $scope.mobile == 'device' ){
-        new TimelineMax({repeat: 0, autoRound: false})
-          .to(".cub1Dev", 1, {opacity: '1', ease: Bounce.easeOut})
-          .play();
-      }
-      currentBack = 'cuba';
-    }
-    function cubaAnimOff(){
-      console.log('entra en cuba off');
-      if( $scope.mobile == 'pc' ) {
-        new TimelineMax({repeat: 0, autoRound: false})
-          .to(".cub1", 1, {top: '-120%', ease: Bounce.easeOut})
-          .play();
-      }
-      if( $scope.mobile == 'device' ){
-        new TimelineMax({repeat: 0, autoRound: false})
-          .to(".cub1Dev", 1, {opacity: '0', ease: Bounce.easeOut})
-          .play();
-      }
-      currentBack = undefined;
-    }
-    function newYorkAnim(){
-      console.log('entra en ny');
-      if( $scope.mobile == 'pc' ){
-        new TimelineMax({repeat:0, autoRound:false})
-          .to(".ny4", 0.2, { top: '0%', ease: Bounce.easeOut},"-=0.5")
-          .to(".ny3", 0.5, { top: '0%', ease: Bounce.easeOut},"-=0.2")
-          .to(".ny1", 0.5, { top: '0%', ease: Bounce.easeOut},"-=0.2")
-          .to(".ny2", 0.5, { top: '0%', ease: Bounce.easeOut},"-=0.2")
-          .to(".ny5", 0.8, { scale: '1', right: '0', ease: Power4.easeOut},"-=0.2")
-          .to(".ny6", 0.8, { scale: '1', right: '0', ease: Power4.easeOut},"-=0.2")
-          .to(".ny7", 0.8, { scale: '1', right: '0', ease: Power4.easeOut},"-=0.2")
-          .play();
-      }
-      if( $scope.mobile == 'device' ){
-        new TimelineMax({repeat:0, autoRound:false})
-          .to(".nyDev", 0.5, {opacity: '1', ease: Power0.easeNone})
-          .play();
-      }
-      currentBack = 'ny';
-    }
-    function newYorkAnimOff(){
-      console.log('entra en ny off');
-      if( $scope.mobile == 'pc' ){
-        new TimelineMax({repeat:0, autoRound:false})
-          .to(".ny5", 0.5, {scale: '5', right: '200%', ease: Power4.easeIn})
-          .to(".ny6", 0.5, {scale: '5', right: '200%', ease: Power4.easeIn},"-=0.2")
-          .to(".ny7", 0.5, {scale: '5', right: '200%', ease: Power4.easeIn},"-=0.2")
-          .to(".ny3", 0.3, {transform: 'rotateY(165deg)', ease: Power2.easeIn})
-          .to(".ny1", 0.3, {transform: 'rotateY(165deg)', ease: Power2.easeIn})
-          .to(".ny2", 0.3, {transform: 'rotateY(165deg)', ease: Power2.easeIn})
-          .to(".ny4", 0.3, {transform: 'rotateY(165deg)', ease: Power2.easeIn})
-          .play();
-      }
-      if( $scope.mobile == 'device' ){
-        new TimelineMax({repeat:0, autoRound:false})
-          .to(".nyDev", 0.5, {opacity: '0', ease: Power0.easeNone})
-          .play();
-      }
-      currentBack = undefined;
-    }
-    function berAnim(){
-      console.log('entra en berlin anim');
-      if( $scope.mobile == 'pc' ) {
-        new TimelineMax({repeat: 0, autoRound: false})
-          .to(".ber1", 1, {transform: 'rotateY(0deg)', ease: Bounce.easeOut})
-          .play();
-      }
-      if( $scope.mobile == 'device' ){
-        new TimelineMax({repeat: 0, autoRound: false})
-          .to(".ber1Dev", 1, {opacity: '0', ease: Bounce.easeOut})
-          .play();
-      }
-      currentBack = 'berlin';
-    }
-    function berAnimOff(){
-      if( $scope.mobile == 'pc' ) {
-        console.log('entra en berlin anim off');
-        new TimelineMax({repeat: 0, autoRound: false})
-          .to(".ber1", 1, {transform: 'rotateY(165deg)', ease: Bounce.easeOut})
-          .play();
-      }
-      if( $scope.mobile == 'device' ){
-        new TimelineMax({repeat: 0, autoRound: false})
-          .to(".ber1Dev", 1, {opacity: '0', ease: Bounce.easeOut})
-          .play();
-      }
-      currentBack = undefined;
-    }
-    function hollyAnim(){
-      console.log('entra en holly');
-      if( $scope.mobile == 'pc' ) {
-        new TimelineMax({repeat: 0, autoRound: false})
-          .to(".holly2", 0.2, {transform: 'rotateX(0deg)', ease: Back.easeOut.config(1)})
-          .to(".holly1", 0.2, {transform: 'rotateX(0deg)', ease: Back.easeOut.config(1)},"-=0.2")
-          .to(".holly3", 0.2, {transform: 'rotateX(0deg)', ease: Back.easeOut.config(1)},"-=0.2")
-          .to(".holly4", 0.2, {transform: 'rotateX(0deg)', ease: Back.easeOut.config(1)},"-=0.2")
-          .to(".holly7", 0.2, {top: '0%', ease: Bounce.easeOut},"-=0.2")
-          .to(".holly6", 0.3, {top: '0%', ease: Power4.easeOut})
-          .to(".holly5", 0.2, {opacity: '1', ease: Power4.easeOut})
-          .play();
-      }
-      if( $scope.mobile == 'device' ){
-        new TimelineMax({repeat: 0, autoRound: false})
-          .to(".holly1Dev", 1, {opacity: '1', ease: Bounce.easeOut})
-          .play();
-      }
-      currentBack = 'holly';
-    }
-    function hollyAnimOff(){
-      console.log('entra en holly off');
-      if( $scope.mobile == 'pc' ) {
-        new TimelineMax({repeat: 0, autoRound: false})
-          .to(".holly2", 0.5, { transform: 'rotateX(165deg)', ease: Back.easeOut.config(1)},"-=0.5")
-          .to(".holly1", 0.5, {transform: 'rotateX(165deg)', ease: Back.easeOut.config(1)},"-=0.3")
-          .to(".holly3", 0.5, {transform: 'rotateX(165deg)', ease: Back.easeOut.config(1)},"-=0.3")
-          .to(".holly4", 0.5, {transform: 'rotateX(165deg)', ease: Back.easeOut.config(1)},"-=0.3")
-          .to(".holly7", 0.5, {top: '150%', ease: Bounce.easeOut},"-=0.3")
-          .to(".holly6", 0.5, {top: '-150%', ease: Power4.easeOut},"carmenCastillo")
-          .to(".holly5", 1, {opacity: '0', ease: Power4.easeOut})
-          .play();
-      }
-      if( $scope.mobile == 'device' ){
-        new TimelineMax({repeat: 0, autoRound: false})
-          .to(".holly1Dev", 1, {opacity: '0', ease: Bounce.easeOut})
-          .play();
-      }
-      currentBack = undefined;
-    }
-
-    function carnAnim(){
-      console.log('entra en carnegie');
-      if( $scope.mobile == 'pc' ) {
-        new TimelineMax({repeat: 0, autoRound: false})
-          .to(".carn2", 4, { opacity: '1', ease: RoughEase.ease.config({ template: Power0.easeNone, strength: 2, points: 20, taper: "none", randomize: true, clamp: false})})
-          .to(".carn1", 2, {opacity: '1', ease: Back.easeOut.config(1)},"-=2")
-          .to(".carn1", 2, {top: '-50%', ease: Power4.easeOut})
-          .to(".carn2", 2, {top: '-50%', ease: Power4.easeOut},"-=2")
-          .to(".carn3", 2, {top: '-50%', ease: Power4.easeOut},"-=2")
-          .to(".carn4", 2, {top: '-50%', ease: Power4.easeOut},"-=2")
-          .to(".carn5", 2, {top: '-50%', ease: Power4.easeOut},"-=2")
-          .to(".carn6", 2, {top: '-50%', ease: Power4.easeOut},"-=2")
-          .play();
-      }
-      if( $scope.mobile == 'device' ){
-        new TimelineMax({repeat: 0, autoRound: false})
-          .to(".carn1Dev", 1, {opacity: '1', ease: Bounce.easeOut})
-          .play();
-      }
-      currentBack = 'carn';
-    }
-    function carnAnimOff(){
-      console.log('entra en carnegie off');
-      if( $scope.mobile == 'pc' ) {
-        new TimelineMax({repeat: 0, autoRound: false})
-          .to(".carn2", 4, { opacity: '0', ease: RoughEase.ease.config({ template: Power0.easeNone, strength: 2, points: 20, taper: "none", randomize: true, clamp: false})})
-          .to(".carn1", 2, { opacity: '0', ease: Back.easeOut.config(1)},"-=2")
-          .to(".carn1", 2, { opacity: '0', ease: Power4.easeOut})
-          .to(".carn2", 2, { opacity: '0', ease: Power4.easeOut},"-=2")
-          .to(".carn3", 2, { opacity: '0', ease: Power4.easeOut},"-=2")
-          .to(".carn4", 2, { opacity: '0', ease: Power4.easeOut},"-=2")
-          .to(".carn5", 2, { opacity: '0', ease: Power4.easeOut},"-=2")
-          .to(".carn6", 2, { opacity: '0', ease: Power4.easeOut},"-=2")
-          .play();
-      }
-      if( $scope.mobile == 'device' ){
-        new TimelineMax({repeat: 0, autoRound: false})
-          .to(".carn1Dev", 1, {opacity: '0', ease: Bounce.easeOut})
-          .play();
-      }
-      currentBack = undefined;
-    }
-    function chiAnim(){
-      console.log('entra en chicago');
-      if( $scope.mobile == 'pc' ) {
-        new TimelineMax({repeat: 0, autoRound: false})
-          .to(".chi4", 0.3, { opacity: '1', ease: Bounce.easeOut })
-          .to(".chi2", 1, { opacity: '1', ease: Power4.easeOut })
-          .to(".chi1", 4, { opacity: '1', ease: Power0.easeNone },"+=1")
-          .to(".chi5", 1, { left: '0', ease: Power4.easeOut })
-          .to(".chi6", 1, { left: '0', ease: Power4.easeOut })
-          .play();
-      }
-      if( $scope.mobile == 'device' ){
-        new TimelineMax({repeat: 0, autoRound: false})
-          .to(".chi1Dev", 1, {opacity: '1', ease: Bounce.easeOut})
-          .play();
-      }
-      currentBack = 'chicago';
-    }
-    function chiAnimOff(){
-      console.log('entra en chicago off');
-      if( $scope.mobile == 'pc' ) {
-        new TimelineMax({repeat: 0, autoRound: false})
-          .to(".chi2", 0.3, {opacity: '0', ease: Back.easeOut.config(1)},"+=0.5")
-          .to(".chi4", 0.3, {opacity: '0', ease: Bounce.easeOut},"+=0.5")
-          .to(".chi5", 1, {left: '150%', ease:Power4.easeOut})
-          .to(".chi6", 1, {left: '-150%', ease: Power4.easeOut})
-          .to(".chi1", 0.3, {opacity: '0', ease: Back.easeOut.config(1)},"-=0.2")
-          .play();
-      }
-      if( $scope.mobile == 'device' ){
-        new TimelineMax({repeat: 0, autoRound: false})
-          .to(".chi1Dev", 1, {opacity: '0', ease: Bounce.easeOut})
-          .play();
-      }
-      currentBack = undefined;
-    }
-    function lasVAnim(){
-      console.log('entra en las vegas');
-      if( $scope.mobile == 'pc' ) {
-        new TimelineMax({repeat: 0, autoRound: false})
-          .to(".lasv1", 0.3, {opacity: '1', ease: Back.easeOut.config(1)})
-          .to(".lasv2", 0.3, {top:'0%', ease: Bounce.easeOut})
-          .to(".lasv3", 0.3, {top:'0%', ease: Bounce.easeOut})
-          .to(".lasv10", 0.3, {top:'0%', ease: Bounce.easeOut})
-          .to(".lasv4", 0.3, {transform: 'rotate(0deg)', ease: Back.easeOut.config(1)})
-          .to(".lasv5", 0.3, {transform: 'rotate(0deg)', ease: Back.easeOut.config(1)})
-          .to(".lasv6", 0.3, {opacity: '1', ease: Back.easeOut.config(1)})
-          .to(".lasv7", 0.3, {opacity: '1', ease: Back.easeOut.config(1)})
-          .to(".lasv8", 0.3, {opacity: '1', ease: Back.easeOut.config(1)})
-          .to(".lasv9", 0.3, {opacity: '1', ease: Back.easeOut.config(1)})
-          .play();
-      }
-      if( $scope.mobile == 'device' ){
-        new TimelineMax({repeat: 0, autoRound: false})
-          .to(".lasv1Dev", 1, {opacity: '1', ease: Bounce.easeOut})
-          .play();
-      }
-      currentBack = 'lasVegas';
-    }
-    function lasVAnimOff(){
-      console.log('entra en las vegas off');
-      if( $scope.mobile == 'pc' ) {
-        new TimelineMax({repeat: 0, autoRound: false})
-          .to(".lasv8", 0.3, {opacity: '0', ease: Back.easeOut.config(1)},"+=1")
-          .to(".lasv9", 0.3, {opacity: '0', ease: Back.easeOut.config(1)})
-          .to(".lasv6", 0.3, {opacity: '0', ease: Back.easeOut.config(1)})
-          .to(".lasv7", 0.3, {opacity: '0', ease: Back.easeOut.config(1)})
-          .to(".lasv5", 0.3, {transform: 'rotate(180deg)', ease: Back.easeOut.config(1)})
-          .to(".lasv4", 0.3, {transform: 'rotate(180deg)', ease: Back.easeOut.config(1)})
-          .to(".lasv10", 0.3, {top:'-150%', ease: Bounce.easeOut})
-          .to(".lasv3", 0.3, {top:'-1500%', ease: Bounce.easeOut})
-          .to(".lasv2", 0.3, {top:'-150%', ease: Bounce.easeOut})
-          .to(".lasv1", 0.3, {opacity: '0', ease: Back.easeOut.config(1)})
-          .play();
-      }
-      if( $scope.mobile == 'device' ){
-        new TimelineMax({repeat: 0, autoRound: false})
-          .to(".lasv1Dev", 1, {opacity: '0', ease: Bounce.easeOut})
-          .play();
-      }
-      currentBack = undefined;
-    }
-    function bcnAnim(){
-      console.log('entra en barcelona');
-      if( $scope.mobile == 'pc' ) {
-        new TimelineMax({repeat: 0, autoRound: false})
-          .to(".blurEffect9",0.1,{ opacity: '1', ease: Power4.easeOut})
-          .to(".barc1", 3, { opacity: '1', ease: Power4.easeIn})
-          .to(".barc4", 0.3, {transform: 'scale(1)', ease: Power2.easeIn})
-          .to(".barc5", 0.3, {transform: 'scale(1)', ease: Power2.easeIn})
-          .to(".barc6", 0.3, {transform: 'scale(1)', ease: Power2.easeIn})
-          .to(".barc7", 0.3, {transform: 'scale(1)', ease: Power2.easeIn})
-          .to(".barc8", 0.3, {transform: 'scale(1)', ease: Power2.easeIn})
-          .to(".barc3", 4, {left: '0%', ease: Power4.easeIn},"-=4")
-          .play();
-      }
-      if( $scope.mobile == 'device' ){
-        new TimelineMax({repeat: 0, autoRound: false})
-          .to(".barc1Dev", 1, {opacity: '1', ease: Bounce.easeOut})
-          .play();
-      }
-      currentBack = 'bcn';
-    }
-    function bcnAnimOff(){
-      console.log('entra en barcelona off');
-      if( $scope.mobile == 'pc' ) {
-        new TimelineMax({repeat: 0, autoRound: false})
-          .to(".blurEffect9",6,{ opacity: '0', ease: Power4.easeOut})
-          .play();
-      }
-      if( $scope.mobile == 'device' ){
-        new TimelineMax({repeat: 0, autoRound: false})
-          .to(".lasv1Dev", 1, {opacity: '0', ease: Bounce.easeOut})
-          .play();
-      }
-      currentBack = undefined;
-    }
     //-------FUNCTIONS --------------------
+    function loadSlideContent(index, direction){
+      //$scope.$apply(function() {
+      //  $scope.imageSlide = $scope.imagesSlideOut;
+      //  $scope.imageSlide[index] = $scope.imagesSlideIn[index];
+      //});
+    };
 
     $scope.upTo = function(value, music, notes) {
-      console.log( 'value y back guardado: ', value, currentBack );
-
-      function checkAnimOff(){
-        if( currentBack == 'inf' ){ edAnimOff();}
-        else if( currentBack == 'cuba' ){ cubaAnimOff();}
-        else if( currentBack == 'ny' ){ newYorkAnimOff();}
-        else if( currentBack == 'holly' ){ hollyAnimOff();}
-        else if( currentBack == 'carn' ){ carnAnimOff();}
-        else if( currentBack == 'bcn' ){ bcnAnimOff();}
-        else if( currentBack == 'berlin' ){ berAnimOff();}
-        else if( currentBack == 'chicago' ){ chiAnimOff();}
-        else if( currentBack == 'lasVegas' ){ lasVAnimOff();}
-      }
-
-      switch (value) {
-        case 'prologo1':
-          if( currentBack != 'cuba' ){
-            checkAnimOff(); cubaAnim();
-          }
-          setTimeout(function () {
-            $scope.$apply(function () {
-              $scope.mobilePage = 1;
-            });
-          }, 2000);
-          break;
-        case 'prologo2':
-          if( currentBack != 'cuba' ){
-            checkAnimOff(); cubaAnim();
-          }
-          setTimeout(function () {
-            $scope.$apply(function () {
-              $scope.mobilePage = 2;
-            });
-          }, 2000);
-          break;
-        case 'prologo2Add':
-          if( currentBack != 'cuba' ){
-            checkAnimOff(); cubaAnim();
-          }
-          setTimeout(function () {
-            $scope.$apply(function () {
-              $scope.mobilePage = 4;
-            });
-          }, 2000);
-          break;
-        case 'prologo3':
-          if( currentBack != 'cuba' ){
-            checkAnimOff(); cubaAnim();
-          }
-          setTimeout(function () {
-            $scope.$apply(function () {
-              $scope.mobilePage = 5;
-            });
-          }, 2000);
-          break;
-        case 'RR1':
-          if( currentBack != 'ny' ){
-            checkAnimOff(); newYorkAnim();
-          }
-          setTimeout(function () {
-            $scope.$apply(function () {
-              $scope.mobilePage = 7;
-            });
-          }, 2000);
-          break;
-        case 'RR2':
-          if( currentBack != 'berlin' ){
-            checkAnimOff(); berAnimOff();
-          }
-          setTimeout(function () {
-            $scope.$apply(function () {
-              $scope.mobilePage = 8;
-            });
-          }, 2000);
-          break;
-        case 'RR3':
-          if( currentBack != 'holly' ){
-            checkAnimOff(); hollyAnimOff();
-          }
-          setTimeout(function () {
-            $scope.$apply(function () {
-              $scope.mobilePage = 9;
-            });
-          }, 2000);
-          break;
-        case 'CC1':
-          if( currentBack != 'carn' ){ checkAnimOff(); carnAnim(); }
-          setTimeout(function () {
-            $scope.$apply(function () {
-              $scope.mobilePage = 13;
-            });
-          }, 2000);
-          break;
-        case 'CC2':
-          if( currentBack != 'carn' ){ checkAnimOff(); carnAnim(); }
-          setTimeout(function () {
-            $scope.$apply(function () {
-              $scope.mobilePage = 14;
-            });
-          }, 2000);
-          break;
-        case 'CC3':
-          if( currentBack != 'carn' ){ checkAnimOff(); carnAnim(); }
-          setTimeout(function () {
-            $scope.$apply(function () {
-              $scope.mobilePage = 15;
-            });
-          }, 2000);
-          break;
-        // case 'CC4':
-        //   if( currentBack != 'carn' ){ checkAnimOff(); carnAnim(); }
-        //   $scope.mobilePage = 19
-        //   break;
-        case 'LA1':
-          if( currentBack != 'chicago' ){ checkAnimOff(); chiAnim(); }
-          setTimeout(function () {
-            $scope.$apply(function () {
-              $scope.mobilePage = 19;
-            });
-          }, 2000);
-          break;
-        case 'LA2':
-          if( currentBack != 'chicago' ){ checkAnimOff(); chiAnim(); }
-          setTimeout(function () {
-            $scope.$apply(function () {
-              $scope.mobilePage = 20;
-            });
-          }, 2000);
-          break;
-        case 'LA3':
-          if( currentBack != 'chicago' ){ checkAnimOff(); chiAnim(); }
-          setTimeout(function () {
-            $scope.$apply(function () {
-              $scope.mobilePage = 21;
-            });
-          }, 2000);
-          break;
-        case 'AL1':
-          if( currentBack != 'lasVegas' ){ checkAnimOff(); lasVAnim(); }
-          setTimeout(function () {
-            $scope.$apply(function () {
-              $scope.mobilePage = 24;
-            });
-          }, 2000);
-          break;
-        case 'AL2':
-          if( currentBack != 'lasVegas' ){ checkAnimOff(); lasVAnim(); }
-          setTimeout(function () {
-            $scope.$apply(function () {
-              $scope.mobilePage = 25;
-            });
-          }, 2000);
-          break;
-        case 'AL3':
-          if( currentBack != 'lasVegas' ){ checkAnimOff(); lasVAnim(); }
-          setTimeout(function () {
-            $scope.$apply(function () {
-              $scope.mobilePage = 26;
-            });
-          }, 2000);
-          break;
-        case 'CB1':
-          if( currentBack != 'lasVegas' ){ checkAnimOff(); lasVAnim(); }
-          setTimeout(function () {
-            $scope.$apply(function () {
-              $scope.mobilePage = 28;
-            });
-          }, 2000);
-          break;
-        case 'CB2':
-          if( currentBack != 'lasVegas' ){ checkAnimOff(); lasVAnim(); }
-          setTimeout(function () {
-            $scope.$apply(function () {
-              $scope.mobilePage = 30;
-            });
-          }, 2000);
-          break;
-        case 'EP1':
-          if( currentBack != 'bcn' ){ checkAnimOff(); bcnAnim(); }
-          setTimeout(function () {
-            $scope.$apply(function () {
-              $scope.mobilePage = 32;
-            });
-          }, 2000);
-          break;
-        case 'EP2':
-          if( currentBack != 'bcn' ){ checkAnimOff(); bcnAnim(); }
-          setTimeout(function () {
-            $scope.$apply(function () {
-              $scope.mobilePage = 33;
-            });
-          }, 2000);
-          break;
-        default:
-          break;
-      }
-
+      console.log(notes);
       if( currentVideoSlidePlaying != undefined ) stopVideoToolTip( currentVideoSlidePlaying.ID, currentVideoSlidePlaying.conto, currentVideoSlidePlaying.playB, currentVideoSlidePlaying.fullS );
+      loadSlideContent(notes, 'jump');
       setStopScroll(false);
       stopNarracion();
       TweenMax.to(".mouseIcon", 0.2, {bottom: '-150px', ease: Power0.easeOut, autoRound:false});
       TweenMax.to(".coverTransitions", 0.1, { scale: 1, ease: Power4.easeOut, autoRound:false });
       TweenMax.to(".coverTransitions", 0.6, { opacity: 1, ease: Power4.easeOut, delay: 0.2, autoRound:false });
       if ($("div.overlay").hasClass("open")) $(".trigger-overlay").click();
-
       setTimeout(function(){
         stopVideo();
         updateTitle(notes);
         setTimeout(function(){
           if( value == 'inicio' || value == 'prologo2' || value == 'prologo2Add' || value == 'prologo3' || value == 'RR2' || value == 'CC3' || value == 'CB1' || value == 'CB2' || value == 'EP2' ) playSound(playListOrder[music]);
-          if( value == 'PLAYLIST' ) { $scope.mobilePage = 0; soundEpilogo.fade(soundVolume,0,2000); };
+          else if( value == 'PLAYLIST' ) { soundEpilogo.fade(soundVolume,0,2000); };
         },1000)
-
         if(!player.paused()) player.pause();
-
         soundNarracion.pause();
         tl.play(value);
-
       },500);
       TweenMax.to(".coverTransitions", 3, {opacity: 0, ease: Power4.easeOut, delay: 3, autoRound:false});
       TweenMax.to(".coverTransitions", 0.1, {scale: 0, ease: Power4.easeOut, delay: 7, autoRound:false});
@@ -1700,44 +1124,18 @@ angular.module('smcApp')
     }
 
     //----------MOUSE CONTROLS --------
-    var scrollControl = true;
-    function blockScroll(){ scrollControl = true; console.log("block"); }
-    function unblockScroll(){ scrollControl = false; console.log("unblock"); }
-
-    function nextSlide(){
-      tl.play();
-      setTimeout(function () {
-        $scope.$apply(function () {
-          $scope.mobilePage +=1;
-        });
-      }, 2000);
-      console.log('(next) mobile page: ', $scope.mobilePage);
-    }
-    function previousSlide(){
-      tl.reverse();
-      setTimeout(function () {
-      $scope.$apply(function () {
-        $scope.mobilePage -=1;
-      });
-      }, 2000);
-      console.log('(previous) mobile page: ', $scope.mobilePage);
-    }
-
     $(window).bind('mousewheel DOMMouseScroll', function(event){
-      if (canScroll() && !scrollControl){ // If overlay layers are opened
-        blockScroll()
+      if (canScroll()){ // If overlay layers are opened
         event.preventDefault();
         if(soundNarracion.volume() > 0) stopNarracion();
         if( currentVideoSlidePlaying != undefined ) stopVideoToolTip( currentVideoSlidePlaying.ID, currentVideoSlidePlaying.conto, currentVideoSlidePlaying.playB, currentVideoSlidePlaying.fullS );
         TweenMax.to('.additional', 0.2, {opacity: 0, scale:0, ease:Back.easeOut, autoRound:false});
         if(event.type != 'mousedown'){
           if (event.originalEvent.wheelDelta > 0 || event.originalEvent.detail < 0) {
-            if( !isMobile && eardAdvice )
-              previousSlide()
+            if( !isMobile && eardAdvice ) tl.reverse();
           }
           else {
-            if( !isMobile && eardAdvice )
-              nextSlide()
+            if( !isMobile && eardAdvice ) tl.play();
           }
         }
       }
@@ -1745,37 +1143,52 @@ angular.module('smcApp')
     //--------TOUCH CONTROLS------
 
     $scope.onSwipeLeft = function(ev) {
-      //if( eardAdvice )
-      nextSlide()
+      if( isMobile && eardAdvice ) tl.play();
+      //if(page < 21) {
+      //  var nextPage = page + 1;
+      //  $("#page"+page).addClass('prevPage');
+      //  $("#page"+nextPage).addClass('nextPage');
+      //  //$("#page"+nextPage).css('display', 'block');
+      //  //setTimeout(function(){ $("#page"+page).css('display', 'none'); $("#page"+nextPage).addClass('nextPage'); },500);
+      //  prepareSlide(nextPage);
+      //  page += 1;
+      //}
+      alert('swipe left');
     };
 
     $scope.onSwipeRight = function(ev) {
-      //if( eardAdvice )
-      previousSlide()
+      if( isMobile && eardAdvice ) tl.reverse();
+      //if(page > 0) {
+      //  var prevPage = page - 1;
+      //  $("#page"+page).removeClass('nextPage');
+      //  $("#page"+prevPage).removeClass('prevPage').addClass('nextPage');
+      //  prepareSlide(prevPage);
+      //  page -= 1;
+      //}
+      alert('swipe right');
     };
 
     //---------- KEYBOARD CONTROLS --------
 
     $(window).bind('keydown', function(event){
-      if (canScroll() && !scrollControl){ // If overlay layers are opened
-        blockScroll()
+      if (canScroll()){ // If overlay layers are opened
         event.preventDefault();
         TweenMax.to('.additional', 0.2, {opacity: 0, scale:0, ease:Back.easeOut, autoRound:false});
         var keyCode = event.keyCode || event.which;
-  			switch (keyCode) {
-  				case 37:
-            if( eardAdvice ) previousSlide();
-  					break;
+        switch (keyCode) {
+          case 37:
+            if( eardAdvice )tl.reverse();
+            break;
           case 38:
-            if( eardAdvice ) previousSlide();
-  					break;
-  				case 39:
-  					if( eardAdvice ) nextSlide();
-  					break;
+            if( eardAdvice )tl.reverse();
+            break;
+          case 39:
+            if( eardAdvice ) tl.play();
+            break;
           case 40:
-  					if( eardAdvice ) nextSlide();
-  					break;
-  			}
+            if( eardAdvice ) tl.play();
+            break;
+        }
       }
     });
 
