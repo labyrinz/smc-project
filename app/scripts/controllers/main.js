@@ -676,24 +676,14 @@ angular.module('smcApp')
         .to("", 0.1, { onStart: updateAnec, onStartParams: [13] })
         .to("", 0.1, { onStart: playSound, onStartParams:[playListOrder[10]]})
         .to(".age3",0.3,{ transform: 'rotateX(90deg)', ease: Bounce.easeOut})
-        .to(".barc1", 3, { opacity: '1', ease: Power4.easeIn})
+        .to(".barc1Dev", 4, { opacity: '1', ease: Power4.easeIn})
         .to("#texto7-barc",2,{ transform: 'scale(1)', opacity: '1', ease: Power4.easeOut},"+=1")
-        .to(".barc4", 0.3, {transform: 'scale(1)', ease: Power2.easeIn})
-        .to(".barc5", 0.3, {transform: 'scale(1)', ease: Power2.easeIn})
-        .to(".barc6", 0.3, {transform: 'scale(1)', ease: Power2.easeIn})
-        .to(".barc7", 0.3, {transform: 'scale(1)', ease: Power2.easeIn})
-        .to(".barc8", 0.3, {transform: 'scale(1)', ease: Power2.easeIn})
-        .to(".barc2", 4, {left: '33%', ease: Power4.easeIn})
-        .to(".barc3", 4, {left: '0%', ease: Power4.easeIn},"-=4")
-        .to(".barc2", 2, {left: '30%', transform: 'scale(0.7)', top: '0%',  ease: Power4.easeIn})
-        .to(".barc2", 4, {left: '0%', transform: 'scale(1)',  ease: Power4.easeIn})
-        .to(".barc2", 4, {opacity: '0',  ease: Power4.easeIn})
         .to(".age4",0.3,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"-=0.3")
         .to("#page19",0.4,{ right: '0%', ease: Power0.easeNone})
-        .to("#texto7-barc",1,{ transform: 'scale(0)', opacity: '0', ease: Power4.easeOut},"+=0.2")
+        .to("#texto7-barc",4,{ transform: 'scale(0)', opacity: '0', ease: Power4.easeOut},"+=3")
         .staggerFrom($("#page19").children(),0.6, animationFromPattern, staggerFromVelocity)
         .to(".cita62",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1")
-        .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['11-narracion-e1', false] }, '+=1')
+        .to("", 2, { onComplete: playNarracion, onCompleteParams: ['11-narracion-e1', false] })
         .addPause()
         .to("", 0.1, { onComplete: stopNarracion })
         .staggerTo($("#page19").children(),0.6, animationToPattern, staggerToVelocity)
@@ -706,27 +696,23 @@ angular.module('smcApp')
         .to("", 0.1, { onStart: updateAnec, onStartParams: [16] })
         .to("#page20",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
         .staggerFrom($("#page20").children(),0.6, animationFromPattern, staggerFromVelocity)
-        .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['12-narracion-e2', true] }, '+=1')
-        .to(".textoFin",2,{  transform: 'scale(1)', opacity: '1', ease: Power4.easeOut},"+=2")
+        .to("", 2, { onComplete: playNarracion, onCompleteParams: ['12-narracion-e2', false] })
+        .to(".textoFin",2,{  transform: 'scale(1)', opacity: '1', ease: Power4.easeOut})
         .to(".textoFin",2,{ top: '0', ease: Power4.easeOut},"+=2")
         .to(".ep15",2,{ opacity: '1', ease: Power4.easeOut},"-=3")
         .to(".lastButtons",3,{ opacity: '1', ease: Power4.easeOut},"-=3")
         .to(".blurEffect9",6,{ opacity: '0', ease: Power4.easeOut},"-=6")
         .to(".age4",3,{ opacity: '0', ease: Power4.easeOut},"-=6")
-        .to("", 5, { onStart:function(){soundEpilogo.fade(soundVolume,0,60000)} })
-        .to("", 5, { onReverseComplete: function(){soundEpilogo.fade(0,soundVolume,3000)} })
-        //.to(".chihuahua",0.3,{ transform: 'rotateX(90deg)',  ease: Bounce.easeOut})
-        //.to(".mouseIcon", 0.5, {bottom: '100px', ease: Bounce.easeOut, onComplete: updateScrollBttn}, '+=1')
+        .to("", 2, { onComplete:function(){ soundEpilogo.fade( boolsound ,0 ,60000); }})
+        .to("", 5, { onReverseComplete: function(){ soundEpilogo.fade( 0,boolsound,3000); } })
         .addPause()
-        .to("", 0.1, { onComplete: stopNarracion })
-        //.to(".mouseIcon", 0.2, {bottom: '-150px', ease: Power0.easeOut})
+        .to("", 0.1, { onComplete:function(){ soundEpilogo.fade( soundEpilogo.volume(),0,2000); }})
         .staggerTo($("#page20").children(),0.6, animationToPattern, staggerToVelocity)
         .to(".textoFin",0.4,{  transform: 'scale(0)', opacity: '0', ease: Power4.easeOut},"+=2")
         .to("#page20",0.4,{ right: '100%', ease: Power0.easeNone})
         .to("", 0.1, { onReverseComplete: updateTitle, onReverseCompleteParams: [20] })
         //EXTRA
         .add("PLAYLIST")
-        .to("", 0.1, { onComplete: stopNarracion })
         .to("", 0.1, { onStart: updateTitle, onStartParams: [21] })
         .to("",0.1, { onStart: setVideoPlaylist, onStartParams: [] })
         .to(".chihuahua",0.3,{ transform: 'rotateX(90deg)',  ease: Bounce.easeOut})
@@ -764,7 +750,6 @@ angular.module('smcApp')
           else if( value == 'PLAYLIST' ) { soundEpilogo.fade(soundVolume,0,2000); };
         },1000)
         if(!player.paused()) player.pause();
-        soundNarracion.pause();
         tl.play(value);
       },500);
       TweenMax.to(".coverTransitions", 3, {opacity: 0, ease: Power4.easeOut, delay: 3, autoRound:false});
@@ -772,7 +757,6 @@ angular.module('smcApp')
     };
 
     $scope.prevFoto = function(id,value){
-      console.log('videoCardToogleSound', videoCardToogleSound);
       document.querySelector('#slideVideoAB2').pause();
       document.querySelector('#slideVideoAbbe').pause();
       document.querySelector('#slideVideoAbbe2').pause();
@@ -784,7 +768,6 @@ angular.module('smcApp')
     };
 
     $scope.nextFoto = function(id, value){
-      console.log('videoCardToogleSound', videoCardToogleSound);
       $('.slideimg'+id).removeClass("videoSlideResizeOut videoSlideResize");
       if(value==undefined) var desp = '110%';
       else var desp = value;
@@ -890,8 +873,8 @@ angular.module('smcApp')
       if( !player.paused() ) player.pause();
       if( $("#"+id).get(0).paused ) {
         videoCardToogleSound = 0;
-        if(boolsound == soundVolume && soundEpilogo.volume() > 0 ) soundEpilogo.fade(soundVolume,0.01,2000);
-        if(boolsound == soundVolume && soundNarracion.volume() > 0 ) soundNarracion.fade(soundVolume,0.01,2000);
+        if(boolsound == soundVolume && soundEpilogo.volume() > 0 ) soundEpilogo.fade(soundVolume, 0 ,1000);
+        if(boolsound == soundVolume && progress != undefined ) soundNarracion.fade(soundVolume ,0 ,1000);
         if( id=='slideVideoAB2' || id=='slideVideoCC2' ) {
           $('#'+container).addClass('tooltipVideoFixed');
         }
@@ -900,7 +883,8 @@ angular.module('smcApp')
         TweenMax.set($('#'+fullScreenButton), {opacity: 1});
       }
       else {
-        if(boolsound == soundVolume && soundEpilogo.volume() > 0 ) soundEpilogo.fade(0.01,soundVolume,2000);
+        if(boolsound == soundVolume && soundEpilogo.volume() > 0 && progress == undefined) soundEpilogo.fade(0,soundVolume,1000);
+        if( progress != undefined ) soundNarracion.fade(0, soundVolume + 0.3, 1000);
         videoCardToogleSound = 1;
         $("#"+id).get(0).pause();
         TweenMax.set($('#'+playButton), {opacity: 1});
@@ -918,7 +902,7 @@ angular.module('smcApp')
     function stopVideoToolTip(id, container, playButton, fullScreenButton){
       if( currentVideoSlidePlaying != undefined ) $("#"+currentVideoSlidePlaying.ID).get(0).pause();
       $('#'+container).removeClass("videoSlideResizeOut videoSlideResize tooltipVideoFixed");
-      if( !player.paused() ) player.pause();
+      if( player.paused() ) player.play();
       videoCardToogleSound = 1;
       if(boolsound == soundVolume && soundEpilogo.volume() > 0 ) soundEpilogo.fade(0.01, soundVolume,2000);
       if(boolsound == soundVolume && soundNarracion.volume() > 0 ) soundNarracion.fade(0.01, soundVolume,2000);
@@ -1014,7 +998,7 @@ angular.module('smcApp')
     function playNarracion(url, continueBefore){
       console.log('narracion enter');
       var locContainer = $("#loc");
-      soundEpilogo.volume(0.005);
+      soundEpilogo.fade(soundVolume,0.01,1000);
       setTimeout(function(){
         soundNarracion.stop();
         soundNarracion.unload();
@@ -1025,7 +1009,6 @@ angular.module('smcApp')
           loop: false,
           volume: 0,
           onload: function() {
-            console.log(this._duration);
             locContainer.removeClass("inactive");
             locContainer.addClass("comment-anim");
             progress = new ProgressBar.Circle("#loc", {
@@ -1044,13 +1027,14 @@ angular.module('smcApp')
             locContainer.removeClass("comment-anim");
             try{
               progress.destroy();
+              soundNarracion.unload();
             } catch (err){}
-            soundNarracion.volume(0);
-            if( player.paused() && videoCardToogleSound == 1 && boolsound == soundVolume && !continueBefore ) soundEpilogo.fade(0.005,soundVolume,1000);
+            soundNarracion.fade(soundNarracion.volume(),0,1000);
+            if( player.paused() && videoCardToogleSound == 1 && boolsound == soundVolume && !continueBefore ) { console.log('sube musica de fondo'); soundEpilogo.fade(0.01,soundVolume,1000); }
           }
         });
         soundNarracion.play();
-        if(boolsound == soundVolume && videoCardToogleSound == 1){ soundNarracion.fade( 0, soundVolume + 0.3, 1000 ); }
+        if(player.paused() && boolsound == soundVolume && videoCardToogleSound == 1){ soundNarracion.fade( 0, soundVolume + 0.3, 1000 ); }
       }, 500)
     }
     function stopNarracion(){
@@ -1063,7 +1047,7 @@ angular.module('smcApp')
           soundNarracion.stop();
           soundNarracion.unload();
         } catch (err){}
-        if( player.paused() && videoCardToogleSound == 1 && boolsound == soundVolume ) soundEpilogo.fade(0.05,soundVolume,1000);
+        if( player.paused() && videoCardToogleSound == 1 && boolsound == soundVolume ) soundEpilogo.fade(0.01,soundVolume,1000);
       } catch (Err){
           console.log(Err)
       }
@@ -1133,7 +1117,6 @@ angular.module('smcApp')
     $(window).bind('mousewheel DOMMouseScroll', function(event){
       if (canScroll()){ // If overlay layers are opened
         event.preventDefault();
-        if(soundNarracion.volume() > 0) stopNarracion();
         if( currentVideoSlidePlaying != undefined ) stopVideoToolTip( currentVideoSlidePlaying.ID, currentVideoSlidePlaying.conto, currentVideoSlidePlaying.playB, currentVideoSlidePlaying.fullS );
         TweenMax.to('.additional', 0.2, {opacity: 0, scale:0, ease:Back.easeOut, autoRound:false});
         if(event.type != 'mousedown'){
@@ -1150,28 +1133,10 @@ angular.module('smcApp')
 
     $scope.onSwipeLeft = function(ev) {
       if( isMobile && eardAdvice ) tl.play();
-      //if(page < 21) {
-      //  var nextPage = page + 1;
-      //  $("#page"+page).addClass('prevPage');
-      //  $("#page"+nextPage).addClass('nextPage');
-      //  //$("#page"+nextPage).css('display', 'block');
-      //  //setTimeout(function(){ $("#page"+page).css('display', 'none'); $("#page"+nextPage).addClass('nextPage'); },500);
-      //  prepareSlide(nextPage);
-      //  page += 1;
-      //}
-      alert('swipe left');
     };
 
     $scope.onSwipeRight = function(ev) {
       if( isMobile && eardAdvice ) tl.reverse();
-      //if(page > 0) {
-      //  var prevPage = page - 1;
-      //  $("#page"+page).removeClass('nextPage');
-      //  $("#page"+prevPage).removeClass('prevPage').addClass('nextPage');
-      //  prepareSlide(prevPage);
-      //  page -= 1;
-      //}
-      alert('swipe right');
     };
 
     //---------- KEYBOARD CONTROLS --------
