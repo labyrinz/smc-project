@@ -6,7 +6,7 @@ var config = {
     videos: 'http://origin-proyectos-lab-externos.rtve.es/webdocs/xavier-cugat/videos/'
   },
   local: {
-    videos: 'https://smc-interactive.github.io/videos/'
+    videos: location.pathname+'videos/'
   },
   doc: {
     link: 0, // 0 = off, 1 = on
