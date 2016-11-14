@@ -1624,7 +1624,7 @@ angular.module('smcApp')
     }
 
     //----------MOUSE CONTROLS --------
-    var scrollControl = false;
+    var scrollControl = true;
     function blockScroll(){ scrollControl = true; console.log("block"); }
     function unblockScroll(){ scrollControl = false; console.log("unblock"); }
 
