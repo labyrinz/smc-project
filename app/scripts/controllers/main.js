@@ -26,7 +26,7 @@ angular.module('smcApp')
     var introWordsName = $(".introLettersName");
     var player = videojs('GeneralVideo');
     var playlistPlayer = videojs('video');
-    var eardAdvice = false;
+    var eardAdvice = true;
     var currentSlideActive = 0;
 
     $("#slideVideoAbbe2").prop("volume", 0.1);
@@ -209,8 +209,8 @@ angular.module('smcApp')
         .staggerFrom(introWords, 0.6, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.2]}, ease: Back.easeOut.config(0.8)}, 0.1)
         .staggerFrom(introWordsSubtitle, 0.6, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.2]}, ease: Back.easeOut.config(0.8)}, 0.1)
         .staggerFrom(introWordsName, 0.6, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.2]}, ease: Back.easeOut.config(0.8)}, 0.1)
-        .to(".mouseIcon", 0.5, {bottom: '100px', ease: Bounce.easeOut, onComplete: updateScrollBttn})
-        .to(".keyboardIcon", 0.5, {bottom: '90px', ease: Bounce.easeIn})
+        .to(".mouseIcon", 0.5, {bottom: '140px', ease: Bounce.easeOut, onComplete: updateScrollBttn})
+        .to(".keyboardIcon", 0.5, {bottom: '110px', ease: Bounce.easeIn})
         .addPause()
         .to(".keyboardIcon", 0.2, {bottom: '-150px', ease: Bounce.easeIn})
         .to(".mouseIcon", 0.2, {bottom: '-150px', ease: Power0.easeOut})
@@ -734,7 +734,8 @@ angular.module('smcApp')
         .staggerFrom($("#page21").children(),0.6, animationFromPattern, staggerFromVelocity)
         .addPause();
 
-      tl.pause();
+      //tl.pause();
+      tl.play()
     //}
 
     //-------FUNCTIONS --------------------
@@ -1345,7 +1346,7 @@ angular.module('smcApp')
         src: 'http://mvod.lvlt.rtve.es/resources/TE_NGVA/mp4/7/5/1411576524757.mp4',
         type: 'video/mp4'
       }],
-      poster: 'images/king-of-rumba.jpg',
+      //poster: 'images/king-of-rumba.jpg',
       thumbnail: [
         {
           srcset: 'images/thumb/1411576524757.jpg',
@@ -1357,13 +1358,85 @@ angular.module('smcApp')
         }
       ],
       duration: 141
+      },{
+      name: 'Xavier Cugat pasea por la plaza D´Oli (Barcelona), el lugar donde nació',
+      sources: [{
+        src: ""+config.local.videos+'cugat.mp4',
+        type: 'video/mp4'
+      }],
+      //poster: 'images/king-of-rumba.jpg',
+      thumbnail: [
+        {
+          srcset: 'images/thumb/cugat.jpg',
+          type: 'image/jpeg',
+          media: '(min-width: 350px;)'
+        },
+        {
+          src: 'images/thumb/cugat.jpg'
+        }
+      ],
+      duration: 320
+      }, {
+      name: 'Entrevista desde el hospital a Xavier Cugat',
+      sources: [{
+        src: ""+config.local.videos+'cugat2bata.mp4',
+        type: 'video/mp4'
+      }],
+      //poster: 'images/king-of-rumba.jpg',
+      thumbnail: [
+        {
+          srcset: 'images/thumb/cugat2bata.jpg',
+          type: 'image/jpeg',
+          media: '(min-width: 350px;)'
+        },
+        {
+          src: 'images/thumb/cugat2bata.jpg'
+        }
+      ],
+      duration: 398
+      }, {
+      name: 'Entrevista a Xavier Cugat en el Hotel Ritz',
+      sources: [{
+        src: ""+config.local.videos+'cugatCuadros.mp4',
+        type: 'video/mp4'
+      }],
+      //poster: 'images/king-of-rumba.jpg',
+      thumbnail: [
+        {
+          srcset: 'images/thumb/cugatCuadros.jpg',
+          type: 'image/jpeg',
+          media: '(min-width: 350px;)'
+        },
+        {
+          src: 'images/thumb/cugatCuadros.jpg'
+        }
+      ],
+      duration: 232
+      }, {
+      name: 'Xavier Cugat cumple 80 años',
+      sources: [{
+        src: ""+config.local.videos+'cugatNodo.mp4',
+        type: 'video/mp4'
+      }],
+      //poster: 'images/king-of-rumba.jpg',
+      thumbnail: [
+        {
+          srcset: 'images/thumb/cugatNodo.jpg',
+          type: 'image/jpeg',
+          media: '(min-width: 350px;)'
+        },
+        {
+          src: 'images/thumb/cugatNodo.jpg'
+        }
+      ],
+      duration: 154
       }, {
       name: 'Programa de entretenimiento en el que el público realiza preguntas variadas a Xavier Cugat (1972).',
       sources: [{
         src: 'http://mvod.lvlt.rtve.es/resources/TE_NGVA/mp4/1/7/1466589118771.mp4',
         type: 'video/mp4'
       }],
-      poster: 'images/king-of-rumba.jpg',
+      //poster: 'images/king-of-rumba.jpg',
       thumbnail: [
         {
           srcset: 'images/thumb/1466589118771.jpg',
@@ -1381,7 +1454,7 @@ angular.module('smcApp')
         src: 'http://mvod.lvlt.rtve.es/resources/TE_NGVA/mp4/9/4/1467728998149.mp4',
         type: 'video/mp4'
       }],
-      poster: 'images/king-of-rumba.jpg',
+      //poster: 'images/king-of-rumba.jpg',
       thumbnail: [
         {
           srcset: 'images/thumb/1467728998149.jpg',
@@ -1399,7 +1472,7 @@ angular.module('smcApp')
         src: 'http://mvod.lvlt.rtve.es/resources/TE_NGVA/mp4/2/9/1466417568692.mp4',
         type: 'video/mp4'
       }],
-      poster: 'images/king-of-rumba.jpg',
+      //poster: 'images/king-of-rumba.jpg',
       thumbnail: [
         {
           srcset: 'images/thumb/1466417568692.jpg',
@@ -1417,7 +1490,7 @@ angular.module('smcApp')
         src: 'http://mvod.lvlt.rtve.es/resources/TE_NGVA/mp4/8/2/1466417752028.mp4',
         type: 'video/mp4'
       }],
-      poster: 'images/king-of-rumba.jpg',
+      //poster: 'images/king-of-rumba.jpg',
       thumbnail: [
         {
           srcset: 'images/thumb/1466417752028.jpg',
@@ -1429,79 +1502,7 @@ angular.module('smcApp')
         }
       ],
       duration: 2489
-      }, {
-      name: 'Xavier Cugat pasea por la plaza D´Oli (Barcelona), el lugar donde nació',
-      sources: [{
-        src: config.local.videos+'cugat.mp4',
-        type: 'video/mp4'
-      }],
-      poster: 'images/king-of-rumba.jpg',
-      thumbnail: [
-        {
-          srcset: 'images/thumb/cugat.jpg',
-          type: 'image/jpeg',
-          media: '(min-width: 350px;)'
-        },
-        {
-          src: 'images/thumb/cugat.jpg'
-        }
-      ],
-      duration: 320
-      }, {
-      name: 'Entrevista desde el hospital a Xavier Cugat',
-      sources: [{
-        src: config.local.videos+'cugat2bata.mp4',
-        type: 'video/mp4'
-      }],
-      poster: 'images/king-of-rumba.jpg',
-      thumbnail: [
-        {
-          srcset: 'images/thumb/cugat2bata.jpg',
-          type: 'image/jpeg',
-          media: '(min-width: 350px;)'
-        },
-        {
-          src: 'images/thumb/cugat2bata.jpg'
-        }
-      ],
-      duration: 398
-      }, {
-      name: 'Entrevista a Xavier Cugat en el Hotel Ritz',
-      sources: [{
-        src: config.local.videos+'cugatCuadros.mp4',
-        type: 'video/mp4'
-      }],
-      poster: 'images/king-of-rumba.jpg',
-      thumbnail: [
-        {
-          srcset: 'images/thumb/cugatCuadros.jpg',
-          type: 'image/jpeg',
-          media: '(min-width: 350px;)'
-        },
-        {
-          src: 'images/thumb/cugatCuadros.jpg'
-        }
-      ],
-      duration: 232
-      }, {
-      name: 'Xavier Cugat cumple 80 años',
-      sources: [{
-        src: config.local.videos+'cugatNodo.mp4',
-        type: 'video/mp4'
-      }],
-      poster: 'images/king-of-rumba.jpg',
-      thumbnail: [
-        {
-          srcset: 'images/thumb/cugatNodo.jpg',
-          type: 'image/jpeg',
-          media: '(min-width: 350px;)'
-        },
-        {
-          src: 'images/thumb/cugatNodo.jpg'
-        }
-      ],
-      duration: 154
-    }]);
+      }]);
       playlistPlayer.playlist.autoadvance(0);
 
   });

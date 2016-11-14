@@ -118,7 +118,7 @@ var languajeSP = {
  //'instructionLastVideos': "Haz scroll para descubrir más vídeos sobre Xavier Cugat del fondo documental de RTVE",
  'instructionLastVideos': "Descubre más vídeos sobre Cugat",
  'instructionInfo': "Haz clic aquí para conocer más detalles sobre un momento en particular de la vida de Cugat",
- 'instructionKeyboard': "o utiliza las flechas del teclado",
+ 'instructionKeyboard': "Utiliza el ratón o las flechas de cursor para navegar",//"o utiliza las flechas del teclado",
  'mobileDisclaimer': "Lo sentimos, este documental interactivo no está diseñado para dispositivos móviles. Disfruta mejor del univeso de Xavier Cugat desde tu ordenador o tablet. ¡Te esperamos!",
  'texto11': "Xavier Cugat nace en Girona el 1 de enero de 1900.",
  'text1': "Entre 1915 y 1918  lidera su primera formación musical y empieza su periplo amoroso con su primera mujer: RITA MONTANER",

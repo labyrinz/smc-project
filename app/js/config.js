@@ -6,7 +6,7 @@ var config = {
     videos: 'http://origin-proyectos-lab-externos.rtve.es/webdocs/xavier-cugat/videos/'
   },
   local: {
-    videos: location.pathname+'videos/'
+    videos: window.location.href.replace(window.location.hash, "")+"videos/"
   },
   doc: {
     link: 0, // 0 = off, 1 = on
