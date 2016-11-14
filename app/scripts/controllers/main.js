@@ -69,7 +69,7 @@ angular.module('smcApp')
     var progress;
     var currentBack = 'inf';
     $scope.mobileBack = 0;
-    $scope.mobilePage = -1;
+    $scope.mobilePage = 2;
 
     // Mobile features
     var isMobile = false;
@@ -1196,25 +1196,6 @@ angular.module('smcApp')
         TweenMax.to(target, 0.3, {opacity: 0, scale:0, autoRound:false, ease:Back.easeOut});
       }
     };
-    $scope.openLanguaje = function(){
-      console.log(languajeOpen);
-      if(!languajeOpen) { languajeOpen = true; TweenMax.staggerTo(".lang", 0.3, { opacity: 1, scale:1, autoRound:false, ease: Back.easeOut.config(0.8)}, 0.1); console.log('entra en false', languajeOpen ); }
-      else { TweenMax.staggerTo(".lang", 0.3, { opacity: 0, scale:0, autoRound:false, ease: Back.easeOut.config(0.8)}, 0.1); languajeOpen = false; console.log('entra en true', languajeOpen ); }
-
-    }
-    $scope.changeLenguaje = function(val){
-      switch (val) {
-        case (val == 'CT'): var languajeSelected = languajeCT; break;
-        case (val == 'SP'): var languajeSelected = languajeSP; break;
-        case (val == 'ENG'): var languajeSelected = languajeENG; break;
-        default: var languajeSelected = languajeCT;
-      }
-      $scope.CatText = languajeSelected.CatText;
-      $scope.photoText = languajeSelected.photoText;
-      $scope.tooltipText = languajeSelected.tooltipText;
-      $scope.generalText = languajeSelected.text;
-      $scope.menuText = languajeSelected.menu;
-    };
 
     $(document).on('click','.plusInfoCita', function(){
       var numTexto = $(this).attr('value');
@@ -1551,16 +1532,28 @@ angular.module('smcApp')
         TweenMax.to('.additional', 0.2, {opacity: 0, scale:0, ease:Back.easeOut, autoRound:false});
         if(event.type != 'mousedown'){
           if (event.originalEvent.wheelDelta > 0 || event.originalEvent.detail < 0) {
-            if( !isMobile && eardAdvice ) tl.reverse();
-            console.log("Llevaríamos mobileBack: "+ (--counterTest) );
-            $scope.mobilePage = counterTest;
-            console.log('mobile page: ', $scope.mobilePage);
+            if( !isMobile && eardAdvice ) {
+              tl.reverse();
+              console.log("Llevaríamos mobileBack: "+ (--counterTest) );
+              $scope.mobilePage = counterTest;
+              //if( $scope.mobilePage > 0 &&  $scope.mobilePage < 3 ) $scope.$scope.mobileBack = 1;
+              //if( $scope.mobilePage > 2 && $scope.mobilePage < 5 ) $scope.$scope.mobileBack = 2;
+              //if( $scope.mobilePage == 5 ) $scope.$scope.mobileBack = 3;
+              //if( $scope.mobilePage == 6 ) $scope.$scope.mobileBack = 4;
+              //if( $scope.mobilePage > 6 && $scope.mobilePage < 11 ) $scope.$scope.mobileBack = 5;
+              //if( $scope.mobilePage > 10 && $scope.mobilePage < 14 ) $scope.$scope.mobileBack = 6;
+              //if( $scope.mobilePage > 13 && $scope.mobilePage < 19 ) $scope.$scope.mobileBack = 7;
+              //if( $scope.mobilePage > 18 ) $scope.$scope.mobileBack = 8;
+              console.log('mobile page: ', $scope.mobilePage);
+            }
           }
           else {
-            if( !isMobile && eardAdvice ) tl.play();
-            console.log("Llevaríamos mobileBack: "+ (++counterTest) );
-            $scope.mobilePage = counterTest;
-            console.log('mobile page: ', $scope.mobilePage);
+            if( !isMobile && eardAdvice ) {
+              //console.log("Llevaríamos mobileBack: "+ (++counterTest) );
+              tl.play();
+              $scope.mobilePage += 1;
+              console.log('mobile page: ', $scope.mobilePage);
+            }
           }
         }
       }
