@@ -439,7 +439,7 @@ angular.module('smcApp')
         .to(".age2",0.3,{ transform: 'rotateX(90deg)', ease: Bounce.easeOut})
         .to("", 0.1, { onStart: videoPlay, onStartParams: ['resume', true, 'introCC.mp4', 'resumeVideoBox', 'resumeVideoBoxEnter',false,"local"]})
         .to("", 0.1, { onReverseComplete: stopVideo })
-        .to("", 2, { onComplete: playSound, onCompleteParams: [playListOrder[3]] }, "+=2")
+        .to("", 0.1, { onComplete: playSound, onCompleteParams: [playListOrder[3]] }, "+=1")
 
               .to("",0.1,{ onComplete: unblockScroll })
               .addPause()
@@ -709,7 +709,7 @@ angular.module('smcApp')
                 .to("",0.1,{ onReverseComplete: unblockScroll })
 
         .to("", 0.1, { onStart: stopVideo })
-        .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['10-narracion-cb2', false] }, '+=1')
+        .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['10-narracion-cb2', false] }, '+=2')
         .to(".mouseIcon", 0.5, {bottom: '100px', ease: Bounce.easeOut, onComplete: updateScrollBttn}, '+=1')
 
                 .to("",0.1,{ onComplete: unblockScroll })
@@ -1463,7 +1463,7 @@ angular.module('smcApp')
        player.on("ended", function(){
          console.log('video ended');
          if(continueBeforeStop == true && eardAdvice ){ nextSlide() }
-         if(boolsound == soundVolume && !changeAudio){ soundEpilogo.fade(0,soundVolume,2000); }
+         if(boolsound == soundVolume && !changeAudio && soundNarracion.volume() == 0 ){ soundEpilogo.fade(0,soundVolume,2000); }
          fullScreenVideoStatus = false;
        })
      } catch (err){
