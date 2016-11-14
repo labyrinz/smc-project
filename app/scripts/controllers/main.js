@@ -286,10 +286,10 @@ angular.module('smcApp')
         .to("", 0.1, { onStart: updateTitle, onStartParams: [2] })
         .to("#page3",0.4,{ right: '0%', ease: Power0.easeNone})
         .to(".chihuahua",0.3,{ transform: 'rotateX(90deg)',  ease: Bounce.easeOut})
+        .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['02-narracion-p2', false] })
         .to(".age1",0.3,{ transform: 'rotateX(90deg)', ease: Bounce.easeOut})
         .to(".age2",0.3,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"-=0.3")
         .staggerFrom($("#page3").children(),0.6, animationFromPattern, staggerFromVelocity)
-        .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['02-narracion-p2', false] })
         .addPause()
         .to("", 0.1, { onComplete: stopNarracion })
         .to("", 0.1, { onStart: stopVideoToolTip, onStartParams: ['slideVideoHavana', 'slideVideoContainerHavana', 'playButtonHavana', '' ] })
@@ -310,9 +310,9 @@ angular.module('smcApp')
         .to(".ny6", 0.8, { scale: '1', right: '0', ease: Power4.easeOut},"-=0.2")
         .to(".ny7", 0.8, { scale: '1', right: '0', ease: Power4.easeOut},"-=0.2")
         .to("#page4",0.4,{ right: '0%', ease: Power0.easeNone},"-=0.4")
+        .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['03-narracion-p3', false] })
         .staggerFrom($("#page4").children(),0.6, animationFromPattern, staggerFromVelocity)
         .to(".cita12",1,{  transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1")
-        .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['03-narracion-p3', false] })
         //.to("", 0.1, { onReverseComplete: stopVideo })
         .addPause()
         .to("", 0.1, { onComplete: stopNarracion })
@@ -433,8 +433,8 @@ angular.module('smcApp')
         .to(".carn4", 2, {top: '-50%', ease: Power4.easeOut},"-=2")
         .to(".carn5", 2, {top: '-50%', ease: Power4.easeOut},"-=2")
         .to(".carn6", 2, {top: '-50%', ease: Power4.easeOut},"-=2")
-        .to(".cita100",1,{ scale:'1',transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=0.5")
         .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['05-narracion-cc1', false] })
+        .to(".cita100",1,{ scale:'1',transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=0.5")
         .to(".mouseIcon", 0.5, {bottom: '100px', ease: Bounce.easeOut, onComplete: updateScrollBttn}, '+=1')
         .addPause()
         .to("", 0.1, { onComplete: stopNarracion })
@@ -478,7 +478,7 @@ angular.module('smcApp')
         .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['videoCloud',true,'cc3clip1ESP.mp4', 'videoCloud2', 'videoCloudInside', true, "local"] })
         .to("", 0.1, { onStart: stopVideo })
         .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['06-narracion-cc3', false] },'+=1')
-        .to(".mouseIcon", 0.5, {bottom: '100px', ease: Bounce.easeOut, onComplete: updateScrollBttn}, '+=1')
+        .to(".mouseIcon", 0.5, {bottom: '100px', ease: Bounce.easeOut, onComplete: updateScrollBttn}, '+=2')
         .addPause()
         .to("", 0.1, { onComplete: stopNarracion })
         .to(".mouseIcon", 0.2, {bottom: '-150px', ease: Power0.easeOut})
@@ -520,9 +520,9 @@ angular.module('smcApp')
         .to("", 0.1, { onComplete: playSound, onCompleteParams: [playListOrder[5]] })
         .to("#page12",0.4,{ right: '0%', ease: Power0.easeNone})
         .to(".blurEffect7",0.2,{ filter: 'blur(8px)',webkitFilter: 'blur(8px)', ease: Power0.easeNone},"+=1")
-        .staggerFrom($("#page12").children(),0.6, animationFromPattern, staggerToVelocity)
-        .to(".cita42",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1")
         .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['07-narracion-la2', false] })
+        .staggerFrom($("#page12").children(),0.6, animationFromPattern, staggerToVelocity)
+        .to(".cita42",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1.5")
         .addPause()
         .to("", 0.1, { onComplete: stopNarracion })
         .to("", 0.1, { onStart: stopVideoToolTip, onStartParams: ['slideVideoLorraine', 'slideVideoContainerLorraine', 'playButtonLorraine', 'fullScreenButtonLorraine' ] })
@@ -571,9 +571,9 @@ angular.module('smcApp')
         .addPause()
         .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams:['resume', true, 'introAL.mp4', 'resumeVideoBox', 'resumeVideoBoxEnter',false,"local"]})
         .to("", 0.1, { onStart: stopVideo })
-        .staggerFrom($("#page14").children(),0.6, animationFromPattern, staggerFromVelocity)
-        .to(".cita51",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=0.5")
         .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['08-narracion-al1', false] })
+        .staggerFrom($("#page14").children(),0.6, animationFromPattern, staggerFromVelocity)
+        .to(".cita51",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1.5")
         .addPause()
         .to("", 0.1, { onComplete: stopNarracion })
         .to("", 0.1, { onStart: stopVideoToolTip, onStartParams: ['slideVideoAbbe', 'slideVideoContainerAbbe', 'playButtonAbbe', 'fullScreenButtonAbbe' ,"tve"] })
@@ -583,8 +583,7 @@ angular.module('smcApp')
         .to("", 0.1, { onReverseComplete: playSound, onReverseCompleteParams: [playListOrder[7]] })
         .to("", 0.1, { onReverseComplete: updateTitle, onReverseCompleteParams: [14] })
         //EPISODE 16
-        .add("Al2")
-        .to("", 2, { onComplete: loadSlideContent, onCompleteParams: [11, 'play'] })
+        .add("AL2")
         .to("", 0.1, { onStart: playSound, onStartParams:[playListOrder[8]]})
         .to(".chihuahua",0.3,{ transform: 'rotateX(0deg)',  ease: Bounce.easeOut})
         .to("", 0.1, { onStart: updateTitle, onStartParams: [15] })
@@ -609,9 +608,9 @@ angular.module('smcApp')
         .to("", 0.1, { onStart: updateAnec, onStartParams: [11] })
         .to("", 0.1, { onStart: playSound, onStartParams:[playListOrder[9]]})
         .to("#page16",0.4,{ right: '0%', ease: Power0.easeNone})
-        .staggerFrom($("#page16").children(),0.6, animationFromPattern, staggerFromVelocity)
-        .to(".cita56",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1")
         .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['09-narracion-al3', false] })
+        .staggerFrom($("#page16").children(),0.6, animationFromPattern, staggerFromVelocity)
+        .to(".cita56",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1.5")
         .addPause()
         .to("", 0.1, { onComplete: stopNarracion })
         .staggerTo($("#page16").children(),0.6, animationToPattern, staggerToVelocity)
@@ -649,7 +648,7 @@ angular.module('smcApp')
         .addPause()
         .to("", 0.1, { onStart: stopVideo })
         .to("", 2, { onComplete: playNarracion, onCompleteParams: ['10-narracion-cb2', false] },"+=1")
-        .to(".mouseIcon", 0.5, {bottom: '100px', ease: Bounce.easeOut, onComplete: updateScrollBttn}, '+=1')
+        .to(".mouseIcon", 0.5, {bottom: '100px', ease: Bounce.easeOut, onComplete: updateScrollBttn}, '+=1.5')
         .addPause()
         .to("", 0.1, { onComplete: stopNarracion })
         .to(".mouseIcon", 0.2, {bottom: '-150px', ease: Power0.easeOut})
@@ -681,9 +680,9 @@ angular.module('smcApp')
         .to(".age4",0.3,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"-=0.3")
         .to("#page19",0.4,{ right: '0%', ease: Power0.easeNone})
         .to("#texto7-barc",4,{ transform: 'scale(0)', opacity: '0', ease: Power4.easeOut},"+=3")
-        .staggerFrom($("#page19").children(),0.6, animationFromPattern, staggerFromVelocity)
-        .to(".cita62",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1")
         .to("", 2, { onComplete: playNarracion, onCompleteParams: ['11-narracion-e1', false] })
+        .staggerFrom($("#page19").children(),0.6, animationFromPattern, staggerFromVelocity)
+        .to(".cita62",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1.5")
         .addPause()
         .to("", 0.1, { onComplete: stopNarracion })
         .staggerTo($("#page19").children(),0.6, animationToPattern, staggerToVelocity)
@@ -733,9 +732,8 @@ angular.module('smcApp')
     };
 
     $scope.upTo = function(value, music, notes) {
-      console.log(notes);
+      console.log('notas y value: ',notes, value);
       if( currentVideoSlidePlaying != undefined ) stopVideoToolTip( currentVideoSlidePlaying.ID, currentVideoSlidePlaying.conto, currentVideoSlidePlaying.playB, currentVideoSlidePlaying.fullS );
-      loadSlideContent(notes, 'jump');
       setStopScroll(false);
       stopNarracion();
       TweenMax.to(".mouseIcon", 0.2, {bottom: '-150px', ease: Power0.easeOut, autoRound:false});
@@ -753,7 +751,7 @@ angular.module('smcApp')
         tl.play(value);
       },500);
       TweenMax.to(".coverTransitions", 3, {opacity: 0, ease: Power4.easeOut, delay: 3, autoRound:false});
-      TweenMax.to(".coverTransitions", 0.1, {scale: 0, ease: Power4.easeOut, delay: 7, autoRound:false});
+      TweenMax.to(".coverTransitions", 0.1, {scale: 0, ease: Power4.easeOut, delay: 9, autoRound:false});
     };
 
     $scope.prevFoto = function(id,value){
@@ -913,8 +911,8 @@ angular.module('smcApp')
         TweenMax.set($('#'+fullScreenButton), {opacity: 1});
       }
       else {
-        if(boolsound == soundVolume && soundEpilogo.volume() > 0 && progress == undefined) soundEpilogo.fade(0,soundVolume,1000);
-        if( progress != undefined ) soundNarracion.fade(0, soundVolume + 0.3, 1000);
+        if(boolsound == soundVolume && progress == undefined) soundEpilogo.fade(0.01,soundVolume,1000);
+        else if( boolsound == soundVolume && progress != undefined ) soundNarracion.fade(0.01, soundVolume + 0.3, 1000);
         videoCardToogleSound = 1;
         $("#"+id).get(0).pause();
         TweenMax.set($('#'+playButton), {opacity: 1});
@@ -934,8 +932,8 @@ angular.module('smcApp')
       $('#'+container).removeClass("videoSlideResizeOut videoSlideResize tooltipVideoFixed");
       if( player.paused() ) player.play();
       videoCardToogleSound = 1;
-      if(boolsound == soundVolume && soundEpilogo.volume() > 0 ) soundEpilogo.fade(0.01, soundVolume,2000);
-      if(boolsound == soundVolume && soundNarracion.volume() > 0 ) soundNarracion.fade(0.01, soundVolume,2000);
+      if(boolsound == soundVolume && progress == undefined ) soundEpilogo.fade(0.01, soundVolume,2000);
+      if(boolsound == soundVolume && progress != undefined ) soundNarracion.fade(0.01, soundVolume,2000);
       TweenMax.set($('#'+playButton), {opacity: 1});
       TweenMax.set($('#'+fullScreenButton), {opacity: 0});
       currentVideoSlidePlaying = undefined;
@@ -1037,7 +1035,7 @@ angular.module('smcApp')
           volume: 0
         });
         soundEpilogo.play();
-        if( boolsound == soundVolume && soundNarracion.volume() == 0 && player.paused() ){ soundEpilogo.fade(0,soundVolume,1000); }
+        if( boolsound == soundVolume && progress == undefined && player.paused() ){ soundEpilogo.fade(0,soundVolume,1000); }
       }, 500)
     }
     function playNarracion(url, continueBefore){
