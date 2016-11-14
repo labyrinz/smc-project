@@ -1255,7 +1255,7 @@ angular.module('smcApp')
         updateTitle(notes);
         setTimeout(function(){
           if( value == 'inicio' || value == 'prologo2' || value == 'prologo2Add' || value == 'prologo3' || value == 'RR2' || value == 'CC3' || value == 'CB1' || value == 'CB2' || value == 'EP2' ) playSound(playListOrder[music]);
-          case 'PLAYLIST' ) { soundEpilogo.fade(soundVolume,0,2000); };
+          if( value == 'PLAYLIST' ) { soundEpilogo.fade(soundVolume,0,2000); };
         },1000)
 
         if(!player.paused()) player.pause();
