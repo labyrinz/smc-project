@@ -774,7 +774,7 @@ angular.module('smcApp')
       if(value==undefined) var desp = '-110%';
       else var desp = '-'+value;
       var firstPhoto = $('.slideimg'+id).first();
-      TweenMax.to(firstPhoto, 0.05, {left: desp, repeatDelay:0.05, autoRound:false, repeat:1, yoyo:true, onRepeat:function(){$('#fotoGroup'+id).append(firstPhoto);}, ease: Power4.easeOut});
+      TweenMax.to(firstPhoto, 0.05, {left: desp, repeatDelay:0.05, autoRound:false, repeat:1, yoyo:true, onRepeat:function(){if(firstPhoto[0].childNodes[1].id) {  $("#"+firstPhoto[0].childNodes[1].id).get(0).pause(); }; $('#fotoGroup'+id).append(firstPhoto);}, ease: Power4.easeOut});
     };
 
     $scope.nextFoto = function(id, value){
