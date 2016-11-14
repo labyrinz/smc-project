@@ -446,7 +446,7 @@ angular.module('smcApp')
               .to("",0.1,{ onReverseComplete: unblockScroll })
 
         .to("", 0.1, { onReverseComplete: updateTitle, onReverseCompleteParams: [7] })
-        .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['resume',101,112,112, true, 'RESUMENCUGATv3ESP.mp4', 'resumeVideoBox', 'resumeVideoBoxEnter',false,"local"]})
+        .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['resume', true, 'introCC.mp4', 'resumeVideoBox', 'resumeVideoBoxEnter',false,"local"]})
         .to("", 0.1, { onStart: stopVideo })
         .add("CC2")
         .to("", 0.1, { onStart: updateTitle, onStartParams: [8] })
@@ -1255,7 +1255,7 @@ angular.module('smcApp')
         updateTitle(notes);
         setTimeout(function(){
           if( value == 'inicio' || value == 'prologo2' || value == 'prologo2Add' || value == 'prologo3' || value == 'RR2' || value == 'CC3' || value == 'CB1' || value == 'CB2' || value == 'EP2' ) playSound(playListOrder[music]);
-          if( value == 'PLAYLIST' ) { soundEpilogo.fade(soundVolume,0,2000); };
+          if( value == 'PLAYLIST' ) { $scope.mobilePage = 0; soundEpilogo.fade(soundVolume,0,2000); };
         },1000)
 
         if(!player.paused()) player.pause();
