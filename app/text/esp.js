@@ -116,6 +116,7 @@ var languajeSP = {
  'instructionAnecdota': "Haz clic cuando veas aparecer al chihuahua, podrás conocer todo tipo de anécdotas curiosas acerca de Cugui",
  'instructionPentagram': "Haz clic sobre las notas musicales para recorrer la vida de Xavier, desde su infancia hasta su vejez",
  //'instructionLastVideos': "Haz scroll para descubrir más vídeos sobre Xavier Cugat del fondo documental de RTVE",
+ 'instructionHeadphones': "Te recomendamos el uso de auriculares para disfrutar de una experiencia completa.",
  'instructionLastVideos': "Descubre más vídeos sobre Cugat",
  'instructionInfo': "Haz clic aquí para conocer más detalles sobre un momento en particular de la vida de Cugat",
  'instructionKeyboard': "Utiliza el ratón o las flechas de cursor para navegar",//"o utiliza las flechas del teclado",
