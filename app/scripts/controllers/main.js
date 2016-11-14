@@ -1171,14 +1171,14 @@ angular.module('smcApp')
           $scope.mobilePage = 8;
           break;
         case 'RR2':
-          if( currentBack != 'ny' ){
-            checkAnimOff(); newYorkAnim();
+          if( currentBack != 'berlin' ){
+            checkAnimOff(); berAnimOff();
           }
           $scope.mobilePage = 9;
           break;
         case 'RR3':
-          if( currentBack != 'ny' ){
-            checkAnimOff(); newYorkAnim();
+          if( currentBack != 'holly' ){
+            checkAnimOff(); hollyAnimOff();
           }
           $scope.mobilePage = 10;
           break;
