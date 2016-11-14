@@ -332,9 +332,9 @@ angular.module('smcApp')
         .addPause()
         .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['resume', true, 'introRM.mp4', 'resumeVideoBox', 'resumeVideoBoxEnter',false,"local"]})
         .to("", 0.1, { onStart: stopVideo })
-        .staggerFrom($("#page5").children(),0.6, animationFromPattern, staggerFromVelocity)
-        .to(".cita21",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=0.5")
         .to("", 0.1, { onComplete: playNarracion, onCompleteParams: ['04-narracion-rm1', false] })
+        .staggerFrom($("#page5").children(),0.6, animationFromPattern, staggerFromVelocity)
+        .to(".cita21",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=1.5")
         .addPause()
         //EPISODE 7
         .to("", 0.1, { onComplete: stopNarracion })
@@ -1000,6 +1000,22 @@ angular.module('smcApp')
       player.off("ended");
       player.pause();
       player.src({ type: '', src: '' });
+    }
+    $scope.controlSoundInGVideo = function(event){
+      console.log(event);
+      if(event.currentTarget.childNodes[1].className == 'videoCloud'){
+        console.log('es videoCLoud')
+        if( !player.paused() ){
+          console.log( 'reproduciendo video' );
+          soundEpilogo.volume(0);
+          soundNarracion.volume(0);
+        }
+        else if( player.paused() ) {
+          console.log('pausando video');
+          if( progress == undefined ) { soundEpilogo.fade( 0,soundVolume,1000); }
+          if( progress != undefined ){ soundNarracion.fade( 0, soundVolume + 0.3, 1000 ); }
+        }
+      }
     }
     //-------SOUND --------------
     function controlSound(){
