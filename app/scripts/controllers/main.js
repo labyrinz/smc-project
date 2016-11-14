@@ -215,14 +215,18 @@ angular.module('smcApp')
         .staggerFrom(introWordsName, 0.6, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.2]}, ease: Back.easeOut.config(0.8)}, 0.1)
         .to(".mouseIcon", 0.5, {bottom: '100px', ease: Bounce.easeIn, onComplete: updateScrollBttn})
         .to(".keyboardIcon", 0.5, {bottom: '90px', ease: Bounce.easeIn})
+
+        .to("",0.1,{ onComplete: unblockMouse })
         .addPause()
+        .to("",0.1,{ onReverseComplete: unblockMouse })
+
         .to(".keyboardIcon", 0.2, {bottom: '-150px', ease: Bounce.easeOut})
         .to(".mouseIcon", 0.2, {bottom: '-150px', ease: Power0.easeOut})
         .staggerTo(introWords, 0.2, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.2]}, ease: Back.easeOut.config(0.8)}, 0.1)
         .staggerTo(introWordsSubtitle, 0.2, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.2]}, ease: Back.easeOut.config(0.8)}, 0.1)
         .staggerTo(introWordsName, 0.2, {opacity: 0, cycle:{scale:[0,5], y:[-50,200], x:[-50,200], transformOrigin:"0% 50% -50", delay:[0,0.2]}, ease: Back.easeOut.config(0.8)}, 0.1)
         .to("#page0",0.5,{ scale: '0', ease: Back.easeIn.config(1)})
-        .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ["intro", false, "0/0/1471877157700.mp4", "videoClass", "introVideoFull",false,"tv3"]})
+        .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ["intro", false, "1471877157700.mp4", "videoClass", "introVideoFull",false,"local"]})
         .to("", 0.1, { onStart: stopVideo })
         //EPISODE 2
         .add("prologo1")
@@ -234,7 +238,12 @@ angular.module('smcApp')
         .to(".chihuahua",0.3,{ transform: 'rotateX(0deg)',  ease: Bounce.easeOut})
         .to(".instruction-anecdota",0.3,{ transform: 'rotateX(0deg)',  ease: Bounce.easeOut})
         .to("", 0.1, { onStart: updateAnec, onStartParams: [1] })
+        .to("",0.1,{ onComplete: unblockMouse })
+
+        .to("",0.1,{ onComplete: unblockMouse })
         .addPause()
+        .to("",0.1,{ onReverseComplete: unblockMouse })
+
         .to(".mouseIcon", 0.2, {bottom: '-150px', ease: Power0.easeOut})
         .to(".instruction-anecdota",0.3,{ transform: 'rotateX(-90deg)',  ease: Bounce.easeOut})
         .to(".texto11",1.5,{ transform: 'scale(0)', opacity: '0', ease: Power4.easeOut},"+=0.2")
@@ -249,7 +258,11 @@ angular.module('smcApp')
         .to(".age1",0.3,{ transform: 'rotateX(0deg)',  ease: Bounce.easeOut})
         .staggerFrom($("#page1").children(),0.6, animationFromPattern, staggerFromVelocity)
         .to(".cita11",1,{ transform: 'rotateX(0deg)', ease: Bounce.easeOut},"+=0.2")
+
+        .to("",0.1,{ onComplete: unblockMouse })
         .addPause()
+        .to("",0.1,{ onReverseComplete: unblockMouse })
+
         .to("", 0.1, { onComplete: stopNarracion })
         .to("", 0.1, { onStart: stopVideoToolTip, onStartParams: ['slideVideoProl', 'slideVideoContainerProl', 'playButtonProl', '' ] })
         .to("", 0.1, { onReverseComplete: updateTitle, onReverseCompleteParams: [0] })
@@ -270,7 +283,11 @@ angular.module('smcApp')
         .to("", 0.1, { onComplete: videoPlay, onCompleteParams: ['videoCloud',false,'p1clip1ESP.mp4', 'videoCloud', 'videoCloudInside',false,"local"] })
         .to(".mouseIcon", 0.5, {bottom: '100px', ease: Bounce.easeOut, onComplete: updateScrollBttn},"+=0.5")
         .to("", 0.1, { onReverseComplete: stopVideo })
+
+        .to("",0.1,{ onComplete: unblockMouse })
         .addPause()
+        .to("",0.1,{ onReverseComplete: unblockMouse })
+
         .to("", 0.1, { onStart: stopVideo })
         .to("", 0.1, { onReverseComplete: videoPlay, onReverseCompleteParams: ['videoCloud',false,'p1Clip1ESP.mp4', 'videoCloud', 'videoCloudInside',false,"local"] })
         .to(".mouseIcon", 0.2, {bottom: '-150px', ease: Power0.easeOut, onComplete: updateScrollBttn})
@@ -1398,9 +1415,14 @@ angular.module('smcApp')
     }
 
     //----------MOUSE CONTROLS --------
+    var controlMouse = false;
+    function blockMouse(){ controlMouse = true; console.log("block"); }
+    function unblockMouse(){ controlMouse = false; console.log("unblock"); }
+    var counterTest = 0;
 
     $(window).bind('mousewheel DOMMouseScroll', function(event){
-      if (canScroll()){ // If overlay layers are opened
+      if (canScroll() && !controlMouse){ // If overlay layers are opened
+        blockMouse()
         event.preventDefault();
         if(soundNarracion.volume() > 0) stopNarracion();
         if( currentVideoSlidePlaying != undefined ) stopVideoToolTip( currentVideoSlidePlaying.ID, currentVideoSlidePlaying.conto, currentVideoSlidePlaying.playB, currentVideoSlidePlaying.fullS );
@@ -1408,9 +1430,11 @@ angular.module('smcApp')
         if(event.type != 'mousedown'){
           if (event.originalEvent.wheelDelta > 0 || event.originalEvent.detail < 0) {
             if( !isMobile && eardAdvice ) tl.reverse();
+            console.log("Llevaríamos mobileBack: "+ (--counterTest) )
           }
           else {
             if( !isMobile && eardAdvice ) tl.play();
+            console.log("Llevaríamos mobileBack: "+ (++counterTest) )
           }
         }
       }
