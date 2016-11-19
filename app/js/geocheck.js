@@ -12,7 +12,7 @@
         //defer.resolve('done');
         console.log("Conection origin: OK")
       } else {
-        location.href = '../notallowed.html';
+        location.href = window.location.href.replace(window.location.hash, "")+'notallowed.html';
       }
     })
     .fail(function( jqxhr, textStatus, error ) {
@@ -24,7 +24,7 @@
           if (country == json.country_code){
             console.log("Conection origin: OK")
           } else {
-            location.href = '../notallowed.html';
+            location.href = window.location.href.replace(window.location.hash, "")+'notallowed.html';
           }
         })
         .fail(function( jqxhr, textStatus, error ) {

@@ -19,7 +19,7 @@ angular.module('smcApp')
     } catch(err){
       console.log(err)
     }
-    console.log('device???: ', deviceDetector);
+    console.log('device: ', deviceDetector);
     //---------VIDEOS--------
     var introWords = $(".introLetters");
     var introWordsSubtitle = $(".introLettersSubtitle");
@@ -887,7 +887,7 @@ angular.module('smcApp')
       //demoModule.init();
       setStopScroll(true);
       if (!isPlaylist) {
-        playlistPlayer.playlistUi();
+        //playlistPlayer.playlistUi();
         isPlaylist = true;
       }
     }
@@ -1352,170 +1352,127 @@ angular.module('smcApp')
     })
     $(window).resize()
 
-    playlistPlayer.playlist([
-      {
-      name: 'El debut de Nina en el Un, dos, tres, presentada y apadrinada por Cugat.',
-      sources: [{
-        src: 'http://mvod.lvlt.rtve.es/resources/TE_NGVA/mp4/7/5/1411576524757.mp4',
-        type: 'video/mp4'
-      }],
-      //poster: 'images/king-of-rumba.jpg',
-      thumbnail: [
-        {
-          srcset: 'images/thumb/1411576524757.jpg',
-          type: 'image/jpeg',
-          media: '(min-width: 350px;)'
-        },
-        {
-          src: 'images/thumb/1411576524757.jpg'
-        }
-      ],
-      duration: 141
-      },{
-      name: 'Xavier Cugat pasea por la plaza D´Oli (Barcelona), el lugar donde nació',
-      sources: [{
-        src: ""+config.local.videos+'cugat.mp4',
-        type: 'video/mp4'
-      }],
-      //poster: 'images/king-of-rumba.jpg',
-      thumbnail: [
-        {
-          srcset: 'images/thumb/cugat.jpg',
-          type: 'image/jpeg',
-          media: '(min-width: 350px;)'
-        },
-        {
-          src: 'images/thumb/cugat.jpg'
-        }
-      ],
-      duration: 320
-      }, {
-      name: 'Entrevista desde el hospital a Xavier Cugat',
-      sources: [{
-        src: ""+config.local.videos+'cugat2bata.mp4',
-        type: 'video/mp4'
-      }],
-      //poster: 'images/king-of-rumba.jpg',
-      thumbnail: [
-        {
-          srcset: 'images/thumb/cugat2bata.jpg',
-          type: 'image/jpeg',
-          media: '(min-width: 350px;)'
-        },
-        {
-          src: 'images/thumb/cugat2bata.jpg'
-        }
-      ],
-      duration: 398
-      }, {
-      name: 'Entrevista a Xavier Cugat en el Hotel Ritz',
-      sources: [{
-        src: ""+config.local.videos+'cugatCuadros.mp4',
-        type: 'video/mp4'
-      }],
-      //poster: 'images/king-of-rumba.jpg',
-      thumbnail: [
-        {
-          srcset: 'images/thumb/cugatCuadros.jpg',
-          type: 'image/jpeg',
-          media: '(min-width: 350px;)'
-        },
-        {
-          src: 'images/thumb/cugatCuadros.jpg'
-        }
-      ],
-      duration: 232
-      }, {
-      name: 'Xavier Cugat cumple 80 años',
-      sources: [{
-        src: ""+config.local.videos+'cugatNodo.mp4',
-        type: 'video/mp4'
-      }],
-      //poster: 'images/king-of-rumba.jpg',
-      thumbnail: [
-        {
-          srcset: 'images/thumb/cugatNodo.jpg',
-          type: 'image/jpeg',
-          media: '(min-width: 350px;)'
-        },
-        {
-          src: 'images/thumb/cugatNodo.jpg'
-        }
-      ],
-      duration: 154
-      }, {
-      name: 'Programa de entretenimiento en el que el público realiza preguntas variadas a Xavier Cugat (1972).',
-      sources: [{
-        src: 'http://mvod.lvlt.rtve.es/resources/TE_NGVA/mp4/1/7/1466589118771.mp4',
-        type: 'video/mp4'
-      }],
-      //poster: 'images/king-of-rumba.jpg',
-      thumbnail: [
-        {
-          srcset: 'images/thumb/1466589118771.jpg',
-          type: 'image/jpeg',
-          media: '(min-width: 350px;)'
-        },
-        {
-          src: 'images/thumb/1466589118771.jpg'
-        }
-      ],
-      duration: 1814
-      }, {
-      name: 'Entrevista de Xavier Cugat con Mónica Randall para el programa “Rasgos”.',
-      sources: [{
-        src: 'http://mvod.lvlt.rtve.es/resources/TE_NGVA/mp4/9/4/1467728998149.mp4',
-        type: 'video/mp4'
-      }],
-      //poster: 'images/king-of-rumba.jpg',
-      thumbnail: [
-        {
-          srcset: 'images/thumb/1467728998149.jpg',
-          type: 'image/jpeg',
-          media: '(min-width: 350px;)'
-        },
-        {
-          src: 'images/thumb/1467728998149.jpg'
-        }
-      ],
-      duration: 2443
-      }, {
-      name: 'Entrevista completa a Xavier Cugat en el programa “La luna” (1989)',
-      sources: [{
-        src: 'http://mvod.lvlt.rtve.es/resources/TE_NGVA/mp4/2/9/1466417568692.mp4',
-        type: 'video/mp4'
-      }],
-      //poster: 'images/king-of-rumba.jpg',
-      thumbnail: [
-        {
-          srcset: 'images/thumb/1466417568692.jpg',
-          type: 'image/jpeg',
-          media: '(min-width: 350px;)'
-        },
-        {
-          src: 'images/thumb/1466417568692.jpg'
-        }
-      ],
-      duration: 3245
-      }, {
-      name: 'Xavier Cugat desvela detalles sobre su vida en "Verdad o mentira” de 1983',
-      sources: [{
-        src: 'http://mvod.lvlt.rtve.es/resources/TE_NGVA/mp4/8/2/1466417752028.mp4',
-        type: 'video/mp4'
-      }],
-      //poster: 'images/king-of-rumba.jpg',
-      thumbnail: [
-        {
-          srcset: 'images/thumb/1466417752028.jpg',
-          type: 'image/jpeg',
-          media: '(min-width: 350px;)'
-        },
-        {
-          src: 'images/thumb/1466417752028.jpg'
-        }
-      ],
-      duration: 2489
-      }]);
-      playlistPlayer.playlist.autoadvance(0);
+    // PLAYLIST SETTINGS
+    var playlistArray = []
+    var current = {}
+    var elem = {}
+
+    for (var i = 0; i < video_playlist.length; i++) {
+      current = video_playlist[i];
+
+      elem = {
+        name: current.desc,
+        sources: [{
+          src: current.video,
+          type: 'video/mp4'
+        }],
+        thumbnail: [
+          {
+            srcset: 'images/thumb/'+current.thumb,
+            type: 'image/jpeg',
+            media: '(min-width: 350px;)'
+          },
+          {
+            src: 'images/thumb/'+current.thumb
+          }
+        ],
+        duration: current.duration
+      }
+      playlistArray.push(elem)
+    }
+
+    playlistPlayer.playlist(playlistArray);
+    playlistPlayer.playlistUi();
+    playlistPlayer.playlist.autoadvance(0);
+
+    // playlistPlayer.playlist([
+    //   {
+    //   name: 'El debut de Nina en el Un, dos, tres, presentada y apadrinada por Cugat.',
+    //   sources: [{
+    //     src: 'http://mvod.lvlt.rtve.es/resources/TE_NGVA/mp4/7/5/1411576524757.mp4',
+    //     type: 'video/mp4'
+    //   }],
+    //   thumbnail: [
+    //     {
+    //       srcset: 'images/thumb/1411576524757.jpg',
+    //       type: 'image/jpeg',
+    //       media: '(min-width: 350px;)'
+    //     },
+    //     {
+    //       src: 'images/thumb/1411576524757.jpg'
+    //     }
+    //   ],
+    //   duration: 141
+    //   },{
+    //   name: 'Programa de entretenimiento en el que el público realiza preguntas variadas a Xavier Cugat (1972).',
+    //   sources: [{
+    //     src: 'http://mvod.lvlt.rtve.es/resources/TE_NGVA/mp4/1/7/1466589118771.mp4',
+    //     type: 'video/mp4'
+    //   }],
+    //   //poster: 'images/king-of-rumba.jpg',
+    //   thumbnail: [
+    //     {
+    //       srcset: 'images/thumb/1466589118771.jpg',
+    //       type: 'image/jpeg',
+    //       media: '(min-width: 350px;)'
+    //     },
+    //     {
+    //       src: 'images/thumb/1466589118771.jpg'
+    //     }
+    //   ],
+    //   duration: 1814
+    //   }, {
+    //   name: 'Entrevista de Xavier Cugat con Mónica Randall para el programa “Rasgos”.',
+    //   sources: [{
+    //     src: 'http://mvod.lvlt.rtve.es/resources/TE_NGVA/mp4/9/4/1467728998149.mp4',
+    //     type: 'video/mp4'
+    //   }],
+    //   thumbnail: [
+    //     {
+    //       srcset: 'images/thumb/1467728998149.jpg',
+    //       type: 'image/jpeg',
+    //       media: '(min-width: 350px;)'
+    //     },
+    //     {
+    //       src: 'images/thumb/1467728998149.jpg'
+    //     }
+    //   ],
+    //   duration: 2443
+    //   }, {
+    //   name: 'Entrevista completa a Xavier Cugat en el programa “La luna” (1989)',
+    //   sources: [{
+    //     src: 'http://mvod.lvlt.rtve.es/resources/TE_NGVA/mp4/2/9/1466417568692.mp4',
+    //     type: 'video/mp4'
+    //   }],
+    //   thumbnail: [
+    //     {
+    //       srcset: 'images/thumb/1466417568692.jpg',
+    //       type: 'image/jpeg',
+    //       media: '(min-width: 350px;)'
+    //     },
+    //     {
+    //       src: 'images/thumb/1466417568692.jpg'
+    //     }
+    //   ],
+    //   duration: 3245
+    //   }, {
+    //   name: 'Xavier Cugat desvela detalles sobre su vida en "Verdad o mentira” de 1983',
+    //   sources: [{
+    //     src: 'http://mvod.lvlt.rtve.es/resources/TE_NGVA/mp4/8/2/1466417752028.mp4',
+    //     type: 'video/mp4'
+    //   }],
+    //   thumbnail: [
+    //     {
+    //       srcset: 'images/thumb/1466417752028.jpg',
+    //       type: 'image/jpeg',
+    //       media: '(min-width: 350px;)'
+    //     },
+    //     {
+    //       src: 'images/thumb/1466417752028.jpg'
+    //     }
+    //   ],
+    //   duration: 2489
+    //   }]);
+
 
   });
