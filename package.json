@@ -2,7 +2,7 @@
   "name": "smc",
   "version": "0.0.0",
   "dependencies": {
-    "videojs-playlist-ui": "^3.0.0"
+    "video.js": "^5.2.0"
   },
   "repository": {},
   "devDependencies": {
@@ -35,7 +35,8 @@
     "phantomjs-prebuilt": "~2.1.3",
     "karma-phantomjs-launcher": "~1.0.0",
     "karma": "~0.13.19",
-    "grunt-karma": "~0.12.1"
+    "grunt-karma": "~0.12.1",
+    "videojs-playlist": "^1.0.0"
   },
   "engines": {
     "node": ">=0.10.0"
