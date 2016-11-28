@@ -38,10 +38,10 @@ angular
       {
         'provider': 'twitter',
         'conf': {
-          'url': 'http://lab.rtve.es/webdocs/xavier-cugat/',
-          'text': 'Sexo, Maracas y Chihuahuas: La increíble vida de Xavier Cugat',
+          'url': 'http://www.ccma.cat/tv3/documentals/xavier-cugat/',
+          'text': 'Sexe, Maraques i Chichuahues: La increïble vida de Xavier Cugat',
           'via': '',
-          'hashtags': 'XavierCugatRTVE',
+          'hashtags': 'XavierCugatTV3',
           'trigger': 'click',
           'popupHeight': 800,
           'popupWidth' : 400
@@ -50,7 +50,7 @@ angular
       {
         'provider': 'facebook',
         'conf': {
-          'url': 'http://lab.rtve.es/webdocs/xavier-cugat/#/',
+          'url': 'http://xaviercugat.ccma.cat/',
           'trigger': 'click',
           'popupHeight': 800,
           'popupWidth' : 400
