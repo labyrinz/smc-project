@@ -12,7 +12,7 @@ var languajeCT = {
     'charo': "Charo Baeza",
     'epi': "Epíleg",
     'credits': "Crèdits",
-    'postcards': "Envía una postal de recuerdo",
+    'postcards': "Envia una postal de record",
     'doculineal': "Veure el documental complet"
   },
   'CatText': {

@@ -1,7 +1,7 @@
 var canvas = document.getElementById('postcardcanvas');
 ctx = canvas.getContext('2d');
 var isGenerated = true;
-var urlInteractivo = "http://lab.rtve.es/webdocs/xavier-cugat";
+var urlInteractivo = "http://xaviercugat.ccma.cat";
 
 var deviceWidth = window.innerWidth;
 // canvasWidth = Math.min(680, deviceWidth-20);
@@ -213,7 +213,7 @@ function doTransform() {
 
       // Draw the text
       var text = $("textarea.form-control").val();
-      text += " - Con cariño, Xavier Cugat"
+      text += " - Amb afecte, Xavier Cugat"
       //text = text.toUpperCase();
       x = widthFront+20;
       y = 100;
@@ -244,7 +244,7 @@ function doTransform() {
       wrapText(ctx, text, x, y, maxWidth, lineHeight);
 
       // Draw the text
-      var text = "lab.rtve.es/webdocs/xavier-cugat";
+      var text = "xaviercugat.ccma.cat";
       //text = text.toUpperCase();
       x = widthFront + 135;
       y = 295;
@@ -368,7 +368,7 @@ function postCanvasToURL(button, success, fail) {
 }
 
 function getMessage(){
-  var text = "Acabo de estar en #"+city.replace(" ","")+" con #XavierCugatRTVE, ¡qué pasada! Viaja tú también en http://lab.rtve.es/webdocs/xavier-cugat "
+  var text = "Acabo d'estar en #"+city.replace(" ","")+" amb #XavierCugatTV3, Quina passada! Viatja tu també en http://xaviercugat.ccma.cat";
   console.log(text)
   return text;
 }
