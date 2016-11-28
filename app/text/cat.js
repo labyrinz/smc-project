@@ -116,7 +116,7 @@ var languajeCT = {
   'instructionPentagram': "Fes clic sobre les notes musicals per recórrer la vida d'en Xavier, des de la seva infància fins a la seva vellesa",
   'instructionHeadphones': "Et recomanem l'ús d'auriculars per disfrutar de l'experiència completa.",
   'instructionKeyboard': "Utilitza el ratolí o les fletxes de cursor per navegar.",//"o utiliza las flechas del teclado",
-  'instructionLastVideos': "Fes scroll per descobrir més vídeos sobre Xavier Cugat del fons documental de TV3",
+  'instructionLastVideos': "Més vídeos sobre Cugui",//"Fes scroll per descobrir més vídeos sobre Xavier Cugat del fons documental de TV3",
   'instructionInfo': "Fes clic aquí per conèixer més detalls sobre un moment en particular de la vida de Cugat",
   'mobileDisclaimer': "Malauradament, aquest documental interactiu no està dissenyat per a dispositius mòbils. Gaudeix millor de l'univers de Xavier Cugat des del teu ordinador o tablet. T'esperem!",
   'texto11': "Xavier Cugat va néixer a Girona l'1 de gener de 1900.",
