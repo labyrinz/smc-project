@@ -83,14 +83,14 @@ angular.module('smcApp')
       console.log('is device');
       $scope.mobile = 'device';
       checkDisclaimer();
-      $scope.controlText = 'continuar';//'deslizar para continuar';
+      $scope.controlText = 'continua';//'deslizar para continuar';
     }
     else {
       isMobile = false;
       console.log('is not device');
       $scope.mobile = 'pc';
       //$scope.mobile = false;
-      $scope.controlText = 'continuar';//'scroll para continuar';
+      $scope.controlText = 'continua';//'scroll para continuar';
     }
     var playListOrder = ['BeginTheBeguine','ElManisero','TICOTICO','Siboney','MyShawl','JungleRhumba','perfidia','QuizasQuizasQuizas','ParaVigomevoy','YoTeAmoMucho','Tabu'];
 

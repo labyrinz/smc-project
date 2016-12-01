@@ -12,7 +12,7 @@ var languajeCT = {
     'charo': "Charo Baeza",
     'epi': "Epíleg",
     'credits': "Crèdits",
-    'postcards': "Envía una postal de recuerdo",
+    'postcards': "Envia una postal de record",
     'doculineal': "Veure el documental complet"
   },
   'CatText': {
@@ -114,9 +114,9 @@ var languajeCT = {
   'name': "Xavier Cugat",
   'instructionAnecdota': "Fes clic quan vegis aparèixer el chihuahua, podràs conèixer tot tipus d'anècdotes curioses sobre Cugui",
   'instructionPentagram': "Fes clic sobre les notes musicals per recórrer la vida d'en Xavier, des de la seva infància fins a la seva vellesa",
-  'instructionHeadphones': "Te recomendamos el uso de auriculares para disfrutar de una experiencia completa.",
-  'instructionKeyboard': "Utiliza el ratón o las flechas de cursor para navegar",//"o utiliza las flechas del teclado",
-  'instructionLastVideos': "Fes scroll per descobrir més vídeos sobre Xavier Cugat del fons documental de TV3",
+  'instructionHeadphones': "Et recomanem l'ús d'auriculars per disfrutar de l'experiència completa.",
+  'instructionKeyboard': "Utilitza el ratolí o les fletxes de cursor per navegar.",//"o utiliza las flechas del teclado",
+  'instructionLastVideos': "Més vídeos sobre Cugui",//"Fes scroll per descobrir més vídeos sobre Xavier Cugat del fons documental de TV3",
   'instructionInfo': "Fes clic aquí per conèixer més detalls sobre un moment en particular de la vida de Cugat",
   'mobileDisclaimer': "Malauradament, aquest documental interactiu no està dissenyat per a dispositius mòbils. Gaudeix millor de l'univers de Xavier Cugat des del teu ordinador o tablet. T'esperem!",
   'texto11': "Xavier Cugat va néixer a Girona l'1 de gener de 1900.",
