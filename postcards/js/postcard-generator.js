@@ -15,14 +15,41 @@ canvas.height = canvasHeight;
 OAuth.initialize("W1QUT8jFolzTPwMYUXENqxkPCl4")
 
 // Cities
-var cityNames = ["La Habana", "New York", "Los Angeles", "Chicago", "Las Vegas", "Barcelona"];
-var city = "La Habana";
+var cityNames = ["Barcelona", "Las Vegas", "Los Angeles", "Berlin", "New York", "l'Havana"];
+var city = "Barcelona";
 var cities = [
     {
-      name: "La Habana",
-      place: "Teatro Nacional de Cuba, La Habana, República de Cuba",
-      greeting: "Recuerdos de La Habana",
-      fontStyle: '25pt "Yesteryear", cursive',
+      name: "Barcelona",
+      place: "Hotel Ritz, Barcelona, España",
+      greeting: "Recuerdo de Barcelona",
+      fontStyle: '20pt "Diplomata SC", cursive',
+      strokeColor: 'white',
+      fillColor: '#d82a11',
+      upperText: 1
+    },
+    {
+      name: "Las Vegas",
+      place: "The Flamingo, Las Vegas, NV, USA",
+      greeting: "Welcome to Las Vegas",
+      fontStyle: '28pt "Yesteryear", cursive',
+      strokeColor: "#FFF",//'#f3f3f3',
+      fillColor: "#279dda",//'#d23521',
+      upperText: 0
+    },
+    {
+      name: "Los Angeles",
+      place: "Metro Goldwyn Mayer Studios, Beverly Hills, CA, USA",
+      greeting: "Greetings from Hollywood California",
+      fontStyle: '21pt "Yesteryear", cursive',
+      strokeColor: 'white',
+      fillColor: '#dc502b',
+      upperText: 0
+    },
+    {
+      name: "Berlin",
+      place: "Akademie Hochschule für Musik, 10178, Berlin, Deutschland",
+      greeting: "Herzliche Grüße aus Berlin",
+      fontStyle: '22pt "Fugaz One", cursive',
       strokeColor: 'white',
       fillColor: 'red',
       upperText: 0
@@ -37,40 +64,13 @@ var cities = [
       upperText: 0
     },
     {
-      name: "Los Angeles",
-      place: "Metro Goldwyn Mayer Studios, Beverly Hills, CA, USA",
-      greeting: "Greetings from Hollywood California",
-      fontStyle: '21pt "Yesteryear", cursive',
-      strokeColor: 'white',
-      fillColor: '#dc502b',
-      upperText: 0
-    },
-    {
-      name: "Chicago",
-      place: "Chez Paree, IL, USA",
-      greeting: "Howdy from Chicago",
-      fontStyle: '22pt "Limelight", cursive',
+      name: "La Habana",
+      place: "Teatro Nacional de Cuba, La Habana, República de Cuba",
+      greeting: "Recuerdos de La Habana",
+      fontStyle: '25pt "Yesteryear", cursive',
       strokeColor: 'white',
       fillColor: 'red',
-      upperText: 1
-    },
-    {
-      name: "Las Vegas",
-      place: "The Flamingo, Las Vegas, NV, USA",
-      greeting: "Welcome to Las Vegas",
-      fontStyle: '28pt "Yesteryear", cursive',
-      strokeColor: "#FFF",//'#f3f3f3',
-      fillColor: "#279dda",//'#d23521',
       upperText: 0
-    },
-    {
-      name: "Barcelona",
-      place: "Hotel Ritz, Barcelona, España",
-      greeting: "Recuerdo de Barcelona",
-      fontStyle: '20pt "Diplomata SC", cursive',
-      strokeColor: 'white',
-      fillColor: '#d82a11',
-      upperText: 1
     }
 ]
 
@@ -86,7 +86,7 @@ function updateImages(callback){
   bgImg = $("#carousel-cities .active img");
   cuguiImg = $("#carousel-cugui .active img");
   stampImg = $("#stamps");
-  var sellos =["sello-cuba","sello-nyc","sello-hollywood","sello-chicago","sello-vegas","sello-barcelona"];
+  var sellos =["sello-barcelona","sello-vegas","sello-hollywood","sello-chicago","sello-nyc","sello-cuba"];
   countryStampImg = $("#"+sellos[cityNames.indexOf(city)]);
   paperImg = $("#paper-texture");
   $("<img/>") // Make in memory copy of image to avoid css issues
@@ -205,7 +205,7 @@ function doTransform() {
       // CUSTOM TEXT
       // Set the text style to that to which we are accustomed
       ctx.lineWidth  = 0;
-      ctx.font = '12pt "Gloria Hallelujah", cursive';
+      ctx.font = '12pt "Architects Daughter", cursive';
       ctx.strokeStyle = '#333';
       ctx.fillStyle = 'black';
       ctx.textAlign = 'left';
