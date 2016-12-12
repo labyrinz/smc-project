@@ -1,9 +1,10 @@
 
 
 body{
-  background: #017fe0;
+  /*background: #017fe0;*/
+  background: #333;
   color: white;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Lato', sans-serif;
   outline: none;
 }
 
@@ -26,7 +27,7 @@ section#selector{
 
 textarea.form-control {
   height: 200px;
-  font-family: 'Gloria Hallelujah', cursive;
+  font-family: 'Architects Daughter', cursive;
   font-size: 1.2em;
 }
 
@@ -40,12 +41,13 @@ textarea.form-control {
 .instruction>span{
   display: block;
   border-radius: 50%;
-  background: white;
+  background: #e4191d;
   width: 40px;
   line-height: 40px;
   height: 40px;
-  color: #017fe0;
+  color: #FFF;
   margin: 0 auto 10px;
+  font-size: 20px;
 }
 .instruction p {
   font-size: 1.2em;

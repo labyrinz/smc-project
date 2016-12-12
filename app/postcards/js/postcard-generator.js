@@ -15,7 +15,7 @@ canvas.height = canvasHeight;
 OAuth.initialize("W1QUT8jFolzTPwMYUXENqxkPCl4")
 
 // Cities
-var cityNames = ["La Habana", "New York", "Los Angeles", "Chicago", "Las Vegas", "Barcelona"];
+var cityNames = ["La Habana", "New York", "Los Angeles", "Berlin", "Las Vegas", "Barcelona"];
 var city = "La Habana";
 var cities = [
     {
@@ -46,9 +46,9 @@ var cities = [
       upperText: 0
     },
     {
-      name: "Chicago",
+      name: "Berlin",
       place: "Chez Paree, IL, USA",
-      greeting: "Howdy from Chicago",
+      greeting: "Howdy from Berlin",
       fontStyle: '22pt "Limelight", cursive',
       strokeColor: 'white',
       fillColor: 'red',
@@ -205,7 +205,7 @@ function doTransform() {
       // CUSTOM TEXT
       // Set the text style to that to which we are accustomed
       ctx.lineWidth  = 0;
-      ctx.font = '12pt "Gloria Hallelujah", cursive';
+      ctx.font = '12pt "Architects Daughter", cursive';
       ctx.strokeStyle = '#333';
       ctx.fillStyle = 'black';
       ctx.textAlign = 'left';
